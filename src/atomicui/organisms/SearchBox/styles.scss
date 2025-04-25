@@ -1,0 +1,332 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.amplify-flex.search-bar {
+	gap: 0;
+	background-color: var(--white-color);
+	opacity: 1;
+	height: 40px;
+	z-index: 4;
+	position: absolute;
+	top: 20px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.202633);
+	width: 100%;
+	max-width: 360px;
+
+	.amplify-flex.not-found-container {
+		height: 19rem;
+
+		.nfc-text {
+			padding: 0;
+		}
+	}
+
+	.inner-start-component {
+		width: 52px;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+
+		svg {
+			cursor: pointer;
+			width: 100%;
+			max-width: 24px;
+			height: 100%;
+			max-height: 24px;
+			fill: var(--grey-color);
+		}
+	}
+
+	.amplify-flex.nl-search-container {
+		gap: 0;
+		background-color: var(--white-color);
+		opacity: 1;
+		z-index: 4;
+		position: absolute;
+		border-radius: 8px;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.202633);
+		width: 100%;
+		max-width: 360px;
+	}
+
+	.amplify-field-group__inner-start {
+		pointer-events: all;
+	}
+
+	input {
+		margin-left: 16px;
+		width: 83%;
+	}
+
+	.noEmpty {
+		.amplify-autocomplete__menu:has(div.amplify-autocomplete__menu--empty) {
+			display: none;
+			height: 0px;
+		}
+
+		.amplify-autocomplete__menu--empty {
+			display: none;
+			height: 0px;
+		}
+	}
+
+	@media only screen and (max-width: 480px) {
+		width: 75%;
+		max-width: 288.031px;
+	}
+}
+
+.amplify-flex.search-loader-container {
+	flex-direction: column;
+	width: 100%;
+
+	.skeleton-container {
+		flex-direction: column;
+		margin: 0.5rem 0;
+
+		.amplify-placeholder {
+			height: 0.4rem;
+		}
+	}
+}
+
+.simple-search-bar {
+	width: -webkit-fill-available;
+	margin-top: 1.5rem;
+
+	.search-complete-mobile {
+		overflow-y: auto;
+	}
+
+	.clear-button {
+		border: none;
+		color: var(--primary-color);
+		font-family: "AmazonEmber-Bold";
+		font-size: 1rem;
+
+		&:hover {
+			background-color: transparent;
+		}
+
+		&:active,
+		&:focus {
+			outline: none;
+			box-shadow: none;
+			background-color: transparent;
+		}
+	}
+
+	.search-loader-container {
+		padding: 0 0.61rem 0.61rem;
+	}
+
+	@media only screen and (max-width: 480px) {
+		max-width: -webkit-fill-available;
+	}
+
+	.amplify-flex.not-found-container {
+		height: auto;
+	}
+
+	.input-container {
+		border: none;
+		padding: 0;
+
+		.outter-end-component {
+			border: none;
+		}
+	}
+
+	input {
+		margin-left: 0px;
+		width: 100%;
+		background-color: var(--light-color-2);
+		width: -webkit-fill-available;
+		box-shadow: none;
+		font-family: "AmazonEmber-Medium";
+		font-size: 1.07rem;
+	}
+
+	.option-wrapper {
+		padding: 0.69rem 0.61rem 0.69rem 1.5rem;
+		border-bottom: 1px solid var(--light-color-2);
+		width: 100%;
+	}
+
+	.search-complete {
+		text-align: left;
+		align-items: flex-start;
+		max-height: max-content;
+	}
+}
+
+.search-bar.amplify-button.amplify-field-group__control {
+	border: none;
+}
+
+.search-complete {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	z-index: 20;
+
+	.amplify-flex.amplify-field.amplify-field--large.amplify-textfield.amplify-searchfield {
+		width: inherit;
+	}
+
+	.ReactVirtualized__Grid.ReactVirtualized__List {
+		width: 100% !important;
+
+		.ReactVirtualized__Grid__innerScrollContainer {
+			max-width: 100% !important;
+		}
+	}
+}
+
+.amplify-autocomplete__menu {
+	width: 100%;
+	top: 30px !important;
+	padding-top: 9px !important;
+	height: fit-content !important;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+.amplify-autocomplete__menu--empty,
+.amplify-autocomplete__menu--loading {
+	padding: 9px 56px !important;
+}
+
+.search-complete .amplify-autocomplete__menu ul {
+	margin: 2px;
+}
+
+.search-bar.amplify-autocomplete__menu__option {
+	padding-top: 9px;
+	padding-bottom: 9px;
+	border-bottom: 1px solid var(--light-color-2);
+}
+
+.amplify-field-group__field-wrapper.amplify-field-group__field-wrapper--horizontal > input,
+input.amplify-input.amplify-field-group__control {
+	border: none;
+	height: 36px;
+}
+
+.amplify-flex.amplify-field-group.amplify-field-group--has-inner-start.amplify-field-group--has-inner-end.amplify-field-group--horizontal {
+	height: 100%;
+}
+
+.search-bar.amplify-icon {
+	padding: 5px 5px !important;
+}
+
+.amplify-field-group__inner-end {
+	margin-bottom: 3px !important;
+}
+
+.amplify-input:focus {
+	box-shadow: none !important;
+}
+
+.amplify-flex.option-container {
+	gap: 0;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: 3rem;
+
+	.icon {
+		margin: 0px 15px 0px 0px;
+		min-width: 20px;
+		min-height: 20px;
+		width: 20px;
+		height: 20px;
+	}
+
+	.icon-search-gray {
+		background: url("/src/assets/svgs/icon-search-gray.svg") center center no-repeat;
+		background-size: contain;
+	}
+
+	.icon-pin-gray {
+		background: url("/src/assets/svgs/icon-pin-gray.svg") center center no-repeat;
+		background-size: contain;
+	}
+
+	.option-details {
+		padding: 0px 0px 0px 0px !important;
+		display: flex !important;
+		flex-direction: column !important;
+		justify-content: center !important;
+		align-items: flex-start !important;
+
+		.separator {
+			display: flex;
+			border-radius: 50%;
+			background-color: var(--grey-color-2);
+			width: 3px;
+			height: 3px;
+			margin: 0px 4px;
+		}
+	}
+}
+
+.amplify-autocomplete__menu__option:has(div.option-container-active) {
+	background: rgba(142, 142, 147, 0.08);
+}
+
+.option-container-active > svg {
+	fill: #008296;
+}
+
+.inner-end-components {
+	pointer-events: all;
+	height: 100%;
+	gap: 0;
+
+	.icon {
+		gap: 0;
+		padding: 0px 10px;
+		justify-content: center;
+		align-items: center;
+
+		svg {
+			width: 20px;
+			height: 20px;
+			cursor: pointer;
+
+			@media only screen and (min-width: 1024px) {
+				&:hover {
+					fill: var(--primary-color);
+				}
+			}
+		}
+	}
+
+	.outter-end-component {
+		border-left: 1px solid var(--grey-color-3);
+
+		svg {
+			fill: var(--grey-color);
+			outline: none;
+		}
+	}
+}
+
+.inner-end-component {
+	.icon-search {
+		background: url("/src/assets/svgs/icon-search-gray.svg") center center no-repeat;
+		background-size: contain;
+		width: 1.53rem;
+		height: 1.85rem;
+	}
+
+	&.simple-search {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		margin-left: 0.5rem;
+	}
+}

@@ -1,0 +1,121 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.step-card {
+	display: flex;
+	position: relative;
+	padding: 5px 0 5px 40px;
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 4px;
+		top: 35%;
+		transform: translateY(-50%);
+		width: 16px;
+		height: 16px;
+		background: url("/src/assets/svgs/icon-segment.svg") center center no-repeat;
+		background-size: contain;
+		margin-right: 10px;
+		z-index: 9;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		left: 0px;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 4px;
+		height: 100%;
+		background-color: #008296;
+		margin-left: 10px;
+	}
+
+	&.onlyOneEl:after {
+		display: none;
+	}
+
+	&.isFirst:after {
+		top: 70%;
+		height: 70%;
+	}
+
+	&.isLast:before {
+		background: url("/src/assets/svgs/icon-destination.svg") center center no-repeat;
+	}
+	&.isLast:after {
+		top: 0;
+		height: 50%;
+	}
+
+	.step-card-icon-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-left: 21px;
+	}
+
+	.step-card-icon-container {
+		.line-top,
+		.line-bottom {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+
+			.circle {
+				border-radius: 2px;
+				height: 4px;
+				width: 4px;
+				background-color: var(--primary-color);
+			}
+		}
+	}
+
+	.step-card-icon-container {
+		svg {
+			width: 16px;
+			height: 16px;
+		}
+
+		svg.icon-segment {
+			margin-top: 24px;
+		}
+	}
+
+	.step-card-details {
+		margin: 0px 0px 0px 16px;
+		font-size: 13px !important;
+		font-style: normal !important;
+		text-align: left !important;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		&.step-card-details-mobile {
+			margin: 0 2px 0 0;
+			.address {
+				overflow: visible;
+			}
+		}
+
+		.address {
+			color: rgba(35, 47, 62, 1) !important;
+			font-family: "AmazonEmber-Bold" !important;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.distance {
+			color: rgba(142, 142, 147, 1) !important;
+			font-family: "AmazonEmber-Regular";
+		}
+	}
+}
+
+.bottom-border-radius {
+	border-bottom-left-radius: 8px !important;
+	border-bottom-right-radius: 8px !important;
+}

@@ -1,0 +1,34 @@
+name: Security_Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e-tests:
+    name: Security-Testing
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+
+      - name: Install Dependencies
+        run: cd security-tests/ ; npm install
+
+      - name: Run Security test
+        env:
+          IDENTITY_POOL_ID: ${{ secrets.IDENTITY_POOL_ID }}
+          USER_POOL_ID: ${{ secrets.USER_POOL_ID }}
+          USER_POOL_CLIENT_ID: ${{ secrets.USER_POOL_CLIENT_ID }}
+          COGNITO_EMAIL: ${{ secrets.COGNITO_EMAIL }}
+          COGNITO_PASSWORD: ${{ secrets.COGNITO_PASSWORD }}
+          IAM_AUTH_ROLE_NAME: ${{ secrets.IAM_AUTH_ROLE_NAME }}
+          IAM_UNAUTH_ROLE_NAME: ${{ secrets.IAM_UNAUTH_ROLE_NAME }}
+        run: cd security-tests/ ; npm run test

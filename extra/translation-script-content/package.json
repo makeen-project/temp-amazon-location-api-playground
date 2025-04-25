@@ -1,0 +1,16 @@
+{
+	"name": "translation-script-content",
+	"version": "1.0.0",
+	"license": "MIT",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"translate": "node index.js",
+		"update-translate": "node update-translation.js"
+	},
+	"dependencies": {
+		"@aws-sdk/client-translate": "3.631.0",
+		"@aws-sdk/credential-providers": "3.631.0",
+		"dotenv": "16.3.1"
+	}
+}

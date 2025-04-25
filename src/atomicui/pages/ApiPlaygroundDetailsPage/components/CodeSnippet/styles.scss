@@ -1,0 +1,79 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.code-snippet-container {
+	gap: 0;
+	flex-direction: column;
+	width: 100%;
+	border: 0.12rem solid var(--light-color-2);
+	border-radius: 0.62rem;
+	background-color: white;
+
+	.code-snippet-header {
+		gap: 0;
+		padding: 1.08rem 0 0.77rem 1.85rem;
+		background-color: var(--snow);
+		border-radius: 0.62rem 0.62rem 0 0;
+
+		.title {
+			line-height: 2.15rem;
+			color: var(--tertiary-color);
+		}
+	}
+
+	.tabs-section {
+		gap: 0;
+		height: 2.15rem;
+		padding: 0 1.23rem;
+		background-color: var(--snow);
+		overflow: auto;
+
+		.tab {
+			min-width: 6.77rem;
+			justify-content: center;
+			padding: 0.38rem 1.15rem;
+			cursor: pointer;
+
+			&.selected {
+				border-radius: 0.46rem 0.46rem 0 0;
+				background-color: var(--white-color);
+			}
+
+			.text {
+				line-height: 1.23rem;
+				color: var(--tertiary-color);
+			}
+		}
+	}
+
+	.code-snippet-body {
+		gap: 0;
+		flex-direction: column;
+		padding: 1.85rem;
+		overflow-y: auto;
+		overflow-x: hidden;
+		max-height: 25.23rem;
+
+		.placeholder-text {
+			line-height: 1.69rem;
+			color: var(--grey-color);
+		}
+
+		.syntax-highlighter {
+			overflow-y: scroll !important;
+			overflow-x: hidden !important;
+			background-color: white !important;
+			width: 100%;
+
+			code {
+				overflow-wrap: break-word !important;
+			}
+		}
+
+		.copy-snippet {
+			gap: 0;
+			justify-content: flex-end;
+			align-items: center;
+		}
+	}
+}

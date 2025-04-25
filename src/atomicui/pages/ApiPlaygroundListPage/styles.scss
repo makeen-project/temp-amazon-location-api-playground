@@ -1,0 +1,252 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.api-playground-list-container {
+	.header {
+		border-radius: 10px;
+		margin-top: 50px;
+		height: 239px;
+		justify-content: space-between;
+		background: url("/src/assets/svgs/product-header-bg.svg") no-repeat;
+		background-size: cover;
+
+		@media screen and (max-width: 960px) {
+			text-align: center;
+			justify-content: space-around;
+		}
+
+		.header-text {
+			a {
+				color: var(--black-color);
+			}
+			margin-top: 10px;
+			white-space: break-spaces;
+			max-width: 500px;
+		}
+
+		.header-icon {
+			width: 50%;
+			text-align: center;
+
+			@media screen and (max-width: 960px) {
+				display: none;
+			}
+
+			svg {
+				width: 130px;
+				height: 130px;
+			}
+		}
+	}
+
+	.content-container {
+		padding-top: 2.46rem !important;
+		margin-bottom: 2.46rem;
+
+		@media screen and (max-width: 960px) {
+			padding: 0px 10px 50px 10px;
+		}
+
+		.categories-container-desktop {
+			gap: 0;
+			flex-direction: column;
+			min-width: 19.08rem;
+			padding-right: 2.46rem;
+
+			.title {
+				line-height: 1.85rem;
+				color: var(--tertiary-color);
+			}
+
+			.list {
+				gap: 0;
+				margin-top: 1.23rem;
+				flex-direction: column;
+
+				.category {
+					align-items: center;
+					margin-bottom: 0.46rem;
+					padding-left: 1.23rem;
+					cursor: pointer;
+
+					&:hover {
+						border-radius: 0.62rem;
+						background-color: var(--light-color-2);
+					}
+
+					svg {
+						width: 1.85rem;
+						height: 1.85rem;
+						margin-right: 1.38rem;
+					}
+
+					.text {
+						line-height: 1.54rem;
+						margin: 1.08rem 0;
+						color: var(--tertiary-color);
+					}
+				}
+			}
+		}
+
+		.search-and-list {
+			gap: 0;
+			flex-direction: column;
+			width: calc(100% - 19.08rem);
+
+			@media screen and (max-width: 960px) {
+				width: 100%;
+			}
+
+			.search-field-container {
+				.search-field {
+					flex: 1;
+					background-color: var(--grey-color-4);
+					padding: 10px;
+					border-radius: 5px;
+
+					.amplify-field-group {
+						width: 100% !important;
+					}
+
+					.search-icon-container {
+						height: 100%;
+						align-items: center;
+						padding: 0px 10px 0px 10px;
+						fill: var(--grey-color-2);
+					}
+
+					input {
+						border: none;
+					}
+
+					input:focus {
+						box-shadow: none !important;
+					}
+				}
+			}
+
+			.categories-container-mobile {
+				gap: 0;
+				margin-top: 1.23rem;
+				justify-content: center;
+
+				@media screen and (max-width: 655px) {
+					justify-content: unset;
+					overflow: auto;
+				}
+
+				.list {
+					gap: 0;
+					border: 0.2rem solid #f2f2f7;
+					border-radius: 0.62rem;
+
+					.category {
+						gap: 0;
+						justify-content: center;
+						align-items: center;
+						width: 10rem;
+						padding: 0.38rem;
+						border-left: 0.12rem solid #f2f2f7;
+						border-right: 0.12rem solid #f2f2f7;
+
+						svg {
+							max-width: 1.85rem;
+							min-width: 1.85rem;
+							width: 100%;
+							max-height: 1.85rem;
+							min-height: 1.85rem;
+							height: 100%;
+							margin-right: 0.7rem;
+						}
+
+						.text {
+							line-height: 1.54rem;
+							margin: 1.08rem 0;
+							color: var(--tertiary-color);
+						}
+					}
+				}
+			}
+
+			.section-list-container {
+				gap: 0;
+				flex-direction: column;
+
+				.section {
+					gap: 0;
+					flex-direction: column;
+
+					.section-title {
+						line-height: 1.85rem;
+						color: var(--tertiary-color);
+					}
+
+					.list {
+						gap: 0;
+						justify-content: space-between;
+
+						.multi-col1 {
+							padding: 0 0.92rem 0 0 !important;
+						}
+
+						.multi-col1,
+						.multi-col2 {
+							gap: 0;
+							width: 47%;
+							flex-direction: column;
+							padding: 0 0 0 0.92rem;
+						}
+
+						.single-col {
+							gap: 0;
+							width: 47%;
+							flex-direction: column;
+
+							@media screen and (max-width: 960px) {
+								width: 100%;
+							}
+						}
+
+						.card-container {
+							gap: 0;
+							flex-direction: column;
+							width: 100%;
+							cursor: pointer;
+							border-radius: 0.62rem;
+							border: 0.12rem solid #f2f2f7;
+							margin-top: 1.23rem;
+
+							.card-image {
+								width: 100%;
+								max-height: 23.05rem;
+								height: 100%;
+								border-top-left-radius: 0.62rem;
+								border-top-right-radius: 0.62rem;
+							}
+
+							.card-content {
+								gap: 0;
+								padding: 1.23rem;
+								flex-direction: column;
+
+								.title {
+									line-height: 2.31rem;
+									width: 100%;
+									overflow: hidden;
+									color: var(--tertiary-color);
+								}
+
+								.desc {
+									line-height: 1.69rem;
+									margin-top: 0.31rem;
+									color: #8e8e93;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

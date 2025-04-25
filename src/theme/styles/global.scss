@@ -1,0 +1,190 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.verticle-list {
+	font-size: var(--primary-text-size);
+	font-family: "AmazonEmber-Regular";
+	width: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.verticle-list li {
+	padding: 3px 0;
+}
+
+.verticle-list li:hover {
+	background: var(--hovered-menu-backround-color);
+}
+
+.verticle-list a {
+	cursor: pointer;
+	color: currentColor;
+}
+
+.border-none {
+	border: none;
+}
+
+.color-w {
+	color: #fff;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.h-100 {
+	height: 100%;
+}
+
+.regular {
+	font-family: "AmazonEmber-Regular";
+}
+
+.medium {
+	font-family: "AmazonEmber-Medium";
+}
+
+.bold {
+	font-family: "AmazonEmber-Bold";
+}
+
+.secondary-text {
+	color: var(--secondary-text-color);
+}
+
+.x-large-text {
+	// 36px
+	font-size: 2.79rem;
+}
+
+.large-text {
+	// 32px
+	font-size: 2.48rem;
+}
+
+.medium-text {
+	// 20px
+	font-size: 1.55rem;
+}
+
+.regular-text {
+	// 16px
+	font-size: 1.23rem;
+}
+
+.small-text {
+	// 13px
+	font-size: 1.0075rem;
+}
+
+/* https://mycolor.space/gradient?ori=to+right+top&hex=%23005276&hex2=%2338EF7D&sub=1 */
+.action-gradient-button {
+	background-image: linear-gradient(to right top, #005276, #007a9e, #00a3ad, #00cba1, #38ef7d);
+}
+/* https://mycolor.space/gradient3?ori=to+right+top&hex=%23005276&hex2=%23007A9E&hex3=%2338EF7D&submit=submit */
+.action-gradient-button:hover {
+	background-image: linear-gradient(
+		to right top,
+		#005276,
+		#00597e,
+		#006185,
+		#00688d,
+		#007094,
+		#007da0,
+		#008bab,
+		#0099b5,
+		#00b1bf,
+		#00c8b9,
+		#00dda2,
+		#38ef7d
+	);
+}
+
+body:has(.disable-body-scroll) {
+	overflow: hidden;
+}
+
+.react-tooltip {
+	border-radius: 8px !important;
+	max-width: 300px !important;
+	opacity: 1 !important;
+	font-size: 14px !important;
+
+	@media only screen and (max-width: 980px) {
+		display: none !important;
+	}
+}
+
+.amplify-flex.amplify-checkbox__button.amplify-checkbox__button--focused {
+	&:before {
+		box-shadow: none;
+	}
+}
+
+.custom-checkbox {
+	.amplify-checkbox__label {
+		font-size: 1rem;
+		color: var(--tertiary-color);
+		margin-left: 0.4rem;
+	}
+	.amplify-flex.amplify-checkbox__button {
+		&:before {
+			background: var(--light-color-2);
+			border: 1px solid var(--grey-color-2);
+		}
+		span {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			svg {
+				stroke-width: 4px;
+				stroke-linejoin: bevel;
+				stroke: var(--white-color);
+				width: 8px;
+				height: 8px;
+			}
+		}
+	}
+}
+
+.amplify-radio__button {
+	min-width: 1.5rem;
+	min-height: 1.5rem;
+}
+
+.grey-icon {
+	fill: var(--grey-color);
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.amplify-divider.amplify-divider--horizontal.title-divider {
+	border-bottom-width: 1px;
+	border-color: var(--light-color-2);
+}
+.ltr {
+	direction: ltr;
+	text-align: start;
+}
+
+.rtl {
+	direction: rtl;
+	text-align: start;
+}
+
+@media (max-width: 1024px) {
+	.amplify-button--primary:not(.learn-more-button, .edit-button, .aws-connect-button) {
+		&:hover {
+			background-color: var(--primary-color) !important;
+			border-color: var(--primary-color) !important;
+		}
+
+		&:active {
+			background-color: var(--primary-contrast-color) !important;
+			border-color: var(--primary-contrast-color) !important;
+		}
+	}
+}

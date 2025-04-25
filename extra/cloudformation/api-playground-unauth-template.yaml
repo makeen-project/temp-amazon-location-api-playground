@@ -1,0 +1,288 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: This CloudFormation template provisions the resources required for API Playground
+
+Resources:
+  ################ Congito #######################
+
+  CognitoIdentityPoolUnauthRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: "sts:AssumeRoleWithWebIdentity"
+            Condition:
+              "StringEquals":
+                "cognito-identity.amazonaws.com:aud": !Ref CognitoIdentityPool
+              "ForAnyValue:StringLike":
+                "cognito-identity.amazonaws.com:amr": unauthenticated
+            Effect: Allow
+            Principal:
+              Federated: cognito-identity.amazonaws.com
+        Version: 2012-10-17
+
+  CognitoIdentityPoolUnauthRoleIamPolicy:
+    Type: "AWS::IAM::Policy"
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - "geo:GetMap*"
+              - "geo:SearchPlaceIndex*"
+              - "geo:CalculateRoute"
+              - "geo:GetGeofence"
+              - "geo:ListGeofences"
+              - "geo:DescribeTracker"
+              - "geo:GetDevicePosition"
+            Effect: Allow
+            Resource:
+              - !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:map/location.aws.com.api.playground.maps.HERE.Explore"
+              - !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:place-index/location.aws.com.api.playground.places.HERE.PlaceIndex"
+              - !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:route-calculator/location.aws.com.api.playground.routes.HERE.RouteCalculator"
+              - !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:geofence-collection/location.aws.com.api.playground.geofence.collection.1"
+              - !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:geofence-collection/location.aws.com.api.playground.geofence.collection.2"
+              - !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:tracker/location.aws.com.api.playground.tracker.1"
+              - !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:tracker/location.aws.com.api.playground.tracker.2"
+        Version: 2012-10-17
+      PolicyName: !Sub "CognitoIdentityPoolUnauthRoleIamPolicy-${AWS::StackName}"
+      Roles:
+        - !Ref CognitoIdentityPoolUnauthRole
+
+  CognitoIdentityPool:
+    Type: "AWS::Cognito::IdentityPool"
+    Properties:
+      AllowUnauthenticatedIdentities: true
+      AllowClassicFlow: true
+
+  CognitoIdentityPoolDefaultRoleAttachment:
+    Type: "AWS::Cognito::IdentityPoolRoleAttachment"
+    Properties:
+      IdentityPoolId: !Ref CognitoIdentityPool
+      Roles:
+        unauthenticated: !GetAtt
+          - CognitoIdentityPoolUnauthRole
+          - Arn
+
+  AmazonLocationAPIPlaygroundMapsHere:
+    Type: AWS::Location::Map
+    Properties:
+      Configuration:
+        Style: VectorHereExplore
+      Description: You created this resource by running Amazon Location APIPlayground's CloudFormation template.
+      MapName: location.aws.com.api.playground.maps.HERE.Explore
+
+  AmazonLocationAPIPlaygroundPlaceIndexHere:
+    Type: AWS::Location::PlaceIndex
+    Properties:
+      DataSource: Here
+      Description: You created this resource by running Amazon Location Demo's CloudFormation template.
+      IndexName: location.aws.com.api.playground.places.HERE.PlaceIndex
+
+  AmazonLocationApiPlaygroundRouteCalculatorHere:
+    Type: AWS::Location::RouteCalculator
+    Properties:
+      CalculatorName: location.aws.com.demo.routes.HERE.RouteCalculator
+      DataSource: Here
+      Description: You created this resource by running Amazon Location Demo's CloudFormation template.
+
+  AmazonLocationAPIPlaygroundTracker1:
+    Type: AWS::Location::Tracker
+    Properties:
+      Description: You created this resource by running Amazon Location APIPlayground's CloudFormation template.
+      PositionFiltering: DistanceBased
+      TrackerName: location.aws.com.api.playground.tracker.1
+
+  AmazonLocationAPIPlaygroundTracker2:
+    Type: AWS::Location::Tracker
+    Properties:
+      Description: You created this resource by running Amazon Location APIPlayground's CloudFormation template.
+      PositionFiltering: DistanceBased
+      TrackerName: location.aws.com.api.playground.tracker.2
+
+  AmazonLocationDemoTrackerConsumer1:
+    DependsOn: AmazonLocationAPIPlaygroundTracker1
+    Type: AWS::Location::TrackerConsumer
+    Properties:
+      ConsumerArn: !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:geofence-collection/location.aws.com.api.playground.geofence.collection.1"
+      TrackerName: location.aws.com.api.playground.tracker.1
+
+  AmazonLocationDemoTrackerConsumer2:
+    DependsOn: AmazonLocationAPIPlaygroundTracker2
+    Type: AWS::Location::TrackerConsumer
+    Properties:
+      ConsumerArn: !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:geofence-collection/location.aws.com.api.playground.geofence.collection.2"
+      TrackerName: location.aws.com.api.playground.tracker.2
+
+  AmazonLocationDemoGeoFenceLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/events/AmazonLocationMonitor-GeofenceCollection-APIPlayground
+
+  AmazonLocationDemoEventRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: AmazonLocationMonitor-GeofenceCollection-APIPlayground
+      EventPattern:
+        source:
+          - aws.geo
+        detail-type:
+          - Location Geofence Event
+        resources:
+          - !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:geofence-collection/location.aws.com.api.playground.geofence.collection.1"
+          - !Sub "arn:aws:geo:${AWS::Region}:${AWS::AccountId}:geofence-collection/location.aws.com.api.playground.geofence.collection.2"
+      State: ENABLED
+      Targets:
+        - Id: GeoFenceLogGroupTarget
+          Arn: !GetAtt AmazonLocationDemoGeoFenceLogGroup.Arn
+
+  AmazonLocationDemoGeofenceLambdaInvoke:
+    Type: "Custom::GeofenceTrigger"
+    DependsOn: AmazonLocationGeoFenceLambda
+    Properties:
+      ServiceToken: !GetAtt AmazonLocationGeoFenceLambda.Arn
+
+  AmazonLocationGeoFenceLambda:
+    DependsOn: AmazonLocationGeoFenceLambdaExecutionPolicy
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: AmazonLocationDemoGeofenceCreator
+      Description: You created this resource by running Amazon Location Demo's CloudFormation template.
+      Code:
+        ZipFile: |
+          import sys
+          from pip._internal import main
+
+          main(['install', '-I', '-q', 'boto3', '--target', '/tmp/', '--no-cache-dir', '--disable-pip-version-check'])
+          sys.path.insert(0,'/tmp/')                        
+          import json, boto3
+          import urllib.request
+          import cfnresponse
+
+          client = boto3.client("location")
+
+          def create_geofence_collection(collection_name):
+              try:
+                  response = client.create_geofence_collection(
+                      CollectionName=collection_name,
+                      Description=f"Geofence collection for {collection_name}"
+                  )
+                  print(f"Geofence collection {collection_name} created successfully.")
+              except Exception as e:
+                  print(f"Error creating geofence collection {collection_name}: {str(e)}")
+
+          # Function to create a geofence
+          def create_geofence(collection_name, geofence_id, longitude, latitude, radius):
+              try:
+                  response = client.put_geofence(
+                      CollectionName=collection_name,
+                      GeofenceId=geofence_id,
+                      Geometry={
+                          'Circle': {
+                              'Center': [longitude, latitude],
+                              'Radius': radius
+                          }
+                      }
+                  )
+                  print(f"Geofence {geofence_id} created successfully.")
+              except Exception as e:
+                  print(f"Error creating geofence {geofence_id}: {str(e)}")
+
+          # Function to delete a geofence collection
+          def delete_geofence_collection(collection_name):
+              try:
+                  response = client.delete_geofence_collection(
+                      CollectionName=collection_name
+                  )
+                  print(f"Geofence collection {collection_name} deleted successfully.")
+              except Exception as e:
+                  print(f"Error deleting geofence collection {collection_name}: {str(e)}")                  
+
+          # Define geofences data
+          geofence_collections = {
+              'location.aws.com.api.playground.geofence.collection.1': {'geofence_id': 'api.playground.geofence.1', 'longitude': -122.3408586, 'latitude': 47.6149975, 'radius': 200},
+              'location.aws.com.api.playground.geofence.collection.2': {'geofence_id': 'api.playground.geofence.2', 'longitude': 103.8485701, 'latitude': 1.2840829, 'radius': 200}
+          }
+
+          def lambda_handler(event, context):
+              if event['RequestType'] == "Create":
+                for collection_name, geofence in geofence_collections.items():
+                    create_geofence_collection(collection_name)
+                    create_geofence(
+                        collection_name,
+                        geofence['geofence_id'],
+                        geofence['longitude'],
+                        geofence['latitude'],
+                        geofence['radius']
+                    )
+                responseValue = 120
+                responseData = {}
+                responseData['Data'] = responseValue
+                cfnresponse.send(event, context, cfnresponse.SUCCESS, 
+                  responseData, 'AmazonLocationDemoGeofenceCreator')                        
+              if event['RequestType'] == "Delete":
+                for collection_name in geofence_collections.keys():
+                    delete_geofence_collection(collection_name)
+                responseValue = 120
+                responseData = {}
+                responseData['Data'] = responseValue
+                cfnresponse.send(event, context, cfnresponse.SUCCESS, 
+                  responseData, 'AmazonLocationDemoGeofenceCreator')
+
+      Handler: index.lambda_handler
+      Role: !GetAtt [AmazonLocationGeoFenceLambdaExecutionRole, Arn]
+      Runtime: python3.9
+      Timeout: 300
+
+  AmazonLocationGeoFenceLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+
+  AmazonLocationGeoFenceLambdaExecutionPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: LambdaExecutionPolicy
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - "geo:BatchPutGeofence"
+              - "geo:ListGeofenceCollections"
+              - "geo:CreateGeofenceCollection"
+              - "geo:DeleteGeofenceCollection"
+              - "geo:PutGeofence"
+            Resource: "*"
+      Roles:
+        - !Ref AmazonLocationGeoFenceLambdaExecutionRole
+
+  AmazonLocationGeoFenceLambdaCloudWatchLogsPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: CloudWatchLogsPolicy
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - "logs:CreateLogGroup"
+              - "logs:CreateLogStream"
+              - "logs:PutLogEvents"
+            Resource: "*"
+      Roles:
+        - !Ref AmazonLocationGeoFenceLambdaExecutionRole
+
+Outputs:
+  Region:
+    Value: !Sub "${AWS::Region}"
+
+  IdentityPoolId:
+    Value: !Ref CognitoIdentityPool

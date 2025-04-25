@@ -1,0 +1,162 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.maplibregl-ctrl-bottom-right {
+	details {
+		right: 1.23rem !important;
+		bottom: 0.25rem !important;
+		font-size: 0.77rem !important;
+	}
+
+	/* Geolocate control */
+	> div:nth-child(2) {
+		justify-content: center !important;
+		align-items: center !important;
+		width: 2.46rem !important;
+		height: 2.46rem !important;
+		border-radius: 0.62rem !important;
+		position: absolute !important;
+
+		.maplibregl-ctrl-geolocate {
+			.maplibregl-ctrl-icon {
+				background-image: url("@demo/assets/svgs/icon-locate-me.svg") !important;
+
+				@media only screen and (min-width: 1024px) {
+					&:hover {
+						background-image: url("@demo/assets/svgs/icon-locate-me-filled.svg") !important;
+					}
+				}
+			}
+		}
+	}
+
+	/* Navigation control */
+	> div:nth-child(3) {
+		display: flex !important;
+		flex-direction: column !important;
+		justify-content: space-around !important;
+		align-items: center !important;
+		width: 2.46rem !important;
+		height: 4.92rem !important;
+		border-radius: 0.62rem !important;
+		position: absolute !important;
+		right: 1.19rem !important;
+		bottom: 3.1rem !important;
+
+		.maplibregl-ctrl-zoom-in {
+			width: 100% !important;
+
+			.maplibregl-ctrl-icon {
+				background-image: url("@demo/assets/svgs/icon-zoom-plus.svg") !important;
+
+				@media only screen and (min-width: 1024px) {
+					&:hover {
+						background-image: url("@demo/assets/svgs/icon-zoom-plus-filled.svg") !important;
+					}
+				}
+			}
+		}
+
+		.maplibregl-ctrl-zoom-out {
+			width: 100% !important;
+
+			&:hover {
+				border-radius: 0rem 0rem 0.62rem 0.62rem !important;
+			}
+
+			.maplibregl-ctrl-icon {
+				background-image: url("@demo/assets/svgs/icon-minus.svg") !important;
+
+				@media only screen and (min-width: 1024px) {
+					&:hover {
+						background-image: url("@demo/assets/svgs/icon-minus-filled.svg") !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+.maplibregl-ctrl button:not(:disabled):hover {
+	background-color: var(--ghost-white) !important;
+	box-shadow: none !important;
+	border-radius: 0.62rem !important;
+}
+
+.maplibregl-ctrl button:disabled {
+	cursor: pointer !important;
+	opacity: 1 !important;
+}
+
+.maplibregl-ctrl-group:not(:empty) {
+	box-shadow: 0px 0px 10px rgb(0 0 0 / 20%) !important;
+}
+
+.maplibregl-user-location-dot {
+	background-color: var(--primary-color) !important;
+
+	&:before {
+		background-color: #a9c6c2 !important;
+	}
+}
+
+.location-disabled {
+	gap: 0;
+	justify-content: center;
+	align-items: center;
+	width: 2.46rem;
+	height: 2.46rem;
+	position: absolute;
+	background-color: var(--white-color);
+	opacity: 0.8;
+	border-radius: 0.62rem !important;
+	box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+	cursor: pointer;
+	z-index: 9;
+
+	@media only screen and (max-width: 1023px) {
+		bottom: 12.5rem;
+	}
+
+	@media only screen and (max-width: 495px) {
+		bottom: 14rem;
+	}
+
+	@media only screen and (max-width: 300px) {
+		bottom: 15.5rem;
+	}
+}
+
+.logo-stroke-container {
+	gap: 0;
+	position: absolute;
+	bottom: 1.54rem;
+	left: 1.54rem;
+	width: 11.54rem;
+	height: 2.08rem;
+	z-index: 3;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	&.logo-stroke-container-tablet {
+		left: 26.54rem !important;
+
+		@media screen and (max-width: 556px) {
+			display: none;
+		}
+	}
+}
+
+.loader-container {
+	width: 100%;
+	height: 100%;
+	background-image: url("@demo/assets/pngs/Loading.png");
+}

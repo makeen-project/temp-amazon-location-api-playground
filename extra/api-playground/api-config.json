@@ -1,0 +1,926 @@
+{
+	"apis": {
+		"Maps": [
+			{
+				"id": "get-map-tile-command",
+				"imageSource": "images/get-map-tile-command.png",
+				"title": "GetMapTileCommand",
+				"description": "Retrieve a map image for a specified location and zoom level.",
+				"shouldRenderMap": true,
+				"requestParams": [
+					{
+						"name": "MapName",
+						"description": "The map resource to retrieve the map tiles from.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "location.aws.com.api.playground.maps.HERE.Explore",
+						"validValues": ["location.aws.com.api.playground.maps.HERE.Explore"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": false,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "X",
+						"description": "The X axis value for the map tile.",
+						"required": true,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "Y",
+						"description": "The Y axis value for the map tile.",
+						"required": true,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "Z",
+						"description": "The zoom value for the map tile.",
+						"required": true,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "Key",
+						"description": "The optional API key to authorize the request.",
+						"required": false,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": false,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					}
+				],
+				"codeSnippets": {
+					"JavaScript": "import { LocationClient, GetMapTileCommand } from \"@aws-sdk/client-location\";\nconst client = new LocationClient(config);\nconst input = {MapName: \"STRING_VALUE\",Z: \"STRING_VALUE\",X: \"STRING_VALUE\",Y: \"STRING_VALUE\",Key: \"STRING_VALUE\",};\nconst command = new GetMapTileCommand(input);\nconst response = await client.send(command);",
+					"Python": "from aws_location.client import LocationClient\nfrom aws_location.models import GetMapTileRequest\n\n# Initialize Location client\nclient = LocationClient()\n\n# Construct GetMapTileRequest\ninput = GetMapTileRequest(MapName=\"STRING_VALUE\",Z=\"STRING_VALUE\",X=\"STRING_VALUE\",Y=\"STRING_VALUE\",Key=\"STRING_VALUE\")\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)",
+					"Ruby": "require 'aws-sdk-location'\n\n# Initialize Location client\nclient = Aws::Location::Client.new(region: 'us-west-2')\n\n# Construct GetMapTileRequest\ninput = {map_name: \"STRING_VALUE\",z: \"STRING_VALUE\",x: \"STRING_VALUE\",y: \"STRING_VALUE\",key: \"STRING_VALUE\"}\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)"
+				}
+			}
+		],
+		"Places": [
+			{
+				"id": "search-place-index-for-position-command",
+				"imageSource": "images/placeholder.png",
+				"title": "SearchPlaceIndexForPositionCommand",
+				"description": "Reverse geocodes a given coordinate and returns a legible address. Allows you to search for Places or points of interest near a given position.",
+				"shouldRenderMap": false,
+				"requestParams": [
+					{
+						"name": "IndexName",
+						"description": "The name of the place index resource you want to use for the search.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "location.aws.com.api.playground.places.HERE.PlaceIndex",
+						"validValues": ["location.aws.com.api.playground.places.HERE.PlaceIndex"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": false,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "Position",
+						"description": "Specifies the longitude and latitude of the position to query. This parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude.",
+						"required": true,
+						"type": "number[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "coordinates"
+					},
+					{
+						"name": "Key",
+						"description": "The optional API key to authorize the request.",
+						"required": false,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": false,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "Language",
+						"description": "The preferred language used to return results. The value must be a valid BCP 47 language tag, for example, en for English.",
+						"required": false,
+						"type": "string",
+						"defaultValue": "en",
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "MaxResults",
+						"description": "An optional parameter. The maximum number of results returned per request. Default value: 50",
+						"required": false,
+						"type": "number",
+						"defaultValue": 50,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input"
+					}
+				],
+				"codeSnippets": {
+					"JavaScript": "import { LocationClient, GetMapTileCommand } from \"@aws-sdk/client-location\";\nconst client = new LocationClient(config);\nconst input = {MapName: \"STRING_VALUE\",Z: \"STRING_VALUE\",X: \"STRING_VALUE\",Y: \"STRING_VALUE\",Key: \"STRING_VALUE\",};\nconst command = new GetMapTileCommand(input);\nconst response = await client.send(command);",
+					"Python": "from aws_location.client import LocationClient\nfrom aws_location.models import GetMapTileRequest\n\n# Initialize Location client\nclient = LocationClient()\n\n# Construct GetMapTileRequest\ninput = GetMapTileRequest(MapName=\"STRING_VALUE\",Z=\"STRING_VALUE\",X=\"STRING_VALUE\",Y=\"STRING_VALUE\",Key=\"STRING_VALUE\")\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)",
+					"Ruby": "require 'aws-sdk-location'\n\n# Initialize Location client\nclient = Aws::Location::Client.new(region: 'us-west-2')\n\n# Construct GetMapTileRequest\ninput = {map_name: \"STRING_VALUE\",z: \"STRING_VALUE\",x: \"STRING_VALUE\",y: \"STRING_VALUE\",key: \"STRING_VALUE\"}\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)"
+				}
+			},
+			{
+				"id": "search-place-index-for-suggestions",
+				"imageSource": "images/placeholder.png",
+				"title": "SearchPlaceIndexForSuggestionsCommand",
+				"description": "Generates suggestions for addresses and points of interest based on partial or misspelled free-form text. This operation is also known as autocomplete, autosuggest, or fuzzy matching.",
+				"shouldRenderMap": false,
+				"requestParams": [
+					{
+						"name": "IndexName",
+						"description": "The name of the place index resource you want to use for the search.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "location.aws.com.api.playground.places.HERE.PlaceIndex",
+						"validValues": ["location.aws.com.api.playground.places.HERE.PlaceIndex"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": false,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "Text",
+						"description": "The free-form partial text to use to generate place suggestions. For example, eiffel tow.",
+						"required": true,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "BiasPosition",
+						"description": "An optional parameter that indicates a preference for place suggestions that are closer to a specified position. If provided, this parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude. BiasPosition and FilterBBox are mutually exclusive. Specifying both options results in an error.",
+						"required": false,
+						"type": "number[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "coordinates"
+					},
+					{
+						"name": "FilterBBox",
+						"description": "An optional parameter that limits the search results by returning only suggestions within a specified bounding box. If provided, this parameter must contain a total of four consecutive numbers in two pairs. The first pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the southwest corner of the bounding box; the second pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the northeast corner of the bounding box. FilterBBox and BiasPosition are mutually exclusive. Specifying both options results in an error.",
+						"required": false,
+						"type": "number[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input-array"
+					},
+					{
+						"name": "FilterCategories",
+						"description": "A list of one or more Amazon Location categories to filter the returned places. If you include more than one category, the results will include results that match any of the categories listed. For more information about using categories, including a list of Amazon Location categories, see Categories and filtering, in the Amazon Location Service Developer Guide.",
+						"required": false,
+						"type": "string[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input-array"
+					},
+					{
+						"name": "FilterCountries",
+						"description": "An optional parameter that limits the search results by returning only suggestions within the provided list of countries. Use the ISO 3166 3-digit country code. For example, Australia uses three upper-case characters: AUS.",
+						"required": false,
+						"type": "string[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input-array"
+					},
+					{
+						"name": "Key",
+						"description": "The optional API key to authorize the request.",
+						"required": false,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": false,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "Language",
+						"description": "The preferred language used to return results. The value must be a valid BCP 47 language tag, for example, en for English.",
+						"required": false,
+						"type": "string",
+						"defaultValue": "en",
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "MaxResults",
+						"description": "An optional parameter. The maximum number of results returned per request. Default value: 5",
+						"required": false,
+						"type": "number",
+						"defaultValue": 5,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input"
+					}
+				],
+				"codeSnippets": {
+					"JavaScript": "import { LocationClient, GetMapTileCommand } from \"@aws-sdk/client-location\";\nconst client = new LocationClient(config);\nconst input = {MapName: \"STRING_VALUE\",Z: \"STRING_VALUE\",X: \"STRING_VALUE\",Y: \"STRING_VALUE\",Key: \"STRING_VALUE\",};\nconst command = new GetMapTileCommand(input);\nconst response = await client.send(command);",
+					"Python": "from aws_location.client import LocationClient\nfrom aws_location.models import GetMapTileRequest\n\n# Initialize Location client\nclient = LocationClient()\n\n# Construct GetMapTileRequest\ninput = GetMapTileRequest(MapName=\"STRING_VALUE\",Z=\"STRING_VALUE\",X=\"STRING_VALUE\",Y=\"STRING_VALUE\",Key=\"STRING_VALUE\")\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)",
+					"Ruby": "require 'aws-sdk-location'\n\n# Initialize Location client\nclient = Aws::Location::Client.new(region: 'us-west-2')\n\n# Construct GetMapTileRequest\ninput = {map_name: \"STRING_VALUE\",z: \"STRING_VALUE\",x: \"STRING_VALUE\",y: \"STRING_VALUE\",key: \"STRING_VALUE\"}\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)"
+				}
+			},
+			{
+				"id": "search-place-index-for-text",
+				"imageSource": "images/placeholder.png",
+				"title": "SearchPlaceIndexForTextCommand",
+				"description": "Geocodes free-form text, such as an address, name, city, or region to allow you to search for Places or points of interest.",
+				"shouldRenderMap": false,
+				"requestParams": [
+					{
+						"name": "IndexName",
+						"description": "The name of the place index resource you want to use for the search.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "location.aws.com.api.playground.places.HERE.PlaceIndex",
+						"validValues": ["location.aws.com.api.playground.places.HERE.PlaceIndex"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": false,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "Text",
+						"description": "The address, name, city, or region to be used in the search in free-form text format. For example, 123 Any Street.",
+						"required": true,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "BiasPosition",
+						"description": "An optional parameter that indicates a preference for place suggestions that are closer to a specified position. If provided, this parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the second number represents the Y coordinate, or latitude. BiasPosition and FilterBBox are mutually exclusive. Specifying both options results in an error.",
+						"required": false,
+						"type": "number[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "coordinates"
+					},
+					{
+						"name": "FilterBBox",
+						"description": "An optional parameter that limits the search results by returning only suggestions within a specified bounding box. If provided, this parameter must contain a total of four consecutive numbers in two pairs. The first pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the southwest corner of the bounding box; the second pair of numbers represents the X and Y coordinates (longitude and latitude, respectively) of the northeast corner of the bounding box. FilterBBox and BiasPosition are mutually exclusive. Specifying both options results in an error.",
+						"required": false,
+						"type": "number[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input-array"
+					},
+					{
+						"name": "FilterCategories",
+						"description": "A list of one or more Amazon Location categories to filter the returned places. If you include more than one category, the results will include results that match any of the categories listed. For more information about using categories, including a list of Amazon Location categories, see Categories and filtering, in the Amazon Location Service Developer Guide.",
+						"required": false,
+						"type": "string[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input-array"
+					},
+					{
+						"name": "FilterCountries",
+						"description": "An optional parameter that limits the search results by returning only suggestions within the provided list of countries. Use the ISO 3166 3-digit country code. For example, Australia uses three upper-case characters: AUS.",
+						"required": false,
+						"type": "string[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input-array"
+					},
+					{
+						"name": "Key",
+						"description": "The optional API key to authorize the request.",
+						"required": false,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": false,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "Language",
+						"description": "The preferred language used to return results. The value must be a valid BCP 47 language tag, for example, en for English.",
+						"required": false,
+						"type": "string",
+						"defaultValue": "en",
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "MaxResults",
+						"description": "An optional parameter. The maximum number of results returned per request. The default: 50",
+						"required": false,
+						"type": "number",
+						"defaultValue": 50,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input"
+					}
+				],
+				"codeSnippets": {
+					"JavaScript": "import { LocationClient, GetMapTileCommand } from \"@aws-sdk/client-location\";\nconst client = new LocationClient(config);\nconst input = {MapName: \"STRING_VALUE\",Z: \"STRING_VALUE\",X: \"STRING_VALUE\",Y: \"STRING_VALUE\",Key: \"STRING_VALUE\",};\nconst command = new GetMapTileCommand(input);\nconst response = await client.send(command);",
+					"Python": "from aws_location.client import LocationClient\nfrom aws_location.models import GetMapTileRequest\n\n# Initialize Location client\nclient = LocationClient()\n\n# Construct GetMapTileRequest\ninput = GetMapTileRequest(MapName=\"STRING_VALUE\",Z=\"STRING_VALUE\",X=\"STRING_VALUE\",Y=\"STRING_VALUE\",Key=\"STRING_VALUE\")\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)",
+					"Ruby": "require 'aws-sdk-location'\n\n# Initialize Location client\nclient = Aws::Location::Client.new(region: 'us-west-2')\n\n# Construct GetMapTileRequest\ninput = {map_name: \"STRING_VALUE\",z: \"STRING_VALUE\",x: \"STRING_VALUE\",y: \"STRING_VALUE\",key: \"STRING_VALUE\"}\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)"
+				}
+			}
+		],
+		"Routes": [
+			{
+				"id": "calculate-route",
+				"imageSource": "images/placeholder.png",
+				"title": "CalculateRouteCommand",
+				"description": "Calculates a route between positions.",
+				"shouldRenderMap": true,
+				"requestParams": [
+					{
+						"name": "CalculatorName",
+						"description": "The name of the route calculator resource that you want to use to calculate the route.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "location.aws.com.api.playground.routes.HERE.RouteCalculator",
+						"validValues": ["location.aws.com.api.playground.routes.HERE.RouteCalculator"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": false,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "DeparturePosition",
+						"description": "The start position for the route. Defined in World Geodetic System (WGS 84) format: [longitude, latitude].",
+						"required": true,
+						"type": "number[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "coordinates"
+					},
+					{
+						"name": "DestinationPosition",
+						"description": "The finish position for the route. Defined in World Geodetic System (WGS 84) format: [longitude, latitude].",
+						"required": true,
+						"type": "number[]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "coordinates"
+					},
+					{
+						"name": "DepartNow",
+						"description": "Sets the time of departure as the current time. Uses the current time to calculate a route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route. Default Value: false",
+						"required": false,
+						"type": "boolean",
+						"defaultValue": false,
+						"validValues": [true, false],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "checkbox"
+					},
+					{
+						"name": "DepartureTime",
+						"description": "Specifies the desired time of departure. Uses the given time to calculate the route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.",
+						"required": false,
+						"type": "date",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "date"
+					},
+					{
+						"name": "ArrivalTime",
+						"description": "Specifies the desired time of arrival. Uses the given time to calculate the route. Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.",
+						"required": false,
+						"type": "date",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "date"
+					},
+					{
+						"name": "TravelMode",
+						"description": "Specifies the mode of transport when calculating a route. Used in estimating the speed of travel and road compatibility. You can choose Car, Truck, Walking as options for the TravelMode. Default Value: Car",
+						"required": false,
+						"type": "string",
+						"defaultValue": "Car",
+						"validValues": ["Car", "Truck", "Walking"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "DistanceUnit",
+						"description": "Set the unit system to specify the distance. Default Value: Kilometers",
+						"required": false,
+						"type": "string",
+						"defaultValue": "Kilometers",
+						"validValues": ["Kilometers", "Miles"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "IncludeLegGeometry",
+						"description": "Set to include the geometry details in the result for each path between a pair of positions. Default Value: false",
+						"required": false,
+						"type": "boolean",
+						"defaultValue": false,
+						"validValues": [true, false],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "checkbox"
+					},
+					{
+						"name": "Key",
+						"description": "The optional API key to authorize the request.",
+						"required": false,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": false,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					},
+					{
+						"name": "OptimizeFor",
+						"description": "Specifies the distance to optimize for when calculating a route.",
+						"required": false,
+						"type": "string",
+						"defaultValue": "FastestRoute",
+						"validValues": ["FastestRoute", "ShortestRoute"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "WaypointPositions",
+						"description": "Specifies an ordered list of up to 23 intermediate positions to include along a route between the departure position and destination position.",
+						"required": false,
+						"type": "number[][]",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "coordinates-array"
+					},
+					{
+						"name": "CarModeOptions",
+						"description": "Specifies route preferences when traveling by Car, such as avoiding routes that use ferries or tolls.",
+						"required": false,
+						"type": "object",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": ["TravelMode", "Car"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": ["AvoidFerries", "AvoidTolls"],
+						"fieldType": "parent"
+					},
+					{
+						"name": "TruckModeOptions",
+						"description": "Specifies route preferences when traveling by Truck, such as avoiding routes that use ferries or tolls, and truck specifications to consider when choosing an optimal road.",
+						"required": false,
+						"type": "object",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": ["TravelMode", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": ["AvoidFerries", "AvoidTolls", "Dimensions", "Weight"],
+						"fieldType": "parent"
+					},
+					{
+						"name": "AvoidFerries",
+						"description": "Avoids ferries when calculating routes. Default value: false",
+						"required": false,
+						"type": "boolean",
+						"defaultValue": false,
+						"validValues": [true, false],
+						"visibleIf": ["TravelMode", "Car", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "checkbox"
+					},
+					{
+						"name": "AvoidTolls",
+						"description": "Avoids tolls when calculating routes. Default Value: false",
+						"required": false,
+						"type": "boolean",
+						"defaultValue": false,
+						"validValues": [true, false],
+						"visibleIf": ["TravelMode", "Car", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "checkbox"
+					},
+					{
+						"name": "Dimensions",
+						"description": "Specifies the truck's dimension specifications including length, height, width, and unit of measurement. Used to avoid roads that can't support the truck's dimensions.",
+						"required": false,
+						"type": "object",
+						"defaultValue": false,
+						"validValues": null,
+						"visibleIf": ["TravelMode", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": ["Height", "Length", "Width", "Unit"],
+						"fieldType": "parent"
+					},
+					{
+						"name": "Height",
+						"description": "The height of the truck. For routes calculated with a HERE resource, this value must be between 0 and 50 meters.",
+						"required": false,
+						"type": "number",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": ["TravelMode", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input"
+					},
+					{
+						"name": "Length",
+						"description": "The length of the truck. For routes calculated with a HERE resource, this value must be between 0 and 300 meters.",
+						"required": false,
+						"type": "number",
+						"defaultValue": false,
+						"validValues": null,
+						"visibleIf": ["TravelMode", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input"
+					},
+					{
+						"name": "Unit",
+						"description": "Specifies the unit of measurement for the truck dimensions. Default Value: Meters",
+						"required": false,
+						"type": "string",
+						"defaultValue": "Meters",
+						"validValues": ["Feet", "Meters"],
+						"visibleIf": ["TravelMode", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "Width",
+						"description": "The width of the truck. For routes calculated with a HERE resource, this value must be between 0 and 50 meters.",
+						"required": false,
+						"type": "number",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": ["TravelMode", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input"
+					},
+					{
+						"name": "Weight",
+						"description": "Specifies the truck's weight specifications including total weight and unit of measurement. Used to avoid roads that can't support the truck's weight.",
+						"required": false,
+						"type": "object",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": ["TravelMode", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": ["Total", "Unit"],
+						"fieldType": "parent"
+					},
+					{
+						"name": "Total",
+						"description": "The total weight of the truck.",
+						"required": false,
+						"type": "number",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": ["TravelMode", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input"
+					},
+					{
+						"name": "Unit",
+						"description": "The unit of measurement to use for the truck weight. Default Value: Kilograms",
+						"required": false,
+						"type": "string",
+						"defaultValue": "Kilograms",
+						"validValues": ["Kilograms", "Pounds"],
+						"visibleIf": ["TravelMode", "Truck"],
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					}
+				],
+				"codeSnippets": {
+					"JavaScript": "import { LocationClient, GetMapTileCommand } from \"@aws-sdk/client-location\";\nconst client = new LocationClient(config);\nconst input = {MapName: \"STRING_VALUE\",Z: \"STRING_VALUE\",X: \"STRING_VALUE\",Y: \"STRING_VALUE\",Key: \"STRING_VALUE\",};\nconst command = new GetMapTileCommand(input);\nconst response = await client.send(command);",
+					"Python": "from aws_location.client import LocationClient\nfrom aws_location.models import GetMapTileRequest\n\n# Initialize Location client\nclient = LocationClient()\n\n# Construct GetMapTileRequest\ninput = GetMapTileRequest(MapName=\"STRING_VALUE\",Z=\"STRING_VALUE\",X=\"STRING_VALUE\",Y=\"STRING_VALUE\",Key=\"STRING_VALUE\")\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)",
+					"Ruby": "require 'aws-sdk-location'\n\n# Initialize Location client\nclient = Aws::Location::Client.new(region: 'us-west-2')\n\n# Construct GetMapTileRequest\ninput = {map_name: \"STRING_VALUE\",z: \"STRING_VALUE\",x: \"STRING_VALUE\",y: \"STRING_VALUE\",key: \"STRING_VALUE\"}\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)"
+				}
+			}
+		],
+		"Geofences": [
+			{
+				"id": "get-geofence",
+				"imageSource": "images/placeholder.png",
+				"title": "GetGeofenceCommand",
+				"description": "Retrieves the geofence details from a geofence collection.",
+				"shouldRenderMap": false,
+				"requestParams": [
+					{
+						"name": "CollectionName",
+						"description": "The geofence collection storing the target geofence.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "location.aws.com.api.playground.geofence.collection.1",
+						"validValues": [
+							"location.aws.com.api.playground.geofence.collection.1",
+							"location.aws.com.api.playground.geofence.collection.2"
+						],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "GeofenceId",
+						"description": "The geofence you're retrieving details for.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "api.playground.geofence.1",
+						"validValues": ["api.playground.geofence.1", "api.playground.geofence.2"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					}
+				],
+				"codeSnippets": {
+					"JavaScript": "import { LocationClient, GetMapTileCommand } from \"@aws-sdk/client-location\";\nconst client = new LocationClient(config);\nconst input = {MapName: \"STRING_VALUE\",Z: \"STRING_VALUE\",X: \"STRING_VALUE\",Y: \"STRING_VALUE\",Key: \"STRING_VALUE\",};\nconst command = new GetMapTileCommand(input);\nconst response = await client.send(command);",
+					"Python": "from aws_location.client import LocationClient\nfrom aws_location.models import GetMapTileRequest\n\n# Initialize Location client\nclient = LocationClient()\n\n# Construct GetMapTileRequest\ninput = GetMapTileRequest(MapName=\"STRING_VALUE\",Z=\"STRING_VALUE\",X=\"STRING_VALUE\",Y=\"STRING_VALUE\",Key=\"STRING_VALUE\")\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)",
+					"Ruby": "require 'aws-sdk-location'\n\n# Initialize Location client\nclient = Aws::Location::Client.new(region: 'us-west-2')\n\n# Construct GetMapTileRequest\ninput = {map_name: \"STRING_VALUE\",z: \"STRING_VALUE\",x: \"STRING_VALUE\",y: \"STRING_VALUE\",key: \"STRING_VALUE\"}\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)"
+				}
+			},
+			{
+				"id": "list-geofences",
+				"imageSource": "images/placeholder.png",
+				"title": "ListGeofencesCommand",
+				"description": "Lists geofences stored in a given geofence collection.",
+				"shouldRenderMap": false,
+				"requestParams": [
+					{
+						"name": "CollectionName",
+						"description": "The geofence collection storing the list of geofences.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "location.aws.com.api.playground.geofence.collection.1",
+						"validValues": [
+							"location.aws.com.api.playground.geofence.collection.1",
+							"location.aws.com.api.playground.geofence.collection.2"
+						],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "MaxResults",
+						"description": "An optional limit for the number of geofences returned in a single call. Default value: 100",
+						"required": false,
+						"type": "number",
+						"defaultValue": 100,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "number-input"
+					},
+					{
+						"name": "NextToken",
+						"description": "The pagination token specifying which page of results to return in the response. If no token is provided, the default page is the first page. Default value: null",
+						"required": false,
+						"type": "string",
+						"defaultValue": null,
+						"validValues": null,
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "string-input"
+					}
+				],
+				"codeSnippets": {
+					"JavaScript": "import { LocationClient, GetMapTileCommand } from \"@aws-sdk/client-location\";\nconst client = new LocationClient(config);\nconst input = {MapName: \"STRING_VALUE\",Z: \"STRING_VALUE\",X: \"STRING_VALUE\",Y: \"STRING_VALUE\",Key: \"STRING_VALUE\",};\nconst command = new GetMapTileCommand(input);\nconst response = await client.send(command);",
+					"Python": "from aws_location.client import LocationClient\nfrom aws_location.models import GetMapTileRequest\n\n# Initialize Location client\nclient = LocationClient()\n\n# Construct GetMapTileRequest\ninput = GetMapTileRequest(MapName=\"STRING_VALUE\",Z=\"STRING_VALUE\",X=\"STRING_VALUE\",Y=\"STRING_VALUE\",Key=\"STRING_VALUE\")\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)",
+					"Ruby": "require 'aws-sdk-location'\n\n# Initialize Location client\nclient = Aws::Location::Client.new(region: 'us-west-2')\n\n# Construct GetMapTileRequest\ninput = {map_name: \"STRING_VALUE\",z: \"STRING_VALUE\",x: \"STRING_VALUE\",y: \"STRING_VALUE\",key: \"STRING_VALUE\"}\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)"
+				}
+			}
+		],
+		"Trackers": [
+			{
+				"id": "describe-tracker",
+				"imageSource": "images/placeholder.png",
+				"title": "DescribeTrackerCommand",
+				"description": "Retrieves the tracker resource details.",
+				"shouldRenderMap": false,
+				"requestParams": [
+					{
+						"name": "TrackerName",
+						"description": "The name of the tracker resource.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "location.aws.com.api.playground.tracker.1",
+						"validValues": ["location.aws.com.api.playground.tracker.1", "location.aws.com.api.playground.tracker.2"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					}
+				],
+				"codeSnippets": {
+					"JavaScript": "import { LocationClient, GetMapTileCommand } from \"@aws-sdk/client-location\";\nconst client = new LocationClient(config);\nconst input = {MapName: \"STRING_VALUE\",Z: \"STRING_VALUE\",X: \"STRING_VALUE\",Y: \"STRING_VALUE\",Key: \"STRING_VALUE\",};\nconst command = new GetMapTileCommand(input);\nconst response = await client.send(command);",
+					"Python": "from aws_location.client import LocationClient\nfrom aws_location.models import GetMapTileRequest\n\n# Initialize Location client\nclient = LocationClient()\n\n# Construct GetMapTileRequest\ninput = GetMapTileRequest(MapName=\"STRING_VALUE\",Z=\"STRING_VALUE\",X=\"STRING_VALUE\",Y=\"STRING_VALUE\",Key=\"STRING_VALUE\")\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)",
+					"Ruby": "require 'aws-sdk-location'\n\n# Initialize Location client\nclient = Aws::Location::Client.new(region: 'us-west-2')\n\n# Construct GetMapTileRequest\ninput = {map_name: \"STRING_VALUE\",z: \"STRING_VALUE\",x: \"STRING_VALUE\",y: \"STRING_VALUE\",key: \"STRING_VALUE\"}\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)"
+				}
+			},
+			{
+				"id": "get-device-position",
+				"imageSource": "images/placeholder.png",
+				"title": "GetDevicePositionCommand",
+				"description": "Retrieves a device's most recent position according to its sample time. Device positions are deleted after 30 days.",
+				"shouldRenderMap": false,
+				"requestParams": [
+					{
+						"name": "TrackerName",
+						"description": "The tracker resource receiving the position update.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "location.aws.com.api.playground.tracker.1",
+						"validValues": ["location.aws.com.api.playground.tracker.1", "location.aws.com.api.playground.tracker.2"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					},
+					{
+						"name": "DeviceId",
+						"description": "The device whose position you want to retrieve.",
+						"required": true,
+						"type": "string",
+						"defaultValue": "device-1",
+						"validValues": ["device-1", "device-2", "device-3"],
+						"visibleIf": null,
+						"shouldRender": true,
+						"isEditable": true,
+						"subParams": null,
+						"fieldType": "dropdown"
+					}
+				],
+				"codeSnippets": {
+					"JavaScript": "import { LocationClient, GetMapTileCommand } from \"@aws-sdk/client-location\";\nconst client = new LocationClient(config);\nconst input = {MapName: \"STRING_VALUE\",Z: \"STRING_VALUE\",X: \"STRING_VALUE\",Y: \"STRING_VALUE\",Key: \"STRING_VALUE\",};\nconst command = new GetMapTileCommand(input);\nconst response = await client.send(command);",
+					"Python": "from aws_location.client import LocationClient\nfrom aws_location.models import GetMapTileRequest\n\n# Initialize Location client\nclient = LocationClient()\n\n# Construct GetMapTileRequest\ninput = GetMapTileRequest(MapName=\"STRING_VALUE\",Z=\"STRING_VALUE\",X=\"STRING_VALUE\",Y=\"STRING_VALUE\",Key=\"STRING_VALUE\")\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)",
+					"Ruby": "require 'aws-sdk-location'\n\n# Initialize Location client\nclient = Aws::Location::Client.new(region: 'us-west-2')\n\n# Construct GetMapTileRequest\ninput = {map_name: \"STRING_VALUE\",z: \"STRING_VALUE\",x: \"STRING_VALUE\",y: \"STRING_VALUE\",key: \"STRING_VALUE\"}\n\n# Call GetMapTile API\nresponse = client.get_map_tile(input)"
+				}
+			}
+		]
+	}
+}
