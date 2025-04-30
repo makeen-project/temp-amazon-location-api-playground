@@ -3,6 +3,8 @@
 
 import { useMemo } from "react";
 
+import { appConfig } from "@api-playground/core/constants";
+import { useClient, useMap } from "@api-playground/hooks";
 import {
 	GetPlaceCommand,
 	GetPlaceCommandInput,
@@ -13,8 +15,6 @@ import {
 	SuggestCommand,
 	SuggestCommandInput
 } from "@aws-sdk/client-geo-places";
-import { appConfig } from "@demo/core/constants";
-import { useClient, useMap } from "@demo/hooks";
 import { useTranslation } from "react-i18next";
 
 const {

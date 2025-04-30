@@ -3,9 +3,9 @@
 
 import { useMemo } from "react";
 
-import BottomSheetHeights from "@demo/core/constants/bottomSheetHeights";
-import { useBottomSheetStore } from "@demo/stores";
-import { ResponsiveUIEnum } from "@demo/types/Enums";
+import BottomSheetHeights from "@api-playground/core/constants/bottomSheetHeights";
+import { useBottomSheetStore } from "@api-playground/stores";
+import { ResponsiveUIEnum } from "@api-playground/types/Enums";
 
 const useBottomSheet = () => {
 	const store = useBottomSheetStore();

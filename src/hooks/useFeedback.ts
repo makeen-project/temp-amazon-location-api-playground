@@ -3,9 +3,9 @@
 
 import { useMemo } from "react";
 
-import { useFeedbackService } from "@demo/services";
-import { useFeedbackStore } from "@demo/stores";
-import { errorHandler } from "@demo/utils/errorHandler";
+import { useFeedbackService } from "@api-playground/services";
+import { useFeedbackStore } from "@api-playground/stores";
+import { errorHandler } from "@api-playground/utils/errorHandler";
 import { useTranslation } from "react-i18next";
 
 const useFeedback = () => {

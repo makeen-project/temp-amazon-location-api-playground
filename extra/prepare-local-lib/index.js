@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const rootLibDir = "demo-app-lib";
+const rootLibDir = "api-playground-app-lib";
 const newLibPath = `${rootLibDir}/lib`;
 const oldLibPath = "lib";
 const packageJsonPath = "package.json";
@@ -38,7 +38,7 @@ function main() {
 		// Delete old lib folder
 		fs.rmSync(oldLibPath, { recursive: true, force: true });
 
-		console.log("Directory demo-app-lib updated successfully and default lib directory deleted.");
+		console.log("Directory api-playground-app-lib updated successfully and default lib directory deleted.");
 	} catch (error) {
 		console.error({ error });
 	}

@@ -3,7 +3,6 @@
 
 import { FC, lazy, useCallback, useMemo } from "react";
 
-import { CheckboxField, Divider, Flex, Radio, Text } from "@aws-amplify/ui-react";
 import {
 	IconArrow,
 	IconBackArrow,
@@ -12,17 +11,18 @@ import {
 	IconPaintroller,
 	IconPeopleArrows,
 	IconShuffle
-} from "@demo/assets/svgs";
-import { appConfig, languageSwitcherData } from "@demo/core/constants";
-import { useAuth, useClient, useMap, usePersistedData } from "@demo/hooks";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { MapUnitEnum, RegionEnum, SettingOptionEnum, SettingOptionItemType } from "@demo/types";
-import { EventTypeEnum, TriggeredByEnum } from "@demo/types/Enums";
-import { record } from "@demo/utils/analyticsUtils";
+} from "@api-playground/assets/svgs";
+import { appConfig, languageSwitcherData } from "@api-playground/core/constants";
+import { useAuth, useClient, useMap, usePersistedData } from "@api-playground/hooks";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { MapUnitEnum, RegionEnum, SettingOptionEnum, SettingOptionItemType } from "@api-playground/types";
+import { EventTypeEnum, TriggeredByEnum } from "@api-playground/types/Enums";
+import { record } from "@api-playground/utils/analyticsUtils";
+import { CheckboxField, Divider, Flex, Radio, Text } from "@aws-amplify/ui-react";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 
-const Modal = lazy(() => import("@demo/atomicui/atoms/Modal").then(module => ({ default: module.Modal })));
+const Modal = lazy(() => import("@api-playground/atomicui/atoms/Modal").then(module => ({ default: module.Modal })));
 
 const {
 	API_KEYS,

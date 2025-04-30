@@ -3,9 +3,9 @@
 
 import { useMemo } from "react";
 
+import { appConfig } from "@api-playground/core/constants";
+import { useClient } from "@api-playground/hooks";
 import { BatchEvaluateGeofencesRequest, ListGeofencesRequest } from "@aws-sdk/client-location";
-import { appConfig } from "@demo/core/constants";
-import { useClient } from "@demo/hooks";
 
 const {
 	MAP_RESOURCES: { GEOFENCE_COLLECTION, DEVICE_ID_WEB }

@@ -3,8 +3,8 @@
 
 import { FC } from "react";
 
+import { LogoSmall } from "@api-playground/assets/svgs";
 import { Flex, View, ViewProps } from "@aws-amplify/ui-react";
-import { LogoSmall } from "@demo/assets/svgs";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 

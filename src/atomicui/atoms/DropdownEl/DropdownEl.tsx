@@ -3,9 +3,9 @@
 
 import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 
+import { IconArrow } from "@api-playground/assets/svgs";
+import { SelectOption } from "@api-playground/types";
 import { CheckboxField, Radio, RadioGroupField } from "@aws-amplify/ui-react";
-import { IconArrow } from "@demo/assets/svgs";
-import { SelectOption } from "@demo/types";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 export interface DropdownElProps {

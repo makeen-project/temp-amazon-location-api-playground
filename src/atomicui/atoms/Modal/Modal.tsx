@@ -3,8 +3,8 @@
 
 import { FC, ReactNode } from "react";
 
+import { IconClose } from "@api-playground/assets/svgs";
 import { Card, CardProps, Flex } from "@aws-amplify/ui-react";
-import { IconClose } from "@demo/assets/svgs";
 import "./styles.scss";
 
 interface ModalProps extends CardProps {

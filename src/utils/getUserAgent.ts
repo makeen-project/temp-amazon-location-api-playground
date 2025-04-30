@@ -1,7 +1,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { UserAgentEnum } from "@demo/types";
+import { UserAgentEnum } from "@api-playground/types";
 
 const { IOS, ANDROID } = UserAgentEnum;
 

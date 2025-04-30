@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { View } from "@aws-amplify/ui-react";
-import i18n from "@demo/locales/i18n";
+import i18n from "@api-playground/locales/i18n";
 import { faker } from "@faker-js/faker";
 import { RenderResult, act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";

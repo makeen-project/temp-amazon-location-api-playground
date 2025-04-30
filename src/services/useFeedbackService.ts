@@ -3,7 +3,7 @@
 
 import { useMemo } from "react";
 
-import { appConfig } from "@demo/core/constants";
+import { appConfig } from "@api-playground/core/constants";
 import { useTranslation } from "react-i18next";
 
 const {

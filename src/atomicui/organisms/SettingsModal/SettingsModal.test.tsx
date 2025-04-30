@@ -1,7 +1,7 @@
-import { MapButtons } from "@demo/atomicui/molecules";
-import { MapButtonsProps } from "@demo/atomicui/molecules/MapButtons/MapButtons";
-import i18n from "@demo/locales/i18n";
-import { SettingOptionEnum } from "@demo/types";
+import { MapButtons } from "@api-playground/atomicui/molecules";
+import { MapButtonsProps } from "@api-playground/atomicui/molecules/MapButtons/MapButtons";
+import i18n from "@api-playground/locales/i18n";
+import { SettingOptionEnum } from "@api-playground/types";
 import { RenderResult, act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
 

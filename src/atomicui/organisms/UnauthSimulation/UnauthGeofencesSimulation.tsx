@@ -1,8 +1,8 @@
 import { FC, memo, useCallback, useEffect, useMemo, useState, useTransition } from "react";
 
+import { useGeofence } from "@api-playground/hooks";
 import { View } from "@aws-amplify/ui-react";
 import { ListGeofenceResponseEntry } from "@aws-sdk/client-location";
-import { useGeofence } from "@demo/hooks";
 import * as turf from "@turf/turf";
 import { Layer, Source } from "react-map-gl/maplibre";
 

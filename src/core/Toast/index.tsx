@@ -1,7 +1,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { ToastType } from "@demo/types";
+import { ToastType } from "@api-playground/types";
 import { ToastContainer as RTToastContainer, toast } from "react-toastify";
 import "./styles.scss";
 

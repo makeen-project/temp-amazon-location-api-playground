@@ -3,20 +3,30 @@
 
 import { lazy } from "react";
 
-import { appConfig } from "@demo/core/constants";
+import { appConfig } from "@api-playground/core/constants";
 import { Navigate, RouteObject } from "react-router-dom";
 
 const {
-	ROUTES: { ERROR_BOUNDARY, DEFAULT, DEMO, API_PLAYGROUND, API_PLAYGROUND_DETAILS }
+	ROUTES: { ERROR_BOUNDARY, DEFAULT, DEMO }
 } = appConfig;
 
-const DemoPage = lazy(() => import("@demo/atomicui/pages/DemoPage").then(module => ({ default: module.DemoPage })));
-const ApiPlaygroundListPage = lazy(() =>
-	import("@demo/atomicui/pages/ApiPlaygroundListPage").then(module => ({ default: module.ApiPlaygroundListPage }))
+// const {
+// 	ROUTES: { ERROR_BOUNDARY, DEFAULT, DEMO, API_PLAYGROUND, API_PLAYGROUND_DETAILS }
+// } = appConfig;
+
+const DemoPage = lazy(() =>
+	import("@api-playground/atomicui/pages/DemoPage").then(module => ({ default: module.DemoPage }))
 );
-const ApiPlaygroundDetailsPage = lazy(() =>
-	import("@demo/atomicui/pages/ApiPlaygroundDetailsPage").then(module => ({ default: module.ApiPlaygroundDetailsPage }))
-);
+// const ApiPlaygroundListPage = lazy(() =>
+// 	import("@api-playground/atomicui/pages/ApiPlaygroundListPage").then(module => ({
+// 		default: module.ApiPlaygroundListPage
+// 	}))
+// );
+// const ApiPlaygroundDetailsPage = lazy(() =>
+// 	import("@api-playground/atomicui/pages/ApiPlaygroundDetailsPage").then(module => ({
+// 		default: module.ApiPlaygroundDetailsPage
+// 	}))
+// );
 
 const RouteChunks: RouteObject[] = [
 	{
@@ -27,17 +37,17 @@ const RouteChunks: RouteObject[] = [
 		path: DEMO,
 		element: <DemoPage />,
 		errorElement: <Navigate to={ERROR_BOUNDARY} />
-	},
-	{
-		path: API_PLAYGROUND,
-		element: <ApiPlaygroundListPage />,
-		errorElement: <Navigate to={ERROR_BOUNDARY} />
-	},
-	{
-		path: API_PLAYGROUND_DETAILS,
-		element: <ApiPlaygroundDetailsPage />,
-		errorElement: <Navigate to={ERROR_BOUNDARY} />
 	}
+	// {
+	// 	path: API_PLAYGROUND,
+	// 	element: <ApiPlaygroundListPage />,
+	// 	errorElement: <Navigate to={ERROR_BOUNDARY} />
+	// },
+	// {
+	// 	path: API_PLAYGROUND_DETAILS,
+	// 	element: <ApiPlaygroundDetailsPage />,
+	// 	errorElement: <Navigate to={ERROR_BOUNDARY} />
+	// }
 ];
 
 export default RouteChunks;

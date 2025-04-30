@@ -1,6 +1,6 @@
 import { Dispatch, FC, SetStateAction } from "react";
 
-import { useMediaQuery } from "@demo/hooks";
+import { useMediaQuery } from "@api-playground/hooks";
 import { BottomSheet as ReactSpringBottomSheet } from "react-spring-bottom-sheet";
 import "./styles.scss";
 

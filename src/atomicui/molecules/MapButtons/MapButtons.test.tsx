@@ -1,5 +1,5 @@
-import i18n from "@demo/locales/i18n";
-import { MapStyleEnum } from "@demo/types";
+import i18n from "@api-playground/locales/i18n";
+import { MapStyleEnum } from "@api-playground/types";
 import { faker } from "@faker-js/faker";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
@@ -52,7 +52,7 @@ const mockUseUnauthSimulationData = {
 	setHideGeofenceTrackerShortcut: jest.fn()
 };
 
-jest.mock("@demo/hooks", () => ({
+jest.mock("@api-playground/hooks", () => ({
 	useAuth: () => mockUseAuthData,
 	useMap: () => mockUseMapData,
 	useUnauthSimulation: () => mockUseUnauthSimulationData

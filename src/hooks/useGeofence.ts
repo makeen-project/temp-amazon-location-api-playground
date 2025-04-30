@@ -3,12 +3,12 @@
 
 import { useMemo } from "react";
 
+import { useGeofenceService } from "@api-playground/services";
+import { useAuthStore, useGeofenceStore } from "@api-playground/stores";
+import { EventTypeEnum, NotificationHistoryItemtype } from "@api-playground/types";
+import { record } from "@api-playground/utils/analyticsUtils";
+import { errorHandler } from "@api-playground/utils/errorHandler";
 import { ListGeofenceResponseEntry } from "@aws-sdk/client-location";
-import { useGeofenceService } from "@demo/services";
-import { useAuthStore, useGeofenceStore } from "@demo/stores";
-import { EventTypeEnum, NotificationHistoryItemtype } from "@demo/types";
-import { record } from "@demo/utils/analyticsUtils";
-import { errorHandler } from "@demo/utils/errorHandler";
 import { useTranslation } from "react-i18next";
 
 const useGeofence = () => {

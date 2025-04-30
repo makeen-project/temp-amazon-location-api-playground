@@ -1,4 +1,4 @@
-import { MapUnitEnum } from "@demo/types";
+import { MapUnitEnum } from "@api-playground/types";
 
 export const getConvertedDistance = (mapUnit: MapUnitEnum, distance: number) => {
 	const d = mapUnit === MapUnitEnum.METRIC ? distance / 1000 : distance / 1609;

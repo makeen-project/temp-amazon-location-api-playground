@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { appConfig } from "@demo/core/constants";
-import { ApiListData } from "@demo/types";
-import { errorHandler } from "@demo/utils";
+import { appConfig } from "@api-playground/core/constants";
+import { ApiListData } from "@api-playground/types";
+import { errorHandler } from "@api-playground/utils";
 import { useTranslation } from "react-i18next";
 
 const {

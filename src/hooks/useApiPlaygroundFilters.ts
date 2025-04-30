@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 
-// import { EventTypeEnum } from "@demo/types/Enums";
-// import { debounce, record } from "@demo/utils";
+// import { EventTypeEnum } from "@api-playground/types/Enums";
+// import { debounce, record } from "@api-playground/utils";
 
-import { ApiListData } from "@demo/types";
+import { ApiListData } from "@api-playground/types";
 
 import useApiPlaygroundList from "./useApiPlaygroundList";
 
@@ -21,29 +21,29 @@ const useApiPlaygroundFilters = () => {
 	const [filteredApiListData, setFilteredApiListData] = useState<ApiListData | null>(null);
 	const { isFetching, apiListData } = useApiPlaygroundList();
 
-	const filterBySearch = useCallback(() => {
-		setIsFiltering(true);
-		const filteredObj: ApiListData = {};
+	// const filterBySearch = useCallback(() => {
+	// 	setIsFiltering(true);
+	// 	const filteredObj: ApiListData = {};
 
-		for (const category in apiListData) {
-			const filteredItems = apiListData[category].filter(
-				({ title, description }) => title.includes(searchText) || (description && description.includes(searchText))
-			);
+	// 	for (const category in apiListData) {
+	// 		const filteredItems = apiListData[category].filter(
+	// 			({ title, description }) => title.includes(searchText) || (description && description.includes(searchText))
+	// 		);
 
-			if (filteredItems.length > 0) {
-				filteredObj[category] = filteredItems;
-			}
-		}
+	// 		if (filteredItems.length > 0) {
+	// 			filteredObj[category] = filteredItems;
+	// 		}
+	// 	}
 
-		setFilteredApiListData(filteredObj);
-		setIsFiltering(false);
-	}, [apiListData, searchText]);
+	// 	setFilteredApiListData(filteredObj);
+	// 	setIsFiltering(false);
+	// }, [apiListData, searchText]);
 
-	useEffect(() => {
-		if (!isFetching && !!apiListData && !!searchText) {
-			filterBySearch();
-		}
-	}, [isFetching, apiListData, searchText, filterBySearch]);
+	// useEffect(() => {
+	// 	if (!isFetching && !!apiListData && !!searchText) {
+	// 		filterBySearch();
+	// 	}
+	// }, [isFetching, apiListData, searchText, filterBySearch]);
 
 	return { isFiltering, setIsFiltering, searchText, setSearchText, filteredApiListData };
 };

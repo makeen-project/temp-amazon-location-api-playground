@@ -1,14 +1,14 @@
 import { FC, lazy } from "react";
 
+import { IconBellSolid, IconGeofenceMarkerDisabled } from "@api-playground/assets/svgs";
+import { NotificationHistoryItemtype } from "@api-playground/types";
 import { Flex, Text } from "@aws-amplify/ui-react";
-import { IconBellSolid, IconGeofenceMarkerDisabled } from "@demo/assets/svgs";
-import { NotificationHistoryItemtype } from "@demo/types";
 import { format } from "date-fns";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 
 const IconicInfoCard = lazy(() =>
-	import("@demo/atomicui/molecules/IconicInfoCard").then(module => ({ default: module.IconicInfoCard }))
+	import("@api-playground/atomicui/molecules/IconicInfoCard").then(module => ({ default: module.IconicInfoCard }))
 );
 
 interface NotificationsBoxProps {

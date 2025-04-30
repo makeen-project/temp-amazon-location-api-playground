@@ -26,7 +26,7 @@ if (typeof window?.matchMedia === "undefined") {
 	});
 }
 
-jest.mock("@demo/core/constants/appConfig", () => ({
+jest.mock("@api-playground/core/constants/appConfig", () => ({
 	API_KEYS: {
 		"XX-XXXX-X": "v1.public.XXXXXXXXXXXXXXX"
 	},
@@ -368,12 +368,12 @@ jest.mock("@demo/core/constants/appConfig", () => ({
 	}
 }));
 
-jest.mock("@demo/utils/analyticsUtils", () => ({
+jest.mock("@api-playground/utils/analyticsUtils", () => ({
 	record: () => {},
 	initiateAnalytics: () => {}
 }));
 
-jest.mock("@demo/utils/countryUtil", () => ({
+jest.mock("@api-playground/utils/countryUtil", () => ({
 	getCountryCode: () => "PK"
 }));
 
@@ -387,7 +387,7 @@ jest.mock("react-map-gl/maplibre", () => ({
 	useControl: jest.fn()
 }));
 
-jest.mock("@demo/hooks/useDeviceMediaQuery", () => {
+jest.mock("@api-playground/hooks/useDeviceMediaQuery", () => {
 	return {
 		__esModule: true,
 		default: () => ({

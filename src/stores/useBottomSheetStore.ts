@@ -1,8 +1,8 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { IStateProps } from "@demo/types";
-import { ResponsiveUIEnum } from "@demo/types/Enums";
+import { IStateProps } from "@api-playground/types";
+import { ResponsiveUIEnum } from "@api-playground/types/Enums";
 
 import createStore from "./createStore";
 

@@ -3,11 +3,9 @@
 
 import { FC, MutableRefObject, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { Flex, View } from "@aws-amplify/ui-react";
-import { decodeToLineStringFeature } from "@aws/polyline";
-import { IconLocateMe, LogoDark, LogoLight } from "@demo/assets/svgs";
-import { SearchBox } from "@demo/atomicui/organisms/SearchBox";
-import { appConfig } from "@demo/core/constants";
+import { IconLocateMe, LogoDark, LogoLight } from "@api-playground/assets/svgs";
+import { SearchBox } from "@api-playground/atomicui/organisms/SearchBox";
+import { appConfig } from "@api-playground/core/constants";
 import {
 	useAuthManager,
 	useMap,
@@ -16,13 +14,15 @@ import {
 	usePlace,
 	useRecordViewPage,
 	useRoute
-} from "@demo/hooks";
-import useBottomSheet from "@demo/hooks/useBottomSheet";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { ShowStateType } from "@demo/types";
-import { MapColorSchemeEnum, ResponsiveUIEnum, TriggeredByEnum } from "@demo/types/Enums";
-import { getBoundsFromLineString } from "@demo/utils";
-import { errorHandler } from "@demo/utils/errorHandler";
+} from "@api-playground/hooks";
+import useBottomSheet from "@api-playground/hooks/useBottomSheet";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { ShowStateType } from "@api-playground/types";
+import { MapColorSchemeEnum, ResponsiveUIEnum, TriggeredByEnum } from "@api-playground/types/Enums";
+import { getBoundsFromLineString } from "@api-playground/utils";
+import { errorHandler } from "@api-playground/utils/errorHandler";
+import { Flex, View } from "@aws-amplify/ui-react";
+import { decodeToLineStringFeature } from "@aws/polyline";
 import { LineString } from "@turf/turf";
 import type { GeolocateControl as GeolocateControlRef } from "maplibre-gl";
 import { useTranslation } from "react-i18next";
@@ -39,57 +39,57 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import "./styles.scss";
 
 const DemoPlaceholderPage = lazy(() =>
-	import("@demo/atomicui/pages/DemoPlaceholderPage").then(module => ({
+	import("@api-playground/atomicui/pages/DemoPlaceholderPage").then(module => ({
 		default: module.DemoPlaceholderPage
 	}))
 );
 const WelcomeModal = lazy(() =>
-	import("@demo/atomicui/molecules/WelcomeModal").then(module => ({
+	import("@api-playground/atomicui/molecules/WelcomeModal").then(module => ({
 		default: module.WelcomeModal
 	}))
 );
 const MapButtons = lazy(() =>
-	import("@demo/atomicui/molecules/MapButtons").then(module => ({
+	import("@api-playground/atomicui/molecules/MapButtons").then(module => ({
 		default: module.MapButtons
 	}))
 );
 const Sidebar = lazy(() =>
-	import("@demo/atomicui/organisms/Sidebar").then(module => ({
+	import("@api-playground/atomicui/organisms/Sidebar").then(module => ({
 		default: module.Sidebar
 	}))
 );
 const RouteBox = lazy(() =>
-	import("@demo/atomicui/organisms/RouteBox").then(module => ({
+	import("@api-playground/atomicui/organisms/RouteBox").then(module => ({
 		default: module.RouteBox
 	}))
 );
 const UnauthSimulation = lazy(() =>
-	import("@demo/atomicui/organisms/UnauthSimulation").then(module => ({
+	import("@api-playground/atomicui/organisms/UnauthSimulation").then(module => ({
 		default: module.UnauthSimulation
 	}))
 );
 const ResponsiveBottomSheet = lazy(() =>
-	import("@demo/atomicui/organisms/ResponsiveBottomSheet").then(module => ({
+	import("@api-playground/atomicui/organisms/ResponsiveBottomSheet").then(module => ({
 		default: module.ResponsiveBottomSheet
 	}))
 );
 const SettingsModal = lazy(() =>
-	import("@demo/atomicui/organisms/SettingsModal").then(module => ({
+	import("@api-playground/atomicui/organisms/SettingsModal").then(module => ({
 		default: module.SettingsModal
 	}))
 );
 const AboutModal = lazy(() =>
-	import("@demo/atomicui/organisms/AboutModal").then(module => ({
+	import("@api-playground/atomicui/organisms/AboutModal").then(module => ({
 		default: module.AboutModal
 	}))
 );
 const FeedbackModal = lazy(() =>
-	import("@demo/atomicui/molecules/FeedbackModal").then(module => ({
+	import("@api-playground/atomicui/molecules/FeedbackModal").then(module => ({
 		default: module.FeedbackModal
 	}))
 );
 const UnauthSimulationExitModal = lazy(() =>
-	import("@demo/atomicui/molecules/ConfirmationModal").then(module => ({
+	import("@api-playground/atomicui/molecules/ConfirmationModal").then(module => ({
 		default: module.ConfirmationModal
 	}))
 );

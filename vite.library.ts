@@ -29,16 +29,16 @@ export default defineConfig(() => {
 		},
 		resolve: {
 			alias: {
-				"@demo/assets": resolve(__dirname, "./src/assets"),
-				"@demo/core": resolve(__dirname, "./src/core"),
-				"@demo/atomicui": resolve(__dirname, "./src/atomicui"),
-				"@demo/hooks": resolve(__dirname, "./src/hooks"),
-				"@demo/services": resolve(__dirname, "./src/services"),
-				"@demo/stores": resolve(__dirname, "./src/stores"),
-				"@demo/types": resolve(__dirname, "./src/types"),
-				"@demo/theme": resolve(__dirname, "./src/theme"),
-				"@demo/utils": resolve(__dirname, "./src/utils"),
-				"@demo/locales": resolve(__dirname, "./src/locales"),
+				"@api-playground/assets": resolve(__dirname, "./src/assets"),
+				"@api-playground/core": resolve(__dirname, "./src/core"),
+				"@api-playground/atomicui": resolve(__dirname, "./src/atomicui"),
+				"@api-playground/hooks": resolve(__dirname, "./src/hooks"),
+				"@api-playground/services": resolve(__dirname, "./src/services"),
+				"@api-playground/stores": resolve(__dirname, "./src/stores"),
+				"@api-playground/types": resolve(__dirname, "./src/types"),
+				"@api-playground/theme": resolve(__dirname, "./src/theme"),
+				"@api-playground/utils": resolve(__dirname, "./src/utils"),
+				"@api-playground/locales": resolve(__dirname, "./src/locales"),
 				"./runtimeConfig": "./runtimeConfig.browser"
 			}
 		},
@@ -53,53 +53,13 @@ export default defineConfig(() => {
 				fileName: (format, name) => `${name}.${format}.js`
 			},
 			rollupOptions: {
-				external: [
-					/* Core deps */
-					"@aws-amplify/ui-react",
-					"@aws-sdk/client-cognito-identity",
-					"@@aws-sdk/client-geo-places",
-					"@aws-sdk/client-geo-routes",
-					"@aws-sdk/client-iot",
-					"@aws-sdk/client-location",
-					"@aws-sdk/client-pinpoint",
-					"@aws-sdk/credential-providers",
-					"@aws/amazon-location-utilities-auth-helper",
-					"@aws/polyline",
-					"@turf/turf",
-					"aws-amplify",
-					"aws-iot-device-sdk-v2",
-					"date-fns",
-					"i18next",
-					"i18next-browser-languagedetector",
-					"maplibre-gl",
-					"ngeohash",
-					"ramda",
-					"react",
-					"react-device-detect",
-					"react-dom",
-					"react-i18next",
-					"react-map-gl",
-					"react-router-dom",
-					"react-spring-bottom-sheet",
-					"react-toastify",
-					"react-tooltip",
-					"zustand",
-					/* Other deps */
-					"react/jsx-runtime",
-					"zustand/middleware",
-					"@turf/distance",
-					"@mapbox/mapbox-gl-draw",
-					"react/jsx-dev-runtime",
-					"mapbox-gl",
-					"styled-components"
-				],
 				output: {
 					globals: {
 						react: "React",
 						"react-dom": "ReactDOM"
 					},
 					assetFileNames: chunkInfo =>
-						chunkInfo.names.includes("amazon-location-features-demo-web.css") ? "style.css" : chunkInfo.names.join("-")
+						chunkInfo.names.includes("temp-amazon-location-api-playground.css") ? "style.css" : chunkInfo.names.join("-")
 				}
 			}
 		},

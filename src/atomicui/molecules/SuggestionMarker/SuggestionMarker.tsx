@@ -3,12 +3,12 @@
 
 import { FC, memo, useCallback, useEffect, useMemo, useState } from "react";
 
+import { IconSelected, IconSuggestion } from "@api-playground/assets/svgs";
+import { Popup } from "@api-playground/atomicui/molecules";
+import { usePlace } from "@api-playground/hooks";
+import { SuggestionType } from "@api-playground/types";
 import { View } from "@aws-amplify/ui-react";
 import { GetPlaceCommandOutput } from "@aws-sdk/client-geo-places";
-import { IconSelected, IconSuggestion } from "@demo/assets/svgs";
-import { Popup } from "@demo/atomicui/molecules";
-import { usePlace } from "@demo/hooks";
-import { SuggestionType } from "@demo/types";
 import { Marker } from "react-map-gl/maplibre";
 
 interface Props extends SuggestionType {

@@ -3,12 +3,12 @@
 
 import { FC, memo, useRef } from "react";
 
+import { useMap } from "@api-playground/hooks";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { MapUnitEnum, TravelMode } from "@api-playground/types";
+import { getConvertedDistance } from "@api-playground/utils";
 import { Flex, Text, View } from "@aws-amplify/ui-react";
 import { RouteFerryTravelStep, RoutePedestrianTravelStep, RouteVehicleTravelStep } from "@aws-sdk/client-geo-routes";
-import { useMap } from "@demo/hooks";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { MapUnitEnum, TravelMode } from "@demo/types";
-import { getConvertedDistance } from "@demo/utils";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 

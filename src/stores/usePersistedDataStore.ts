@@ -1,8 +1,8 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { appConfig } from "@demo/core/constants";
-import { IStateProps, RouteOptionsType, SettingOptionEnum } from "@demo/types";
+import { appConfig } from "@api-playground/core/constants";
+import { IStateProps, RouteOptionsType, SettingOptionEnum } from "@api-playground/types";
 
 import createStore from "./createStore";
 

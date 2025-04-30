@@ -1,10 +1,10 @@
 import { MutableRefObject, useCallback, useEffect, useMemo, useState } from "react";
 
-import { showToast } from "@demo/core/Toast";
-import { appConfig } from "@demo/core/constants";
-import { MapStyleEnum, ToastType } from "@demo/types/Enums";
-import { getStyleWithPreferredLanguage, normalizeLng } from "@demo/utils";
-import { getCurrentLocation } from "@demo/utils/getCurrentLocation";
+import { showToast } from "@api-playground/core/Toast";
+import { appConfig } from "@api-playground/core/constants";
+import { MapStyleEnum, ToastType } from "@api-playground/types/Enums";
+import { getStyleWithPreferredLanguage, normalizeLng } from "@api-playground/utils";
+import { getCurrentLocation } from "@api-playground/utils/getCurrentLocation";
 import type { GeolocateControl as GeolocateControlRef } from "maplibre-gl";
 import { omit } from "ramda";
 import { useTranslation } from "react-i18next";

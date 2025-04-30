@@ -3,11 +3,11 @@
 
 import { useMemo } from "react";
 
+import { useClientService } from "@api-playground/services";
+import { useClientStore } from "@api-playground/stores";
+import { CognitoIdentityCredentials } from "@api-playground/types";
+import { errorHandler } from "@api-playground/utils/errorHandler";
 import { LocationClientConfig } from "@aws/amazon-location-utilities-auth-helper";
-import { useClientService } from "@demo/services";
-import { useClientStore } from "@demo/stores";
-import { CognitoIdentityCredentials } from "@demo/types";
-import { errorHandler } from "@demo/utils/errorHandler";
 import { useTranslation } from "react-i18next";
 
 const useClient = () => {

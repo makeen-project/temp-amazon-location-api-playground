@@ -1,5 +1,5 @@
 import { View } from "@aws-amplify/ui-react";
-import i18n from "@demo/locales/i18n";
+import i18n from "@api-playground/locales/i18n";
 import { faker } from "@faker-js/faker";
 import { act, fireEvent, render } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";

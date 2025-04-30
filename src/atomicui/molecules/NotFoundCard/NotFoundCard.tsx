@@ -3,8 +3,8 @@
 
 import { FC, ReactNode } from "react";
 
+import { IconSearch } from "@api-playground/assets/svgs";
 import { Text, View } from "@aws-amplify/ui-react";
-import { IconSearch } from "@demo/assets/svgs";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 

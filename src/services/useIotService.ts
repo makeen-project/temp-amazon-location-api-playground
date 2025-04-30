@@ -3,8 +3,8 @@
 
 import { useMemo } from "react";
 
+import { useClient } from "@api-playground/hooks";
 import { AttachPolicyRequest } from "@aws-sdk/client-iot";
-import { useClient } from "@demo/hooks";
 
 const useIotService = () => {
 	const { iotClient } = useClient();

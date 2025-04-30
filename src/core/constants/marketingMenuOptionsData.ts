@@ -1,12 +1,12 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import IconCodeMenu from "@demo/assets/svgs/icon-code-menu-icon.svg";
-import IconDollarSolid from "@demo/assets/svgs/icon-dollar-solid.svg";
-import IconSwap from "@demo/assets/svgs/icon-swap.svg";
+import IconCodeMenu from "@api-playground/assets/svgs/icon-code-menu-icon.svg";
+import IconDollarSolid from "@api-playground/assets/svgs/icon-dollar-solid.svg";
+import IconSwap from "@api-playground/assets/svgs/icon-swap.svg";
 
-import appConfig from "@demo/core/constants/appConfig";
-import { MenuItem } from "@demo/types";
+import appConfig from "@api-playground/core/constants/appConfig";
+import { MenuItem } from "@api-playground/types";
 
 const {
 	ENV: {

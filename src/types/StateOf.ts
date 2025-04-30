@@ -3,7 +3,7 @@
 
 import { Context, ContextType } from "react";
 
-import { IContextProps } from "@demo/types";
+import { IContextProps } from "@api-playground/types";
 
 import KeysOfPropsOfType from "./KeysOfPropsOfType";
 

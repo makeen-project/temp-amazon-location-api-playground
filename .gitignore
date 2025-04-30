@@ -10,7 +10,7 @@ lerna-debug.log*
 # Non-editor directories
 node_modules
 lib
-demo-app-lib
+api-playground-app-lib
 dist
 dist-ssr
 *.local

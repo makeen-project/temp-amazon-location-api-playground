@@ -3,7 +3,6 @@
 
 import { FC, Fragment, MutableRefObject, lazy, useCallback, useMemo, useState } from "react";
 
-import { Flex } from "@aws-amplify/ui-react";
 import {
 	IconArrow,
 	IconBrandAndroid,
@@ -25,13 +24,14 @@ import {
 	IconRoute,
 	IconTravelHospitality,
 	IconTruckSolid
-} from "@demo/assets/svgs";
-import { appConfig } from "@demo/core/constants";
-import BottomSheetHeights from "@demo/core/constants/bottomSheetHeights";
-import { useUnauthSimulation } from "@demo/hooks";
-import useBottomSheet from "@demo/hooks/useBottomSheet";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { ResponsiveUIEnum } from "@demo/types/Enums";
+} from "@api-playground/assets/svgs";
+import { appConfig } from "@api-playground/core/constants";
+import BottomSheetHeights from "@api-playground/core/constants/bottomSheetHeights";
+import { useUnauthSimulation } from "@api-playground/hooks";
+import useBottomSheet from "@api-playground/hooks/useBottomSheet";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { ResponsiveUIEnum } from "@api-playground/types/Enums";
+import { Flex } from "@aws-amplify/ui-react";
 import { isAndroid, isIOS } from "react-device-detect";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -39,10 +39,10 @@ import { RefHandles } from "react-spring-bottom-sheet/dist/types";
 import "./styles.scss";
 
 const ExploreButton = lazy(() =>
-	import("@demo/atomicui/atoms/ExploreButton").then(module => ({ default: module.ExploreButton }))
+	import("@api-playground/atomicui/atoms/ExploreButton").then(module => ({ default: module.ExploreButton }))
 );
 const IconicInfoCard = lazy(() =>
-	import("@demo/atomicui/molecules/IconicInfoCard").then(module => ({ default: module.IconicInfoCard }))
+	import("@api-playground/atomicui/molecules/IconicInfoCard").then(module => ({ default: module.IconicInfoCard }))
 );
 
 const {

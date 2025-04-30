@@ -1,8 +1,8 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { Hybrid, Monochrome, Satellite, Standard } from "@demo/assets/pngs";
-import { MapColorSchemeEnum, MapStyleEnum } from "@demo/types/Enums";
+import { Hybrid, Monochrome, Satellite, Standard } from "@api-playground/assets/pngs";
+import { MapColorSchemeEnum, MapStyleEnum } from "@api-playground/types/Enums";
 
 const getEnv = (key: string) => {
 	return import.meta.env[key];
@@ -51,7 +51,11 @@ const appConfig = {
 		MIGRATE_AN_IOS_APP_PAGE: !!parseInt(String(getEnv("VITE_MIGRATE_AN_IOS_APP_PAGE"))),
 		MIGRATE_A_WEB_SERVICE_PAGE: !!parseInt(String(getEnv("VITE_MIGRATE_A_WEB_SERVICE_PAGE"))),
 		PRICING_PAGE: !!parseInt(String(getEnv("VITE_PRICING_PAGE"))),
-		SHOW_NEW_NAVIGATION: !!parseInt(String(getEnv("VITE_SHOW_NEW_NAVIGATION")))
+		SHOW_NEW_NAVIGATION: !!parseInt(String(getEnv("VITE_SHOW_NEW_NAVIGATION"))),
+		API_PLAYGROUND_PAGE: getEnv("VITE_API_PLAYGROUND_PAGE"),
+		API_PLAYGROUND_URL: getEnv("VITE_API_PLAYGROUND_URL"),
+		API_PLAYGROUND_LIST_FILENAME: getEnv("VITE_API_PLAYGROUND_LIST_FILENAME"),
+		API_PLAYGROUND_IDENTITY_POOL_ID: getEnv("VITE_API_PLAYGROUND_IDENTITY_POOL_ID")
 	},
 	PERSIST_STORAGE_KEYS: {
 		LOCAL_STORAGE_PREFIX: "amazon-location_",
@@ -81,7 +85,9 @@ const appConfig = {
 		MIGRATE_AN_ANDROID_APP: "/migrate-an-android-app",
 		MIGRATE_AN_IOS_APP: "/migrate-an-ios-app",
 		MIGRATE_A_WEB_SERVICE: "/migrate-a-web-service",
-		PRICING: "/pricing"
+		PRICING: "/pricing",
+		API_PLAYGROUND: "/api-playground",
+		API_PLAYGROUND_DETAILS: "/api-playground/:apiId"
 	},
 	GET_PARAMS: {
 		NL_TOGGLE: "nl"

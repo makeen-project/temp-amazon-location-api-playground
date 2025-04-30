@@ -3,12 +3,12 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { showToast } from "@demo/core/Toast";
-import { useAuth, useGeofence } from "@demo/hooks";
-import i18n from "@demo/locales/i18n";
-import { EventTypeEnum, MqttConnectionState, NotificationHistoryItemtype, ToastType } from "@demo/types";
-import { record } from "@demo/utils/analyticsUtils";
-import { getDomainName } from "@demo/utils/getDomainName";
+import { showToast } from "@api-playground/core/Toast";
+import { useAuth, useGeofence } from "@api-playground/hooks";
+import i18n from "@api-playground/locales/i18n";
+import { EventTypeEnum, MqttConnectionState, NotificationHistoryItemtype, ToastType } from "@api-playground/types";
+import { record } from "@api-playground/utils/analyticsUtils";
+import { getDomainName } from "@api-playground/utils/getDomainName";
 import { iot, mqtt } from "aws-iot-device-sdk-v2";
 import { equals } from "ramda";
 

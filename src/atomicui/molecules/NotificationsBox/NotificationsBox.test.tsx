@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NotificationHistoryItemtype } from "@demo/types";
+import { NotificationHistoryItemtype } from "@api-playground/types";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import "@testing-library/jest-dom/extend-expect";

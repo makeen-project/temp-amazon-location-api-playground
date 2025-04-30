@@ -1,7 +1,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { appConfig } from "@demo/core/constants";
+import { appConfig } from "@api-playground/core/constants";
 import {
 	CurrentLocationDataType,
 	IStateProps,
@@ -9,7 +9,7 @@ import {
 	MapStyleEnum,
 	MapUnitEnum,
 	ViewPointType
-} from "@demo/types";
+} from "@api-playground/types";
 
 import createStore from "./createStore";
 

@@ -3,16 +3,16 @@
 
 import { FC, lazy } from "react";
 
+import { IconClose, IconCompass, IconGear, IconInfo, IconRadar } from "@api-playground/assets/svgs";
+import { appConfig, marketingMenuOptionsData } from "@api-playground/core/constants";
+import { useUnauthSimulation } from "@api-playground/hooks";
 import { Button, Card, Flex, Text, View } from "@aws-amplify/ui-react";
-import { IconClose, IconCompass, IconGear, IconInfo, IconRadar } from "@demo/assets/svgs";
-import { appConfig, marketingMenuOptionsData } from "@demo/core/constants";
-import { useUnauthSimulation } from "@demo/hooks";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import "./styles.scss";
 
-const List = lazy(() => import("@demo/atomicui/atoms/List").then(module => ({ default: module.List })));
-const Logo = lazy(() => import("@demo/atomicui/atoms/Logo").then(module => ({ default: module.Logo })));
+const List = lazy(() => import("@api-playground/atomicui/atoms/List").then(module => ({ default: module.List })));
+const Logo = lazy(() => import("@api-playground/atomicui/atoms/Logo").then(module => ({ default: module.Logo })));
 
 const {
 	ROUTES: { DEFAULT, DEMO }

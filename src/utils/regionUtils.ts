@@ -1,4 +1,4 @@
-import { appConfig } from "@demo/core/constants";
+import { appConfig } from "@api-playground/core/constants";
 
 const { API_KEYS, PERSIST_STORAGE_KEYS } = appConfig;
 

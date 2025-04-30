@@ -15,16 +15,16 @@ import {
 	useState
 } from "react";
 
+import { IconClose, IconNotificationBell } from "@api-playground/assets/svgs";
+import { ConfirmationModal } from "@api-playground/atomicui/molecules";
+import appConfig from "@api-playground/core/constants/appConfig";
+import BottomSheetHeights from "@api-playground/core/constants/bottomSheetHeights";
+import { useGeofence, useMap, usePersistedData, useRoute, useUnauthSimulation } from "@api-playground/hooks";
+import useBottomSheet from "@api-playground/hooks/useBottomSheet";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { ShowStateType } from "@api-playground/types";
+import { MapColorSchemeEnum, ResponsiveUIEnum, SettingOptionEnum } from "@api-playground/types/Enums";
 import { Flex, Loader, Text } from "@aws-amplify/ui-react";
-import { IconClose, IconNotificationBell } from "@demo/assets/svgs";
-import { ConfirmationModal } from "@demo/atomicui/molecules";
-import appConfig from "@demo/core/constants/appConfig";
-import BottomSheetHeights from "@demo/core/constants/bottomSheetHeights";
-import { useGeofence, useMap, usePersistedData, useRoute, useUnauthSimulation } from "@demo/hooks";
-import useBottomSheet from "@demo/hooks/useBottomSheet";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { ShowStateType } from "@demo/types";
-import { MapColorSchemeEnum, ResponsiveUIEnum, SettingOptionEnum } from "@demo/types/Enums";
 import type { GeolocateControl as GeolocateControlRef } from "maplibre-gl";
 import { useTranslation } from "react-i18next";
 import { MapRef } from "react-map-gl/maplibre";

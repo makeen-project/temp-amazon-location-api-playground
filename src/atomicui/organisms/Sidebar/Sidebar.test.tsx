@@ -1,4 +1,4 @@
-import i18n from "@demo/locales/i18n";
+import i18n from "@api-playground/locales/i18n";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
 import { BrowserRouter } from "react-router-dom";

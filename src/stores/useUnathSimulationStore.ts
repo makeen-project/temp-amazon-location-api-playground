@@ -1,7 +1,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { IStateProps, SelectOption, TrackingHistoryType } from "@demo/types";
+import { IStateProps, SelectOption, TrackingHistoryType } from "@api-playground/types";
 
 import createStore from "./createStore";
 

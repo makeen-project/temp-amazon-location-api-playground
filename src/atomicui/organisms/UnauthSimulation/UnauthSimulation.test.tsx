@@ -1,4 +1,4 @@
-import i18n from "@demo/locales/i18n";
+import i18n from "@api-playground/locales/i18n";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import type { GeolocateControl as GeolocateControlRef } from "maplibre-gl";
 import { I18nextProvider } from "react-i18next";
@@ -23,7 +23,7 @@ const mockProps: UnauthSimulationProps = {
 	setConfirmCloseSimulation: jest.fn()
 };
 
-jest.mock("@demo/hooks", () => ({
+jest.mock("@api-playground/hooks", () => ({
 	useGeofence: () => ({
 		unauthNotifications: [
 			{
@@ -54,7 +54,7 @@ jest.mock("@demo/hooks", () => ({
 	})
 }));
 
-jest.mock("@demo/atomicui/molecules", () => ({
+jest.mock("@api-playground/atomicui/molecules", () => ({
 	ConfirmationModal: () => null,
 	IconicInfoCard: () => null,
 	NonStartUnauthSimulation: () => null,

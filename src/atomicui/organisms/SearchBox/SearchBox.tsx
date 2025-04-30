@@ -3,19 +3,19 @@
 
 import { ChangeEvent, FC, FormEvent, MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { IconActionMenu, IconClose, IconDirections } from "@api-playground/assets/svgs";
+import { NLSearchLoader } from "@api-playground/atomicui/atoms";
+import { InputField, Marker, NotFoundCard, SuggestionMarker } from "@api-playground/atomicui/molecules";
+import { appConfig } from "@api-playground/core/constants";
+import BottomSheetHeights from "@api-playground/core/constants/bottomSheetHeights";
+import { useMap, usePlace } from "@api-playground/hooks";
+import useBottomSheet from "@api-playground/hooks/useBottomSheet";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { DistanceUnitEnum, MapUnitEnum, SuggestionType } from "@api-playground/types";
+import { AnalyticsEventActionsEnum, ResponsiveUIEnum, TriggeredByEnum } from "@api-playground/types/Enums";
+import { getBoundsFromLineString } from "@api-playground/utils";
+import { calculateGeodesicDistance } from "@api-playground/utils/geoCalculation";
 import { Autocomplete, Badge, Button, Flex, Placeholder, Text, View } from "@aws-amplify/ui-react";
-import { IconActionMenu, IconClose, IconDirections } from "@demo/assets/svgs";
-import { NLSearchLoader } from "@demo/atomicui/atoms";
-import { InputField, Marker, NotFoundCard, SuggestionMarker } from "@demo/atomicui/molecules";
-import { appConfig } from "@demo/core/constants";
-import BottomSheetHeights from "@demo/core/constants/bottomSheetHeights";
-import { useMap, usePlace } from "@demo/hooks";
-import useBottomSheet from "@demo/hooks/useBottomSheet";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { DistanceUnitEnum, MapUnitEnum, SuggestionType } from "@demo/types";
-import { AnalyticsEventActionsEnum, ResponsiveUIEnum, TriggeredByEnum } from "@demo/types/Enums";
-import { getBoundsFromLineString } from "@demo/utils";
-import { calculateGeodesicDistance } from "@demo/utils/geoCalculation";
 import { Position, Units } from "@turf/turf";
 import { isAndroid, isIOS } from "react-device-detect";
 import { useTranslation } from "react-i18next";

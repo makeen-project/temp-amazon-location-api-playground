@@ -3,13 +3,13 @@
 
 import { FC, lazy } from "react";
 
+import { appConfig } from "@api-playground/core/constants";
 import { Text } from "@aws-amplify/ui-react";
-import { appConfig } from "@demo/core/constants";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 
 const ConfirmationModal = lazy(() =>
-	import("@demo/atomicui/molecules/ConfirmationModal").then(module => ({ default: module.ConfirmationModal }))
+	import("@api-playground/atomicui/molecules/ConfirmationModal").then(module => ({ default: module.ConfirmationModal }))
 );
 
 const {

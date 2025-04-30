@@ -3,15 +3,22 @@
 
 import { FC, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import {
+	IconClose,
+	IconDark,
+	IconGeofencePlusSolid,
+	IconLight,
+	IconMapSolid,
+	IconRadar
+} from "@api-playground/assets/svgs";
+import { MapLanguageDropdown, PoliticalViewDropdown } from "@api-playground/atomicui/atoms";
+import { appConfig } from "@api-playground/core/constants";
+import { useMap, useUnauthSimulation } from "@api-playground/hooks";
+import useBottomSheet from "@api-playground/hooks/useBottomSheet";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { EventTypeEnum, MapColorSchemeEnum, MapStyleEnum, ResponsiveUIEnum } from "@api-playground/types/Enums";
+import { record } from "@api-playground/utils/analyticsUtils";
 import { Card, Divider, Flex, Placeholder, Text } from "@aws-amplify/ui-react";
-import { IconClose, IconDark, IconGeofencePlusSolid, IconLight, IconMapSolid, IconRadar } from "@demo/assets/svgs";
-import { MapLanguageDropdown, PoliticalViewDropdown } from "@demo/atomicui/atoms";
-import { appConfig } from "@demo/core/constants";
-import { useMap, useUnauthSimulation } from "@demo/hooks";
-import useBottomSheet from "@demo/hooks/useBottomSheet";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { EventTypeEnum, MapColorSchemeEnum, MapStyleEnum, ResponsiveUIEnum } from "@demo/types/Enums";
-import { record } from "@demo/utils/analyticsUtils";
 import { useTranslation } from "react-i18next";
 import { Tooltip } from "react-tooltip";
 import "./styles.scss";

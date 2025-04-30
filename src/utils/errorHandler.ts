@@ -1,11 +1,11 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { showToast } from "@demo/core/Toast";
+import { showToast } from "@api-playground/core/Toast";
 
-import { appConfig } from "@demo/core/constants";
-import i18n from "@demo/locales/i18n";
-import { ToastType } from "@demo/types";
+import { appConfig } from "@api-playground/core/constants";
+import i18n from "@api-playground/locales/i18n";
+import { ToastType } from "@api-playground/types";
 
 import { clearStorage } from "./localstorageUtils";
 

@@ -3,13 +3,13 @@
 
 import { useMemo } from "react";
 
+import { useRouteService } from "@api-playground/services";
+import { useRouteStore } from "@api-playground/stores";
+import { InputType, RouteDataType, SuggestionType } from "@api-playground/types";
+import { EventTypeEnum, TriggeredByEnum } from "@api-playground/types/Enums";
+import { record } from "@api-playground/utils/analyticsUtils";
+import { errorHandler } from "@api-playground/utils/errorHandler";
 import { CalculateRoutesCommandInput } from "@aws-sdk/client-geo-routes";
-import { useRouteService } from "@demo/services";
-import { useRouteStore } from "@demo/stores";
-import { InputType, RouteDataType, SuggestionType } from "@demo/types";
-import { EventTypeEnum, TriggeredByEnum } from "@demo/types/Enums";
-import { record } from "@demo/utils/analyticsUtils";
-import { errorHandler } from "@demo/utils/errorHandler";
 import { useTranslation } from "react-i18next";
 
 const useRoute = () => {

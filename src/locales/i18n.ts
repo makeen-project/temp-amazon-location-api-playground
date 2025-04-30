@@ -1,19 +1,19 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { default as arTranslations } from "@demo/locales/ar/ar.json";
-import { default as deTranslations } from "@demo/locales/de/de.json";
-import { default as enTranslations } from "@demo/locales/en/en.json";
-import { default as esTranslations } from "@demo/locales/es/es.json";
-import { default as frTranslations } from "@demo/locales/fr/fr.json";
-import { default as heTranslations } from "@demo/locales/he/he.json";
-import { default as hiTranslations } from "@demo/locales/hi/hi.json";
-import { default as itTranslations } from "@demo/locales/it/it.json";
-import { default as jaTranslations } from "@demo/locales/ja/ja.json";
-import { default as koTranslations } from "@demo/locales/ko/ko.json";
-import { default as ptbrTranslations } from "@demo/locales/pt-BR/pt-BR.json";
-import { default as zhcnTranslations } from "@demo/locales/zh-CN/zh-CN.json";
-import { default as zhtwTranslations } from "@demo/locales/zh-TW/zh-TW.json";
+import { default as arTranslations } from "@api-playground/locales/ar/ar.json";
+import { default as deTranslations } from "@api-playground/locales/de/de.json";
+import { default as enTranslations } from "@api-playground/locales/en/en.json";
+import { default as esTranslations } from "@api-playground/locales/es/es.json";
+import { default as frTranslations } from "@api-playground/locales/fr/fr.json";
+import { default as heTranslations } from "@api-playground/locales/he/he.json";
+import { default as hiTranslations } from "@api-playground/locales/hi/hi.json";
+import { default as itTranslations } from "@api-playground/locales/it/it.json";
+import { default as jaTranslations } from "@api-playground/locales/ja/ja.json";
+import { default as koTranslations } from "@api-playground/locales/ko/ko.json";
+import { default as ptbrTranslations } from "@api-playground/locales/pt-BR/pt-BR.json";
+import { default as zhcnTranslations } from "@api-playground/locales/zh-CN/zh-CN.json";
+import { default as zhtwTranslations } from "@api-playground/locales/zh-TW/zh-TW.json";
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";

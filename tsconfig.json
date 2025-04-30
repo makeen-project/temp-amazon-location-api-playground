@@ -17,7 +17,7 @@
 		"jsx": "react-jsx",
 		"baseUrl": "src",
 		"paths": {
-			"@demo/*": ["*"]
+			"@api-playground/*": ["*"]
 		}
 	},
 	"references": [{ "path": "./tsconfig.node.json" }],

@@ -1,9 +1,9 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 
+import { IconArrow } from "@api-playground/assets/svgs";
+import { appConfig } from "@api-playground/core/constants";
+import { useMap } from "@api-playground/hooks";
 import { Flex, Text } from "@aws-amplify/ui-react";
-import { IconArrow } from "@demo/assets/svgs";
-import { appConfig } from "@demo/core/constants";
-import { useMap } from "@demo/hooks";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 

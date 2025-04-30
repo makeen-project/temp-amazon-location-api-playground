@@ -3,8 +3,8 @@
 
 import { useMemo } from "react";
 
-import { usePersistedDataStore } from "@demo/stores";
-import { RouteOptionsType, SettingOptionEnum } from "@demo/types";
+import { usePersistedDataStore } from "@api-playground/stores";
+import { RouteOptionsType, SettingOptionEnum } from "@api-playground/types";
 
 const usePersistedData = () => {
 	const store = usePersistedDataStore();

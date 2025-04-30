@@ -1,4 +1,4 @@
-import { appConfig } from "@demo/core/constants";
+import { appConfig } from "@api-playground/core/constants";
 
 const {
 	PERSIST_STORAGE_KEYS: { LOCAL_STORAGE_PREFIX, ANALYTICS_ENDPOINT_ID, ANALYTICS_CREDS }

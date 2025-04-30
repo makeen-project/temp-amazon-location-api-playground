@@ -3,12 +3,12 @@
 
 import { FC, ReactNode, lazy, useState } from "react";
 
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
 import { Button, CheckboxField, Flex, Text } from "@aws-amplify/ui-react";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 
-const Modal = lazy(() => import("@demo/atomicui/atoms/Modal").then(module => ({ default: module.Modal })));
+const Modal = lazy(() => import("@api-playground/atomicui/atoms/Modal").then(module => ({ default: module.Modal })));
 
 export interface ConfirmationModalProps {
 	className?: string;

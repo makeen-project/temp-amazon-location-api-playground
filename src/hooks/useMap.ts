@@ -3,10 +3,16 @@
 
 import { useEffect, useMemo } from "react";
 
-import { appConfig } from "@demo/core/constants";
-import { useMapStore } from "@demo/stores";
-import { CurrentLocationDataType, MapColorSchemeEnum, MapStyleEnum, MapUnitEnum, ViewPointType } from "@demo/types";
-import { getCountryCode } from "@demo/utils/countryUtil";
+import { appConfig } from "@api-playground/core/constants";
+import { useMapStore } from "@api-playground/stores";
+import {
+	CurrentLocationDataType,
+	MapColorSchemeEnum,
+	MapStyleEnum,
+	MapUnitEnum,
+	ViewPointType
+} from "@api-playground/types";
+import { getCountryCode } from "@api-playground/utils/countryUtil";
 
 const {
 	MAP_RESOURCES: { IMPERIAL_COUNTRIES }

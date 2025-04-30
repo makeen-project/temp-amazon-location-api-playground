@@ -1,7 +1,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { IStateProps, RouteDataType, SuggestionType } from "@demo/types";
+import { IStateProps, RouteDataType, SuggestionType } from "@api-playground/types";
 
 import createStore from "./createStore";
 

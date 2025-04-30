@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import { isUserDeviceIsAndroid, isUserDeviceIsIOS } from "@demo/utils";
+import { isUserDeviceIsAndroid, isUserDeviceIsIOS } from "@api-playground/utils";
 
 import useMediaQuery from "./useMediaQuery";
 

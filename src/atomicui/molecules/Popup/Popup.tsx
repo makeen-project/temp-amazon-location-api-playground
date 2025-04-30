@@ -3,9 +3,6 @@
 
 import { FC, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { Button, Flex, Link, Placeholder, Text, View } from "@aws-amplify/ui-react";
-import { GetPlaceCommandOutput } from "@aws-sdk/client-geo-places";
-import { CalculateRoutesCommandInput, CalculateRoutesCommandOutput } from "@aws-sdk/client-geo-routes";
 import {
 	IconArrow,
 	IconCar,
@@ -16,16 +13,19 @@ import {
 	IconGlobe,
 	IconInfo,
 	IconPhone
-} from "@demo/assets/svgs";
-import BottomSheetHeights from "@demo/core/constants/bottomSheetHeights";
-import { useMap, usePlace, useRoute } from "@demo/hooks";
-import useBottomSheet from "@demo/hooks/useBottomSheet";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { DistanceUnitEnum, MapUnitEnum, TravelMode } from "@demo/types";
-import { ResponsiveUIEnum, TriggeredByEnum } from "@demo/types/Enums";
-import { uuid } from "@demo/utils";
-import { humanReadableTime } from "@demo/utils/dateTimeUtils";
-import { calculateGeodesicDistance } from "@demo/utils/geoCalculation";
+} from "@api-playground/assets/svgs";
+import BottomSheetHeights from "@api-playground/core/constants/bottomSheetHeights";
+import { useMap, usePlace, useRoute } from "@api-playground/hooks";
+import useBottomSheet from "@api-playground/hooks/useBottomSheet";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { DistanceUnitEnum, MapUnitEnum, TravelMode } from "@api-playground/types";
+import { ResponsiveUIEnum, TriggeredByEnum } from "@api-playground/types/Enums";
+import { uuid } from "@api-playground/utils";
+import { humanReadableTime } from "@api-playground/utils/dateTimeUtils";
+import { calculateGeodesicDistance } from "@api-playground/utils/geoCalculation";
+import { Button, Flex, Link, Placeholder, Text, View } from "@aws-amplify/ui-react";
+import { GetPlaceCommandOutput } from "@aws-sdk/client-geo-places";
+import { CalculateRoutesCommandInput, CalculateRoutesCommandOutput } from "@aws-sdk/client-geo-routes";
 import { Units } from "@turf/turf";
 import { useTranslation } from "react-i18next";
 import { Popup as PopupGl } from "react-map-gl/maplibre";

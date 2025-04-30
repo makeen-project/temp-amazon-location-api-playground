@@ -3,8 +3,8 @@
 
 import { useMemo } from "react";
 
+import { useClient } from "@api-playground/hooks";
 import { CalculateRoutesCommand, CalculateRoutesCommandInput } from "@aws-sdk/client-geo-routes";
-import { useClient } from "@demo/hooks";
 
 const useRouteService = () => {
 	const { routesClient } = useClient();

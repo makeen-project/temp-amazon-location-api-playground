@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 
+import { IconClose } from "@api-playground/assets/svgs";
+import { useWebSocketService } from "@api-playground/services";
+import { MqttConnectionState, NotificationHistoryItemtype } from "@api-playground/types";
 import { Flex, Text } from "@aws-amplify/ui-react";
-import { IconClose } from "@demo/assets/svgs";
-import { useWebSocketService } from "@demo/services";
-import { MqttConnectionState, NotificationHistoryItemtype } from "@demo/types";
 import { t } from "i18next";
 import "./styles.scss";
 

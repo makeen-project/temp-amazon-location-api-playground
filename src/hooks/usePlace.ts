@@ -3,16 +3,16 @@
 
 import { useMemo } from "react";
 
+import { useMap } from "@api-playground/hooks";
+import { usePlaceService } from "@api-playground/services";
+import { usePlaceStore } from "@api-playground/stores";
+import { ClustersType, SuggestionType, ViewPointType } from "@api-playground/types";
+import { AnalyticsPlaceSearchTypeEnum, EventTypeEnum, TriggeredByEnum } from "@api-playground/types/Enums";
+import { record } from "@api-playground/utils/analyticsUtils";
+import { errorHandler } from "@api-playground/utils/errorHandler";
+import { calculateClusters, getHash, getPrecision, isGeoString } from "@api-playground/utils/geoCalculation";
+import { uuid } from "@api-playground/utils/uuid";
 import { SearchForTextResult } from "@aws-sdk/client-location";
-import { useMap } from "@demo/hooks";
-import { usePlaceService } from "@demo/services";
-import { usePlaceStore } from "@demo/stores";
-import { ClustersType, SuggestionType, ViewPointType } from "@demo/types";
-import { AnalyticsPlaceSearchTypeEnum, EventTypeEnum, TriggeredByEnum } from "@demo/types/Enums";
-import { record } from "@demo/utils/analyticsUtils";
-import { errorHandler } from "@demo/utils/errorHandler";
-import { calculateClusters, getHash, getPrecision, isGeoString } from "@demo/utils/geoCalculation";
-import { uuid } from "@demo/utils/uuid";
 import { useTranslation } from "react-i18next";
 
 const usePlace = () => {

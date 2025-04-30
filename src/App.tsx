@@ -3,11 +3,11 @@
 
 import { StrictMode, Suspense } from "react";
 
+import { AppWrapper } from "@api-playground/core/AppWrapper";
+import { RouteChunks } from "@api-playground/core/Routes";
+import { ToastContainer } from "@api-playground/core/Toast";
+import { appConfig } from "@api-playground/core/constants";
 import { Loader } from "@aws-amplify/ui-react";
-import { AppWrapper } from "@demo/core/AppWrapper";
-import { RouteChunks } from "@demo/core/Routes";
-import { ToastContainer } from "@demo/core/Toast";
-import { appConfig } from "@demo/core/constants";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const {

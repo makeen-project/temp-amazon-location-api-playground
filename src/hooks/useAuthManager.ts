@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 
-import { appConfig } from "@demo/core/constants";
+import { appConfig } from "@api-playground/core/constants";
 import { differenceInMilliseconds } from "date-fns";
 
 import useAuth from "./useAuth";

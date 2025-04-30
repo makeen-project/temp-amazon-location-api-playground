@@ -3,15 +3,15 @@
 
 import { FC, lazy, useCallback, useEffect, useMemo, useState } from "react";
 
+import { IconArrow, IconBackArrow, IconPoweredByAws1 } from "@api-playground/assets/svgs";
+import { aboutModalData, appConfig } from "@api-playground/core/constants";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { AboutOptionEnum } from "@api-playground/types/Enums";
 import { Button, Divider, Flex, Text } from "@aws-amplify/ui-react";
-import { IconArrow, IconBackArrow, IconPoweredByAws1 } from "@demo/assets/svgs";
-import { aboutModalData, appConfig } from "@demo/core/constants";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { AboutOptionEnum } from "@demo/types/Enums";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 
-const Modal = lazy(() => import("@demo/atomicui/atoms/Modal").then(module => ({ default: module.Modal })));
+const Modal = lazy(() => import("@api-playground/atomicui/atoms/Modal").then(module => ({ default: module.Modal })));
 
 const {
 	ROUTES: { SOFTWARE_ATTRIBUTIONS },

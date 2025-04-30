@@ -22,16 +22,16 @@ export default defineConfig(() => {
 		],
 		resolve: {
 			alias: {
-				"@demo/assets": resolve(__dirname, "./src/assets"),
-				"@demo/core": resolve(__dirname, "./src/core"),
-				"@demo/atomicui": resolve(__dirname, "./src/atomicui"),
-				"@demo/hooks": resolve(__dirname, "./src/hooks"),
-				"@demo/services": resolve(__dirname, "./src/services"),
-				"@demo/stores": resolve(__dirname, "./src/stores"),
-				"@demo/types": resolve(__dirname, "./src/types"),
-				"@demo/theme": resolve(__dirname, "./src/theme"),
-				"@demo/utils": resolve(__dirname, "./src/utils"),
-				"@demo/locales": resolve(__dirname, "./src/locales"),
+				"@api-playground/assets": resolve(__dirname, "./src/assets"),
+				"@api-playground/core": resolve(__dirname, "./src/core"),
+				"@api-playground/atomicui": resolve(__dirname, "./src/atomicui"),
+				"@api-playground/hooks": resolve(__dirname, "./src/hooks"),
+				"@api-playground/services": resolve(__dirname, "./src/services"),
+				"@api-playground/stores": resolve(__dirname, "./src/stores"),
+				"@api-playground/types": resolve(__dirname, "./src/types"),
+				"@api-playground/theme": resolve(__dirname, "./src/theme"),
+				"@api-playground/utils": resolve(__dirname, "./src/utils"),
+				"@api-playground/locales": resolve(__dirname, "./src/locales"),
 				"./runtimeConfig": "./runtimeConfig.browser"
 			}
 		},

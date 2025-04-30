@@ -3,12 +3,12 @@
 
 import { FC, ReactNode } from "react";
 
+import { appTheme } from "@api-playground/theme";
 import { ThemeProvider } from "@aws-amplify/ui-react";
-import { appTheme } from "@demo/theme";
 
 import "@aws-amplify/ui-react/styles.css";
 import "react-toastify/dist/ReactToastify.min.css";
-import "@demo/theme/appStyles.scss";
+import "@api-playground/theme/appStyles.scss";
 import "react-tooltip/dist/react-tooltip.css";
 
 interface AppWrapperProps {

@@ -1,25 +1,29 @@
 import { FC, lazy } from "react";
 
+import { IconLocateMe, IconMinus, IconZoomPlus, LogoLight } from "@api-playground/assets/svgs";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { ShowStateType } from "@api-playground/types";
 import { Divider, Flex, View } from "@aws-amplify/ui-react";
-import { IconLocateMe, IconMinus, IconZoomPlus, LogoLight } from "@demo/assets/svgs";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { ShowStateType } from "@demo/types";
 import { MapRef } from "react-map-gl/maplibre";
 import "./styles.scss";
 
 const MapButtons = lazy(() =>
-	import("@demo/atomicui/molecules/MapButtons").then(module => ({ default: module.MapButtons }))
+	import("@api-playground/atomicui/molecules/MapButtons").then(module => ({ default: module.MapButtons }))
 );
-const Sidebar = lazy(() => import("@demo/atomicui/organisms/Sidebar").then(module => ({ default: module.Sidebar })));
+const Sidebar = lazy(() =>
+	import("@api-playground/atomicui/organisms/Sidebar").then(module => ({ default: module.Sidebar }))
+);
 const SettingsModal = lazy(() =>
-	import("@demo/atomicui/organisms/SettingsModal").then(module => ({ default: module.SettingsModal }))
+	import("@api-playground/atomicui/organisms/SettingsModal").then(module => ({ default: module.SettingsModal }))
 );
 const SearchBox = lazy(() =>
-	import("@demo/atomicui/organisms/SearchBox").then(module => ({ default: module.SearchBox }))
+	import("@api-playground/atomicui/organisms/SearchBox").then(module => ({ default: module.SearchBox }))
 );
-const RouteBox = lazy(() => import("@demo/atomicui/organisms/RouteBox").then(module => ({ default: module.RouteBox })));
+const RouteBox = lazy(() =>
+	import("@api-playground/atomicui/organisms/RouteBox").then(module => ({ default: module.RouteBox }))
+);
 const UnauthSimulation = lazy(() =>
-	import("@demo/atomicui/organisms/UnauthSimulation").then(module => ({ default: module.UnauthSimulation }))
+	import("@api-playground/atomicui/organisms/UnauthSimulation").then(module => ({ default: module.UnauthSimulation }))
 );
 
 interface DemoPlaceholderPageProps {

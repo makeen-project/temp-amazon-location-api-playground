@@ -3,8 +3,8 @@
 
 import { useMemo } from "react";
 
-import { useIotService } from "@demo/services";
-import { errorHandler } from "@demo/utils/errorHandler";
+import { useIotService } from "@api-playground/services";
+import { errorHandler } from "@api-playground/utils/errorHandler";
 
 const useIot = () => {
 	const iotService = useIotService();

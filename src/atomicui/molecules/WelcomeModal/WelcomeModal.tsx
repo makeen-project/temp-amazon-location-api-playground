@@ -3,13 +3,13 @@
 
 import { FC, lazy } from "react";
 
+import { IconPoweredByAws1, LogoSmall } from "@api-playground/assets/svgs";
+import { appConfig } from "@api-playground/core/constants";
 import { Button, Flex, Text } from "@aws-amplify/ui-react";
-import { IconPoweredByAws1, LogoSmall } from "@demo/assets/svgs";
-import { appConfig } from "@demo/core/constants";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 
-const Modal = lazy(() => import("@demo/atomicui/atoms/Modal").then(module => ({ default: module.Modal })));
+const Modal = lazy(() => import("@api-playground/atomicui/atoms/Modal").then(module => ({ default: module.Modal })));
 
 const {
 	LINKS: { AWS_CUSTOMER_AGREEMENT, AWS_ACCEPTABLE_USE_POLICY, AWS_PRIVACY_NOTICE }

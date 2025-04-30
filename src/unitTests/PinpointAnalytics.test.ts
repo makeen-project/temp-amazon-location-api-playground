@@ -16,9 +16,9 @@ import {
 } from "@aws-sdk/client-pinpoint";
 
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
-import { appConfig } from "@demo/core/constants";
-import { EventTypeEnum } from "@demo/types";
-import { uuid } from "@demo/utils/uuid";
+import { appConfig } from "@api-playground/core/constants";
+import { EventTypeEnum } from "@api-playground/types";
+import { uuid } from "@api-playground/utils/uuid";
 
 const {
 	ENV: { PINPOINT_APPLICATION_ID, PINPOINT_IDENTITY_POOL_ID }
@@ -26,7 +26,7 @@ const {
 
 const region = PINPOINT_IDENTITY_POOL_ID.split(":")[0];
 
-const { createOrUpdateEndpoint, getEndpoint, record } = jest.requireActual("@demo/utils/analyticsUtils");
+const { createOrUpdateEndpoint, getEndpoint, record } = jest.requireActual("@api-playground/utils/analyticsUtils");
 
 describe("PinpointAnalytics", () => {
 	let pinClient: PinpointClient;

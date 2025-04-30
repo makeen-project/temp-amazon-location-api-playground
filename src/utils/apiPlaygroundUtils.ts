@@ -1,4 +1,4 @@
-import { ApiRequestObj, ApiRequestObjValues, FieldTypeEnum, RequestParam } from "@demo/types";
+import { ApiRequestObj, ApiRequestObjValues, FieldTypeEnum, RequestParam } from "@api-playground/types";
 
 /* Function to check if a parameter is visible based on its dependencies */
 export const isVisible = (requestObject: ApiRequestObj, param: RequestParam): boolean => {

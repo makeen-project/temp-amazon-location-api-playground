@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import "./styles.scss";
 
 const ConfirmationModal = lazy(() =>
-	import("@demo/atomicui/molecules/ConfirmationModal").then(module => ({ default: module.ConfirmationModal }))
+	import("@api-playground/atomicui/molecules/ConfirmationModal").then(module => ({ default: module.ConfirmationModal }))
 );
 
 interface OpenDataConfirmationModalProps {

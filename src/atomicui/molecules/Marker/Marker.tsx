@@ -3,10 +3,10 @@
 
 import { FC, memo, useEffect, useState } from "react";
 
+import { SuggestionMarker } from "@api-playground/atomicui/molecules";
+import { usePlace } from "@api-playground/hooks";
+import { uuid } from "@api-playground/utils/uuid";
 import { ReverseGeocodeCommandOutput, ReverseGeocodeResultItem } from "@aws-sdk/client-geo-places";
-import { SuggestionMarker } from "@demo/atomicui/molecules";
-import { usePlace } from "@demo/hooks";
-import { uuid } from "@demo/utils/uuid";
 
 interface Props {
 	latitude: number;

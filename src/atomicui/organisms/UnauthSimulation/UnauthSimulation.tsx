@@ -11,7 +11,6 @@ import {
 	useState
 } from "react";
 
-import { Button, Card, Flex, Text } from "@aws-amplify/ui-react";
 import {
 	IconBackArrow,
 	IconClose,
@@ -21,14 +20,14 @@ import {
 	IconRadar,
 	IconSegment,
 	Simulation
-} from "@demo/assets/svgs";
-import { DropdownEl, Modal } from "@demo/atomicui/atoms";
-import { ConfirmationModal, IconicInfoCard, NotificationsBox } from "@demo/atomicui/molecules";
-import { appConfig, busRoutesData } from "@demo/core/constants";
-import BottomSheetHeights from "@demo/core/constants/bottomSheetHeights";
-import { useGeofence, useUnauthSimulation, useWebSocketBanner } from "@demo/hooks";
-import useBottomSheet from "@demo/hooks/useBottomSheet";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
+} from "@api-playground/assets/svgs";
+import { DropdownEl, Modal } from "@api-playground/atomicui/atoms";
+import { ConfirmationModal, IconicInfoCard, NotificationsBox } from "@api-playground/atomicui/molecules";
+import { appConfig, busRoutesData } from "@api-playground/core/constants";
+import BottomSheetHeights from "@api-playground/core/constants/bottomSheetHeights";
+import { useGeofence, useUnauthSimulation, useWebSocketBanner } from "@api-playground/hooks";
+import useBottomSheet from "@api-playground/hooks/useBottomSheet";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
 import {
 	IdxType,
 	NotificationHistoryItemtype,
@@ -37,8 +36,9 @@ import {
 	TrackingHistoryItemtype,
 	TrackingHistoryType,
 	TrackingHistoryTypeEnum
-} from "@demo/types";
-import { ResponsiveUIEnum } from "@demo/types/Enums";
+} from "@api-playground/types";
+import { ResponsiveUIEnum } from "@api-playground/types/Enums";
+import { Button, Card, Flex, Text } from "@aws-amplify/ui-react";
 import { format, parseISO } from "date-fns";
 import type { GeolocateControl as GeolocateControlRef } from "maplibre-gl";
 import { useTranslation } from "react-i18next";

@@ -3,8 +3,8 @@
 
 import { FC } from "react";
 
+import { IconGeofenceMarker } from "@api-playground/assets/svgs";
 import { Text, View } from "@aws-amplify/ui-react";
-import { IconGeofenceMarker } from "@demo/assets/svgs";
 import { Marker } from "react-map-gl/maplibre";
 
 interface GeofenceMarkerProps {

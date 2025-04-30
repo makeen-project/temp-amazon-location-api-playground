@@ -3,11 +3,11 @@
 
 import { FC, ReactNode, useState } from "react";
 
+import { IconArrow } from "@api-playground/assets/svgs";
+import { appConfig } from "@api-playground/core/constants";
+import { MenuItem } from "@api-playground/types";
+import { uuid } from "@api-playground/utils/uuid";
 import { Flex, Link, Text, View, ViewProps } from "@aws-amplify/ui-react";
-import { IconArrow } from "@demo/assets/svgs";
-import { appConfig } from "@demo/core/constants";
-import { MenuItem } from "@demo/types";
-import { uuid } from "@demo/utils/uuid";
 import { omit } from "ramda";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";

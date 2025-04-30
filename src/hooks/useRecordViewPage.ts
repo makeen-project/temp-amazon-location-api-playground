@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 
-import { appConfig } from "@demo/core/constants";
-import { EventTypeEnum } from "@demo/types/Enums";
+import { appConfig } from "@api-playground/core/constants";
+import { EventTypeEnum } from "@api-playground/types/Enums";
 
-import { record } from "@demo/utils/analyticsUtils";
-import { uuid } from "@demo/utils/uuid";
+import { record } from "@api-playground/utils/analyticsUtils";
+import { uuid } from "@api-playground/utils/uuid";
 
 const {
 	PERSIST_STORAGE_KEYS: { LOCAL_STORAGE_PREFIX, PAGE_VIEW_IDENTIFIERS }

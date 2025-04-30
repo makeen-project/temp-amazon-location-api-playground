@@ -4,19 +4,6 @@
 
 import { ChangeEvent, FC, MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { Button, Card, CheckboxField, Flex, Text, TextField, View } from "@aws-amplify/ui-react";
-import {
-	CalculateRoutesCommandInput,
-	RouteFerryLegDetails,
-	RouteFerryTravelStep,
-	RouteLegType,
-	RoutePedestrianLegDetails,
-	RoutePedestrianTravelStep,
-	RouteTravelMode,
-	RouteVehicleLegDetails,
-	RouteVehicleTravelStep
-} from "@aws-sdk/client-geo-routes";
-import { decodeToLineStringFeature } from "@aws/polyline";
 import {
 	IconArrowDownUp,
 	IconCar,
@@ -30,18 +17,43 @@ import {
 	IconSegment,
 	IconTruckSolid,
 	IconWalking
-} from "@demo/assets/svgs";
-import { DropdownEl } from "@demo/atomicui/atoms";
-import { NotFoundCard, StepCard } from "@demo/atomicui/molecules";
-import { appConfig } from "@demo/core/constants";
-import BottomSheetHeights from "@demo/core/constants/bottomSheetHeights";
-import { useMap, usePersistedData, usePlace, useRoute } from "@demo/hooks";
-import useBottomSheet from "@demo/hooks/useBottomSheet";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { InputType, MapUnitEnum, RouteDataType, RouteOptionsType, SuggestionType, TravelMode } from "@demo/types";
-import { AnalyticsEventActionsEnum, ResponsiveUIEnum, TriggeredByEnum, UserAgentEnum } from "@demo/types/Enums";
-import { getConvertedDistance, isUserDeviceIsAndroid } from "@demo/utils";
-import { humanReadableTime } from "@demo/utils/dateTimeUtils";
+} from "@api-playground/assets/svgs";
+import { DropdownEl } from "@api-playground/atomicui/atoms";
+import { NotFoundCard, StepCard } from "@api-playground/atomicui/molecules";
+import { appConfig } from "@api-playground/core/constants";
+import BottomSheetHeights from "@api-playground/core/constants/bottomSheetHeights";
+import { useMap, usePersistedData, usePlace, useRoute } from "@api-playground/hooks";
+import useBottomSheet from "@api-playground/hooks/useBottomSheet";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import {
+	InputType,
+	MapUnitEnum,
+	RouteDataType,
+	RouteOptionsType,
+	SuggestionType,
+	TravelMode
+} from "@api-playground/types";
+import {
+	AnalyticsEventActionsEnum,
+	ResponsiveUIEnum,
+	TriggeredByEnum,
+	UserAgentEnum
+} from "@api-playground/types/Enums";
+import { getConvertedDistance, isUserDeviceIsAndroid } from "@api-playground/utils";
+import { humanReadableTime } from "@api-playground/utils/dateTimeUtils";
+import { Button, Card, CheckboxField, Flex, Text, TextField, View } from "@aws-amplify/ui-react";
+import {
+	CalculateRoutesCommandInput,
+	RouteFerryLegDetails,
+	RouteFerryTravelStep,
+	RouteLegType,
+	RoutePedestrianLegDetails,
+	RoutePedestrianTravelStep,
+	RouteTravelMode,
+	RouteVehicleLegDetails,
+	RouteVehicleTravelStep
+} from "@aws-sdk/client-geo-routes";
+import { decodeToLineStringFeature } from "@aws/polyline";
 import { LineString } from "@turf/turf";
 import { isAndroid, isIOS } from "react-device-detect";
 import { useTranslation } from "react-i18next";

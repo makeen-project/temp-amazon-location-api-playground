@@ -3,8 +3,8 @@
 
 import { useMemo } from "react";
 
-import { useUnathSimulationStore } from "@demo/stores";
-import { SelectOption, TrackingHistoryType } from "@demo/types";
+import { useUnathSimulationStore } from "@api-playground/stores";
+import { SelectOption, TrackingHistoryType } from "@api-playground/types";
 
 const useUnauthSimulation = () => {
 	const store = useUnathSimulationStore();

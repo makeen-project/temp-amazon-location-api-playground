@@ -2,7 +2,7 @@ import { FC, useEffect, useRef, useState } from "react";
 
 import { Flex, Text } from "@aws-amplify/ui-react";
 import "./styles.scss";
-import { IconArrow } from "@demo/assets/svgs";
+import { IconArrow } from "@api-playground/assets/svgs";
 
 interface SimpleDropdownElProps {
 	defaultOption?: string;

@@ -1,6 +1,9 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
+import { appConfig } from "@api-playground/core/constants";
+import { AnalyticsSessionStatus, EventTypeEnum } from "@api-playground/types/Enums";
+import RecordInput from "@api-playground/types/RecordInput";
 import {
 	Event,
 	GetEndpointCommand,
@@ -11,10 +14,6 @@ import {
 	UpdateEndpointCommandInput
 } from "@aws-sdk/client-pinpoint";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
-
-import { appConfig } from "@demo/core/constants";
-import { AnalyticsSessionStatus, EventTypeEnum } from "@demo/types/Enums";
-import RecordInput from "@demo/types/RecordInput";
 import { omit } from "ramda";
 import { browserName, fullBrowserVersion, isAndroid, isDesktop, isIOS } from "react-device-detect";
 

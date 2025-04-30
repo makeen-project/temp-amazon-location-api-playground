@@ -1,9 +1,9 @@
 import { FC, useEffect, useMemo, useRef } from "react";
 
+import { IconBusActive, IconBusInactive } from "@api-playground/assets/svgs";
+import { useGeofence } from "@api-playground/hooks";
+import { TrackingHistoryItemtype, TrackingHistoryTypeEnum } from "@api-playground/types";
 import { View } from "@aws-amplify/ui-react";
-import { IconBusActive, IconBusInactive } from "@demo/assets/svgs";
-import { useGeofence } from "@demo/hooks";
-import { TrackingHistoryItemtype, TrackingHistoryTypeEnum } from "@demo/types";
 import { Layer, LayerProps, Marker, Source } from "react-map-gl/maplibre";
 
 interface UnauthRouteSimulationProps {

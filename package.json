@@ -1,5 +1,5 @@
 {
-	"name": "amazon-location-features-demo-web",
+	"name": "temp-amazon-location-api-playground",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
@@ -133,7 +133,7 @@
 	},
 	"jest": {
 		"moduleNameMapper": {
-			"^@demo/(.*)$": "<rootDir>/src/$1",
+			"^@api-playground/(.*)$": "<rootDir>/src/$1",
 			"\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.ts"
 		},
 		"collectCoverageFrom": [

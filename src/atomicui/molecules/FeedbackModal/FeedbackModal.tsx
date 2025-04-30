@@ -3,12 +3,12 @@
 
 import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { IconStar, IconStarFilled } from "@api-playground/assets/svgs";
+import { Modal } from "@api-playground/atomicui/atoms";
+import { useFeedback } from "@api-playground/hooks";
+import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
+import { FeedbackValueType } from "@api-playground/types";
 import { Alert, Button, Flex, Loader, SelectField, Text, TextAreaField, View } from "@aws-amplify/ui-react";
-import { IconStar, IconStarFilled } from "@demo/assets/svgs";
-import { Modal } from "@demo/atomicui/atoms";
-import { useFeedback } from "@demo/hooks";
-import useDeviceMediaQuery from "@demo/hooks/useDeviceMediaQuery";
-import { FeedbackValueType } from "@demo/types";
 import { isAndroid, isIOS } from "react-device-detect";
 import { useTranslation } from "react-i18next";
 

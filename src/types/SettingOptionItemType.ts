@@ -1,7 +1,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { SettingOptionEnum } from "@demo/types";
+import { SettingOptionEnum } from "@api-playground/types";
 
 export type SettingOptionItemType = {
 	id: SettingOptionEnum;

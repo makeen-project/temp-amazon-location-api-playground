@@ -3,12 +3,12 @@
 
 import { useEffect, useMemo } from "react";
 
-import appConfig from "@demo/core/constants/appConfig";
-import { useAuthService } from "@demo/services";
-import { useAuthStore } from "@demo/stores";
-import { RegionEnum } from "@demo/types/Enums";
-import { errorHandler } from "@demo/utils/errorHandler";
-import { setClosestRegion } from "@demo/utils/regionUtils";
+import appConfig from "@api-playground/core/constants/appConfig";
+import { useAuthService } from "@api-playground/services";
+import { useAuthStore } from "@api-playground/stores";
+import { RegionEnum } from "@api-playground/types/Enums";
+import { errorHandler } from "@api-playground/utils/errorHandler";
+import { setClosestRegion } from "@api-playground/utils/regionUtils";
 import { useTranslation } from "react-i18next";
 
 const {

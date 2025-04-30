@@ -1,7 +1,7 @@
 import { FC, createRef, lazy, useMemo, useState } from "react";
 
 import { Flex, Text } from "@aws-amplify/ui-react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import "./styles.scss";
 
 const CopyText = lazy(() => import("../CopyText").then(module => ({ default: module.CopyText })));
@@ -46,7 +46,7 @@ const CodeSnippet: FC<CodeSnippetProps> = ({ title, placeholderText, singleCodeS
 				{placeholderText && !singleCodeSnippet && languageAndSnippet.length === 0 && (
 					<Text className="placeholder-text regular-text">{placeholderText}</Text>
 				)}
-				{singleCodeSnippet && (
+				{/* {singleCodeSnippet && (
 					<SyntaxHighlighter
 						data-testid="syntax-highlighter"
 						className={"syntax-highlighter"}
@@ -55,7 +55,7 @@ const CodeSnippet: FC<CodeSnippetProps> = ({ title, placeholderText, singleCodeS
 					>
 						{singleCodeSnippet}
 					</SyntaxHighlighter>
-				)}
+				)} */}
 				{languageAndSnippet.length > 0 && (
 					<Flex className="copy-snippet" onClick={() => codeSnippetCopyTextRef.current?.click()}>
 						<CopyText
@@ -75,7 +75,7 @@ const CodeSnippet: FC<CodeSnippetProps> = ({ title, placeholderText, singleCodeS
 						/>
 					</Flex>
 				)}
-				{languageAndSnippet.length > 0 && (
+				{/* {languageAndSnippet.length > 0 && (
 					<SyntaxHighlighter
 						data-testid="syntax-highlighter"
 						className={"syntax-highlighter"}
@@ -84,7 +84,7 @@ const CodeSnippet: FC<CodeSnippetProps> = ({ title, placeholderText, singleCodeS
 					>
 						{languageAndSnippet[selectedTab][1]}
 					</SyntaxHighlighter>
-				)}
+				)} */}
 			</Flex>
 		</Flex>
 	);
