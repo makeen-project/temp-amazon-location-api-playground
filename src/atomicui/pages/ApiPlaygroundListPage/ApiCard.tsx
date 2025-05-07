@@ -1,52 +1,64 @@
-import { FC, lazy } from "react";
+import { FC } from "react";
 
-// import { Flex, Text } from "@aws-amplify/ui-react";
-// import { appConfig } from "@api-playground/core/constants";
-// import { useTranslation } from "react-i18next";
+import { appConfig } from "@api-playground/core/constants";
+import { Badge, Card, Flex, Image, Text, View, useTheme } from "@aws-amplify/ui-react";
+import { useTranslation } from "react-i18next";
 
-// const ImageEl = lazy(() => import("@api-playground/atomicui/atoms/ImageEl").then(module => ({ default: module.ImageEl })));
-// const {
-// 	ENV: { API_PLAYGROUND_URL }
-// } = appConfig;
+const {
+	ENV: { API_PLAYGROUND_URL }
+} = appConfig;
 
-interface ApiCardProps {
+export interface ApiCardProps {
 	id: string;
-	imageSource: string;
 	title: string;
-	description: string;
-	onCardClick: (id: string, title: string) => () => void;
+	imageSource?: string;
+	brief: string;
+	tags?: string[];
+	onCardClick: (apiId: string, apiTitle: string) => () => void;
 }
 
-const ApiCard: FC<ApiCardProps> = ({ id, imageSource, title, description, onCardClick }) => { return null; };
-// 	const { t, i18n } = useTranslation();
-// 	const langDir = i18n.dir();
-// 	const isLtr = langDir === "ltr";
+const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, brief, tags, onCardClick }) => {
+	const { tokens } = useTheme();
+	const { i18n } = useTranslation();
+	const langDir = i18n.dir();
+	const isLtr = langDir === "ltr";
 
-// 	return (
-// 		<Flex data-testid="card-container" key={id} className="card-container" onClick={onCardClick(id, title)}>
-// 			<ImageEl
-// 				className="card-image"
-// 				alt="image"
-// 				src={`${API_PLAYGROUND_URL.trim()}/${imageSource ? imageSource : "images/placeholder.png"}`}
-// 			/>
-// 			<Flex className="card-content">
-// 				<Text
-// 					className="title medium-text bold"
-// 					style={{
-// 						textOverflow: "ellipsis",
-// 						whiteSpace: "nowrap"
-// 					}}
-// 					textAlign={isLtr ? "start" : "end"}
-// 					alignSelf={isLtr ? "start" : "end"}
-// 				>
-// 					{t(title)}
-// 				</Text>
-// 				<Text className="desc regular-text" textAlign={isLtr ? "start" : "end"}>
-// 					{t(description)}
-// 				</Text>
-// 			</Flex>
-// 		</Flex>
-// 	);
-// };
+	return (
+		<View data-testid="api-card-container" key={id} className={"card-container"}>
+			<Card data-testid="api-card" onClick={onCardClick(id, title)} variation="outlined">
+				<Flex direction={"column"} alignItems="flex-start" gap="0">
+					{!!imageSource && (
+						<Image className="card-image" alt="API Image" src={`${API_PLAYGROUND_URL.trim()}/${imageSource}`} />
+					)}
+					<Flex className="card-content" direction="column" gap={tokens.space.xs}>
+						<Text
+							className="card-title medium-text bold"
+							textAlign={isLtr ? "start" : "end"}
+							alignSelf={isLtr ? "start" : "end"}
+						>
+							{title}
+						</Text>
+
+						<Text className="card-text regular-text" variation="tertiary" textAlign={isLtr ? "start" : "end"}>
+							{brief}
+						</Text>
+
+						{!!tags?.length && (
+							<Flex className="card-tags">
+								{tags
+									.map((tag: any) => ({ text: tag }))
+									.map((badge: { text: any }) => (
+										<Badge key={badge.text} size={"large"} className="small-text">
+											{badge.text}
+										</Badge>
+									))}
+							</Flex>
+						)}
+					</Flex>
+				</Flex>
+			</Card>
+		</View>
+	);
+};
 
 export default ApiCard;

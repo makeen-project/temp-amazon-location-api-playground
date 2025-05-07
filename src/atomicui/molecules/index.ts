@@ -1,6 +1,9 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
+export * from "./CheckboxGroup";
+export * from "./FilterModal";
+export * from "./Modal";
 export * from "./InputField";
 export * from "./NotFoundCard";
 export * from "./GeofenceMarker";
