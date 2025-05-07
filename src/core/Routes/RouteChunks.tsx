@@ -7,47 +7,25 @@ import { appConfig } from "@api-playground/core/constants";
 import { Navigate, RouteObject } from "react-router-dom";
 
 const {
-	ROUTES: { ERROR_BOUNDARY, DEFAULT, DEMO }
+	ROUTES: { ERROR_BOUNDARY, DEFAULT, API_PLAYGROUND, API_PLAYGROUND_DETAILS }
 } = appConfig;
 
-// const {
-// 	ROUTES: { ERROR_BOUNDARY, DEFAULT, DEMO, API_PLAYGROUND, API_PLAYGROUND_DETAILS }
-// } = appConfig;
-
-const DemoPage = lazy(() =>
-	import("@api-playground/atomicui/pages/DemoPage").then(module => ({ default: module.DemoPage }))
+const ApiPlaygroundListPage = lazy(() =>
+	import("@api-playground/atomicui/pages/ApiPlaygroundListPage").then(module => ({
+		default: module.ApiPlaygroundListPage
+	}))
 );
-// const ApiPlaygroundListPage = lazy(() =>
-// 	import("@api-playground/atomicui/pages/ApiPlaygroundListPage").then(module => ({
-// 		default: module.ApiPlaygroundListPage
-// 	}))
-// );
-// const ApiPlaygroundDetailsPage = lazy(() =>
-// 	import("@api-playground/atomicui/pages/ApiPlaygroundDetailsPage").then(module => ({
-// 		default: module.ApiPlaygroundDetailsPage
-// 	}))
-// );
 
 const RouteChunks: RouteObject[] = [
 	{
 		path: DEFAULT,
-		element: <Navigate to={DEMO} />
+		element: <Navigate to={API_PLAYGROUND} />
 	},
 	{
-		path: DEMO,
-		element: <DemoPage />,
+		path: API_PLAYGROUND,
+		element: <ApiPlaygroundListPage />,
 		errorElement: <Navigate to={ERROR_BOUNDARY} />
 	}
-	// {
-	// 	path: API_PLAYGROUND,
-	// 	element: <ApiPlaygroundListPage />,
-	// 	errorElement: <Navigate to={ERROR_BOUNDARY} />
-	// },
-	// {
-	// 	path: API_PLAYGROUND_DETAILS,
-	// 	element: <ApiPlaygroundDetailsPage />,
-	// 	errorElement: <Navigate to={ERROR_BOUNDARY} />
-	// }
 ];
 
 export default RouteChunks;

@@ -1,261 +1,210 @@
-import { FC, lazy, useCallback, useMemo } from "react";
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
 
-// import { Flex, Heading, Link, SearchField, Text, View } from "@aws-amplify/ui-react";
-// import {
-// 	IconApiPlayground,
-// 	IconGeofence,
-// 	IconMapOutlined,
-// 	IconPinSolid,
-// 	IconRadar,
-// 	IconRoute,
-// 	IconSearch
-// } from "@api-playground/assets/svgs";
-// import { appConfig } from "@api-playground/core/constants";
-// import { useApiPlaygroundFilters, useApiPlaygroundList, useMediaQuery, useRecordViewPage } from "@api-playground/hooks";
-// import { EventTypeEnum } from "@api-playground/types/Enums";
-// import { record } from "@api-playground/utils/analyticsUtils";
-// import { useTranslation } from "react-i18next";
-// import { useNavigate } from "react-router-dom";
-// import "./styles.scss";
+import "./styles.scss";
 
-// const ApiCard = lazy(() => import("./ApiCard").then(module => ({ default: module.default })));
+import { FC, lazy, useEffect, useMemo, useState } from "react";
 
+import { IconCode, IconFilter, IconSearch } from "@api-playground/assets/svgs";
+import { apiPlaygroundFiltersData, appConfig } from "@api-playground/core/constants";
+import { useMediaQuery } from "@api-playground/hooks";
+import useApiPlaygroundList, { useApiPlaygroundFilters } from "@api-playground/hooks/useApiPlaygroundList";
+import { Flex, Heading, Placeholder, SearchField, Text, View } from "@aws-amplify/ui-react";
+import { useTranslation } from "react-i18next";
+
+const CheckboxGroup = lazy(() =>
+	import("@api-playground/atomicui/molecules/CheckboxGroup").then(module => ({ default: module.CheckboxGroup }))
+);
+const FilterModal = lazy(() =>
+	import("@api-playground/atomicui/molecules/FilterModal").then(module => ({ default: module.FilterModal }))
+);
+const ApiPlaygroundCard = lazy(() => import("./ApiCard").then(module => ({ default: module.default })));
+
+// to be used later
 // const {
-// 	ROUTES: { API_PLAYGROUND }
+// 	LINKS: { AMAZON_LOCATION_GIT, AMAZON_LOCATION_BLOGS, AMAZON_LOCATION_DEV_GUIDE_SAMPLES }
 // } = appConfig;
-// const categoryIcons: { [key: string]: JSX.Element } = {
-// 	Maps: <IconMapOutlined />,
-// 	Places: <IconPinSolid />,
-// 	Routes: <IconRoute />,
-// 	Geofences: <IconGeofence />,
-// 	Trackers: <IconRadar />
-// };
 
-const ApiPlaygroundListPage: FC = () => { return null };
-// 	useRecordViewPage("ApiPlaygroundListPage");
-// 	const navigate = useNavigate();
-// 	const { t, i18n } = useTranslation();
-// 	const { isFetching, apiListData } = useApiPlaygroundList();
-// 	const { isFiltering, setIsFiltering, searchText, setSearchText, filteredApiListData } = useApiPlaygroundFilters();
-// 	const langDir = i18n.dir();
-// 	const isLtr = langDir === "ltr";
-// 	const isTablet = useMediaQuery("(max-width: 960px)");
+type ApiCardType = {
+	id: string;
+	imageSource: string;
+	title: string;
+	description: string;
+	tags: string[];
+};
 
-// 	const data = useMemo(
-// 		() => (searchText ? filteredApiListData : apiListData),
-// 		[apiListData, filteredApiListData, searchText]
-// 	);
+type ApiListData = {
+	[key: string]: ApiCardType[];
+};
 
-// 	const renderCategoriesDesktop = useMemo(() => {
-// 		return (
-// 			<Flex className="categories-container-desktop">
-// 				<Text className="title bold regular-text">{t("API Categories")}</Text>
-// 				<Flex className="list">
-// 					{!isFetching && !isFiltering && !!data ? (
-// 						Object.keys(data).map(cateogry => (
-// 							<Link key={cateogry} href={`#${cateogry}`}>
-// 								<Flex className="category">
-// 									{categoryIcons[cateogry]}
-// 									<Text className="text bold regular-text">{t(cateogry)}</Text>
-// 								</Flex>
-// 							</Link>
-// 						))
-// 					) : (
-// 						<>LOADING!!!</>
-// 					)}
-// 				</Flex>
-// 			</Flex>
-// 		);
-// 	}, [isFetching, isFiltering, data, t]);
+const ApiPlaygroundListPage: FC = () => {
+	const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+	// const navigate = useNavigate();
+	// useRecordViewPage("ApiPlaygroundsListPage");
+	const { t, i18n } = useTranslation();
+	const { isLoading, data } = useApiPlaygroundList();
+	const { filters, setFilters, filteredApiPlaygroundList, filterLoading, setFilterLoading } = useApiPlaygroundFilters();
+	const apiPlaygroundList = filteredApiPlaygroundList ?? data ?? [];
+	const tabScreen = useMediaQuery("(max-width: 1023px)");
+	const langDir = i18n.dir();
+	const isLtr = langDir === "ltr";
 
-// 	const renderCategoriesMobile = useMemo(() => {
-// 		return (
-// 			<Flex className="categories-container-mobile">
-// 				<Flex className="list">
-// 					{!isFetching && !isFiltering && !!data ? (
-// 						Object.keys(data).map(cateogry => (
-// 							<Link key={cateogry} href={`#${cateogry}`}>
-// 								<Flex className="category">
-// 									{categoryIcons[cateogry]}
-// 									<Text className="text bold regular-text">{t(cateogry)}</Text>
-// 								</Flex>
-// 							</Link>
-// 						))
-// 					) : (
-// 						<>LOADING!!!</>
-// 					)}
-// 				</Flex>
-// 			</Flex>
-// 		);
-// 	}, [isFetching, isFiltering, data, t]);
+	const loading = () => {
+		return [...Array(3)].map((_, index) => (
+			<View key={index} className="placeholder-container">
+				<Placeholder className="placeholder-image" />
+				<Placeholder className="placeholder-title" />
+				<Placeholder className="placeholder-description" />
+				<Placeholder className="placeholder-tags" />
+			</View>
+		));
+	};
 
-// 	const handleCardClick = useCallback(
-// 		(apiId: string, apiTitle: string) => () => {
-// 			record([{ EventType: EventTypeEnum.API_CLICKED, Attributes: { apiId, apiTitle } }]);
-// 			navigate(`${API_PLAYGROUND}/${apiId}`);
-// 			document.body.scrollTop = 0;
-// 			document.documentElement.scrollTop = 0;
-// 		},
-// 		[navigate]
-// 	);
+	const column1ApiPlaygrounds = useMemo(() => {
+		return tabScreen ? apiPlaygroundList : apiPlaygroundList?.filter((_: any, index: number) => index % 2 === 0);
+	}, [apiPlaygroundList, tabScreen]);
 
-// 	const renderList = useCallback(
-// 		(category: string) => {
-// 			if (!!data) {
-// 				if (!isTablet && data[category].length > 1) {
-// 					const col1 = data[category].filter((_, idx) => idx % 2 === 0);
-// 					const col2 = data[category].filter((_, idx) => idx % 2 !== 0);
+	const column2ApiPlaygrounds = useMemo(() => {
+		return tabScreen ? [] : apiPlaygroundList?.filter((_: any, index: number) => index % 2 !== 0);
+	}, [apiPlaygroundList, tabScreen]);
 
-// 					return (
-// 						<>
-// 							<Flex className="multi-col1">
-// 								{col1.map(
-// 									({
-// 										id,
-// 										imageSource,
-// 										title,
-// 										description
-// 									}: {
-// 										id: string;
-// 										imageSource: string;
-// 										title: string;
-// 										description: string;
-// 									}) => (
-// 										<ApiCard
-// 											key={`${category}_${id}`}
-// 											id={`${category}_${id}`}
-// 											imageSource={imageSource}
-// 											title={title}
-// 											description={description}
-// 											onCardClick={handleCardClick}
-// 										/>
-// 									)
-// 								)}
-// 							</Flex>
-// 							<Flex className="multi-col2">
-// 								{col2.map(
-// 									({
-// 										id,
-// 										imageSource,
-// 										title,
-// 										description
-// 									}: {
-// 										id: string;
-// 										imageSource: string;
-// 										title: string;
-// 										description: string;
-// 									}) => (
-// 										<ApiCard
-// 											key={`${category}_${id}`}
-// 											id={`${category}_${id}`}
-// 											imageSource={imageSource}
-// 											title={title}
-// 											description={description}
-// 											onCardClick={handleCardClick}
-// 										/>
-// 									)
-// 								)}
-// 							</Flex>
-// 						</>
-// 					);
-// 				} else {
-// 					return (
-// 						<Flex className="single-col">
-// 							{data[category].map(
-// 								({
-// 									id,
-// 									imageSource,
-// 									title,
-// 									description
-// 								}: {
-// 									id: string;
-// 									imageSource: string;
-// 									title: string;
-// 									description: string;
-// 								}) => (
-// 									<ApiCard
-// 										key={`${category}_${id}`}
-// 										id={`${category}_${id}`}
-// 										imageSource={imageSource}
-// 										title={title}
-// 										description={description}
-// 										onCardClick={handleCardClick}
-// 									/>
-// 								)
-// 							)}
-// 						</Flex>
-// 					);
-// 				}
-// 			}
-// 		},
-// 		[isTablet, data, handleCardClick]
-// 	);
+	const handleCardClick = (apiPlaygroundId: string, apiPlaygroundTitle: string) => () => {
+		// record([{ EventType: EventTypeEnum.SAMPLE_CLICKED, Attributes: { apiPlaygroundId, apiPlaygroundTitle } }]);
+		// navigate(`/apiPlayground/${apiPlaygroundId}`);
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	};
 
-// 	const renderSectionList = useMemo(() => {
-// 		if (!isFetching && !isFiltering && !!data) {
-// 			return Object.keys(data).map(category => {
-// 				return (
-// 					<Flex key={category} id={category} className="anchor" gap={0} direction="column">
-// 						<Flex className="section">
-// 							<Text className="section-title bold regular-text">{category}</Text>
-// 							<Flex className="list">{renderList(category)}</Flex>
-// 						</Flex>
-// 					</Flex>
-// 				);
-// 			});
-// 		} else {
-// 			return <>LOADING!!!</>;
-// 		}
-// 	}, [isFetching, isFiltering, data, renderList]);
+	const handleSearchChange = (searchText: string) => {
+		setFilterLoading(true);
+		setFilters(prevFilters => ({ ...prevFilters, searchText }));
+	};
 
-// 	return (
-// 		<View className="api-playground-list-container no-side-gaps inner-container-padding">
-// 			<Flex className="header">
-// 				<View>
-// 					<Heading className="bold x-large-text" level={2} textAlign={isLtr ? "start" : "end"}>
-// 						{t("API Playground")}
-// 					</Heading>
-// 					<Text className="header-text regular-text" textAlign={isLtr ? "start" : "end"}>
-// 						{t("APIs available for you to explore.")}
-// 					</Text>
-// 				</View>
-// 				<View className="header-icon">
-// 					<IconApiPlayground />
-// 				</View>
-// 			</Flex>
-// 			<Flex className="content-container">
-// 				{!isTablet && renderCategoriesDesktop}
-// 				<Flex className="search-and-list">
-// 					<Flex className="search-field-container">
-// 						<SearchField
-// 							data-testid="apis-search-field"
-// 							className="search-field"
-// 							label={t("search.text")}
-// 							placeholder={t("search.text") as string}
-// 							dir={langDir}
-// 							hasSearchIcon={true}
-// 							size={"large"}
-// 							innerStartComponent={
-// 								<Flex className="search-icon-container">
-// 									<IconSearch />
-// 								</Flex>
-// 							}
-// 							hasSearchButton={false}
-// 							onClear={() => {
-// 								setIsFiltering(false);
-// 								setSearchText("");
-// 							}}
-// 							onChange={e => setSearchText(e.target.value)}
-// 							value={searchText}
-// 							crossOrigin={undefined}
-// 						/>
-// 					</Flex>
-// 					{isTablet && renderCategoriesMobile}
-// 					<Flex className="section-list-container">{renderSectionList}</Flex>
-// 				</Flex>
-// 			</Flex>
-// 		</View>
-// 	);
-// };
+	const handleFilterChange = (key: string, values: string[]): void => {
+		setFilterLoading(true);
+		setFilters(prevFilters => ({ ...prevFilters, [key]: values }));
+	};
+
+	useEffect(() => {
+		if (filterLoading) {
+			setFilterLoading(false);
+		}
+	}, [filteredApiPlaygroundList]);
+
+	return (
+		<>
+			<View
+				data-testid="apiPlayground-list-header"
+				className="apiPlaygrounds-list-container no-side-gaps inner-container-padding"
+			>
+				<Flex className="header">
+					<View>
+						<View>
+							<Heading className="header-text bold x-large-text" level={2} textAlign={isLtr ? "start" : "end"}>
+								API Playground
+							</Heading>
+							<Text className="header-text regular-text" textAlign={isLtr ? "start" : "end"}>
+								Use serverless patterns to quickly build integrations using AWS SAM and CDK templates. Filter by pattern
+								and copy the template directly into your application. &nbsp;
+							</Text>
+						</View>
+						<View className="header-icon">
+							<IconCode />
+						</View>
+					</View>
+				</Flex>
+
+				<Flex className="content-container">
+					<View className="checkbox-filter-container">
+						{apiPlaygroundFiltersData.map(apiPlaygroundListFilter => (
+							<CheckboxGroup
+								key={apiPlaygroundListFilter.key}
+								title={"Features"}
+								options={apiPlaygroundListFilter.options}
+								values={filters?.[apiPlaygroundListFilter.key] || []}
+								onChange={val => handleFilterChange(apiPlaygroundListFilter.key, val)}
+							/>
+						))}
+					</View>
+					<View flex={3}>
+						<Flex flex={1} width={"100%"} className="search-field-container">
+							<SearchField
+								data-testid="apiPlaygrounds-search-field"
+								className="search-field"
+								label={t("search.text")}
+								placeholder={t("search.text") as string}
+								dir={langDir}
+								hasSearchIcon={true}
+								size={"large"}
+								innerStartComponent={
+									<Flex className="search-icon-container">
+										<IconSearch />
+									</Flex>
+								}
+								hasSearchButton={false}
+								onChange={e => handleSearchChange(e.target.value)}
+								value={filters?.searchText || ""}
+							/>
+							<IconFilter
+								data-testid="apiPlaygrounds-filter-icon"
+								fill="red"
+								className="filter-icon"
+								onClick={() => setIsFilterModalOpen(true)}
+							/>
+						</Flex>
+						<Flex className="apiPlayground-list">
+							<View className="apiPlayground-list-cards-container">
+								{!data || isLoading || filterLoading
+									? loading()
+									: column1ApiPlaygrounds?.map((apiPlayground: any) => (
+											<ApiPlaygroundCard
+												key={apiPlayground.id}
+												id={apiPlayground.id}
+												title={apiPlayground.title}
+												imageSource={apiPlayground.imageSource}
+												brief={apiPlayground.brief}
+												tags={apiPlayground.tags}
+												onCardClick={handleCardClick}
+											/>
+									  ))}
+							</View>
+
+							<View className="apiPlayground-list-cards-container">
+								{!data || isLoading || filterLoading
+									? loading()
+									: column2ApiPlaygrounds?.map((apiPlayground: any) => (
+											<ApiPlaygroundCard
+												key={apiPlayground.id}
+												id={apiPlayground.id}
+												title={apiPlayground.title}
+												imageSource={apiPlayground.imageSource}
+												brief={apiPlayground.brief}
+												tags={apiPlayground.tags}
+												onCardClick={handleCardClick}
+											/>
+									  ))}
+							</View>
+						</Flex>
+					</View>
+				</Flex>
+			</View>
+			<View
+				data-testid="apiPlayground-list-filter-container"
+				className={`apiPlayground-list-filter-modal-container ${isFilterModalOpen ? "disable-body-scroll" : ""}`}
+			>
+				<FilterModal
+					title={"Features"}
+					isOpen={isFilterModalOpen}
+					onClose={() => setIsFilterModalOpen(false)}
+					onChange={filters => {
+						setFilters(prevFilters => ({ ...prevFilters, ...filters }));
+					}}
+					options={apiPlaygroundFiltersData}
+					values={filters ? { features: filters.features || [] } : {}}
+				/>
+			</View>
+		</>
+	);
+};
 
 export default ApiPlaygroundListPage;
