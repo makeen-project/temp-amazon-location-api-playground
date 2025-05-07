@@ -6,7 +6,9 @@ import { lazy } from "react";
 import { appConfig } from "@api-playground/core/constants";
 import { Navigate, RouteObject } from "react-router-dom";
 
-const { ERROR_BOUNDARY, DEFAULT, API_PLAYGROUND, API_PLAYGROUND_DETAILS } = appConfig.ROUTES;
+const {
+	ROUTES: { ERROR_BOUNDARY, DEFAULT, API_PLAYGROUND, API_PLAYGROUND_DETAILS }
+} = appConfig;
 
 const ApiPlaygroundListPage = lazy(() =>
 	import("@api-playground/atomicui/pages/ApiPlaygroundListPage").then(module => ({
