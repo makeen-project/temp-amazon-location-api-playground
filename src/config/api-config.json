@@ -1,0 +1,44 @@
+{
+  "apis": {
+    "Maps": [
+      {
+        "id": "1",
+        "imageSource": "images/Map1.png",
+        "title": "CreateMap Playground",
+        "description": "Creates a map resource in your AWS account, which provides map tiles of different styles sourced from global location data providers.",
+        "shouldRenderMap": true,
+        "requestParams": []
+      }
+    ],
+    "Places": [
+      {
+        "id": "2",
+        "imageSource": "images/Map2.png",
+        "title": "SearchNearby API Playground",
+        "description": "Find points of interest around specific locations on the map. Select a position, set your search radius, and filter by categories to discover nearby places. View detailed results including addresses, business information, and opening hours",
+        "shouldRenderMap": false,
+        "requestParams": []
+      }
+    ],
+    "Routes": [
+      {
+        "id": "3",
+        "imageSource": "images/Map3.png",
+        "title": "Routes API Playground",
+        "description": "Calculate optimal routes with turn-by-turn directions using multiple travel modes. Plan journeys by car (even with live traffic), walking, or truck to see the best path between locations",
+        "shouldRenderMap": true,
+        "requestParams": []
+      }
+    ],
+    "Trackers": [
+      {
+        "id": "4",
+        "imageSource": "images/Map4.png",
+        "title": "Location Tracking with AWS Amplify on Android",
+        "description": "How to implement location tracking using AWS Amplify and Amazon Location on Android",
+        "shouldRenderMap": false,
+        "requestParams": []
+      }
+    ]
+  }
+} 

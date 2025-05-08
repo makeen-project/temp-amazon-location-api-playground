@@ -13,3 +13,4 @@ export * from "./distanceUtil";
 export * from "./turfUtils";
 export * from "./getStyleWithPreferredLanguage";
 export * from "./normalizeLng";
+export * from "./downloadJsonFileUtils";

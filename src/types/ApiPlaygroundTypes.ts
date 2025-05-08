@@ -23,17 +23,19 @@ export type ApiPlaygroundDetailsType = {
 	githubLink?: string;
 };
 
-export type ApiPlaygroundListFilter = {
+export interface ApiPlaygroundListFilter {
 	searchText?: string;
 	features?: string[];
 	language?: string[];
 	platform?: string[];
-};
+}
 
-export type ApiPlaygroundList = {
+export interface ApiPlaygroundItem {
 	id: string;
 	title: string;
 	imageSource: string;
 	brief: string;
-	tags: string[];
-}[];
+	category: string;
+}
+
+export type ApiPlaygroundList = ApiPlaygroundItem[];
