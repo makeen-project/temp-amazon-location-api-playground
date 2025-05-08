@@ -3,28 +3,15 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-// import { EventTypeEnum, debounce, record } from "amazon-location-features-demo-web";
 import {
 	ApiPlaygroundItem,
 	ApiPlaygroundList,
 	ApiPlaygroundListFilter
 } from "@api-playground/types/ApiPlaygroundTypes";
 
+import { downloadJson } from "@api-playground/utils/downloadJsonFileUtils";
+import { errorHandler } from "@api-playground/utils/errorHandler";
 import { useTranslation } from "react-i18next";
-
-import apiConfig from "../config/api-config.json";
-
-// import { downloadJson } from "utils/downloadJsonFileUtils";
-// import { errorHandler } from "utils/errorHandler";
-
-// const recordFilterEvent = debounce(
-// 	(recordAttributes: { [key: string]: string }) =>
-// 		record([{ EventType: EventTypeEnum.API_PLAYGROUND_FILTERS_APPLIED, Attributes: recordAttributes }]),
-// 	5000
-// );
-// const {
-// 	ENV: { API_PLAYGROUNDS_LIST_FILENAME }
-// } = appConfig;
 
 interface ApiConfigItem {
 	id: string;
@@ -49,7 +36,7 @@ function useApiPlaygroundList() {
 	const fetchApiPlaygroundList = useCallback(async () => {
 		try {
 			setLoading(true);
-			// const apiConfig = await downloadJson({ lng: i18n.language, key: "/extra/api-playground/api-config.json" });
+			const apiConfig = await downloadJson({ path: "extra/api-playground/api-config.json" });
 
 			// Flatten the apis object into a single array
 			const flattenedList = Object.entries((apiConfig as ApiConfig).apis).reduce<ApiPlaygroundList>(
@@ -67,7 +54,7 @@ function useApiPlaygroundList() {
 			);
 			setApiPlaygroundsList(flattenedList);
 		} catch (error) {
-			// errorHandler(error, t("error_handler__failed_fetch_api_playground_list.text"));
+			errorHandler(error, t("error_handler__failed_fetch_api_playground_list.text"));
 		} finally {
 			setLoading(false);
 		}
@@ -116,7 +103,6 @@ function useApiPlaygroundFilters() {
 
 		const filterCategories = [...(filters.features || []), ...(filters.language || []), ...(filters.platform || [])];
 
-		console.log("filterCategories", filterCategories);
 		if (filterCategories.flat().length) {
 			filteredData = filteredData.filter((apiPlayground: ApiPlaygroundItem) => {
 				return filterCategories.some(
@@ -137,8 +123,6 @@ function useApiPlaygroundFilters() {
 
 		recordAttributes["usedTextSearch"] = String(Boolean(recordAttributes.searchText));
 		delete recordAttributes.searchText;
-
-		// recordFilterEvent(recordAttributes);
 	}, [filters, isLoading, apiPlaygroundList]);
 
 	return {

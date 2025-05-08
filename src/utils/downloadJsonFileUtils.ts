@@ -7,8 +7,8 @@ const {
 	ENV: { VITE_DATA_FILES_URL }
 } = appConfig;
 
-export const downloadJson = async (params: { lng: string; key: string }) => {
-	const bucketURL = `${VITE_DATA_FILES_URL.trim()}/${params.lng}/${params.key}`;
+export const downloadJson = async (params: { path: string }) => {
+	const bucketURL = `${VITE_DATA_FILES_URL.trim()}/${params.path}`;
 
 	const res = await fetch(bucketURL, {
 		method: "get"
