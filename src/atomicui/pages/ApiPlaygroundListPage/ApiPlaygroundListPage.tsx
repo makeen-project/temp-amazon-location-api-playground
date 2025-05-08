@@ -163,7 +163,7 @@ const ApiPlaygroundListPage: FC = () => {
 												title={apiPlayground.title}
 												imageSource={apiPlayground.imageSource}
 												brief={apiPlayground.brief}
-												tags={apiPlayground.tags}
+												category={apiPlayground.category}
 												onCardClick={handleCardClick}
 											/>
 									  ))}
@@ -179,7 +179,7 @@ const ApiPlaygroundListPage: FC = () => {
 												title={apiPlayground.title}
 												imageSource={apiPlayground.imageSource}
 												brief={apiPlayground.brief}
-												tags={apiPlayground.tags}
+												category={apiPlayground.category}
 												onCardClick={handleCardClick}
 											/>
 									  ))}
