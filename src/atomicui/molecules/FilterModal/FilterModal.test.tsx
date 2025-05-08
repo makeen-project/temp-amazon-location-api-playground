@@ -3,7 +3,7 @@ import { fireEvent, render } from "@testing-library/react";
 import i18n from "locales/i18n";
 import { I18nextProvider } from "react-i18next";
 
-import FilterModal from "./FilterModal";
+import FilterModal from ".";
 
 describe("<FilterModal />", () => {
 	const props = {

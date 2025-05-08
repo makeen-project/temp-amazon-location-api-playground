@@ -68,7 +68,9 @@ export default defineConfig(() => {
 				],
 				output: {
 					assetFileNames: chunkInfo =>
-						chunkInfo.names.includes("amazon-location-features-demo-web.css") ? "style.css" : chunkInfo.names.join("-")
+						chunkInfo.names.includes("temp-amazon-location-api-playground.css")
+							? "style.css"
+							: chunkInfo.names.join("-")
 				}
 			}
 		},

@@ -1,6 +1,6 @@
 import { RenderResult, act, render, screen } from "@testing-library/react";
 
-import Modal from "./Modal";
+import Modal from ".";
 
 describe("<Modal />", () => {
 	let modalContainer: HTMLElement | null;
