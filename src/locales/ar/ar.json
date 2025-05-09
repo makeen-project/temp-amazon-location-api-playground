@@ -210,7 +210,7 @@
     "text": "شروط الموقع"
   },
   "overview__hs__heading": {
-    "text": "خدمة موقع أمازون"
+    "text": "Amazon Location Service"
   },
   "overview__hs__subheading": {
     "text": "إضافة بيانات الموقع إلى التطبيقات بأمان وسهولة"
@@ -486,7 +486,7 @@
     "text": "احصل على موضع الجهاز"
   },
   "product__trackers__product_3__link_2": {
-    "text": "وضع جهاز الحصول على الدفعة"
+    "text": "ضع قائمة بمواضع الأجهزة"
   },
   "product__trackers__product_3__link_3": {
     "text": "موضع جهاز التحديث الدفعي"
@@ -3065,6 +3065,9 @@
   "regions__ap_southeast_1": {
     "text": "Asia Pacific (Singapore) ap-southeast-1"
   },
+  "regions__ap_southeast_5": {
+    "text": "Asia Pacific (Malaysia) ap-southeast-5"
+  },
   "regions__ap_southeast_2": {
     "text": "Asia Pacific (Sydney) ap-southeast-2"
   },
@@ -3617,6 +3620,9 @@
   "nl_loader_sample_text_5": {
     "text": "أمازون بيدروك في مهمة رسم الخرائط! البحث."
   },
+  "banner__message": {
+    "text": "جرب البحث باللغة الطبيعية بدعم من Amazon Bedrock"
+  },
   "fm__header": {
     "text": "أخبرنا برأيك؟"
   },
@@ -3653,6 +3659,2031 @@
   "error_handler__failed_feedback_text_2": {
     "text": "فشل الطلب مع الحالة"
   },
+  "banner_migration_label": {
+    "text": "انتقل إلى موقع Amazon اليوم!"
+  },
+  "banner_migration_action": {
+    "text": "دليل الترحيل"
+  },
+  "pricing": {
+    "text": "التسعير"
+  },
+  "avg_speed_per_hour": {
+    "text": "متوسط السرعة لكل ساعة"
+  },
+  "accuracy_value": {
+    "text": "قيمة الدقة"
+  },
+  "price": {
+    "text": "السعر"
+  },
+  "use_cases": {
+    "text": "حالات الاستخدام"
+  },
+  "web_based_map_application": {
+    "text": "تطبيق الخرائط المستند إلى الويب"
+  },
+  "web_based_map_application_description": {
+    "text": "يعرض هذا القسم تكلفة تطبيق ويب صغير يستخدم واجهة برمجة تطبيقات مربعات الخرائط لجلب مربعات الخريطة وعرضها بالتعاون مع MapLibre، مما يسمح للمستخدم باستخدام البحث على الخريطة وجلب الأماكن إلى جانب تفاصيل المكان. علاوة على ذلك، فإنه يسمح أيضًا للمستخدم بحساب المسار بين أي موقعين. يعطي هذا تقديرًا للتكلفة الإجمالية لاستهلاك واجهة برمجة التطبيقات، على افتراض أن التطبيق الخاص بك يستخدم واجهات برمجة تطبيقات GetMapTile و SearchPlaceIndexForSuggestions و GetPlace و calculateRoute."
+  },
+  "map_tiles": {
+    "text": "مربعات الخرائط"
+  },
+  "search_place_by_position": {
+    "text": "ابحث عن مكان حسب الموضع"
+  },
+  "calculate_route": {
+    "text": "المسار"
+  },
+  "total_monthly": {
+    "text": "الإجمالي الشهري"
+  },
+  "amazon_location_charges": {
+    "text": "رسوم موقع أمازون"
+  },
+  "google_maps_charges": {
+    "text": "رسوم خرائط جوجل"
+  },
+  "trackers_and_geofences_application": {
+    "text": "تطبيق أجهزة التتبع والجيونسس"
+  },
+  "trackers_and_geofences_application_description_1": {
+    "text": "توفر خدمة Amazon Location Service إمكانات التتبع والمواقع الجغرافية التي يمكن إضافتها إلى تطبيقك. باستخدام برامج التتبع، يمكنك استرداد الموقع الحالي والتاريخي للأجهزة التي تم تحميلها من أجهزتك أو أصولك المتعقبة على الفور. تمنح Geofences تطبيقك القدرة على الاكتشاف والتصرف عندما يدخل الجهاز المتعقب أو يخرج من الحدود الجغرافية التي تحددها كسياج جغرافي. عند اكتشاف خرق للسياج الجغرافي، ترسل خدمة Amazon Location Service تلقائيًا حدث الدخول أو الخروج إلى Amazon EventBridge، والذي يمكنه بعد ذلك تشغيل الإجراءات النهائية."
+  },
+  "trackers_and_geofences_application_description_2": {
+    "text": "1) تعتمد تكلفة كتابة برامج التتبع على استخدام واجهة برمجة تطبيقات BatchUpdateDevicePosition، والتي تسمح لك بتسجيل وتخزين سجل أجهزة التتبع الخاصة بالجهاز."
+  },
+  "trackers_and_geofences_application_description_3": {
+    "text": "2) تعتمد تكلفة Geofences على واجهة برمجة تطبيقات BatchEvaluateGeofences، التي تقيم الموقع المتعقب مقابل السياج الجغرافي للأحداث التي تم إدخالها أو الخروج منها."
+  },
+  "trackers_and_geofences_application_description_4": {
+    "text": "3) تعتمد تكلفة قراءة أجهزة التتبع على ListDevicePositions API، والتي تسمح لك بجلب سجل المواقع الأخير للجهاز. "
+  },
+  "devices": {
+    "text": "الأجهزة"
+  },
+  "ping_rate": {
+    "text": "معدل بينغ"
+  },
+  "avg_time_stationary": {
+    "text": "متوسط الوقت الثابت"
+  },
+  "avg_device_speed": {
+    "text": "متوسط سرعة الجهاز"
+  },
+  "filter": {
+    "text": "عامل التصفية"
+  },
+  "accuracy": {
+    "text": "الدقة"
+  },
+  "distance": {
+    "text": "مسافة"
+  },
+  "time": {
+    "text": "الوقت"
+  },
+  "location_updates": {
+    "text": "تحديثات الموقع"
+  },
+  "geofence_evaluation": {
+    "text": "تقييم السياج الجغرافي"
+  },
+  "per": {
+    "text": "لكل"
+  },
+  "requests": {
+    "text": "طلبات"
+  },
+  "items": {
+    "text": "العناصر"
+  },
+  "minute": {
+    "text": "دقيقة"
+  },
+  "minutes": {
+    "text": "الدقائق"
+  },
+  "days": {
+    "text": "أيام"
+  },
+  "hours": {
+    "text": "ساعات"
+  },
+  "month": {
+    "text": "شهر"
+  },
+  "all_devices": {
+    "text": "جميع الأجهزة"
+  },
+  "get_started_with_amazon_location_today": {
+    "text": "ابدأ مع موقع أمازون اليوم"
+  },
+  "three_months_free_with_the_AWS_free_tier": {
+    "text": "ثلاثة أشهر مجانًا مع فئة AWS المجانية."
+  },
+  "migrate_to_amazon_location_today": {
+    "text": "انتقل إلى موقع Amazon اليوم"
+  },
+  "pricing_calculators": {
+    "text": "حاسبات التسعير"
+  },
+  "pricing_calculators_description": {
+    "text": "اكتشف أدوات Amazon Location التي تحتاجها لإنشاء خدمات وتطبيقات قائمة على الموقع يمكن استخدامها للعثور على الأماكن القريبة والحصول على الاتجاهات وعرض تحديثات حركة المرور في الوقت الفعلي."
+  },
+  "three_month_free": {
+    "text": "3 أشهر مجانًا"
+  },
+  "Web-based_map_app": {
+    "text": "تطبيق الخرائط المستند إلى الويب"
+  },
+  "tracking_and_geofencing_app": {
+    "text": "تطبيق أجهزة التتبع والجيونسس"
+  },
+  "explore_use_cases": {
+    "text": "اكتشف حالات الاستخدام"
+  },
+  "maps_text": {
+    "text": "خرائط"
+  },
+  "places_text": {
+    "text": "الأماكن"
+  },
+  "routes_text": {
+    "text": "المسارات"
+  },
+  "yearly_text": {
+    "text": "سنويًّا"
+  },
+  "monthly_text": {
+    "text": "شهريًّا"
+  },
+  "weekly_text": {
+    "text": "أسبوعي"
+  },
+  "daily_text": {
+    "text": "اليومي"
+  },
+  "Product_text": {
+    "text": "منتجات"
+  },
+  "Usage_text": {
+    "text": "الاستخدام"
+  },
+  "hundred_requests": {
+    "text": "مائة طلب"
+  },
+  "thousand_requests": {
+    "text": "آلاف الطلبات"
+  },
+  "million_requests": {
+    "text": "مليون طلب"
+  },
+  "billion_requests": {
+    "text": "مليار طلب"
+  },
+  "google_maps": {
+    "text": "Google Maps"
+  },
+  "amazon_location": {
+    "text": "Amazon Location"
+  },
+  "maps_sdk_for_android": {
+    "text": "خرائط SDK للأندرويد"
+  },
+  "maps_sdk_for_ios": {
+    "text": "SDK للخرائط لنظام iOS"
+  },
+  "maps_javascript_api": {
+    "text": "واجهة برمجة تطبيقات جافا سكريبت للخرائط"
+  },
+  "search_place_index_for_suggestion": {
+    "text": "اقتراحات"
+  },
+  "search_place_index_for_text": {
+    "text": "البحث عن طريق النص"
+  },
+  "search_place_index_for_position": {
+    "text": "البحث حسب الموضع"
+  },
+  "get_place": {
+    "text": "تفاصيل المكان"
+  },
+  "calculate_route_matrix": {
+    "text": "مصفوفة المسار"
+  },
+  "every": {
+    "text": "كل"
+  },
+  "distance_value": {
+    "text": "قيمة المسافة"
+  },
+  "time_value": {
+    "text": "قيمة الوقت"
+  },
+  "trackers_pricing": {
+    "text": "تسعير أجهزة التتبع"
+  },
+  "tracking_apis": {
+    "text": "واجهات برمجة تطبيقات التتبع"
+  },
+  "positions_written": {
+    "text": "المناصب المكتوبة"
+  },
+  "above": {
+    "text": "فوق"
+  },
+  "geofence_pricing": {
+    "text": "تسعير السياج الجغرافي"
+  },
+  "geofence_apis": {
+    "text": "واجهات برمجة تطبيقات جيوفينسز"
+  },
+  "trackings_cost_driven": {
+    "text": "التتبع يعتمد على التكلفة"
+  },
+  "description_driven_tooltip": {
+    "text": "سيكون نص الوصف هنا، تحقق مرة أخرى لاحقًا"
+  },
+  "geofencings_cost_driven": {
+    "text": "تعتمد تكلفة السياج الجغرافي"
+  },
+  "geofence_driven_tooltip": {
+    "text": "تساعدك هذه المدخلات في تقدير التكلفة الإجمالية لتقييم Geofence. قد تتضمن تحديثات الموقع من الأجهزة ضوضاء أو ارتعاش أو نقاط بيانات غير مفيدة لتقييم السياج الجغرافي، مثل المواقع المتطابقة أو المشابهة عندما يكون الجهاز ثابتًا أو يتحرك بسرعة منخفضة. توفر خدمة Amazon Location Trackers عوامل تصفية متعددة لمساعدتك في إزالة تحديثات الموقع غير ذات الصلة لتقليل تكلفة تقييم Geofence."
+  },
+  "hide_price_calculation": {
+    "text": "إخفاء تفاصيل الحساب"
+  },
+  "automatic_unit": {
+    "text": "وحدة تلقائية"
+  },
+  "price_single_unit_tooltip": {
+    "text": "سعر وحدة واحدة في خرائط Google"
+  },
+  "amazon_location_uses_here_data_provider_price_rate": {
+    "text": "تختلف أسعار خدمة Amazon Location Service باختلاف سعر الوحدة بناءً على موفر البيانات الذي يتم استخدامه. موفرو البيانات التجارية (Esri و HERE و GrabMaps) وموفر البيانات المفتوحة."
+  },
+  "photorealistic_3D_tiles": {
+    "text": "بلاطات ثلاثية الأبعاد واقعية"
+  },
+  "2D_tiles": {
+    "text": "بلاطات ثنائية الأبعاد"
+  },
+  "street_view_tiles": {
+    "text": "بلاط التجوّل الافتراضي"
+  },
+  "dynamic_maps": {
+    "text": "خرائط ديناميكية"
+  },
+  "dynamic_maps_description": {
+    "text": "تختلف أسعار خرائط Google لمكالمات API التي تتم عبر حزم SDK الخاصة بها؛ ومع ذلك، فإن نهجنا مع Amazon Location SDK، وهي مجانية، يضمن الاتساق. بغض النظر عن النظام الأساسي، تستخدم جميع حزم Amazon Location SDK نفس مجموعة واجهات برمجة تطبيقات REST، مما يؤدي إلى هيكل تسعير موحد ومتسق. تعمل واجهات برمجة التطبيقات ومجموعات تطوير البرامج في Amazon Location Service مع MapLibre."
+  },
+  "view_pricing": {
+    "text": "عرض التسعير"
+  },
+  "tracking_write_price": {
+    "text": "أجهزة التتبع تكتب السعر"
+  },
+  "tracking_read_price": {
+    "text": "أجهزة التتبع تقرأ السعر"
+  },
+  "geofencing_price": {
+    "text": "سعر جيوفينسس"
+  },
+  "show_price_calculation": {
+    "text": "عرض تفاصيل الحساب"
+  },
+  "other_tracking_apis": {
+    "text": "واجهات برمجة تطبيقات التتبع الأخرى"
+  },
+  "batch_positions_read": {
+    "text": "تمت قراءة مواضع الدفعات"
+  },
+  "one_request_can": {
+    "text": "يمكن لطلب واحد استرداد ما يصل إلى 100 جهاز."
+  },
+  "tracking_write_tooltip": {
+    "text": "تساعدك هذه المدخلات في تقدير تكلفة خدمة Trackers من خلال حساب إجمالي الطلبات الشهرية لتحديثات موضع الجهاز."
+  },
+  "tracking_read_tooltip": {
+    "text": "تدعم خدمة Amazon Location Service الاستعلامات الخاصة بمواضع الأجهزة التاريخية من أجهزة التتبع، حتى 100 وظيفة لكل مكالمة."
+  },
+  "geofence_driven_tooltip_point1": {
+    "text": "يمكن لمعظم الأجهزة، بما في ذلك معظم الأجهزة المحمولة، تقديم تقدير لدقة القياس إلى جانب القياس. من خلال التصفية المستندة إلى الدقة، يتجاهل Amazon Location تحديثات الموقع إذا تحرك الجهاز بأقل من الدقة المقاسة. لغرض تقدير التكلفة، يرجى إدخال مستوى الدقة الأكثر شيوعًا لجهازك المتعقب."
+  },
+  "geofence_driven_tooltip_point2": {
+    "text": "تتجاهل التصفية المستندة إلى المسافة تحديثات الموقع التي تحركت فيها الأجهزة أقل من 30 مترًا (98.4 قدمًا)."
+  },
+  "day": {
+    "text": "يوم"
+  },
+  "week": {
+    "text": "أسبوع"
+  },
+  "search_place_by_suggestions": {
+    "text": "مكان البحث عن طريق الاقتراحات"
+  },
+  "commercial_data_providers": {
+    "text": "موفرو البيانات التجارية"
+  },
+  "open_data_provider": {
+    "text": "موفر البيانات المفتوحة"
+  },
+  "single_use": {
+    "text": "استخدام مفرد"
+  },
+  "storage": {
+    "text": "تخزين"
+  },
+  "contact_sales": {
+    "text": "اتصل بالمبيعات"
+  },
+  "tracking_and_geofencing_application": {
+    "text": "تطبيق التتبع والسياج الجغرافي"
+  },
+  "geofencing_pricing": {
+    "text": "تسعير السياج الجغرافي"
+  },
+  "dashboard_refresh_rate": {
+    "text": "معدل تحديث لوحة التحكم لكل موضع جهاز {{count}}"
+  },
+  "hour": {
+    "text": "ساعة"
+  },
+  "batch": {
+    "text": "دفعة"
+  },
+  "number_of_requests": {
+    "text": "عدد الطلبات"
+  },
+  "number_of_departure_positions": {
+    "text": "عدد مواقع المغادرة"
+  },
+  "number_of_destination_positions": {
+    "text": "عدد مواقع الوجهة"
+  },
+  "google_maps_does_not_permit": {
+    "text": "لا تسمح خرائط Google بتخزين معلومات الأماكن"
+  },
+  "n/a": {
+    "text": "غير متوفر"
+  },
+  "google_maps_allows_maximum_of_25": {
+    "text": "تسمح خرائط Google بحد أقصى 25 موقعًا للمغادرة و 25 موقعًا للوجهة، حتى 625 عنصرًا لكل طلب"
+  },
+  "google_maps_unit_price": {
+    "text": "سعر وحدة خرائط Google"
+  },
+  "migrateAWebApp_heading": {
+    "text": "الويب - الترحيل من خرائط Google إلى خدمة موقع Amazon"
+  },
+  "migrateAWebApp_desc": {
+    "text": "يوضح هذا الدليل تفاصيل العملية الفنية لنقل تطبيقات الويب من خرائط Google إلى Amazon Location Service. يسلط الضوء على الإعداد الأولي وتكوين موارد Amazon Location ويقدم أمثلة مقارنة SDK لتسهيل دمج وظائف رسم الخرائط في الأنظمة الأساسية المستندة إلى الويب."
+  },
+  "migrateAWebApp_linkItems_ios": {
+    "text": "قم بترحيل تطبيق iOS"
+  },
+  "migrateAWebApp_linkItems_android": {
+    "text": "قم بترحيل تطبيق Android"
+  },
+  "migrateAWebApp_linkItems_web": {
+    "text": "ترحيل خدمة ويب"
+  },
+  "migrateAWebApp_article_heading1": {
+    "text": "في هذه المقالة"
+  },
+  "migrateAWebApp_article_point_1": {
+    "text": "تحميل خريطة"
+  },
+  "migrateAWebApp_article_point_5": {
+    "text": "عرض نافذة معلومات"
+  },
+  "migrateAWebApp_article_point_6": {
+    "text": "تجميع العلامات"
+  },
+  "migrateAWebApp_article_point_8": {
+    "text": "البحث عن الأماكن"
+  },
+  "migrateAWebApp_article_point_9": {
+    "text": "خدمة التوجيه"
+  },
+  "migrateAWebApp_article_point_10": {
+    "text": "رسم سياج جغرافي"
+  },
+  "migrateAWebApp_article_heading2": {
+    "text": "في هذه الصفحة"
+  },
+  "migrateAWebApp_article_items_prerequisites": {
+    "text": "المتطلبات الأساسية"
+  },
+  "migrateAWebApp_article_items_key_features": {
+    "text": "دعم الميزات الرئيسية"
+  },
+  "migrateAWebApp_article_items_load_a_web": {
+    "text": "تحميل خريطة"
+  },
+  "migrateAWebApp_article_items_marker_clustering": {
+    "text": "تجميع العلامات"
+  },
+  "migrateAWebApp_article_items_place_searches": {
+    "text": "البحث عن الأماكن"
+  },
+  "migrateAWebApp_article_items_next_steps": {
+    "text": "الخطوات التالية"
+  },
+  "migrateAWebApp_article_description": {
+    "text": "في حالة ترحيل تطبيق ويب موجود، تحقق لمعرفة ما إذا كان يستخدم مكتبة تحكم بالخرائط مفتوحة المصدر. ومن أمثلة مكتبة التحكم في الخرائط مفتوحة المصدر: السيزيوم، والنشرة، وOpenLayers. لا يزال بإمكانك ترحيل تطبيقك، حتى إذا كان يستخدم مكتبة تحكم بالخرائط مفتوحة المصدر، ولا تريد استخدام Azure Maps Web SDK. في هذه الحالة، قم بتوصيل التطبيق الخاص بك بخدمات بلاط Azure Maps (بلاطات الطرق | مربعات الأقمار الصناعية). توضح النقاط التالية بالتفصيل كيفية استخدام خرائط Azure في بعض مكتبات التحكم في الخرائط مفتوحة المصدر الشائعة الاستخدام."
+  },
+  "migrateAWebApp_prerequisites_heading": {
+    "text": "المتطلبات الأساسية"
+  },
+  "migrateAWebApp_prerequisites_description": {
+    "text": "تأكد من إكمال الخطوات التالية قبل إكمال الأمثلة."
+  },
+  "migrateAWebApp_prerequisites_point_1": {
+    "text": "قم بإنشاء حساب AWS"
+  },
+  "migrateAWebApp_prerequisites_point_2": {
+    "text": "حدد نمط الخريطة المفضل لديك"
+  },
+  "migrateAWebApp_prerequisites_point_2_a": {
+    "text": "انتقل إلى <0>قسم الخرائط</0> في وحدة تحكم Amazon Location Service وانقر على «إنشاء خريطة» لمعاينة أنماط الخرائط المتاحة."
+  },
+  "migrateAWebApp_prerequisites_point_2_b": {
+    "text": "قم بتسمية ووصف مورد الخريطة الجديد. تذكر الاسم الذي قمت بتعيينه لمورد الخريطة هذا، والذي سيتم استخدامه لاحقًا في البرنامج التعليمي."
+  },
+  "migrateAWebApp_prerequisites_point_2_c": {
+    "text": "عند اختيار نمط الخريطة، اختر موفر بيانات الخريطة. راجع القسم 82 من <0>شروط خدمة AWS</0> لمزيد من التفاصيل."
+  },
+  "migrateAWebApp_prerequisites_point_2_d": {
+    "text": "اقرأ <0>شروط موقع Amazon</0> واوافق عليها، ثم انقر فوق «إنشاء خريطة». بعد إنشاء الخريطة، يمكنك التفاعل معها من خلال التكبير أو التصغير أو التحريك في أي اتجاه."
+  },
+  "migrateAWebApp_prerequisites_point_3": {
+    "text": "حدد فهرس المكان الذي ترغب في استخدامه"
+  },
+  "migrateAWebApp_prerequisites_point_3_a": {
+    "text": "انتقل إلى صفحة <0>فهارس الأماكن</0> داخل وحدة تحكم Amazon Location Service وانقر على «إنشاء فهرس الأماكن»."
+  },
+  "migrateAWebApp_prerequisites_point_3_b": {
+    "text": "قم بتوفير اسم ووصف لمورد فهرس الأماكن الجديد. تذكر الاسم الذي قمت بتعيينه لمورد فهرس الأماكن هذا، والذي سيتم استخدامه لاحقًا في البرنامج التعليمي."
+  },
+  "migrateAWebApp_prerequisites_point_3_c": {
+    "text": "حدد موفر البيانات، بحيث يتماشى بشكل مثالي مع موفر الخرائط الذي اخترته، لضمان توافق البحث مع الخرائط. راجع القسم 82 من <0>شروط خدمة AWS</0> لمزيد من التفاصيل."
+  },
+  "migrateAWebApp_prerequisites_point_3_d": {
+    "text": "اختر خيار تخزين البيانات. نظرًا لعدم تخزين أي بيانات لهذا البرنامج التعليمي، حدد «لا، للاستخدام الفردي فقط»."
+  },
+  "migrateAWebApp_prerequisites_point_3_e": {
+    "text": "اقرأ <0>شروط موقع Amazon</0> واوافق عليها، ثم انقر فوق «إنشاء فهرس الأماكن»."
+  },
+  "migrateAWebApp_prerequisites_point_4": {
+    "text": "حدد حاسبة المسار التي ترغب في استخدامها"
+  },
+  "migrateAWebApp_prerequisites_point_4_a": {
+    "text": "في وحدة تحكم Amazon Location Service، انتقل إلى <0>صفحة حاسبات المسار</0> وانقر على «إنشاء حاسبة المسار»."
+  },
+  "migrateAWebApp_prerequisites_point_4_b": {
+    "text": "قم بتوفير اسم ووصف لمورد حاسبة المسار الجديد. تذكر الاسم المخصص لمورد حاسبة المسار هذا، والذي سيتم استخدامه لاحقًا في البرنامج التعليمي."
+  },
+  "migrateAWebApp_prerequisites_point_4_c": {
+    "text": "حدد موفر البيانات، مع ضمان التوافق مع نمط الخريطة المختار وموفر بيانات الخريطة. راجع القسم 82 من <0>شروط خدمة AWS</0> للحصول على مزيد من المعلومات."
+  },
+  "migrateAWebApp_prerequisites_point_4_d": {
+    "text": "اقرأ <0>شروط موقع Amazon</0> واوافق عليها، ثم انقر فوق «إنشاء حاسبة المسار»."
+  },
+  "migrateAWebApp_prerequisites_point_5": {
+    "text": "إنشاء مصادقة لتطبيقك"
+  },
+  "migrateAWebApp_prerequisites_point_5_a": {
+    "text": "انتقل إلى <0>وحدة تحكم Amazon Location</0> وحدد «مفاتيح API» من القائمة اليسرى."
+  },
+  "migrateAWebApp_prerequisites_point_5_b": {
+    "text": "انقر فوق «إنشاء مفتاح API». يجب أن يكون مفتاح API في نفس حساب AWS والمنطقة مثل موارد Amazon Location Service التي تم إنشاؤها مسبقًا."
+  },
+  "migrateAWebApp_prerequisites_point_5_c": {
+    "text": "املأ التفاصيل المطلوبة في صفحة «إنشاء مفتاح API»:"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_i": {
+    "text": "الاسم: أدخل اسمًا لمفتاح API الخاص بك، مثل «MyAppKey»."
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii": {
+    "text": "الموارد: اختر خريطة خدمة موقع Amazon وموارد فهرس الأماكن التي تم إنشاؤها مسبقًا. يمكنك إضافة موارد متعددة عن طريق تحديد «إضافة مورد». يسمح هذا باستخدام مفتاح API مع الموارد المحددة."
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iii": {
+    "text": "الإجراءات: حدد الإجراءات المصرح بها لمفتاح API هذا. <1>كحد أدنى، حدد <1>GEO:GetMap وGEO:SearchplaceIndexforText</1> <1>وGEO:calculateRoute</1> لضمان عمل البرنامج التعليمي على النحو المنشود.</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iv": {
+    "text": "اختياريًا، يمكنك إضافة وصف أو وقت انتهاء الصلاحية أو علامات أو مرجع (example.com) للحد من استخدام المفتاح لنطاق معين، مما يتيح للبرنامج التعليمي العمل داخل هذا المجال فقط."
+  },
+  "migrateAWebApp_prerequisites_point_5_d": {
+    "text": "انقر فوق «إنشاء مفتاح API» لإنشاء مفتاح API."
+  },
+  "migrateAWebApp_prerequisites_point_5_e": {
+    "text": "حدد «إظهار مفتاح API» وانسخ قيمة المفتاح (<1>v1.public.a1b2c3d4</1>...) لاستخدامها لاحقًا في البرنامج التعليمي."
+  },
+  "migrateAWebApp_prerequisites_alert": {
+    "text": "لمزيد من المعلومات حول المصادقة في Amazon Location، راجع <0>إدارة المصادقة</0> في Amazon Location."
+  },
+  "cost_group": {
+    "text": "مجموعة التكلفة"
+  },
+  "migrateAWebApp_features": {
+    "text": "الميزات"
+  },
+  "google_Maps_with_SDK": {
+    "text": "خرائط جوجل مع SDK"
+  },
+  "amazon_location_with_SDK": {
+    "text": "موقع أمازون مع SDK"
+  },
+  "markers": {
+    "text": "علامات"
+  },
+  "marker_clustering": {
+    "text": "تجميع العلامات"
+  },
+  "polylines_polygons": {
+    "text": "<0>الخطوط</0> <1>والمضلعات</1>"
+  },
+  "data_layers": {
+    "text": "طبقات البيانات"
+  },
+  "heatmaps": {
+    "text": "خرائط الحرارة"
+  },
+  "tile_layers": {
+    "text": "طبقات البلاط"
+  },
+  "geocoder_service": {
+    "text": "الترميز الجغرافي"
+  },
+  "routing_service": {
+    "text": "التوجيه"
+  },
+  "route_matrix_service": {
+    "text": "توجيه المصفوفة"
+  },
+  "notableDifferences_point1": {
+    "text": "تنسيق التمثيل"
+  },
+  "notableDifferences_point2": {
+    "text": "معالجة الإحداثيات في خرائط موقع Amazon:"
+  },
+  "notableDifferences_point3": {
+    "text": "تكامل SDK/API:"
+  },
+  "webSdkExamples_description": {
+    "text": "يحتوي هذا الدليل على نماذج تعليمات برمجية مصممة للترحيل المستند إلى الويب، وتتناول كل منها حالات الاستخدام الشائعة. والغرض منه هو المساعدة في ترحيل تطبيق الويب الخاص بك من خرائط Google V3 JavaScript SDK إلى خدمة موقع Amazon باستخدام <0>MapLibre.</0> مقتطفات الشفرة المتوفرة لتطبيقات الويب موجودة على وجه التحديد في JavaScript."
+  },
+  "codeSnippets_load_a_map_heading": {
+    "text": "تحميل خريطة"
+  },
+  "codeSnippets_load_a_map_description": {
+    "text": "تتيح لك كل من خرائط Google وخدمة Amazon Location Service دمج الخرائط التفاعلية القابلة للتخصيص في تطبيقاتك. يمكن لهذه الخرائط عرض أنواع مختلفة من البيانات الجغرافية والسماح بميزات مثل التحريك والتكبير."
+  },
+  "codeSnippets_load_a_map_point1": {
+    "text": "تستخدم خرائط Google <1>Google.maps.map لعرض الخرائط.</1>"
+  },
+  "codeSnippets_load_a_map_point2": {
+    "text": "تستخدم خدمة موقع أمازون Maplibregl.map من <1>Maplibregl.Map لعرض الخرائط</1>."
+  },
+  "codeSnippets_with_google": {
+    "text": "مع خرائط جوجل"
+  },
+  "codeSnippets_with_after": {
+    "text": "مع موقع أمازون"
+  },
+  "codeSnippets_adding_a_marker_point1": {
+    "text": "تستخدم خرائط Google <1>Google.maps.Marker</1> لعرض العلامات على الخريطة."
+  },
+  "codeSnippets_adding_a_marker_point2": {
+    "text": "تستخدم خدمة موقع أمازون MapliBregl.Marker من <1>MapLibregl.Marker</1> لعرض العلامات على الخريطة."
+  },
+  "codeSnippets_adding_a_polyline_description": {
+    "text": "يمكنك رسم خطوط على خرائط Google. بالنسبة لخدمة موقع Amazon، يمكنك رسمها باستخدام GeoJSON عبر MapLibre."
+  },
+  "codeSnippets_adding_a_polyline_point1": {
+    "text": "<1>يمكنك استخدام فئة أشكال خرائط Google لرسم الخطوط والمضلعات عبر google.maps.polyline.</1>"
+  },
+  "codeSnippets_adding_a_polyline_point2": {
+    "text": "تستخدم خدمة موقع Amazon مكتبة MapLibre. يمكنك استخدام أساليب <1>addSource و <1>addLayer</1></1> لإضافة بيانات GeoJSON."
+  },
+  "codeSnippets_adding_a_polygon_description": {
+    "text": "يمكنك رسم المضلعات على خرائط Google. بالنسبة لخدمة موقع Amazon، يمكنك رسمها باستخدام GeoJSON عبر MapLibre."
+  },
+  "codeSnippets_adding_a_polygon_point1": {
+    "text": "<1>يمكنك استخدام فئة أشكال خرائط Google لرسم الخطوط والمضلعات عبر Google.maps.Polygon.</1>"
+  },
+  "codeSnippets_adding_a_polygon_point2": {
+    "text": "تستخدم خدمة موقع Amazon مكتبة MapLibre. يمكنك استخدام أساليب <1>addSource و <1>addLayer</1></1> لإضافة بيانات GeoJSON."
+  },
+  "codeSnippets_display_an_info_window_description": {
+    "text": "يمكن لخرائط Google وخدمة Amazon Location تقديم معلومات/نافذة منبثقة على الخريطة."
+  },
+  "codeSnippets_display_an_info_window_point1": {
+    "text": "تستخدم خرائط Google <1>Google.maps.infoWindow لعرض نافذة</1> منبثقة بجوار العلامة."
+  },
+  "codeSnippets_display_an_info_window_point2": {
+    "text": "<1>تستخدم خدمة موقع أمازون MapLibre لعرض نافذة منبثقة عبر Maplibregl.popup.</1>"
+  },
+  "codeSnippets_adding_a_heatmap_description": {
+    "text": "تدعم خرائط Google وظيفة طبقة البيانات، مما يسمح لك بتراكب البيانات على الخريطة. تسمح خدمة موقع Amazon أيضًا بإضافة طبقات البيانات عبر MapLibre."
+  },
+  "codeSnippets_adding_a_heatmap_point1": {
+    "text": "توفر خرائط Google طبقة خريطة التمثيل اللوني كجزء من مكتبة <1>google.maps.visualization</1>."
+  },
+  "codeSnippets_adding_a_heatmap_point2": {
+    "text": "تستخدم خدمة موقع أمازون وظيفة <1>addLayer</1> الخاصة بـ MapLibre. عادةً ما تقوم أولاً بإضافة مصدر باستخدام <1>addSource</1>، ثم إضافة طبقة تشير إلى هذا المصدر."
+  },
+  "codeSnippets_adding_a_heatmap_point3": {
+    "text": "يعرض مقتطف الشفرة أدناه عرض خريطة التمثيل اللوني."
+  },
+  "codeSnippets_places_search_post_description": {
+    "text": "تقدم خرائط Google واجهة برمجة تطبيقات الترميز الجغرافي للتحويل بين العناوين والإحداثيات الجغرافية. توفر Amazon Location Service أيضًا إمكانات الترميز الجغرافي والترميز الجغرافي العكسي داخل واجهة برمجة تطبيقات الأماكن الخاصة بها، والتي يمكنك استخدامها للحصول على البيانات استنادًا إلى خطوط الطول والعرض والعكس صحيح."
+  },
+  "codeSnippets_routing_services_description": {
+    "text": "توفر كل من خرائط Google وخدمة Amazon Location خدمات التوجيه."
+  },
+  "codeSnippets_routing_services_point1": {
+    "text": "توفر خرائط Google <1>DirectionsService</1> و<1>DirectionsRenderer</1> أو <1>ComputeRoutes</1> و<1>Polyline</1> لحساب بيانات المسار وعرضها على الخريطة."
+  },
+  "codeSnippets_routing_services_point2": {
+    "text": "يوفر موقع Amazon <1>CalculateRouteCommand</1> عبر عميل الموقع الخاص به ويستخدم قدرة عرض Maplibre لعرض تلك البيانات على الخريطة."
+  },
+  "codeSnippets_drawing_a_circle_description": {
+    "text": "تسمح كلتا الخدمتين برسم المضلع الدائري على الخريطة."
+  },
+  "codeSnippets_drawing_a_circle_point1": {
+    "text": "توفر خرائط غوغل <1>Google.maps.circle لرسم مضلع دائري.</1>"
+  },
+  "codeSnippets_drawing_a_circle_point2": {
+    "text": "تستخدم خدمة موقع Amazon أساليب <1>AddSource <1>وaddLayer</1></1> من Maplibre لعرض مضلع دائري ويمكنك استخدام <1>turf.circle من <0>Turf.js</0> لتحويل دائرة</1> إلى مضلع للعرض."
+  },
+  "migrateAWebApp_title": {
+    "text": "ترحيل تطبيق ويب"
+  },
+  "migrateAWebApp_next_step_desc": {
+    "text": "لمزيد من المعلومات التفصيلية والرؤى الفنية حول Amazon Location، نوصي باستكشاف <0>دليل مطوري خدمة Amazon Location</0>. يوفر هذا المورد الشامل إرشادات متعمقة حول بدء استخدام Amazon Location Service وفهم إمكانياتها وتنفيذ الوظائف المستندة إلى الموقع داخل تطبيقاتك."
+  },
+  "try_demo": {
+    "text": "جرب الإصدار التجريبي"
+  },
+  "active_days_per_month": {
+    "text": "الأيام النشطة/الشهر"
+  },
+  "active_hours_per_month": {
+    "text": "ساعات نشطة/يوم"
+  },
+  "trackers_and_geofences_application_description_points": {
+    "text": "توفر الآلة الحاسبة أدناه تقديرًا لثلاثة مكونات تكلفة:"
+  },
+  "migrateAWebApp_desc1": {
+    "text": "تعد <0>وثائق AWS</0> مصدرًا رئيسيًا للمطورين لإتقان خدمة Amazon Location Service، مما يوفر دليلًا كاملاً حول الميزات والإعداد والتكامل. راجع الدليل الرسمي للحصول على رؤى عملية حول إضافة خدمات الموقع إلى التطبيقات."
+  },
+  "integrating_the_amazon_location_sdk_heading": {
+    "text": "دمج SDK لموقع أمازون"
+  },
+  "integrating_the_amazon_location_sdk_description": {
+    "text": "يمكنك استخدام خدمة موقع Amazon في مشروع الويب الخاص بك باستخدام <0>JavaScript SDK و MapLibre</0><1>.</1> سيسمح هذا لتطبيقك باستخدام خدمة Amazon Location Service بسهولة."
+  },
+  "calculate_map_tile_request_costs": {
+    "text": "حساب تكاليف طلب لوحة الخريطة"
+  },
+  "estimate_costs_for_place_search_suggestions": {
+    "text": "تقدير التكاليف لاقتراحات البحث عن الأماكن"
+  },
+  "estimate_costs_for_place_data_retrieval": {
+    "text": "تقدير تكاليف استرداد بيانات المكان"
+  },
+  "calculate_cost_for_routing_requests": {
+    "text": "حساب تكلفة طلبات التوجيه"
+  },
+  "devices_tooltip": {
+    "text": "قم بتعيين عدد الأجهزة لحساب تكاليف تحديث المتعقب"
+  },
+  "ping_rate_tooltip": {
+    "text": "حدد معدل ping لتقدير تكاليف اتصالات المتعقب"
+  },
+  "avg_time_stationary_tooltip": {
+    "text": "ضبط متوسط الوقت الثابت لتقدير تكاليف السياج الجغرافي"
+  },
+  "avg_device_stationary_tooltip": {
+    "text": "تعيين متوسط سرعة الجهاز لحساب تكلفة السياج الجغرافي"
+  },
+  "dashboard_refresh_rate_tooltip": {
+    "text": "تحديد معدل التحديث لتتبع تكاليف استرداد البيانات"
+  },
+  "filter_accuracy_tooltip": {
+    "text": "حدد الحد الأدنى للمسافة لتحديثات الموقع لتضمينها في حسابات التكلفة"
+  },
+  "filter_distance_tooltip": {
+    "text": "حدد الحد الأدنى للمسافة لتحديثات الموقع لتضمينها في حسابات التكلفة"
+  },
+  "migrateAWebApp_prerequisites_point_1_a": {
+    "text": "إذا لم تقم بإنشاء حساب AWS حتى الآن، فيرجى إنشاء حساب <0>هنا</0>. يمكنك إنشاء موارد Amazon Location Service بمجرد أن يصبح حساب AWS جاهزًا. ستكون هذه الموارد مطلوبة لتنفيذ مقتطفات الشفرة المقدمة."
+  },
+  "codeSnippets_places_search_heading": {
+    "text": "البحث عن الأماكن"
+  },
+  "codeSnippets_places_search_description": {
+    "text": "توفر كلتا المنصتين إمكانات البحث عن الأماكن، ويمكنها تقديم معلومات إضافية حول الأماكن، مثل العناوين والترميز الجغرافي والترميز الجغرافي العكسي والإكمال التلقائي وما إلى ذلك."
+  },
+  "codeSnippets_places_search_point1": {
+    "text": "توفر خرائط غوغل خدمة غوغل <1>.Maps.places.places.places.places.places</1>"
+  },
+  "codeSnippets_places_search_point2": {
+    "text": "توفر خدمة موقع أمازون <1>فهرس مكان البحث لـ PositionCommand</1> عبر عميل الموقع الخاص بها. <1><0>توفر خدمة موقع Amazon أيضًا واجهات برمجة تطبيقات الأماكن الأخرى، مثل <1>GetPlace</1> وSearchplaceIndex <1>للاقتراحات وSearchplaceIndexforText</1>. تعرف على المزيد</0></1>"
+  },
+  "codeSnippets_marker_clustering_heading": {
+    "text": "تجميع العلامات"
+  },
+  "codeSnippets_marker_clustering_description": {
+    "text": "توفر كل من خرائط Google وخدمة موقع Amazon تجميع العلامات."
+  },
+  "codeSnippets_marker_clustering_point1": {
+    "text": "توفر خرائط Google <1>MarkerClusterer</1>، الذي يأخذ مرجع الخريطة ومجموعة من العلامات لإظهار مجموعات العلامات على الخريطة."
+  },
+  "codeSnippets_marker_clustering_point2": {
+    "text": "<1><1>تستخدم خدمة Amazon Location Service الفئة الأساسية لـ MapLibre لتجميع العلامات؛ ومع ذلك، يمكنك استخدام المنطق المخصص لعرض العلامات وطبقات البيانات مباشرة من MapLibre عبر AddSource و AddLayer.</1></1>"
+  },
+  "notableDifferences_subPoint1a": {
+    "text": "يستخدم تسلسل <1>خطوط الطول والعرض</1>."
+  },
+  "notableDifferences_subPoint1b": {
+    "text": "يتبع اتفاقية <1>[y، x]</1>."
+  },
+  "notableDifferences_subPoint1c": {
+    "text": "يستخدم تسلسل <1>خطوط الطول والعرض</1> المحدد ككائن <1>الموضع</1>."
+  },
+  "notableDifferences_subPoint1d": {
+    "text": "يتبع <1>اصطلاح [x، y]</1> كما هو محدد في <0>معايير GeoJSON</0>."
+  },
+  "notableDifferences_subPoint1e": {
+    "text": "«x» هو خط الطول (المحور الأفقي، الذي يعكس موقع الشرق والغرب)."
+  },
+  "notableDifferences_subPoint1f": {
+    "text": "«y» هو خط العرض (المحور الرأسي، الذي يعكس موقع الشمال والجنوب)."
+  },
+  "integrating_the_amazon_location_sdk_description1": {
+    "text": "<1>MapLibre</1> هي مكتبة TypeScript مجانية الاستخدام مصممة لعرض الخرائط التفاعلية بسهولة على موقع الويب الخاص بك. تتميز بأدائها الاستثنائي، وذلك بفضل التكنولوجيا المتطورة التي تعمل على تسريع عرض المربعات المتجهة باستخدام وحدة معالجة الرسومات (GPU) بجهازك. وهذا يضمن تجربة عرض خرائط سلسة وسريعة الاستجابة لزوار موقع الويب الخاص بك. يجعل MapLibre من السهل دمج الخرائط الديناميكية وعرضها مع توفير إمكانات رسم الخرائط عالية الأداء. يعد دمج Amazon Location SDK مع MapLibre خطوة حاسمة في جعل تطبيقك «مدركًا للموقع». يسمح لتطبيقك بفهم معلومات الموقع واستخدامها بفعالية. باستخدام هذا التكامل، يمكنك القيام بأشياء مثل:"
+  },
+  "integrating_the_amazon_location_sdk_description1a": {
+    "text": "تحميل الخرائط"
+  },
+  "integrating_the_amazon_location_sdk_description1c": {
+    "text": "تنفيذ خرائط الحرارة"
+  },
+  "integrating_the_amazon_location_sdk_description1e": {
+    "text": "دمج الخطوط"
+  },
+  "integrating_the_amazon_location_sdk_description1f": {
+    "text": "حساب المسارات"
+  },
+  "integrating_the_amazon_location_sdk_description2": {
+    "text": "إذا كنت مطورًا يتطلع إلى استكشاف خيارات لغة برمجة SDK المختلفة المتاحة لدمج Amazon Location Service في تطبيقك، فيمكنك العثور على معلومات مفصلة من خلال النقر <0>هنا</0>. سيساعدك هذا على اختيار SDK المناسب الذي يناسب الاحتياجات المحددة لمشروعك."
+  },
+  "codeSnippets_adding_a_marker_postDescription": {
+    "text": "تمكّن إمكانات تخطيط العلامات هذه المطورين من إنشاء تطبيقات تفاعلية مدركة للموقع يمكنها توجيه المستخدمين إلى نقاط اهتمام محددة أو إبراز البيانات الجغرافية أو تقديم خدمات تستند إلى الموقع."
+  },
+  "codeSnippets_load_a_map_about": {
+    "text": "يؤدي تحميل الخريطة إلى عرض البيانات الجغرافية على صفحة الويب أو التطبيق. من خلال الاتصال بخدمة خرائط مثل خرائط Google أو Amazon Location Service، يمكن للمستخدمين التفاعل مع العلامات والتراكبات وخدمات تحديد الموقع الجغرافي لاستكشاف الخريطة والتنقل فيها."
+  },
+  "codeSnippets_adding_a_marker_about": {
+    "text": "يؤدي عرض علامة إلى وضع رمز على الخريطة للإشارة إلى موقع الاهتمام. تبرز العلامات أماكن مثل الشركات أو المعالم. إنها تعزز التنقل وتحديد الموقع الجغرافي وتوفر معلومات قيمة للمستخدمين الذين يتفاعلون مع الخريطة."
+  },
+  "codeSnippets_marker_clustering_about": {
+    "text": "تجميع العلامات هو أسلوب يستخدم لتجميع العلامات القريبة على الخريطة في مجموعات، مما يؤدي إلى تحسين الوضوح البصري والأداء. بدلاً من ازدحام الخريطة بعلامات فردية، تمثل المجموعات علامات متعددة على مستويات تكبير مختلفة، مما يسهل على المستخدمين التنقل وفهم المناطق المزدحمة على الخريطة."
+  },
+  "codeSnippets_display_an_info_window_about": {
+    "text": "يُعد عرض نافذة المعلومات المنبثقة ميزة تعرض معلومات إضافية عندما يتفاعل المستخدم مع علامة على الخريطة. عندما ينقر المستخدم على علامة أو يحوم فوقها، تظهر نافذة منبثقة توفر تفاصيل مثل العنوان أو الوصف أو البيانات الأخرى ذات الصلة المتعلقة بالموقع على الخريطة."
+  },
+  "codeSnippets_adding_a_polyline_about": {
+    "text": "يتضمن عرض الخطوط رسم خط مستمر على الخريطة التي تربط نقاط متعددة. تُستخدم هذه الميزة بشكل شائع لتمثيل المسارات أو الحدود أو المسارات. من خلال عرض الخطوط، يمكن للمستخدمين تصور الاتصالات وتتبع مسارات محددة على الخريطة لأغراض الملاحة أو تمثيل البيانات."
+  },
+  "codeSnippets_adding_a_polygon_about": {
+    "text": "يتيح عرض المضلع للمستخدمين إنشاء أشكال مغلقة بخطوط مستقيمة على الخريطة. تُستخدم هذه الميزة بشكل شائع لتحديد الحدود أو مجالات الاهتمام أو المناطق. من خلال عرض المضلعات، يمكن للمستخدمين تمثيل مناطق جغرافية محددة والتفاعل معها بشكل مرئي، مما يوفر سياقًا قيمًا ومعلومات على الخريطة."
+  },
+  "codeSnippets_drawing_a_circle_about": {
+    "text": "يتيح عرض ميزة الدائرة للمستخدمين رسم أشكال دائرية على الخريطة. يتم استخدام هذه الوظيفة بشكل متكرر لتمثيل مناطق التأثير أو القرب أو التغطية. من خلال عرض الدوائر، يمكن للمستخدمين تصوير مناطق دائرية محددة والتفاعل معها بشكل مرئي، مما يوفر معلومات وتحليلات مكانية قيّمة على الخريطة."
+  },
+  "codeSnippets_adding_a_heatmap_about": {
+    "text": "يتيح عرض خريطة التمثيل اللوني للمستخدمين تصور كثافة البيانات وتحليلها على الخريطة. تمثل هذه الميزة البيانات باستخدام التدرجات اللونية، حيث تشير الألوان الأكثر دفئًا إلى الكثافة العالية والألوان الباردة التي تشير إلى كثافة أقل. يساعد عرض خريطة التمثيل اللوني على تحديد الأنماط والاتجاهات والنقاط الساخنة داخل البيانات، مما يساعد في استكشاف البيانات واتخاذ القرار."
+  },
+  "codeSnippets_routing_services_about": {
+    "text": "يتضمن حساب المسار استخدام خوارزميات التوجيه لتحديد المسار الأمثل بين موقعين أو أكثر على الخريطة. من خلال النظر في عوامل مثل المسافة وحركة المرور ووضع النقل، يمكن للمستخدمين الحصول على تعليمات الملاحة التي توجههم بكفاءة من نقطة البداية إلى الوجهة، مما يساعد في تخطيط المسار والملاحة."
+  },
+  "codeSnippets_places_search_about": {
+    "text": "يتيح البحث عن الأماكن للمستخدمين العثور على مواقع أو نقاط اهتمام محددة على الخريطة. من خلال إدخال الكلمات الرئيسية أو العناوين، يمكن للمستخدمين اكتشاف الأماكن ذات الصلة، مثل الأنشطة التجارية أو المعالم أو العناوين. تساعد هذه الميزة المستخدمين على استكشاف الوجهات المرغوبة وتحديد موقعها، مما يعزز قابلية الاستخدام والوظائف لتطبيق الخرائط أو موقع الويب."
+  },
+  "trackers_and_geofences_application_description_5": {
+    "text": "بالإضافة إلى ذلك، قد يؤثر معدل ping لتحديثات موضع جهازك على جميع مكونات التكلفة الثلاثة اعتمادًا على التطبيق الخاص بك."
+  },
+  "dashboard_refresh_rate_text": {
+    "text": "معدل تحديث لوحة التحكم"
+  },
+  "processed_requests_with_device_speed": {
+    "text": "الطلبات التي تمت معالجتها بسرعة الجهاز"
+  },
+  "travel_distance_per_ping": {
+    "text": "مسافة السفر لكل بينغ (متر)"
+  },
+  "migrateAniOSApp_heading": {
+    "text": "iOS - الترحيل من خرائط Google إلى خدمة موقع Amazon"
+  },
+  "migrateAniOSApp_desc": {
+    "text": "يوضح هذا الدليل تفاصيل العملية الفنية لنقل تطبيقات iOS من خرائط Google إلى Amazon Location Service. يسلط الضوء على الإعداد الأولي وتكوين موارد Amazon Location ويقدم أمثلة مقارنة SDK لتسهيل دمج وظائف رسم الخرائط في الأنظمة الأساسية المستندة إلى iOS."
+  },
+  "migrateAniOSApp_desc1": {
+    "text": "تعد وثائق AWS مصدرًا رئيسيًا للمطورين لإتقان خدمة Amazon Location Service، مما يوفر دليلًا كاملاً حول الميزات والإعداد والتكامل. راجع <0>الدليل الرسمي</0> للحصول على رؤى عملية حول إضافة خدمات الموقع إلى التطبيقات."
+  },
+  "initiating_a_swift_iOS_heading": {
+    "text": "قم بإنشاء مشروع سويفت لنظام iOS"
+  },
+  "initiating_a_swift_iOS_dec": {
+    "text": "بالنسبة لهذا الدليل، سنستخدم مشروع تطبيق iOS مع Storyboard UI في XCode، وهي بيئة تطوير شاملة توفر الأدوات اللازمة لإنشاء تطبيقات iOS جذابة باستخدام Swift."
+  },
+  "integrating_the_iOS_amazon_location_sdk_description": {
+    "text": "لتحسين تطبيقك باستخدام وظائف خرائط Amazon Location Service، تحتاج إلى دمج الحزم التالية في مشروع Xcode iOS الخاص بك:"
+  },
+  "MapLibre_Native": {
+    "text": "<0>مابليبر ناتيف</0>"
+  },
+  "AWS_SDK_SWIFT": {
+    "text": "<0>AWS SDK سويفت</0>"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2": {
+    "text": "تتيح حزمة AWS SDK Swift، المصممة لمختلف خدمات Amazon على الويب بما في ذلك Amazon Location، الميزات المختلفة التي يتم تنفيذ بعضها في هذا المستند:"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2a": {
+    "text": "البحث عن الأماكن"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2b": {
+    "text": "توفير خدمات التوجيه"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description3": {
+    "text": "من خلال دمج هذه الحزم، يمكنك الاستفادة من متانة Amazon Location Service و MapLibre لإنشاء تجربة خريطة تفاعلية غنية بالميزات لمستخدمي التطبيق الخاص بك."
+  },
+  "integrating_the_iOS_amazon_location_sdk_description4": {
+    "text": "للمطورين الذين يتطلعون إلى استكشاف خيارات لغة برمجة SDK المختلفة المتاحة لدمج Amazon Location Service في تطبيقك، انقر <0>هنا</0> للعثور على معلومات مفصلة ستساعدك على تحديد SDK المناسب المصمم خصيصًا لاحتياجات مشروعك."
+  },
+  "webSdkExamples_iOS_description": {
+    "text": "يحتوي هذا الدليل على مجموعة متنوعة من أمثلة التعليمات البرمجية المصممة خصيصًا لمنصات متميزة، كل منها يعالج حالة استخدام سائدة. <1>الهدف الأساسي هو تسهيل انتقال تطبيق iOS الخاص بك من خرائط Google iOS SDK إلى خدمة موقع Amazon، مع الاستفادة من إمكانيات <1>MapLibre و AWS-SDK-Swift</1>.</1> على وجه التحديد، يتم تقديم نماذج التعليمات البرمجية حول تطبيقات iOS بلغة برمجة Swift."
+  },
+  "webSdkExample_iOS_description1": {
+    "text": "لمتابعة تنفيذ الأمثلة المقدمة، ستحتاج إلى استبدال المحتوى الموجود في <1>ViewController.swift</1> بمقتطفات الشفرة من كل مثال. ستسمح لك هذه العملية بدمج الوظائف المحددة الموضحة في الأمثلة في تطبيقك."
+  },
+  "codeSnippets_load_a_map_iOS_about": {
+    "text": "تقدم كل من خرائط Google وخدمة Amazon Location Service حلولًا قوية لدمج الخرائط الديناميكية القابلة للتخصيص في تطبيقاتك. هذه الخرائط قادرة على عرض مجموعة واسعة من البيانات الجغرافية، وإثراء تجربة المستخدم بميزات تفاعلية مثل التحريك والتكبير."
+  },
+  "codeSnippets_load_a_map_iOS_point1": {
+    "text": "تستخدم خرائط Google <1>GMSMapView لعرض</1> الخرائط."
+  },
+  "codeSnippets_load_a_map_iOS_point2": {
+    "text": "تستخدم خدمة موقع أمازون <1>MLNMapView من MapLibre</1> لعرض الخرائط."
+  },
+  "codeSnippets_adding_a_marker_ios_about": {
+    "text": "توفر كل من خرائط Google وخدمة Amazon Location Service وظيفة رسم العلامات في إحداثيات محددة على الخريطة، وهي ميزة أساسية لتسليط الضوء على نقاط الاهتمام."
+  },
+  "codeSnippets_adding_a_marker_ios_point1": {
+    "text": "توفر خرائط Google هذه الميزة أصلاً، دون الحاجة إلى مكتبات أو أدوات إضافية. وهي تستخدم فئة <1>GMSMarker</1>، والتي تسمح للمطورين بإنشاء وتخصيص العلامات التي يمكن وضعها على أي خط طول وخط عرض على الخريطة."
+  },
+  "codeSnippets_adding_a_marker_ios_point2": {
+    "text": "في المقابل، تستفيد خدمة Amazon Location Service من قوة مكتبة MapLibre لعرض العلامات على الخريطة. يتم تحقيق ذلك باستخدام فئة <1>MLNPointAnnotation</1> وطريقة <1>addAnnotation</1>. <1>mlnPointanotation</1> هي أداة مرنة لا تسمح فقط بوضع العلامات ولكنها تقدم أيضًا مجموعة من خيارات التخصيص. يتم بعد ذلك استخدام طريقة <1>addAnnotation</1> لإضافة هذه التعليقات التوضيحية المخصصة إلى الخريطة، مما يوفر تجربة خريطة تفاعلية وديناميكية للغاية للمستخدمين."
+  },
+  "codeSnippets_adding_a_marker_ios_postDescription": {
+    "text": "تمكّن إمكانات تخطيط العلامات هذه المطورين من إنشاء تطبيقات تفاعلية مدركة للموقع يمكنها توجيه المستخدمين إلى نقاط اهتمام محددة أو إبراز البيانات الجغرافية أو تقديم خدمات تستند إلى الموقع."
+  },
+  "codeSnippets_marker_clustering_ios_about": {
+    "text": "تعد ميزة تجميع العلامات ميزة قوية توفرها كل من خرائط Google وخدمة Amazon Location Service، مما يعزز الوضوح المرئي للخرائط بكثافة عالية من العلامات."
+  },
+  "codeSnippets_marker_clustering_ios_description": {
+    "text": "توفر كل من خرائط Google وخدمة موقع Amazon تجميع العلامات."
+  },
+  "codeSnippets_marker_clustering_ios_point1": {
+    "text": "تستخدم خرائط Google فئة <1>GMUclusterManager لهذا الغرض</1>. يأخذ هذا الفصل مرجعًا إلى الخريطة و GMUdefaultClusterRenderer لتجميع العلامات بشكل فعال على الخريطة. تسمح هذه الميزة بالعرض الفعال وإدارة أعداد كبيرة من العلامات، وبالتالي تحسين تجربة المستخدم عن طريق تقليل الفوضى المرئية وتحسين أداء الخريطة."
+  },
+  "codeSnippets_marker_clustering_ios_point2": {
+    "text": "في المقابل، تحقق خدمة موقع Amazon تجميع العلامات من خلال مكتبة MapLibre. <1>يتم ذلك باستخدام <1>MLNsymbolStyleLayer</1> بالاقتران مع مصدر شكل MLN.</1> من خلال تعيين خيار الكتلة إلى true عند إنشاء <1>MLNShapeSource</1>، يمكنك تمكين تجميع العلامات. بعد ذلك، يتم استخدام التعبيرات لتصميم <1>MLNsymbolStyleLayer استنادًا إلى</1> عدد نقاط الكتلة. يتم تحقيق ذلك باستخدام <1>NSExpression</1> لتطبيق الأنماط ديناميكيًا استنادًا إلى عدد النقاط في كل مجموعة. لاحظ أن التعامل مع النقرات على المجموعات وتوسيعها إلى علامات فردية سيتطلب منطقًا إضافيًا، مما يوفر إمكانية تجربة خريطة أكثر تفاعلية وسهلة الاستخدام."
+  },
+  "codeSnippets_marker_clustering_ios_postDescription": {
+    "text": "من خلال دمج إمكانات تجميع العلامات هذه، يمكن للمطورين تحسين قابلية استخدام وأداء خرائطهم بشكل كبير، خاصة عند التعامل مع مجموعات كبيرة من نقاط البيانات."
+  },
+  "codeSnippets_display_an_info_window_ios_about": {
+    "text": "تعد القدرة على عرض نافذة معلومات منبثقة لعلامات الخرائط ميزة أساسية للخرائط التفاعلية، وتقدم كل من خرائط Google وخدمة Amazon Location Service حلولًا قوية لتنفيذ هذه الوظيفة."
+  },
+  "codeSnippets_display_an_info_window_ios_point1": {
+    "text": "في خرائط Google، يمكنك استخدام خاصية <1>gmsMapview.selectedMarker</1> لعرض المعلومات المرتبطة بعلامة معينة. تتيح هذه الميزة للمستخدمين التفاعل مع علامات الخريطة والوصول إلى تفاصيل إضافية، مما يعزز تجربة المستخدم الإجمالية من خلال توفير معلومات ذات صلة بالسياق."
+  },
+  "codeSnippets_display_an_info_window_ios_point2": {
+    "text": "تستخدم خدمة موقع أمازون خاصية <1>mlnMapview.selectAnnotation لغرض مماثل.</1> من خلال تعيين هذه الخاصية، يمكنك عرض المعلومات المتعلقة بعلامة محددة. ومع ذلك، لضمان عرض المعلومات المنبثقة، تحتاج أيضًا إلى تجاوز وظيفة <1>AnnotationCanShowCallout</1> وإرجاع القيمة الصحيحة. يوفر هذا الأسلوب درجة عالية من المرونة، مما يسمح للمطورين بتخصيص المعلومات المعروضة والتحكم في عرضها بناءً على شروط محددة."
+  },
+  "codeSnippets_display_an_info_window_ios_postDescription": {
+    "text": "من خلال دمج هذه الميزات، يمكن للمطورين تحسين تفاعل خرائطهم بشكل كبير، مما يوفر للمستخدمين رؤى قيمة وسياقًا حول مواقع أو نقاط محددة."
+  },
+  "codeSnippets_adding_a_polyline_ios_about": {
+    "text": "توفر كل من خرائط Google وخدمة Amazon Location Service أدوات شاملة لإضافة خطوط، مما يعزز التمثيل المرئي للمسارات أو الحدود على خريطتك."
+  },
+  "codeSnippets_adding_a_polyline_ios_postDescription": {
+    "text": "من خلال دمج هذه الخطوط، يمكن للمطورين تحسين تفاعل الخريطة وفائدتها بشكل كبير، مما يوفر للمستخدمين تمثيلًا غنيًا بصريًا للمسارات أو الحدود الجغرافية."
+  },
+  "codeSnippets_adding_a_polyline_ios_point1": {
+    "text": "تقدم خرائط Google فئة الأشكال، والتي يمكن استخدامها لرسم الخطوط والمضلعات. يتم تحقيق ذلك من خلال فئة GMSPolyline، وهي أداة قوية تسمح للمطورين بتحديد سلسلة من الإحداثيات وربطها بالخطوط. يمكن أن تكون هذه الميزة مفيدة بشكل خاص لتمثيل المسارات أو الحدود داخل التطبيق الخاص بك."
+  },
+  "codeSnippets_adding_a_polyline_ios_point2": {
+    "text": "من ناحية أخرى، تستخدم خدمة Amazon Location Service مكتبة MapLibre GL للحصول على وظائف مماثلة. يمكن استخدام طريقة MLNPolyline لإضافة خطوط لمجموعة معينة من الإحداثيات. توفر هذه الطريقة المرونة والدقة، مما يسمح للمطورين بإنشاء أشكال ومسارات معقدة على الخريطة."
+  },
+  "codeSnippets_adding_a_polygon_ios_about": {
+    "text": "توفر كل من خرائط Google وخدمة Amazon Location Service إمكانات قوية لإضافة المضلعات إلى خرائطك، مما يمكّن المطورين من تحديد مناطق أو مناطق معينة."
+  },
+  "codeSnippets_adding_a_polygon_ios_point1": {
+    "text": "توفر خرائط Google فئة الأشكال، وهي أداة متعددة الاستخدامات تسهل رسم كل من الخطوط والمضلعات. تم تصميم فئة <1>GMSPolygon</1> خصيصًا لإنشاء المضلعات، والتي يمكن تخصيصها لتمثيل منطقة أو منطقة معينة على الخريطة. هذه الميزة مفيدة للغاية للتطبيقات التي تتطلب ترسيم مناطق جغرافية محددة."
+  },
+  "codeSnippets_adding_a_polygon_ios_point2": {
+    "text": "في المقابل، تستخدم خدمة Amazon Location Service مكتبة MapLibre للحصول على وظائف مماثلة. يمكن استخدام طريقة <1>MLNPolygon</1> لإضافة مضلع لمجموعة معينة من الإحداثيات. توفر هذه الطريقة درجة عالية من المرونة والدقة، مما يسمح للمطورين بإنشاء أشكال ومناطق معقدة على الخريطة."
+  },
+  "codeSnippets_adding_a_polygon_ios_postDescription": {
+    "text": "من خلال دمج ميزات المضلع هذه، يمكن للمطورين أن يقدموا للمستخدمين عرضًا أكثر شمولاً وتفصيلاً لمناطق جغرافية محددة، وبالتالي تعزيز الإحداثيات العامة."
+  },
+  "codeSnippets_drawing_a_circle_ios_point1": {
+    "text": "توفر خرائط Google فئة <1>GMSCircle</1>، المصممة خصيصًا لهذا الغرض. تسمح هذه الفئة للمطورين بتحديد دائرة بنصف قطر محدد حول نقطة معينة، مما يوفر طريقة مباشرة وفعالة لتسليط الضوء على منطقة معينة على الخريطة."
+  },
+  "codeSnippets_drawing_a_circle_ios_point2": {
+    "text": "من ناحية أخرى، تستخدم خدمة موقع Amazon نهجًا مختلفًا قليلاً. ويستخدم فئتي <1>MLNCircleStyleLayer</1> و <1>MLNShapeSource</1> بالاقتران مع معرفات مصدر الدائرة وطبقة الدائرة. توفر هذه المجموعة درجة عالية من المرونة والدقة، مما يمكّن المطورين من إنشاء دوائر مخصصة على الخريطة يمكن تحديثها ديناميكيًا استنادًا إلى مصادر البيانات."
+  },
+  "codeSnippets_drawing_a_circle_ios_postDescription": {
+    "text": "من خلال دمج هذه الميزات، يمكن للمطورين تحسين تجربة خريطة المستخدم، وتقديم طريقة بديهية بصريًا لتمثيل مناطق الاهتمام أو المناطق داخل نطاق محدد."
+  },
+  "codeSnippets_adding_a_heatmap_ios_about": {
+    "text": "تعد خرائط الحرارة أدوات تصور قيّمة تسمح بتمثيل كثافة البيانات عبر المناطق الجغرافية. تقدم كل من خرائط Google وخدمة Amazon Location Service حلولًا شاملة لدمج هذه الميزة."
+  },
+  "codeSnippets_adding_a_heatmap_ios_postDescription": {
+    "text": "من خلال دمج إمكانات الخرائط الحرارية هذه، يمكن للمطورين تزويد المستخدمين بفهم بديهي ومفصل لأنماط البيانات عبر المناطق الجغرافية، وبالتالي تعزيز تجربة المستخدم الإجمالية."
+  },
+  "codeSnippets_adding_a_heatmap_ios_point1": {
+    "text": "تستفيد خرائط Google من فئة الأشكال، وتحديدًا فئة <1>GMUHeatMapTileLayer، لتسهيل إنشاء</1> خرائط الحرارة. تتيح هذه الفئة للمطورين تحديد مجموعة من نقاط البيانات والتدرج اللوني المقابل، والتي تتم معالجتها بعد ذلك لإنشاء خريطة حرارية. هذه الأداة مفيدة بشكل خاص في تمثيل كثافة البيانات أو شدتها عبر مناطق مختلفة داخل الخريطة."
+  },
+  "codeSnippets_adding_a_heatmap_ios_point2": {
+    "text": "في المقابل، تستخدم خدمة Amazon Location Service إمكانات مكتبة MapLibre GL لتحقيق نتيجة مماثلة. تُستخدم فئة <1>MLNHeatMapStyleLayer</1> لإنشاء خرائط حرارية، مما يوفر درجة كبيرة من المرونة والتخصيص. لاستخدام هذه الميزة، تحتاج إلى إنشاء مصدر بيانات لخريطة الحرارة، والتي يجب أن تكون مصفوفة من كائنات <1>MLNPointFeature</1>. تمثل كل ميزة في هذه المصفوفة نقطة بيانات في خريطة الحرارة، مما يسمح بتمثيل مفصل ودقيق لكثافة البيانات."
+  },
+  "codeSnippets_routing_services_ios_about": {
+    "text": "تعد خدمات التوجيه مكونات أساسية لتطبيقات رسم الخرائط، حيث توفر للمستخدمين الاتجاهات بين المواقع المختلفة. تقدم كل من خرائط Google وخدمة Amazon Location Service حلولًا قوية لهذه الوظيفة."
+  },
+  "codeSnippets_routing_services_ios_point1": {
+    "text": "توفر خرائط Google <1>directions</1> أو <1>computeRoutes</1> لحساب بيانات المسار وعرضها على الخريطة."
+  },
+  "codeSnippets_routing_services_ios_point2": {
+    "text": "في المقابل، تستفيد خدمة Amazon Location Service من مكتبة <1>aws-sdk-swift</1> لخدمة التوجيه الخاصة بها. يمكن للمطورين استخدام وظيفة <1>AuthHelper.withAPIKey(apiKey, region)</1> لتهيئة <1>AuthHelper</1> باستخدام APIKey الخاص بهم، ثم إنشاء كائن <1>GeoRoutesClient(config: authHelper.getGeoRoutesClientConfig())</1> لإنشاء كائن <1>CalculateRoutesInput</1>. يتم بعد ذلك تمرير هذا الكائن، الذي يحتوي على المعلمات الضرورية مثل الأصل والوجهة ووضع السفر، إلى طريقة <1>geoRoutesClient.calculateRoutes</1> لحساب المسار. يوفر هذا النهج درجة عالية من المرونة، مما يسمح للمطورين بتخصيص خدمة التوجيه لتناسب احتياجاتهم المحددة."
+  },
+  "codeSnippets_routing_services_ios_postDescription": {
+    "text": "من خلال دمج خدمات التوجيه هذه، يمكن للمطورين تحسين وظائف تطبيقاتهم بشكل كبير، مما يوفر للمستخدمين مسارات مفصلة لتطبيقك."
+  },
+  "codeSnippets_places_search_ios_about": {
+    "text": "يعد البحث عن الأماكن ميزة أساسية لخدمات رسم الخرائط اليوم. توفر كل من خرائط Google وخدمة Amazon Location Service أدوات شاملة تمكن المستخدمين من إجراء عمليات البحث هذه بفعالية."
+  },
+  "codeSnippets_places_search_ios_postDescription": {
+    "text": "من خلال دمج ميزات البحث عن الأماكن هذه، يمكن للمطورين تحسين فائدة تطبيقاتهم بشكل كبير، مما يوفر للمستخدمين القدرة على اكتشاف الأماكن ذات الأهمية والانتقال إليها بشكل فعال."
+  },
+  "codeSnippets_places_search_ios_point1": {
+    "text": "تقدم خرائط Google واجهة برمجة تطبيقات <1>البحث القريبة</1>، وهي أداة قوية مصممة لإجراء عمليات بحث تستند إلى القرب. تسمح هذه الميزة للمستخدمين بالبحث عن أماكن داخل نطاق محدد من الموقع، مع توفير قائمة بالأماكن التي تطابق معايير البحث. يمكن أن يكون هذا مفيدًا بشكل خاص للتطبيقات التي تحتاج إلى توجيه المستخدمين إلى نقاط الاهتمام أو الخدمات القريبة."
+  },
+  "codeSnippets_places_search_ios_point2": {
+    "text": "على العكس من ذلك، تستفيد خدمة Amazon Location Service من مكتبة <1>aws-sdk-swift</1> لتوفير وظيفة مماثلة. يمكن للمطورين استخدام وظيفة <1>AuthHelper.withAPIKey(apiKey, region)</1> لتهيئة <1>AuthHelper</1> باستخدام APIKey الخاص بهم، ثم إنشاء كائن <1>GeoPlacesClient(config: authHelper.getGeoPlacesClientConfig())</1> لإنشاء كائن <1>SuggestInput</1>. يتم بعد ذلك تمرير هذا الكائن إلى طريقة <1>geoPlacesClient.suggest</1> لتنفيذ البحث. يوفر هذا النهج درجة عالية من المرونة، مما يسمح للمطورين بتخصيص معلمات البحث لتناسب احتياجاتهم المحددة."
+  },
+  "migrateAnAndroidApp_heading": {
+    "text": "Android - الترحيل من خرائط Google إلى خدمة موقع Amazon"
+  },
+  "initiating_a_kotlin_android_heading": {
+    "text": "قم بإنشاء مشروع كوتلين للأندرويد"
+  },
+  "initiating_a_kotlin_android_dec": {
+    "text": "بالنسبة لهذا الدليل، سنستخدم مشروع Android في Android Studio، وهي بيئة تطوير شاملة توفر الأدوات اللازمة لإنشاء تطبيقات Android جذابة باستخدام Kotlin."
+  },
+  "integrating_the_android_amazon_location_sdk_description": {
+    "text": "لتحسين تطبيق Android الخاص بك باستخدام وظائف خرائط Amazon Location Service، تحتاج إلى دمج الحزم التالية في مشروع Android Studio الخاص بك باستخدام Kotlin:"
+  },
+  "integrating_the_android_amazon_location_sdk_description1": {
+    "text": "MapLibre Native هي مكتبة مفتوحة المصدر ومجانية مصممة لدمج الخرائط بسلاسة في تطبيقات الهاتف المحمول وتطبيقات سطح المكتب عبر منصات مختلفة. وتتمثل ميزتها البارزة في العرض السريع للخرائط، والذي يمكن تحقيقه من خلال تسخير قوة عرض المربعات المتجهة المعجل بواسطة وحدة معالجة الرسومات. وهذا يضمن عرضًا سريعًا وفعالًا للخرائط داخل تطبيقاتك، مما يوفر تجربة رسم خرائط جذابة بصريًا وسريعة الاستجابة للمستخدمين. يمكّنك MapLibre Native من دمج الخرائط بسهولة في مشاريع البرامج الخاصة بك مع الاستفادة من التكنولوجيا المتقدمة لتحقيق الأداء الأمثل. تشمل قدراته ما يلي:"
+  },
+  "MapLibre_For_Android": {
+    "text": "<0>MapLibre لأجهزة الأندرويد</0>"
+  },
+  "AWS_SDK_For_Android": {
+    "text": "AWS SDK لنظام أندرويد"
+  },
+  "integrating_the_android_amazon_location_sdk_description2": {
+    "text": "تم تصميم حزمة AWS SDK لنظام Android للعديد من خدمات Amazon على الويب، بما في ذلك موقع Amazon. إنه يتيح العديد من الميزات، والتي يتم تنفيذ بعضها في هذا المستند:"
+  },
+  "integrating_the_android_amazon_location_sdk_description3": {
+    "text": "من خلال دمج هذه الحزم في مشروع Android Studio الخاص بك باستخدام Kotlin، يمكنك الاستفادة من إمكانيات Amazon Location Service و MapLibre لإنشاء تجربة خريطة تفاعلية غنية بالميزات لمستخدمي تطبيق Android."
+  },
+  "webSdkExamples_Android_description": {
+    "text": "يحتوي هذا الدليل على مجموعة متنوعة من أمثلة التعليمات البرمجية، كل منها يتناول حالة استخدام منفصلة. الهدف الأساسي هو تسهيل انتقال تطبيق Android الخاص بك من Google Maps SDK إلى خدمة موقع Amazon، مع الاستفادة من إمكانات MapLibre و AWS SDK لـ Kotlin."
+  },
+  "webSdkExample_Android_description1": {
+    "text": "لمتابعة تنفيذ الأمثلة المقدمة، ستحتاج إلى استبدال المحتوى الحالي في ملف نشاط Android الرئيسي (مثل Mainactivity.kt) بمقتطفات الشفرة من كل مثال. ستسمح لك هذه العملية بدمج الوظائف المحددة الموضحة في الأمثلة في تطبيقك."
+  },
+  "codeSnippets_load_a_map_Android_about": {
+    "text": "توفر كل من خرائط Google وخدمة Amazon Location Service أدوات لتضمين الخرائط التفاعلية في التطبيقات. تدعم هذه الخرائط تفاعلات المستخدم مثل التحريك والتكبير."
+  },
+  "codeSnippets_load_a_map_Android_point1": {
+    "text": "بالنسبة لخرائط Google على Android، يدير <1>SupportMapFragment</1> دورة حياة الخريطة، بينما توفر فئة <1>GoogleMap</1> التحكم في محتوى الخريطة والتفاعل."
+  },
+  "codeSnippets_load_a_map_Android_point2": {
+    "text": "باستخدام خدمة Amazon Location Service، تعد <1>MapView في مكتبة MapLibre</1> الواجهة الأساسية لتهيئة الخرائط وعرضها داخل التطبيق."
+  },
+  "codeSnippets_load_a_map_Android_postDescription": {
+    "text": "لعرض خريطة باستخدام Google Maps SDK لنظام Android، سيتم تنفيذ الخطوات التالية:"
+  },
+  "google_load_a_map_step1": {
+    "text": "<0>الخطوة 1</0><1>: افتح <1>build.gradle</1> على مستوى الوحدة وأضف التبعيات التالية</1>"
+  },
+  "google_load_a_map_step2": {
+    "text": "<0>الخطوة 2</0>: في <1>AndroidManifest.xml</1>، أدخل الكود أدناه واستبدل <1>MAPS_API_KEY بمفتاح</1> API لخرائط Google"
+  },
+  "google_load_a_map_step3": {
+    "text": "<0>الخطوة 3</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>"
+  },
+  "google_load_a_map_step4": {
+    "text": "<0>الخطوة 4</0>: أضف الكود أدناه إلى <1>MapsActivity.kt</1>"
+  },
+  "amazon_load_a_map_step1": {
+    "text": "<0>الخطوة 1</0>: افتح <1>build.gradle</1> على مستوى الوحدة وأضف البيانات التالية"
+  },
+  "amazon_load_a_map_step2": {
+    "text": "<0>الخطوة 2</0>: لتكوين تطبيقك باستخدام اسم الخريطة ومنطقة AWS، أدخله داخل <1>configuration.xml</1> كما هو موضح أدناه"
+  },
+  "amazon_load_a_map_step3": {
+    "text": "<0>الخطوة 3</0>: أضف الكود أدناه داخل <1>strings.xml</1>"
+  },
+  "amazon_load_a_map_step4": {
+    "text": "<0>الخطوة 4</0>: أضف الكود أدناه داخل <1>activity_map.xml</1>"
+  },
+  "amazon_load_a_map_step5": {
+    "text": "<0>الخطوة 5</0>: أضف التعليمة البرمجية التالية إلى <1>MapActivity.kt</1> الخاص بك"
+  },
+  "codeSnippets_adding_a_marker_android_about": {
+    "text": "يمكن لكل من خرائط Google وخدمة Amazon Location Service وضع علامات في إحداثيات دقيقة على الخريطة، وهي ميزة أساسية لتسليط الضوء على نقاط الاهتمام."
+  },
+  "codeSnippets_adding_a_marker_android_point1": {
+    "text": "توفر خرائط Google الدعم الأصلي من خلال وظيفة <1>addMarker</1>."
+  },
+  "codeSnippets_adding_a_marker_android_point2": {
+    "text": "<1>تستفيد خدمة موقع Amazon من مكتبة MapLibre لعرض العلامات على الخريطة باستخدام SymbolManager.</1>"
+  },
+  "google_adding_a_marker_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>"
+  },
+  "google_adding_a_marker_step2": {
+    "text": "<0>الخطوة 2</0><1>: باستخدام خرائط Google، تتم إضافة العلامات باستخدام طريقة <1>addMarker للخرائط في MarkerActivity.kt</1></1>"
+  },
+  "amazon_adding_a_marker_step1": {
+    "text": "<0>الخطوة 1: أضف</0> <1>الكود أدناه داخل activity_add_marker.xml</1>"
+  },
+  "amazon_adding_a_marker_step2": {
+    "text": "<0>الخطوة 2</0><1>: أضف صورة علامة باسم <1>ic_marker_blue.xml</1> داخل دليل <1>/res/drawable</1> وأدخل الكود أدناه في addmarkerActivity.kt</1>"
+  },
+  "codeSnippets_marker_clustering_android_about": {
+    "text": "تعد ميزة تجميع العلامات ميزة قوية توفرها كل من خرائط Google وخدمة Amazon Location Service، مما يعزز الوضوح المرئي للخرائط بكثافة عالية من العلامات."
+  },
+  "codeSnippets_marker_clustering_android_point1": {
+    "text": "تستخدم خرائط Google <1>ClusterManager</1>، الذي يتطلب مرجع الخريطة ومجموعة من العلامات لعرض مجموعات العلامات على الخريطة."
+  },
+  "codeSnippets_marker_clustering_android_point2": {
+    "text": "<1>تقوم Amazon Location Service بتنفيذ تجميع العلامات عن طريق عرض العلامات وطبقات البيانات مباشرةً من خلال MapLibre باستخدام طرق مثل <1>AddSource و AddLayer</1>.</1>"
+  },
+  "google_marker_clustering_step1": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل التبعيات في <1>build.gradle</1> وانقر على المزامنة الآن."
+  },
+  "google_marker_clustering_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>."
+  },
+  "google_marker_clustering_step3": {
+    "text": "<0>الخطوة 3</0>: أضف الكود أدناه داخل <1>MarkerClusterActivity.kt</1>"
+  },
+  "amazon_marker_clustering_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه داخل <1>activity_marker_cluster.xml</1>."
+  },
+  "amazon_marker_clustering_step2": {
+    "text": "<0>الخطوة 2</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>MarkerClusterActivity.kt</1>."
+  },
+  "codeSnippets_display_an_info_window_android_about": {
+    "text": "توفر كل من خرائط Google وخدمة Amazon Location Service إمكانات لعرض النوافذ المنبثقة المعلوماتية على الخرائط الخاصة بكل منهما، مما يتيح للمستخدمين عرض المزيد من التفاصيل حول مواقع أو علامات محددة."
+  },
+  "codeSnippets_display_an_info_window_android_point1": {
+    "text": "في خرائط Google، تقدم <1>MarkerOptions</1> نافذة منبثقة مجاورة للعلامة."
+  },
+  "codeSnippets_display_an_info_window_android_point2": {
+    "text": "تستخدم خدمة موقع أمازون أساليب <1>AddSource و <1>AddLayer</1></1> من Maplibre لعرض المعلومات المنبثقة."
+  },
+  "google_display_an_info_window_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>."
+  },
+  "google_display_an_info_window_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>InfopopupActivity.kt</1>."
+  },
+  "amazon_display_an_info_window_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه داخل <1>activity_info_popup.xml</1>."
+  },
+  "amazon_display_an_info_window_step2": {
+    "text": "<0>الخطوة 2</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>layout_info_popup.xml</1>."
+  },
+  "amazon_display_an_info_window_step3": {
+    "text": "<0>الخطوة 3</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>Infopopupactivity.kt</1>."
+  },
+  "codeSnippets_adding_a_polyline_android_about": {
+    "text": "توفر كل من خرائط Google وخدمة Amazon Location Service أدوات شاملة لإضافة خطوط، مما يعزز التمثيل المرئي للمسارات أو الحدود على خريطتك."
+  },
+  "codeSnippets_adding_a_polyline_android_point1": {
+    "text": "توفر خرائط Google طريقة <1>AddPolyline</1> لعرض الخطوط."
+  },
+  "codeSnippets_adding_a_polyline_android_point2": {
+    "text": "تستخدم خدمة موقع أمازون أساليب <1>AddSource و <1>addLayer</1></1> من Maplibre لعرض الخطوط."
+  },
+  "google_adding_a_polyline_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>."
+  },
+  "google_adding_a_polyline_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>PolylineActivity.kt</1>."
+  },
+  "amazon_adding_a_polyline_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه داخل <1>activity_polyline.xml</1>."
+  },
+  "amazon_adding_a_polyline_step2": {
+    "text": "<0>الخطوة 2</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>PolylineActivity.kt</1>."
+  },
+  "codeSnippets_adding_a_polygon_android_about": {
+    "text": "المضلعات هي الأشكال الهندسية التي تمثل مناطق محددة على الخريطة."
+  },
+  "codeSnippets_adding_a_polygon_android_point1": {
+    "text": "توفر خرائط Google طريقة <1>addPolygon</1> لرسم المضلعات على الخريطة."
+  },
+  "codeSnippets_adding_a_polygon_android_point2": {
+    "text": "تستخدم خدمة موقع أمازون أساليب <1>AddSource <1>وaddLayer</1></1> من Maplibre لعرض المضلعات."
+  },
+  "google_adding_a_polygon_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>."
+  },
+  "google_adding_a_polygon_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>polygonactivity.kt</1>."
+  },
+  "amazon_adding_a_polygon_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه داخل <1>activity_polygon.xml</1>."
+  },
+  "amazon_adding_a_polygon_step2": {
+    "text": "<0>الخطوة 2</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>polygonactivity.kt</1>."
+  },
+  "codeSnippets_adding_a_circle_android_about": {
+    "text": "يعد عرض دائرة على الخريطة مطلبًا شائعًا للعديد من التطبيقات، وتوفر كل من خرائط Google وخدمة Amazon Location Service أدوات قوية لإنجاز هذه المهمة."
+  },
+  "codeSnippets_adding_a_circle_android_point1": {
+    "text": "تقدم خرائط Google طريقة <1>addCircle</1> خصيصًا لرسم الدوائر."
+  },
+  "codeSnippets_adding_a_circle_android_point2": {
+    "text": "تستخدم خدمة موقع أمازون أساليب <1>AddSource و <1>addLayer</1></1> من Maplibre لعرض الدوائر. بالإضافة إلى ذلك، يمكنك استخدام مكتبة <1>org.maplibre.gl:android-sdk-turf</1> للحصول على قائمة بالنقاط لعرض الدائرة."
+  },
+  "google_adding_a_circle_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>."
+  },
+  "google_adding_a_circle_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه في <1>CircleDrawactivity.kt</1>."
+  },
+  "amazon_adding_a_circle_step1": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل التبعيات في <1>build.gradle</1>."
+  },
+  "amazon_adding_a_circle_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>activity_draw_circle.xml</1>."
+  },
+  "amazon_adding_a_circle_step3": {
+    "text": "<0>الخطوة 2</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>DrawCircleActivity.kt</1>."
+  },
+  "codeSnippets_adding_a_heatmap_android_about": {
+    "text": "تعد خرائط الحرارة أدوات تصور قيّمة تسمح بتمثيل كثافة البيانات عبر المناطق الجغرافية. تقدم كل من خرائط Google وخدمة Amazon Location Service حلولًا شاملة لدمج هذه الميزة."
+  },
+  "codeSnippets_adding_a_heatmap_android_point1": {
+    "text": "<1>في خرائط Google، يتم تضمين طبقة خريطة التمثيل اللوني في مكتبة <1>com.google.maps.android:android-maps-utils، وهي تتضمن خريطة حرارية باستخدام طريقة HeatMapTileProvider</1>.</1>"
+  },
+  "codeSnippets_adding_a_heatmap_android_point2": {
+    "text": "تستخدم خدمة موقع أمازون وظائف MapLibre، باستخدام وظيفة <1>addLayer</1>. بشكل عام، ستبدأ بإضافة مصدر باستخدام <1>addSource</1> ثم إنشاء طبقة تشير إلى هذا المصدر."
+  },
+  "google_adding_a_heatmap_step1": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل <1>التبعيات</1> في <1>build.gradle</1>."
+  },
+  "google_adding_a_heatmap_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>."
+  },
+  "google_adding_a_heatmap_step3": {
+    "text": "<0>الخطوة 3</0><1>: باستخدام خرائط Google، تتم إضافة خرائط الحرارة باستخدام طريقة إضافة خريطة الحرارة للخرائط في HeatMapActivity.kt.</1>"
+  },
+  "amazon_adding_a_heatmap_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه داخل <1>activity_heat_map.xml</1>."
+  },
+  "amazon_adding_a_heatmap_step2": {
+    "text": "<0>الخطوة 2</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>HeatMapActivity.kt</1>."
+  },
+  "codeSnippets_calculating_a_route_android_about": {
+    "text": "تعد خدمات التوجيه مكونات أساسية لتطبيقات رسم الخرائط، حيث توفر للمستخدمين الاتجاهات بين المواقع المختلفة. تقدم كل من خرائط Google وخدمة Amazon Location Service حلولًا قوية لهذه الوظيفة."
+  },
+  "codeSnippets_calculating_a_route_android_point1": {
+    "text": "توفر خرائط Google <1>directions</1> أو <1>computeRoutes</1> لحساب بيانات المسار وعرضها على الخريطة."
+  },
+  "codeSnippets_calculating_a_route_android_point2": {
+    "text": "تقدم خدمة موقع Amazon طريقة <1>CalculateRoute</1> من خلال عميل الموقع الخاص بها. وبالتالي، فإنه يستفيد من قدرات عرض Maplibre لعرض بيانات المسار هذه على الخريطة."
+  },
+  "google_calculating_a_route_step1": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل <1>التبعيات</1> في <1>build.gradle</1>."
+  },
+  "google_calculating_a_route_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>."
+  },
+  "google_calculating_a_route_step3": {
+    "text": "<0>الخطوة 3</0>: أضف البيانات أدناه في <1>calculateRouteActivity.kt.</1>"
+  },
+  "amazon_calculating_a_route_step1": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل <1>التبعيات</1> في <1>build.gradle.kts.</1>"
+  },
+  "amazon_calculating_a_route_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>activity_calculate_route.xml</1>."
+  },
+  "amazon_calculating_a_route_step3": {
+    "text": "<0>الخطوة 3</0><1>: أضف صورة علامة باسم <1>ic_marker_red</1> داخل دليل <1>/res/drawable وأدخل الكود أدناه في calculateRouteActivity.kt</1>.</1>"
+  },
+  "codeSnippets_searching_for_places_android_about": {
+    "text": "تعد القدرة على إجراء عمليات البحث عن الأماكن ميزة أساسية لخدمات رسم الخرائط الحديثة. توفر كل من خرائط Google وخدمة Amazon Location Service أدوات قوية لتسهيل هذه الوظيفة."
+  },
+  "codeSnippets_searching_for_places_android_point1": {
+    "text": "تستخدم خرائط Google عنوان URL الخاص بـ <1>maps.googleapis.com/maps/api/place/nearbysearch إلى جانب مفتاح واجهة برمجة تطبيقات خرائط Google للبحث عن الأماكن</1>."
+  },
+  "codeSnippets_searching_for_places_android_point2": {
+    "text": "توفر خدمة موقع Amazon <1>فهرس Searchplaceللحصول على اقتراحات</1> عبر عميل الموقع الخاص بها. بالإضافة إلى ذلك، تقدم خدمة مواقع أمازون واجهات برمجة تطبيقات الأماكن الأخرى مثل <1>GetPlace</1> و <1>SearchPlaceIndexForText</1>. يمكن العثور على مزيد من التفاصيل <0>هنا</0>."
+  },
+  "google_searching_for_places_step1": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل <1>التبعيات</1> في <1>build.gradle</1>."
+  },
+  "google_searching_for_places_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>activity_search.xml</1>."
+  },
+  "google_searching_for_places_step3": {
+    "text": "<0>الخطوة 3</0>: أضف البيانات أدناه في <1>Searchactivity.kt</1>."
+  },
+  "amazon_searching_for_places_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الأسطر أدناه داخل <1>التبعيات</1> في <1>build.gradle.kts.</1>"
+  },
+  "amazon_searching_for_places_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>activity_search.xml</1>."
+  },
+  "amazon_searching_for_places_step3": {
+    "text": "<0>الخطوة 3</0>: قم بتضمين الكود التالي في <1>GeoPlaceSearchTextActivity.kt</1>."
+  },
+  "migrateAnAndroidApp_desc": {
+    "text": "يوضح هذا الدليل تفاصيل العملية الفنية لنقل تطبيقات Android من خرائط Google إلى خدمة Amazon Location. يسلط الضوء على الإعداد الأولي وتكوين موارد Amazon Location ويقدم أمثلة مقارنة SDK لتسهيل دمج وظائف رسم الخرائط في الأنظمة الأساسية المستندة إلى Android."
+  },
+  "integrating_the_Android_amazon_location_sdk_description": {
+    "text": "لتحسين تطبيق Android الخاص بك باستخدام وظائف خرائط Amazon Location Service، تحتاج إلى دمج الحزم التالية في مشروع Android Studio الخاص بك باستخدام Kotlin:"
+  },
+  "positions_evaluated": {
+    "text": "المناصب التي تم تقييمها"
+  },
+  "api_calls": {
+    "text": "مكالمات API"
+  },
+  "google_maps_price_disclaimer": {
+    "text": "يعكس معدل خرائط Google اعتبارًا من 01/05/2024"
+  },
+  "information_is_not_publicly_available": {
+    "text": "المعلومات ليست متاحة للجمهور لخرائط Google"
+  },
+  "pricing_assumptions_and_variations": {
+    "text": "افتراضات التسعير والاختلافات"
+  },
+  "route-matrix-total-cost-formula": {
+    "text": "عدد الطلبات X عدد المغادرة/الأصول X عدد الوجهة X سعر الوحدة = التكلفة الإجمالية"
+  },
+  "google-maps-not-available": {
+    "text": "غير متوفر في خرائط Google"
+  },
+  "tier_1": {
+    "text": "المستوى 1"
+  },
+  "tier_2": {
+    "text": "المستوى 2"
+  },
+  "tier_3": {
+    "text": "المستوى 3"
+  },
+  "tier_4": {
+    "text": "المستوى 4"
+  },
+  "tier_1_unit_price": {
+    "text": "سعر الوحدة من المستوى 1"
+  },
+  "tier_2_unit_price": {
+    "text": "سعر الوحدة من المستوى 2"
+  },
+  "tier_3_unit_price": {
+    "text": "سعر الوحدة من المستوى 3"
+  },
+  "tier_4_unit_price": {
+    "text": "سعر الوحدة من المستوى 4"
+  },
+  "tier_1_cost": {
+    "text": "تكلفة المستوى 1"
+  },
+  "tier_2_cost": {
+    "text": "تكلفة المستوى 2"
+  },
+  "tier_3_cost": {
+    "text": "تكلفة المستوى 3"
+  },
+  "tier_4_cost": {
+    "text": "تكلفة المستوى 4"
+  },
+  "total_cost": {
+    "text": "التكلفة الإجمالية"
+  },
+  "trackers_write_API_calls": {
+    "text": "يقوم المتعقبون بكتابة مكالمات API"
+  },
+  "unit_price": {
+    "text": "سعر الوحدة"
+  },
+  "hr": {
+    "text": "ساعة"
+  },
+  "min": {
+    "text": "دقيقة"
+  },
+  "mins": {
+    "text": "دقيقة"
+  },
+  "position_updates": {
+    "text": "تحديثات الوظيفة"
+  },
+  "total_requests_with_filter": {
+    "text": "الطلبات التي تم تقييمها في الشهر مع تطبيق الفلتر"
+  },
+  "total_requests": {
+    "text": "إجمالي الطلبات"
+  },
+  "filter_factor": {
+    "text": "عامل التصفية"
+  },
+  "hrs": {
+    "text": "ساعة"
+  },
+  "Hr": {
+    "text": "ساعة"
+  },
+  "Hrs": {
+    "text": "ساعات"
+  },
+  "Hour": {
+    "text": "ساعة"
+  },
+  "Hours": {
+    "text": "ساعات"
+  },
+  "Min": {
+    "text": "الحد الأدنى"
+  },
+  "Mins": {
+    "text": "دقيقة"
+  },
+  "Minute": {
+    "text": "دقيقة"
+  },
+  "Minutes": {
+    "text": "الدقائق"
+  },
+  "web_services_app_heading": {
+    "text": "خدمة الويب - الترحيل من خرائط Google إلى خدمة موقع Amazon"
+  },
+  "web_services_app_desc": {
+    "text": "يوضح هذا الدليل تفاصيل العملية الفنية لنقل تطبيقات الواجهة الخلفية من خرائط Google إلى Amazon Location Service. يسلط الضوء على الإعداد الأولي وتكوين موارد Amazon Location ويقدم أمثلة مقارنة API لتسهيل دمج وظائف رسم الخرائط في أي نظام أساسي يدعم واجهات برمجة تطبيقات الويب."
+  },
+  "web_services_app_desc1": {
+    "text": "تعد وثائق AWS مصدرًا رئيسيًا للمطورين لإتقان خدمة Amazon Location Service، مما يوفر دليلًا كاملاً حول الميزات والإعداد والتكامل. تحقق من <0>الدليل الرسمي</0> <0>ومرجع API</0> للحصول على رؤى عملية حول إضافة خدمات الموقع إلى التطبيقات."
+  },
+  "web_services_app_dataProviders_title": {
+    "text": "موفرو البيانات"
+  },
+  "web_services_app_dataProviders_description": {
+    "text": "عند استخدام Amazon Location، يمكنك اختيار موفر البيانات الذي تريد استخدامه. يتم الحصول على بيانات الخريطة والمكان والمسار من موفر بيانات الموقع العالمي الذي اخترته، بما في ذلك:"
+  },
+  "web_services_app_dataProviders_name_0": {
+    "text": "Esri"
+  },
+  "web_services_app_dataProviders_link_0": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
+  },
+  "web_services_app_dataProviders_name_1": {
+    "text": "Grab"
+  },
+  "web_services_app_dataProviders_link_1": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/grab.html"
+  },
+  "web_services_app_dataProviders_name_2": {
+    "text": "هير تكنولوجيز"
+  },
+  "web_services_app_dataProviders_link_2": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/HERE.html"
+  },
+  "web_services_app_dataProviders_name_3": {
+    "text": "البيانات المفتوحة"
+  },
+  "web_services_app_dataProviders_link_3": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/open-data.html"
+  },
+  "web_services_app_dataProviders_postDescription": {
+    "text": "للحصول على معلومات إضافية، راجع <0>موفري البيانات</0> في دليل مطوري خدمة Amazon Location Service."
+  },
+  "web_services_app_serviceComparison_title": {
+    "text": "مقارنة API"
+  },
+  "web_services_app_serviceComparison_description": {
+    "text": "يعرض الجدول واجهات برمجة تطبيقات خدمة Amazon Locations، والتي لها وظائف مشابهة لواجهات برمجة تطبيقات خدمة خرائط Google المدرجة."
+  },
+  "web_services_app_serviceComparison_table_0_feature_text": {
+    "text": "مربعات الخرائط"
+  },
+  "web_services_app_serviceComparison_table_0_googleMapsAPI": {
+    "text": "بلاطات ثنائية"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_text": {
+    "text": "احصل على ملف الخريطة"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetMapTile.html"
+  },
+  "web_services_app_serviceComparison_table_1_feature_text": {
+    "text": "الترميز الجغرافي"
+  },
+  "web_services_app_serviceComparison_table_1_googleMapsAPI": {
+    "text": "الترميز الجغرافي"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_text": {
+    "text": "فهرس مكان البحث عن النص"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-geocoding.html"
+  },
+  "web_services_app_serviceComparison_table_2_feature_text": {
+    "text": "الترميز الجغرافي العكسي"
+  },
+  "web_services_app_serviceComparison_table_2_googleMapsAPI": {
+    "text": "الترميز الجغرافي"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_text": {
+    "text": "فهرس مكان البحث عن الموضع"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-reverse-geocode.html"
+  },
+  "web_services_app_serviceComparison_table_3_feature_text": {
+    "text": "البحث في مكان قريب"
+  },
+  "web_services_app_serviceComparison_table_3_googleMapsAPI": {
+    "text": "الأماكن: ابحث في مكان قريب"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_text": {
+    "text": "فهرس مكان البحث عن الموضع"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForPosition.html"
+  },
+  "web_services_app_serviceComparison_table_4_feature_text": {
+    "text": "بحث نصي"
+  },
+  "web_services_app_serviceComparison_table_4_googleMapsAPI": {
+    "text": "الأماكن: نص البحث"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_text": {
+    "text": "فهرس مكان البحث عن النص"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForText.html"
+  },
+  "web_services_app_serviceComparison_table_5_feature_text": {
+    "text": "الإكمال التلقائي"
+  },
+  "web_services_app_serviceComparison_table_5_googleMapsAPI": {
+    "text": "الأماكن: الإكمال التلقائي"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_text": {
+    "text": "فهرس مكان البحث عن الاقتراحات"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForSuggestions.html"
+  },
+  "web_services_app_serviceComparison_table_6_feature_text": {
+    "text": "استخدام معرفات الأماكن"
+  },
+  "web_services_app_serviceComparison_table_6_googleMapsAPI": {
+    "text": "أماكن"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_text": {
+    "text": "احصل على مكان"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetPlace.html"
+  },
+  "web_services_app_serviceComparison_table_7_googleMapsAPI": {
+    "text": "V2: مسارات الكمبيوتر"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_text": {
+    "text": "حساب المسار"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRoute.html"
+  },
+  "web_services_app_serviceComparison_table_8_googleMapsAPI": {
+    "text": "V2: مصفوفة مخرج الكمبيوتر"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_text": {
+    "text": "احسب مصفوفة المسار"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRouteMatrix.html"
+  },
+  "web_services_app_serviceComparison_postDescription": {
+    "text": "للحصول على معلومات إضافية، راجع <0>موفري البيانات</0> في دليل مطوري خدمة Amazon Location Service."
+  },
+  "google_maps_api": {
+    "text": "واجهة برمجة تطبيقات خرائط Google"
+  },
+  "amazon_location_api": {
+    "text": "واجهة برمجة تطبيقات موقع أمازون"
+  },
+  "webServices_article_items_examples_description": {
+    "text": "عند الترحيل من خرائط Google إلى Amazon Location Service، من المهم فهم الخدمات القابلة للمقارنة ونقاط نهاية API التي يوفرها كل منها. بينما تقدم الخدمتان ميزات تحديد الموقع الجغرافي المتشابهة، يمكن أن تختلف بنية طلبات API واصطلاحات التسمية المستخدمة."
+  },
+  "codeSnippets_getting_map_tiles_heading": {
+    "text": "احصل على مربعات الخرائط"
+  },
+  "codeSnippets_getting_map_tiles_description1": {
+    "text": "مربعات الخرائط هي الطريقة التي يتم بها تنظيم خرائط الويب (مثل خرائط Google و Maplibre). إنها رسومات نقطية مربعة معروضة بترتيب شبكي لعرض الخريطة. كل لوحة عبارة عن صورة صغيرة، وتحتوي على جزء معين من الخريطة، بمستوى معين من التفاصيل أو مستوى التكبير/التصغير. عندما تقوم بتكبير خريطة الويب أو تصغيرها، فأنت تقوم أساسًا بتحميل مجموعات مختلفة من المربعات التي تحتوي على مستويات مختلفة من التفاصيل."
+  },
+  "codeSnippets_getting_map_tiles_description2": {
+    "text": "تسمح واجهات برمجة تطبيقات تجليد الخرائط، مثل تلك التي توفرها خرائط Google وموقع Amazon، للمطورين باسترداد مربعات الخرائط هذه برمجيًا. يمكن أن يكون هذا مفيدًا لمجموعة متنوعة من التطبيقات، مثل إنشاء عارض خرائط مخصص أو تضمين عرض خريطة في صفحة ويب أو إجراء تحليلات على المعلومات الجغرافية الموجودة في المربعات."
+  },
+  "codeSnippets_getting_map_tiles_description3": {
+    "text": "تعمل واجهات برمجة التطبيقات من خلال قبول طلبات HTTP التي تحدد نوع الخريطة المطلوب (مثل خارطة الطريق والقمر الصناعي) والإحداثيات الجغرافية (خطوط الطول والعرض) ومستوى التكبير/التصغير. تقوم واجهة برمجة التطبيقات بعد ذلك بإرجاع لوحة الخريطة المقابلة كملف صورة (عادةً بتنسيق PNG أو JPEG)."
+  },
+  "codeSnippets_getting_map_tiles_description4": {
+    "text": "في سياق مربعات الخريطة، تعد Z وX وY من المعلمات التي تحدد اللوحة المحددة التي تسترجعها من الخريطة. إليك ما يمثله كل واحد:"
+  },
+  "codeSnippets_getting_map_tiles_point1": {
+    "text": "Z (مستوى التكبير): تحدد هذه المعلمة مقياس الخريطة. سيعرض مستوى التكبير/التصغير الأعلى منطقة أصغر بمزيد من التفاصيل. على سبيل المثال، عند مستوى التكبير/التصغير العالي، قد ترى أسماء الشوارع والمباني الفردية. عند مستوى التكبير/التصغير الأدنى، قد ترى حدود البلدان والمدن الكبيرة فقط. غالبًا ما يتم تمثيل مستوى التكبير/التصغير في صورة أس 2، لذا فإن مستوى التكبير/التصغير البالغ n سيؤدي إلى تقسيم الخريطة إلى مربعات 2^n x 2^n."
+  },
+  "codeSnippets_getting_map_tiles_point2": {
+    "text": "X (العمود): تحدد هذه المعلمة الموضع الطولي (الشرق-الغربي) للبلاط. عند مستوى التكبير/التصغير 0، توجد لوحة واحدة فقط، وبالتالي فإن قيمة X هي 0. في مستويات الزوم الأعلى، يمكن أن تتراوح قيمة X من 0 إلى 2 ^ Z - 1، مع الانتقال من الغرب إلى الشرق."
+  },
+  "codeSnippets_getting_map_tiles_point3": {
+    "text": "Y (الصف): تحدد هذه المعلمة موضع خط العرض (الشمال والجنوب) للبلاط. مثل قيمة X، تتراوح قيمة Y من 0 إلى 2 ^ Z - 1 عند كل مستوى تكبير، ولكنها تنتقل من الشمال إلى الجنوب."
+  },
+  "codeSnippets_getting_map_tiles_postDescription": {
+    "text": "يمكن لهذه المعلمات معًا تحديد أي مربع على الخريطة بأي مستوى من التفاصيل. من خلال تغيير هذه المعلمات، يمكنك الانتقال إلى أجزاء مختلفة من الخريطة والتكبير أو التصغير."
+  },
+  "Request": {
+    "text": "طلب"
+  },
+  "Response": {
+    "text": "الاستجابة"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_heading": {
+    "text": "1. إنشاء جلسة"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_description": {
+    "text": "في خرائط Google، تتمثل الخطوة الأولى في إنشاء جلسة. يتم ذلك عبر طلب POST الذي يتضمن نوع الخريطة واللغة والمنطقة. يمكن أن يكون نوع الخريطة «خارطة الطريق» و «القمر الصناعي» وما إلى ذلك، ويتم استخدام معلمات اللغة والمنطقة لترجمة مربعات الخريطة."
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_heading": {
+    "text": "2. احصل على عنوان الخريطة"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_description": {
+    "text": "بمجرد إنشاء الجلسة، يمكنك بعد ذلك استرداد مربعات الخريطة. يتم ذلك عبر طلب GET الذي يتضمن مستوى التكبير/التصغير (Z) والإحداثيات x (X) والإحداثيات y (Y). رمز الجلسة الذي تم إنشاؤه في الخطوة السابقة مطلوب أيضًا."
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_response": {
+    "text": "<0>الاستجابة لهذا الطلب هي ملف PNG يحتوي على لوحة الخريطة المطلوبة.</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description": {
+    "text": "باستخدام Amazon Location، يعد الحصول على مربعات الخرائط عملية بسيطة. يتضمن طلب GET واحدًا يتضمن اسم الخريطة ومستوى التكبير/التصغير (Z) والإحداثيات x (X) والإحداثيات y (Y)."
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response": {
+    "text": "<0>تحتوي النقطة التي تم إرجاعها على بيانات Mapbox Vector Tile (MVT)</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result": {
+    "text": "تتضمن الاستجابة لهذا الطلب رؤوس HTTP التي تشير إلى سياسة التحكم في ذاكرة التخزين المؤقت ونوع المحتوى، تليها بيانات لوحة الخريطة (المشار إليها باسم «blob»). يمكن استخدام بيانات تجانب الخريطة لعرض لوحة الخريطة في تطبيق مناسب."
+  },
+  "codeSnippets_getting-map-tiles_description1": {
+    "text": "مربعات الخرائط هي الطريقة التي يتم بها تنظيم خرائط الويب (مثل خرائط Google و Maplibre). إنها رسومات نقطية مربعة معروضة بترتيب شبكي لعرض الخريطة. كل لوحة عبارة عن صورة صغيرة، وتحتوي على جزء معين من الخريطة، بمستوى معين من التفاصيل أو مستوى التكبير/التصغير. عندما تقوم بتكبير خريطة الويب أو تصغيرها، فأنت تقوم أساسًا بتحميل مجموعات مختلفة من المربعات التي تحتوي على مستويات مختلفة من التفاصيل."
+  },
+  "codeSnippets_getting-map-tiles_description2": {
+    "text": "تسمح واجهات برمجة تطبيقات تجليد الخرائط، مثل تلك التي توفرها خرائط Google وموقع Amazon، للمطورين باسترداد مربعات الخرائط هذه برمجيًا. يمكن أن يكون هذا مفيدًا لمجموعة متنوعة من التطبيقات، مثل إنشاء عارض خرائط مخصص أو تضمين عرض خريطة في صفحة ويب أو إجراء تحليلات على المعلومات الجغرافية الموجودة في المربعات."
+  },
+  "codeSnippets_getting-map-tiles_description3": {
+    "text": "تعمل واجهات برمجة التطبيقات من خلال قبول طلبات HTTP التي تحدد نوع الخريطة المطلوب (مثل خارطة الطريق والقمر الصناعي) والإحداثيات الجغرافية (خطوط الطول والعرض) ومستوى التكبير/التصغير. تقوم واجهة برمجة التطبيقات بعد ذلك بإرجاع لوحة الخريطة المقابلة كملف صورة (عادةً بتنسيق PNG أو JPEG)."
+  },
+  "codeSnippets_getting-map-tiles_description4": {
+    "text": "في سياق مربعات الخريطة، تعد Z وX وY من المعلمات التي تحدد اللوحة المحددة التي تسترجعها من الخريطة. إليك ما يمثله كل واحد:"
+  },
+  "codeSnippets_geocoding_heading": {
+    "text": "الترميز الجغرافي"
+  },
+  "codeSnippets_geocoding_description": {
+    "text": "الترميز الجغرافي هو عملية تحويل العناوين إلى إحداثيات جغرافية. هذه ميزة أساسية في العديد من التطبيقات التي تتطلب بيانات الموقع."
+  },
+  "codeSnippets_geocoding_withGoogle_description1": {
+    "text": "في خرائط Google، تُستخدم واجهة برمجة تطبيقات الترميز الجغرافي لتحويل العناوين إلى إحداثيات <0>جغرافية</0>. يتم استخدام نقطة نهاية الترميز الجغرافي لهذا الغرض. إنه يسمح لك بتحيز النتائج إلى منطقة معينة باستخدام معلمات المنطقة أو المكونات."
+  },
+  "codeSnippets_geocoding_withGoogle_description2": {
+    "text": "<0>المكونات التي تسمح لك بتصفية النتائج حسب المكونات السياسية أو الجغرافية، مثل <0>administrative_area أو <0>local_code</0></0>.</0> على سبيل المثال، سيؤدي <0>components=locality:Mountain+View|Country:US</0> إلى تحيز النتائج نحو موقع ماونتن فيو في الولايات المتحدة. في ما يلي مثال لطلب الترميز الجغرافي في خرائط Google:"
+  },
+  "codeSnippets_geocoding_withAmazon_description": {
+    "text": "في خدمة Amazon Location Service، تتمثل الميزة المماثلة للترميز الجغرافي لخرائط Google في عملية <0>SearchPlaceIndexForText</0>. تبحث هذه العملية عن الأماكن باستخدام نص حر (مثل العنوان) وتعيد أماكن المرشحين إلى جانب المعلومات التكميلية. يحتوي الطلب البسيط على المعلمة المطلوبة التالية:"
+  },
+  "codeSnippets_geocoding_withAmazon_description_1": {
+    "text": "النص - عنوان أو اسم أو مدينة أو منطقة للتحويل إلى مجموعة من الإحداثيات. على سبيل المثال، السلسلة «Any Town»."
+  },
+  "codeSnippets_geocoding_withAmazon_description_2": {
+    "text": "لتحديد الحد الأقصى لعدد النتائج لكل صفحة، استخدم المعلمة الاختيارية التالية:"
+  },
+  "codeSnippets_geocoding_withAmazon_description_3": {
+    "text": "MaxResults - يحدد الحد الأقصى لعدد النتائج التي يتم إرجاعها في استجابة الاستعلام."
+  },
+  "codeSnippets_geocoding_withAmazon_description_4": {
+    "text": "FilterCounties - البلد أو المنطقة التي تريد الترميز الجغرافي داخلها. يمكنك تحديد ما يصل إلى 100 دولة في طلب واحد باستخدام رمز البلد ISO 3166 المكون من ثلاثة أحرف."
+  },
+  "codeSnippets_geocoding_withAmazon_request_description": {
+    "text": "في هذا الطلب، يكون حقل النص مكافئًا لمعامل الإدخال في خرائط Google، مع تحديد العنوان الذي سيتم ترميزه جغرافيًا. يُستخدم حقل <1>BiasPosition</1> <1>وfilterCountries</1> لتحيز نتائج البحث إلى منطقة معينة، على غرار <1>تحيز الموقع</1> ومعلمات <1>البلد</1> في خرائط Google. المعلمة الرئيسية هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة الترميز الجغرافي الخاصة بنا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "response_comparison": {
+    "text": "رسم خرائط مجال الاستجابة"
+  },
+  "web_services_app_responseComparison_table_0_description": {
+    "text": "النص الكامل للعنوان الذي تم إرجاعه."
+  },
+  "web_services_app_responseComparison_table_1_description": {
+    "text": "اسم المكان."
+  },
+  "description": {
+    "text": "وصف"
+  },
+  "codeSnippets_reverse_geocoding_heading": {
+    "text": "الترميز الجغرافي العكسي"
+  },
+  "codeSnippets_reverse_geocoding_description": {
+    "text": "ميزة رئيسية أخرى توفرها كلتا الخدمتين هي الترميز الجغرافي العكسي، والذي يتضمن تحويل الإحداثيات الجغرافية إلى عنوان أو اسم مكان يمكن للبشر قراءته. تُستخدم هذه الميزة غالبًا في التطبيقات التي تحتاج إلى عرض معلومات الموقع بتنسيق يسهل فهمه من قبل المستخدمين."
+  },
+  "codeSnippets_reverse_geocoding_withGoogle_description1": {
+    "text": "في خرائط Google، تُستخدم نقطة نهاية <0>الترميز الجغرافي</0> لواجهة برمجة تطبيقات الأماكن أيضًا للترميز الجغرافي العكسي. ومع ذلك، تحتاج إلى استخدام <0>latlng</0> لتوفير موضع للترميز الجغرافي العكسي. في ما يلي مثال لطلب الترميز الجغرافي العكسي في خرائط Google:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description": {
+    "text": "في خدمة موقع Amazon، تُستخدم عملية <0>SearchplaceIndexForPosition للترميز</0> الجغرافي العكسي. تبحث هذه العملية عن أماكن حول موضع محدد. يحتوي الطلب البسيط على المعلمة المطلوبة التالية:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1": {
+    "text": "الموضع - مجموعة من الإحداثيات التي تريد تحويلها إلى عنوان أو نقطة اهتمام أو موقع عام. تم تعريفه باستخدام التنسيق <0>[خطوط الطول والعرض]</0>."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_2": {
+    "text": "لتحديد الحد الأقصى لعدد النتائج لكل صفحة، أضف المعلمة الاختيارية التالية:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_3": {
+    "text": "MaxResults - يحدد الحد الأقصى لعدد النتائج التي يتم إرجاعها في استجابة الاستعلام."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_4": {
+    "text": "إذا كنت ترغب في تحديد لغة مفضلة لنتائج الاستعلام، استخدم المعلمة الاختيارية التالية:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_5": {
+    "text": "اللغة - رمز اللغة الذي سيتم استخدامه لعرض النتائج. يجب أن تكون القيمة عبارة عن رمز لغة BCP 47 صالح. على سبيل المثال، en للغة الإنجليزية."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_6": {
+    "text": "في ما يلي مثال لطلب الترميز الجغرافي العكسي في Amazon Location Service:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description": {
+    "text": "في هذا الطلب، يكون حقل الموضع مكافئًا لمعامل الموقع في خرائط Google، مع تحديد الإحداثيات الجغرافية المراد ترميزها جغرافيًا عكسيًا. يحدد حقل <1>MaxResults</1> الحد الأقصى لعدد النتائج التي سيتم إرجاعها. يحدد حقل <1>اللغة</1> اللغة التي يجب عرض النتائج بها، على غرار معلمة اللغة في خرائط Google. المعلمة الرئيسية هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة الترميز الجغرافي العكسي، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "web_services_app_responseComparison_table_1_google_description": {
+    "text": "عنوان الموقع الذي يمكن للبشر قراءته."
+  },
+  "web_services_app_responseComparison_table_2_google_description": {
+    "text": "خطوط الطول والعرض للموقع."
+  },
+  "web_services_app_responseComparison_table_3_google_description": {
+    "text": "وصف النص الكامل أو اسم مكون العنوان."
+  },
+  "web_services_app_responseComparison_table_4_google_description": {
+    "text": "نوع مكون العنوان."
+  },
+  "web_services_app_responseComparison_table_1_amazon_description": {
+    "text": "عنوان الموقع الذي يمكن للبشر قراءته."
+  },
+  "web_services_app_responseComparison_table_2_amazon_description": {
+    "text": "الإحداثيات "
+  },
+  "web_services_app_responseComparison_table_3_amazon_description": {
+    "text": "وصف النص الكامل أو اسم مكون العنوان."
+  },
+  "web_services_app_responseComparison_table_4_amazon_description": {
+    "text": "نوع المكان."
+  },
+  "web_services_app_note_description": {
+    "text": "<0>النتائج []</0> في خرائط Google <0>والنتائج []</0> في Amazon Location Service هي مصفوفات تحتوي على نتائج الترميز الجغرافي العكسي. <0>يمثل كل عنصر في المصفوفة مكانًا واحدًا يطابق معايير البحث. - يمثل <0>* في <0>النتائج [] .Place.*</0></0> حقولًا مختلفة مثل <0>العنوان/الرقم</0>، <0>والحي</0>، <0>والبلدية</0>، والمنطقة <0>الفرعية</0>، والمنطقة، <0>والمنطقة، <0>والبلد</0>، والرمز البريدي</0> في Amazon</0>"
+  },
+  "web_services_app_responseComparison_description": {
+    "text": "يقارن الجدول أدناه حقول الاستجابة الشائعة من خرائط Google وخدمة Amazon Location Service عند إجراء عملية ترميز جغرافي عكسي."
+  },
+  "codeSnippets_text_searching_heading": {
+    "text": "البحث عن النص"
+  },
+  "codeSnippets_text_searching_description": {
+    "text": "البحث عن النص هو ميزة تسمح للمستخدمين بالبحث عن الأماكن باستخدام الاستعلامات النصية. توفر كل من خرائط Google وموقع Amazon هذه الميزة، وإن كان ذلك مع هياكل طلبات واستجابات مختلفة."
+  },
+  "codeSnippets_text_searching_withGoogle_description1": {
+    "text": "يتم إجراء طلب البحث النصي في خرائط Google باستخدام طريقة POST HTTP. يحتوي نص الطلب على حقل TextQuery الذي يحدد الموقع الذي سيتم البحث فيه. تتضمن رؤوس الطلبات <0>نوع المحتوى</0> ومفتاح <0>X-Goog-Api-Key (للمصادقة) <0>وX-Goog-FieldMask</0></0> (لتحديد الحقول التي يجب تضمينها في الاستجابة)."
+  },
+  "codeSnippets_text_searching_withGoogle_description2": {
+    "text": "تتضمن الاستجابة من خرائط Google مجموعة من الأماكن التي تطابق طلب البحث. <0>يحتوي كل مكان <0>على عنوان منسق</0> <0>واسم عرض</0> يتضمن <0>النص</0> ورمز اللغة.</0>"
+  },
+  "codeSnippets_text_searching_withAmazon_description": {
+    "text": "يتم إجراء طلب البحث عن نص موقع أمازون عبر خدمة <0>SearchPlaceIndexForText</0> باستخدام طريقة POST HTTP. يحتوي نص طلب الخدمة هذا على حقل النص للموقع المراد البحث فيه، و <0>BiasPosition</0> لتحيز البحث نحو منطقة جغرافية معينة، واللغة لتحديد لغة البحث. تدعم هذه الخدمة أيضًا العديد من معايير الجسم مثل:"
+  },
+  "codeSnippets_text_searching_withAmazon_description_1": {
+    "text": "لمزيد من المعلومات الشاملة حول خدمة البحث عن النص، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "web_services_app_responseComparison_table_2_description": {
+    "text": "اللغة المفضلة للنتائج"
+  },
+  "codeSnippets_text_searching_withAmazon_description_2": {
+    "text": "في ما يلي مثال لطلب بحث نصي في خدمة Amazon Location Service:"
+  },
+  "codeSnippets_nearby_searching_heading": {
+    "text": "البحث في مكان قريب"
+  },
+  "codeSnippets_nearby_searching_description": {
+    "text": "يتيح لك البحث القريب البحث عن الأماكن أو النقاط المثيرة للاهتمام بالقرب من موضع معين. يمكنك إضافة قيود مثل الحد الأقصى للنتائج أو البلد."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description": {
+    "text": "في خدمة موقع Amazon، تُستخدم عملية <0>SearchplaceIndexForPosition للترميز</0> الجغرافي العكسي. تبحث هذه العملية عن أماكن حول موضع محدد."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description1": {
+    "text": "يحتوي الطلب البسيط على المعلمة المطلوبة التالية:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2": {
+    "text": "الموضع - مجموعة من الإحداثيات التي تريد تحويلها إلى عنوان أو نقطة اهتمام أو موقع عام. تم تعريفه باستخدام التنسيق <0>[خطوط الطول والعرض]</0>."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description3": {
+    "text": "لتحديد الحد الأقصى لعدد النتائج لكل صفحة، أضف المعلمة الاختيارية التالية:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description4": {
+    "text": "MaxResults - يحدد الحد الأقصى لعدد النتائج التي يتم إرجاعها في استجابة الاستعلام."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description5": {
+    "text": "إذا كنت ترغب في تحديد لغة مفضلة لنتائج الاستعلام، استخدم المعلمة الاختيارية التالية:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description6": {
+    "text": "اللغة - رمز اللغة الذي سيتم استخدامه لعرض النتائج. يجب أن تكون القيمة عبارة عن رمز لغة BCP 47 صالح. على سبيل المثال، en للغة الإنجليزية."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description7": {
+    "text": "في ما يلي مثال لطلب الترميز الجغرافي العكسي في Amazon Location Service:"
+  },
+  "codeSnippets_nearby_searching_request_description": {
+    "text": "في هذا الطلب، يكون حقل الموضع مكافئًا لمعامل الموقع في خرائط Google. يحدد حقل MaxResults الحد الأقصى لعدد النتائج التي سيتم إرجاعها. يحدد حقل اللغة اللغة التي يجب عرض النتائج بها، على غرار معلمة اللغة في خرائط Google. المعلمة الرئيسية هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة البحث عن النص، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_autocomplete_heading": {
+    "text": "الإكمال التلقائي"
+  },
+  "codeSnippets_autocomplete_description": {
+    "text": "يوفر الإكمال التلقائي اقتراحات للأماكن حسب أنواع المستخدمين. هذه ميزة أساسية في التطبيقات التي تتطلب تفاعل المستخدم مع بيانات الموقع."
+  },
+  "codeSnippets_autocomplete_withAmazon_request_description": {
+    "text": "في خرائط Google، تُستخدم نقطة نهاية الإكمال التلقائي لواجهة برمجة تطبيقات الأماكن لهذا الغرض. في ما يلي مثال لطلب الإكمال التلقائي في خرائط Google:"
+  },
+  "codeSnippets_autocomplete_withAmazon_response_description": {
+    "text": "في هذا الطلب، تحدد معلمة الإدخال السلسلة النصية التي سيتم البحث فيها. المعلمة الرئيسية هي مفتاح API الخاص بك."
+  },
+  "codeSnippets_autocomplete_withAmazon_description1": {
+    "text": "في خدمة Amazon Location Service، تتمثل الميزة المماثلة للإكمال التلقائي لخرائط Google في عملية <0>SearchplaceIndexforSuggestions</0>. توفر هذه العملية وظيفة الإكمال التلقائي لعمليات البحث الجغرافية المستندة إلى النص، مع إرجاع تنبؤات الأماكن استجابةً لاستعلامات بحث المستخدم. في ما يلي مثال لطلب الإكمال التلقائي في Amazon Location Service:"
+  },
+  "codeSnippets_autocomplete_withAmazon_description2": {
+    "text": "في هذا الطلب، يكون حقل النص مكافئًا لمعامل الإدخال في خرائط Google، مع تحديد السلسلة النصية التي سيتم البحث فيها. يحدد حقل <1>MaxResults</1> الحد الأقصى لعدد النتائج التي سيتم إرجاعها. المعلمة الرئيسية هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة الإكمال التلقائي الخاصة بنا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_autocomplete_request_description": {
+    "text": "في هذا الطلب، يكون حقل الموضع مكافئًا لمعامل الموقع في خرائط Google. يحدد حقل MaxResults الحد الأقصى لعدد النتائج التي سيتم إرجاعها. يحدد حقل اللغة اللغة التي يجب عرض النتائج بها، على غرار معلمة اللغة في خرائط Google. المعلمة الرئيسية هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة البحث عن النص، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "web_services_autocomplete_responseComparison_table_1_description": {
+    "text": "مصفوفة التنبؤ بالمكان"
+  },
+  "web_services_autocomplete_responseComparison_table_2_description": {
+    "text": "وصف التنبؤ بالمكان"
+  },
+  "web_services_autocomplete_responseComparison_table_3_description": {
+    "text": "معرف فريد للتنبؤ بالمكان"
+  },
+  "web_services_autocomplete_responseComparison_table_4_description": {
+    "text": "ملخص طلب البحث، بما في ذلك السلسلة النصية للبحث والحد الأقصى لعدد النتائج المراد إرجاعها."
+  },
+  "predictions": {
+    "text": "توقعات"
+  },
+  "place_id": {
+    "text": "معرف_المكان"
+  },
+  "N/A": {
+    "text": "غير متوفر"
+  },
+  "results": {
+    "text": "النتائج"
+  },
+  "text": {
+    "text": "النص"
+  },
+  "summary": {
+    "text": "ملخص"
+  },
+  "codeSnippets_get-place-details_heading": {
+    "text": "احصل على تفاصيل المكان"
+  },
+  "codeSnippets_get-place-details_description": {
+    "text": "إحدى هذه الميزات هي استرداد تفاصيل المكان، وهو أمر ضروري في التطبيقات التي تتطلب معلومات مفصلة حول مكان معين."
+  },
+  "codeSnippets_get-place-details_googleMap_description": {
+    "text": "في خرائط Google، تُستخدم نقطة نهاية التفاصيل الخاصة بواجهة برمجة تطبيقات الأماكن لاسترداد تفاصيل المكان. في ما يلي مثال لطلب GetPlace في خرائط Google:"
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description": {
+    "text": "في هذا الطلب، تحدد المعلمة <0>place_id</0> المعرف الفريد للمكان الذي سيتم استرداد تفاصيله. المعلمة الرئيسية هي مفتاح API الخاص بك."
+  },
+  "codeSnippets_get-place-details_withAmazon_description": {
+    "text": "في خدمة موقع Amazon، تُستخدم عملية <0>GetPlace</0> لاسترداد تفاصيل المكان. في ما يلي مثال لطلب GetPlace في خدمة موقع Amazon:"
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description": {
+    "text": "في هذا الطلب، يعد <0>PlaceID</0> المعرّف الفريد للمكان الذي سيتم استرداد تفاصيله، وهو ما يعادل المعلمة <0>place_id</0> في خرائط Google. المعلمة الرئيسية هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة تفاصيل المكان لدينا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <1>هنا</1>."
+  },
+  "label": {
+    "text": "عنوان موحد"
+  },
+  "geometry": {
+    "text": "إحداثيات المكان"
+  },
+  "street": {
+    "text": "شارع"
+  },
+  "neighborhood": {
+    "text": "الجوار"
+  },
+  "municipality": {
+    "text": "البلدية"
+  },
+  "subMunicipality": {
+    "text": "البلدية الفرعية"
+  },
+  "region": {
+    "text": "المنطقة"
+  },
+  "country": {
+    "text": "البلد"
+  },
+  "postalCode": {
+    "text": "الرمز البريدي"
+  },
+  "categories": {
+    "text": "الفئات"
+  },
+  "derived_from": {
+    "text": "مشتق من"
+  },
+  "Field": {
+    "text": "الحقل"
+  },
+  "subRegion": {
+    "text": "المنطقة دون الإقليمية"
+  },
+  "codeSnippets_calculating-a-route_description": {
+    "text": "حساب المسارات، وهو أمر بالغ الأهمية في التطبيقات التي تتطلب معلومات التنقل أو مسافة السفر."
+  },
+  "codeSnippets_calculating-a-route_googleMap_description": {
+    "text": "في خرائط Google، يمكنك استخدام <0>V2: واجهة برمجة تطبيقات ComputerOutes</0>. تتضمن رؤوس الطلبات <0>نوع المحتوى</0> ومفتاح <0>X-Goog-Api-Key (للمصادقة) <0>وX-Goog-FieldMask</0></0> (لتحديد الحقول التي يجب تضمينها في الاستجابة). في ما يلي مثال لحساب طلب المسار في خرائط Google:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description": {
+    "text": "في خدمة موقع Amazon، تُستخدم عملية CalculateRoute لحساب المسارات. عند حساب المسار، يمكنك تحديد ما يصل إلى 23 نقطة توقف وسيطة بين موضع المغادرة وموضع الوجهة باستخدام مواضع الإحداثيات."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1": {
+    "text": "WaypointPositions - تحدد قائمة مرتبة من المواضع الوسيطة لتضمينها على طول المسار بين موضع المغادرة وموضع الوجهة."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description2": {
+    "text": "ملاحظة: إذا قمت بتحديد موضع نقطة الطريق غير الموجود على الطريق، فإن Amazon Location ينقل الموضع إلى أقرب طريق."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description3": {
+    "text": "يقوم طلب calculateRoute التالي بحساب مسار يحتوي على نقطتي طريق:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4": {
+    "text": "موقع المغادرة هو <0>[-122.7565، 49.0021]، وموضع</0> الوجهة هو <0>[</0>-122.3394، 47.6159]."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description5": {
+    "text": "بالنسبة لمعامل الطلب WaypointPositions:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description6": {
+    "text": "مركز التوقف الأول هو <0>[-122.1884، 48.0936</0>]."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description7": {
+    "text": "مركز التوقف الثاني هو <0>[-122.3493،</0> 47.6205]."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description8": {
+    "text": "لتضمين هندسة خط الساق بين نقطتي الطريق هاتين، قم بتعيين المعلمة الاختيارية التالية إلى true:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description9": {
+    "text": "IncludelGeometry - يتضمن هندسة كل مسار بين زوج من المواضع في الاستجابة."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description10": {
+    "text": "في ما يلي مثال لطلب CalculateRoute في خدمة موقع Amazon:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription": {
+    "text": "في هذا الطلب، يكون حقل departurePosition مكافئًا لمعامل الأصل في خرائط Google، مع تحديد نقطة البداية لحساب المسار. يكافئ حقل <1>DestinationPosition</1> معلمة الوجهة في خرائط Google، مع تحديد نقطة النهاية. المعلمة الرئيسية هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة التوجيه الخاصة بنا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_1_description": {
+    "text": "مسافة ساق معينة من المسار بالأمتار."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_1_description": {
+    "text": "مسافة ساق الطريق"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_2_description": {
+    "text": "مدة مرحلة معينة من المسار بالثواني"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_2_description": {
+    "text": "مدة مسار الرحلة"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_3_description": {
+    "text": "تمثيل الخطوط لساق معين من المسار."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_3_description": {
+    "text": "هندسة مسار الساق"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_4_description": {
+    "text": "الخطوات الفردية المتضمنة في جزء معين من المسار."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_4_description": {
+    "text": "خطوات مسار المسار"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_5_description": {
+    "text": "المسافة الإجمالية للمسار بالأمتار."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_5_description": {
+    "text": "المسافة الإجمالية"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_6_description": {
+    "text": "المدة الإجمالية للمسار، عادةً بالثواني أو الدقائق."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_6_description": {
+    "text": "المدة الإجمالية"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_7_description": {
+    "text": "إطار العرض أو المنطقة المرئية من الخريطة للمسار."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_7_description": {
+    "text": "المربع المحيط بالمسار الذي يحتوي على جميع النقاط في المسار."
+  },
+  "codeSnippets_route-planning_googleMap_description": {
+    "text": "في خرائط Google، يمكنك استخدام واجهة برمجة تطبيقات <0>v2: ComputerOutes</0> لحساب مصفوفة المسار. تتضمن رؤوس الطلبات <0>نوع المحتوى</0> ومفتاح <0>X-Goog-Api-Key (للمصادقة) <0>وX-Goog-FieldMask</0></0> (لتحديد الحقول التي يجب تضمينها في الاستجابة). في ما يلي مثال لكيفية حساب مصفوفة المسار في خرائط Google:"
+  },
+  "codeSnippets_route-planning_withAmazon_description": {
+    "text": "توفر خدمة موقع Amazon وظائف مماثلة من خلال واجهة برمجة تطبيقات Route Matrix الخاصة بها. يسمح للمطورين بحساب المسافات وأوقات السفر بين نقاط البداية والنهاية المتعددة. على عكس خرائط Google، تستخدم خدمة موقع Amazon طلب POST لجلب هذه البيانات. يتضمن الطلب حمولة JSON مع مواقع المغادرة ومواقع الوجهة ووحدة قياس المسافة."
+  },
+  "codeSnippets_route-planning_withAmazon_description1": {
+    "text": "يمكن إجراء طلب حساب مصفوفة المسار باستخدام عملية <0>calculateRouteMatrix</0>. يحتوي الحد الأدنى للطلب على الحقول المطلوبة التالية:"
+  },
+  "codeSnippets_route-planning_withAmazon_description2": {
+    "text": "DeparturePositions - مجموعة مواضع البداية التي يتم حساب المسارات الخاصة بها. يُعرَّف بأنه مصفوفة من [خطوط الطول والعرض]"
+  },
+  "codeSnippets_route-planning_withAmazon_description3": {
+    "text": "DestinationPositions - مجموعة مواضع النهاية التي يتم حساب المسارات الخاصة بها. يُعرَّف بأنه مصفوفة من [خطوط الطول والعرض]."
+  },
+  "codeSnippets_route-planning_withAmazon_description4": {
+    "text": "افتراضيًا، تُرجع الاستجابة المسافة بالكيلومترات. يمكنك تغيير وحدة القياس إلى الأميال باستخدام المعلمة الاختيارية التالية:"
+  },
+  "codeSnippets_route-planning_withAmazon_description5": {
+    "text": "DistanceUnit - يحدد نظام الوحدة الذي سيتم استخدامه لنتائج المسافة."
+  },
+  "codeSnippets_route-planning_withAmazon_description6": {
+    "text": "في ما يلي مثال لطلب واجهة برمجة تطبيقات مصفوفة مسار خدمة موقع Amazon:"
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription": {
+    "text": "في هذا الطلب، تكون مواقع المغادرة ومواقع الوجهة عبارة عن مصفوفات من أزواج خطوط الطول والعرض. تحدد معلمة DistanceUnit وحدة القياس (في هذه الحالة، يتم استخدام الأميال). لمزيد من المعلومات الشاملة حول خدمة تخطيط المسار لدينا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_route-planning_responseResult": {
+    "text": "من المقارنة، من الواضح أنه على الرغم من وجود اختلافات في خرائط Google وخدمة Amazon Location Service في اصطلاحات التسمية وهياكل الاستجابة، إلا أنها توفر وظائف مماثلة لتخطيط المسار. يعد هذا الفهم أمرًا بالغ الأهمية للترحيل الناجح من خرائط Google إلى خدمة موقع Amazon."
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_1_description": {
+    "text": "قدمت بالأمتار في الاستجابة."
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_1_description": {
+    "text": "مسافة المسار"
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_2_description": {
+    "text": "يتم تقديمها في ثوانٍ في الاستجابة."
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_2_description": {
+    "text": "مدة المسار"
+  },
+  "duration": {
+    "text": "المدة"
+  },
   "migration": {
     "text": "الهجرة"
   },
@@ -3670,9 +5701,6 @@
   },
   "migrate_a_web_service": {
     "text": "ترحيل خدمة ويب"
-  },
-  "pricing": {
-    "text": "التسعير"
   },
   "migration_desc": {
     "text": "الترحيل من خرائط Google"
@@ -3692,11 +5720,362 @@
   "web_service": {
     "text": "خدمة الويب"
   },
+  "web_menu_item_desc": {
+    "text": "استكشف خدمة Amazon Location في متصفح الويب الخاص بك"
+  },
+  "android_menu_item_desc": {
+    "text": "استفد من مزايا خدمة Amazon Location على الهاتف المحمول"
+  },
+  "Mobile_percentage": {
+    "text": "النسبة المئوية غير الثابتة"
+  },
+  "Min_1_api_call": {
+    "text": "مكالمة API واحدة كحد أدنى في الشهر"
+  },
+  "Examples": {
+    "text": "أمثلة"
+  },
+  "notable_sdk_differences": {
+    "text": "اختلافات SDK البارزة"
+  },
+  "displaying_a_marker": {
+    "text": "عرض علامة"
+  },
+  "displaying_an_info_pop_up": {
+    "text": "عرض نافذة معلومات"
+  },
+  "displaying_a_circle": {
+    "text": "عرض دائرة"
+  },
+  "displaying_a_heatmap": {
+    "text": "عرض خريطة الحرارة"
+  },
+  "displaying_markers": {
+    "text": "عرض العلامات"
+  },
+  "displaying_circles": {
+    "text": "عرض الدوائر"
+  },
+  "displaying_polygons": {
+    "text": "عرض المضلعات"
+  },
+  "displaying_a_polygon": {
+    "text": "عرض المضلع"
+  },
+  "image_overlays": {
+    "text": "تراكبات الصور"
+  },
+  "calculating_a_route": {
+    "text": "حساب المسار"
+  },
+  "displaying_lines": {
+    "text": "عرض الخطوط"
+  },
+  "calculating_a_route_matrix": {
+    "text": "حساب مصفوفة المسار"
+  },
+  "codeSnippets_image_overlays_about": {
+    "text": "تشير تراكبات الصور إلى تقنية تراكب صورة على أخرى، وإنشاء عرض مركب يجمع المعلومات المرئية من كلتا الصورتين."
+  },
+  "codeSnippets_image_overlays_desc": {
+    "text": "تساعد تراكبات الصور على تحسين الخرائط من خلال توفير سياق إضافي، مثل صور الأقمار الصناعية أو أنماط الطقس أو الخرائط التاريخية، مما يثري التمثيل المرئي العام ويساعد في فهم وتحليل البيانات الجغرافية بشكل أفضل."
+  },
+  "codeSnippets_image_overlays_point1": {
+    "text": "تستخدم خرائط Google <1>Google.maps.groundoverlay</1> لعرض الصور على الخريطة."
+  },
+  "codeSnippets_image_overlays_point2": {
+    "text": "تستخدم خدمة موقع أمازون <1>LoadImage وaddImage</1> <1>وaddSource <1>وaddLayer</1> من MapLibre</1> <1>لعرض الصور</1> على الخريطة."
+  },
+  "codeSnippets_route_matrix_about": {
+    "text": "تعتبر خدمة مصفوفة المسار بمثابة مساعد ذكي للخرائط يساعد على اكتشاف أفضل طريقة للانتقال من مكان إلى آخر. فهي لا تحسب المسافة بين المواقع المختلفة فحسب، بل تخبرك أيضًا بالوقت الذي قد يستغرقه السفر بينها. يمكن أن يكون هذا مفيدًا جدًا للتطبيقات التي تحتاج إلى تخطيط المسارات أو العثور على المسار الأسرع أو تحسين لوجستيات السفر. بشكل أساسي، يجعل التنقل عبر الخرائط أكثر سلاسة ويساعد التطبيقات على تزويد المستخدمين بخيارات السفر الأكثر كفاءة."
+  },
+  "codeSnippets_route_matrix_point1": {
+    "text": "تستخدم خرائط Google <1>DistanceMatrixService</1> أو <1>ComputeRouteMatrix</1> لحساب مصفوفة الطريق."
+  },
+  "codeSnippets_route_matrix_point2": {
+    "text": "تستخدم خدمة موقع أمازون <1>calculateRouteMatrixCommand لحساب مصفوفة المسار</1>."
+  },
+  "codeSnippets_image_overlays_android_about": {
+    "text": "تشير تراكبات الصور إلى تقنية تراكب صورة على أخرى، وإنشاء عرض مركب يجمع المعلومات المرئية من كلتا الصورتين."
+  },
+  "codeSnippets_image_overlays_android_point1": {
+    "text": "تقدم خرائط Google طريقة <1>addGroundOverlay</1> خصيصًا لعرض الصورة على الخريطة."
+  },
+  "codeSnippets_image_overlays_android_point2": {
+    "text": "تستخدم خدمة موقع أمازون أساليب <1>AddSource و <1>addLayer</1></1> من Maplibre لعرض الصورة على الخريطة."
+  },
+  "google_image_overlays_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>."
+  },
+  "google_image_overlays_step2": {
+    "text": "<0>الخطوة 2</0><1>: أضف صورة باسم <1>newark.jpg</1> داخل دليل <1>/res/drawable</1> وأضف الكود أدناه إلى ImageOverlaysActivity.kt.</1>"
+  },
+  "amazon_image_overlays_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الكود أدناه داخل <1>activity_map.xml</1>."
+  },
+  "amazon_image_overlays_step2": {
+    "text": "<0>الخطوة 2</0><1>: أضف صورة باسم <1>newark.jpg</1> داخل دليل <1>/res/drawable</1> وأضف الكود أدناه داخل ImageOverlayActivity.kt.</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_about": {
+    "text": "تشير خدمة مصفوفة المسار عادةً إلى ميزة داخل خدمة التوجيه تسمح للمستخدمين بإنشاء مسارات متعددة بين مواقع مختلفة والحصول على معلومات حول المسافة والمدة لكل مسار. هذه الخدمة ذات قيمة لتطبيقات مثل الخدمات اللوجستية وتخطيط النقل وتحسين الرحلات."
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point1": {
+    "text": "توفر خرائط Google <1>distanceMatrix</1> أو <1>computeRouteMatrix</1> لحساب مصفوفة الطريق."
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2": {
+    "text": "تقدم خدمة موقع Amazon طريقة <1>CalculateRouteMatrix من خلال عميل الموقع الخاص بها لحساب مصفوفة</1> المسار."
+  },
+  "google_calculating_a_route_matrix_step1": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل <1>التبعيات</1> في <1>build.gradle</1>."
+  },
+  "google_calculating_a_route_matrix_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه إلى <1>activity_maps.xml</1>."
+  },
+  "google_calculating_a_route_matrix_step3": {
+    "text": "<0>الخطوة 3</0>: أضف الكود أدناه إلى <1>calculateActivity.kt.</1>"
+  },
+  "amazon_calculating_a_route_matrix_step1": {
+    "text": "<0>الخطوة 1</0>: أضف الأسطر أدناه داخل <1>التبعيات</1> في <1>build.gradle.kts.</1>"
+  },
+  "amazon_calculating_a_route_matrix_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>activity_route_matrix_service.xml</1>."
+  },
+  "amazon_calculating_a_route_matrix_step3": {
+    "text": "<0>الخطوة 3</0><1>: أضف صورة علامة باسم <1>ic_marker_red</1> داخل الدليل <1>/res/drawable وأدخل الكود أدناه في RouteMatrixServiceActivity.kt</1>.</1>"
+  },
+  "codeSnippets_image_overlays_ios_about": {
+    "text": "تشير تراكبات الصور إلى تقنية تراكب صورة على أخرى، وإنشاء عرض مركب يجمع المعلومات المرئية من كلتا الصورتين."
+  },
+  "codeSnippets_image_overlays_ios_point1": {
+    "text": "تقدم خرائط Google فئة <1>GMSGroundOverlay خصيصًا</1> لتراكب الصور."
+  },
+  "codeSnippets_image_overlays_ios_point2": {
+    "text": "<1>تستخدم خدمة موقع أمازون أساليب <1>MLNimageSource الخاصة بـ Maplibre وطرق MLNrasterstyleLayer</1> لعرض تراكب الصور.</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_about": {
+    "text": "تشير خدمة مصفوفة المسار عادةً إلى ميزة داخل خدمة التوجيه تسمح للمستخدمين بإنشاء مسارات متعددة بين مواقع مختلفة والحصول على معلومات حول المسافة والمدة لكل مسار. هذه الخدمة ذات قيمة لتطبيقات مثل الخدمات اللوجستية وتخطيط النقل وتحسين الرحلات."
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point1": {
+    "text": "توفر خرائط Google <1>distanceMatrix</1> أو <1>computeRouteMatrix</1> لحساب مصفوفة الطريق."
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point2": {
+    "text": "تقدم خدمة موقع Amazon طريقة <1>CalculateRouteMatrix من خلال عميل الموقع الخاص بها لحساب مصفوفة</1> المسار."
+  },
+  "reload": {
+    "text": "إعادة التحميل"
+  },
+  "codeSnippets_image_overlays_android_desc": {
+    "text": "تساعد تراكبات الصور على تحسين الخرائط من خلال توفير سياق إضافي، مثل صور الأقمار الصناعية أو أنماط الطقس أو الخرائط التاريخية، مما يثري التمثيل المرئي العام ويساعد في فهم وتحليل البيانات الجغرافية بشكل أفضل."
+  },
+  "codeSnippets_image_overlays_ios_desc": {
+    "text": "تساعد تراكبات الصور على تحسين الخرائط من خلال توفير سياق إضافي، مثل صور الأقمار الصناعية أو أنماط الطقس أو الخرائط التاريخية، مما يثري التمثيل المرئي العام ويساعد في فهم وتحليل البيانات الجغرافية بشكل أفضل."
+  },
+  "migrationOverview_heading": {
+    "text": "الترحيل من خرائط Google إلى موقع Amazon"
+  },
+  "migrationOverview_subHeading": {
+    "text": "توفر هذه المقالة رؤى حول كيفية ترحيل تطبيقات الويب والجوال والتطبيقات المستندة إلى الخادم من خرائط Google إلى منصة Amazon Location. يتضمن هذا البرنامج التعليمي نماذج التعليمات البرمجية المقارنة واقتراحات الترحيل وأفضل الممارسات للترحيل إلى Amazon Location."
+  },
+  "migrationOverview_cta1": {
+    "text": "جرب موقع أمازون"
+  },
+  "migrationOverview_cta2": {
+    "text": "قارن الأسعار"
+  },
+  "migrationOverview_featuresList2_title": {
+    "text": "خصوصية المستخدم"
+  },
+  "migrationOverview_featuresList2_desc": {
+    "text": "قم بحماية خصوصية المستخدم وحماية معلوماتك الحساسة وتقليل المخاطر الأمنية لتطبيقك."
+  },
+  "migrationOverview_startMigration_heading": {
+    "text": "بدء الترحيل"
+  },
+  "migrationOverview_article_point1": {
+    "text": "نظرة عامة على خدمة موقع Amazon"
+  },
+  "migrationOverview_article_point2": {
+    "text": "مقارنة الخدمة عالية المستوى"
+  },
+  "migrationOverview_article_point3": {
+    "text": "مقارنة الميزات"
+  },
+  "migrationOverview_article_point4": {
+    "text": "اعتبارات الترحيل"
+  },
+  "migrationOverview_article_point5": {
+    "text": "المصادقة"
+  },
+  "migrationOverview_article_point6": {
+    "text": "خطة الترحيل المقترحة"
+  },
+  "migrationOverview_article_point7": {
+    "text": "دعم الترحيل"
+  },
+  "migrationOverview_serviceOverview_desc": {
+    "text": "Amazon Location Service هي خدمة موقع مُدارة بالكامل توفر للمطورين القدرة على إضافة بيانات الموقع والوظائف إلى تطبيقاتهم. تتضمن الخدمة مجموعة من واجهات برمجة تطبيقات REST التي تقدم مجموعة متنوعة من الميزات، بما في ذلك:"
+  },
+  "migrationOverview_serviceOverview_point1": {
+    "text": "الخرائط: يمكنك جلب الخرائط المتجهة والنقطية بأنماط متعددة وصور الأقمار الصناعية."
+  },
+  "migrationOverview_serviceOverview_point2": {
+    "text": "الأماكن: ابحث عن الأماكن ذات الأهمية واحصل عليها، مثل الأنشطة التجارية والمطاعم والمعالم السياحية."
+  },
+  "migrationOverview_serviceOverview_point3": {
+    "text": "المسارات: احسب المسارات المثلى للسفر، مع مراعاة ظروف حركة المرور والعوامل الأخرى."
+  },
+  "migrationOverview_serviceOverview_point4": {
+    "text": "Geofences: إنشاء وإدارة السياج الجغرافي، وهي حدود افتراضية يمكنها تشغيل الإجراءات عندما يدخل الجهاز الحدود أو يغادرها."
+  },
+  "migrationOverview_serviceOverview_point5": {
+    "text": "أجهزة التتبع: تتبع موقع الأجهزة وتلقي الإشعارات عند دخولها أو مغادرتها للمناطق الجغرافية."
+  },
+  "migrationOverview_serviceComparison_desc1": {
+    "text": "توفر هذه الجداول قائمة عالية المستوى بميزات Amazon Location، والتي تتوافق مع ميزات خرائط Google. لا تعرض هذه القائمة جميع ميزات Amazon Location، مثل المواقع الجغرافية وأجهزة التتبع."
+  },
+  "migrationOverview_serviceComparison_desc2": {
+    "text": "تدعم خدمة Amazon Location Service طريقتين للتكامل، وهما تكامل SDK المباشر بالإضافة إلى واجهات برمجة تطبيقات خدمة REST."
+  },
+  "migrationOverview_featureComparison_desc": {
+    "text": "تعد كل من خرائط Google و Amazon Location من الخدمات القائمة على الموقع والتي تقدم مجموعة من الميزات لتحسين التجارب القائمة على الموقع. <0>من التخطيط والترميز الجغرافي إلى إمكانات التوجيه والسياج الجغرافي، تعمل هذه الخدمات على تمكين المطورين من إنشاء تطبيقات باستخدام خدمات تحديد الموقع الدقيقة والمخصصة. تعرف على المزيد</0>"
+  },
+  "migrationOverview_migrationConsiderations_desc1": {
+    "text": "عند الترحيل إلى خدمة موقع Amazon من خرائط Google، ضع في اعتبارك النقاط التالية:"
+  },
+  "migrationOverview_migrationConsiderations_point1": {
+    "text": "يتيح لك مورد Amazon Location Map الوصول إلى بيانات الخريطة الأساسية الأساسية للخريطة. ستحتاج إلى مكتبة عرض الخرائط مثل <0>Maplibre</0> لإضافة خرائط تفاعلية إلى التطبيق الخاص بك."
+  },
+  "migrationOverview_migrationConsiderations_point2": {
+    "text": "يوفر Amazon Location مربعات خرائط من موفري خرائط مختلفين ويمكنك الاختيار وفقًا لاحتياجات التطبيق الخاص بك. <0>تعرف على المزيد</0> حول كيفية ملاءمة موفري البيانات هؤلاء لاعتبارات الترخيص الخاصة بك."
+  },
+  "migrationOverview_migrationConsiderations_point3": {
+    "text": "يفرض Amazon Location رسومًا مقابل استخدام الخرائط التفاعلية، والتي تعتمد على عدد مربعات الخرائط المحملة. في Amazon Location SDK التفاعلي جنبًا إلى جنب مع Maplibre، يتم تخزين مربعات الخرائط تلقائيًا لتقليل تكلفة التطوير."
+  },
+  "migrationOverview_migrationConsiderations_point4": {
+    "text": "تستخدم حزم SDK لموقع Amazon وموقع MapLibre مربعات الخرائط. ما لم يقم المستخدم بتحريك الخريطة وتكبيرها، تتم محاسبته فقط على عدد المربعات التي يجلبها."
+  },
+  "migrationOverview_migrationConsiderations_point5": {
+    "text": "يقوم موقع Amazon بتخزين بياناته في AWS."
+  },
+  "migrationOverview_migrationConsiderations_desc2": {
+    "text": "فيما يلي بعض الموارد ذات الصلة بموقع Amazon:"
+  },
+  "migrationOverview_migrationConsiderations_resource1": {
+    "text": "<0>صفحة تسعير موقع أمازون</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource2": {
+    "text": "<0>حاسبة تسعير موقع أمازون</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource3": {
+    "text": "<0>شروط خدمة موقع أمازون</0>"
+  },
+  "migrationOverview_authentication_desc": {
+    "text": "توفر خرائط Google المصادقة الأساسية القائمة على المفاتيح. توفر خدمة موقع Amazon كلاً من المصادقة الأساسية القائمة على المفاتيح ومصادقة AWS Cognito. توفر مصادقة AWS Cognito ميزات أمان أكثر من المصادقة الأساسية القائمة على المفاتيح."
+  },
+  "migrationOverview_authentication_point1_mainPoint": {
+    "text": "تسمح لك <0>المصادقة الأساسية القائمة على المفتاح</0> ببساطة بتوصيل مفتاح API الخاص بك وتفويض الإجراءات التالية:"
+  },
+  "migrationOverview_authentication_point1_subPoint1": {
+    "text": "<0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0> :إجراءات الخرائط"
+  },
+  "migrationOverview_authentication_point1_subPoint2": {
+    "text": "<0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0> :إجراءات الأماكن"
+  },
+  "migrationOverview_authentication_point1_subPoint3": {
+    "text": "<0>CalculateRoute</0>, <0>CalculateRouteMatrix</0> :إجراءات المسارات"
+  },
+  "migrationOverview_authentication_point2": {
+    "text": "من ناحية أخرى، تمنحك طريقة <0>مصادقة AWS Cognito</0> مزيدًا من التحكم الدقيق وتسمح لك بالوصول إلى جميع الموارد وفقًا لسياسة الخصوصية الخاصة بك."
+  },
+  "migrationOverview_suggestedMigrationPlan_desc": {
+    "text": "تتكون خطة الترحيل عالية المستوى من هذه الخطوات."
+  },
+  "migrationOverview_suggestedMigrationPlan_point1": {
+    "text": "قم بجرد واجهات برمجة تطبيقات خرائط Google والخدمات التي يستخدمها تطبيقك. تحقق من أن Amazon Location يوفر واجهات برمجة تطبيقات وخدمات بديلة."
+  },
+  "migrationOverview_suggestedMigrationPlan_point2": {
+    "text": "راجع الموارد الفنية ودعم الترحيل أدناه للحصول على تفاصيل ومساعدة محددة."
+  },
+  "migrationOverview_suggestedMigrationPlan_point3": {
+    "text": "قم بإنشاء <0>حساب AWS</0> <1>ومفتاح API</1> أو <2>إعداد Amazon Cognito</2>."
+  },
+  "migrationOverview_suggestedMigrationPlan_point4": {
+    "text": "قم بترحيل رمز التطبيق الخاص بك."
+  },
+  "migrationOverview_suggestedMigrationPlan_point5": {
+    "text": "اختبر التطبيق الذي تم ترحيله."
+  },
+  "migrationOverview_suggestedMigrationPlan_point6": {
+    "text": "انشر التطبيق الذي تم ترحيله إلى الإنتاج."
+  },
+  "migrationOverview_technicalResources_heading": {
+    "text": "الموارد التقنية لخدمة موقع أمازون"
+  },
+  "migrationOverview_technicalResources_resource1": {
+    "text": "<0>دليل المطور</0>"
+  },
+  "migrationOverview_technicalResources_resource2": {
+    "text": "<0>مرجع API</0>"
+  },
+  "migrationOverview_technicalResources_resource3": {
+    "text": "<0>مرجع CLI</0>"
+  },
+  "migrationOverview_technicalResources_resource4": {
+    "text": "<0>تطبيقات العينات</0>"
+  },
+  "migrationOverview_migrationSupport_desc": {
+    "text": "يمكن للمطورين العثور على معلومات الترحيل التفصيلية في الأدلة التالية:"
+  },
+  "migrationOverview_footnotes_point1": {
+    "text": "يوفر Amazon Location معلومات المنطقة الزمنية إذا اختار العميل HERE كمزود البيانات"
+  },
+  "explore-working-sample": {
+    "text": "استكشف عينة العمل <0>هنا</0>"
+  },
+  "volume_discounts_available": {
+    "text": "تتوفر خصومات كبيرة. يرجى <0>الاتصال بالمبيعات</0>"
+  },
+  "places_search": {
+    "text": "البحث عن الأماكن"
+  },
+  "webSdkExample_Android_description2": {
+    "text": "اكتشف ميزات Amazon Location من خلال استكشاف تطبيق Android الذي يعمل بكامل طاقته <0>هنا</0>."
+  },
+  "response_field_mapping_disclaimer": {
+    "text": "يقارن الجدول أدناه حقول الاستجابة الشائعة الاستخدام من خرائط Google وخدمة Amazon Location Service عند تنفيذ هذه العملية."
+  },
+  "web_service_footnote_1": {
+    "text": "تستخدم خرائط Google تسلسل خطوط الطول والعرض بينما تستخدم خدمة Amazon Location Service تسلسل خطوط الطول والعرض."
+  },
+  "Categories": {
+    "text": "الفئات"
+  },
+  "accuracy_filter": {
+    "text": "مرشح الدقة (بالمتر)"
+  },
+  "distance_filter": {
+    "text": "مرشح المسافة (بالمتر)"
+  },
+  "eval_req_with_filter_applied": {
+    "text": "الطلبات التي تم تقييمها مع تطبيق عامل التصفية"
+  },
+  "avg_device_speed_meters_per_min": {
+    "text": "متوسط سرعة الجهاز (متر/دقيقة)"
+  },
   "error_handler__failed_fetch_tokens": {
     "text": "فشلت عملية جلب الرموز"
   },
   "error_handler__failed_refresh_tokens": {
     "text": "فشل تحديث الرموز"
+  },
+  "migrationSDK_title": {
+    "text": "حزمة SDK لترحيل الموقع من Amazon (اختياري)"
+  },
+  "migrationSDK_description": {
+    "text": "يوفر Amazon Location Migration SDK جسرًا يسمح لك بترحيل التطبيقات الحالية من خرائط Google إلى موقع Amazon. يوفر Migration SDK خيارًا لتطبيقك الذي تم إنشاؤه باستخدام Google Maps SDK لجافا سكريبت لاستخدام Amazon Location Service دون الحاجة إلى إعادة كتابة أي من التطبيقات أو منطق الأعمال إذا كان Amazon Location يدعم القدرات المستخدمة. تقوم حزمة SDK الخاصة بالترحيل بإعادة توجيه جميع مكالمات API إلى موقع Amazon بدلاً من خرائط Google. إذا كنت ترغب في تجربة Migration SDK على تطبيقك الحالي قبل بدء الترحيل الكامل، فراجع <0>Amazon Location Migration SDK على GitHub.</0>"
+  },
+  "amazon_location_service": {
+    "text": "Amazon Location Service"
   },
   "geofences_and_trackers": {
     "text": "المواقع الجغرافية وأجهزة التتبع"
@@ -3797,6 +6176,342 @@
   "new_developer_resources_desc": {
     "text": "أدلة ومنتديات"
   },
+  "demo_site": {
+    "text": "موقع تجريبي"
+  },
+  "demo_web": {
+    "text": "الويب التجريبي"
+  },
+  "demo_android": {
+    "text": "أندرويد تجريبي"
+  },
+  "migration_overview": {
+    "text": "نظرة عامة على الترحيل"
+  },
+  "version_1": {
+    "text": "واجهات برمجة التطبيقات الأصلية"
+  },
+  "version_2": {
+    "text": "واجهات برمجة تطبيقات محسنة جديدة"
+  },
+  "snapping_to_roads": {
+    "text": "الانتقال إلى الطرق"
+  },
+  "codeSnippets_places_search_point2_v2": {
+    "text": "توفر خدمة Amazon Location Service عميل GeoPlaces، الذي يحتوي على واجهات برمجة التطبيقات لـ <1>autocomplete</1> و<1>geocode</1> و<1>getPlace</1> و<1>reverseGeocode</1> و<1>searchNearby</1> و<1>searchText</1> و<1>suggest</1>. <0>تعرف على المزيد</0>"
+  },
+  "codeSnippets_routing_services_point2_v2": {
+    "text": "يوفر موقع Amazon <1>CalculateRoutes</1> ويستخدم قدرة عرض MapLibre's لعرض تلك البيانات على الخريطة."
+  },
+  "codeSnippets_snapping_to_roads_about": {
+    "text": "تعمل وظيفة snap to roads على مطابقة تتبع نظام تحديد المواقع العالمي (GPS) لأقرب طريق من خلال إرجاع مجموعة مماثلة من البيانات، مع قطع النقاط إلى الطرق الأكثر احتمالاً التي كانت السيارة تسير عليها."
+  },
+  "codeSnippets_snapping_to_roads_point1": {
+    "text": "توفر خرائط Google نقطة نهاية <1>SnapToRoads</1> من واجهة برمجة تطبيقات الطرق."
+  },
+  "codeSnippets_snapping_to_roads_point2": {
+    "text": "توفر خدمة موقع Amazon نقطة نهاية <1>SnapToRoads</1> من واجهة برمجة تطبيقات المسارات."
+  },
+  "codeSnippets_route_matrix_point2_v2": {
+    "text": "تستخدم خدمة موقع Amazon <1>CalculateRouteMatrix لحساب مصفوفة</1> المسار."
+  },
+  "codeSnippets_load_a_map_Android_point2_v2": {
+    "text": "باستخدام خدمة Amazon Location Service، تعد <1>MapView في مكتبة MapLibre</1> الواجهة الأساسية لتهيئة الخرائط وعرضها داخل التطبيق. يمكننا تحميل الخريطة بسهولة من خلال توفير عنوان URL لخدمة الخريطة، كما هو موضح في المثال أدناه."
+  },
+  "amazon_load_a_map_step1_v2": {
+    "text": "<0>الخطوة 1</0>: افتح <1>build.gradle.kts</1> على مستوى الوحدة وأضف البيانات أدناه"
+  },
+  "amazon_load_a_map_step2_v2": {
+    "text": "<0>الخطوة 2</0>: لتكوين تطبيقك بنمط الخريطة ومنطقة AWS، أدخله داخل <1>configuration.xml</1> كما هو موضح أدناه"
+  },
+  "amazon_load_a_map_step5_v2": {
+    "text": "<0>الخطوة 5</0>: أضف الكود أدناه إلى <1>MapActivity.kt</1> الخاص بك"
+  },
+  "amazon_display_an_info_window_step3_v2": {
+    "text": "<0>الخطوة 3</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>strings.xml</1>."
+  },
+  "amazon_display_an_info_window_step4_v2": {
+    "text": "<0>الخطوة 4</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>InfopopupActivity.kt</1>."
+  },
+  "amazon_adding_a_circle_step1_v2": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل <1>التبعيات</1> في <1>build.gradle.kts.</1>"
+  },
+  "codeSnippets_calculating_a_route_android_point2_v2": {
+    "text": "<1>تقدم خدمة موقع أمازون طريقة <1>حساب المسارات من خلال عميل <1>GeoRoutesClient المتوفر داخل aws.sdk.kotlin:georoutes</1></1> SDK.</1> يتم استخدام مفتاح API داخل <1>calculateRoutesRequest</1> كما هو موضح في المثال أدناه. وبالتالي، فإنه يستفيد من إمكانات عرض MapLibre لعرض بيانات المسار هذه على الخريطة."
+  },
+  "amazon_calculating_a_route_step3_v2": {
+    "text": "<0>الخطوة 3</0><1>: أضف صورة علامة باسم <1>ic_marker_red</1> داخل دليل <1>/res/drawable وأدخل الكود أدناه في GeoRoutesCalculateRouteActivity.kt</1>.</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2_v2": {
+    "text": "<1>تقدم خدمة موقع أمازون طريقة <1>حساب مصفوفة المسار من خلال عميل GeoRoutesClient المتوفر داخل aws.sdk.kotlin:georoutes</1> <1>SDK</1>.</1> يتم استخدام مفتاح API داخل <1>calculateRouteMatrixRequest كما هو موضح في المثال</1> أدناه."
+  },
+  "amazon_calculating_a_route_matrix_step3_v2": {
+    "text": "<0>الخطوة 3</0>: أضف الكود أدناه داخل <1>strings.xml</1>."
+  },
+  "amazon_calculating_a_route_matrix_step4_v2": {
+    "text": "<0>الخطوة 4</0><1>: أضف صورة علامة باسم <1>ic_marker_red</1> داخل الدليل <1>/res/drawable وأدخل الكود أدناه في GeoRouteMatrixServiceActivity.kt</1>.</1>"
+  },
+  "codeSnippets_snapping_to_roads_android_point1": {
+    "text": "توفر خرائط Google نقطة نهاية <1>snapToRoads</1> من واجهة برمجة تطبيقات الطرق."
+  },
+  "codeSnippets_snapping_to_roads_android_point2": {
+    "text": "<1>تقدم خدمة موقع أمازون طريقة <1>snaptoRoads من خلال عميل GeoRoutesClient المتاح</1> <1>داخل aws.sdk.kotlin:georoutes SDK</1>.</1> يتم استخدام مفتاح API داخل <1>SnapToRoadsRequest</1> كما هو موضح في المثال أدناه."
+  },
+  "google_snapping_to_roads_step1": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل <1>التبعيات</1> في <1>build.gradle.kts.</1>"
+  },
+  "google_snapping_to_roads_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>activity_maps.xml</1>."
+  },
+  "google_snapping_to_roads_step3": {
+    "text": "<0>الخطوة 3</0> <1><1>: أضف صور العلامات المسماة <1>ic_marker_red و ic_marker_blue داخل دليل /res/drawable</1> وأضف <1>الكود أدناه في SnapToRoadActivity.kt</1>.</1></1>"
+  },
+  "amazon_snapping_to_roads_step1": {
+    "text": "<0>الخطوة 1</0>: أضف السطر أدناه داخل <1>التبعيات</1> في <1>build.gradle.kts.</1>"
+  },
+  "amazon_snapping_to_roads_step2": {
+    "text": "<0>الخطوة 2</0>: أضف الكود أدناه داخل <1>activity_snap_to_road.xml</1>."
+  },
+  "amazon_snapping_to_roads_step3": {
+    "text": "<0>الخطوة 3</0>: قم بتضمين التعليمة البرمجية التالية إلى <1>layout_text.xml</1>."
+  },
+  "amazon_snapping_to_roads_step4": {
+    "text": "<0>الخطوة 4</0> <1><1>: أضف صور العلامات المسماة <1>ic_marker_red و ic_marker_blue داخل الدليل /res/drawable</1> وأدخل الكود أدناه في <1>GeoRoutesSnapToRoadActivity.kt</1>.</1></1>"
+  },
+  "codeSnippets_searching_for_places_android_point2_v2": {
+    "text": "<1><1>تقدم خدمة موقع أمازون طريقة الاقتراح من خلال <1>GeoPlacesClient المتوفر داخل aws.sdk.kotlin:geoplaces</1> SDK.</1></1> يتم استخدام مفتاح API داخل <1>SuggestRequest</1> كما هو موضح في المثال أدناه. <1><1>بالإضافة إلى ذلك، تقدم خدمة Amazon Location Service واجهات برمجة تطبيقات الأماكن الأخرى مثل <1>GetPlace والإكمال</1> <1>التلقائي والترميز</1> <1>الجغرافي العكسي وSearchNearby</1> <1><1>وSearchText</1></1> والاقتراح.</1></1>"
+  },
+  "providing_suggestions": {
+    "text": "تقديم اقتراحات"
+  },
+  "providing_autocomplete": {
+    "text": "توفير الإكمال التلقائي"
+  },
+  "calculating_route_matrices": {
+    "text": "حساب مصفوفات المسار"
+  },
+  "amazon_location_auth_sdk_ios_heading": {
+    "text": "<0>SDK للمصادقة على الهاتف المحمول لخدمة موقع أمازون</0>"
+  },
+  "amazon_location_auth_sdk_ios_desc": {
+    "text": "تساعدك هذه الأدوات المساعدة في المصادقة عند إجراء مكالمات Amazon Location Service API من تطبيقات iOS الخاصة بهم. يساعد هذا بشكل خاص عند استخدام Amazon Cognito كطريقة للمصادقة."
+  },
+  "ios_swift_maplibre_package": {
+    "text": "لعرض الخريطة، أضف حزمة MapLibre Native إلى مشروعك."
+  },
+  "ios_swift_add_package_desc": {
+    "text": "حدد مشروعك وانتقل إلى علامة تبويب <1>تبعيات الحزمة</1> وانقر على أيقونة <1>+</1>."
+  },
+  "ios_swift_maplibre_package_url_desc": {
+    "text": "أدخل عنوان URL للحزمة: <1>https://github.com/maplibre/maplibre-gl-native-distribution</1> وانقر على زر <1>إضافة حزمة</1>."
+  },
+  "ios_swift_add_maplibre_package_to_target": {
+    "text": "حدد مشروعك في القائمة المنسدلة لعمود <1>Add to Target</1> وانقر على زر <1>إضافة حزمة</1> مع صف <1>MapLibre.</1>"
+  },
+  "ios_swift_aws_geo_places_routes": {
+    "text": "لاستخدام واجهات برمجة تطبيقات AWSGeoPlaces وAWSGeoRoutes، أضف حزمة AWS SDK Swift إلى مشروعك."
+  },
+  "ios_swift_aws_geo_places_routes_url_desc": {
+    "text": "أدخل عنوان URL للحزمة: <1>https://github.com/awslabs/aws-sdk-swift</1> وانقر على زر <1>إضافة حزمة</1>."
+  },
+  "ios_swift_add_aws_geo_places_routes_package_to_target": {
+    "text": "<1>حدد مشروعك في القائمة المنسدلة لعمود <1>Add to Target</1> وانقر على زر <1>إضافة حزمة</1> مع الصفوف <1>AWSGeoPlaces أو AWSGeoRoutes</1>.</1>"
+  },
+  "ios_swift_amazon_location_ios_auth_sdk": {
+    "text": "لمصادقة طلبات مفاتيح واجهة برمجة التطبيقات، أضف حزمة AmazonLocationiOSAuthSDK إلى مشروعك."
+  },
+  "ios_swift_amazon_location_ios_auth_sdk_url_desc": {
+    "text": "أدخل عنوان URL للحزمة: <1>https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios</1> وانقر على زر <1>إضافة حزمة</1>."
+  },
+  "ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+    "text": "حدد مشروعك في القائمة المنسدلة لعمود <1>الإضافة إلى الهدف</1> وانقر على زر <1>إضافة حزمة</1> مع الصفوف <1>AmazonLocationiOSauthSDK</1>."
+  },
+  "ios_swift_turf": {
+    "text": "بالنسبة لمثال «عرض دائرة»، ستحتاج إلى إضافة حزمة Turf Swift إلى مشروعك."
+  },
+  "ios_swift_turf_url_desc": {
+    "text": "أدخل عنوان URL للحزمة: <1>https://github.com/mapbox/turf-swift</1> وانقر على زر <1>إضافة حزمة</1>."
+  },
+  "ios_swift_add_turf_package_to_target": {
+    "text": "حدد مشروعك في القائمة المنسدلة لعمود <1>Add to Target</1> وانقر على زر <1>إضافة حزمة</1> مع صفوف <1>Turf</1>."
+  },
+  "codeSnippets_snapping_to_roads_ios_about": {
+    "text": "تعمل وظيفة snap to roads على مطابقة تتبع نظام تحديد المواقع العالمي (GPS) لأقرب طريق من خلال إرجاع مجموعة مماثلة من البيانات، مع قطع النقاط إلى الطرق الأكثر احتمالاً التي كانت السيارة تسير عليها."
+  },
+  "codeSnippets_snapping_to_roads_ios_point1": {
+    "text": "توفر خرائط Google نقطة نهاية <1>SnapToRoads</1> من واجهة برمجة تطبيقات الطرق."
+  },
+  "codeSnippets_snapping_to_roads_ios_point2": {
+    "text": "<1>توفر خدمة موقع Amazon خدمة <1>SnapToRoads من واجهة برمجة تطبيقات AWSGeoRoutes</1>.</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii_iii_v2": {
+    "text": "الموارد والإجراءات: الإجراءات المصرح بها بواسطة هذا المفتاح. يجب تحديد إجراءات للموارد المعنية."
+  },
+  "suggest_places": {
+    "text": "اقترح أماكن"
+  },
+  "get_static_map": {
+    "text": "احصل على خريطة ثابتة"
+  },
+  "optimizing_waypoints": {
+    "text": "تحسين نقاط الطريق"
+  },
+  "codeSnippets_geocoding_withAmazon_description_v2": {
+    "text": "في خدمة Amazon Location Service، تتمثل الميزة المماثلة للترميز الجغرافي لخرائط Google في خدمة <0>الترميز الجغرافي</0> باستخدام طلب HTTP POST. تبحث هذه الخدمة عن الأماكن باستخدام نص حر (مثل العنوان) وتعيد الإحداثيات والعناوين والمعلومات التكميلية الأخرى حول أماكن المرشح. يحتوي الطلب البسيط على المعلمة المطلوبة التالية:"
+  },
+  "codeSnippets_geocoding_withAmazon_description_1_v2": {
+    "text": "QueryText - عنوان أو اسم أو مدينة أو منطقة للتحويل إلى مجموعة من الإحداثيات. على سبيل المثال، السلسلة «Any Town»."
+  },
+  "codeSnippets_geocoding_withAmazon_request_description_v2": {
+    "text": "في هذا الطلب، يكون حقل <1>QueryText</1> مكافئًا لمعامل الإدخال في خرائط Google، مع تحديد العنوان الذي سيتم ترميزه جغرافيًا. يُستخدم <1>حقلي BiasPosition</1> <1>وfilterCountries</1> لتحيز نتائج البحث إلى منطقة معينة، على غرار <1>تحيز الموقع</1> ومعلمات <1>البلد</1> في خرائط Google. المعلمة <1>الرئيسية</1> هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة الترميز الجغرافي الخاصة بنا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_v2": {
+    "text": "في خدمة موقع Amazon، تُستخدم خدمة <0>ReverseGeocode</0> للترميز الجغرافي العكسي عبر طلب HTTP POST. تستخدم واجهة برمجة التطبيقات هذه الإحداثيات لاسترداد العناوين ووضع المعلومات. يحتوي الطلب البسيط على المعلمة المطلوبة التالية:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1_v2": {
+    "text": "QueryPosition - مجموعة من الإحداثيات التي تريد تحويلها إلى عنوان أو نقطة اهتمام أو موقع عام. تم تعريفه باستخدام التنسيق <0>[خطوط الطول والعرض]</0>."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description_v2": {
+    "text": "في هذا الطلب، يكون حقل <1>QueryPosition</1> مكافئًا لمعامل <1>الموقع</1> في خرائط Google، مع تحديد الإحداثيات الجغرافية المراد ترميزها جغرافيًا عكسيًا. يحدد حقل <1>MaxResults</1> الحد الأقصى لعدد النتائج التي سيتم إرجاعها. يحدد حقل <1>اللغة</1> اللغة التي يجب عرض النتائج بها، على غرار معلمة <1>اللغة</1> في خرائط Google. المعلمة <1>الرئيسية</1> هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة الترميز الجغرافي العكسي، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_text_searching_withAmazon_description_v2": {
+    "text": "يتم إجراء طلب البحث النصي لموقع Amazon عبر خدمة <1>SearchText</1> باستخدام طلب HTTP POST. يحتوي نص الطلب على حقل <1>QueryText</1> للموقع المراد البحث فيه، و <1>BiasPosition</1> لتحيز البحث نحو منطقة جغرافية معينة، <1>واللغة لتحديد لغة</1> البحث. لمزيد من المعلومات الشاملة حول خدمة البحث عن النص، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description_v2": {
+    "text": "في خدمة Amazon Location Service، تُستخدم خدمة <0>SearchNearby</0> للبحث في الأماكن القريبة عبر طلب HTTP POST، وتبحث هذه الخدمة عن الأماكن حول موضع محدد. يحتوي الطلب البسيط على المعلمة المطلوبة التالية:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2_v2": {
+    "text": "QueryPosition - مجموعة من الإحداثيات التي تريد تحويلها إلى عنوان أو نقطة اهتمام أو موقع عام. تم تعريفه باستخدام التنسيق <0>[خطوط الطول والعرض]</0>."
+  },
+  "codeSnippets_nearby_searching_request_description_v2": {
+    "text": "في هذا الطلب، يكون حقل <1>QueryPosition</1> مكافئًا لمعامل <1>الموقع</1> في خرائط Google. يحدد حقل <1>MaxResults</1> الحد الأقصى لعدد النتائج التي سيتم إرجاعها. يحدد حقل <1>اللغة</1> اللغة التي يجب عرض النتائج بها، على غرار معلمة <1>اللغة</1> في خرائط Google. المعلمة <1>الرئيسية</1> هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة البحث عن النص، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_v2": {
+    "text": "في خدمة Amazon Location Service، الميزة المماثلة للإكمال التلقائي لخرائط Google هي خدمة <0>الإكمال التلقائي</0>، والتي تسمى باستخدام طريقة POST HTTP. توفر هذه الخدمة وظيفة الإكمال التلقائي لعمليات البحث الجغرافية القائمة على النص، مع إرجاع تنبؤات الأماكن استجابةً لاستعلامات بحث المستخدم. يحتوي الطلب البسيط على المعلمة المطلوبة التالية:"
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_point1_v2": {
+    "text": "QueryText - الاستعلام النصي المجاني الذي يشكل العنوان الجزئي المراد إكماله."
+  },
+  "codeSnippets_autocomplete_withAmazon_description2_v2": {
+    "text": "في هذا الطلب، يكون حقل <1>QueryText</1> مكافئًا لمعامل <1>الإدخال</1> في خرائط Google، مع تحديد السلسلة النصية التي سيتم البحث فيها. يحدد حقل <1>MaxResults</1> الحد الأقصى لعدد النتائج التي سيتم إرجاعها. المعلمة <1>الرئيسية</1> هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة الإكمال التلقائي الخاصة بنا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_suggest_places_desc": {
+    "text": "يؤدي ذلك إلى العثور على العناوين المقترحة أو وضع المرشحين استنادًا إلى استعلام غير مكتمل أو به أخطاء إملائية، يمكنك من خلاله تحديد أفضل استعلام."
+  },
+  "codeSnippets_suggest_places_googleDesc": {
+    "text": "<1>في خرائط Google، تُستخدم نقطة نهاية <1>الإكمال التلقائي للأماكن</1> في واجهة برمجة تطبيقات الأماكن لهذا الغرض جنبًا إلى جنب مع تعيين المعلمة <1>includeQueryPredictions</1> على true.</1>"
+  },
+  "codeSnippets_suggest_places_amazonDesc": {
+    "text": "في خدمة موقع Amazon، يتم <1>استخدام</1> خدمة الاقتراح عبر طلب HTTP POST."
+  },
+  "codeSnippets_suggest_places_amazonPostDesc": {
+    "text": "لمزيد من المعلومات الشاملة حول هذه الخدمة، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "predicted_text": {
+    "text": "نص متوقع"
+  },
+  "codeSnippets_get-place-details_description_v2": {
+    "text": "نظرًا لمعرف المكان الفريد، يمكنك استرداد معلومات موسعة حول هذا الموقع المحدد."
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description_v2": {
+    "text": "في خرائط Google، تُستخدم نقطة نهاية <1>الأماكن/place_id</1> لواجهة برمجة تطبيقات تفاصيل المكان لهذا الغرض."
+  },
+  "codeSnippets_get-place-details_withAmazon_description_v2": {
+    "text": "في خدمة موقع Amazon، تُستخدم خدمة <1>GetPlace</1> لاسترداد تفاصيل المكان عبر طلب HTTP GET."
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description_v2": {
+    "text": "في هذا الطلب، يعد <1>PlaceID</1> المعرّف الفريد للمكان الذي سيتم استرداد تفاصيله، وهو ما يعادل المعلمة <1>place_id</1> في خرائط Google. المعلمة <1>الرئيسية</1> هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة تفاصيل المكان لدينا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "opening_hours": {
+    "text": "ساعات العمل"
+  },
+  "phone_number": {
+    "text": "رقم الهاتف"
+  },
+  "website": {
+    "text": "الموقع الإلكتروني"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description_v2": {
+    "text": "<1><1><1>في خدمة موقع أمازون، يتم استخدام خدمة <1>GetMapTile</1> عبر طلب HTTP <1>GET الذي يتضمن مجموعة المربعات التي يمكن أن تكون إما raster.satellite</1> <1>أو <1>vector.basemap</1> ومستوى الزوم</1> Z والإحداثيات x والإحداثيات y Y.</1></1></1>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result_v2": {
+    "text": "<1>تتضمن الاستجابة لهذا الطلب رؤوس HTTP التي تشير إلى سياسة التحكم في ذاكرة التخزين المؤقت ونوع المحتوى، تليها بيانات تجانب الخريطة المشار إليها باسم blob والتي تمثل إما تجانبًا متجهًا بتنسيق <1>mvt</1> أو لوحة نقطية بتنسيق png.</1> يمكن استخدام هذا لعرض لوحة الخريطة في تطبيق مناسب."
+  },
+  "codeSnippets_get_static_map_desc": {
+    "text": "يتيح لك ذلك تضمين صورة خريطة على صفحة الويب الخاصة بك دون الحاجة إلى JavaScript أو أي تحميل ديناميكي للصفحة."
+  },
+  "codeSnippets_get_static_map_googleDesc": {
+    "text": "في خرائط Google، يتم <1>استخدام نقطة نهاية الخريطة الثابتة</1> لواجهة برمجة تطبيقات الخرائط لهذا الغرض."
+  },
+  "codeSnippets_get_static_map_amazonDesc": {
+    "text": "في خدمة موقع أمازون، الميزة القابلة للمقارنة مع الخريطة الثابتة لخرائط Google هي خدمة <1>GetStaticMap</1> <1>باستخدام طلب HTTP GET</1>."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_v2": {
+    "text": "في خدمة موقع Amazon، تُستخدم خدمة <1>CalculateRoutes</1> لحساب المسارات باستخدام طلب HTTP POST. عند حساب المسار، يمكنك تحديد ما يصل إلى 100 نقطة توقف وسيطة بين موقعي الأصل والوجهة باستخدام نقاط الطريق. المعلمات التالية مطلوبة:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point1_v2": {
+    "text": "الأصل - موضع البداية للمسار."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point2_v2": {
+    "text": "الوجهة - موضع النهاية للمسار."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2": {
+    "text": "المعلمات التالية اختيارية:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2Points_1": {
+    "text": "LegGeometryFormat - يختار ما يجب أن يكون عليه تنسيق هندسة ساق المسار الذي تم إرجاعه. يمكن أن يكون FlexiblePolyline أو Simple، ويتم تعيينه افتراضيًا على FlexiblePolyline، وهو تنسيق هندسي مضغوط يُستخدم لتصغير الاستجابات."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4_v2": {
+    "text": "وموضع الأصل هو <0>[-122.7565، 49.0021]، وموضع</0> الوجهة هو <0>[</0>-122.3394، 47.6159]."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription_v2": {
+    "text": "في هذا الطلب، يكون حقل <1>Origin</1> مكافئًا لمعامل <1>الأصل</1> في خرائط Google، مع تحديد نقطة البداية لحساب المسار. ويعادل حقل <1>الوجهة</1> معلمة <1>الوجهة</1> في خرائط Google، مع تحديد نقطة النهاية. المعلمة <1>الرئيسية</1> هي مفتاح API الخاص بك. لمزيد من المعلومات الشاملة حول خدمة التوجيه الخاصة بنا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_optimizing_waypoints_desc": {
+    "text": "يسمح هذا بحساب الترتيب الأمثل للتنقل بين مجموعة من نقاط الطريق لتقليل وقت السفر أو المسافة المقطوعة أثناء الرحلة بناءً على قيود شبكة الطرق وبيانات نمط حركة المرور."
+  },
+  "codeSnippets_optimizing_waypoints_googleDesc": {
+    "text": "<1>في خرائط Google، يتم استخدام نقطة نهاية <1>v2:computeRoutes</1> لواجهة برمجة تطبيقات المسارات لهذا الغرض جنبًا إلى جنب مع تعيين المعلمة <1>optimizeWaypointOrder على true</1>.</1>"
+  },
+  "codeSnippets_optimizing_waypoints_amazonDesc": {
+    "text": "في خدمة موقع Amazon، يمكن تحقيق ذلك من خلال خدمة <1>OptimizeWaypoints</1> باستخدام طلب HTTP POST."
+  },
+  "codeSnippets_optimizing_waypoints_amazonPostDesc": {
+    "text": "لمزيد من المعلومات الشاملة حول خدمة تحسين نقاط الطريق، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "optimized_waypoints": {
+    "text": "نقاط الطريق المحسنة"
+  },
+  "codeSnippets_snapping_to_roads_desc": {
+    "text": "تُطابق ميزة الانتقال السريع إلى الطرق تتبع نظام تحديد المواقع العالمي (GPS) لأقرب طريق من خلال إرجاع مجموعة مماثلة من البيانات، مع قطع النقاط على الطرق الأكثر احتمالاً التي كانت السيارة تسير عليها."
+  },
+  "codeSnippets_snapping_to_roads_googleDesc": {
+    "text": "في خرائط Google، يتم استخدام نقطة نهاية <1>SnapToRoads</1> لواجهة برمجة تطبيقات الطرق والتي تتطلب معلمة <1>مسار</1> تقبل قائمة بأزواج <1>خطوط الطول والعرض</1>."
+  },
+  "codeSnippets_snapping_to_roads_amazonDesc": {
+    "text": "في خدمة Amazon Location Service، تُستخدم خدمة <1>SnapToRoads</1> عبر طلب HTTP POST جنبًا إلى جنب مع <1>TracePoints وهي قائمة بنقاط</1> التتبع التي سيتم التقاطها على شبكة الطرق."
+  },
+  "codeSnippets_snapping_to_roads_amazonPostDesc": {
+    "text": "لمزيد من المعلومات الشاملة حول خدمة snap to Roads الخاصة بنا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "snapped_position": {
+    "text": "وضع المقطوع"
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription_v2": {
+    "text": "في هذا الطلب، تكون <1>الأصول</1> <1>والوجهات</1> عبارة عن صفائف من الكائنات التي تتضمن المواضع. لمزيد من المعلومات الشاملة حول خدمة تخطيط المسار لدينا، يرجى الرجوع إلى الوثائق التفصيلية المقدمة <0>هنا</0>."
+  },
+  "codeSnippets_route-planning_withAmazon_description_v2": {
+    "text": "توفر خدمة موقع Amazon وظيفة مشابهة مع خدمة <1>CalculateRouteMatrix</1> الخاصة بها، والتي تسمى باستخدام طلب HTTP POST. يسمح للمطورين بحساب المسافات وأوقات السفر بين نقاط البداية والنهاية المتعددة. تحتوي النتائج على جميع مجموعات الأصول والوجهات. يتوافق كل صف مع المسار من الأصل إلى الإدخال في الوجهات."
+  },
+  "codeSnippets_route-planning_withAmazon_description2_v2": {
+    "text": "يحتوي الحد الأدنى للطلب على الحقول المطلوبة التالية:"
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point1_v2": {
+    "text": "الأصول - مجموعة مواضع البداية التي يتم حساب المسارات الخاصة بها."
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point2_v2": {
+    "text": "الوجهات - مجموعة مواضع النهاية التي يتم حساب المسارات الخاصة بها."
+  },
   "error_handler__failed_create_places_client": {
     "text": "فشل إنشاء عميل الأماكن"
   },
@@ -3806,6 +6521,39 @@
   "multiple_region_disclaimer": {
     "text": "إخلاء المسؤولية: عندما يكون حساب AWS الخاص بالمستخدم متصلاً، فإن تغيير المنطقة سيؤثر فقط على الخرائط والأماكن والمسارات."
   },
+  "samples__js-quick-start-using-api-keys__title": {
+    "text": "بدء سريع باستخدام مفاتيح API"
+  },
+  "samples__js-quick-start-using-api-keys__bodyText": {
+    "text": "يعرض هذا التطبيق النموذجي خريطة بوظيفة الترميز الجغرافي العكسي عبر مفاتيح API."
+  },
+  "samples__js-quick-start-using-api-keys__configure": {
+    "text": "افتح `main.js` وأدخل مفتاح API والمنطقة التي تم إنشاء الموارد فيها."
+  },
+  "samples__js-quick-start-using-api-keys__run": {
+    "text": "افتح quickstart.html في متصفحك."
+  },
+  "samples__js-quick-start-using-api-keys__cleanUp": {
+    "text": "إذا كنت ترغب في إزالة جميع الموارد التي تم إنشاؤها في هذه الإرشادات، فاحذف مكدس CloudFormation المسمى `js-quick-start-using-api-keys`."
+  },
+  "samples__react-tracking-data-streaming__title": {
+    "text": "أجهزة التتبع وتدفق البيانات باستخدام React"
+  },
+  "samples__react-tracking-data-streaming__bodyText": {
+    "text": "يوضح هذا المثال كيفية بث بيانات أجهزة التتبع على خريطة الويب باستخدام React و react-map-gl. لإنشاء الموارد اللازمة، انتقل إلى github repo من الأعلى وقم بتشغيل القوالب ضمن `src/cfn_template` لإنشاء الموارد المطلوبة لهذا المثال."
+  },
+  "samples__react-tracking-data-streaming__tabsTitle": {
+    "text": "React/أجهزة التتبع وتدفق البيانات"
+  },
+  "samples__react-tracking-data-streaming__configure": {
+    "text": "افتح `src/configuration.js` وأدخل IdentityPoolID ومفتاح API والمنطقة التي تم إنشاء الموارد فيها."
+  },
+  "samples__react-tracking-data-streaming__run": {
+    "text": "قم بتشغيل `npm start` لبدء خادم ويب محلي على [`localhost:3000`] (http://localhost:3000/) بهذا\nمثال وافتحه في متصفح."
+  },
+  "samples__react-tracking-data-streaming__cleanUp": {
+    "text": "لإزالة جميع الموارد التي تم إنشاؤها في هذه الإرشادات التفصيلية، احذف مكدس CloudFormation المسمى\n«تتبع رد الفعل وتدفق البيانات»."
+  },
   "documentation": {
     "text": "التوثيق"
   },
@@ -3814,6 +6562,12 @@
   },
   "description_demo": {
     "text": "تطبيق تجريبي يعرض إمكانيات خدمة Amazon Location"
+  },
+  "banner_enhanced_apis_label": {
+    "text": "لقد أطلقنا واجهات برمجة تطبيقات جديدة ومحسنة!"
+  },
+  "banner_enhanced_apis_action": {
+    "text": "دليل المطور"
   },
   "no_political_view": {
     "text": "لا توجد وجهة نظر سياسية"
@@ -3866,6 +6620,9 @@
   "industry_overview": {
     "text": "نظرة عامة على الصناعة"
   },
+  "sign_in_to_the_console": {
+    "text": "تسجيل الدخول إلى وحدة التحكم"
+  },
   "political_views": {
     "text": "وجهات نظر سياسية"
   },
@@ -3884,6 +6641,18 @@
   "greece_political_view_desc": {
     "text": "وجهة نظر اليونان السياسية"
   },
+  "cars": {
+    "text": "السيارة كوضع سفر"
+  },
+  "trucks": {
+    "text": "الشاحنة كوضع سفر"
+  },
+  "pedestrians": {
+    "text": "المشاة كوضع سفر"
+  },
+  "scooters": {
+    "text": "سكوتر كوضع السفر"
+  },
   "avoid_dirtroads": {
     "text": "تجنب الطرق الترابية"
   },
@@ -3896,9 +6665,6 @@
   "avoid": {
     "text": "تجنب"
   },
-  "navigate": {
-    "text": "انتقل"
-  },
   "arrive_by": {
     "text": "الوصول عن طريق"
   },
@@ -3906,13 +6672,10 @@
     "text": "تغادر في"
   },
   "leave_now": {
-    "text": "غادر الآن"
+    "text": "ارحل الآن"
   },
-  "time_in_past.error": {
-    "text": "لا يمكن أن يكون الوقت المحدد في الماضي"
-  },
-  "date_in_past.error": {
-    "text": "لا يمكن أن يكون التاريخ المحدد في الماضي"
+  "navigate": {
+    "text": "انتقل"
   },
   "leave_at": {
     "text": "غادر عند"

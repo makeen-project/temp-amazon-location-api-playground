@@ -1,0 +1,50 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "Acciones de mapas: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "Acciones de lugares: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "Acciones de rutas: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "Google Maps proporciona <1>DirectionsService</1> y <1>DirectionsRenderer</1> o <1>ComputeRoutes</1> y <1>Polyline</1> para calcular y mostrar datos de ruta en el mapa."
+	},
+	"codeSnippets_routing_services_ios_point1": {
+		"text": "Google Maps proporciona <1>directions</1> o <1>computeRoutes</1> para calcular y mostrar datos de ruta en el mapa."
+	},
+	"codeSnippets_calculating_a_route_android_point1": {
+		"text": "Google Maps proporciona <1>directions</1> o <1>computeRoutes</1> para calcular y mostrar datos de ruta en el mapa."
+	},
+	"codeSnippets_route_matrix_point1": {
+		"text": "Google Maps utiliza <1>DistanceMatrixService</1> o <1>ComputeRouteMatrix</1> para calcular una matriz de ruta."
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point1": {
+		"text": "Google Maps proporciona <1>distanceMatrix</1> o <1>computeRouteMatrix</1> para calcular una matriz de ruta."
+	},
+	"codeSnippets_calculating_a_route_matrix_ios_point1": {
+		"text": "Google Maps proporciona <1>distanceMatrix</1> o <1>computeRouteMatrix</1> para calcular una matriz de ruta."
+	},
+	"codeSnippets_calculating_a_route_android_point2_v2": {
+		"text": "<1>Amazon Location Service ofrece el método <1>CalculateRoutes</1> a través de su <1>GeoRoutesClient, disponible en el SDK aws.sdk.kotlin:georoutes</1>.</1> La clave de API se usa <1>en</1> CalculateRoutesRequest, como se muestra en el siguiente ejemplo. Posteriormente, aprovecha las capacidades de representación de MapLibre para mostrar los datos de esta ruta en el mapa."
+	},
+	"amazon_calculating_a_route_step3_v2": {
+		"text": "<0>Paso 3</0><1>: Añada una imagen de marcador denominada <1>ic_marker_red</1> dentro del directorio <1>/res/drawable</1> e inserte el siguiente código en GeoRoutesCalculateRouteActivity.kt.</1>"
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>Paso 4</0><1>: Añada imágenes de marcadores denominadas <1>ic_marker_red e ic_marker_blue dentro del directorio <1>/res/drawable</1></1> <1>e inserte</1> el siguiente código en GeoRoutesSnapToRoadActivity.kt.</1>"
+	},
+	"codeSnippets_searching_for_places_android_point2_v2": {
+		"text": "<1>Amazon Location Service ofrece el método de <1>sugerencia</1> a través de su <1>GeoPlacesClient</1>, disponible en el SDK aws.sdk.kotlin:geoplaces.</1> <1>La clave de API se usa dentro de la SuggestRequest, como se muestra en el siguiente ejemplo.</1> <1><1><1>Además, Amazon Location Service ofrece otras API de Places, como <1>getPlace</1>, <1>autocomplete</1>, geocode, <1>reverseGeocode, searchNearby</1><1>, searchText</1> y suggest.</1></1></1>"
+	},
+	"ios_swift_aws_geo_places_routes": {
+		"text": "Para utilizar las API AWSGeoPlaces y AWSGeoRoutes, añada el paquete Swift del AWS SDK a su proyecto."
+	},
+	"ios_swift_add_aws_geo_places_routes_package_to_target": {
+		"text": "<1>Seleccione su proyecto en el menú desplegable de la columna <1>Agregar a destino</1> y haga clic en el botón <1>Agregar paquete</1> con las filas <1>AWSGeoPlaces o AWSGeoRoutes</1>.</1>"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>En Google Maps, el punto final <1>v2:computeRoutes</1> de la API Routes se usa para este propósito junto con el parámetro <1>OptimizeWaypointOrder</1> establecido en true.</1>"
+	}
+}

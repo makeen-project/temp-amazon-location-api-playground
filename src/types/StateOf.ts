@@ -3,8 +3,7 @@
 
 import { Context, ContextType } from "react";
 
-import { IContextProps } from "@api-playground/types";
-
+import { IContextProps } from "./IContextProps";
 import KeysOfPropsOfType from "./KeysOfPropsOfType";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

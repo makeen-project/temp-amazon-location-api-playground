@@ -1,8 +1,8 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { appConfig } from "@api-playground/core/constants";
-import { BaseStateProps } from "@api-playground/types";
+import appConfig from "@api-playground/core/constants/appConfig";
+import { BaseStateProps } from "@api-playground/types/BaseStateProps";
 import { SetState, create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 

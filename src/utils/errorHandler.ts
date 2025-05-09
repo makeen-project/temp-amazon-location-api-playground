@@ -2,10 +2,9 @@
 /* SPDX-License-Identifier: MIT-0 */
 
 import { showToast } from "@api-playground/core/Toast";
-
-import { appConfig } from "@api-playground/core/constants";
+import appConfig from "@api-playground/core/constants/appConfig";
 import i18n from "@api-playground/locales/i18n";
-import { ToastType } from "@api-playground/types";
+import { ToastType } from "@api-playground/types/Enums";
 
 import { clearStorage } from "./localstorageUtils";
 

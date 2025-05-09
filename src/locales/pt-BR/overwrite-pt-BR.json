@@ -1,0 +1,65 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "Ações de mapas: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "Locais e ações: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "Ações de rotas: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "O Google Maps fornece <1>DirectionsService</1> e <1>DirectionsRenderer</1> ou <1>ComputeRoutes</1> e <1>Polyline</1> para calcular e exibir dados de rota no mapa."
+	},
+	"codeSnippets_route_matrix_point1": {
+		"text": "O Google Maps usa <1>DistanceMatrixService</1> ou <1>ComputeRouteMatrix</1> para calcular uma matriz de rota."
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point1": {
+		"text": "O Google Maps fornece <1>distanceMatrix</1> ou <1>computeRouteMatrix</1> para calcular uma matriz de rota."
+	},
+	"codeSnippets_calculating_a_route_matrix_ios_point1": {
+		"text": "O Google Maps fornece <1>distanceMatrix</1> ou <1>computeRouteMatrix</1> para calcular uma matriz de rota."
+	},
+	"codeSnippets_snapping_to_roads_point1": {
+		"text": "O Google Maps fornece um endpoint <1>snapToRoads</1> a partir da API Roads."
+	},
+	"codeSnippets_snapping_to_roads_point2": {
+		"text": "O Amazon Location Service fornece um endpoint <1>SnapToRoads</1> a partir da API Routes."
+	},
+	"amazon_calculating_a_route_step3_v2": {
+		"text": "<0>Etapa 3</0><1>: Adicione uma imagem de marcador chamada <1>ic_marker_red</1> dentro do diretório <1>/res/drawable</1> e insira o código abaixo em GeoRoutesCalculateRouteActivity.kt.</1>"
+	},
+	"codeSnippets_snapping_to_roads_android_point1": {
+		"text": "O Google Maps fornece um endpoint <1>snapToRoads</1> a partir da API Roads."
+	},
+	"codeSnippets_snapping_to_roads_android_point2": {
+		"text": "<1>O Amazon Location Service oferece o método <1>SnapToRoads por meio de seu GeoRoutesClient</1> <1>disponível dentro do SDK aws.sdk.kotlin:georoutes</1>.</1> A chave de API é usada dentro do <1>SnapToRoadsRequest</1>, conforme mostrado no exemplo abaixo."
+	},
+	"google_snapping_to_roads_step3": {
+		"text": "<0>Etapa 3</0> <1><1>: Adicione imagens de marcador chamadas <1>ic_marker_red e ic_marker_blue dentro do diretório /res/drawable</1> <1>e adicione o código abaixo em SnapToRoadActivity.kt</1>.</1></1>"
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>Etapa 4</0> <1><1>: Adicione imagens de marcador chamadas <1>ic_marker_red e ic_marker_blue</1> <1>dentro do diretório /res/drawable e insira o código abaixo em GeoRouteSnapToRoadActivity.kt</1>.</1></1>"
+	},
+	"ios_swift_aws_geo_places_routes": {
+		"text": "Para usar as APIs AWSGeoPlaces e AWSGeoRoutes, adicione o pacote AWS SDK Swift ao seu projeto."
+	},
+	"codeSnippets_snapping_to_roads_ios_point1": {
+		"text": "O Google Maps fornece um endpoint <1>snapToRoads</1> a partir da API Roads."
+	},
+	"codeSnippets_snapping_to_roads_ios_point2": {
+		"text": "<1>O Amazon Location Service fornece um serviço <1>SnapToRoads a partir da API AWSGeoRoutes</1>.</1>"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>No Google Maps, o endpoint <1>v2:computeRoutes da API Routes</1> é usado para essa finalidade junto com o parâmetro <1>optimizeWaypointOrder</1> definido como true.</1>"
+	},
+	"codeSnippets_optimizing_waypoints_amazonDesc": {
+		"text": "No Amazon Location Service, isso pode ser feito com o serviço <1>OptimizeWaypoints</1> usando uma solicitação HTTP POST."
+	},
+	"codeSnippets_snapping_to_roads_amazonDesc": {
+		"text": "No Amazon Location Service, o serviço <1>SnapToRoads</1> é usado por meio de uma solicitação HTTP POST junto com <1>TracePoints, que é uma lista de pontos</1> de rastreamento a serem inseridos na rede rodoviária."
+	},
+	"codeSnippets_snapping_to_roads_googleDesc": {
+		"text": "No Google Maps, é usado o endpoint <1>snapToRoads</1> da API Roads, que exige um parâmetro de <1>caminho</1> que aceite uma lista de pares de <1>latitude</1> e longitude."
+	}
+}

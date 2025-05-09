@@ -70,5 +70,86 @@
 	},
 	"tracker_info_modal__desc": {
 		"text": "يمكنك استخدام أي موفر بيانات باستثناء Esri لإدارة الأصول أو تتبع حالات الاستخدام. إذا كنت ترغب في استخدام Esri لإدارة الأصول الخاصة بك أو تتبع حالة المستخدم، يرجى قراءة الشروط والأحكام"
+	},
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "<0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0> :إجراءات الخرائط"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "<0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0> :إجراءات الأماكن"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "<0>CalculateRoute</0>, <0>CalculateRouteMatrix</0> :إجراءات المسارات"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "توفر خرائط Google <1>DirectionsService</1> و<1>DirectionsRenderer</1> أو <1>ComputeRoutes</1> و<1>Polyline</1> لحساب بيانات المسار وعرضها على الخريطة."
+	},
+	"codeSnippets_routing_services_ios_point1": {
+		"text": "توفر خرائط Google <1>directions</1> أو <1>computeRoutes</1> لحساب بيانات المسار وعرضها على الخريطة."
+	},
+	"codeSnippets_calculating_a_route_android_point1": {
+		"text": "توفر خرائط Google <1>directions</1> أو <1>computeRoutes</1> لحساب بيانات المسار وعرضها على الخريطة."
+	},
+	"codeSnippets_route_matrix_point1": {
+		"text": "تستخدم خرائط Google <1>DistanceMatrixService</1> أو <1>ComputeRouteMatrix</1> لحساب مصفوفة الطريق."
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point1": {
+		"text": "توفر خرائط Google <1>distanceMatrix</1> أو <1>computeRouteMatrix</1> لحساب مصفوفة الطريق."
+	},
+	"codeSnippets_calculating_a_route_matrix_ios_point1": {
+		"text": "توفر خرائط Google <1>distanceMatrix</1> أو <1>computeRouteMatrix</1> لحساب مصفوفة الطريق."
+	},
+	"amazon_searching_for_places_step3": {
+		"text": "<0>الخطوة 3</0>: قم بتضمين الكود التالي في <1>GeoPlaceSearchTextActivity.kt</1>."
+	},
+	"codeSnippets_places_search_point2_v2": {
+		"text": "توفر خدمة Amazon Location Service عميل GeoPlaces، الذي يحتوي على واجهات برمجة التطبيقات لـ <1>autocomplete</1> و<1>geocode</1> و<1>getPlace</1> و<1>reverseGeocode</1> و<1>searchNearby</1> و<1>searchText</1> و<1>suggest</1>. <0>تعرف على المزيد</0>"
+	},
+	"codeSnippets_routing_services_point2_v2": {
+		"text": "يوفر موقع Amazon <1>CalculateRoutes</1> ويستخدم قدرة عرض MapLibre's لعرض تلك البيانات على الخريطة."
+	},
+	"amazon_calculating_a_route_step3_v2": {
+		"text": "<0>الخطوة 3</0><1>: أضف صورة علامة باسم <1>ic_marker_red</1> داخل دليل <1>/res/drawable وأدخل الكود أدناه في GeoRoutesCalculateRouteActivity.kt</1>.</1>"
+	},
+	"codeSnippets_snapping_to_roads_android_point1": {
+		"text": "توفر خرائط Google نقطة نهاية <1>snapToRoads</1> من واجهة برمجة تطبيقات الطرق."
+	},
+	"codeSnippets_snapping_to_roads_android_point2": {
+		"text": "<1>تقدم خدمة موقع أمازون طريقة <1>snaptoRoads من خلال عميل GeoRoutesClient المتاح</1> <1>داخل aws.sdk.kotlin:georoutes SDK</1>.</1> يتم استخدام مفتاح API داخل <1>SnapToRoadsRequest</1> كما هو موضح في المثال أدناه."
+	},
+	"google_snapping_to_roads_step3": {
+		"text": "<0>الخطوة 3</0> <1><1>: أضف صور العلامات المسماة <1>ic_marker_red و ic_marker_blue داخل دليل /res/drawable</1> وأضف <1>الكود أدناه في SnapToRoadActivity.kt</1>.</1></1>"
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>الخطوة 4</0> <1><1>: أضف صور العلامات المسماة <1>ic_marker_red و ic_marker_blue داخل الدليل /res/drawable</1> وأدخل الكود أدناه في <1>GeoRoutesSnapToRoadActivity.kt</1>.</1></1>"
+	},
+	"codeSnippets_searching_for_places_android_point2_v2": {
+		"text": "<1><1>تقدم خدمة موقع أمازون طريقة الاقتراح من خلال <1>GeoPlacesClient المتوفر داخل aws.sdk.kotlin:geoplaces</1> SDK.</1></1> يتم استخدام مفتاح API داخل <1>SuggestRequest</1> كما هو موضح في المثال أدناه. <1><1>بالإضافة إلى ذلك، تقدم خدمة Amazon Location Service واجهات برمجة تطبيقات الأماكن الأخرى مثل <1>GetPlace والإكمال</1> <1>التلقائي والترميز</1> <1>الجغرافي العكسي وSearchNearby</1> <1><1>وSearchText</1></1> والاقتراح.</1></1>"
+	},
+	"ios_swift_aws_geo_places_routes": {
+		"text": "لاستخدام واجهات برمجة تطبيقات AWSGeoPlaces وAWSGeoRoutes، أضف حزمة AWS SDK Swift إلى مشروعك."
+	},
+	"ios_swift_add_aws_geo_places_routes_package_to_target": {
+		"text": "<1>حدد مشروعك في القائمة المنسدلة لعمود <1>Add to Target</1> وانقر على زر <1>إضافة حزمة</1> مع الصفوف <1>AWSGeoPlaces أو AWSGeoRoutes</1>.</1>"
+	},
+	"ios_swift_amazon_location_ios_auth_sdk": {
+		"text": "لمصادقة طلبات مفاتيح واجهة برمجة التطبيقات، أضف حزمة AmazonLocationiOSAuthSDK إلى مشروعك."
+	},
+	"codeSnippets_snapping_to_roads_ios_point2": {
+		"text": "<1>توفر خدمة موقع Amazon خدمة <1>SnapToRoads من واجهة برمجة تطبيقات AWSGeoRoutes</1>.</1>"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>في خرائط Google، يتم استخدام نقطة نهاية <1>v2:computeRoutes</1> لواجهة برمجة تطبيقات المسارات لهذا الغرض جنبًا إلى جنب مع تعيين المعلمة <1>optimizeWaypointOrder على true</1>.</1>"
+	},
+	"codeSnippets_optimizing_waypoints_amazonDesc": {
+		"text": "في خدمة موقع Amazon، يمكن تحقيق ذلك من خلال خدمة <1>OptimizeWaypoints</1> باستخدام طلب HTTP POST."
+	},
+	"codeSnippets_snapping_to_roads_amazonDesc": {
+		"text": "في خدمة Amazon Location Service، تُستخدم خدمة <1>SnapToRoads</1> عبر طلب HTTP POST جنبًا إلى جنب مع <1>TracePoints وهي قائمة بنقاط</1> التتبع التي سيتم التقاطها على شبكة الطرق."
+	},
+	"codeSnippets_routing_services_ios_point2": {
+		"text": "في المقابل، تستفيد خدمة Amazon Location Service من مكتبة <1>aws-sdk-swift</1> لخدمة التوجيه الخاصة بها. يمكن للمطورين استخدام وظيفة <1>AuthHelper.withAPIKey(apiKey, region)</1> لتهيئة <1>AuthHelper</1> باستخدام APIKey الخاص بهم، ثم إنشاء كائن <1>GeoRoutesClient(config: authHelper.getGeoRoutesClientConfig())</1> لإنشاء كائن <1>CalculateRoutesInput</1>. يتم بعد ذلك تمرير هذا الكائن، الذي يحتوي على المعلمات الضرورية مثل الأصل والوجهة ووضع السفر، إلى طريقة <1>geoRoutesClient.calculateRoutes</1> لحساب المسار. يوفر هذا النهج درجة عالية من المرونة، مما يسمح للمطورين بتخصيص خدمة التوجيه لتناسب احتياجاتهم المحددة."
+	},
+	"codeSnippets_places_search_ios_point2": {
+		"text": "على العكس من ذلك، تستفيد خدمة Amazon Location Service من مكتبة <1>aws-sdk-swift</1> لتوفير وظيفة مماثلة. يمكن للمطورين استخدام وظيفة <1>AuthHelper.withAPIKey(apiKey, region)</1> لتهيئة <1>AuthHelper</1> باستخدام APIKey الخاص بهم، ثم إنشاء كائن <1>GeoPlacesClient(config: authHelper.getGeoPlacesClientConfig())</1> لإنشاء كائن <1>SuggestInput</1>. يتم بعد ذلك تمرير هذا الكائن إلى طريقة <1>geoPlacesClient.suggest</1> لتنفيذ البحث. يوفر هذا النهج درجة عالية من المرونة، مما يسمح للمطورين بتخصيص معلمات البحث لتناسب احتياجاتهم المحددة."
 	}
 }

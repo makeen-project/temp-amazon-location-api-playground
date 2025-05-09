@@ -1,14 +1,14 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { appConfig } from "@api-playground/core/constants";
+import appConfig from "@api-playground/core/constants/appConfig";
 
 const {
-	ENV: { VITE_DATA_FILES_URL }
+	ENV: { API_PLAYGROUND_URL }
 } = appConfig;
 
 export const downloadJson = async (params: { path: string }) => {
-	const bucketURL = `${VITE_DATA_FILES_URL.trim()}/${params.path}`;
+	const bucketURL = `${API_PLAYGROUND_URL.trim()}/${params.path}`;
 
 	const res = await fetch(bucketURL, {
 		method: "get"

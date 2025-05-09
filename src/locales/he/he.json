@@ -210,7 +210,7 @@
     "text": "תנאי האתר"
   },
   "overview__hs__heading": {
-    "text": "שירות מיקום אמזון"
+    "text": "Amazon Location Service"
   },
   "overview__hs__subheading": {
     "text": "הוסף באופן מאובטח ובקלות נתוני מיקום ליישומים"
@@ -486,7 +486,7 @@
     "text": "קבל את מיקום המכשיר"
   },
   "product__trackers__product_3__link_2": {
-    "text": "מיקום אצוףהתקן"
+    "text": "רשימתעמדות התקנים"
   },
   "product__trackers__product_3__link_3": {
     "text": "עדכון אצוףמיקום המכשיר"
@@ -3065,6 +3065,9 @@
   "regions__ap_southeast_1": {
     "text": "Asia Pacific (Singapore) ap-southeast-1"
   },
+  "regions__ap_southeast_5": {
+    "text": "Asia Pacific (Malaysia) ap-southeast-5"
+  },
   "regions__ap_southeast_2": {
     "text": "Asia Pacific (Sydney) ap-southeast-2"
   },
@@ -3617,6 +3620,9 @@
   "nl_loader_sample_text_5": {
     "text": "סלע באמזון בתפקיד מיפוי! מחפש."
   },
+  "banner__message": {
+    "text": "נסה חיפוש בשפה טבעית המופעל על ידי Amazon Bedrock"
+  },
   "fm__header": {
     "text": "תגיד לנו מה אתה חושב?"
   },
@@ -3653,6 +3659,2031 @@
   "error_handler__failed_feedback_text_2": {
     "text": "הבקשה נכשלה עם סטטוס"
   },
+  "banner_migration_label": {
+    "text": "עבור למיקום אמזון עוד היום!"
+  },
+  "banner_migration_action": {
+    "text": "מדריך הגירה"
+  },
+  "pricing": {
+    "text": "תמחור"
+  },
+  "avg_speed_per_hour": {
+    "text": "מהירות ממוצעת לשעה"
+  },
+  "accuracy_value": {
+    "text": "ערך דיוק"
+  },
+  "price": {
+    "text": "מחיר"
+  },
+  "use_cases": {
+    "text": "מקרי שימוש"
+  },
+  "web_based_map_application": {
+    "text": "יישום מפה מבוסס אינטרנט"
+  },
+  "web_based_map_application_description": {
+    "text": "סעיף זה מציג את העלות של יישום אינטרנט מיני המשתמש בממשק API של אריחי מפה כדי לאחזר אריחי מפה ולעיבד אותם בשיתוף עם MapLibre, ומאפשר למשתמש להשתמש בחיפוש במפה ולהביא מקומות יחד עם פרטי מקום. יתר על כן זה גם מאפשר למשתמש לחשב מסלול בין כל שתי עמדות. זה נותן הערכה של העלות הכוללת שלך לצריכת API, בהנחה שהיישום שלך משתמש בממשקי API של GetMapTile, SearchPlaceIndexForSuggestions, GetPlace ו- CalculateRoute."
+  },
+  "map_tiles": {
+    "text": "אריחי מפה"
+  },
+  "search_place_by_position": {
+    "text": "חפש מקום לפי מיקום"
+  },
+  "calculate_route": {
+    "text": "מסלול"
+  },
+  "total_monthly": {
+    "text": "סה\"כ חודשי"
+  },
+  "amazon_location_charges": {
+    "text": "חיובי מיקום של אמזון"
+  },
+  "google_maps_charges": {
+    "text": "חיובים במפות גוגל"
+  },
+  "trackers_and_geofences_application": {
+    "text": "אפליקציות עוקבים וגיאופנסים"
+  },
+  "trackers_and_geofences_application_description_1": {
+    "text": "שירות המיקום של אמזון מספק עוקבים ויכולות גיאוגרפיות שניתן להוסיף ליישום שלך. בעזרת עוקבים תוכלו לאחזר באופן מיידי את המיקום הנוכחי וההיסטורי של מכשירים שהועלו מהמכשירים או הנכסים המעקבים שלכם. Geofences מעניקה ליישום שלך את היכולת לזהות ולפעול כאשר מכשיר במעקב נכנס או יוצא מגבול גיאוגרפי שאתה מגדיר כגיאוגרפי. כאשר מתגלה הפרה של הגיאופנס, שירות המיקום של אמזון שולח אוטומטית את אירוע הכניסה או היציאה ל- Amazon EventBridge, אשר יכול להפעיל פעולות במורד הזרם."
+  },
+  "trackers_and_geofences_application_description_2": {
+    "text": "1) עלות הכתיבה של עוקבים מבוססת על השימוש בממשק API BatchUpdateDevicePosition, המאפשר לך להקליט ולאחסן את היסטוריית המעקבים של מכשיר."
+  },
+  "trackers_and_geofences_application_description_3": {
+    "text": "2) עלות Geofences מבוססת על ממשק ה- API של BatchEvaluateGeofences, המעריך מיקום במעקב מול גיאופנס עבור אירועים שהוזנו או יצאו."
+  },
+  "trackers_and_geofences_application_description_4": {
+    "text": "3) עלות הקריאה של עוקבים מבוססת על API ListDevicePositions, המאפשר לך להביא את היסטוריית המיקומים האחרונה של המכשיר. "
+  },
+  "devices": {
+    "text": "התקנים"
+  },
+  "ping_rate": {
+    "text": "שיעור פינג"
+  },
+  "avg_time_stationary": {
+    "text": "זמן ממוצע נייח"
+  },
+  "avg_device_speed": {
+    "text": "מהירות מכשיר ממוצעת"
+  },
+  "filter": {
+    "text": "מסנן"
+  },
+  "accuracy": {
+    "text": "דיוק"
+  },
+  "distance": {
+    "text": "מרחק"
+  },
+  "time": {
+    "text": "זמן"
+  },
+  "location_updates": {
+    "text": "עדכוני מיקום"
+  },
+  "geofence_evaluation": {
+    "text": "הערכת גיאופנס"
+  },
+  "per": {
+    "text": "באמצעות"
+  },
+  "requests": {
+    "text": "בקשות"
+  },
+  "items": {
+    "text": "פריטים"
+  },
+  "minute": {
+    "text": "דקה"
+  },
+  "minutes": {
+    "text": "דקות"
+  },
+  "days": {
+    "text": "ימים"
+  },
+  "hours": {
+    "text": "שעות"
+  },
+  "month": {
+    "text": "חודש"
+  },
+  "all_devices": {
+    "text": "כל המכשירים"
+  },
+  "get_started_with_amazon_location_today": {
+    "text": "התחל עם מיקום אמזון עוד היום"
+  },
+  "three_months_free_with_the_AWS_free_tier": {
+    "text": "שלושה חודשים בחינם עם השכבה החינמית של AWS."
+  },
+  "migrate_to_amazon_location_today": {
+    "text": "העבר למיקום אמזון עוד היום"
+  },
+  "pricing_calculators": {
+    "text": "מחשבוני תמחור"
+  },
+  "pricing_calculators_description": {
+    "text": "גלה את כלי המיקום של אמזון שאתה צריך כדי לבנות שירותים ויישומים מבוססי מיקום שניתן להשתמש בהם כדי למצוא מקומות קרובים, לקבל הנחיות ולהציג עדכוני תנועה בזמן אמת."
+  },
+  "three_month_free": {
+    "text": "3 חודשים חינם"
+  },
+  "Web-based_map_app": {
+    "text": "אפליקציית מפות מבוססת אינטרנט"
+  },
+  "tracking_and_geofencing_app": {
+    "text": "אפליקציית עוקבים וגיאופנסים"
+  },
+  "explore_use_cases": {
+    "text": "חקור מקרי שימוש"
+  },
+  "maps_text": {
+    "text": "מפות"
+  },
+  "places_text": {
+    "text": "מקומות"
+  },
+  "routes_text": {
+    "text": "מסלולים"
+  },
+  "yearly_text": {
+    "text": "שנתי"
+  },
+  "monthly_text": {
+    "text": "חודשי"
+  },
+  "weekly_text": {
+    "text": "שבועי"
+  },
+  "daily_text": {
+    "text": "יומי"
+  },
+  "Product_text": {
+    "text": "מוצרים"
+  },
+  "Usage_text": {
+    "text": "שימוש"
+  },
+  "hundred_requests": {
+    "text": "מאה בקשות"
+  },
+  "thousand_requests": {
+    "text": "אלף בקשות"
+  },
+  "million_requests": {
+    "text": "מיליון בקשות"
+  },
+  "billion_requests": {
+    "text": "מיליארד בקשות"
+  },
+  "google_maps": {
+    "text": "Google Maps"
+  },
+  "amazon_location": {
+    "text": "Amazon Location"
+  },
+  "maps_sdk_for_android": {
+    "text": "מפות SDK לאנדרואיד"
+  },
+  "maps_sdk_for_ios": {
+    "text": "SDK מפות עבור iOS"
+  },
+  "maps_javascript_api": {
+    "text": "ממשק API של מפות JavaScript"
+  },
+  "search_place_index_for_suggestion": {
+    "text": "הצעות"
+  },
+  "search_place_index_for_text": {
+    "text": "חיפוש לפי טקסט"
+  },
+  "search_place_index_for_position": {
+    "text": "חיפוש לפי מיקום"
+  },
+  "get_place": {
+    "text": "פרטי המקום"
+  },
+  "calculate_route_matrix": {
+    "text": "מטריצת מסלול"
+  },
+  "every": {
+    "text": "כל"
+  },
+  "distance_value": {
+    "text": "ערך מרחק"
+  },
+  "time_value": {
+    "text": "ערך זמן"
+  },
+  "trackers_pricing": {
+    "text": "תמחור עוקבים"
+  },
+  "tracking_apis": {
+    "text": "ממשקי API של עוקבים"
+  },
+  "positions_written": {
+    "text": "עמדות שנכתבו"
+  },
+  "above": {
+    "text": "מעל"
+  },
+  "geofence_pricing": {
+    "text": "תמחור גיאופנסים"
+  },
+  "geofence_apis": {
+    "text": "ממשקי API של גיאופנסים"
+  },
+  "trackings_cost_driven": {
+    "text": "מעקב מונע עלויות"
+  },
+  "description_driven_tooltip": {
+    "text": "טקסט התיאור יהיה כאן, בדוק שוב מאוחר יותר"
+  },
+  "geofencings_cost_driven": {
+    "text": "מונעת עלות גיאוגרפית"
+  },
+  "geofence_driven_tooltip": {
+    "text": "תשומות אלה עוזרות לך להעריך את העלות הכוללת להערכת Geofence. עדכוני מיקום ממכשירים עשויים לכלול רעשים, ריצוד או נקודות נתונים שאינן שימושיות להערכת גיאוגרפית, כגון מיקומים זהים או דומים כאשר המכשיר נייח או נע במהירות נמוכה. שירות מעקב המיקום של אמזון מספק מסננים מרובים שיעזרו לך להסיר עדכוני מיקום לא רלוונטיים כדי להפחית את העלות של הערכת Geofence."
+  },
+  "hide_price_calculation": {
+    "text": "הסתר פרטי חישוב"
+  },
+  "automatic_unit": {
+    "text": "יחידה אוטומטית"
+  },
+  "price_single_unit_tooltip": {
+    "text": "מחיר ליחידה אחת במפות גוגל"
+  },
+  "amazon_location_uses_here_data_provider_price_rate": {
+    "text": "לשירות המיקום של אמזון יש מחיר יחידה שונה בהתבסס על ספק הנתונים בו נעשה שימוש. ספקי נתונים מסחריים (Esri, HERE, GrabMaps) וספק OpenData."
+  },
+  "photorealistic_3D_tiles": {
+    "text": "אריחי 3D פוטוריאליסטיים"
+  },
+  "2D_tiles": {
+    "text": "אריחים דו-ממדיים"
+  },
+  "street_view_tiles": {
+    "text": "אריחי תצוגת רחוב"
+  },
+  "dynamic_maps": {
+    "text": "מפות דינמיות"
+  },
+  "dynamic_maps_description": {
+    "text": "התמחור של מפות Google משתנה עבור שיחות API המתבצעות באמצעות ה- SDK שלה; עם זאת, הגישה שלנו עם SDK למיקום של אמזון, שהם בחינם, מבטיחה עקביות. ללא קשר לפלטפורמה, כל ה-SDK למיקום של אמזון משתמשים באותה קבוצה של ממשקי API של REST, וכתוצאה מכך מבנה תמחור אחיד ועקבי. ממשקי ה- API ו- SDK של שירות המיקום של אמזון עובדים עם MapLibre."
+  },
+  "view_pricing": {
+    "text": "צפה בתמחור"
+  },
+  "tracking_write_price": {
+    "text": "עוקבים כותבים מחיר"
+  },
+  "tracking_read_price": {
+    "text": "עוקבים קוראים מחיר"
+  },
+  "geofencing_price": {
+    "text": "מחיר גיאופנסים"
+  },
+  "show_price_calculation": {
+    "text": "הצג פרטי חישוב"
+  },
+  "other_tracking_apis": {
+    "text": "ממשקי API אחרים של עוקבים"
+  },
+  "batch_positions_read": {
+    "text": "עמדות אצווה נקראו"
+  },
+  "one_request_can": {
+    "text": "בקשה אחת יכולה לאחזר עד 100 מכשירים."
+  },
+  "tracking_write_tooltip": {
+    "text": "תשומות אלה עוזרות לך להעריך את העלות עבור שירות מעקבים על ידי חישוב סך הבקשות החודשיות לעדכוני מיקום המכשיר."
+  },
+  "tracking_read_tooltip": {
+    "text": "שירות המיקום של אמזון תומך בשאילתות למיקומי מכשירים היסטוריים מהעוקבים, עד 100 עמדות לשיחה."
+  },
+  "geofence_driven_tooltip_point1": {
+    "text": "רוב המכשירים, כולל רוב המכשירים הניידים, יכולים לספק הערכה של דיוק המדידה יחד עם המדידה. בעזרת סינון AccuracyBased, Amazon Location מתעלם מעדכוני מיקום אם המכשיר זז פחות מהדיוק הנמדד. לצורך הערכת עלות, הזן את רמת הדיוק האופיינית ביותר למכשיר המעקב שלך."
+  },
+  "geofence_driven_tooltip_point2": {
+    "text": "סינון מבוסס מרחק מתעלם מעדכוני מיקום שבהם התקנים זזו פחות מ-30 מ' (98.4 רגל)."
+  },
+  "day": {
+    "text": "יום"
+  },
+  "week": {
+    "text": "שבוע"
+  },
+  "search_place_by_suggestions": {
+    "text": "חפש מקום לפי הצעות"
+  },
+  "commercial_data_providers": {
+    "text": "ספקי נתונים מסחריים"
+  },
+  "open_data_provider": {
+    "text": "ספק OpenData"
+  },
+  "single_use": {
+    "text": "שימוש יחיד"
+  },
+  "storage": {
+    "text": "אחסון"
+  },
+  "contact_sales": {
+    "text": "צור קשר עם מכירות"
+  },
+  "tracking_and_geofencing_application": {
+    "text": "יישום מעקב וגיאוגרפי"
+  },
+  "geofencing_pricing": {
+    "text": "תמחור גיאוגרפי"
+  },
+  "dashboard_refresh_rate": {
+    "text": "קצב רענון לוח המחוונים עבור כל {{count}} מיקומי מכשיר"
+  },
+  "hour": {
+    "text": "שעה"
+  },
+  "batch": {
+    "text": "אצווה"
+  },
+  "number_of_requests": {
+    "text": "מספר הבקשות"
+  },
+  "number_of_departure_positions": {
+    "text": "מספר עמדות היציאה"
+  },
+  "number_of_destination_positions": {
+    "text": "מספר עמדות היעד"
+  },
+  "google_maps_does_not_permit": {
+    "text": "מפות Google אינן מאפשרות אחסון מידע על מקומות"
+  },
+  "n/a": {
+    "text": "לא קיים"
+  },
+  "google_maps_allows_maximum_of_25": {
+    "text": "מפות גוגל מאפשרות מקסימום 25 עמדות יציאה ו -25 יעדים, עד 625 אלמנטים לבקשה"
+  },
+  "google_maps_unit_price": {
+    "text": "מחיר יחידה של מפות גוגל"
+  },
+  "migrateAWebApp_heading": {
+    "text": "אינטרנט - מעבר ממפות Google לשירות המיקום של אמזון"
+  },
+  "migrateAWebApp_desc": {
+    "text": "מדריך זה מפרט את התהליך הטכני למעבר יישומי אינטרנט ממפות Google לשירות המיקום של אמזון. הוא מדגיש את ההתקנה הראשונית, תצורת משאבי המיקום של אמזון ומספק דוגמאות להשוואת SDK כדי להקל על שילוב פונקציות מיפוי בפלטפורמות מבוססות אינטרנט."
+  },
+  "migrateAWebApp_linkItems_ios": {
+    "text": "העבר אפליקציית iOS"
+  },
+  "migrateAWebApp_linkItems_android": {
+    "text": "העבר אפליקציית אנדרואיד"
+  },
+  "migrateAWebApp_linkItems_web": {
+    "text": "העברת שירות אינטרנט"
+  },
+  "migrateAWebApp_article_heading1": {
+    "text": "במאמר זה"
+  },
+  "migrateAWebApp_article_point_1": {
+    "text": "טוען מפה"
+  },
+  "migrateAWebApp_article_point_5": {
+    "text": "הצגת חלון מידע"
+  },
+  "migrateAWebApp_article_point_6": {
+    "text": "אשכולות סמנים"
+  },
+  "migrateAWebApp_article_point_8": {
+    "text": "חיפושים במקום"
+  },
+  "migrateAWebApp_article_point_9": {
+    "text": "שירות ניתוב"
+  },
+  "migrateAWebApp_article_point_10": {
+    "text": "ציור גיאופנס"
+  },
+  "migrateAWebApp_article_heading2": {
+    "text": "בעמוד זה"
+  },
+  "migrateAWebApp_article_items_prerequisites": {
+    "text": "תנאים מוקדמים"
+  },
+  "migrateAWebApp_article_items_key_features": {
+    "text": "תמיכה בתכונות עיקריות"
+  },
+  "migrateAWebApp_article_items_load_a_web": {
+    "text": "טוען מפה"
+  },
+  "migrateAWebApp_article_items_marker_clustering": {
+    "text": "אשכולות סמנים"
+  },
+  "migrateAWebApp_article_items_place_searches": {
+    "text": "חיפוש מקומות"
+  },
+  "migrateAWebApp_article_items_next_steps": {
+    "text": "השלבים הבאים"
+  },
+  "migrateAWebApp_article_description": {
+    "text": "אם אתה מעביר יישום אינטרנט קיים, בדוק אם הוא משתמש בספריית בקרת מפות קוד פתוח. דוגמאות לספריית בקרת מפות קוד פתוח הן: צזיום, Leaflet ו- OpenLayers. אתה עדיין יכול להעביר את היישום שלך, גם אם הוא משתמש בספריית בקרת מפות בקוד פתוח, ואינך רוצה להשתמש ב- Azure Maps Web SDK. במקרה כזה, חבר את היישום שלך לשירותי האריחים של מפות Azure (אריחי כביש | אריחי לוויין). הנקודות הבאות מפרטות כיצד להשתמש במפות Azure בכמה ספריות בקרת מפות קוד פתוח הנפוצות."
+  },
+  "migrateAWebApp_prerequisites_heading": {
+    "text": "תנאים מוקדמים"
+  },
+  "migrateAWebApp_prerequisites_description": {
+    "text": "הקפד להשלים את השלבים הבאים לפני השלמת הדוגמאות."
+  },
+  "migrateAWebApp_prerequisites_point_1": {
+    "text": "צור חשבון AWS"
+  },
+  "migrateAWebApp_prerequisites_point_2": {
+    "text": "בחר את סגנון המפה המועדף עליך"
+  },
+  "migrateAWebApp_prerequisites_point_2_a": {
+    "text": "נווט למקט <0>ע מפות במסוף</0> שירות המיקום של אמזון ולחץ על 'צור מפה' כדי להציג תצוגה מקדימה של סגנונות מפה זמינים."
+  },
+  "migrateAWebApp_prerequisites_point_2_b": {
+    "text": "תן למשאב המפה החדש שם ותיאור. זכור את השם שאתה מקצה למשאב מפה זה, שישמש בהמשך ההדרכה."
+  },
+  "migrateAWebApp_prerequisites_point_2_c": {
+    "text": "בעת בחירת סגנון מפה, בחר את ספק נתוני המפה. עיין בסעיף 82 בתנאי <0>השירות של AWS</0> לפרטים נוספים."
+  },
+  "migrateAWebApp_prerequisites_point_2_d": {
+    "text": "קרא וקבל את <0>תנאי המיקום של אמזון ולאחר</0> מכן לחץ על 'צור מפה'. לאחר שיצרת את המפה, תוכל ליצור איתה אינטראקציה על ידי התקרבות, התרחקות או פינוי לכל כיוון."
+  },
+  "migrateAWebApp_prerequisites_point_3": {
+    "text": "בחר את אינדקס המקומות שבו ברצונך להשתמש"
+  },
+  "migrateAWebApp_prerequisites_point_3_a": {
+    "text": "נווט לדף <0>אינדקסי מקום</0> במסוף שירות המיקום של אמזון ולחץ על 'צור אינדקס מקומ'."
+  },
+  "migrateAWebApp_prerequisites_point_3_b": {
+    "text": "ספק שם ותיאור עבור משאב אינדקס המקומות החדש. זכור את השם שאתה מקצה למשאב אינדקס מקומות זה, שישמש בהמשך ההדרכה."
+  },
+  "migrateAWebApp_prerequisites_point_3_c": {
+    "text": "בחר ספק נתונים, בהתאמה אידיאלית עם ספק המפות שבחרת, כדי להבטיח תאימות החיפוש למפות. עיין בסעיף 82 בתנאי <0>השירות של AWS</0> לפרטים נוספים."
+  },
+  "migrateAWebApp_prerequisites_point_3_d": {
+    "text": "בחר באפשרות אחסון נתונים. מכיוון שלא מאוחסנים נתונים עבור הדרכה זו, בחר 'לא, שימוש יחיד בלבד'."
+  },
+  "migrateAWebApp_prerequisites_point_3_e": {
+    "text": "קרא וקבל את <0>תנאי המיקום של אמזון ולאחר</0> מכן לחץ על 'צור אינדקס מקומ'."
+  },
+  "migrateAWebApp_prerequisites_point_4": {
+    "text": "בחר את מחשבון המסלול שבו ברצונך להשתמש"
+  },
+  "migrateAWebApp_prerequisites_point_4_a": {
+    "text": "במסוף שירות המיקום של אמזון, נווט לדף מחשבוני <0>מסלול ולחץ על</0> 'צור מחשבון מסל'."
+  },
+  "migrateAWebApp_prerequisites_point_4_b": {
+    "text": "ספק שם ותיאור עבור משאב מחשבון המסלול החדש. זכור את השם שהוקצה למשאב מחשבון מסלול זה, שישמש בהמשך ההדרכה."
+  },
+  "migrateAWebApp_prerequisites_point_4_c": {
+    "text": "בחר ספק נתונים, וודא יישור לסגנון המפה הנבחר ולספק נתוני המפה. עיין בסעיף 82 בתנאי <0>השירות של AWS</0> לקבלת מידע נוסף."
+  },
+  "migrateAWebApp_prerequisites_point_4_d": {
+    "text": "קרא וקבל את תנאי המיקום של <0>אמזון ולאחר</0> מכן לחץ על 'צור מחשבון מסל'."
+  },
+  "migrateAWebApp_prerequisites_point_5": {
+    "text": "קבע אימות עבור היישום שלך"
+  },
+  "migrateAWebApp_prerequisites_point_5_a": {
+    "text": "נווט למ <0>סוף המיקום של אמזון</0> ובחר \"מפתחות API\" מהתפריט השמאלי."
+  },
+  "migrateAWebApp_prerequisites_point_5_b": {
+    "text": "לחץ על 'צור מפתח API'. מפתח ה- API חייב להיות באותו חשבון AWS ואזור כמו משאבי שירות המיקום של אמזון שנוצרו בעבר."
+  },
+  "migrateAWebApp_prerequisites_point_5_c": {
+    "text": "מלא את הפרטים הנדרשים בדף 'צור מפתח ממש':"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_i": {
+    "text": "שם: ספק שם למפתח ה- API שלך, כמו 'MyAppKey'."
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii": {
+    "text": "משאבים: בחר את מפת שירות המיקום של אמזון ומשאבי אינדקס המקומות שנוצרו קודם לכן. אתה יכול להוסיף משאבים מרובים על ידי בחירה 'הוסף משאב'. זה מאפשר להשתמש במפתח ה- API עם משאבים שצוינו."
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iii": {
+    "text": "פעולות: ציין פעולות מורשות עבור מפתח API זה. <1>לכל הפחות, בחרו <1>Geo:GetMap, Geo:</1> <1>SearchPlaceIndexForText ו-Geo:CalculateRoute כדי להבטיח שהמדריך יתפקד כמתו</1> כנן.</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iv": {
+    "text": "לחלופין, ניתן להוסיף תיאור, זמן תפוגה, תגים או מפנה (example.com) כדי להגביל את השימוש במפתח לתחום ספציפי, מה שמאפשר להדרכה לתפקד רק בתחום זה."
+  },
+  "migrateAWebApp_prerequisites_point_5_d": {
+    "text": "לחץ על 'צור מפתח API' כדי ליצור את מפתח ה- API."
+  },
+  "migrateAWebApp_prerequisites_point_5_e": {
+    "text": "בחר 'הצג מפתח API' והעתק את ערך המפתח (<1>v1.public.a1b2c3d</1> 4...) לשימוש מאוחר יותר במדריך."
+  },
+  "migrateAWebApp_prerequisites_alert": {
+    "text": "לקבלת מידע נוסף על אימות במיקום אמזון, ראה <0>ניהול אימות במי</0> קום אמזון."
+  },
+  "cost_group": {
+    "text": "קבוצת עלות"
+  },
+  "migrateAWebApp_features": {
+    "text": "תכונות"
+  },
+  "google_Maps_with_SDK": {
+    "text": "מפות גוגל עם SDK"
+  },
+  "amazon_location_with_SDK": {
+    "text": "מיקום אמזון עם SDK"
+  },
+  "markers": {
+    "text": "סמנים"
+  },
+  "marker_clustering": {
+    "text": "אשכולות סמנים"
+  },
+  "polylines_polygons": {
+    "text": "<0>קווים</0> ומצול <1>עים</1>"
+  },
+  "data_layers": {
+    "text": "שכבות נתונים"
+  },
+  "heatmaps": {
+    "text": "מפות חום"
+  },
+  "tile_layers": {
+    "text": "שכבות אריחים"
+  },
+  "geocoder_service": {
+    "text": "קידוד גיאוגרפי"
+  },
+  "routing_service": {
+    "text": "ניתוב"
+  },
+  "route_matrix_service": {
+    "text": "ניתוב מטריקס"
+  },
+  "notableDifferences_point1": {
+    "text": "ייצוג קואורדינטות"
+  },
+  "notableDifferences_point2": {
+    "text": "טיפול בקואורדינטות במפות המיקום של אמזון:"
+  },
+  "notableDifferences_point3": {
+    "text": "שילוב SDK/API:"
+  },
+  "webSdkExamples_description": {
+    "text": "מדריך זה כולל דוגמאות קוד המותאמות להעברה מבוססת אינטרנט, שכל אחת מהן מתייחסת למקרי שימוש נפוצים. מטרתו לסייע בהעברת יישום האינטרנט שלך מ- SDK JavaScript של מפות Google V3 לשירות המיקום של אמזון באמצעות <0>Map</0> Libre. קטעי הקוד המסופקים ליישומי אינטרנט נמצאים במיוחד ב- JavaScript."
+  },
+  "codeSnippets_load_a_map_heading": {
+    "text": "טוען מפה"
+  },
+  "codeSnippets_load_a_map_description": {
+    "text": "גם מפות Google וגם שירות המיקום של אמזון מאפשרים לך לשלב מפות אינטראקטיביות הניתנות להתאמה אישית ביישומים שלך. מפות אלה יכולות להציג סוגים שונים של נתונים גיאוגרפיים ולאפשר תכונות כמו פנורמה והתקרבות."
+  },
+  "codeSnippets_load_a_map_point1": {
+    "text": "מפות גוגל משתמשות ב- <1>Google.maps.map</1> כדי לעבד מפות."
+  },
+  "codeSnippets_load_a_map_point2": {
+    "text": "שירות המיקום של אמזון משתמש ב- MapLibreGL.map של <1>MapLibre כדי לעבד מפות.</1>"
+  },
+  "codeSnippets_with_google": {
+    "text": "עם מפות גוגל"
+  },
+  "codeSnippets_with_after": {
+    "text": "עם מיקום אמזון"
+  },
+  "codeSnippets_adding_a_marker_point1": {
+    "text": "מפות גוגל משתמשות ב- <1>Google.maps.marker כדי לעבד</1> סמנים במפה."
+  },
+  "codeSnippets_adding_a_marker_point2": {
+    "text": "שירות המיקום של אמזון משתמש ב- MapLibreGL.Marker של <1>MapLibre כדי לעבד סמנים במפה</1>."
+  },
+  "codeSnippets_adding_a_polyline_description": {
+    "text": "אתה יכול לצייר קווים במפות Google. עבור שירות המיקום של אמזון, אתה יכול לצייר אותם עם GeoJSON באמצעות MapLibre."
+  },
+  "codeSnippets_adding_a_polyline_point1": {
+    "text": "<1>אתה יכול להשתמש במחלקת צורות של מפות Google כדי לצייר קווים ומצולעים דרך google.maps.polyline.</1>"
+  },
+  "codeSnippets_adding_a_polyline_point2": {
+    "text": "שירות המיקום של אמזון משתמש בספריית MapLibre. ניתן להשתמש בשיטות <1>AddSource ו-</1> <1>AddLayer</1> כדי להוסיף נתוני GeoJSON."
+  },
+  "codeSnippets_adding_a_polygon_description": {
+    "text": "אתה יכול לצייר מצולעים במפות Google. עבור שירות המיקום של אמזון, אתה יכול לצייר אותם עם GeoJSON באמצעות MapLibre."
+  },
+  "codeSnippets_adding_a_polygon_point1": {
+    "text": "<1>אתה יכול להשתמש במחלקת צורות של מפות Google כדי לצייר קווים ומצולעים דרך google.maps.polygon.</1>"
+  },
+  "codeSnippets_adding_a_polygon_point2": {
+    "text": "שירות המיקום של אמזון משתמש בספריית MapLibre. ניתן להשתמש בשיטות <1>AddSource ו-</1> <1>AddLayer</1> כדי להוסיף נתוני GeoJSON."
+  },
+  "codeSnippets_display_an_info_window_description": {
+    "text": "מפות Google ושירות המיקום של אמזון יכולים להציג מידע/חלון קופץ על המפה."
+  },
+  "codeSnippets_display_an_info_window_point1": {
+    "text": "מפות גוגל משתמשות ב- <1>google.maps.infoWindow כדי להציג חלון</1> קופץ ליד סמן."
+  },
+  "codeSnippets_display_an_info_window_point2": {
+    "text": "<1>שירות המיקום של אמזון משתמש ב- MapLibre כדי להציג חלון קופץ באמצעות MapLibreGL.Popup.</1>"
+  },
+  "codeSnippets_adding_a_heatmap_description": {
+    "text": "מפות Google תומכות בפונקציונליות של שכבת נתונים, ומאפשרות לך לכסות נתונים על המפה. שירות המיקום של אמזון מאפשר גם להוסיף שכבות נתונים באמצעות MapLibre."
+  },
+  "codeSnippets_adding_a_heatmap_point1": {
+    "text": "מפות גוגל מספקות שכבת מפת חום כחלק מספריית <1>google.</1> maps.visualization."
+  },
+  "codeSnippets_adding_a_heatmap_point2": {
+    "text": "שירות המיקום של אמזון משתמש בפונקציה <1>Add</1> Layer של MapLibre. בדרך כלל, תחילה תוסיף מקור באמצעות <1>AddSource</1>, ולאחר מכן להוסיף שכבה המתייחסת למקור זה."
+  },
+  "codeSnippets_adding_a_heatmap_point3": {
+    "text": "קטע הקוד שלהלן מציג מפת חום."
+  },
+  "codeSnippets_places_search_post_description": {
+    "text": "מפות Google מציעות ממשק API של קידוד גיאוגרפי להמרה בין כתובות וקואורדינטות גיאוגרפיות. שירות המיקום של אמזון מספק גם יכולות קידוד גיאוגרפי וקידוד גיאוגרפי הפוך בתוך ממשק ה- Places API שלהם, שבו אתה יכול להשתמש כדי לקבל נתונים המבוססים על קו אורך ורוחב ולהיפך."
+  },
+  "codeSnippets_routing_services_description": {
+    "text": "מפות גוגל ושירות המיקום של אמזון מספקות שניהם שירותי ניתוב."
+  },
+  "codeSnippets_routing_services_point1": {
+    "text": "מפות Google מספקת <1>DirectionsService</1> ו-<1>DirectionsRenderer</1> או <1>ComputeRoutes</1> ו<1>Polyline</1> לחישוב ולהציג נתוני מסלול על המפה."
+  },
+  "codeSnippets_routing_services_point2": {
+    "text": "Amazon Location מספקת את <1>CalculateRouteCommand באמצעות</1> לקוח המיקום שלה ומשתמשת ביכולת העיבוד של Maplibre כדי להציג נתונים אלה במפה."
+  },
+  "codeSnippets_drawing_a_circle_description": {
+    "text": "שני השירותים מאפשרים ציור של מצולע עגול על המפה."
+  },
+  "codeSnippets_drawing_a_circle_point1": {
+    "text": "מפות גוגל מספקות את <1>Google.maps.circle</1> לצייר מצולע עגול."
+  },
+  "codeSnippets_drawing_a_circle_point2": {
+    "text": "שירות המיקום של אמזון משתמש בשיטות <1>AddSource ו- AddLay</1> er של Maplibre <1>כדי</1> לעבד מצולע עגול ותוכל להשתמש ב- <1>turf.circle</1> מ- <0>Turf.js</0> כדי להמיר מעגל לצולע לצורך עיבוד."
+  },
+  "migrateAWebApp_title": {
+    "text": "העברת אפליקציית אינטרנט"
+  },
+  "migrateAWebApp_next_step_desc": {
+    "text": "לקבלת מידע מפורט יותר ותובנות טכניות לגבי מיקום אמזון, אנו ממליצים לעיין במד <0>ריך למפתחים של שירות המיקום של אמזון</0>. משאב מקיף זה מספק הדרכה מעמיקה להתחלה עם שירות המיקום של אמזון, הבנת היכולות שלו והטמעת פונקציות מבוססות מיקום ביישומים שלך."
+  },
+  "try_demo": {
+    "text": "נסה הדגמה"
+  },
+  "active_days_per_month": {
+    "text": "ימים פעילים/חודש"
+  },
+  "active_hours_per_month": {
+    "text": "שעות פעילות/יום"
+  },
+  "trackers_and_geofences_application_description_points": {
+    "text": "המחשבון שלהלן מספק הערכה עבור 3 רכיבי עלות:"
+  },
+  "migrateAWebApp_desc1": {
+    "text": "<0>תיעוד AWS</0> הוא משאב מרכזי למפתחים לשלוט בשירות המיקום של אמזון, ומספק מדריך מלא על תכונות, הגדרה ואינטגרציה. עיין במדריך הרשמי לקבלת תובנות מעשיות על הוספת שירותי מיקום לאפליקציות."
+  },
+  "integrating_the_amazon_location_sdk_heading": {
+    "text": "שילוב SDK המיקום של אמזון"
+  },
+  "integrating_the_amazon_location_sdk_description": {
+    "text": "אתה יכול להשתמש בשירות המיקום של אמזון בפרויקט האינטרנט שלך באמצעות <0>JavaScript SDK ו-</0> <1>MapLibre</1>. זה יאפשר ליישום שלך להשתמש בשירות המיקום של אמזון בקלות."
+  },
+  "calculate_map_tile_request_costs": {
+    "text": "חישוב עלויות בקשת אריחי מפה"
+  },
+  "estimate_costs_for_place_search_suggestions": {
+    "text": "הערכת עלויות להצעות לחיפוש מקומות"
+  },
+  "estimate_costs_for_place_data_retrieval": {
+    "text": "הערכת עלויות לאחזור נתוני מקום"
+  },
+  "calculate_cost_for_routing_requests": {
+    "text": "חישוב עלות עבור בקשות ניתוב"
+  },
+  "devices_tooltip": {
+    "text": "הגדר מספר מכשירים לחישוב עלויות עדכון מעקב"
+  },
+  "ping_rate_tooltip": {
+    "text": "הגדר קצב פינג כדי להעריך את עלויות התקשורת של המעקב"
+  },
+  "avg_time_stationary_tooltip": {
+    "text": "התאם את הזמן הנייח הממוצע להערכת עלויות הגיאוגרפיות"
+  },
+  "avg_device_stationary_tooltip": {
+    "text": "הגדר מהירות מכשיר ממוצעת לחישוב עלות גיאופנס"
+  },
+  "dashboard_refresh_rate_tooltip": {
+    "text": "קביעת קצב רענון למעקב אחר עלויות אחזור נתונים"
+  },
+  "filter_accuracy_tooltip": {
+    "text": "ציין את המרחק המינימלי עבור עדכוני מיקום שיכללו בחישובי עלות"
+  },
+  "filter_distance_tooltip": {
+    "text": "ציין את המרחק המינימלי עבור עדכוני מיקום שיכללו בחישובי עלות"
+  },
+  "migrateAWebApp_prerequisites_point_1_a": {
+    "text": "אם עדיין לא יצרת חשבון AWS, אנא צור חשבון <0>כאן</0>. באפשרותך ליצור משאבי שירות המיקום של אמזון ברגע שחשבון AWS שלך מוכן. משאבים אלה יידרשו לביצוע קטעי הקוד שסופקו."
+  },
+  "codeSnippets_places_search_heading": {
+    "text": "חיפוש מקומות"
+  },
+  "codeSnippets_places_search_description": {
+    "text": "שתי הפלטפורמות מספקות יכולות חיפוש מקומות, והן יכולות להציע מידע נוסף על מקומות, כגון כתובות, קידוד גיאוגרפי, קידוד גיאוגרפי הפוך, השלמה אוטומטית וכו '."
+  },
+  "codeSnippets_places_search_point1": {
+    "text": "מפות גוגל מספקות שירות <1>Google.</1> מפות. מקומות."
+  },
+  "codeSnippets_places_search_point2": {
+    "text": "שירות המיקום של אמזון מספק את <1>SearchPlaceIndexForPosition</1> Command באמצעות לקוח המיקום שלו. <1><0>שירות המיקום של אמזון מספק גם ממשקי API אחרים של מקומות, כגון <1>GetPlace, SearchPlaceIndexForSuggestions</1>, <1>SearchPlaceIndexFor</1> Text. למידע נוסף</0></1>"
+  },
+  "codeSnippets_marker_clustering_heading": {
+    "text": "אשכולות סמנים"
+  },
+  "codeSnippets_marker_clustering_description": {
+    "text": "גם מפות Google וגם שירות המיקום של אמזון מספקות אשכולות סמנים."
+  },
+  "codeSnippets_marker_clustering_point1": {
+    "text": "מפות גוגל מספקות את <1>MarkerClusterer</1>, שלוקח את הפניה למפה ומערך סמנים כדי להציג אשכולות סמנים על המפה."
+  },
+  "codeSnippets_marker_clustering_point2": {
+    "text": "<1><1>שירות המיקום של אמזון משתמש במחלקת הבסיס של MapLibre כדי לאשכול סמנים; עם זאת, אתה יכול להשתמש בלוגיקה מותאמת אישית כדי לעבד סמנים ושכבות נתונים ישירות מ- MapLibre באמצעות AddSource ו- AddLayer.</1></1>"
+  },
+  "notableDifferences_subPoint1a": {
+    "text": "משתמש בקו הרו <1>חב, ברצף</1> האורך."
+  },
+  "notableDifferences_subPoint1b": {
+    "text": "עוקב אחר <1>המוסכמה [y, x]</1>."
+  },
+  "notableDifferences_subPoint1c": {
+    "text": "משתמש באורך <1>וברצף קו</1> הרוחב המוגדר כאובייקט <1>Posi</1> tion."
+  },
+  "notableDifferences_subPoint1d": {
+    "text": "עוקב אחר <1>המוסכמה [x, y]</1> כפי שהוגדרה בתק <0>ני GeoJSON</0>."
+  },
+  "notableDifferences_subPoint1e": {
+    "text": "\"x\" הוא קו אורך (ציר אופקי, המשקף מיקום מזרח-מערב)."
+  },
+  "notableDifferences_subPoint1f": {
+    "text": "\"y\" הוא קו רוחב (ציר אנכי, המשקף מיקום צפון-דרום)."
+  },
+  "integrating_the_amazon_location_sdk_description1": {
+    "text": "<1>MapLibre היא</1> ספריית TypeScript בחינם לשימוש המיועדת להצגת מפות אינטראקטיביות ללא מאמץ באתר האינטרנט שלך. הוא בולט בביצועים יוצאי הדופן שלו, הודות לטכנולוגיה חדישה שמאיצה את העיבוד של אריחים וקטוריים באמצעות יחידת העיבוד הגרפי של המכשיר שלך (GPU). זה מבטיח חווית צפייה חלקה ורספונסיבית למבקרי האתר שלך. MapLibre מקל על שילוב והצגת מפות דינמיות תוך מתן יכולות מיפוי בעלות ביצועים גבוהים. שילוב SDK למיקום של אמזון עם MapLibre הוא צעד מכריע בהפיכת היישום שלך ל'מודעת מיקום'. זה מאפשר לאפליקציה שלך להבין ולהשתמש במידע מיקום ביעילות. בעזרת שילוב זה תוכלו לעשות דברים כמו:"
+  },
+  "integrating_the_amazon_location_sdk_description1a": {
+    "text": "טוען מפות"
+  },
+  "integrating_the_amazon_location_sdk_description1c": {
+    "text": "יישום מפות חום"
+  },
+  "integrating_the_amazon_location_sdk_description1e": {
+    "text": "שילוב קווים"
+  },
+  "integrating_the_amazon_location_sdk_description1f": {
+    "text": "חישוב מסלולים"
+  },
+  "integrating_the_amazon_location_sdk_description2": {
+    "text": "אם אתה מפתח המעוניין לחקור את אפשרויות שפת התכנות השונות של SDK הזמינות לשילוב שירות המיקום של אמזון ביישום שלך, תוכל למצוא מידע מפורט על ידי לחיצה <0>כאן</0>. זה יעזור לך לבחור את ה- SDK המתאים לצרכים הספציפיים של הפרויקט שלך."
+  },
+  "codeSnippets_adding_a_marker_postDescription": {
+    "text": "יכולות ציור סמנים אלה מאפשרות למפתחים ליצור יישומים אינטראקטיביים מודעים למיקום שיכולים להדריך משתמשים לנקודות עניין ספציפיות, להדגיש נתונים גיאוגרפיים או לספק שירותים מבוססי מיקום."
+  },
+  "codeSnippets_load_a_map_about": {
+    "text": "טעינת מפה מציגה נתונים גיאוגרפיים בדף אינטרנט או באפליקציה. על ידי התחברות לשירות מפות כמו מפות Google או שירות המיקום של אמזון, משתמשים יכולים ליצור אינטראקציה עם סמנים, שכבות-על ושירותי מיקום גיאוגרפי כדי לחקור ולנווט במפה."
+  },
+  "codeSnippets_adding_a_marker_about": {
+    "text": "הצגת סמן מציבה סמל על מפה כדי לציין מיקום מעניין. סמנים מדגישים מקומות כמו עסקים או ציוני דרך. הם משפרים את הניווט, המיקום הגיאוגרפי ומספקים מידע חשוב למשתמשים המקיימים אינטראקציה עם המפה."
+  },
+  "codeSnippets_marker_clustering_about": {
+    "text": "אשכולות סמנים היא טכניקה המשמשת לקיבוץ סמנים סמוכים במפה לאשכולות, לשיפור הבהירות והביצועים החזותיים. במקום להעמיס את המפה עם סמנים בודדים, אשכולות מייצגים סמנים מרובים ברמות זום שונות, מה שמקל על המשתמשים לנווט ולהבין אזורים צפופים במפה."
+  },
+  "codeSnippets_display_an_info_window_about": {
+    "text": "הצגת חלון קופץ מידע היא תכונה המציגה מידע נוסף כאשר משתמש מתקשר עם סמן במפה. כאשר משתמש לוחץ או מרחף מעל סמן, מופיע חלון קופץ המספק פרטים כגון כתובת, תיאור או נתונים רלוונטיים אחרים הקשורים למיקום במפה."
+  },
+  "codeSnippets_adding_a_polyline_about": {
+    "text": "הצגת קווים כוללת ציור קו רציף על מפה המחברת נקודות מרובות. תכונה זו משמשת בדרך כלל לייצוג מסלולים, גבולות או נתיבים. על ידי הצגת קווים, משתמשים יכולים לדמיין חיבורים ולעקוב אחר מסלולים ספציפיים במפה למטרות ניווט או ייצוג נתונים."
+  },
+  "codeSnippets_adding_a_polygon_about": {
+    "text": "הצגת מצולע מאפשרת למשתמשים ליצור צורות סגורות עם קווים ישרים על המפה. תכונה זו משמשת בדרך כלל להגדרת גבולות, אזורי עניין או אזורים. על ידי הצגת מצולעים, משתמשים יכולים לייצג ויזואלית ולקיים אינטראקציה עם אזורים גיאוגרפיים ספציפיים, ולספק הקשר ומידע חשוב על המפה."
+  },
+  "codeSnippets_drawing_a_circle_about": {
+    "text": "הצגת תכונת מעגל מאפשרת למשתמשים לצייר צורות עגולות על מפה. פונקציונליות זו משמשת לעתים קרובות לייצוג תחומי השפעה, קרבה או כיסוי. על ידי הצגת מעגלים, משתמשים יכולים לתאר ויזואלית ולקיים אינטראקציה עם אזורים מעגליים ספציפיים, ולספק מידע וניתוח מרחבי יקר על המפה."
+  },
+  "codeSnippets_adding_a_heatmap_about": {
+    "text": "הצגת מפת חום מאפשרת למשתמשים לדמיין ולנתח את צפיפות הנתונים במפה. תכונה זו מייצגת נתונים באמצעות שיפועי צבע, כאשר צבעים חמים יותר מציינים צפיפות גבוהה וצבעים קרירים יותר מציינים צפיפות נמוכה יותר. הצגת מפת חום מסייעת בזיהוי דפוסים, מגמות ונקודות חמות בתוך הנתונים, ומסייעת בחקר נתונים וקבלת החלטות."
+  },
+  "codeSnippets_routing_services_about": {
+    "text": "חישוב מסלול כרוך בשימוש באלגוריתמי ניתוב כדי לקבוע את הנתיב האופטימלי בין שני מיקומים או יותר במפה. על ידי התחשבות בגורמים כמו מרחק, תנועה ומצב תחבורה, משתמשים יכולים לקבל הוראות ניווט המנחות אותם ביעילות מנקודת ההתחלה ליעד, ומסייעות בתכנון מסלול וניווט."
+  },
+  "codeSnippets_places_search_about": {
+    "text": "חיפוש מקומות מאפשר למשתמשים למצוא מיקומים ספציפיים או נקודות עניין במפה. על ידי הזנת מילות מפתח או כתובות, משתמשים יכולים לגלות מקומות רלוונטיים, כגון עסקים, ציוני דרך או כתובות. תכונה זו מסייעת למשתמשים לחקור ולאתר יעדים רצויים, ומשפרת את השימושיות והפונקציונליות של יישום המפה או האתר."
+  },
+  "trackers_and_geofences_application_description_5": {
+    "text": "בנוסף, קצב הפינג של עדכוני מיקום המכשיר שלך עשוי להשפיע על כל שלושת רכיבי העלות בהתאם ליישום שלך."
+  },
+  "dashboard_refresh_rate_text": {
+    "text": "קצב רענון לוח המחוונים"
+  },
+  "processed_requests_with_device_speed": {
+    "text": "בקשות מעובדות במהירות המכשיר"
+  },
+  "travel_distance_per_ping": {
+    "text": "מרחק נסיעה לכל פינג (מטר)"
+  },
+  "migrateAniOSApp_heading": {
+    "text": "iOS - מעבר ממפות גוגל לשירות המיקום של אמזון"
+  },
+  "migrateAniOSApp_desc": {
+    "text": "מדריך זה מפרט את התהליך הטכני למעבר יישומי iOS ממפות Google לשירות המיקום של אמזון. הוא מדגיש את ההתקנה הראשונית, תצורת משאבי המיקום של אמזון ומספק דוגמאות להשוואת SDK כדי להקל על שילוב פונקציות מיפוי בפלטפורמות מבוססות iOS."
+  },
+  "migrateAniOSApp_desc1": {
+    "text": "תיעוד AWS הוא משאב מרכזי למפתחים לשלוט בשירות המיקום של אמזון, ומספק מדריך מלא על תכונות, הגדרה ואינטגרציה. עיין במד <0>ריך הרשמי לקבלת</0> תובנות מעשיות על הוספת שירותי מיקום לאפליקציות."
+  },
+  "initiating_a_swift_iOS_heading": {
+    "text": "צור פרויקט iOS מהיר"
+  },
+  "initiating_a_swift_iOS_dec": {
+    "text": "למדריך זה נשתמש בפרויקט אפליקציית iOS עם ממשק משתמש Storyboard ב- XCode, סביבת פיתוח מקיפה המספקת את הכלים הדרושים ליצירת יישומי iOS מרתקים באמצעות סוויפט."
+  },
+  "integrating_the_iOS_amazon_location_sdk_description": {
+    "text": "כדי לשפר את היישום שלך עם פונקציות המפה של Amazon Location Service, עליך לשלב את החבילות הבאות בפרויקט ה- Xcode iOS שלך:"
+  },
+  "MapLibre_Native": {
+    "text": "<0>MapLibre מקורי</0>"
+  },
+  "AWS_SDK_SWIFT": {
+    "text": "<0>AWS SDK סוויפט</0>"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2": {
+    "text": "חבילת AWS SDK Swift, המיועדת לשירותי אינטרנט שונים של אמזון כולל מיקום אמזון, מאפשרת את התכונות השונות שחלקן מיושמות במסמך זה:"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2a": {
+    "text": "חיפוש מקומות"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2b": {
+    "text": "מתן שירותי ניתוב"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description3": {
+    "text": "על ידי שילוב חבילות אלה, אתה יכול למנף את החוסן של Amazon Location Service ו- MapLibre כדי ליצור חווית מפה אינטראקטיבית עשירה בתכונות עבור משתמשי היישום שלך."
+  },
+  "integrating_the_iOS_amazon_location_sdk_description4": {
+    "text": "למפתחים המעוניינים לחקור את אפשרויות שפת התכנות השונות של SDK הזמינות לשילוב שירות המיקום של אמזון ביישום שלך, לחץ <0>כאן</0> כדי למצוא מידע מפורט שיעזור לך לבחור את ה- SDK המתאים לצרכי הפרויקט שלך."
+  },
+  "webSdkExamples_iOS_description": {
+    "text": "מדריך זה כולל מגוון דוגמאות קוד המותאמות לפלטפורמות מובחנות, שכל אחת מהן מתייחסת למקרה שימוש נפוץ. <1>המטרה העיקרית היא להקל על המעבר של אפליקציית iOS שלך מ- SDK של מפות Google iOS לשירות המיקום של אמזון, תוך מינוף היכולות של <1>MapLibre</1> ו- AWS-SDK-Swift.</1> באופן ספציפי, דוגמאות הקוד אודות יישומי iOS מוצגות בשפת התכנות Swift."
+  },
+  "webSdkExample_iOS_description1": {
+    "text": "כדי להמשיך ביישום הדוגמאות שסופקו, יהיה עליך להחליף את התוכן הקיים ב- <1>ViewController.swift</1> עם קטעי קוד מכל דוגמה. תהליך זה יאפשר לך לשלב את הפונקציות הספציפיות המודגמות בדוגמאות ביישום שלך."
+  },
+  "codeSnippets_load_a_map_iOS_about": {
+    "text": "גם מפות Google וגם שירות המיקום של אמזון מציעים פתרונות חזקים לשילוב מפות דינמיות הניתנות להתאמה אישית ביישומים שלך. מפות אלה מסוגלות להציג מגוון רחב של נתונים גיאוגרפיים, ולהעשיר את חוויית המשתמש בתכונות אינטראקטיביות כגון פנורמה והתקרבות."
+  },
+  "codeSnippets_load_a_map_iOS_point1": {
+    "text": "מפות גוגל משתמשות ב- <1>GMSmapView כדי לעבד</1> מפות."
+  },
+  "codeSnippets_load_a_map_iOS_point2": {
+    "text": "שירות המיקום של אמזון משתמש ב- <1>MLN</1> MapView של MapLibre כדי לעבד מפות."
+  },
+  "codeSnippets_adding_a_marker_ios_about": {
+    "text": "גם מפות Google וגם שירות המיקום של אמזון מציעים את הפונקציונליות לשרטט סמנים בקואורדינטות ספציפיות במפה, תכונה חיונית להדגשת נקודות עניין."
+  },
+  "codeSnippets_adding_a_marker_ios_point1": {
+    "text": "מפות Google מספקות תכונה זו באופן מקורי, ללא צורך בספריות או בכלים נוספים. היא משתמשת בכי <1>תה GMSmarker</1>, המאפשרת למפתחים ליצור ולהתאים אישית סמנים שניתן למקם בכל קו אורך ורוחב במפה."
+  },
+  "codeSnippets_adding_a_marker_ios_point2": {
+    "text": "לעומת זאת, שירות המיקום של אמזון ממנף את העוצמה של ספריית MapLibre לעיבוד סמנים על המפה. זה מושג באמצעות מחלקת <1>MLNPointAnnotation ושיטת</1> <1>AddAnnotation</1>. <1>mlnPointAnnotation</1> הוא כלי גמיש שלא רק מאפשר מיקום סמנים אלא גם מציע מגוון אפשרויות התאמה אישית. שיטת <1>AddAnnotation</1> משמשת לאחר מכן להוספת הערות מותאמות אישית אלה למפה, ומספקת חווית מפה אינטראקטיבית ודינמית ביותר למשתמשים."
+  },
+  "codeSnippets_adding_a_marker_ios_postDescription": {
+    "text": "יכולות ציור סמנים אלה מאפשרות למפתחים ליצור יישומים אינטראקטיביים מודעים למיקום שיכולים להדריך משתמשים לנקודות עניין ספציפיות, להדגיש נתונים גיאוגרפיים או לספק שירותים מבוססי מיקום."
+  },
+  "codeSnippets_marker_clustering_ios_about": {
+    "text": "אשכולות סמנים הם תכונה עוצמתית המסופקת הן על ידי מפות Google והן על ידי שירות המיקום של אמזון, ומשפרת את הבהירות החזותית של מפות עם צפיפות גבוהה של סמנים."
+  },
+  "codeSnippets_marker_clustering_ios_description": {
+    "text": "גם מפות Google וגם שירות המיקום של אמזון מספקות אשכולות סמנים."
+  },
+  "codeSnippets_marker_clustering_ios_point1": {
+    "text": "מפות גוגל משתמשות במחלקת <1>GMUclusterManager למטרה זו</1>. מחלקה זו מתייחסת למפה ול-GMUDefaultClusterRenderer כדי לאשכול סמנים במפה ביעילות. תכונה זו מאפשרת עיבוד וניהול יעילים של מספר רב של סמנים, ובכך משפרת את חווית המשתמש על ידי הפחתת העומס החזותי ושיפור ביצועי המפה."
+  },
+  "codeSnippets_marker_clustering_ios_point2": {
+    "text": "לעומת זאת, שירות המיקום של אמזון משיג אשכולות סמנים באמצעות ספריית MapLibre. <1>זה נעשה באמצעות <1>MLNSymbolStyleLayer בשילוב עם MLNShapeSource</1>.</1> על ידי הגדרת אפשרות האשכול ל- true בעת יצירת <1>MLNShapeSource</1>, באפשרותך להפעיל אשכולות סמנים. לאחר מכן, ביטויים משמשים לעיצוב ה- <1>MLNSymbolStyleLayer בהתבסס על ספירת הנקודות</1> של האשכול. זה מושג באמצעות <1>NSExpression כדי להחיל</1> סגנונות באופן דינמי בהתבסס על מספר הנקודות בכל אשכול. שים לב כי טיפול בברזים על אשכולות והרחבתם לסמנים בודדים ידרוש היגיון נוסף, המציע אפשרות לחוויית מפה אינטראקטיבית וידידותית יותר."
+  },
+  "codeSnippets_marker_clustering_ios_postDescription": {
+    "text": "על ידי שילוב יכולות אשכולות סמנים אלה, מפתחים יכולים לשפר משמעותית את השימושיות והביצועים של המפות שלהם, במיוחד כאשר מתמודדים עם קבוצות גדולות של נקודות נתונים."
+  },
+  "codeSnippets_display_an_info_window_ios_about": {
+    "text": "היכולת להציג חלון קופץ מידע עבור סמני מפות היא תכונה מרכזית במפות אינטראקטיביות, וגם מפות Google וגם שירות המיקום של אמזון מציעים פתרונות חזקים ליישום פונקציונליות זו."
+  },
+  "codeSnippets_display_an_info_window_ios_point1": {
+    "text": "במפות Google, באפשרותך להשתמש במאפיין <1>GmsMapView.selectedMarker כדי להציג את המידע המשויך לסמן</1> ספציפי. תכונה זו מאפשרת למשתמשים ליצור אינטראקציה עם סמני המפה ולגשת לפרטים נוספים, מה שמשפר את חווית המשתמש הכוללת על ידי מתן מידע רלוונטי בהקשר."
+  },
+  "codeSnippets_display_an_info_window_ios_point2": {
+    "text": "שירות המיקום של אמזון משתמש במאפיין <1>MLNMapView.SelectAnnotation למטרה דומה.</1> על ידי הגדרת מאפיין זה, באפשרותך להציג את המידע הקשור לסמן ספציפי. עם זאת, כדי להבטיח שחלון המידע מוצג, עליך גם לעקוף את הפונקציה <1>AnnotationCanShowC</1> allout ולהחזיר true. גישה זו מספקת מידה גבוהה של גמישות, המאפשרת למפתחים להתאים אישית את המידע המוצג ולשלוט במצגתו על בסיס תנאים ספציפיים."
+  },
+  "codeSnippets_display_an_info_window_ios_postDescription": {
+    "text": "באמצעות שילוב של תכונות אלה, מפתחים יכולים לשפר באופן משמעותי את האינטראקטיביות של המפות שלהם, ולספק למשתמשים תובנות והקשר חשובים לגבי מיקומים או נקודות ספציפיות."
+  },
+  "codeSnippets_adding_a_polyline_ios_about": {
+    "text": "גם מפות Google וגם שירות המיקום של אמזון מספקים כלים מקיפים להוספת קווים, ומשפרים את הייצוג החזותי של מסלולים או גבולות במפה שלך."
+  },
+  "codeSnippets_adding_a_polyline_ios_postDescription": {
+    "text": "על ידי שילוב קווים אלה, מפתחים יכולים לשפר משמעותית את האינטראקטיביות והתועלת של המפה, ולהציע למשתמשים ייצוג עשיר ויזואלית של מסלולים או גבולות גיאוגרפיים."
+  },
+  "codeSnippets_adding_a_polyline_ios_point1": {
+    "text": "מפות Google מציעות את מחלקת הצורות, שניתן להשתמש בה כדי לצייר קווים ומצולעים. זה מושג באמצעות מחלקת GMSpolyline, כלי רב עוצמה המאפשר למפתחים להגדיר סדרת קואורדינטות ולחבר אותם לקווים. תכונה זו יכולה להיות שימושית במיוחד לייצוג מסלולים או גבולות בתוך היישום שלך."
+  },
+  "codeSnippets_adding_a_polyline_ios_point2": {
+    "text": "מצד שני, שירות המיקום של אמזון משתמש בספריית MapLibre GL לפונקציונליות דומה. ניתן להשתמש בשיטת MLNPolyline להוספת קווים עבור קבוצה נתונה של קואורדינטות. שיטה זו מציעה גמישות ודיוק, ומאפשרת למפתחים ליצור צורות ומסלולים מורכבים על המפה."
+  },
+  "codeSnippets_adding_a_polygon_ios_about": {
+    "text": "גם מפות Google וגם שירות המיקום של אמזון מציעים יכולות חזקות להוספת מצולעים למפות שלך, מה שמאפשר למפתחים לתחום אזורים או אזורים ספציפיים."
+  },
+  "codeSnippets_adding_a_polygon_ios_point1": {
+    "text": "מפות Google מספקות את מחלקת הצורות, כלי רב תכליתי המאפשר ציור של קווים ומצולעים כאחד. מח <1>לקת GMSpolygon</1> תוכננה במיוחד ליצירת מצולעים, אותם ניתן להתאים אישית לייצוג אזור או אזור מסוים במפה. תכונה זו מועילה מאוד ליישומים הדורשים תיחום של אזורים גיאוגרפיים ספציפיים."
+  },
+  "codeSnippets_adding_a_polygon_ios_point2": {
+    "text": "לעומת זאת, שירות המיקום של אמזון משתמש בספריית MapLibre לפונקציונליות דומה. ניתן להשתמש <1>בשיטת MLNPolygon</1> כדי להוסיף מצולע עבור קבוצה נתונה של קואורדינטות. שיטה זו מציעה רמה גבוהה של גמישות ודיוק, ומאפשרת למפתחים ליצור צורות ואזורים מורכבים על המפה."
+  },
+  "codeSnippets_adding_a_polygon_ios_postDescription": {
+    "text": "על ידי שילוב תכונות מצולע אלה, מפתחים יכולים להציע למשתמשים תצוגה מקיפה ומפורטת יותר של אזורים גיאוגרפיים ספציפיים, ובכך לשפר את הקואורדינטות הכוללות."
+  },
+  "codeSnippets_drawing_a_circle_ios_point1": {
+    "text": "מפות Google מספקות את מח <1>לקת GMSCircle, שתו</1> כננה במיוחד למטרה זו. מחלקה זו מאפשרת למפתחים להגדיר מעגל עם רדיוס ספציפי סביב נקודה נתונה, ומציע דרך פשוטה ויעילה להדגיש אזור מסוים במפה."
+  },
+  "codeSnippets_drawing_a_circle_ios_point2": {
+    "text": "שירות המיקום של אמזון, לעומת זאת, משתמש בגישה שונה במקצת. הוא משתמש במחלקות <1>MLNCircleStyleLayer ו- <1>MLNShapeSource בשילוב עם מזהי מקור המעגל</1> ושכ</1> בת המעגל. שילוב זה מספק רמה גבוהה של גמישות ודיוק, המאפשר למפתחים ליצור מעגלים מותאמים אישית על המפה שניתן לעדכן באופן דינמי בהתבסס על מקורות נתונים."
+  },
+  "codeSnippets_drawing_a_circle_ios_postDescription": {
+    "text": "על ידי שילוב תכונות אלה, מפתחים יכולים לשפר את חווית המפה של המשתמש, ולהציע דרך אינטואיטיבית ויזואלית לייצג תחומי עניין או אזורים ברדיוס ספציפי."
+  },
+  "codeSnippets_adding_a_heatmap_ios_about": {
+    "text": "מפות חום הן כלי הדמיה בעלי ערך המאפשרים ייצוג של עוצמת נתונים באזורים גיאוגרפיים. גם מפות Google וגם שירות המיקום של אמזון מציעים פתרונות מקיפים לשילוב תכונה זו."
+  },
+  "codeSnippets_adding_a_heatmap_ios_postDescription": {
+    "text": "על ידי שילוב יכולות מפת חום אלה, מפתחים יכולים לספק למשתמשים הבנה אינטואיטיבית ויזואלית ומפורטת של דפוסי נתונים באזורים גיאוגרפיים, ובכך לשפר את חווית המשתמש הכוללת."
+  },
+  "codeSnippets_adding_a_heatmap_ios_point1": {
+    "text": "מפות גוגל ממנפות את מחלקת הצורות, במיוחד את המחלקה <1>GMUHeatMapTileLayer, כדי להקל על יצירת</1> מפות חום. מחלקה זו מאפשרת למפתחים להגדיר אוסף של נקודות נתונים ושיפוע צבע מתאים, אשר מעובד לאחר מכן ליצירת מפת חום. כלי זה שימושי במיוחד בייצוג צפיפות נתונים או עוצמה באזורים שונים במפה."
+  },
+  "codeSnippets_adding_a_heatmap_ios_point2": {
+    "text": "לעומת זאת, שירות המיקום של אמזון משתמש ביכולות של ספריית MapLibre GL כדי להשיג תוצאה דומה. מחלקת <1>MLNHeatMapStyleLayer משמשת</1> ליצירת מפות חום, ומציעה מידה משמעותית של גמישות והתאמה אישית. כדי להשתמש בתכונה זו, עליך ליצור מקור נתונים עבור מפת החום, אשר אמור להיות מערך של אובייקטים <1>MLN</1> PointFeature. כל תכונה במערך זה מייצגת נקודת נתונים במפת החום, המאפשרת ייצוג מפורט ומדויק של עוצמת הנתונים."
+  },
+  "codeSnippets_routing_services_ios_about": {
+    "text": "שירותי ניתוב הם מרכיבים חיוניים ביישומי מיפוי, המספקים למשתמשים הנחיות בין מיקומים שונים. גם מפות Google וגם שירות המיקום של אמזון מציעים פתרונות חזקים לפונקציונליות זו."
+  },
+  "codeSnippets_routing_services_ios_point1": {
+    "text": "מפות Google מספקת <1>directions</1> או <1>computeRoutes</1> כדי לחשב ולהציג נתוני מסלול על המפה."
+  },
+  "codeSnippets_routing_services_ios_point2": {
+    "text": "לעומת זאת, שירות המיקום של אמזון ממנף את ספריית <1>aws-sdk-swift</1> עבור שירות הניתוב שלה. מפתחים יכולים להשתמש בפונקציה <1>AuthHelper.authenticateWithAPIKey(apiKey: apiKey)</1> כדי לקבל את האובייקט <1>AWSAPICredentialsProvider</1>, ולאחר מכן ליצור אובייקט <1>LocationClient(AWSAPICredentialsProvider)</1> כדי ליצור אובייקט <1>CalculateRouteInput</1>. אובייקט זה, המכיל את הפרמטרים הדרושים כגון מוצא, יעד ומצב נסיעה, מועבר לאחר מכן לשיטת <1>locationClient.calculateRoute</1> כדי לחשב את המסלול. גישה זו מספקת רמה גבוהה של גמישות, ומאפשרת למפתחים להתאים אישית את שירות הניתוב כך שיתאים לצרכים הספציפיים שלהם."
+  },
+  "codeSnippets_routing_services_ios_postDescription": {
+    "text": "על ידי שילוב שירותי ניתוב אלה, מפתחים יכולים לשפר משמעותית את הפונקציונליות של היישומים שלהם, ולספק למשתמשים נתיבים מפורטים ליישום שלך."
+  },
+  "codeSnippets_places_search_ios_about": {
+    "text": "חיפוש מקומות הוא תכונה חיונית בשירותי המיפוי של ימינו. מפות Google ושירות המיקום של אמזון מספקים כל אחד כלים מקיפים המאפשרים למשתמשים לבצע חיפושים אלה ביעילות."
+  },
+  "codeSnippets_places_search_ios_postDescription": {
+    "text": "על ידי שילוב תכונות חיפוש מקומות אלה, מפתחים יכולים לשפר משמעותית את התועלת של היישומים שלהם, ולספק למשתמשים את היכולת לגלות ולנווט למקומות מעניינים ביעילות."
+  },
+  "codeSnippets_places_search_ios_point1": {
+    "text": "מפות Google מציעות את ממשק ה <1>- API של nearbysearch</1>, כלי רב עוצמה שנועד לבצע חיפושים מבוססי קרבה. תכונה זו מאפשרת למשתמשים לחפש מקומות ברדיוס מוגדר של מיקום, ומספקת רשימה של מקומות התואמים את קריטריוני החיפוש. זה יכול להיות שימושי במיוחד עבור יישומים שצריכים להדריך משתמשים לנקודות עניין או שירותים סמוכים."
+  },
+  "codeSnippets_places_search_ios_point2": {
+    "text": "לעומת זאת, שירות המיקום של אמזון ממנף את ספרי <1>ית aws-sdk-swift כדי לספק פונק</1> ציונליות דומה. <1>מפתחים יכולים להשתמש בפונקציה <1>AuthHelper.withapiKey (apiKey, אזור) כדי לאתחל את AuthHelper עם ה- APIKey שלהם,</1> <1>ולאחר מכן ליצור אובייקט GeoPlacesClient (תצורה: AuthHel</1> per.get <1>Geoplac</1> esClientConfig ()) ליצירת אובייקט SuggestInput.</1> לאחר מכן אובייקט זה מועבר לשיטת <1>GeoplacesClient.SUGGEST לביצוע החיפוש</1>. גישה זו מספקת מידה גבוהה של גמישות, ומאפשרת למפתחים להתאים אישית את פרמטרי החיפוש כך שיתאימו לצרכים הספציפיים שלהם."
+  },
+  "migrateAnAndroidApp_heading": {
+    "text": "אנדרואיד - מעבר ממפות גוגל לשירות המיקום של אמזון"
+  },
+  "initiating_a_kotlin_android_heading": {
+    "text": "צור פרויקט אנדרואיד של קוטלין"
+  },
+  "initiating_a_kotlin_android_dec": {
+    "text": "למדריך זה נשתמש בפרויקט אנדרואיד בסטודיו אנדרואיד, סביבת פיתוח מקיפה המספקת את הכלים הדרושים ליצירת יישומי אנדרואיד מרתקים באמצעות קוטלין."
+  },
+  "integrating_the_android_amazon_location_sdk_description": {
+    "text": "כדי לשפר את אפליקציית Android שלך עם פונקציות המפה של שירות המיקום של אמזון, עליך לשלב את החבילות הבאות בפרויקט Android Studio שלך באמצעות Kotlin:"
+  },
+  "integrating_the_android_amazon_location_sdk_description1": {
+    "text": "MapLibre Native היא ספריית קוד פתוח ללא עלות המיועדת לשילוב חלק של מפות באפליקציות הניידות וביישומי שולחן העבודה שלך בפלטפורמות שונות. המאפיין הבולט שלו הוא תצוגה מהירה של מפות, שהופכות להשגה על ידי רתימת העוצמה של עיבוד אריחי וקטור מואץ על ידי GPU. זה מבטיח הצגת מפות מהירה ויעילה בתוך היישומים שלך, ומספק חווית מיפוי מושכת ויזואלית ומגיבה למשתמשים. MapLibre Native מאפשר לך לשלב מפות ללא מאמץ בפרויקטי התוכנה שלך תוך מינוף טכנולוגיה מתקדמת לביצועים מיטביים. יכולותיו כוללות:"
+  },
+  "MapLibre_For_Android": {
+    "text": "<0>MapLibre עבור אנדרואיד</0>"
+  },
+  "AWS_SDK_For_Android": {
+    "text": "AWS SDK לאנדרואיד"
+  },
+  "integrating_the_android_amazon_location_sdk_description2": {
+    "text": "חבילת AWS SDK עבור אנדרואיד מיועדת לשירותי אינטרנט שונים של אמזון, כולל מיקום אמזון. הוא מאפשר תכונות שונות, שחלקן מיושמות במסמך זה:"
+  },
+  "integrating_the_android_amazon_location_sdk_description3": {
+    "text": "על ידי שילוב חבילות אלה בפרויקט Android Studio שלך באמצעות Kotlin, אתה יכול למנף את היכולות של Amazon Location Service ו- MapLibre כדי ליצור חווית מפה אינטראקטיבית עשירה בתכונות עבור משתמשי אפליקציית Android שלך."
+  },
+  "webSdkExamples_Android_description": {
+    "text": "מדריך זה כולל מגוון דוגמאות קוד, שכל אחת מהן מתייחסת למקרה שימוש נפרד. המטרה העיקרית היא להקל על המעבר של אפליקציית האנדרואיד שלך מ- SDK של מפות Google לשירות המיקום של אמזון, תוך מינוף היכולות של MapLibre ו- AWS SDK עבור קוטלין."
+  },
+  "webSdkExample_Android_description1": {
+    "text": "כדי להמשיך ביישום הדוגמאות שסופקו, יהיה עליך להחליף את התוכן הקיים בקובץ הפעילות הראשי של Android (כמו MainActivity.kt) בקטעי הקוד מכל דוגמה. תהליך זה יאפשר לך לשלב את הפונקציות הספציפיות המודגמות בדוגמאות ביישום שלך."
+  },
+  "codeSnippets_load_a_map_Android_about": {
+    "text": "מפות Google ושירות המיקום של אמזון מספקים כלים להטמעת מפות אינטראקטיביות ביישומים. מפות אלה תומכות באינטראקציות של משתמשים כמו פנורמה והתקרבות."
+  },
+  "codeSnippets_load_a_map_Android_point1": {
+    "text": "עבור מפות Google באנדרואיד, <1>SupportMapFragment</1> מנהל את מחזור החיים של המפה, בעוד שמחלקת <1>GoogleMap מציעה שליטה על תוכן</1> המפה והאינטראקציה."
+  },
+  "codeSnippets_load_a_map_Android_point2": {
+    "text": "עם שירות המיקום של אמזון, Map <1>View של ספריית Map</1> Libre הוא הממשק העיקרי לאתחול והצגת מפות בתוך אפליקציה."
+  },
+  "codeSnippets_load_a_map_Android_postDescription": {
+    "text": "כדי להציג מפה באמצעות SDK של מפות Google עבור אנדרואיד, הצעדים הבאים יבוצעו:"
+  },
+  "google_load_a_map_step1": {
+    "text": "<0>שלב 1</0><1>: פתח את <1>build.gradle ברמת המודול והוסף את התלות הבאות</1></1>"
+  },
+  "google_load_a_map_step2": {
+    "text": "<0>שלב 2: ב</0> - <1>AndroidManifest.xml</1> שלך הזן את הקוד שלהלן והחלף את <1>MAPS_API_KEY</1> במפתח ה- API של מפות Google"
+  },
+  "google_load_a_map_step3": {
+    "text": "<0>שלב 3</0>: הוסף את הקוד שלהלן ל- <1>activity_maps.xml</1>"
+  },
+  "google_load_a_map_step4": {
+    "text": "<0>שלב 4: הוסף</0> את הקוד שלהלן ל- <1>Map</1> sActivity.kt"
+  },
+  "amazon_load_a_map_step1": {
+    "text": "<0>שלב 1</0>: פתח את <1>build.gradle ברמת המודול והוסף את הנתונים הבאים</1>"
+  },
+  "amazon_load_a_map_step2": {
+    "text": "<0>שלב 2</0>: כדי להגדיר את היישום שלך עם שם המפה שלך ואזור AWS, הזן אותו בתוך <1>configuration.xml</1> כמו זה למטה"
+  },
+  "amazon_load_a_map_step3": {
+    "text": "<0>שלב 3</0>: הוסף את הקוד שלהלן בתוך <1>strings.xml</1>"
+  },
+  "amazon_load_a_map_step4": {
+    "text": "<0>שלב 4</0>: הוסף את הקוד שלהלן בתוך <1>activity_map.xml</1>"
+  },
+  "amazon_load_a_map_step5": {
+    "text": "<0>שלב 5</0>: הוסף את הקוד הבא ל- <1>Map</1> Activity.kt"
+  },
+  "codeSnippets_adding_a_marker_android_about": {
+    "text": "גם מפות Google וגם שירות המיקום של אמזון יכולים למקם סמנים בקואורדינטות מדויקות על מפה, תכונה חיונית להדגשת נקודות עניין."
+  },
+  "codeSnippets_adding_a_marker_android_point1": {
+    "text": "מפות גוגל מספקות תמיכה מקורית באמצעות הפונקציה <1>AddMarker</1>."
+  },
+  "codeSnippets_adding_a_marker_android_point2": {
+    "text": "<1>שירות המיקום של אמזון ממנף את ספריית MapLibre כדי לעבד סמנים במפה באמצעות SymbolManager.</1>"
+  },
+  "google_adding_a_marker_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן ל- <1>activity_maps.xml</1>"
+  },
+  "google_adding_a_marker_step2": {
+    "text": "<0>שלב 2</0><1>: עם מפות גוגל, סמנים מתווספים באמצעות שיטת המפות <1>AddMarker ב- MarkerActiv</1> ity.kt</1>"
+  },
+  "amazon_adding_a_marker_step1": {
+    "text": "<0>שלב 1: הוסף</0> <1>את הקוד שלהלן בתוך activity_add_marker.xml</1>"
+  },
+  "amazon_adding_a_marker_step2": {
+    "text": "<0>שלב 2: הוסף</0> <1>תמונת סמן בשם <1>ic_marker_blue.xml</1> בתוך ספריית <1>/res/drawable והוסף את הקוד שלהלן לתוך Ad</1> dMarkerActivity.kt</1>"
+  },
+  "codeSnippets_marker_clustering_android_about": {
+    "text": "אשכולות סמנים הם תכונה עוצמתית המסופקת הן על ידי מפות Google והן על ידי שירות המיקום של אמזון, ומשפרת את הבהירות החזותית של מפות עם צפיפות גבוהה של סמנים."
+  },
+  "codeSnippets_marker_clustering_android_point1": {
+    "text": "מפות Google משתמשות ב <1>- ClusterManager</1>, הדורש הפניה למפה ומערך סמנים להצגת אשכולות סמנים על המפה."
+  },
+  "codeSnippets_marker_clustering_android_point2": {
+    "text": "<1>שירות המיקום של אמזון מיישם אשכולות סמנים על ידי עיבוד סמנים ושכבות נתונים ישירות דרך MapLibre באמצעות שיטות כגון <1>AddSource ו- Add</1> Layer.</1>"
+  },
+  "google_marker_clustering_step1": {
+    "text": "<0>שלב 1</0>: הוסף את השורה הבאה בתוך תלות ב- <1>build.gradle</1> ולחץ על סנכרון עכשיו."
+  },
+  "google_marker_clustering_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן ל <1>- activity_maps.xml</1>."
+  },
+  "google_marker_clustering_step3": {
+    "text": "<0>שלב 3: הוסף</0> את הקוד שלהלן בתוך <1>MarkerClusterActivity.kt</1>"
+  },
+  "amazon_marker_clustering_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד למטה בתוך <1>activity_marker_cluster.xml</1>."
+  },
+  "amazon_marker_clustering_step2": {
+    "text": "<0>שלב 2: כלול</0> את הקוד הבא ל- <1>MarkerClusterActivity.kt</1>."
+  },
+  "codeSnippets_display_an_info_window_android_about": {
+    "text": "הן מפות Google והן שירות המיקום של אמזון מציעים יכולות להציג חלונות קופצים אינפורמטיביים במפות שלהם, ומאפשרים למשתמשים להציג פרטים נוספים על מיקומים או סמנים ספציפיים."
+  },
+  "codeSnippets_display_an_info_window_android_point1": {
+    "text": "במפות Google, <1>MarkerOptions מציגים</1> חלון קופץ צמוד לסמן."
+  },
+  "codeSnippets_display_an_info_window_android_point2": {
+    "text": "שירות המיקום של אמזון משתמש בשיטות <1>AddSource ו- Add</1> Layer של Maplibre כדי לע <1>בד חלון</1> קופץ מידע."
+  },
+  "google_display_an_info_window_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן ל <1>- activity_maps.xml</1>."
+  },
+  "google_display_an_info_window_step2": {
+    "text": "<0>שלב 2: הוסף</0> את הקוד למטה בתוך <1>InfoPop</1> upActivity.kt."
+  },
+  "amazon_display_an_info_window_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן בתוך <1>activity_info_popup.xml</1>."
+  },
+  "amazon_display_an_info_window_step2": {
+    "text": "<0>שלב 2</0>: כלול את הקוד הבא ל- <1>layout_info_popup.xml</1>."
+  },
+  "amazon_display_an_info_window_step3": {
+    "text": "<0>שלב 3: כ</0> לול את הקוד הבא ל- <1>InfoPop</1> upActivity.kt."
+  },
+  "codeSnippets_adding_a_polyline_android_about": {
+    "text": "גם מפות Google וגם שירות המיקום של אמזון מספקים כלים מקיפים להוספת קווים, ומשפרים את הייצוג החזותי של מסלולים או גבולות במפה שלך."
+  },
+  "codeSnippets_adding_a_polyline_android_point1": {
+    "text": "מפות Google מספקות את שיטת <1>AddPolyLine לעי</1> בוד קווים."
+  },
+  "codeSnippets_adding_a_polyline_android_point2": {
+    "text": "שירות המיקום של אמזון משתמש בשיטות <1>AddSource ו- AddLay</1> er של Maplibre <1>לעיבוד</1> שורות."
+  },
+  "google_adding_a_polyline_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן ל <1>- activity_maps.xml</1>."
+  },
+  "google_adding_a_polyline_step2": {
+    "text": "<0>שלב 2: הוסף</0> את הקוד למטה בתוך <1>Polyline</1> Activity.kt."
+  },
+  "amazon_adding_a_polyline_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן בתוך <1>activity_polyline.xml</1>."
+  },
+  "amazon_adding_a_polyline_step2": {
+    "text": "<0>שלב 2: כ</0> לול את הקוד הבא ל- <1>Polyline</1> Activity.kt."
+  },
+  "codeSnippets_adding_a_polygon_android_about": {
+    "text": "מצולעים הם הצורות הגיאומטריות המייצגות אזורים ספציפיים במפה."
+  },
+  "codeSnippets_adding_a_polygon_android_point1": {
+    "text": "מפות Google מספקות את שיטת <1>AddPolygon</1> לצייר מצולעים על מפה."
+  },
+  "codeSnippets_adding_a_polygon_android_point2": {
+    "text": "שירות המיקום של אמזון משתמש בשיטות <1>AddSource ו- Add</1> Layer של Maplibre לעי <1>בוד מצול</1> עים."
+  },
+  "google_adding_a_polygon_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן ל <1>- activity_maps.xml</1>."
+  },
+  "google_adding_a_polygon_step2": {
+    "text": "<0>שלב 2: הוסף</0> את הקוד למטה בתוך <1>Polygon</1> Activity.kt."
+  },
+  "amazon_adding_a_polygon_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן בתוך <1>activity_polygon.xml</1>."
+  },
+  "amazon_adding_a_polygon_step2": {
+    "text": "<0>שלב 2: כ</0> לול את הקוד הבא ל- <1>Polygon</1> Activity.kt."
+  },
+  "codeSnippets_adding_a_circle_android_about": {
+    "text": "הצגת מעגל על מפה היא דרישה נפוצה עבור יישומים רבים, וגם מפות Google וגם שירות המיקום של אמזון מציעים כלים חזקים לביצוע משימה זו."
+  },
+  "codeSnippets_adding_a_circle_android_point1": {
+    "text": "מפות גוגל מציעות את שיטת <1>AddCircle</1> במיוחד לציור מעגלים."
+  },
+  "codeSnippets_adding_a_circle_android_point2": {
+    "text": "שירות המיקום של אמזון משתמש בשיטות <1>AddSource ו- AddLay</1> er של Maplibre <1>לעיבוד מע</1> גלים. בנוסף, ניתן להשתמש בספריית <1>org.maplibre.gl:android-sdk-turf</1> כדי לקבל רשימה של נקודות לעיבוד מעגל."
+  },
+  "google_adding_a_circle_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן ל <1>- activity_maps.xml</1>."
+  },
+  "google_adding_a_circle_step2": {
+    "text": "<0>שלב 2: הוסף</0> את הקוד שלהלן ב- <1>Circle</1> DrawActivity.kt."
+  },
+  "amazon_adding_a_circle_step1": {
+    "text": "<0>שלב 1</0>: הוסף את השורה הבאה בתוך תלות ב- <1>buil</1> d.gradle."
+  },
+  "amazon_adding_a_circle_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן בתוך <1>activity_draw_circle.xml</1>."
+  },
+  "amazon_adding_a_circle_step3": {
+    "text": "<0>שלב 2: כלול</0> את הקוד הבא ל- <1>DrawCir</1> cleActivity.kt."
+  },
+  "codeSnippets_adding_a_heatmap_android_about": {
+    "text": "מפות חום הן כלי הדמיה בעלי ערך המאפשרים ייצוג של עוצמת נתונים באזורים גיאוגרפיים. גם מפות Google וגם שירות המיקום של אמזון מציעים פתרונות מקיפים לשילוב תכונה זו."
+  },
+  "codeSnippets_adding_a_heatmap_android_point1": {
+    "text": "<1>במפות גוגל, שכבת מפת החום כלולה בספריית <1>com.google.maps.android:android-maps-utils, והיא משלבת מפת חום בשיטת HeatMapTileProvider</1>.</1>"
+  },
+  "codeSnippets_adding_a_heatmap_android_point2": {
+    "text": "שירות המיקום של אמזון משתמש בפונקציות של MapLibre, תוך שימוש בפונקציה <1>Ad</1> dLayer. באופן כללי, תתחיל בהוספת מקור באמצעות <1>AddSource ואז תי</1> צור שכבה המתייחסת למקור זה."
+  },
+  "google_adding_a_heatmap_step1": {
+    "text": "<0>שלב 1</0>: הוסף את השורה הבאה בתוך ת <1>לות ב- <1>buil</1></1> d.gradle."
+  },
+  "google_adding_a_heatmap_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן ל <1>- activity_maps.xml</1>."
+  },
+  "google_adding_a_heatmap_step3": {
+    "text": "<0>שלב 3</0><1>: עם מפות גוגל, מפות חום מתווספות באמצעות שיטת המפות AddHeatMap ב- HeatmapActivity.kt.</1>"
+  },
+  "amazon_adding_a_heatmap_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן בתוך <1>activity_heat_map.xml</1>."
+  },
+  "amazon_adding_a_heatmap_step2": {
+    "text": "<0>שלב 2: כ</0> לול את הקוד הבא ל- <1>Heatmap</1> Activity.kt."
+  },
+  "codeSnippets_calculating_a_route_android_about": {
+    "text": "שירותי ניתוב הם מרכיבים חיוניים ביישומי מיפוי, המספקים למשתמשים הנחיות בין מיקומים שונים. גם מפות Google וגם שירות המיקום של אמזון מציעים פתרונות חזקים לפונקציונליות זו."
+  },
+  "codeSnippets_calculating_a_route_android_point1": {
+    "text": "מפות Google מספקת <1>directions</1> או <1>computeRoutes</1> כדי לחשב ולהציג נתוני מסלול על המפה."
+  },
+  "codeSnippets_calculating_a_route_android_point2": {
+    "text": "שירות המיקום של אמזון מציע את שיטת <1>CalculateRoute באמצעות לקו</1> ח המיקום שלו. לאחר מכן, הוא ממנף את יכולות העיבוד של Maplibre כדי להציג נתוני מסלול אלה על המפה."
+  },
+  "google_calculating_a_route_step1": {
+    "text": "<0>שלב 1</0>: הוסף את השורה הבאה בתוך ת <1>לות ב- <1>buil</1></1> d.gradle."
+  },
+  "google_calculating_a_route_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן ל <1>- activity_maps.xml</1>."
+  },
+  "google_calculating_a_route_step3": {
+    "text": "<0>שלב 3: הוסף</0> את הנתונים שלהלן ב- <1>CalculateOuteActivity.kt.</1>"
+  },
+  "amazon_calculating_a_route_step1": {
+    "text": "<0>שלב 1: הוסף</0> את השורה הבאה בתוך תלות ב- <1>buil</1> <1>d.grad</1> le.kts."
+  },
+  "amazon_calculating_a_route_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן בתוך <1>activity_calculate_route.xml</1>."
+  },
+  "amazon_calculating_a_route_step3": {
+    "text": "<0>שלב 3: הוסף ת</0> <1>מונת סמן בשם <1>ic_marker_red בתוך ספריית /res/שרטוט והכנס את הקו</1> <1>ד שלהלן לתוך CalculateOuteActivity.</1> kt.</1>"
+  },
+  "codeSnippets_searching_for_places_android_about": {
+    "text": "היכולת לבצע חיפושים במקומות היא תכונה בסיסית של שירותי מיפוי מודרניים. גם מפות Google וגם שירות המיקום של אמזון מספקים כלים חזקים כדי להקל על פונקציונליות זו."
+  },
+  "codeSnippets_searching_for_places_android_point1": {
+    "text": "מפות Google משתמשות בכתובת האתר <1>maps.googleapis.com/maps/api/place/</1> nearbysearch לצד מפתח ה- API של מפות Google לחיפושים במקומות."
+  },
+  "codeSnippets_searching_for_places_android_point2": {
+    "text": "שירות המיקום של אמזון מספק <1>SearchPlaceIndexForSuggestions באמצעות לקוח המיקום שלו</1>. בנוסף, שירות המיקום של אמזון מציע ממשקי API אחרים של מקומות כגון <1>GetPlace</1> ו- <1>Search</1> PlaceIndexForText. פרטים נוספים ניתן למצוא <0>כאן</0>."
+  },
+  "google_searching_for_places_step1": {
+    "text": "<0>שלב 1</0>: הוסף את השורה הבאה בתוך ת <1>לות ב- <1>buil</1></1> d.gradle."
+  },
+  "google_searching_for_places_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן בתוך <1>activity_search.xml</1>."
+  },
+  "google_searching_for_places_step3": {
+    "text": "<0>שלב 3: הוסף</0> את הנתונים הבאים ב- <1>SearchActiv</1> ity.kt."
+  },
+  "amazon_searching_for_places_step1": {
+    "text": "<0>שלב 1: הוסף</0> את השורות הבאות בתוך תלות ב- <1>buil</1> <1>d.grad</1> le.kts."
+  },
+  "amazon_searching_for_places_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן בתוך <1>activity_search.xml</1>."
+  },
+  "amazon_searching_for_places_step3": {
+    "text": "<0>שלב 3</0>: כלול את הקוד הבא ל-<1>GeoPlaceSearchTextActivity.kt</1>."
+  },
+  "migrateAnAndroidApp_desc": {
+    "text": "מדריך זה מפרט את התהליך הטכני למעבר יישומי אנדרואיד ממפות Google לשירות המיקום של אמזון. הוא מדגיש את ההתקנה הראשונית, תצורת משאבי המיקום של אמזון ומספק דוגמאות להשוואת SDK כדי להקל על שילוב פונקציות מיפוי בפלטפורמות מבוססות אנדרואיד."
+  },
+  "integrating_the_Android_amazon_location_sdk_description": {
+    "text": "כדי לשפר את אפליקציית Android שלך עם פונקציות המפה של שירות המיקום של אמזון, עליך לשלב את החבילות הבאות בפרויקט Android Studio שלך באמצעות Kotlin:"
+  },
+  "positions_evaluated": {
+    "text": "עמדות שהוערכו"
+  },
+  "api_calls": {
+    "text": "שיחות API"
+  },
+  "google_maps_price_disclaimer": {
+    "text": "משקף את שיעור מפות גוגל נכון ליום 01/05/2024"
+  },
+  "information_is_not_publicly_available": {
+    "text": "המידע אינו זמין לציבור עבור מפות Google"
+  },
+  "pricing_assumptions_and_variations": {
+    "text": "הנחות תמחור וריאציות"
+  },
+  "route-matrix-total-cost-formula": {
+    "text": "מספר בקשות X מספר יציאה/מקורות X מספר יעד X מחיר יחידה = עלות כוללת"
+  },
+  "google-maps-not-available": {
+    "text": "לא זמין במפות גוגל"
+  },
+  "tier_1": {
+    "text": "שכבה 1"
+  },
+  "tier_2": {
+    "text": "שכבה 2"
+  },
+  "tier_3": {
+    "text": "שכבה 3"
+  },
+  "tier_4": {
+    "text": "שכבה 4"
+  },
+  "tier_1_unit_price": {
+    "text": "מחיר יחידה ברמה 1"
+  },
+  "tier_2_unit_price": {
+    "text": "מחיר יחידה ברמה 2"
+  },
+  "tier_3_unit_price": {
+    "text": "מחיר יחידה ברמה 3"
+  },
+  "tier_4_unit_price": {
+    "text": "מחיר יחידה ברמה 4"
+  },
+  "tier_1_cost": {
+    "text": "עלות שכבה 1"
+  },
+  "tier_2_cost": {
+    "text": "עלות שכבה 2"
+  },
+  "tier_3_cost": {
+    "text": "עלות שכבה 3"
+  },
+  "tier_4_cost": {
+    "text": "עלות שכבה 4"
+  },
+  "total_cost": {
+    "text": "עלות כוללת"
+  },
+  "trackers_write_API_calls": {
+    "text": "עוקבים כותבים שיחות API"
+  },
+  "unit_price": {
+    "text": "מחיר יחידה"
+  },
+  "hr": {
+    "text": "שעה"
+  },
+  "min": {
+    "text": "דק'"
+  },
+  "position_updates": {
+    "text": "עדכוני עמדה"
+  },
+  "total_requests_with_filter": {
+    "text": "בקשות מוערכות לחודש/חודש עם מסנן שהוחל"
+  },
+  "total_requests": {
+    "text": "סה\"כ בקשות"
+  },
+  "filter_factor": {
+    "text": "גורם מסנן"
+  },
+  "hrs": {
+    "text": "שעות"
+  },
+  "mins": {
+    "text": "דקות"
+  },
+  "Hr": {
+    "text": "Hr"
+  },
+  "Hrs": {
+    "text": "שעות"
+  },
+  "Hour": {
+    "text": "שעה"
+  },
+  "Hours": {
+    "text": "שעות"
+  },
+  "Min": {
+    "text": "מינימום"
+  },
+  "Mins": {
+    "text": "דקות"
+  },
+  "Minute": {
+    "text": "דקה"
+  },
+  "Minutes": {
+    "text": "דקות"
+  },
+  "web_services_app_heading": {
+    "text": "שירות אינטרנט - מעבר ממפות Google לשירות המיקום של אמזון"
+  },
+  "web_services_app_desc": {
+    "text": "מדריך זה מפרט את התהליך הטכני למעבר יישומי backend ממפות Google לשירות המיקום של אמזון. הוא מדגיש את ההתקנה הראשונית, תצורת משאבי המיקום של אמזון ומספק דוגמאות להשוואת API כדי להקל על שילוב פונקציות מיפוי בכל פלטפורמה התומכת בממשקי API באינטרנט."
+  },
+  "web_services_app_desc1": {
+    "text": "תיעוד AWS הוא משאב מרכזי למפתחים לשלוט בשירות המיקום של אמזון, ומספק מדריך מלא על תכונות, הגדרה ואינטגרציה. עיין במד <0>ריך הרשמי ובהפ</0> ניה ל <0>- API</0> לקבלת תובנות מעשיות על הוספת שירותי מיקום לאפליקציות."
+  },
+  "web_services_app_dataProviders_title": {
+    "text": "ספקי נתונים"
+  },
+  "web_services_app_dataProviders_description": {
+    "text": "בעת שימוש במיקום אמזון, אתה בוחר את ספק הנתונים שבו ברצונך להשתמש. נתוני המפה, המיקום והנתיב מקורם מספק נתוני המיקום הגלובלי שבחרת, כולל:"
+  },
+  "web_services_app_dataProviders_name_0": {
+    "text": "Esri"
+  },
+  "web_services_app_dataProviders_link_0": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
+  },
+  "web_services_app_dataProviders_name_1": {
+    "text": "Grab"
+  },
+  "web_services_app_dataProviders_link_1": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/grab.html"
+  },
+  "web_services_app_dataProviders_name_2": {
+    "text": "טכנולוגיות HERE"
+  },
+  "web_services_app_dataProviders_link_2": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/HERE.html"
+  },
+  "web_services_app_dataProviders_name_3": {
+    "text": "נתונים פתוחים"
+  },
+  "web_services_app_dataProviders_link_3": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/open-data.html"
+  },
+  "web_services_app_dataProviders_postDescription": {
+    "text": "לקבלת מידע נוסף, ראה <0>ספקי נתונים במד</0> ריך למפתחים של שירות המיקום של אמזון."
+  },
+  "web_services_app_serviceComparison_title": {
+    "text": "השוואת API"
+  },
+  "web_services_app_serviceComparison_description": {
+    "text": "הטבלה מציגה את ממשקי ה- API של שירות מיקומי אמזון, בעלי פונקציונליות דומה לממשקי ה- API של שירות מפות Google הרשומים."
+  },
+  "web_services_app_serviceComparison_table_0_feature_text": {
+    "text": "אריחי מפה"
+  },
+  "web_services_app_serviceComparison_table_0_googleMapsAPI": {
+    "text": "2 דטילים"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_text": {
+    "text": "גט מפטיל"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetMapTile.html"
+  },
+  "web_services_app_serviceComparison_table_1_feature_text": {
+    "text": "קידוד גיאוגרפי"
+  },
+  "web_services_app_serviceComparison_table_1_googleMapsAPI": {
+    "text": "קוד גיאוגרפי"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_text": {
+    "text": "אינדקס מקום חיפוש לטקסט"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-geocoding.html"
+  },
+  "web_services_app_serviceComparison_table_2_feature_text": {
+    "text": "קידוד גיאוגרפי הפוך"
+  },
+  "web_services_app_serviceComparison_table_2_googleMapsAPI": {
+    "text": "קוד גיאוגרפי"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_text": {
+    "text": "חיפוש מיקומאינדקס למיקום"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-reverse-geocode.html"
+  },
+  "web_services_app_serviceComparison_table_3_feature_text": {
+    "text": "חיפוש בקרבת מקום"
+  },
+  "web_services_app_serviceComparison_table_3_googleMapsAPI": {
+    "text": "מיקומות:חיפושבקרבת מקום"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_text": {
+    "text": "חיפוש מיקומאינדקס למיקום"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForPosition.html"
+  },
+  "web_services_app_serviceComparison_table_4_feature_text": {
+    "text": "חיפוש טקסט"
+  },
+  "web_services_app_serviceComparison_table_4_googleMapsAPI": {
+    "text": "מיקומות:חיפושטקסט"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_text": {
+    "text": "אינדקס מקום חיפוש לטקסט"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForText.html"
+  },
+  "web_services_app_serviceComparison_table_5_feature_text": {
+    "text": "השלמה אוטומטית"
+  },
+  "web_services_app_serviceComparison_table_5_googleMapsAPI": {
+    "text": "מיקומות:השלמה אוטומטית"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_text": {
+    "text": "אינדקס מקום חיפוש להצעות"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForSuggestions.html"
+  },
+  "web_services_app_serviceComparison_table_6_feature_text": {
+    "text": "שימוש במזהי מקום"
+  },
+  "web_services_app_serviceComparison_table_6_googleMapsAPI": {
+    "text": "מקומות"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_text": {
+    "text": "גט פלייס"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetPlace.html"
+  },
+  "web_services_app_serviceComparison_table_7_googleMapsAPI": {
+    "text": "V2: יציאות מחשב"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_text": {
+    "text": "המחשבוןכביש"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRoute.html"
+  },
+  "web_services_app_serviceComparison_table_8_googleMapsAPI": {
+    "text": "V2: מטריקס חיצוני למחשב"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_text": {
+    "text": "מחשבןמטריקס חיצוני"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRouteMatrix.html"
+  },
+  "web_services_app_serviceComparison_postDescription": {
+    "text": "לקבלת מידע נוסף, ראה <0>ספקי נתונים במד</0> ריך למפתחים של שירות המיקום של אמזון."
+  },
+  "google_maps_api": {
+    "text": "ממשק API של מפות גוגל"
+  },
+  "amazon_location_api": {
+    "text": "ממשק API למיקום אמזון"
+  },
+  "webServices_article_items_examples_description": {
+    "text": "בעת מעבר ממפות Google לשירות המיקום של אמזון, חשוב להבין את השירותים ואת נקודות הקצה של API הדומים המסופקים על ידי כל אחד מהם. בעוד ששני השירותים מציעים תכונות מיקום גיאוגרפי דומות, מבנה בקשות ה- API ומוסכמות השמות בהן נעשה שימוש יכולים להיות שונים."
+  },
+  "codeSnippets_getting_map_tiles_heading": {
+    "text": "קבל אריחי מפה"
+  },
+  "codeSnippets_getting_map_tiles_description1": {
+    "text": "אריחי מפות הם הדרך שבה מפות אינטרנט (כמו מפות Google ו- Maplibre) בנויות. הם גרפיקה מרובעת של מפת סיביות המוצגת בסידור רשת להצגת מפה. כל אריח הוא תמונה קטנה, והוא מכיל חלק מסוים של המפה, ברמת פירוט או רמת זום ספציפית. כשאתה מתקרב או מרחיק מפת אינטרנט, אתה בעצם טוען קבוצות אריחים שונות בעלות רמות פירוט שונות."
+  },
+  "codeSnippets_getting_map_tiles_description2": {
+    "text": "ממשקי API של אריחי מפות, כגון אלה המסופקים על ידי מפות Google ו- Amazon Location, מאפשרים למפתחים לאחזר אריחי מפה אלה באופן תכנותי. זה יכול להיות שימושי עבור מגוון יישומים, כגון יצירת מציג מפות מותאם אישית, הטמעת תצוגת מפה בדף אינטרנט או ביצוע ניתוחים על המידע הגיאוגרפי הכלול באריחים."
+  },
+  "codeSnippets_getting_map_tiles_description3": {
+    "text": "ממשקי ה- API פועלים על ידי קבלת בקשות HTTP המציינות את סוג המפה הרצוי (לדוגמה, מפת דרכים, לוויין), הקואורדינטות הגיאוגרפיות (קו רוחב ואורך) ורמת הזום. לאחר מכן, ה- API מחזיר את אריח המפה המתאים כקובץ תמונה (בדרך כלל בפורמט PNG או JPEG)."
+  },
+  "codeSnippets_getting_map_tiles_description4": {
+    "text": "בהקשר של אריחי מפה, Z, X ו- Y הם פרמטרים שקובעים את האריח הספציפי שאתה מאחזר מהמפה. הנה מה שכל אחד מהם מייצג:"
+  },
+  "codeSnippets_getting_map_tiles_point1": {
+    "text": "Z (רמת זום): פרמטר זה קובע את קנה המידה של המפה. רמת זום גבוהה יותר תציג שטח קטן יותר בפירוט רב יותר. לדוגמה, ברמת זום גבוהה, ייתכן שתראה שמות רחובות ומבנים בודדים. ברמת זום נמוכה יותר, ייתכן שתראה רק גבולות מדינה וערים גדולות. רמת הזום מיוצגת לעתים קרובות כמעריך של 2, כך שרמת זום של n תביא לחלוקת המפה לאריחים 2^n x 2^n."
+  },
+  "codeSnippets_getting_map_tiles_point2": {
+    "text": "X (עמודה): פרמטר זה קובע את המיקום האורך (מזרח-מערב) של האריח. ברמת זום 0, יש רק אריח אחד, כך שערך ה- X הוא 0. ברמות זום גבוהות יותר, ערך ה- X יכול לנוע בין 0 ל -2 ^ Z - 1, ונע ממערב למזרח."
+  },
+  "codeSnippets_getting_map_tiles_point3": {
+    "text": "Y (שורה): פרמטר זה קובע את המיקום הרוחב (צפון-דרום) של האריח. בדומה לערך X, ערך Y נע בין 0 ל -2 ^ Z - 1 בכל רמת זום, אך הוא נע מצפון לדרום."
+  },
+  "codeSnippets_getting_map_tiles_postDescription": {
+    "text": "יחד, פרמטרים אלה יכולים לציין כל אריח במפה בכל רמה של פירוט. על ידי שינוי פרמטרים אלה, תוכל לנווט לחלקים שונים של המפה ולהתקרב או להקטין."
+  },
+  "Request": {
+    "text": "בקשה"
+  },
+  "Response": {
+    "text": "תגובה"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_heading": {
+    "text": "1. צור הפעלה"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_description": {
+    "text": "במפות Google, השלב הראשון הוא יצירת הפעלה. זה נעשה באמצעות בקשת POST הכוללת את סוג המפה, השפה והאזור. סוג המפה יכול להיות 'מפת דרכים', 'לוויין' וכו' פרמטרי השפה והאזור משמשים ללוקליזציה של אריחי המפה."
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_heading": {
+    "text": "2. קבל אריח מפה"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_description": {
+    "text": "לאחר יצירת ההפעלה, תוכל לאחזר את אריחי המפה. זה נעשה באמצעות בקשת GET הכוללת את רמת הזום (Z), את קואורדינטת ה- x (X) ואת קואורדינטת y (Y). אסימון ההפעלה שנוצר בשלב הקודם נדרש גם הוא."
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_response": {
+    "text": "<0>התגובה לבקשה זו היא קובץ PNG המכיל את אריח המפה המבוקש.</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description": {
+    "text": "עם מיקום אמזון, קבלת אריחי מפה היא תהליך פשוט. זה כולל בקשת GET אחת הכוללת את שם המפה, רמת הזום (Z), קואורדינטת x (X) וקואורדינטת y (Y)."
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response": {
+    "text": "<0>הכתם המוחזר מכיל נתוני אריח וקטורי Mapbox (MVT)</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result": {
+    "text": "התגובה לבקשה זו כוללת כותרות HTTP המציינות את מדיניות בקרת המטמון וסוג התוכן, ואחריהם נתוני אריח המפה (המכונים \"blob\"). ניתן להשתמש בנתוני אריח המפה לעיבוד אריח המפה ביישום מתאים."
+  },
+  "codeSnippets_getting-map-tiles_description1": {
+    "text": "אריחי מפות הם הדרך שבה מפות אינטרנט (כמו מפות Google ו- Maplibre) בנויות. הם גרפיקה מרובעת של מפת סיביות המוצגת בסידור רשת להצגת מפה. כל אריח הוא תמונה קטנה, והוא מכיל חלק מסוים של המפה, ברמת פירוט או רמת זום ספציפית. כשאתה מתקרב או מרחיק מפת אינטרנט, אתה בעצם טוען קבוצות אריחים שונות בעלות רמות פירוט שונות."
+  },
+  "codeSnippets_getting-map-tiles_description2": {
+    "text": "ממשקי API של אריחי מפות, כגון אלה המסופקים על ידי מפות Google ו- Amazon Location, מאפשרים למפתחים לאחזר אריחי מפה אלה באופן תכנותי. זה יכול להיות שימושי עבור מגוון יישומים, כגון יצירת מציג מפות מותאם אישית, הטמעת תצוגת מפה בדף אינטרנט או ביצוע ניתוחים על המידע הגיאוגרפי הכלול באריחים."
+  },
+  "codeSnippets_getting-map-tiles_description3": {
+    "text": "ממשקי ה- API פועלים על ידי קבלת בקשות HTTP המציינות את סוג המפה הרצוי (לדוגמה, מפת דרכים, לוויין), הקואורדינטות הגיאוגרפיות (קו רוחב ואורך) ורמת הזום. לאחר מכן, ה- API מחזיר את אריח המפה המתאים כקובץ תמונה (בדרך כלל בפורמט PNG או JPEG)."
+  },
+  "codeSnippets_getting-map-tiles_description4": {
+    "text": "בהקשר של אריחי מפה, Z, X ו- Y הם פרמטרים שקובעים את האריח הספציפי שאתה מאחזר מהמפה. הנה מה שכל אחד מהם מייצג:"
+  },
+  "codeSnippets_geocoding_heading": {
+    "text": "קידוד גיאוגרפי"
+  },
+  "codeSnippets_geocoding_description": {
+    "text": "קידוד גיאוגרפי הוא תהליך המרת כתובות לקואורדינטות גיאוגרפיות. זוהי תכונה מרכזית ביישומים רבים הדורשים נתוני מיקום."
+  },
+  "codeSnippets_geocoding_withGoogle_description1": {
+    "text": "במפות Google, ממשק ה- API של קידוד גיאוגרפי משמש להמרת כתובות לקואורדינטות <0>גיאוגרפיות</0>. נקודת הקצה של קוד גיאוגרפי משמשת למטרה זו. זה כן מאפשר לך להטות תוצאות לאזור מסוים באמצעות פרמטרי האזור או הרכיבים."
+  },
+  "codeSnippets_geocoding_withGoogle_description2": {
+    "text": "<0>הרכיבים המאפשרים לך לסנן תוצאות לפי רכיבים פוליטיים או גיאוגרפיים, כגון <0>administrative_area, יישוב או postal_</0> code<0>.</0></0> לדוגמה, <0>components=Locality:Mountain+View|Country:US</0> יטה את התוצאות לכיוון היישוב מאונטיין וויו בארה\"ב. הנה דוגמה לבקשת קידוד גיאוגרפי במפות Google:"
+  },
+  "codeSnippets_geocoding_withAmazon_description": {
+    "text": "בשירות המיקום של אמזון, התכונה הדומה לקידוד הגיאוגרפי של מפות גוגל היא פעולת <0>Search</0> PlaceIndexForText. פעולה זו מחפשת מקומות באמצעות טקסט חופשי (כמו כתובת) ומחזירה מקומות מועמדים יחד עם מידע משלים. בקשה פשוטה מכילה את הפרמטר הנדרש הבא:"
+  },
+  "codeSnippets_geocoding_withAmazon_description_1": {
+    "text": "טקסט — כתובת, שם, עיר או אזור להמרה לקבוצת קואורדינטות. לדוגמה, המחרוזת 'כל עייר'."
+  },
+  "codeSnippets_geocoding_withAmazon_description_2": {
+    "text": "כדי לציין מספר תוצאות מרבי בעמוד, השתמש בפרמטר האופציונלי הבא:"
+  },
+  "codeSnippets_geocoding_withAmazon_description_3": {
+    "text": "maxResults — מגביל את המספר המרבי של תוצאות שהוחזרו בתגובת השאילתה."
+  },
+  "codeSnippets_geocoding_withAmazon_description_4": {
+    "text": "מסנןמדינות - המדינה או האזור שבהם ברצונך לקודד גיאוגרפי. ניתן להגדיר עד 100 מדינות בבקשה אחת באמצעות קוד מדינה ISO 3166 בן שלוש אותיות."
+  },
+  "codeSnippets_geocoding_withAmazon_request_description": {
+    "text": "בבקשה זו, שדה הטקסט שווה ערך לפרמטר הקלט במפות Google, המציין את הכתובת שיש לקודד גיאוגרפי. <1>השדה <1>BiasPosi</1> tion ו- <1>Filter</1> Countries משמש להטיה של תוצאות החיפוש לאזור ספציפי, בדומה לפרמטרים של מיקומים <1>ולמדינה במפות</1> Google.</1> פרמטר המפתח הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות הקידוד הגיאוגרפי שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "response_comparison": {
+    "text": "מיפוי שדה תגובה"
+  },
+  "web_services_app_responseComparison_table_0_description": {
+    "text": "הטקסט המלא של הכתובת שהוחזרה."
+  },
+  "web_services_app_responseComparison_table_1_description": {
+    "text": "שם המקום."
+  },
+  "description": {
+    "text": "תיאור"
+  },
+  "codeSnippets_reverse_geocoding_heading": {
+    "text": "קידוד גיאוגרפי הפוך"
+  },
+  "codeSnippets_reverse_geocoding_description": {
+    "text": "תכונה מרכזית נוספת המסופקת על ידי שני השירותים היא קידוד גיאוגרפי הפוך, הכולל המרת קואורדינטות גיאוגרפיות לכתובת קריאה על ידי אדם או שם מקום. תכונה זו משמשת לעתים קרובות ביישומים שצריכים להציג מידע על מיקום בפורמט שמובן בקלות על ידי המשתמשים."
+  },
+  "codeSnippets_reverse_geocoding_withGoogle_description1": {
+    "text": "במפות Google, נקודת הקצה של <0>קוד גיאוגרפי</0> של ממשק ה- API של Places משמשת גם לקידוד גיאוגרפי הפוך. עם זאת אתה צריך להשתמש <0>latlng</0> כדי לספק מיקום עבור קידוד גיאוגרפי הפוך. הנה דוגמה לבקשת קידוד גיאוגרפי הפוך במפות Google:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description": {
+    "text": "בשירות המיקום של אמזון, פעולת <0>SearchPlaceIndexForPosi</0> tion משמשת לקידוד גיאוגרפי הפוך. פעולה זו מחפשת מקומות סביב מיקום מוגדר. בקשה פשוטה מכילה את הפרמטר הנדרש הבא:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1": {
+    "text": "מיקום — קבוצה של קואורדינטות שברצונך להמיר לכתובת, נקודת עניין או מיקום כללי. מוגדר באמצעות הפורמט <0>[קו אורך, קו רוחב]</0>."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_2": {
+    "text": "כדי לציין מספר תוצאות מרבי בעמוד, הוסף את הפרמטר האופציונלי הבא:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_3": {
+    "text": "maxResults — מגביל את המספר המרבי של תוצאות שהוחזרו בתגובת השאילתה."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_4": {
+    "text": "אם ברצונך לציין שפה מועדפת לתוצאות השאילתה, השתמש בפרמטר האופציונלי הבא:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_5": {
+    "text": "שפה — קוד שפה שישמש לעיבוד תוצאות. הערך חייב להיות קוד שפה תקף של BCP 47. לדוגמה, en לאנגלית."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_6": {
+    "text": "הנה דוגמה לבקשת קידוד גיאוגרפי הפוך בשירות המיקום של אמזון:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description": {
+    "text": "בבקשה זו, שדה המיקום שווה ערך לפרמטר המיקום במפות Google, ומציין את הקואורדינטות הגיאוגרפיות שיש לקודד גיאוגרפי הפוך. השדה <1>MaxResults</1> מציין את המספר המרבי של תוצאות להחזרה. השדה <1>שפה</1> מציין את השפה שבה יש להחזיר את התוצאות, בדומה לפרמטר השפה במפות Google. פרמטר המפתח הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות הקידוד הגיאוגרפי ההפוך שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "web_services_app_responseComparison_table_1_google_description": {
+    "text": "הכתובת הנקראת על ידי האדם של המיקום."
+  },
+  "web_services_app_responseComparison_table_2_google_description": {
+    "text": "קו הרוחב והאורך של המיקום."
+  },
+  "web_services_app_responseComparison_table_3_google_description": {
+    "text": "תיאור הטקסט המלא או השם של רכיב הכתובת."
+  },
+  "web_services_app_responseComparison_table_4_google_description": {
+    "text": "סוג רכיב הכתובת."
+  },
+  "web_services_app_responseComparison_table_1_amazon_description": {
+    "text": "הכתובת הנקראת על ידי האדם של המיקום."
+  },
+  "web_services_app_responseComparison_table_2_amazon_description": {
+    "text": "קואורדינטות "
+  },
+  "web_services_app_responseComparison_table_3_amazon_description": {
+    "text": "תיאור הטקסט המלא או השם של רכיב הכתובת."
+  },
+  "web_services_app_responseComparison_table_4_amazon_description": {
+    "text": "סוג המקום."
+  },
+  "web_services_app_note_description": {
+    "text": "<0>התוצאות [] במפות</0> Google וב <0>תוצאות []</0> בשירות המיקום של אמזון הן מערכים המכילים את תוצאות הקידוד הגיאוגרפי ההפוך. <0><0>כל רכיב במערך מייצג מקום אחד התואם את קריטריוני החיפוש. - ה <0>*</0> ב <0>תוצאות [] .place.*</0> מייצג שדות שונים כמו כתובת <0>מספר, שכונה, עי</0> <0><0>רייה</0>, אזור משנה</0>, <0>אזור</0>, מדינה, קוד דואר בא <0>מזון</0></0></0>"
+  },
+  "web_services_app_responseComparison_description": {
+    "text": "הטבלה שלהלן משווה את שדות התגובה הנפוצים של מפות Google ושירות המיקום של אמזון בעת ביצוע פעולת קידוד גיאוגרפי הפוך."
+  },
+  "codeSnippets_text_searching_heading": {
+    "text": "חיפוש טקסט"
+  },
+  "codeSnippets_text_searching_description": {
+    "text": "חיפוש טקסט הוא תכונה המאפשרת למשתמשים לחפש מקומות באמצעות שאילתות טקסטואליות. גם מפות Google וגם מיקום אמזון מספקות תכונה זו, אם כי עם מבני בקשות ותגובות שונות."
+  },
+  "codeSnippets_text_searching_withGoogle_description1": {
+    "text": "בקשת חיפוש הטקסט של מפות Google נעשית בשיטת POST HTTP. גוף הבקשה מכיל את השדה TextQuery המציין את המיקום שיש לחפש. כותרות הבקשות כוללות את <0>Content-Type</0>, <0>X-Goog-Api-Key</0> (לאימות) ו- <0>X-Goog-FieldMask</0> (כדי לציין אילו שדות לכלול בתגובה)."
+  },
+  "codeSnippets_text_searching_withGoogle_description2": {
+    "text": "התגובה ממפות Google כוללת מערך של מקומות התואמים לשאילתת החיפוש. <0><0>לכל מקום יש <0>כתובת בפורמט ושם תצוגה</0> <0>הכולל את הטקסט</0> ואת קוד השפה.</0></0>"
+  },
+  "codeSnippets_text_searching_withAmazon_description": {
+    "text": "בקשת חיפוש הטקסט של מיקום אמזון מתבצעת באמצעות שירות <0>SearchPlaceIndexForText בשיטת</0> POST HTTP. גוף בקשת שירות זה מכיל את השדה טקסט עבור המיקום שיש לחפש, <0>BiasPosi</0> tion כדי להטות את החיפוש לכיוון אזור גיאוגרפי מסוים ושפה כדי לציין את שפת החיפוש. שירות זה תומך גם בפרמטרים שונים של גוף כגון:"
+  },
+  "codeSnippets_text_searching_withAmazon_description_1": {
+    "text": "למידע מקיף יותר בנוגע לשירות חיפוש הטקסט שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "web_services_app_responseComparison_table_2_description": {
+    "text": "שפה מועדפת לתוצאות"
+  },
+  "codeSnippets_text_searching_withAmazon_description_2": {
+    "text": "הנה דוגמה לבקשת חיפוש טקסט בשירות המיקום של אמזון:"
+  },
+  "codeSnippets_nearby_searching_heading": {
+    "text": "חיפוש בקרבת מקום"
+  },
+  "codeSnippets_nearby_searching_description": {
+    "text": "חיפוש בקרבת מקום מאפשר לך לחפש מקומות או נקודות עניין ליד מיקום נתון. אתה יכול להוסיף הגבלות כגון תוצאות מקסימליות או מדינה."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description": {
+    "text": "בשירות המיקום של אמזון, פעולת <0>SearchPlaceIndexForPosi</0> tion משמשת לקידוד גיאוגרפי הפוך. פעולה זו מחפשת מקומות סביב מיקום מוגדר."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description1": {
+    "text": "בקשה פשוטה מכילה את הפרמטר הנדרש הבא:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2": {
+    "text": "מיקום — קבוצה של קואורדינטות שברצונך להמיר לכתובת, נקודת עניין או מיקום כללי. מוגדר באמצעות הפורמט <0>[קו אורך, קו רוחב]</0>."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description3": {
+    "text": "כדי לציין מספר תוצאות מרבי בעמוד, הוסף את הפרמטר האופציונלי הבא:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description4": {
+    "text": "maxResults — מגביל את המספר המרבי של תוצאות שהוחזרו בתגובת השאילתה."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description5": {
+    "text": "אם ברצונך לציין שפה מועדפת לתוצאות השאילתה, השתמש בפרמטר האופציונלי הבא:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description6": {
+    "text": "שפה — קוד שפה שישמש לעיבוד תוצאות. הערך חייב להיות קוד שפה תקף של BCP 47. לדוגמה, en לאנגלית."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description7": {
+    "text": "הנה דוגמה לבקשת קידוד גיאוגרפי הפוך בשירות המיקום של אמזון:"
+  },
+  "codeSnippets_nearby_searching_request_description": {
+    "text": "בבקשה זו, שדה המיקום שווה ערך לפרמטר המיקום במפות Google. השדה MaxResults מציין את המספר המרבי של תוצאות להחזרה. השדה שפה מציין את השפה שבה יש להחזיר את התוצאות, בדומה לפרמטר השפה במפות Google. פרמטר המפתח הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות חיפוש הטקסט שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_autocomplete_heading": {
+    "text": "השלמה אוטומטית"
+  },
+  "codeSnippets_autocomplete_description": {
+    "text": "השלמה אוטומטית מספקת הצעות למקומות כאשר המשתמש מקליד. זוהי תכונה מרכזית ביישומים הדורשים אינטראקציה של המשתמש עם נתוני מיקום."
+  },
+  "codeSnippets_autocomplete_withAmazon_request_description": {
+    "text": "במפות Google, נקודת הקצה להשלמה אוטומטית של ממשק ה- API של Places משמשת למטרה זו. הנה דוגמה לבקשת השלמה אוטומטית במפות Google:"
+  },
+  "codeSnippets_autocomplete_withAmazon_response_description": {
+    "text": "בבקשה זו, פרמטר הקלט מציין את מחרוזת הטקסט שעליה לחפש. פרמטר המפתח הוא מפתח ה- API שלך."
+  },
+  "codeSnippets_autocomplete_withAmazon_description1": {
+    "text": "בשירות המיקום של אמזון, התכונה הדומה להשלמה האוטומטית של מפות Google היא פעולת S <0>earchPlaceIndexForSuggestions</0>. פעולה זו מספקת פונקציונליות השלמה אוטומטית לחיפושים גיאוגרפיים מבוססי טקסט, ומחזירה תחזיות מקום בתגובה לשאילתות חיפוש של משתמשים. הנה דוגמה לבקשת השלמה אוטומטית בשירות המיקום של אמזון:"
+  },
+  "codeSnippets_autocomplete_withAmazon_description2": {
+    "text": "בבקשה זו, שדה הטקסט שווה ערך לפרמטר הקלט במפות Google, המציין את מחרוזת הטקסט עליה לחפש. השדה <1>MaxResults</1> מציין את המספר המרבי של תוצאות להחזרה. פרמטר המפתח הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות ההשלמה האוטומטית שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_autocomplete_request_description": {
+    "text": "בבקשה זו, שדה המיקום שווה ערך לפרמטר המיקום במפות Google. השדה MaxResults מציין את המספר המרבי של תוצאות להחזרה. השדה שפה מציין את השפה שבה יש להחזיר את התוצאות, בדומה לפרמטר השפה במפות Google. פרמטר המפתח הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות חיפוש הטקסט שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "web_services_autocomplete_responseComparison_table_1_description": {
+    "text": "מערך חיזוי מיקום"
+  },
+  "web_services_autocomplete_responseComparison_table_2_description": {
+    "text": "תיאור חיזוי המקום"
+  },
+  "web_services_autocomplete_responseComparison_table_3_description": {
+    "text": "מזהה ייחודי לחיזוי מקום"
+  },
+  "web_services_autocomplete_responseComparison_table_4_description": {
+    "text": "סיכום בקשת החיפוש, כולל מחרוזת הטקסט לחיפוש ומספר התוצאות המרבי להחזרה."
+  },
+  "predictions": {
+    "text": "תחזיות"
+  },
+  "place_id": {
+    "text": "מזהה מקום"
+  },
+  "N/A": {
+    "text": "לא קיים"
+  },
+  "results": {
+    "text": "תוצאות"
+  },
+  "text": {
+    "text": "טקסט"
+  },
+  "summary": {
+    "text": "סיכום"
+  },
+  "codeSnippets_get-place-details_heading": {
+    "text": "קבל פרטי מקום"
+  },
+  "codeSnippets_get-place-details_description": {
+    "text": "תכונה אחת כזו היא אחזור פרטי מקום, אשר חיוני ביישומים הדורשים מידע מפורט על מקום ספציפי."
+  },
+  "codeSnippets_get-place-details_googleMap_description": {
+    "text": "במפות Google, נקודת הקצה של הפרטים של ממשק ה- API של מקומות משמשת לאחזור פרטי מקום. הנה דוגמה לבקשת GetPlace במפות Google:"
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description": {
+    "text": "בבקשה זו, הפרמטר <0>place_id</0> מציין את המזהה הייחודי של המקום שפרטיו יוחזרו. פרמטר המפתח הוא מפתח ה- API שלך."
+  },
+  "codeSnippets_get-place-details_withAmazon_description": {
+    "text": "בשירות המיקום של אמזון, <0>פעולת GetPlace</0> משמשת לאחזור פרטי מקום. הנה דוגמה לבקשת GetPlace בשירות המיקום של אמזון:"
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description": {
+    "text": "בבקשה זו, <0>PlaceID</0> הוא המזהה הייחודי של המקום שאמורים לאחזר את פרטיו, שווה ערך לפרמטר <0>place_id במפות</0> גוגל. פרמטר המפתח הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות פרטי המקום שלנו, עיין בתיעוד המפורט המסופק <1>כאן</1>."
+  },
+  "label": {
+    "text": "כתובת סטנדרטית"
+  },
+  "geometry": {
+    "text": "קואורדינטות של המקום"
+  },
+  "street": {
+    "text": "רחוב"
+  },
+  "neighborhood": {
+    "text": "שכונה"
+  },
+  "municipality": {
+    "text": "עירייה"
+  },
+  "subMunicipality": {
+    "text": "תת-עירייה"
+  },
+  "region": {
+    "text": "אזור"
+  },
+  "country": {
+    "text": "ארץ"
+  },
+  "postalCode": {
+    "text": "קוד דואר"
+  },
+  "categories": {
+    "text": "קטגוריות"
+  },
+  "derived_from": {
+    "text": "נגזר מ"
+  },
+  "Field": {
+    "text": "שדה"
+  },
+  "subRegion": {
+    "text": "תת-אזור"
+  },
+  "codeSnippets_calculating-a-route_description": {
+    "text": "חישוב מסלולים, שהוא חיוני ביישומים הדורשים מידע על ניווט או מרחק נסיעה."
+  },
+  "codeSnippets_calculating-a-route_googleMap_description": {
+    "text": "במפות גוגל, אתה יכול להשתמש ב- <0>V2:Computer</0> Outes API. כותרות הבקשות כוללות את <0>Content-Type</0>, <0>X-Goog-Api-Key</0> (לאימות) ו- <0>X-Goog-FieldMask</0> (כדי לציין אילו שדות לכלול בתגובה). להלן דוגמה לחישוב בקשת מסלול במפות Google:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description": {
+    "text": "בשירות המיקום של אמזון, פעולת CalculateRoute משמשת לחישוב מסלולים. בעת חישוב מסלול, ניתן לציין עד 23 נקודות עצירת ביניים בין מיקום היציאה למיקום היעד באמצעות מיקומי נקודת ציון."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1": {
+    "text": "WaypointPositions — מציין רשימה מסודרת של עמדות ביניים שיכללו לאורך מסלול בין מיקום היציאה למיקום היעד."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description2": {
+    "text": "הערה: אם אתה מציין מיקום של נקודת ציון שאינה ממוקמת בכביש, Amazon Location מעביר את המיקום לכביש הקרוב ביותר."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description3": {
+    "text": "בקשת CalculateRoute הבאה מחשבת מסלול עם שתי נקודות דרך:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4": {
+    "text": "<0>מיקום היציאה הוא <0>[-122.7565, 49.0021], ומיקום היעד הוא [-122.3394, 47.6159]</0>.</0>"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description5": {
+    "text": "עבור פרמטר הבקשה WaypointPositions:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description6": {
+    "text": "עמדת התחנה הראשונה היא <0>[-122.1884,</0> 48.0936]."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description7": {
+    "text": "עמדת התחנה השנייה היא <0>[-122.3493</0>, 47.6205]."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description8": {
+    "text": "כדי לכלול את הגיאומטריה של קווי הרגל בין שתי נקודות ציון אלה, הגדר את הפרמטר האופציונלי הבא כ- true:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description9": {
+    "text": "IncludeGGeometry — כולל את הגיאומטריה של כל נתיב בין זוג מיקומים בתגובה."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description10": {
+    "text": "הנה דוגמה לבקשת CalculateRoute בשירות המיקום של אמזון:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription": {
+    "text": "בבקשה זו, השדה DeparturePosition שווה לפרמטר המקור במפות Google, המציין את נקודת ההתחלה לחישוב המסלול. השדה <1>DestinationPosition</1> שווה ערך לפרמטר היעד במפות Google, המציין את נקודת הקצה. פרמטר המפתח הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות הניתוב שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_1_description": {
+    "text": "המרחק של רגל מסוימת של המסלול במטרים."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_1_description": {
+    "text": "מרחק רגלי מסלול"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_2_description": {
+    "text": "משך פרק מסוים של המסלול בשניות"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_2_description": {
+    "text": "משך רגל המסלול"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_3_description": {
+    "text": "ייצוג הקווים של חלק מסוים של המסלול."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_3_description": {
+    "text": "גיאומטריה של רגלי המסלול"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_4_description": {
+    "text": "הצעדים האישיים המעורבים בחלק מסוים של המסלול."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_4_description": {
+    "text": "מסלול מדרגות רגליים"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_5_description": {
+    "text": "המרחק הכולל של המסלול במטרים."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_5_description": {
+    "text": "מרחק כולל"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_6_description": {
+    "text": "משך הזמן הכולל של המסלול, בדרך כלל בשניות או דקות."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_6_description": {
+    "text": "משך זמן כולל"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_7_description": {
+    "text": "נקודת התצוגה או האזור הגלוי של המפה עבור המסלול."
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_7_description": {
+    "text": "התיבה התוחמת של המסלול המכילה את כל הנקודות במסלול."
+  },
+  "codeSnippets_route-planning_googleMap_description": {
+    "text": "במפות Google, באפשרותך להשתמש בממשק ה- API של <0>V2:ComputerOutes</0> לחישוב מטריצת המסלול. כותרות הבקשות כוללות את <0>Content-Type</0>, <0>X-Goog-Api-Key</0> (לאימות) ו- <0>X-Goog-FieldMask</0> (כדי לציין אילו שדות לכלול בתגובה). להלן דוגמה כיצד לחשב מטריצת מסלול במפות Google:"
+  },
+  "codeSnippets_route-planning_withAmazon_description": {
+    "text": "שירות המיקום של אמזון מספק פונקציונליות דומה עם ממשק ה- API של מטריקס מסלול. זה מאפשר למפתחים לחשב מרחקים וזמני נסיעה בין נקודות התחלה וסיום מרובות. שלא כמו מפות Google, שירות המיקום של אמזון משתמש בבקשת POST כדי להביא נתונים אלה. הבקשה כוללת מטען JSON עם עמדות יציאה, עמדות יעד ויחידה למדידת מרחק."
+  },
+  "codeSnippets_route-planning_withAmazon_description1": {
+    "text": "ניתן לבצע בקשת חישוב מטריצת מסלול באמצעות פעולת <0>CalculateRouteMat</0> rix. בקשה מינימלית מכילה את השדות הנדרשים הבאים:"
+  },
+  "codeSnippets_route-planning_withAmazon_description2": {
+    "text": "עמדות יציאה — קבוצת עמדות ההתחלה שעבורן יש לחשב את המסלולים. מוגדר כמערך של [קו אורך, קו רוחב]"
+  },
+  "codeSnippets_route-planning_withAmazon_description3": {
+    "text": "DestinationPositions — קבוצת מיקומי הסיום שעבורם יש לחשב את המסלולים. מוגדר כמערך של [קו אורך, קו רוחב]."
+  },
+  "codeSnippets_route-planning_withAmazon_description4": {
+    "text": "כברירת מחדל, התגובה מחזירה מרחק בקילומטרים. באפשרותך לשנות את יחידת המדידה למילים באמצעות הפרמטר האופציונלי הבא:"
+  },
+  "codeSnippets_route-planning_withAmazon_description5": {
+    "text": "distanceUnit — מציין את מערכת היחידות שתשמש לתוצאות המרחק."
+  },
+  "codeSnippets_route-planning_withAmazon_description6": {
+    "text": "להלן דוגמה לבקשת ממשק API של מטריצת מסלול שירות המיקום של אמזון:"
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription": {
+    "text": "בבקשה זו, עמדות היציאה והיעדרמיקומים הם מערכים של זוגות רוחב ואורך. הפרמטר DistanceUnit מגדיר את יחידת המדידה (במקרה זה, מיילים משמשים). למידע מקיף יותר בנוגע לשירות תכנון המסלול שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_route-planning_responseResult": {
+    "text": "מההשוואה, ברור שלמרות שלמרות שלמפות גוגל ושירות המיקום של אמזון יש הבדלים במוסכמות השמות ובמבני התגובה שלהם, הם מציעים פונקציות דומות לתכנון מסלול. הבנה זו חיונית להעברה מוצלחת ממפות Google לשירות המיקום של אמזון."
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_1_description": {
+    "text": "מסופק במטרים בתגובה."
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_1_description": {
+    "text": "מרחק מסלול"
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_2_description": {
+    "text": "מסופק תוך שניות בתגובה."
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_2_description": {
+    "text": "משך המסלול"
+  },
+  "duration": {
+    "text": "משך"
+  },
   "migration": {
     "text": "הגירה"
   },
@@ -3670,9 +5701,6 @@
   },
   "migrate_a_web_service": {
     "text": "העברת שירות אינטרנט"
-  },
-  "pricing": {
-    "text": "תמחור"
   },
   "migration_desc": {
     "text": "העבר ממפות גוגל"
@@ -3692,11 +5720,362 @@
   "web_service": {
     "text": "שירות אינטרנט"
   },
+  "web_menu_item_desc": {
+    "text": "חקור את שירות המיקום של אמזון בדפדפן האינטרנט שלך"
+  },
+  "android_menu_item_desc": {
+    "text": "נצל את היתרונות של שירות המיקום של אמזון בנייד"
+  },
+  "Mobile_percentage": {
+    "text": "אחוז לא נייח"
+  },
+  "Min_1_api_call": {
+    "text": "מינימום שיחת API אחת לחודש"
+  },
+  "Examples": {
+    "text": "דוגמאות"
+  },
+  "notable_sdk_differences": {
+    "text": "הבדלים בולטים ב- SDK"
+  },
+  "displaying_a_marker": {
+    "text": "הצגת סמן"
+  },
+  "displaying_an_info_pop_up": {
+    "text": "הצגת חלון קופץ מידע"
+  },
+  "displaying_a_circle": {
+    "text": "הצגת מעגל"
+  },
+  "displaying_a_heatmap": {
+    "text": "הצגת מפת חום"
+  },
+  "displaying_markers": {
+    "text": "הצגת סמנים"
+  },
+  "displaying_circles": {
+    "text": "הצגת מעגלים"
+  },
+  "displaying_polygons": {
+    "text": "הצגת מצולעים"
+  },
+  "displaying_a_polygon": {
+    "text": "הצגת מצולע"
+  },
+  "image_overlays": {
+    "text": "שכבות על תמונות"
+  },
+  "calculating_a_route": {
+    "text": "חישוב מסלול"
+  },
+  "displaying_lines": {
+    "text": "הצגת קווים"
+  },
+  "calculating_a_route_matrix": {
+    "text": "חישוב מטריצת מסלול"
+  },
+  "codeSnippets_image_overlays_about": {
+    "text": "שכבות על תמונות מתייחסות לטכניקה של הצבת תמונה אחת על תמונה אחרת, יצירת תצוגה מורכבת המשלבת מידע חזותי משתי התמונות."
+  },
+  "codeSnippets_image_overlays_desc": {
+    "text": "שכבות על תמונות עוזרות לשפר את המפות על ידי מתן הקשר נוסף, כגון תמונות לוויין, דפוסי מזג אוויר או מפות היסטוריות, מעשירים את הייצוג החזותי הכולל ומסייעים בהבנה וניתוח טובים יותר של נתונים גיאוגרפיים."
+  },
+  "codeSnippets_image_overlays_point1": {
+    "text": "מפות גוגל משתמשות ב- <1>google.maps.groundOverlay כדי לעבד תמונות במפה</1>."
+  },
+  "codeSnippets_image_overlays_point2": {
+    "text": "שירות המיקום של אמזון משתמש ב- <1>LoaDimage, AddiMage</1>, <1>AddSource ו- Add</1> <1>Lay</1> er של MapLibre כדי לעבד תמונות על <1>המ</1> פה."
+  },
+  "codeSnippets_route_matrix_about": {
+    "text": "שירות מטריצת מסלול הוא כמו עוזר חכם למפות המסייע להבין את הדרך הטובה ביותר להגיע ממקום למקום. זה לא רק מחשב את המרחק בין מיקומים שונים אלא גם אומר לך כמה זמן ייקח לנסוע ביניהם. זה יכול להיות שימושי במיוחד עבור אפליקציות שצריכות לתכנן מסלולים, למצוא את הנתיב המהיר ביותר או לייעל את לוגיסטיקת הנסיעות. בעיקרון, זה הופך את הניווט במפות לחלק יותר ועוזר ליישומים לספק למשתמשים את אפשרויות הנסיעה היעילות ביותר."
+  },
+  "codeSnippets_route_matrix_point1": {
+    "text": "מפות Google משתמשת ב-<1>DistanceMatrixService</1> או <1>ComputeRouteMatrix</1> כדי לחשב מטריצת מסלול."
+  },
+  "codeSnippets_route_matrix_point2": {
+    "text": "שירות המיקום של אמזון משתמש ב- <1>CalculateRouteMatrixCommand כדי לחשב מטריצת מסלול</1>."
+  },
+  "codeSnippets_image_overlays_android_about": {
+    "text": "שכבות על תמונות מתייחסות לטכניקה של הצבת תמונה אחת על תמונה אחרת, יצירת תצוגה מורכבת המשלבת מידע חזותי משתי התמונות."
+  },
+  "codeSnippets_image_overlays_android_point1": {
+    "text": "מפות גוגל מציעות את שיטת <1>AddGroundOverlay</1> במיוחד לעיבוד תמונה במפה."
+  },
+  "codeSnippets_image_overlays_android_point2": {
+    "text": "שירות המיקום של אמזון משתמש בשיטות <1>AddSource ו- AddLay</1> er של Maplibre <1>כדי</1> לעבד תמונה במפה."
+  },
+  "google_image_overlays_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן ל <1>- activity_maps.xml</1>."
+  },
+  "google_image_overlays_step2": {
+    "text": "<0>שלב 2: הוסף</0> <1>תמונה בשם <1>newark.jpg</1> בתוך ספריית <1>/res/שרטוט והוסף את הקוד שלהלן ל-</1> ImageOverlaysActivity.kt.</1>"
+  },
+  "amazon_image_overlays_step1": {
+    "text": "<0>שלב 1</0>: הוסף את הקוד שלהלן בתוך <1>activity_map.xml</1>."
+  },
+  "amazon_image_overlays_step2": {
+    "text": "<0>שלב 2: הוסף</0> <1>תמונה בשם <1>newark.jpg</1> בתוך ספריית <1>/res/שרטוט והוסף את הקוד שלהלן</1> בתוך ImageOverlayActivity.kt.</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_about": {
+    "text": "שירות מטריצת מסלול מתייחס בדרך כלל לתכונה בתוך שירות ניתוב המאפשרת למשתמשים ליצור מסלולים מרובים בין מיקומים שונים ולקבל מידע על המרחק ומשך הזמן עבור כל מסלול. שירות זה הוא בעל ערך עבור יישומים כגון לוגיסטיקה, תכנון תחבורה ואופטימיזציה של נסיעות."
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point1": {
+    "text": "מפות Google מספקת <1>distanceMatrix</1> או <1>computeRouteMatrix</1> לחישוב מטריצת מסלול."
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2": {
+    "text": "שירות המיקום של אמזון מציע את שיטת <1>CalculateRouteMatrix באמצעות</1> לקוח המיקום שלו לחישוב מטריצת המסלול."
+  },
+  "google_calculating_a_route_matrix_step1": {
+    "text": "<0>שלב 1</0>: הוסף את השורה הבאה בתוך ת <1>לות ב- <1>buil</1></1> d.gradle."
+  },
+  "google_calculating_a_route_matrix_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן ל <1>- activity_maps.xml</1>."
+  },
+  "google_calculating_a_route_matrix_step3": {
+    "text": "<0>שלב 3: הוסף</0> את הקוד שלהלן ל- <1>CalculateOuteActivity.kt</1>."
+  },
+  "amazon_calculating_a_route_matrix_step1": {
+    "text": "<0>שלב 1: הוסף</0> את השורות הבאות בתוך תלות ב- <1>buil</1> <1>d.grad</1> le.kts."
+  },
+  "amazon_calculating_a_route_matrix_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן בתוך <1>activity_route_matrix_service.xml</1>."
+  },
+  "amazon_calculating_a_route_matrix_step3": {
+    "text": "<0>שלב 3: הוסף ת</0> <1>מונת סמן בשם <1>ic_marker_red בתוך ספריית /res/שרטוט והכנס את הקוד של</1> <1>הלן לתוך RouteMatrixServiceActivity.</1> kt.</1>"
+  },
+  "codeSnippets_image_overlays_ios_about": {
+    "text": "שכבות על תמונות מתייחסות לטכניקה של הצבת תמונה אחת על תמונה אחרת, יצירת תצוגה מורכבת המשלבת מידע חזותי משתי התמונות."
+  },
+  "codeSnippets_image_overlays_ios_point1": {
+    "text": "מפות גוגל מציעות את הכיתה <1>GMSGroundOverlay במיוחד עבור כיסוי תמונה</1>."
+  },
+  "codeSnippets_image_overlays_ios_point2": {
+    "text": "שירות המיקום של אמזון משתמש בשיטות MLNImag <1>eSource ו- MLN</1> rasterStyleLayer של Maplibre כדי לעבד כיסוי <1>תמונה</1>."
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_about": {
+    "text": "שירות מטריצת מסלול מתייחס בדרך כלל לתכונה בתוך שירות ניתוב המאפשרת למשתמשים ליצור מסלולים מרובים בין מיקומים שונים ולקבל מידע על המרחק ומשך הזמן עבור כל מסלול. שירות זה הוא בעל ערך עבור יישומים כגון לוגיסטיקה, תכנון תחבורה ואופטימיזציה של נסיעות."
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point1": {
+    "text": "מפות Google מספקת <1>distanceMatrix</1> או <1>computeRouteMatrix</1> לחישוב מטריצת מסלול."
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point2": {
+    "text": "שירות המיקום של אמזון מציע את שיטת <1>CalculateRouteMatrix באמצעות</1> לקוח המיקום שלו לחישוב מטריצת המסלול."
+  },
+  "reload": {
+    "text": "טען מחדש"
+  },
+  "codeSnippets_image_overlays_android_desc": {
+    "text": "שכבות על תמונות עוזרות לשפר את המפות על ידי מתן הקשר נוסף, כגון תמונות לוויין, דפוסי מזג אוויר או מפות היסטוריות, מעשירים את הייצוג החזותי הכולל ומסייעים בהבנה וניתוח טובים יותר של נתונים גיאוגרפיים."
+  },
+  "codeSnippets_image_overlays_ios_desc": {
+    "text": "שכבות על תמונות עוזרות לשפר את המפות על ידי מתן הקשר נוסף, כגון תמונות לוויין, דפוסי מזג אוויר או מפות היסטוריות, מעשירים את הייצוג החזותי הכולל ומסייעים בהבנה וניתוח טובים יותר של נתונים גיאוגרפיים."
+  },
+  "migrationOverview_heading": {
+    "text": "העבר ממפות גוגל למיקום אמזון"
+  },
+  "migrationOverview_subHeading": {
+    "text": "מאמר זה מספק תובנות כיצד להעביר יישומים מבוססי אינטרנט, ניידים ושרתים ממפות Google לפלטפורמת המיקום של אמזון. הדרכה זו כוללת דוגמאות קוד השוואתיות, הצעות העברה ושיטות עבודה מומלצות להעברה למיקום אמזון."
+  },
+  "migrationOverview_cta1": {
+    "text": "נסה את מיקום אמזון"
+  },
+  "migrationOverview_cta2": {
+    "text": "השווה מחירים"
+  },
+  "migrationOverview_featuresList2_title": {
+    "text": "פרטיות משתמש"
+  },
+  "migrationOverview_featuresList2_desc": {
+    "text": "הגן על פרטיות המשתמשים, הגן על המידע הרגיש שלך וצמצם את סיכוני האבטחה של היישום שלך."
+  },
+  "migrationOverview_startMigration_heading": {
+    "text": "התחל את ההעברה"
+  },
+  "migrationOverview_article_point1": {
+    "text": "סקירה כללית של שירות המיקום של אמזון"
+  },
+  "migrationOverview_article_point2": {
+    "text": "השוואת שירות ברמה גבוהה"
+  },
+  "migrationOverview_article_point3": {
+    "text": "השוואת תכונות"
+  },
+  "migrationOverview_article_point4": {
+    "text": "שיקולי הגירה"
+  },
+  "migrationOverview_article_point5": {
+    "text": "אימות"
+  },
+  "migrationOverview_article_point6": {
+    "text": "תוכנית הגירה מוצעת"
+  },
+  "migrationOverview_article_point7": {
+    "text": "תמיכה בהגירה"
+  },
+  "migrationOverview_serviceOverview_desc": {
+    "text": "שירות המיקום של אמזון הוא שירות מיקום מנוהל במלואו המספק למפתחים את היכולת להוסיף נתוני מיקום ופונקציונליות ליישומים שלהם. השירות כולל קבוצה של ממשקי API של REST המציעים מגוון תכונות, כולל:"
+  },
+  "migrationOverview_serviceOverview_point1": {
+    "text": "מפות: אחזור מפות וקטור ורסטר במספר סגנונות ותמונות לוויין."
+  },
+  "migrationOverview_serviceOverview_point2": {
+    "text": "מקומות: חפש ומקבל מידע על מקומות מעניינים, כגון עסקים, מסעדות ואטרקציות."
+  },
+  "migrationOverview_serviceOverview_point3": {
+    "text": "מסלולים: חישוב מסלולים אופטימליים לנסיעה, תוך התחשבות בתנאי התנועה וגורמים אחרים."
+  },
+  "migrationOverview_serviceOverview_point4": {
+    "text": "גיאופנסים: צור ונהל גיאופנסים, שהם גבולות וירטואליים שיכולים להפעיל פעולות כאשר מכשיר נכנס או יוצא מהגבול."
+  },
+  "migrationOverview_serviceOverview_point5": {
+    "text": "עוקבים: עקוב אחר מיקום המכשירים וקבל התראות כאשר הם נכנסים או עוזבים את הגיאוגרפיות."
+  },
+  "migrationOverview_serviceComparison_desc1": {
+    "text": "טבלאות אלה מספקות רשימה ברמה גבוהה של תכונות מיקום של אמזון, המתאימות לתכונות של מפות Google. רשימה זו אינה מציגה את כל תכונות המיקום של אמזון, כגון גיאוגרפיות ועוקבים."
+  },
+  "migrationOverview_serviceComparison_desc2": {
+    "text": "שירות המיקום של אמזון תומך בשתי שיטות אינטגרציה, שילוב SDK ישיר וכן ממשקי API של שירות REST."
+  },
+  "migrationOverview_featureComparison_desc": {
+    "text": "מפות Google ו- Amazon Location הן שניהם שירותים מבוססי מיקום המציעים מגוון תכונות לשיפור חוויות מבוססות מיקום. <0>ממיפוי וקידוד גיאוגרפי ועד יכולות ניתוב וגיאוגרפי, שירותים אלה מאפשרים למפתחים לבנות יישומים עם שירותי מיקום מדויקים ומותאמים אישית. למידע נוסף</0>"
+  },
+  "migrationOverview_migrationConsiderations_desc1": {
+    "text": "בעת מעבר לשירות המיקום של אמזון ממפות Google, שקול את הנקודות הבאות:"
+  },
+  "migrationOverview_migrationConsiderations_point1": {
+    "text": "משאב מפת המיקום של אמזון נותן לך גישה לנתוני מפת הבסיס הבסיסיים עבור מפה. תזדקק לספריית עיבוד מפות כגון <0>Maplibre כדי</0> להוסיף מפות אינטראקטיביות ליישום שלך."
+  },
+  "migrationOverview_migrationConsiderations_point2": {
+    "text": "Amazon Location מספקת אריחי מפות מספקי מפות שונים ותוכל לבחור בהתאם לצרכי היישום שלך. ל <0>מידע נוסף</0> על האופן שבו ספקי נתונים אלה עשויים להתאים לשיקולי הרישוי שלך."
+  },
+  "migrationOverview_migrationConsiderations_point3": {
+    "text": "מיקום אמזון גובה תשלום בגין השימוש במפות אינטראקטיביות, המבוסס על מספר אריחי המפה הטעונים. ב-Amazon Location SDK האינטראקטיבי יחד עם Maplibre, אריחי המפה מאוחסנים אוטומטית במטמון כדי להפחית את עלות הפיתוח."
+  },
+  "migrationOverview_migrationConsiderations_point4": {
+    "text": "ה- SDK של מיקום אמזון ו- MapLibre משתמשים באריחי מפות. אלא אם המשתמש מזיז ומתקרב למפה, הוא מחויב רק עבור מספר האריחים שהוא מביא."
+  },
+  "migrationOverview_migrationConsiderations_point5": {
+    "text": "מיקום אמזון מאחסן את הנתונים שלה ב- AWS."
+  },
+  "migrationOverview_migrationConsiderations_desc2": {
+    "text": "להלן מספר משאבים קשורים למיקום אמזון:"
+  },
+  "migrationOverview_migrationConsiderations_resource1": {
+    "text": "<0>דף תמחור מיקום של אמזון</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource2": {
+    "text": "<0>מחשבון תמחור מיקום של אמזון</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource3": {
+    "text": "<0>תנאי שירות המיקום של אמזון</0>"
+  },
+  "migrationOverview_authentication_desc": {
+    "text": "מפות Google מספקות אימות בסיסי מבוסס מפתח. שירות המיקום של אמזון מספק גם אימות בסיסי מבוסס מפתח וגם אימות AWS Cognito. אימות AWS Cognito מספק תכונות אבטחה רבות יותר מאשר האימות הבסיסי המבוסס על מפתח."
+  },
+  "migrationOverview_authentication_point1_mainPoint": {
+    "text": "האי <0>מות הבסיסי מבוסס מפתח מאפשר</0> לך פשוט לחבר את מפתח ה- API שלך ומאשר את הפעולות הבאות:"
+  },
+  "migrationOverview_authentication_point1_subPoint1": {
+    "text": "<0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0> :פעולות מפות"
+  },
+  "migrationOverview_authentication_point1_subPoint2": {
+    "text": "<0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0> :פעולות מקומות"
+  },
+  "migrationOverview_authentication_point1_subPoint3": {
+    "text": "<0>CalculateRoute</0>, <0>CalculateRouteMatrix</0> :פעולות מסלולים"
+  },
+  "migrationOverview_authentication_point2": {
+    "text": "שיטת האי <0>מות של AWS Cognito</0> לעומת זאת מעניקה לך שליטה הרבה יותר מפורטת ומאפשרת לך לגשת לכל המשאבים בהתאם למדיניות הפרטיות שלך."
+  },
+  "migrationOverview_suggestedMigrationPlan_desc": {
+    "text": "תוכנית הגירה ברמה גבוהה מורכבת משלבים אלה."
+  },
+  "migrationOverview_suggestedMigrationPlan_point1": {
+    "text": "בצע מלאי של ממשקי ה- API והשירותים של מפות Google שבהם היישום שלך משתמש. ודא שהמיקום של אמזון מספק ממשקי API ושירותים חלופיים."
+  },
+  "migrationOverview_suggestedMigrationPlan_point2": {
+    "text": "עיין במשאבים הטכניים ותמיכה בהגירה שלהלן לקבלת פרטים וסיוע ספציפיים."
+  },
+  "migrationOverview_suggestedMigrationPlan_point3": {
+    "text": "צור <0>חשבון AWS ומפתח</0> <1>API</1> או <2>הגדרת Amazon Cognito</2>."
+  },
+  "migrationOverview_suggestedMigrationPlan_point4": {
+    "text": "העבר את קוד היישום שלך."
+  },
+  "migrationOverview_suggestedMigrationPlan_point5": {
+    "text": "בדוק את היישום שהועבר."
+  },
+  "migrationOverview_suggestedMigrationPlan_point6": {
+    "text": "פרוס את היישום שהועבר לייצור."
+  },
+  "migrationOverview_technicalResources_heading": {
+    "text": "משאבים טכניים של שירות המיקום של אמזון"
+  },
+  "migrationOverview_technicalResources_resource1": {
+    "text": "<0>מדריך למפתחים</0>"
+  },
+  "migrationOverview_technicalResources_resource2": {
+    "text": "<0>הפניה לממשק API</0>"
+  },
+  "migrationOverview_technicalResources_resource3": {
+    "text": "<0>הפניה ל- CLI</0>"
+  },
+  "migrationOverview_technicalResources_resource4": {
+    "text": "<0>דוגמאות אפליקציות</0>"
+  },
+  "migrationOverview_migrationSupport_desc": {
+    "text": "מפתחים יכולים למצוא מידע מפורט על העברה במדריכים הבאים:"
+  },
+  "migrationOverview_footnotes_point1": {
+    "text": "מיקום אמזון מספק מידע על אזור זמן אם הלקוח בוחר HERE כספק הנתונים"
+  },
+  "explore-working-sample": {
+    "text": "חקור מדגם עבודה <0>כאן</0>"
+  },
+  "volume_discounts_available": {
+    "text": "הנחות נפח זמינות. אנא צרו <0>קשר עם המכירות</0>."
+  },
+  "places_search": {
+    "text": "חיפוש מקומות"
+  },
+  "webSdkExample_Android_description2": {
+    "text": "גלה את התכונות של מיקום אמזון על ידי חקירת אפליקציית Android הפונקציונלית המלאה שלנו <0>כאן</0>."
+  },
+  "response_field_mapping_disclaimer": {
+    "text": "הטבלה שלהלן משווה את שדות התגובה הנפוצים ממפות Google ושירות המיקום של אמזון בעת ביצוע פעולה זו."
+  },
+  "web_service_footnote_1": {
+    "text": "מפות Google משתמשות בקו רוחב, ברצף קו אורך ואילו שירות המיקום של אמזון משתמש באורך, ברצף קו רוחב."
+  },
+  "Categories": {
+    "text": "קטגוריות"
+  },
+  "accuracy_filter": {
+    "text": "מסנן דיוק (מטר)"
+  },
+  "distance_filter": {
+    "text": "מסנן מרחק (מטר)"
+  },
+  "eval_req_with_filter_applied": {
+    "text": "בקשות מוערכות עם מסנן שהוחל"
+  },
+  "avg_device_speed_meters_per_min": {
+    "text": "מהירות מכשיר ממוצעת (מטר/דקה)"
+  },
   "error_handler__failed_fetch_tokens": {
     "text": "לא הצליח לאחזר אסימונים"
   },
   "error_handler__failed_refresh_tokens": {
     "text": "רענון האסימונים נכשל"
+  },
+  "migrationSDK_title": {
+    "text": "SDK להעברת מיקום של אמזון (אופציונלי)"
+  },
+  "migrationSDK_description": {
+    "text": "ה- SDK של העברת מיקום של אמזון מספק גשר המאפשר לך להעביר יישומים קיימים ממפות Google למיקום אמזון. SDK Migration מספק אפשרות ליישום שלך שנבנה באמצעות SDK של מפות Google עבור JavaScript להשתמש בשירות המיקום של אמזון ללא צורך לשכתב אף אחד מהיישומים או ההיגיון העסקי אם Amazon Location תומך ביכולות בהן נעשה שימוש. SDK ההעברה מפנה מחדש את כל שיחות ה- API למיקום אמזון במקום למפות Google. אם ברצונך לנסות את SDK ההעברה ביישום הקיים שלך לפני תחילת ההעברה המלאה שלך, עיין ב- <0>SDK Migration של Amazon ב- GitHub</0>."
+  },
+  "amazon_location_service": {
+    "text": "Amazon Location Service"
   },
   "geofences_and_trackers": {
     "text": "גיאופנסים ועוקבים"
@@ -3797,6 +6176,342 @@
   "new_developer_resources_desc": {
     "text": "מדריכים ופורומים"
   },
+  "demo_site": {
+    "text": "אתר הדגמה"
+  },
+  "demo_web": {
+    "text": "הדגמה באינטרנט"
+  },
+  "demo_android": {
+    "text": "הדגמה אנדרואיד"
+  },
+  "migration_overview": {
+    "text": "סקירת הגירה"
+  },
+  "version_1": {
+    "text": "ממשקי API מקוריים"
+  },
+  "version_2": {
+    "text": "ממשקי API משופרים חדשים"
+  },
+  "snapping_to_roads": {
+    "text": "נצמד לכבישים"
+  },
+  "codeSnippets_places_search_point2_v2": {
+    "text": "Amazon Location Service מספק לקוח GeoPlaces, המכיל ממשקי API עבור <1>autocomplete</1>, <1>geocode</1>, <1>getPlace</1>, <1>reverseGeocode</1>, <1 >searchNearby</1>, <1>searchText</1> ו-<1>suggest</1>. <0>למידע נוסף</0>"
+  },
+  "codeSnippets_routing_services_point2_v2": {
+    "text": "מיקום אמזון מספק <1>CalculateRoutes ומשת</1> מש ביכולת העיבוד של MapLibre כדי להציג נתונים אלה במפה."
+  },
+  "codeSnippets_snapping_to_roads_about": {
+    "text": "פונקציונליות הצמדה לכבישים תואמת עקבות GPS לכביש הקרוב ביותר על ידי החזרת מערך נתונים דומה, כאשר הנקודות נקלעו לכבישים הסבירים ביותר שהרכב נסע בהם."
+  },
+  "codeSnippets_snapping_to_roads_point1": {
+    "text": "Google Maps מספקת נקודת קצה <1>snapToRoads</1> מממשק ה-API של Roads."
+  },
+  "codeSnippets_snapping_to_roads_point2": {
+    "text": "שירות המיקום של אמזון מספק נקודת קצה של <1>SnapToRoads מממשק ה- API</1> של נתיבים."
+  },
+  "codeSnippets_route_matrix_point2_v2": {
+    "text": "שירות המיקום של אמזון משתמש ב- <1>CalculateRouteMatrix</1> כדי לחשב מטריצת מסלול."
+  },
+  "codeSnippets_load_a_map_Android_point2_v2": {
+    "text": "עם שירות המיקום של אמזון, Map <1>View של ספריית Map</1> Libre הוא הממשק העיקרי לאתחול והצגת מפות בתוך אפליקציה. אנו יכולים לטעון מפה בקלות על ידי מתן כתובת האתר של שירות המפה, כפי שמוצג בדוגמה למטה."
+  },
+  "amazon_load_a_map_step1_v2": {
+    "text": "<0>שלב 1: פתח</0> את <1>build.gradle.kts ברמת המודול והוסף את הנתונים למטה</1>"
+  },
+  "amazon_load_a_map_step2_v2": {
+    "text": "<0>שלב 2</0>: כדי להגדיר את היישום שלך עם סגנון המפה שלך ואזור AWS, הזן אותו בתוך <1>configuration.xml</1> כמו זה למטה"
+  },
+  "amazon_load_a_map_step5_v2": {
+    "text": "<0>שלב 5: הוסף</0> את הקוד שלהלן ל- <1>Map</1> Activity.kt שלך"
+  },
+  "amazon_display_an_info_window_step3_v2": {
+    "text": "<0>שלב 3</0>: כלול את הקוד הבא ל- <1>strings.xml</1>."
+  },
+  "amazon_display_an_info_window_step4_v2": {
+    "text": "<0>שלב 4: כ</0> לול את הקוד הבא ל- <1>InfoPop</1> upActivity.kt."
+  },
+  "amazon_adding_a_circle_step1_v2": {
+    "text": "<0>שלב 1: הוסף</0> את השורה הבאה בתוך תלות ב- <1>buil</1> <1>d.grad</1> le.kts."
+  },
+  "codeSnippets_calculating_a_route_android_point2_v2": {
+    "text": "שירות המיקום של אמזון מציע את שיטת <1>calculateRoutes</1> באמצעות <1>GeoRoutesClient</1> שלו, הזמין בתוך <1>aws.sdk.kotlin:georoutes</1> SDK. מפתח ה-API משמש בתוך <1>CalculateRoutesRequest</1> כפי שמוצג בדוגמה למטה. לאחר מכן, הוא ממנף את יכולות העיבוד של MapLibre כדי להציג את נתוני המסלול הללו על המפה."
+  },
+  "amazon_calculating_a_route_step3_v2": {
+    "text": "<0>שלב 3: הוסף ת</0> <1>מונת סמן בשם <1>ic_marker_red בתוך ספריית /res/שרטוט והכנס את הקוד של</1> <1>הלן לתוך GeoRoutesCalculateRouteActivity.</1> kt.</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2_v2": {
+    "text": "<1>שירות המיקום של אמזון מציע את שיטת <1>CalculateRouteMatrix באמצעות GeoRoutesClient הזמין</1> בתוך SDK aws.sdk.kot <1>lin:georoutes</1>.</1> מפתח ה- API משמש בתוך <1>CalculateRouteMatrixRequest כפי שמוצג בדוגמה שלהלן</1>."
+  },
+  "amazon_calculating_a_route_matrix_step3_v2": {
+    "text": "<0>שלב 3</0>: הוסף את הקוד שלהלן בתוך <1>strings.xml</1>."
+  },
+  "amazon_calculating_a_route_matrix_step4_v2": {
+    "text": "<0>שלב 4: הוסף ת</0> <1>מונת סמן בשם <1>ic_marker_red בתוך ספריית /res/שרטוט והכנס את הקוד של</1> <1>הלן לתוך GeoRouteMatrixServiceActivity.</1> kt.</1>"
+  },
+  "codeSnippets_snapping_to_roads_android_point1": {
+    "text": "מפות Google מספקות נקודת קצה של <1>snapToRoads מממשק ה-</1> API של כבישים."
+  },
+  "codeSnippets_snapping_to_roads_android_point2": {
+    "text": "<1>שירות המיקום של אמזון מציע את שיטת <1>SnapToRoads באמצעות GeoRoutesClient הז</1> <1>מין בתוך SDK aws.sdk.kotlin:georout</1> es.</1> מפתח ה- API משמש בתוך <1>SnapToRoadsRequest כפי שמוצג בדוגמה של</1> הלן."
+  },
+  "google_snapping_to_roads_step1": {
+    "text": "<0>שלב 1: הוסף</0> את השורה הבאה בתוך תלות ב- <1>buil</1> <1>d.grad</1> le.kts."
+  },
+  "google_snapping_to_roads_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן בתוך <1>activity_maps.xml</1>."
+  },
+  "google_snapping_to_roads_step3": {
+    "text": "<0>שלב 3: הוסף</0> <1>תמונות סמן בשם <1>ic_marker_red ו- ic_marker_blue בתוך ספריית /res/שרטו</1> <1>ט והוסף את הקוד שלהלן ב- SnapToRo</1> <1>adActivity.kt</1>.</1>"
+  },
+  "amazon_snapping_to_roads_step1": {
+    "text": "<0>שלב 1: הוסף</0> את השורה הבאה בתוך תלות ב- <1>buil</1> <1>d.grad</1> le.kts."
+  },
+  "amazon_snapping_to_roads_step2": {
+    "text": "<0>שלב 2</0>: הוסף את הקוד שלהלן בתוך <1>activity_snap_to_road.xml</1>."
+  },
+  "amazon_snapping_to_roads_step3": {
+    "text": "<0>שלב 3</0>: כלול את הקוד הבא ל- <1>layout_text.xml</1>."
+  },
+  "amazon_snapping_to_roads_step4": {
+    "text": "<0>שלב 4</0>: הוסף תמונות סמן בשם <1>ic_marker_red</1> ו-<1>ic_marker_blue</1> בתוך ספריית <1>/res/drawable</1> והכנס את הקוד שלהלן לתוך <1>GeoRoutesSnapToRoadActivity.kt</1>."
+  },
+  "codeSnippets_searching_for_places_android_point2_v2": {
+    "text": "שירות המיקום של אמזון מציע את שיטת <1>suggest</1> דרך <1>GeoPlacesClient</1> שלו הזמינה בתוך <1>aws.sdk.kotlin:geoplaces</1> SDK. מפתח ה-API משמש בתוך <1>SuggestRequest</1> כפי שמוצג בדוגמה למטה. בנוסף, שירות המיקום של אמזון מציע ממשקי API אחרים של מקומות כגון <1>getPlace</1>, <1>autocomplete</1>, <1>geocode</1>, <1>reverseGeocode</1>, <1> searchNearby</1>, <1>searchText</1> ו-<1>suggest</1>."
+  },
+  "providing_suggestions": {
+    "text": "מתן הצעות"
+  },
+  "providing_autocomplete": {
+    "text": "מתן השלמה אוטומטית"
+  },
+  "calculating_route_matrices": {
+    "text": "חישוב מטריצות מסלול"
+  },
+  "amazon_location_auth_sdk_ios_heading": {
+    "text": "<0>SDK לאימות נייד של שירות המיקום של אמזון</0>"
+  },
+  "amazon_location_auth_sdk_ios_desc": {
+    "text": "כלי עזר אלה עוזרים לך לאמת בעת ביצוע שיחות API של שירות המיקום של אמזון מיישומי iOS שלהם. זה עוזר במיוחד בעת שימוש באמזון קוגניטו כשיטת האימות."
+  },
+  "ios_swift_maplibre_package": {
+    "text": "כדי לעבד מפה, הוסף את חבילת MapLibre Native לפרויקט שלך."
+  },
+  "ios_swift_add_package_desc": {
+    "text": "בחר את הפרויקט שלך ונווט לכרטיסי <1>יה תלות חבילה</1> ולחץ על סמל <1>+</1>."
+  },
+  "ios_swift_maplibre_package_url_desc": {
+    "text": "הזן את כתובת האתר של החבילה: <1>https://github.com/maplibre/maplibre-gl-native-distribution</1> ולחץ על כפתור <1>הוסף חבילה</1>."
+  },
+  "ios_swift_add_maplibre_package_to_target": {
+    "text": "בחר את הפרויקט שלך בתפריט <1>הנפתח של העמודה הוסף ליעד</1> ולחץ על כפתור הוסף <1>חבילה</1> עם שורה <1>Map</1> Libre."
+  },
+  "ios_swift_aws_geo_places_routes": {
+    "text": "כדי להשתמש בממשקי ה- API של AWSGeoPlaces ו- AWSGeoRoutes, הוסף את חבילת AWS SDK Swift לפרויקט שלך."
+  },
+  "ios_swift_aws_geo_places_routes_url_desc": {
+    "text": "הזן את כתובת האתר של החבילה: <1>https://github.com/awslabs/aws-sdk-swift</1> ולחץ על כפתור <1>הוסף חבילה</1>."
+  },
+  "ios_swift_add_aws_geo_places_routes_package_to_target": {
+    "text": "<1>בחר את הפרויקט שלך בתפריט הנ <1>פתח של העמודה הוסף ליעד</1> ולחץ על כפתור הוסף ח <1>בילה</1> עם שורות <1>AWSGeoPlaces או AWSGeoRoutes</1>.</1>"
+  },
+  "ios_swift_amazon_location_ios_auth_sdk": {
+    "text": "על מנת לאמת בקשות מפתח API, הוסף את חבילת AmazonLocationIOSAuthSDK לפרויקט שלך."
+  },
+  "ios_swift_amazon_location_ios_auth_sdk_url_desc": {
+    "text": "הזן את כתובת האתר של החבילה: <1>https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios</1> ולחץ על כפתור <1>הוסף חבילה</1>."
+  },
+  "ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+    "text": "בחר את הפרויקט שלך בתפריט הנפתח של העמודה <1>Add to Target</1> ולחץ על הלחצן <1>Add Package</1> עם שורות <1>AmazonLocationIOSAuthSDK</1>."
+  },
+  "ios_swift_turf": {
+    "text": "לדוגמא 'הצגת מעגל', יהיה עליך להוסיף את חבילת Turf Swift לפרויקט שלך."
+  },
+  "ios_swift_turf_url_desc": {
+    "text": "הזן את כתובת האתר של החבילה: <1>https://github.com/mapbox/turf-swift</1> ולחץ על כפתור <1>הוסף חבילה</1>."
+  },
+  "ios_swift_add_turf_package_to_target": {
+    "text": "בחר את הפרויקט שלך בתפריט <1>הנפתח של העמודה הוסף ליעד</1> ולחץ על כפתור <1>הוסף חבילה</1> עם שורות טורף<1>.</1>"
+  },
+  "codeSnippets_snapping_to_roads_ios_about": {
+    "text": "פונקציונליות הצמדה לכבישים תואמת עקבות GPS לכביש הקרוב ביותר על ידי החזרת מערך נתונים דומה, כאשר הנקודות נקלעו לכבישים הסבירים ביותר שהרכב נסע בהם."
+  },
+  "codeSnippets_snapping_to_roads_ios_point1": {
+    "text": "מפות Google מספקות נקודת קצה של <1>snapToRoads מממשק ה-</1> API של כבישים."
+  },
+  "codeSnippets_snapping_to_roads_ios_point2": {
+    "text": "<1>שירות המיקום של אמזון מספק שירות <1>SnapToRoads מממשק ה- API של AW</1> SGeoRoutes.</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii_iii_v2": {
+    "text": "משאבים ופעולות: פעולות שאושרו על ידי מפתח זה. עליך לציין פעולות עבור המשאבים המתאימים."
+  },
+  "suggest_places": {
+    "text": "הצע מקומות"
+  },
+  "get_static_map": {
+    "text": "קבל מפה סטטית"
+  },
+  "optimizing_waypoints": {
+    "text": "אופטימיזציה של נקודות דרך"
+  },
+  "codeSnippets_geocoding_withAmazon_description_v2": {
+    "text": "בשירות המיקום של אמזון, התכונה הדומה לקידוד הגיאוגרפי של מפות Google היא שירות <0>Geocode</0> באמצעות בקשת HTTP POST. שירות זה מחפש מקומות באמצעות טקסט חופשי (כמו כתובת) ומחזיר קואורדינטות, כתובות ומידע משלים אחר על מקומות המועמדים. בקשה פשוטה מכילה את הפרמטר הנדרש הבא:"
+  },
+  "codeSnippets_geocoding_withAmazon_description_1_v2": {
+    "text": "QueryText — כתובת, שם, עיר או אזור להמרה לקבוצת קואורדינטות. לדוגמה, המחרוזת 'כל עייר'."
+  },
+  "codeSnippets_geocoding_withAmazon_request_description_v2": {
+    "text": "בבקשה זו, השדה <1>QueryText שווה</1> ערך לפרמטר הקלט במפות Google, המציין את הכתובת שיש לקודד גיאוגרפי. <1>הש <1>דות BiasPosi</1> tion ו- <1>Filter</1> Countries משמשים להטיה של תוצאות החיפוש לאזור ספציפי, בדומה לפרמטרים של מיקומים <1>ולמדינה במפות</1> Google.</1> פרמטר <1>המפתח</1> הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות הקידוד הגיאוגרפי שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_v2": {
+    "text": "בשירות המיקום של אמזון, שירות <0>ReverseGeocode משמש</0> לקידוד גיאוגרפי הפוך באמצעות בקשת HTTP POST. ממשק API זה משתמש בקואורדינטות כדי לאחזר כתובות ומיקום מידע. בקשה פשוטה מכילה את הפרמטר הנדרש הבא:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1_v2": {
+    "text": "QueryPosition — קבוצה של קואורדינטות שברצונך להמיר לכתובת, נקודת עניין או מיקום כללי. מוגדר באמצעות הפורמט <0>[קו אורך, קו רוחב]</0>."
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description_v2": {
+    "text": "בבקשה זו, השדה <1>QueryPosition שווה</1> ערך לפרמטר <1>המיקום</1> במפות Google, ומציין את הקואורדינטות הגיאוגרפיות שיש לקודד גיאוגרפי הפוך. השדה <1>MaxResults</1> מציין את המספר המרבי של תוצאות להחזרה. השדה <1>שפה</1> מציין את השפה שבה יש להחזיר את התוצאות, בדומה לפרמטר <1>השפה</1> במפות Google. פרמטר <1>המפתח</1> הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות הקידוד הגיאוגרפי ההפוך שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_text_searching_withAmazon_description_v2": {
+    "text": "בקשת חיפוש הטקסט של מיקום אמזון מתבצעת באמצעות שירות <1>SearchText</1> באמצעות בקשת HTTP POST. גוף הבקשה מכיל את השדה <1>QueryText</1> עבור המיקום שיש לחפש, <1>BiasPosition כדי לה</1> טות את החיפוש לכיוון אזור גיאוגרפי מסוים, ו- <1>Language כדי</1> לציין את שפת החיפוש. למידע מקיף יותר בנוגע לשירות חיפוש הטקסט שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_nearby_searching_withAmazon_description_v2": {
+    "text": "בשירות המיקום של אמזון, שירות <0>Search</0> Nearby משמש לחיפוש בקרבת מקום באמצעות בקשת HTTP POST, שירות זה מחפש מקומות סביב מיקום מוגדר. בקשה פשוטה מכילה את הפרמטר הנדרש הבא:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2_v2": {
+    "text": "QueryPosition — קבוצה של קואורדינטות שברצונך להמיר לכתובת, נקודת עניין או מיקום כללי. מוגדר באמצעות הפורמט <0>[קו אורך, קו רוחב]</0>."
+  },
+  "codeSnippets_nearby_searching_request_description_v2": {
+    "text": "בבקשה זו, השדה <1>QueryPosi</1> tion שווה לפרמטר <1>המיקום</1> במפות Google. השדה <1>MaxResults</1> מציין את המספר המרבי של תוצאות להחזרה. השדה <1>שפה</1> מציין את השפה שבה יש להחזיר את התוצאות, בדומה לפרמטר <1>השפה</1> במפות Google. פרמטר <1>המפתח</1> הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות חיפוש הטקסט שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_v2": {
+    "text": "בשירות המיקום של אמזון, התכונה הדומה להשלמה האוטומטית של מפות Google היא שירות הה <0>שלמה האוטומטית</0>, הנקרא בשיטת POST HTTP. שירות זה מספק פונקציונליות השלמה אוטומטית לחיפושים גיאוגרפיים מבוססי טקסט, ומחזיר תחזיות מקום בתגובה לשאילתות חיפוש של משתמשים. בקשה פשוטה מכילה את הפרמטר הנדרש הבא:"
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_point1_v2": {
+    "text": "QueryText - שאילתת הטקסט בטופס החופשי המרכיבה את הכתובת החלקית שיש להשלים."
+  },
+  "codeSnippets_autocomplete_withAmazon_description2_v2": {
+    "text": "בבקשה זו, השדה <1>QueryText</1> שווה ערך לפרמטר הק <1>לט במ</1> פות Google, המציין את מחרוזת הטקסט עליה לחפש. השדה <1>MaxResults</1> מציין את המספר המרבי של תוצאות להחזרה. פרמטר <1>המפתח</1> הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות ההשלמה האוטומטית שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_suggest_places_desc": {
+    "text": "פעולה זו מוצאת כתובות מוצעות או מועמדים למקומות בהתבסס על שאילתה לא שלמה או שגויה באיות, שממנה תבחר את השאילתה הטובה ביותר."
+  },
+  "codeSnippets_suggest_places_googleDesc": {
+    "text": "<1>במפות Google, נקודת הקצה של <1>places:השלמה אוטומטית של ממשק ה</1> - API של Places משמשת למטרה זו יחד עם הפרמטר <1>include</1> QueryPredictions שהוגדר כ- true.</1>"
+  },
+  "codeSnippets_suggest_places_amazonDesc": {
+    "text": "בשירות המיקום של אמזון<1>,</1> שירות ההצעה משמש באמצעות בקשת HTTP POST."
+  },
+  "codeSnippets_suggest_places_amazonPostDesc": {
+    "text": "למידע מקיף יותר בנוגע לשירות זה, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "predicted_text": {
+    "text": "טקסט חזוי"
+  },
+  "codeSnippets_get-place-details_description_v2": {
+    "text": "בהינתן מזהה מקום ייחודי, אתה יכול לאחזר מידע מורחב על המיקום הספציפי הזה."
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description_v2": {
+    "text": "במפות Google, נקודת הקצה של מי <1>קומות/place_id של מ</1> משק ה- API לפרטי מקום משמשת למטרה זו."
+  },
+  "codeSnippets_get-place-details_withAmazon_description_v2": {
+    "text": "בשירות המיקום של אמזון, שירות <1>GetPlace</1> משמש לאחזור פרטי מקום באמצעות בקשת HTTP GET."
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description_v2": {
+    "text": "בבקשה זו, <1>PlaceID</1> הוא המזהה הייחודי של המקום שאמורים לאחזר את פרטיו, שווה ערך לפרמטר <1>place_id במפות</1> גוגל. פרמטר <1>המפתח</1> הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות פרטי המקום שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "opening_hours": {
+    "text": "שעות פתיחה"
+  },
+  "phone_number": {
+    "text": "מספר טלפון"
+  },
+  "website": {
+    "text": "אתר אינטרנט"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description_v2": {
+    "text": "<1><1><1>בשירות המיקום של אמזון, נעשה שימוש בשירות <1>GetMapTile</1> באמצעות בקשת GET HTTP הכוללת את ערכת <1>Til</1> es שיכולה להיות <1>raster.satellite או vector.</1> <1>basemap</1>, רמת זום Z, קואורדינטות x ו- y קואורדינטות Y.</1></1></1>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result_v2": {
+    "text": "<1>התגובה לבקשה זו כוללת כותרות HTTP המציינות את מדיניות בקרת המטמון וסוג התוכן, ואחריהם נתוני אריח המפה המכונים blob המייצג אריח וקטור בפורמט <1>mvt</1> או אריח רסטר בפורמט png.</1> זה יכול לשמש כדי לעבד את אריח המפה ביישום מתאים."
+  },
+  "codeSnippets_get_static_map_desc": {
+    "text": "זה מאפשר לך להטמיע תמונת מפה בדף האינטרנט שלך מבלי לדרוש JavaScript או טעינת דף דינמית כלשהי."
+  },
+  "codeSnippets_get_static_map_googleDesc": {
+    "text": "במפות Google, נקודת הקצה של המ <1>פה הסטטית</1> של ממשק ה- API של מפות משמשת למטרה זו."
+  },
+  "codeSnippets_get_static_map_amazonDesc": {
+    "text": "בשירות המיקום של אמזון, התכונה הדומה למפה הסטטיסטית של <1>מפות גוגל היא</1> שירות <1>GetStaticMap</1> באמצעות בקשת GET HTTP."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_v2": {
+    "text": "בשירות המיקום של אמזון, השירות <1>CalculateRoutes</1> משמש לחישוב מסלולים באמצעות בקשת HTTP POST. בעת חישוב מסלול, ניתן לציין עד 100 נקודות עצירת ביניים בין מיקום המוצא והיעד באמצעות נקודות ציון. הפרמטרים הבאים נדרשים:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point1_v2": {
+    "text": "מקור - מיקום ההתחלה של המסלול."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point2_v2": {
+    "text": "יעד - מיקום הסיום של המסלול."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2": {
+    "text": "הפרמטרים הבאים הם אופציונליים:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2Points_1": {
+    "text": "LegGeometryFormat — בוחר מהו תבנית הגיאומטריה של רגל המסלול המוחזרת. יכול להיות FlexiblePolyLine או Simple, ברירת המחדל היא FlexiblePolyLine, שהוא תבנית גיאומטריה דחוסה המשמש להקטין את התגובות."
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4_v2": {
+    "text": "<0>מיקום המקור הוא <0>[-122.7565, 49.0021]</0> ומיקום היעד הוא [-122.3394, 47.6159].</0>"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription_v2": {
+    "text": "בבקשה זו, שדה <1>המקור</1> שווה לפרמטר המ <1>קור</1> במפות Google, המציין את נקודת ההתחלה לחישוב המסלול. השדה י <1>עד</1> שווה לפרמטר הי <1>עד במ</1> פות Google, המציין את נקודת הקצה. פרמטר <1>המפתח</1> הוא מפתח ה- API שלך. למידע מקיף יותר בנוגע לשירות הניתוב שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_optimizing_waypoints_desc": {
+    "text": "זה מאפשר לחשב את הסדר האופטימלי לנסיעה בין קבוצה של נקודות דרך כדי למזער את זמן הנסיעה או את המרחק שנסע במהלך הנסיעה בהתבסס על מגבלות רשת הכבישים ונתוני דפוס התנועה."
+  },
+  "codeSnippets_optimizing_waypoints_googleDesc": {
+    "text": "<1>במפות Google, נקודת הקצה <1>v2:computeRoutes של ממשק ה- API של Routes</1> משמשת למטרה זו יחד עם הפרמטר <1>OptimizeWaypointOrder</1> שהוגדר כ- true.</1>"
+  },
+  "codeSnippets_optimizing_waypoints_amazonDesc": {
+    "text": "בשירות המיקום של אמזון ניתן להשיג זאת באמצעות שירות <1>OptimizeWaypoints</1> באמצעות בקשת HTTP POST."
+  },
+  "codeSnippets_optimizing_waypoints_amazonPostDesc": {
+    "text": "למידע מקיף יותר בנוגע לשירות אופטימיזציה של נקודות ציון, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "optimized_waypoints": {
+    "text": "נקודות דרך מותאמות"
+  },
+  "codeSnippets_snapping_to_roads_desc": {
+    "text": "הצמדה לכבישים תואמת עקבות GPS לכביש הקרוב ביותר על ידי החזרת מערך נתונים דומה, כאשר הנקודות נקלעו לכבישים הסבירים ביותר שהרכב נסע בהם."
+  },
+  "codeSnippets_snapping_to_roads_googleDesc": {
+    "text": "במפות Google משתמשים בנקודת <1>הקצה snapToRoads</1> של ממשק ה- Roads API הדורשת פרמטר נ <1>תיב</1> שמקבל רשימה של זוגות קו רוחב <1>וא</1> ורך."
+  },
+  "codeSnippets_snapping_to_roads_amazonDesc": {
+    "text": "בשירות המיקום של אמזון, <1>שירות SnapToRoads</1> משמש באמצעות בקשת HTTP POST יחד עם <1>TracePoints</1> שהיא רשימה של נקודות מעקב שיש להצמיד לרשת הכבישים."
+  },
+  "codeSnippets_snapping_to_roads_amazonPostDesc": {
+    "text": "למידע מקיף יותר בנוגע לשירות הצמדה לכבישים שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "snapped_position": {
+    "text": "מיקום שנשבר"
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription_v2": {
+    "text": "בבקשה זו, המקורות <1>והי</1> <1>עדים הם מע</1> רכים של אובייקטים הכוללים עמדות. למידע מקיף יותר בנוגע לשירות תכנון המסלול שלנו, עיין בתיעוד המפורט המסופק <0>כאן</0>."
+  },
+  "codeSnippets_route-planning_withAmazon_description_v2": {
+    "text": "שירות המיקום של אמזון מספק פונקציונליות דומה עם שירות <1>CalculateRouteMatrix שלו</1>, הנקרא באמצעות בקשת HTTP POST. זה מאפשר למפתחים לחשב מרחקים וזמני נסיעה בין נקודות התחלה וסיום מרובות. התוצאות מכילות את כל השילובים של מקורות ויעדים. כל שורה תואמת את המסלול מהמקור לערך ביעדים."
+  },
+  "codeSnippets_route-planning_withAmazon_description2_v2": {
+    "text": "בקשה מינימלית מכילה את השדות הנדרשים הבאים:"
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point1_v2": {
+    "text": "מקורות - קבוצת עמדות ההתחלה שעבורן יש לחשב את המסלולים."
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point2_v2": {
+    "text": "יעדים — קבוצת מיקומי הסיום שעבורם יש לחשב את המסלולים."
+  },
   "error_handler__failed_create_places_client": {
     "text": "יצירת לקוח מקומות נכשלה"
   },
@@ -3806,6 +6521,39 @@
   "multiple_region_disclaimer": {
     "text": "כתב ויתור: כאשר חשבון AWS של המשתמש מחובר, שינוי האזור ישפיע רק על מפות, מקומות ונתיבים."
   },
+  "samples__js-quick-start-using-api-keys__title": {
+    "text": "התחלה מהירה באמצעות מפתחות API"
+  },
+  "samples__js-quick-start-using-api-keys__bodyText": {
+    "text": "אפליקציה לדוגמה זו מציגה מפה עם פונקציונליות קוד גיאוגרפי הפוך באמצעות מפתחות API."
+  },
+  "samples__js-quick-start-using-api-keys__configure": {
+    "text": "פתח את `main.js והזן את מפתח ה- API ואת האזור שבו נוצרו המשאבים."
+  },
+  "samples__js-quick-start-using-api-keys__run": {
+    "text": "פתח את quickstart.html בדפדפן שלך."
+  },
+  "samples__js-quick-start-using-api-keys__cleanUp": {
+    "text": "אם ברצונך להסיר את כל המשאבים שנוצרו בהדרכה זו, מחק את ערימת CloudFormation הנקראת `js-quick-start-using-api-keys`."
+  },
+  "samples__react-tracking-data-streaming__title": {
+    "text": "עוקבים והזרמת נתונים באמצעות React"
+  },
+  "samples__react-tracking-data-streaming__bodyText": {
+    "text": "דוגמה זו מדגימה כיצד להזרים נתוני עוקבים במפת אינטרנט באמצעות React ו- react-map-gl. כדי ליצור את המשאבים הדרושים נווט אל repo github מלמעלה והפעל את התבניות תחת `src/cfn_template` כדי ליצור משאבים הנדרשים עבור דוגמה זו."
+  },
+  "samples__react-tracking-data-streaming__tabsTitle": {
+    "text": "React/עוקבים והזרמת נתונים"
+  },
+  "samples__react-tracking-data-streaming__configure": {
+    "text": "פתח את `src/configuration.js` והזן את IdentityPoolId, מפתח ה- API ואת האזור שבו נוצרו המשאבים."
+  },
+  "samples__react-tracking-data-streaming__run": {
+    "text": "הפעל את `npm start` כדי להפעיל שרת אינטרנט מקומי ב- [`localhost: 3000`] (http://localhost:3000/) עם זה\nדוגמה ופתח אותה בדפדפן."
+  },
+  "samples__react-tracking-data-streaming__cleanUp": {
+    "text": "כדי להסיר את כל המשאבים שנוצרו בהדרכה זו, מחק את ערימת CloudFormation בשם\n`מעקב אחר ריאקטים-הזרמת נתונים'."
+  },
   "documentation": {
     "text": "תיעוד"
   },
@@ -3814,6 +6562,12 @@
   },
   "description_demo": {
     "text": "אפליקציית הדגמה המציגה את היכולות של שירות המיקום של אמזון"
+  },
+  "banner_enhanced_apis_label": {
+    "text": "השקנו ממשקי API חדשים ומשופרים!"
+  },
+  "banner_enhanced_apis_action": {
+    "text": "מדריך למפתחים"
   },
   "no_political_view": {
     "text": "אין דעה פוליטית"
@@ -3866,6 +6620,9 @@
   "industry_overview": {
     "text": "סקירה כללית של התעשייה"
   },
+  "sign_in_to_the_console": {
+    "text": "היכנס לקונסולה"
+  },
   "political_views": {
     "text": "דעות פוליטיות"
   },
@@ -3884,20 +6641,29 @@
   "greece_political_view_desc": {
     "text": "ההשקפה הפוליטית של יוון"
   },
+  "cars": {
+    "text": "מכונית כמצב נסיעה"
+  },
+  "trucks": {
+    "text": "משאית כמצב נסיעה"
+  },
+  "pedestrians": {
+    "text": "הולכי רגל כמצב נסיעה"
+  },
+  "scooters": {
+    "text": "קטנוע כמצב נסיעה"
+  },
   "avoid_dirtroads": {
     "text": "הימנע מכבישי עפר"
   },
   "avoid_uturns": {
-    "text": "הימנע מ- U-turn"
+    "text": "הימנע מ- uTurns"
   },
   "avoid_tunnels": {
     "text": "הימנע ממנהרות"
   },
   "avoid": {
     "text": "הימנע"
-  },
-  "navigate": {
-    "text": "לנווט"
   },
   "arrive_by": {
     "text": "הגעה עד"
@@ -3908,11 +6674,8 @@
   "leave_now": {
     "text": "עזוב עכשיו"
   },
-  "time_in_past.error": {
-    "text": "הזמן שנבחר לא יכול להיות בעבר"
-  },
-  "date_in_past.error": {
-    "text": "התאריך הנבחר לא יכול להיות בעבר"
+  "navigate": {
+    "text": "לנווט"
   },
   "leave_at": {
     "text": "עזוב ב"

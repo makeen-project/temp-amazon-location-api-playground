@@ -3,7 +3,7 @@ import { RenderResult, act, render, screen } from "@testing-library/react";
 import i18n from "locales/i18n";
 import { I18nextProvider } from "react-i18next";
 
-import CheckboxGroup from "./CheckboxGroup";
+import CheckboxGroup from ".";
 
 describe("<CheckboxGroup/>", () => {
 	let onChange = jest.fn();

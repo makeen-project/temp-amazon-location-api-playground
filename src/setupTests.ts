@@ -43,15 +43,8 @@ jest.mock("@api-playground/core/constants/appConfig", () => ({
 		GOOGLE_PLAY_STORE_LINK: "",
 		COUNTRY_EVALUATION_URL: "",
 		APP_VERSION: "",
-		NL_BASE_URL: "",
-		NL_API_KEY: "",
-		MIGRATE_FROM_GOOGLE_MAPS_PAGE: true,
-		MIGRATE_A_WEB_APP_PAGE: true,
-		MIGRATE_AN_ANDROID_APP_PAGE: true,
-		MIGRATE_AN_IOS_APP_PAGE: true,
-		MIGRATE_A_WEB_SERVICE_PAGE: true,
-		PRICING_PAGE: true,
-		SHOW_NEW_NAVIGATION: true
+		API_PLAYGROUND_URL: "",
+		API_PLAYGROUND_LIST_FILENAME: ""
 	},
 	PERSIST_STORAGE_KEYS: {
 		LOCAL_STORAGE_PREFIX: "amazon-location_",
@@ -368,15 +361,6 @@ jest.mock("@api-playground/core/constants/appConfig", () => ({
 	}
 }));
 
-jest.mock("@api-playground/utils/analyticsUtils", () => ({
-	record: () => {},
-	initiateAnalytics: () => {}
-}));
-
-jest.mock("@api-playground/utils/countryUtil", () => ({
-	getCountryCode: () => "PK"
-}));
-
 jest.mock("react-map-gl/maplibre", () => ({
 	Marker: jest.fn().mockImplementation(() => null),
 	Source: jest.fn().mockImplementation(() => null),
@@ -386,16 +370,3 @@ jest.mock("react-map-gl/maplibre", () => ({
 	useMap: () => ({ current: {} }),
 	useControl: jest.fn()
 }));
-
-jest.mock("@api-playground/hooks/useDeviceMediaQuery", () => {
-	return {
-		__esModule: true,
-		default: () => ({
-			isDesktop: true,
-			isMobile: false,
-			isTablet: false,
-			isMax556: false,
-			isMax766: false
-		})
-	};
-});

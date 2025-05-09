@@ -1,0 +1,92 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "<0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0> :פעולות מפות"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "<0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0> :פעולות מקומות"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "<0>CalculateRoute</0>, <0>CalculateRouteMatrix</0> :פעולות מסלולים"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "מפות Google מספקת <1>DirectionsService</1> ו-<1>DirectionsRenderer</1> או <1>ComputeRoutes</1> ו<1>Polyline</1> לחישוב ולהציג נתוני מסלול על המפה."
+	},
+	"codeSnippets_routing_services_ios_point1": {
+		"text": "מפות Google מספקת <1>directions</1> או <1>computeRoutes</1> כדי לחשב ולהציג נתוני מסלול על המפה."
+	},
+	"codeSnippets_routing_services_ios_point2": {
+		"text": "לעומת זאת, שירות המיקום של אמזון ממנף את ספריית <1>aws-sdk-swift</1> עבור שירות הניתוב שלה. מפתחים יכולים להשתמש בפונקציה <1>AuthHelper.authenticateWithAPIKey(apiKey: apiKey)</1> כדי לקבל את האובייקט <1>AWSAPICredentialsProvider</1>, ולאחר מכן ליצור אובייקט <1>LocationClient(AWSAPICredentialsProvider)</1> כדי ליצור אובייקט <1>CalculateRouteInput</1>. אובייקט זה, המכיל את הפרמטרים הדרושים כגון מוצא, יעד ומצב נסיעה, מועבר לאחר מכן לשיטת <1>locationClient.calculateRoute</1> כדי לחשב את המסלול. גישה זו מספקת רמה גבוהה של גמישות, ומאפשרת למפתחים להתאים אישית את שירות הניתוב כך שיתאים לצרכים הספציפיים שלהם."
+	},
+	"codeSnippets_calculating_a_route_android_point1": {
+		"text": "מפות Google מספקת <1>directions</1> או <1>computeRoutes</1> כדי לחשב ולהציג נתוני מסלול על המפה."
+	},
+	"codeSnippets_route_matrix_point1": {
+		"text": "מפות Google משתמשת ב-<1>DistanceMatrixService</1> או <1>ComputeRouteMatrix</1> כדי לחשב מטריצת מסלול."
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point1": {
+		"text": "מפות Google מספקת <1>distanceMatrix</1> או <1>computeRouteMatrix</1> לחישוב מטריצת מסלול."
+	},
+	"codeSnippets_calculating_a_route_matrix_ios_point1": {
+		"text": "מפות Google מספקת <1>distanceMatrix</1> או <1>computeRouteMatrix</1> לחישוב מטריצת מסלול."
+	},
+	"amazon_searching_for_places_step3": {
+		"text": "<0>שלב 3</0>: כלול את הקוד הבא ל-<1>GeoPlaceSearchTextActivity.kt</1>."
+	},
+	"codeSnippets_places_search_point2_v2": {
+		"text": "Amazon Location Service מספק לקוח GeoPlaces, המכיל ממשקי API עבור <1>autocomplete</1>, <1>geocode</1>, <1>getPlace</1>, <1>reverseGeocode</1>, <1 >searchNearby</1>, <1>searchText</1> ו-<1>suggest</1>. <0>למידע נוסף</0>"
+	},
+	"codeSnippets_snapping_to_roads_point1": {
+		"text": "Google Maps מספקת נקודת קצה <1>snapToRoads</1> מממשק ה-API של Roads."
+	},
+	"codeSnippets_snapping_to_roads_point2": {
+		"text": "שירות המיקום של אמזון מספק נקודת קצה של <1>SnapToRoads מממשק ה- API</1> של נתיבים."
+	},
+	"codeSnippets_calculating_a_route_android_point2_v2": {
+		"text": "שירות המיקום של אמזון מציע את שיטת <1>calculateRoutes</1> באמצעות <1>GeoRoutesClient</1> שלו, הזמין בתוך <1>aws.sdk.kotlin:georoutes</1> SDK. מפתח ה-API משמש בתוך <1>CalculateRoutesRequest</1> כפי שמוצג בדוגמה למטה. לאחר מכן, הוא ממנף את יכולות העיבוד של MapLibre כדי להציג את נתוני המסלול הללו על המפה."
+	},
+	"amazon_calculating_a_route_step3_v2": {
+		"text": "<0>שלב 3: הוסף ת</0> <1>מונת סמן בשם <1>ic_marker_red בתוך ספריית /res/שרטוט והכנס את הקוד של</1> <1>הלן לתוך GeoRoutesCalculateRouteActivity.</1> kt.</1>"
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point2_v2": {
+		"text": "<1>שירות המיקום של אמזון מציע את שיטת <1>CalculateRouteMatrix באמצעות GeoRoutesClient הזמין</1> בתוך SDK aws.sdk.kot <1>lin:georoutes</1>.</1> מפתח ה- API משמש בתוך <1>CalculateRouteMatrixRequest כפי שמוצג בדוגמה שלהלן</1>."
+	},
+	"amazon_calculating_a_route_matrix_step4_v2": {
+		"text": "<0>שלב 4: הוסף ת</0> <1>מונת סמן בשם <1>ic_marker_red בתוך ספריית /res/שרטוט והכנס את הקוד של</1> <1>הלן לתוך GeoRouteMatrixServiceActivity.</1> kt.</1>"
+	},
+	"codeSnippets_snapping_to_roads_android_point1": {
+		"text": "מפות Google מספקות נקודת קצה של <1>snapToRoads מממשק ה-</1> API של כבישים."
+	},
+	"codeSnippets_snapping_to_roads_android_point2": {
+		"text": "<1>שירות המיקום של אמזון מציע את שיטת <1>SnapToRoads באמצעות GeoRoutesClient הז</1> <1>מין בתוך SDK aws.sdk.kotlin:georout</1> es.</1> מפתח ה- API משמש בתוך <1>SnapToRoadsRequest כפי שמוצג בדוגמה של</1> הלן."
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>שלב 4</0>: הוסף תמונות סמן בשם <1>ic_marker_red</1> ו-<1>ic_marker_blue</1> בתוך ספריית <1>/res/drawable</1> והכנס את הקוד שלהלן לתוך <1>GeoRoutesSnapToRoadActivity.kt</1>."
+	},
+	"codeSnippets_searching_for_places_android_point2_v2": {
+		"text": "שירות המיקום של אמזון מציע את שיטת <1>suggest</1> דרך <1>GeoPlacesClient</1> שלו הזמינה בתוך <1>aws.sdk.kotlin:geoplaces</1> SDK. מפתח ה-API משמש בתוך <1>SuggestRequest</1> כפי שמוצג בדוגמה למטה. בנוסף, שירות המיקום של אמזון מציע ממשקי API אחרים של מקומות כגון <1>getPlace</1>, <1>autocomplete</1>, <1>geocode</1>, <1>reverseGeocode</1>, <1> searchNearby</1>, <1>searchText</1> ו-<1>suggest</1>."
+	},
+	"ios_swift_amazon_location_ios_auth_sdk": {
+		"text": "על מנת לאמת בקשות מפתח API, הוסף את חבילת AmazonLocationIOSAuthSDK לפרויקט שלך."
+	},
+	"ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+		"text": "בחר את הפרויקט שלך בתפריט הנפתח של העמודה <1>Add to Target</1> ולחץ על הלחצן <1>Add Package</1> עם שורות <1>AmazonLocationIOSAuthSDK</1>."
+	},
+	"codeSnippets_snapping_to_roads_ios_point1": {
+		"text": "מפות Google מספקות נקודת קצה של <1>snapToRoads מממשק ה-</1> API של כבישים."
+	},
+	"codeSnippets_reverse_geocoding_withAmazon_description_v2": {
+		"text": "בשירות המיקום של אמזון, שירות <0>ReverseGeocode משמש</0> לקידוד גיאוגרפי הפוך באמצעות בקשת HTTP POST. ממשק API זה משתמש בקואורדינטות כדי לאחזר כתובות ומיקום מידע. בקשה פשוטה מכילה את הפרמטר הנדרש הבא:"
+	},
+	"codeSnippets_getting_map_tiles_request_step1_amazon_description_v2": {
+		"text": "<1><1><1>בשירות המיקום של אמזון, נעשה שימוש בשירות <1>GetMapTile</1> באמצעות בקשת GET HTTP הכוללת את ערכת <1>Til</1> es שיכולה להיות <1>raster.satellite או vector.</1> <1>basemap</1>, רמת זום Z, קואורדינטות x ו- y קואורדינטות Y.</1></1></1>"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>במפות Google, נקודת הקצה <1>v2:computeRoutes של ממשק ה- API של Routes</1> משמשת למטרה זו יחד עם הפרמטר <1>OptimizeWaypointOrder</1> שהוגדר כ- true.</1>"
+	},
+	"codeSnippets_optimizing_waypoints_amazonDesc": {
+		"text": "בשירות המיקום של אמזון ניתן להשיג זאת באמצעות שירות <1>OptimizeWaypoints</1> באמצעות בקשת HTTP POST."
+	},
+	"codeSnippets_snapping_to_roads_googleDesc": {
+		"text": "במפות Google משתמשים בנקודת <1>הקצה snapToRoads</1> של ממשק ה- Roads API הדורשת פרמטר נ <1>תיב</1> שמקבל רשימה של זוגות קו רוחב <1>וא</1> ורך."
+	}
+}

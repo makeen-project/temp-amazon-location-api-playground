@@ -1,0 +1,62 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "地圖動作: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "位置動作: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "路線動作: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"notableDifferences_subPoint1d": {
+		"text": "遵循 <0>GeoJSON 標準定義的</0> <1>[x, y]</1> 慣例。"
+	},
+	"codeSnippets_snapping_to_roads_googleDesc": {
+		"text": "在 Google 地圖中，<1>使用 Roads API 的 snapToRoads</1> 端點，該端點需要接受<1>緯度和經度對列表的<1>路徑</1>參數。</1>"
+	},
+	"codeSnippets_optimizing_waypoints_amazonDesc": {
+		"text": "在亞馬遜定位服務中，可以使用 HTTP POST 要求使用 <1>OptimizeWaypoints 服務來</1>完成此操作。"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>在 Google 地圖中，路線 API 的 <1>v2:computeRoutes</1> 端點將用於此目的，以及設定為 true 的 <1>optimizeWaypointOrder 參數。</1></1>"
+	},
+	"codeSnippets_calculating-a-route_withAmazon_amazonDesc2Points_1": {
+		"text": "LegGeometry格式 — 選擇傳回的路線段幾何格式應該是什麼。可以是「彈性聚合線」或「簡單」，預設為「彈性聚合線」，這是用於縮小回應的壓縮幾何格式。"
+	},
+	"codeSnippets_reverse_geocoding_withAmazon_description_v2": {
+		"text": "在亞馬遜定位服務中，<0>ReverseGeocode 服務用</0>於通過 HTTP POST 請求進行反向地理編碼。此 API 使用坐標來檢索地址和位置信息。簡單的請求包含下列必要參數："
+	},
+	"codeSnippets_snapping_to_roads_point1": {
+		"text": "谷歌地圖從道路 <1>API 提供了 snapToRoads</1> 端點。"
+	},
+	"codeSnippets_calculating_a_route_android_point2_v2": {
+		"text": "<1>亞馬遜定位服務通過 aws.sdk.kotlin<1>: 喬羅特斯開發套件中提供的 GeoRoutes</1> <1>客戶端提供計算機路</1>徑方法。</1>API 金鑰在計算機外部請<1>求中使用，如下面的</1>範例所示。隨後，它利用 MapLibre 的渲染功能在地圖上顯示此路線數據。"
+	},
+	"amazon_calculating_a_route_step3_v2": {
+		"text": "<0>步驟 3：在</0> <1><1>/res/可繪製目錄中添加一個名為 <1>ic_marker_red 的標記圖像，然後將以</1>下代碼插入 GeoRoutesCalculateRouteActivity.kt</1> 中。</1>"
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point2_v2": {
+		"text": "<1>亞馬遜定位服務通過 aws.sdk.kotlin<1>: 喬羅特斯開發套件中提供的 GeoRoutes</1> <1> 客戶端提供計算器外置矩陣方法</1>。</1>API 金鑰在計算器外部 Matri <1>xRequest 中使用，如下面的範例所示</1>。"
+	},
+	"amazon_calculating_a_route_matrix_step4_v2": {
+		"text": "<0>步驟 4：在</0> <1><1>/res/可繪製目錄中添加一個名為 <1>ic_marker_red 的標記圖像，然後將以</1>下代碼插入 GeoRouteMatrixServiceActivity.kt</1> 中。</1>"
+	},
+	"codeSnippets_snapping_to_roads_android_point1": {
+		"text": "谷歌地圖從道路 <1>API 提供了 snapToRoads</1> 端點。"
+	},
+	"codeSnippets_snapping_to_roads_android_point2": {
+		"text": "<1>亞馬遜定位服務通過 aws.sdk.kot <1>lin: 喬羅特斯開發套件中提供的 GeoRoutes <1> 客戶端提供 SnapToRo</1> ads</1> 方法。</1>API 金鑰在 <1>SnapToRoadsRequest 中使用，如下面的範例</1>所示。"
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>步驟 4：在</0> <1><1>/res/可繪製的目錄中添加名為 <1>ic_marker_red 和 ic_marker_blue 的標記</1>圖像，然<1>後將以下代碼插入 GeoRoutesSnapToRoadActivity.kt</1> 中。</1></1>"
+	},
+	"ios_swift_amazon_location_ios_auth_sdk": {
+		"text": "為了驗證 API 金鑰請求，請將 AmazonLocationIOSAuthSDK 套件添加到您的項目中。"
+	},
+	"ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+		"text": "在「添<1>加到目標」列的下拉菜單中選擇您的項目</1>，然後單擊帶有行 <1>AmazonLocationIOSAuthSDK</1> <1> 的添加包</1>按鈕。"
+	},
+	"codeSnippets_snapping_to_roads_ios_point1": {
+		"text": "谷歌地圖從道路 <1>API 提供了 snapToRoads</1> 端點。"
+	}
+}

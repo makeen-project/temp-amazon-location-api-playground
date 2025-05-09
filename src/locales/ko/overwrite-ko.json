@@ -1,0 +1,50 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "맵 액션: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "장소 액션: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "경로 작업: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "Google 지도는 지도에서 경로 데이터를 계산하고 표시하기 위해 <1>DirectionsService</1> 및 <1>DirectionsRenderer</1> 또는 <1>ComputeRoutes</1> 및 <1>Polyline</1>을 제공합니다."
+	},
+	"codeSnippets_routing_services_ios_point1": {
+		"text": "Google 지도는 지도에 경로 데이터를 계산하고 표시하기 위해 <1>directions</1> 또는 <1>computeRoutes</1>를 제공합니다."
+	},
+	"codeSnippets_calculating_a_route_android_point1": {
+		"text": "Google 지도는 지도에 경로 데이터를 계산하고 표시하기 위해 <1>directions</1> 또는 <1>computeRoutes</1>를 제공합니다."
+	},
+	"codeSnippets_snapping_to_roads_point2": {
+		"text": "아마존 <1>로케이션 서비스는 라우트 API에서 SnapToRoads</1> 엔드포인트를 제공합니다."
+	},
+	"codeSnippets_snapping_to_roads_android_point2": {
+		"text": "<1>아마존 로케이션 서비스는 <1>aws.sdk.kotlin:georoutes SDK 내에서 사용할 수 있는 GeoRoutesClient를</1> <1>통해 SnapToRoads</1> 메서드를 제공합니다.</1><1>API 키는 아래 예와 같이 스냅토로드 요청 내에서 사용됩니다.</1>"
+	},
+	"google_snapping_to_roads_step3": {
+		"text": "<0>3단계</0> <1><1>: /res/drawable 디렉토리 내에 <1>ic_marker_red와 ic_marker_blue라는</1> <1>이름의 마커 이미지를 추가하고 SnapToRoadActivity.kt에 아래</1> 코드를 추가합니다.</1></1>"
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>4단계</0> <1><1>: /res/drawable 디렉토리 내에 <1>ic_marker_red와 ic_marker_blue라는</1> <1>이름의 마커 이미지를 추가하고 GeoRoutesSnapToRoadActivity.kt에 아래 코드를</1> 삽입합니다.</1></1>"
+	},
+	"ios_swift_aws_geo_places_routes": {
+		"text": "AWS 지오플레이스 및 AWSGeoRoutes API를 사용하려면 AWS SDK Swift 패키지를 프로젝트에 추가하십시오."
+	},
+	"codeSnippets_snapping_to_roads_ios_point2": {
+		"text": "<1>아마존 <1>로케이션 서비스는 AWS 지오루트 API에서 SnapToRoads</1> 서비스를 제공합니다.</1>"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>Google 지도에서는 경로 API의 <1>v2:computeRoutes</1> 엔드포인트가 true로 설정된 <1>optimizeWaypointOrder</1> 매개변수와 함께 이 용도로 사용됩니다.</1>"
+	},
+	"codeSnippets_snapping_to_roads_googleDesc": {
+		"text": "Google 지도에서는 <1>위도</1>, 경도 <1>쌍의 목록을 받아들이는 <1>경로</1> 매개변수가 필요한 Roads API의 snapToRoads</1> 엔드포인트가 사용됩니다."
+	},
+	"codeSnippets_snapping_to_roads_amazonDesc": {
+		"text": "아마존 로케이션 서비스에서는 HTTP <1>POST 요청을 통해 SnapToRoads 서비스가 도로망에</1> 스냅핑될 <1>추적 지점</1> 목록인 추적 지점과 함께 사용됩니다."
+	},
+	"codeSnippets_places_search_point2_v2": {
+		"text": "Amazon Location Service는 <1>autocomplete</1>, <1>geocode</1>, <1>getPlace</1>, <1>reverseGeocode</1>, <1>searchNearby</1>, <1>searchText</1> 및 <1>suggest</1>에 대한 API를 포함하는 GeoPlaces 클라이언트를 제공합니다. <0>자세히 알아보기</0>"
+	}
+}

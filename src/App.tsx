@@ -3,12 +3,13 @@
 
 import { StrictMode, Suspense } from "react";
 
-import { AppWrapper } from "@api-playground/core/AppWrapper";
-import { RouteChunks } from "@api-playground/core/Routes";
 import { ToastContainer } from "@api-playground/core/Toast";
-import { appConfig } from "@api-playground/core/constants";
 import { Loader } from "@aws-amplify/ui-react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import AppWrapper from "./core/AppWrapper";
+import RouteChunks from "./core/Routes";
+import appConfig from "./core/constants/appConfig";
 
 const {
 	PERSIST_STORAGE_KEYS: { LOCAL_APP_VERSION },

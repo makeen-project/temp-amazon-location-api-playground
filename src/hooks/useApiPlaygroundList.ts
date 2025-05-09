@@ -3,15 +3,19 @@
 
 import { useCallback, useEffect, useState } from "react";
 
+import appConfig from "@api-playground/core/constants/appConfig";
 import {
 	ApiPlaygroundItem,
 	ApiPlaygroundList,
 	ApiPlaygroundListFilter
 } from "@api-playground/types/ApiPlaygroundTypes";
-
 import { downloadJson } from "@api-playground/utils/downloadJsonFileUtils";
 import { errorHandler } from "@api-playground/utils/errorHandler";
 import { useTranslation } from "react-i18next";
+
+const {
+	ENV: { API_PLAYGROUND_LIST_FILENAME }
+} = appConfig;
 
 interface ApiConfigItem {
 	id: string;
@@ -19,6 +23,7 @@ interface ApiConfigItem {
 	title: string;
 	description: string;
 	shouldRenderMap: boolean;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	requestParams: any[];
 }
 
@@ -31,12 +36,12 @@ interface ApiConfig {
 function useApiPlaygroundList() {
 	const [apiPlaygroundList, setApiPlaygroundsList] = useState<ApiPlaygroundList | null>(null);
 	const [isLoading, setLoading] = useState(false);
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 
 	const fetchApiPlaygroundList = useCallback(async () => {
 		try {
 			setLoading(true);
-			const apiConfig = await downloadJson({ path: "extra/api-playground/api-config.json" });
+			const apiConfig = await downloadJson({ path: API_PLAYGROUND_LIST_FILENAME });
 
 			// Flatten the apis object into a single array
 			const flattenedList = Object.entries((apiConfig as ApiConfig).apis).reduce<ApiPlaygroundList>(
@@ -58,7 +63,7 @@ function useApiPlaygroundList() {
 		} finally {
 			setLoading(false);
 		}
-	}, [t, i18n.language]);
+	}, [t]);
 
 	useEffect(() => {
 		fetchApiPlaygroundList();

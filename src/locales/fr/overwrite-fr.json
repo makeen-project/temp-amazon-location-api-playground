@@ -1,0 +1,47 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "Actions sur les cartes: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "Actions sur les lieux: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "Actions relatives aux itinéraires: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "Google Maps fournit <1>DirectionsService</1> et <1>DirectionsRenderer</1> ou <1>ComputeRoutes</1> et <1>Polyline</1> pour calculer et afficher les données d'itinéraire sur la carte."
+	},
+	"codeSnippets_route_matrix_point1": {
+		"text": "Google Maps utilise <1>DistanceMatrixService</1> ou <1>ComputeRouteMatrix</1> pour calculer une matrice d'itinéraire."
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point1": {
+		"text": "Google Maps fournit <1>distanceMatrix</1> ou <1>computeRouteMatrix</1> pour calculer une matrice d'itinéraire."
+	},
+	"codeSnippets_calculating_a_route_matrix_ios_point1": {
+		"text": "Google Maps fournit <1>distanceMatrix</1> ou <1>computeRouteMatrix</1> pour calculer une matrice d'itinéraire."
+	},
+	"amazon_searching_for_places_step3": {
+		"text": "<0>Étape 3</0> : Incluez le code suivant dans <1>GeoPlaceSearchTextActivity.kt</1>."
+	},
+	"google_snapping_to_roads_step3": {
+		"text": "<0>Étape 3</0> <1><1>: Ajoutez des images de marqueur nommées <1>ic_marker_red et ic_marker_blue dans le répertoire /res/drawable</1> <1>et ajoutez le code</1> ci-dessous dans SnapToRoadActivity.kt.</1></1>"
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>Étape 4</0> <1><1>: Ajoutez des images de marqueurs nommées <1>ic_marker_red et ic_marker_blue dans le répertoire /res/drawable</1> <1>et insérez le code ci-dessous dans GeoRoutesSnapToRoadActivity.kt</1>.</1></1>"
+	},
+	"codeSnippets_searching_for_places_android_point2_v2": {
+		"text": "<1>Amazon Location Service propose la méthode de <1>suggestion</1> via son <1>GeoPlacesClient</1> disponible dans le SDK aws.sdk.kotlin:geoplaces.</1> La clé API est utilisée dans le <1>SuggestRequest</1>, comme indiqué dans l'exemple ci-dessous. <1><1>En outre, Amazon Location Service propose d'autres API Places telles que <1>GetPlace</1>, la <1>saisie semi-automatique</1>, Geocode, <1>ReverseGeocode</1><1>, SearchNearby</1>, <1>SearchText</1> et suggest.</1></1>"
+	},
+	"ios_swift_aws_geo_places_routes": {
+		"text": "Pour utiliser les API AWSGeoPlaces et AWSGeoRoutes, ajoutez le package AWS SDK Swift à votre projet."
+	},
+	"ios_swift_add_aws_geo_places_routes_package_to_target": {
+		"text": "<1>Sélectionnez votre projet dans la liste déroulante de la colonne <1>Ajouter à la cible</1> et cliquez sur le bouton <1>Ajouter un package</1> avec les lignes <1>AWSGeoPlaces ou AWSGeoRoutes</1>.</1>"
+	},
+	"ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+		"text": "Sélectionnez votre projet dans la liste déroulante de la colonne <1>Ajouter à la cible</1> et cliquez sur le bouton <1>Ajouter un package</1> avec les lignes <1>AmazonLocationIOSAuthSDK</1>."
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>Dans Google Maps, le point de terminaison <1>v2:computeRoutes</1> de l'API Routes est utilisé à cette fin avec le paramètre <1>optimizeWaypointOrder</1> défini sur true.</1>"
+	}
+}
