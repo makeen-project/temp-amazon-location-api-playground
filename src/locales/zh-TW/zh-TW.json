@@ -210,7 +210,7 @@
     "text": "網站條款"
   },
   "overview__hs__heading": {
-    "text": "亞馬遜定位服務"
+    "text": "Amazon Location Service"
   },
   "overview__hs__subheading": {
     "text": "安全輕鬆地將位置資料新增至應用程式"
@@ -486,7 +486,7 @@
     "text": "獲取設備位置"
   },
   "product__trackers__product_3__link_2": {
-    "text": "批次設備位置"
+    "text": "列表設備位置"
   },
   "product__trackers__product_3__link_3": {
     "text": "批次更新裝置位置"
@@ -3065,6 +3065,9 @@
   "regions__ap_southeast_1": {
     "text": "Asia Pacific (Singapore) ap-southeast-1"
   },
+  "regions__ap_southeast_5": {
+    "text": "Asia Pacific (Malaysia) ap-southeast-5"
+  },
   "regions__ap_southeast_2": {
     "text": "Asia Pacific (Sydney) ap-southeast-2"
   },
@@ -3617,6 +3620,9 @@
   "nl_loader_sample_text_5": {
     "text": "亞馬遜基石正在製圖工作！搜尋。"
   },
+  "banner__message": {
+    "text": "嘗試由亞馬遜 Bedrock 提供的自然語言搜索"
+  },
   "fm__header": {
     "text": "告訴我們您的想法？"
   },
@@ -3653,6 +3659,2031 @@
   "error_handler__failed_feedback_text_2": {
     "text": "請求失敗，具有狀態"
   },
+  "banner_migration_label": {
+    "text": "立即遷移到亞馬遜地點！"
+  },
+  "banner_migration_action": {
+    "text": "移轉指南"
+  },
+  "pricing": {
+    "text": "定價"
+  },
+  "avg_speed_per_hour": {
+    "text": "每小時平均速度"
+  },
+  "accuracy_value": {
+    "text": "準確度值"
+  },
+  "price": {
+    "text": "價格"
+  },
+  "use_cases": {
+    "text": "使用案例"
+  },
+  "web_based_map_application": {
+    "text": "網上的地圖應用程式"
+  },
+  "web_based_map_application_description": {
+    "text": "本節展示了迷你 Web 應用程序的成本，該費用使用地圖瓷磚 API 來獲取地圖圖塊並與 MapLibre 合作渲染它們，允許用戶使用地圖上的搜索並獲取地點以及位置詳細信息。此外，它還允許用戶計算任意兩個位置之間的路由。假設您的應用程式使用 GetMapTile、SearchPlaceIndexForSuggestions、GetPlace 和 CalculateRoute API，這會估計您的 API 消耗總成本。"
+  },
+  "map_tiles": {
+    "text": "地圖瓷磚"
+  },
+  "search_place_by_position": {
+    "text": "按位置搜索地點"
+  },
+  "calculate_route": {
+    "text": "路線"
+  },
+  "total_monthly": {
+    "text": "每月總計"
+  },
+  "amazon_location_charges": {
+    "text": "亞馬遜位置費用"
+  },
+  "google_maps_charges": {
+    "text": "谷歌地圖費用"
+  },
+  "trackers_and_geofences_application": {
+    "text": "追踪器和地理信息應用程序"
+  },
+  "trackers_and_geofences_application_description_1": {
+    "text": "Amazon 定位服務提供追踪器和地理位置功能，可以添加到您的應用程序中。使用跟踪器，您可以立即檢索從跟踪的設備或資產上傳的設備的當前和歷史位置。Geofences 讓您的應用程式能夠在追蹤裝置進入或退出您定義為地理邊界時偵測並採取行動。當偵測到地理位置漏洞時，Amazon 定位服務會自動將進入或退出事件傳送至 Amazon EventBridge，然後觸發下游動作。"
+  },
+  "trackers_and_geofences_application_description_2": {
+    "text": "1）跟踪器寫入成本基於 BatchUpdateDevicePosition API 的使用情況，該 API 允許您記錄和存儲設備的跟踪器歷史記錄。"
+  },
+  "trackers_and_geofences_application_description_3": {
+    "text": "2）地理位置成本基於 BatchEvaluateGeofences API，該 API 會根據地理位置評估輸入或退出的事件的追蹤位置。"
+  },
+  "trackers_and_geofences_application_description_4": {
+    "text": "3）跟踪器讀取成本基於 ListDevicePositions API，該 API 允許您獲取設備最近的位置歷史記錄。 "
+  },
+  "devices": {
+    "text": "裝置"
+  },
+  "ping_rate": {
+    "text": "ping 速率"
+  },
+  "avg_time_stationary": {
+    "text": "平均靜止時間"
+  },
+  "avg_device_speed": {
+    "text": "設備平均速度"
+  },
+  "filter": {
+    "text": "過濾器"
+  },
+  "accuracy": {
+    "text": "準確度"
+  },
+  "distance": {
+    "text": "距離"
+  },
+  "time": {
+    "text": "時間"
+  },
+  "location_updates": {
+    "text": "位置更新"
+  },
+  "geofence_evaluation": {
+    "text": "地理位置評估"
+  },
+  "per": {
+    "text": "每"
+  },
+  "requests": {
+    "text": "要求"
+  },
+  "items": {
+    "text": "物品"
+  },
+  "minute": {
+    "text": "分鐘"
+  },
+  "minutes": {
+    "text": "分鐘"
+  },
+  "days": {
+    "text": "天數"
+  },
+  "hours": {
+    "text": "小時"
+  },
+  "month": {
+    "text": "月"
+  },
+  "all_devices": {
+    "text": "所有裝置"
+  },
+  "get_started_with_amazon_location_today": {
+    "text": "立即開始使用亞馬遜地點"
+  },
+  "three_months_free_with_the_AWS_free_tier": {
+    "text": "使用 AWS 免費等級免費三個月免費使用。"
+  },
+  "migrate_to_amazon_location_today": {
+    "text": "立即遷移到亞馬遜地點"
+  },
+  "pricing_calculators": {
+    "text": "定價計算器"
+  },
+  "pricing_calculators_description": {
+    "text": "探索您需要的 Amazon 定位工具，以建置以位置為基礎的服務和應用程式，這些工具可用於尋找附近地點、取得路線，以及顯示即時流量更新。"
+  },
+  "three_month_free": {
+    "text": "3 個月免費"
+  },
+  "Web-based_map_app": {
+    "text": "基於 Web 的地圖應用"
+  },
+  "tracking_and_geofencing_app": {
+    "text": "跟踪器和地理信息應用程序"
+  },
+  "explore_use_cases": {
+    "text": "探索使用案例"
+  },
+  "maps_text": {
+    "text": "地圖"
+  },
+  "places_text": {
+    "text": "地點"
+  },
+  "routes_text": {
+    "text": "路線"
+  },
+  "yearly_text": {
+    "text": "每年"
+  },
+  "monthly_text": {
+    "text": "每月"
+  },
+  "weekly_text": {
+    "text": "每週"
+  },
+  "daily_text": {
+    "text": "每日"
+  },
+  "Product_text": {
+    "text": "產品"
+  },
+  "Usage_text": {
+    "text": "使用方法"
+  },
+  "hundred_requests": {
+    "text": "百個請求"
+  },
+  "thousand_requests": {
+    "text": "千個請求"
+  },
+  "million_requests": {
+    "text": "百萬請求"
+  },
+  "billion_requests": {
+    "text": "十億個請求"
+  },
+  "google_maps": {
+    "text": "Google Maps"
+  },
+  "amazon_location": {
+    "text": "Amazon Location"
+  },
+  "maps_sdk_for_android": {
+    "text": "適用於安卓的地圖 SDK"
+  },
+  "maps_sdk_for_ios": {
+    "text": "適用於 iOS 的地圖開發套件"
+  },
+  "maps_javascript_api": {
+    "text": "地圖 JavaScript 應用程式介面"
+  },
+  "search_place_index_for_suggestion": {
+    "text": "建議"
+  },
+  "search_place_index_for_text": {
+    "text": "按文字搜尋"
+  },
+  "search_place_index_for_position": {
+    "text": "按職位搜尋"
+  },
+  "get_place": {
+    "text": "地點詳情"
+  },
+  "calculate_route_matrix": {
+    "text": "路線矩陣"
+  },
+  "every": {
+    "text": "一切"
+  },
+  "distance_value": {
+    "text": "距離值"
+  },
+  "time_value": {
+    "text": "時間值"
+  },
+  "trackers_pricing": {
+    "text": "追蹤器定價"
+  },
+  "tracking_apis": {
+    "text": "追蹤器 API"
+  },
+  "positions_written": {
+    "text": "撰寫職位"
+  },
+  "above": {
+    "text": "以上"
+  },
+  "geofence_pricing": {
+    "text": "地質測量定價"
+  },
+  "geofence_apis": {
+    "text": "地理學應用程式介面"
+  },
+  "trackings_cost_driven": {
+    "text": "追蹤的成本驅動"
+  },
+  "description_driven_tooltip": {
+    "text": "說明文本將在這裡，稍後再次檢查"
+  },
+  "geofencings_cost_driven": {
+    "text": "地理封口的成本驅動"
+  },
+  "geofence_driven_tooltip": {
+    "text": "這些輸入可幫助您估算地理性評估的總成本。來自設備的位置更新可能包括噪音、抖動或資料點對地理位置評估不有用，例如裝置靜止或以低速移動時相同或類似的位置。Amazon 位置追踪器服務提供多個過濾器，以幫助您刪除不相關的位置更新，以降低地理性評估的成本。"
+  },
+  "hide_price_calculation": {
+    "text": "隱藏計算詳細資訊"
+  },
+  "automatic_unit": {
+    "text": "自動裝置"
+  },
+  "price_single_unit_tooltip": {
+    "text": "谷歌地圖中單個單位的價格"
+  },
+  "amazon_location_uses_here_data_provider_price_rate": {
+    "text": "Amazon 定位服務會根據使用的資料提供者而定的單價不同。商業數據提供商（Esri，HERE，GrabMaps）和開放數據提供商。"
+  },
+  "photorealistic_3D_tiles": {
+    "text": "逼真的 3D 瓷磚"
+  },
+  "2D_tiles": {
+    "text": "二維磁磚"
+  },
+  "street_view_tiles": {
+    "text": "街景圖瓷磚"
+  },
+  "dynamic_maps": {
+    "text": "動態地圖"
+  },
+  "dynamic_maps_description": {
+    "text": "Google 地圖的定價會因透過其 SDK 進行的 API 呼叫而有所不同；不過，我們採用免費的 Amazon 位置 SDK 的方法可確保一致性。無論是什麼平台，所有 Amazon 位置 SDK 都使用相同的 REST API 集，從而產生統一且一致的定價結構。亞馬遜定位服務的 API 和 SDK 可與 MapLibre 一起使用。"
+  },
+  "view_pricing": {
+    "text": "查看定價"
+  },
+  "tracking_write_price": {
+    "text": "追踪器寫入價格"
+  },
+  "tracking_read_price": {
+    "text": "追踪器讀取價格"
+  },
+  "geofencing_price": {
+    "text": "地理科技價格"
+  },
+  "show_price_calculation": {
+    "text": "顯示計算詳細資訊"
+  },
+  "other_tracking_apis": {
+    "text": "其他追蹤器 API"
+  },
+  "batch_positions_read": {
+    "text": "批次位置讀取"
+  },
+  "one_request_can": {
+    "text": "一個請求最多可以檢索 100 台設備。"
+  },
+  "tracking_write_tooltip": {
+    "text": "這些輸入可幫助您計算裝置位置更新的每月請求總計，藉此估算追蹤器服務的成本。"
+  },
+  "tracking_read_tooltip": {
+    "text": "Amazon 定位服務支援追蹤器針對歷史裝置位置查詢，每次通話最多可查詢 100 個位置。"
+  },
+  "geofence_driven_tooltip_point1": {
+    "text": "大多數設備，包括大多數移動設備，都可以與測量結果一起提供測量準確性的估計。使用「準確性」篩選功能，如果裝置移動低於測量精度，Amazon Location 會忽略位置更新。為了估算成本，請輸入追蹤裝置的最典型準確度等級。"
+  },
+  "geofence_driven_tooltip_point2": {
+    "text": "以距離為基礎的篩選會忽略裝置移動少於 30 m (98.4 英尺) 的位置更新。"
+  },
+  "day": {
+    "text": "天"
+  },
+  "week": {
+    "text": "週"
+  },
+  "search_place_by_suggestions": {
+    "text": "根據建議搜索地點"
+  },
+  "commercial_data_providers": {
+    "text": "商業資料供應商"
+  },
+  "open_data_provider": {
+    "text": "開放數據提供者"
+  },
+  "single_use": {
+    "text": "一次性使用"
+  },
+  "storage": {
+    "text": "儲存"
+  },
+  "contact_sales": {
+    "text": "聯絡銷售"
+  },
+  "tracking_and_geofencing_application": {
+    "text": "追蹤和地理封鎖應用程式"
+  },
+  "geofencing_pricing": {
+    "text": "地理封口定價"
+  },
+  "dashboard_refresh_rate": {
+    "text": "每個 {{count}} 設備位置的儀表板刷新率"
+  },
+  "hour": {
+    "text": "小時"
+  },
+  "batch": {
+    "text": "批次"
+  },
+  "number_of_requests": {
+    "text": "請求數"
+  },
+  "number_of_departure_positions": {
+    "text": "出發位置數量"
+  },
+  "number_of_destination_positions": {
+    "text": "目的地位置數目"
+  },
+  "google_maps_does_not_permit": {
+    "text": "Google 地圖不允許存儲地點信息"
+  },
+  "n/a": {
+    "text": "不適用"
+  },
+  "google_maps_allows_maximum_of_25": {
+    "text": "谷歌地圖最多允許 25 個出發位置和 25 個目的地位置，每個請求最多可達 625 個元素"
+  },
+  "google_maps_unit_price": {
+    "text": "谷歌地圖單價"
+  },
+  "migrateAWebApp_heading": {
+    "text": "網頁-從谷歌地圖移轉到亞馬遜定位服務"
+  },
+  "migrateAWebApp_desc": {
+    "text": "本指南詳細說明將 Web 應用程式從 Google 地圖轉換為亞馬遜定位服務的技術程序。它強調了初始設置、Amazon 位置資源配置，並提供 SDK 比較範例，以便將映射功能整合到基於 Web 的平台中。"
+  },
+  "migrateAWebApp_linkItems_ios": {
+    "text": "移轉 iOS 應用程式"
+  },
+  "migrateAWebApp_linkItems_android": {
+    "text": "移轉安卓應用程式"
+  },
+  "migrateAWebApp_linkItems_web": {
+    "text": "移轉 Web 服務"
+  },
+  "migrateAWebApp_article_heading1": {
+    "text": "在這篇文章中"
+  },
+  "migrateAWebApp_article_point_1": {
+    "text": "載入地圖"
+  },
+  "migrateAWebApp_article_point_5": {
+    "text": "顯示資訊視窗"
+  },
+  "migrateAWebApp_article_point_6": {
+    "text": "標記叢集"
+  },
+  "migrateAWebApp_article_point_8": {
+    "text": "地點搜索"
+  },
+  "migrateAWebApp_article_point_9": {
+    "text": "路由服務"
+  },
+  "migrateAWebApp_article_point_10": {
+    "text": "繪製地理空間"
+  },
+  "migrateAWebApp_article_heading2": {
+    "text": "在此頁面上"
+  },
+  "migrateAWebApp_article_items_prerequisites": {
+    "text": "先決條件"
+  },
+  "migrateAWebApp_article_items_key_features": {
+    "text": "主要功能支援"
+  },
+  "migrateAWebApp_article_items_load_a_web": {
+    "text": "載入地圖"
+  },
+  "migrateAWebApp_article_items_marker_clustering": {
+    "text": "標記叢集"
+  },
+  "migrateAWebApp_article_items_place_searches": {
+    "text": "搜尋地點"
+  },
+  "migrateAWebApp_article_items_next_steps": {
+    "text": "下一步"
+  },
+  "migrateAWebApp_article_description": {
+    "text": "如果移轉現有 Web 應用程式，請檢查它是否使用開放原始碼地圖控制程式庫。開放原始碼地圖控制程式庫的範例包括：Cesium、Leaf 和 OpenLayers。您仍然可以移轉應用程式，即使它使用開放原始碼地圖控制程式庫，而且您不想使用 Azure 地圖 Web SDK。在這種情況下，請將您的應用程式連接至 Azure 地圖瓷磚服務 (路磚 | 衛星瓷磚)。下列幾點詳細說明如何在某些常用的開放原始碼地圖控制程式庫中使用 Azure 地圖。"
+  },
+  "migrateAWebApp_prerequisites_heading": {
+    "text": "先決條件"
+  },
+  "migrateAWebApp_prerequisites_description": {
+    "text": "在完成範例之前，請務必完成以下步驟。"
+  },
+  "migrateAWebApp_prerequisites_point_1": {
+    "text": "建立 AWS 帳戶"
+  },
+  "migrateAWebApp_prerequisites_point_2": {
+    "text": "選擇您喜歡的地圖樣式"
+  },
+  "migrateAWebApp_prerequisites_point_2_a": {
+    "text": "導覽至 Amazon 位置服務主控台中的「<0>地圖」區段</0>，然後按一下「建立地圖」以預覽可用的地圖樣式。"
+  },
+  "migrateAWebApp_prerequisites_point_2_b": {
+    "text": "為新地圖資源提供名稱和描述。記住您指定給此地圖資源的名稱，該名稱將在稍後在自學課程中使用。"
+  },
+  "migrateAWebApp_prerequisites_point_2_c": {
+    "text": "選擇地圖型式時，請選擇地圖資料提供者。如需詳細資訊，請參閱 <0>AWS 服務條</0>款第 82 節。"
+  },
+  "migrateAWebApp_prerequisites_point_2_d": {
+    "text": "閱讀並接受 <0>Amazon 位置條款，然後</0>按一下「建立地圖」。建立地圖之後，您可以透過縮放、縮小或向任何方向平移來與地圖進行互動。"
+  },
+  "migrateAWebApp_prerequisites_point_3": {
+    "text": "選擇您想要使用的地點索引"
+  },
+  "migrateAWebApp_prerequisites_point_3_a": {
+    "text": "瀏覽至 Amazon 位置服務主控台<0>中</0>的「地點索引」頁面，然後按一下「建立地點索引」。"
+  },
+  "migrateAWebApp_prerequisites_point_3_b": {
+    "text": "提供新地點索引資源的名稱和描述。記住您指定給此位置索引資源的名稱，該名稱將在稍後在自學課程中使用。"
+  },
+  "migrateAWebApp_prerequisites_point_3_c": {
+    "text": "選擇一個資料提供者，最好與您選擇的地圖提供者對齊，以確保搜尋與地圖相容性。如需詳細資訊，請參閱 <0>AWS 服務條</0>款第 82 節。"
+  },
+  "migrateAWebApp_prerequisites_point_3_d": {
+    "text": "選擇「資料儲存」選項。由於本教程不存儲任何數據，請選擇「否，僅限單次使用」。"
+  },
+  "migrateAWebApp_prerequisites_point_3_e": {
+    "text": "閱讀並接受 <0>Amazon 位置條款，然後</0>按一下「建立地點索引」。"
+  },
+  "migrateAWebApp_prerequisites_point_4": {
+    "text": "選擇您要使用的路線計算器"
+  },
+  "migrateAWebApp_prerequisites_point_4_a": {
+    "text": "在 Amazon 定位服務主控台中，導覽至「<0>路線計算器」頁面，然後</0>按一下「建立路線計算器」。"
+  },
+  "migrateAWebApp_prerequisites_point_4_b": {
+    "text": "提供新路由計算器資源的名稱和描述。記住指定給此路線計算器資源的名稱，該名稱將在自學課程稍後使用。"
+  },
+  "migrateAWebApp_prerequisites_point_4_c": {
+    "text": "選取資料提供者，確保與所選地圖樣式和地圖資料提供者對齊。如需進一步資訊，請參閱 <0>AWS 服務條</0>款第 82 節。"
+  },
+  "migrateAWebApp_prerequisites_point_4_d": {
+    "text": "閱讀並接受 <0>Amazon 位置條款，然後</0>按一下「建立路線計算器」。"
+  },
+  "migrateAWebApp_prerequisites_point_5": {
+    "text": "為您的應用程式建立驗證"
+  },
+  "migrateAWebApp_prerequisites_point_5_a": {
+    "text": "導覽至 <0>Amazon 位置控制台</0>，然後從左側選單中選擇「API 金鑰」。"
+  },
+  "migrateAWebApp_prerequisites_point_5_b": {
+    "text": "點擊「創建 API 密鑰」。API 金鑰必須與先前建立的 Amazon 定位服務資源相同的 AWS 帳戶和區域中。"
+  },
+  "migrateAWebApp_prerequisites_point_5_c": {
+    "text": "在「創建 API 密鑰」頁面上填寫所需詳細信息："
+  },
+  "migrateAWebApp_prerequisites_point_5_c_i": {
+    "text": "名稱：為您的 API 金鑰提供名稱，例如「MyAppKey」。"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii": {
+    "text": "資源：選擇先前建立的 Amazon 位置服務地圖和地點索引資源。您可以通過選擇「添加資源」來添加多個資源。這允許 API 金鑰與指定的資源一起使用。"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iii": {
+    "text": "動作：指定此 API 金鑰的授權動作。<1>至少選取「地理位置<1>:getMap」、「地理位置:搜尋位置</1><1>索引文字」和「地理位置:計算路徑」，以確保自學課程如預期運</1>作。</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iv": {
+    "text": "您可以選擇性地新增「描述」、「到期時間」、「標籤」或引用程式 (example.com)，以將金鑰的使用量限制在特定網域中，從而使自學課程僅在該網域內運作。"
+  },
+  "migrateAWebApp_prerequisites_point_5_d": {
+    "text": "按一下「建立 API 金鑰」以產生 API 金鑰。"
+  },
+  "migrateAWebApp_prerequisites_point_5_e": {
+    "text": "選擇「顯示 API 金鑰」並複製金鑰值（<1>v1.public.a1b2c3d</1> 4...）以供以後在教程中使用。"
+  },
+  "migrateAWebApp_prerequisites_alert": {
+    "text": "如需有關 Amazon 位置中的驗證的詳細資訊，請參閱<0>在 Amazon 位置中管理驗證</0>。"
+  },
+  "cost_group": {
+    "text": "成本組"
+  },
+  "migrateAWebApp_features": {
+    "text": "特色"
+  },
+  "google_Maps_with_SDK": {
+    "text": "使用 SDK 的谷歌地圖"
+  },
+  "amazon_location_with_SDK": {
+    "text": "使用 SDK 的亞馬遜位置"
+  },
+  "markers": {
+    "text": "標記"
+  },
+  "marker_clustering": {
+    "text": "標記叢集"
+  },
+  "polylines_polygons": {
+    "text": "<0>直線</0>和多<1>邊形</1>"
+  },
+  "data_layers": {
+    "text": "資料層"
+  },
+  "heatmaps": {
+    "text": "熱圖"
+  },
+  "tile_layers": {
+    "text": "瓷磚層"
+  },
+  "geocoder_service": {
+    "text": "地理編碼"
+  },
+  "routing_service": {
+    "text": "路由"
+  },
+  "route_matrix_service": {
+    "text": "矩陣路由"
+  },
+  "notableDifferences_point1": {
+    "text": "座標表示"
+  },
+  "notableDifferences_point2": {
+    "text": "在亞馬遜位置地圖中處理座標："
+  },
+  "notableDifferences_point3": {
+    "text": "開發套件/API 整合："
+  },
+  "webSdkExamples_description": {
+    "text": "本指南提供針對 Web 式遷移量身定制的程式碼範例，每個程式都會解決常見的使用它的目的是幫助使用 <0>Map</0> Libre 將您的網絡應用程序從谷歌地圖 V3 JavaScript SDK 遷移到亞馬遜定位服務。為 Web 應用程序提供的代碼片段特別在 JavaScript 中。"
+  },
+  "codeSnippets_load_a_map_heading": {
+    "text": "載入地圖"
+  },
+  "codeSnippets_load_a_map_description": {
+    "text": "Google 地圖和亞馬遜定位服務都可讓您將互動式、可自定義的地圖集成到您的應用程序中。這些地圖可以顯示各種類型的地理資料，並允許平移和縮放等功能。"
+  },
+  "codeSnippets_load_a_map_point1": {
+    "text": "谷歌地圖使用「谷<1>歌 .地圖」來渲染地圖。</1>"
+  },
+  "codeSnippets_load_a_map_point2": {
+    "text": "亞馬遜定位服務使用 MapLibre 的 <1>MapLibReg</1> l.map 來渲染地圖。"
+  },
+  "codeSnippets_with_google": {
+    "text": "使用谷歌地圖"
+  },
+  "codeSnippets_with_after": {
+    "text": "使用亞馬遜位置"
+  },
+  "codeSnippets_adding_a_marker_point1": {
+    "text": "谷歌地圖使用 <1>Google.Maps.Marker 在地圖</1>上渲染標記。"
+  },
+  "codeSnippets_adding_a_marker_point2": {
+    "text": "亞馬遜位置服務使用 MapLibre 的 <1>MapLibreG.Marker 在地圖上渲染標記</1>。"
+  },
+  "codeSnippets_adding_a_polyline_description": {
+    "text": "您可以在谷歌地圖上繪製線條。對於亞馬遜定位服務，您可以通過 MapLibre 使用 GeoJSON 繪製它們。"
+  },
+  "codeSnippets_adding_a_polyline_point1": {
+    "text": "<1>您可以使用 Google 地圖形狀類別通過 google.maps.Polyline 繪製線條和多邊形。</1>"
+  },
+  "codeSnippets_adding_a_polyline_point2": {
+    "text": "亞馬遜定位服務使用 MapLibre 程式庫。您可以使用 Add <1>Source 和 Add</1> <1>Layer 方法來</1>新增 GeoJSON 資料。"
+  },
+  "codeSnippets_adding_a_polygon_description": {
+    "text": "您可以在 Google 地圖上繪製多邊形。對於亞馬遜定位服務，您可以通過 MapLibre 使用 GeoJSON 繪製它們。"
+  },
+  "codeSnippets_adding_a_polygon_point1": {
+    "text": "<1>您可以使用谷歌地圖形狀類別通過 google.maps.Polygon 繪製線條和多邊形。</1>"
+  },
+  "codeSnippets_adding_a_polygon_point2": {
+    "text": "亞馬遜定位服務使用 MapLibre 程式庫。您可以使用 Add <1>Source 和 Add</1> <1>Layer 方法來</1>新增 GeoJSON 資料。"
+  },
+  "codeSnippets_display_an_info_window_description": {
+    "text": "Google 地圖和亞馬遜定位服務可以在地圖上顯示信息/彈出窗口。"
+  },
+  "codeSnippets_display_an_info_window_point1": {
+    "text": "谷歌地圖使用 <1>Google.Maps.InfoWindow 在標記旁</1>邊顯示彈出窗口。"
+  },
+  "codeSnippets_display_an_info_window_point2": {
+    "text": "<1>亞馬遜定位服務使用 MapLibre 透過 MapLibreGL.Popup 顯示彈出式視窗。</1>"
+  },
+  "codeSnippets_adding_a_heatmap_description": {
+    "text": "Google 地圖支持數據層功能，允許您在地圖上疊加數據。亞馬遜定位服務還允許透過 MapLibre 新增資料層。"
+  },
+  "codeSnippets_adding_a_heatmap_point1": {
+    "text": "谷歌地圖提供熱圖層，作為 <1>google.maps.可視化庫的一部分。</1>"
+  },
+  "codeSnippets_adding_a_heatmap_point2": {
+    "text": "亞馬遜定位服務使用 MapLibre 的添加圖層功<1>能。</1>通常，您會先使用 <1>AddSource 新增來源，然</1>後新增參照此來源的圖層。"
+  },
+  "codeSnippets_adding_a_heatmap_point3": {
+    "text": "下面的代碼片段展示了顯示熱圖。"
+  },
+  "codeSnippets_places_search_post_description": {
+    "text": "Google 地圖提供地理編碼 API，用於在地址和地理坐標之間進行轉換。Amazon 定位服務還在其地點 API 中提供地理編碼和反向地理編碼功能，您可以使用這些功能來根據經度和緯度獲取數據，反之亦然。"
+  },
+  "codeSnippets_routing_services_description": {
+    "text": "谷歌地圖和亞馬遜定位服務都提供路由服務。"
+  },
+  "codeSnippets_routing_services_point1": {
+    "text": "Google 地圖提供方向<1>服務和方向渲</1>染器<1>或計算機外線和</1>聚合線<1>，以計算和顯</1>示地圖<1>上的路線</1>數據。"
+  },
+  "codeSnippets_routing_services_point2": {
+    "text": "Amazon Location 透過其位置用戶端提供 <1>「計算機外部</1>指令」，並使用 Maplibre 的渲染功能在地圖上顯示該資料。"
+  },
+  "codeSnippets_drawing_a_circle_description": {
+    "text": "這兩項服務都允許在地圖上繪製圓形多邊形。"
+  },
+  "codeSnippets_drawing_a_circle_point1": {
+    "text": "谷歌地圖提供了 <1>Google.Maps.Circle 來繪製圓形多邊形。</1>"
+  },
+  "codeSnippets_drawing_a_circle_point2": {
+    "text": "亞馬遜定位服務使用 Maplibre 的 <1>AddSource 和 Add</1> <1>Layer 方法來</1>彩現圓形多邊形，您可以使用 <0>Turf.js</0> 中的 <1>turf.circle</1> 將圓轉換為多邊形以進行彩現。"
+  },
+  "migrateAWebApp_title": {
+    "text": "移轉 Web 應用程式"
+  },
+  "migrateAWebApp_next_step_desc": {
+    "text": "如需有關 Amazon 位置的更多詳細資訊和技術見解，建議您瀏覽 <0>Amazon 定位服務開發人員指南</0>。這個全面的資源提供了深入指導，如何開始使用 Amazon 定位服務、了解其功能，以及在應用程式中實作基於位置的功能。"
+  },
+  "try_demo": {
+    "text": "試用演示"
+  },
+  "active_days_per_month": {
+    "text": "活動日/月"
+  },
+  "active_hours_per_month": {
+    "text": "活動時間/天"
+  },
+  "trackers_and_geofences_application_description_points": {
+    "text": "下面的計算器提供了 3 個成本組件的估計："
+  },
+  "migrateAWebApp_desc1": {
+    "text": "<0>AWS 文件是開</0>發人員掌握 Amazon 定位服務的關鍵資源，提供有關功能、設置和整合的完整指南。請參閱官方指南，以獲取有關將定位服務添加到應用程序的實用見解。"
+  },
+  "integrating_the_amazon_location_sdk_heading": {
+    "text": "整合亞馬遜位置開發套件"
+  },
+  "integrating_the_amazon_location_sdk_description": {
+    "text": "您可以使用 <0>JavaScript 開發套件和 <1>MapLibre</1> 在 Web 專案中使用亞馬遜</0>定位服務。這將允許您的應用程序輕鬆使用亞馬遜定位服務。"
+  },
+  "calculate_map_tile_request_costs": {
+    "text": "計算地圖圖塊請求成本"
+  },
+  "estimate_costs_for_place_search_suggestions": {
+    "text": "預估地點搜尋建議的成本"
+  },
+  "estimate_costs_for_place_data_retrieval": {
+    "text": "估計地點資料擷取的成本"
+  },
+  "calculate_cost_for_routing_requests": {
+    "text": "計算路由請求的成本"
+  },
+  "devices_tooltip": {
+    "text": "設定裝置數目以計算追蹤器更新成本"
+  },
+  "ping_rate_tooltip": {
+    "text": "定義 ping 速率以估計追蹤器通訊成本"
+  },
+  "avg_time_stationary_tooltip": {
+    "text": "調整平均靜止時間以估計地理位置成本"
+  },
+  "avg_device_stationary_tooltip": {
+    "text": "設定平均設備速度以計算地理位置成本"
+  },
+  "dashboard_refresh_rate_tooltip": {
+    "text": "確定追蹤資料擷取成本的重新整理率"
+  },
+  "filter_accuracy_tooltip": {
+    "text": "指定要包含在成本計算中的位置更新的最小距離"
+  },
+  "filter_distance_tooltip": {
+    "text": "指定要包含在成本計算中的位置更新的最小距離"
+  },
+  "migrateAWebApp_prerequisites_point_1_a": {
+    "text": "<0>如果您尚未建立 AWS 帳戶，請在此處建立帳戶。</0>當您的 AWS 帳戶準備就緒後，您就可以建立 Amazon 定位服務資源。執行提供的代碼片段將需要這些資源。"
+  },
+  "codeSnippets_places_search_heading": {
+    "text": "搜尋地點"
+  },
+  "codeSnippets_places_search_description": {
+    "text": "兩個平台都提供地點搜索功能，並且可以提供有關地點的其他信息，例如地址，地理編碼，反向地理編碼，自動完成等。"
+  },
+  "codeSnippets_places_search_point1": {
+    "text": "谷歌地圖提供谷歌 <1>.地圖。地點。地點服務。</1>"
+  },
+  "codeSnippets_places_search_point2": {
+    "text": "亞馬遜定位服務透過其位置用戶<1>端提供搜尋位置索引指令。</1><1><0>亞馬遜定位服務還提供其他地點 API，例如「查找地點」、「建議搜尋位置<1>索引」</1>、「<1>搜尋位置索引文字」。進一步了解</1></0></1>"
+  },
+  "codeSnippets_marker_clustering_heading": {
+    "text": "標記叢集"
+  },
+  "codeSnippets_marker_clustering_description": {
+    "text": "谷歌地圖和亞馬遜定位服務都提供標記叢集。"
+  },
+  "codeSnippets_marker_clustering_point1": {
+    "text": "谷歌地圖提<1>供了 MarkerClusterer</1>，它採用地圖參考和一組標記以在地圖上顯示標記叢集。"
+  },
+  "codeSnippets_marker_clustering_point2": {
+    "text": "<1><1>亞馬遜定位服務使用 MapLibre 的基礎類別來叢集標記；但是，您可以使用自訂邏輯，透過 AddSource 和 AddLayer 直接從 MapLibre 呈現標記和資料層。</1></1>"
+  },
+  "notableDifferences_subPoint1a": {
+    "text": "使用<1>緯度、經度</1>序列。"
+  },
+  "notableDifferences_subPoint1b": {
+    "text": "遵循 <1>[y, x] 慣</1>例。"
+  },
+  "notableDifferences_subPoint1c": {
+    "text": "使用定義為 <1>「位置</1>」物件的經度、<1>緯度</1>序列。"
+  },
+  "notableDifferences_subPoint1d": {
+    "text": "遵循 <0>GeoJSON 標準定義的</0> <1>[x, y]</1> 慣例。"
+  },
+  "notableDifferences_subPoint1e": {
+    "text": "「x」是經度（水平軸，反射東西位置）。"
+  },
+  "notableDifferences_subPoint1f": {
+    "text": "「y」是緯度（垂直軸，反射北南位置）。"
+  },
+  "integrating_the_amazon_location_sdk_description1": {
+    "text": "<1>MapLibre 是一個免</1>費使用的 TypeScript 庫，旨在輕鬆在您的網站上顯示交互式地圖。它以其卓越的性能脫穎而出，得益於尖端技術可使用設備的圖形處理單元 (GPU) 加速向量圖塊渲染。這可確保您的網站訪客獲得流暢且響應式的地圖查看體驗。MapLibre 可讓您輕鬆整合和展示動態地圖，同時提供高效能的映射功能。將亞馬遜位置開發套件與 MapLibre 整合是使應用程式獲得「位置認知」的重要步驟。它使您的應用程序能有效地了解和使用位置信息。透過此整合，您可以執行以下操作："
+  },
+  "integrating_the_amazon_location_sdk_description1a": {
+    "text": "載入地圖"
+  },
+  "integrating_the_amazon_location_sdk_description1c": {
+    "text": "實作熱圖"
+  },
+  "integrating_the_amazon_location_sdk_description1e": {
+    "text": "合併線"
+  },
+  "integrating_the_amazon_location_sdk_description1f": {
+    "text": "計算路線"
+  },
+  "integrating_the_amazon_location_sdk_description2": {
+    "text": "<0>如果您是開發人員，希望探索可用於將 Amazon 定位服務整合到應用程式中的不同 SDK 程式設計語言選項，您可以按一下此處找到詳細資訊。</0>這將幫助您選擇適合項目的特定需求的合適 SDK。"
+  },
+  "codeSnippets_adding_a_marker_postDescription": {
+    "text": "這些標記繪圖功能可讓開發人員建立互動式、感知位置的應用程式，以引導使用者前往特定的興趣點、突出顯示地理資料，或提供基於位置的服務。"
+  },
+  "codeSnippets_load_a_map_about": {
+    "text": "載入地圖會在網頁或應用程式上顯示地理資料。透過連線到 Google 地圖或 Amazon 位置服務等地圖服務，使用者可以與標記、覆疊和地理定位服務互動，以探索和導航地圖。"
+  },
+  "codeSnippets_adding_a_marker_about": {
+    "text": "顯示標記會在地圖上放置圖示，以指出感興趣的位置。標記會突出顯示商業或地標等地點。它們增強導航，地理位置，並為用戶與地圖互動提供有價值的信息。"
+  },
+  "codeSnippets_marker_clustering_about": {
+    "text": "標記叢集是一種技術，用於將地圖上附近的標記分組為叢集，從而提高視覺清晰度和性能。群集代表不同縮放級別的多個標記，而不是用個別標記混亂地圖，使用者更容易瀏覽和了解地圖上擁擠的區域。"
+  },
+  "codeSnippets_display_an_info_window_about": {
+    "text": "顯示資訊彈出窗口是一項功能，當使用者與地圖上的標記互動時顯示其他資訊。當使用者按一下或將游標懸停在標記上時，會出現一個彈出視窗，提供詳細資訊，例如地址、描述或與地圖上位置相關的其他相關資料。"
+  },
+  "codeSnippets_adding_a_polyline_about": {
+    "text": "顯示線包括在連接多個點的地圖上繪製連續線。此功能通常用於表示佈線、邊界或路徑。透過顯示線條，使用者可以視覺化連線並在地圖上追蹤特定路線，以作導覽或資料表示目的。"
+  },
+  "codeSnippets_adding_a_polygon_about": {
+    "text": "顯示多邊形允許使用者在地圖上建立具有直線的封閉形狀。此功能通常用於定義邊界、興趣區域或區域。通過顯示多邊形，用戶可以視覺化表示特定地理區域並與其互動，從而在地圖上提供有價值的上下文和信息。"
+  },
+  "codeSnippets_drawing_a_circle_about": {
+    "text": "顯示圓形功能可讓使用者在地圖上繪製圓形形狀。此功能通常用於表示影響、接近或覆蓋範圍的區域。通過顯示圓圈，用戶可以視覺化描繪特定的圓形區域並與其互動，從而在地圖上提供有價值的空間信息和分析。"
+  },
+  "codeSnippets_adding_a_heatmap_about": {
+    "text": "顯示熱圖可讓使用者在地圖上視覺化和分析資料密度。此功能表示使用色彩漸層的資料，較溫暖的顏色表示高密度，而較低的顏色表示較低的密度。顯示熱圖有助於識別資料中的模式、趨勢和熱點，有助於資料探索和決策。"
+  },
+  "codeSnippets_routing_services_about": {
+    "text": "計算路線涉及使用路由演算法來確定地圖上兩個或多個位置之間的最佳路徑。通過考慮距離，交通和交通模式等因素，用戶可以獲得導航指示，從起點到目的地有效地引導他們，以幫助路線規劃和導航。"
+  },
+  "codeSnippets_places_search_about": {
+    "text": "搜尋地點可讓使用者在地圖上尋找特定位置或景點。透過輸入關鍵字或地址，使用者可以發現相關地點，例如企業、地標或地址。此功能可幫助用戶探索和定位所需的目的地，從而增強地圖應用程序或網站的可用性和功能。"
+  },
+  "trackers_and_geofences_application_description_5": {
+    "text": "此外，設備位置更新的 ping 速率可能會影響所有三個成本元件，具體取決於您的應用程序。"
+  },
+  "dashboard_refresh_rate_text": {
+    "text": "儀表板刷新率"
+  },
+  "processed_requests_with_device_speed": {
+    "text": "以設備速度處理請求"
+  },
+  "travel_distance_per_ping": {
+    "text": "每個平行程距離（米）"
+  },
+  "migrateAniOSApp_heading": {
+    "text": "iOS-從谷歌地圖遷移到亞馬遜定位服務"
+  },
+  "migrateAniOSApp_desc": {
+    "text": "本指南詳細說明將 iOS 應用程式從 Google 地圖轉換為亞馬遜定位服務的技術程序。它強調了初始設置、Amazon 位置資源配置，並提供 SDK 比較範例，以便將映射功能整合到基於 iOS 的平台中。"
+  },
+  "migrateAniOSApp_desc1": {
+    "text": "AWS 文件是開發人員掌握 Amazon 定位服務的關鍵資源，提供有關功能、設置和整合的完整指南。請參閱<0>官方指南，以獲取</0>有關將定位服務添加到應用程序的實用見解。"
+  },
+  "initiating_a_swift_iOS_heading": {
+    "text": "創建一個速度的 iOS 項目"
+  },
+  "initiating_a_swift_iOS_dec": {
+    "text": "對於本指南，我們將在 XCode 中使用具有故事板 UI 的 iOS 應用程序項目，這是一個全面的開發環境，它提供了使用 Swift 創建引人入勝的 iOS 應用程序所需的工具。"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description": {
+    "text": "若要使用亞馬遜定位服務的地圖功能來增強應用程式，您需要將以下套件合併到您的 Xcode iOS 專案中："
+  },
+  "MapLibre_Native": {
+    "text": "<0>地圖自由原生</0>"
+  },
+  "AWS_SDK_SWIFT": {
+    "text": "<0>AWS 開發套件速度</0>"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2": {
+    "text": "AWS SDK Swift 套件專為包括 Amazon 位置等各種 Amazon Web 服務所設計，可啟用其中一些在本文件中實現的各種功能："
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2a": {
+    "text": "搜尋地點"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2b": {
+    "text": "提供路由服務"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description3": {
+    "text": "透過整合這些套件，您可以利用 Amazon 定位服務和 MapLibre 的強大功能，為應用程式使用者建立功能豐富的互動式地圖體驗。"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description4": {
+    "text": "對於希望探索可用於將 Amazon 定位服務整合到您的應用程式中的不同 SDK 程式語言選項的開發人員，請按一下<0>此</0>處尋找詳細資訊，以協助您選擇適合專案需求量身定制的 SDK。"
+  },
+  "webSdkExamples_iOS_description": {
+    "text": "本指南提供了針對不同平台量身定制的各種代碼示例，每個程式碼範例都解決了常見的使用案例。<1>主要目標是利用 <1>MapLibre</1> 和 AWS-SDK-Swift 的功能，促進您的 iOS 應用程序從谷歌地圖 iOS SDK 轉換到亞馬遜定位服務。</1>具體來說，關於 iOS 應用程序的代碼示例以 Swift 編程語言顯示。"
+  },
+  "webSdkExample_iOS_description1": {
+    "text": "若要繼續執行提供的範例，您將需要用每個範例中的程式碼片段取代 <1>ViewController.swift</1> 中的現有內容。此過程將允許您將示例中展示的特定功能納入您的應用程序中。"
+  },
+  "codeSnippets_load_a_map_iOS_about": {
+    "text": "Google 地圖和亞馬遜定位服務提供強大的解決方案，可將動態、可自定義地圖集成到您的應用程序中。這些地圖能夠展示各種地理資料，並通過平移和縮放等互動功能豐富用戶體驗。"
+  },
+  "codeSnippets_load_a_map_iOS_point1": {
+    "text": "谷歌地圖使用 <1>GMSMAPView</1> 來渲染地圖。"
+  },
+  "codeSnippets_load_a_map_iOS_point2": {
+    "text": "亞馬遜定位服務使用 MapLibre 的 <1>MLNMap</1> View 來渲染地圖。"
+  },
+  "codeSnippets_adding_a_marker_ios_about": {
+    "text": "Google 地圖和亞馬遜定位服務都提供了在地圖上特定座標繪圖標記的功能，這是突出顯示景點的必要功能。"
+  },
+  "codeSnippets_adding_a_marker_ios_point1": {
+    "text": "Google 地圖本地提供此功能，無需其他庫或工具。它使用 <1>GMSMarker 類，</1>允許開發人員實例化和自定義可以放置在地圖上任何經度和緯度的標記。"
+  },
+  "codeSnippets_adding_a_marker_ios_point2": {
+    "text": "相比之下，亞馬遜定位服務利用 MapLibre 程式庫的功能將標記呈現在地圖上。這是使用 <1>MLNPointAnnotation 類別和 AddAnnotation 方</1><1>法來實現的。</1> <1>mlnPointAnnotation 是一種靈活的工具，</1>不僅允許放置標記，還提供一系列自訂選項。然後<1>會使用 addAnnotation</1> 方法將這些自訂註釋加入至地圖，為使用者提供高度互動和動態地圖體驗。"
+  },
+  "codeSnippets_adding_a_marker_ios_postDescription": {
+    "text": "這些標記繪圖功能可讓開發人員建立互動式、感知位置的應用程式，以引導使用者前往特定的興趣點、突出顯示地理資料，或提供基於位置的服務。"
+  },
+  "codeSnippets_marker_clustering_ios_about": {
+    "text": "標記叢集是 Google 地圖和亞馬遜定位服務提供的強大功能，可以通過高密度的標記來增強地圖的視覺清晰度。"
+  },
+  "codeSnippets_marker_clustering_ios_description": {
+    "text": "谷歌地圖和亞馬遜定位服務都提供標記叢集。"
+  },
+  "codeSnippets_marker_clustering_ios_point1": {
+    "text": "谷歌地圖為此目的<1>使用 GMUCluster Manager 類別</1>。此類別引用地圖和 GMUDefaultCluster Renderer，以有效地在地圖上聚集標記。此功能允許有效率的渲染和管理大量標記，從而通過減少視覺雜亂並提高地圖的性能來改善用戶體驗。"
+  },
+  "codeSnippets_marker_clustering_ios_point2": {
+    "text": "相比之下，亞馬遜定位服務可透過 MapLibre 程式庫實現標記叢集。<1>這是使用 MLN 符號樣式圖<1>層與 MLN 形狀來源結合完成</1>的。</1>建立 <1>MLNShapeSource</1> 時，將叢集選項設定為 true，您可以啟用標記叢集。隨後，運算式會根據叢集的點數<1>使用 MLN 符號樣式層</1>設定樣式。這是使用 <1>NSExpression 根據每</1>個叢集中的點數動態套用型式來實現的。請注意，處理叢集上的點擊並將它們擴展為個別標記將需要額外的邏輯，從而提供更具互動性和用戶友好的地圖體驗的可能性。"
+  },
+  "codeSnippets_marker_clustering_ios_postDescription": {
+    "text": "透過整合這些標記叢集功能，開發人員可以大幅提高地圖的可用性和效能，尤其是在處理大量資料點集時。"
+  },
+  "codeSnippets_display_an_info_window_ios_about": {
+    "text": "顯示地圖標記的信息彈出窗口是交互式地圖的關鍵功能，Google 地圖和 Amazon 位置服務都提供強大的解決方案來實現此功能。"
+  },
+  "codeSnippets_display_an_info_window_ios_point1": {
+    "text": "在 Google 地圖中，您可以使用 <1>GMSMAPView.SelectedMarker 屬性來顯示與特定標記關</1>聯的信息。此功能允許用戶與地圖標記互動並訪問其他詳細信息，通過提供情境相關信息來增強整體用戶體驗。"
+  },
+  "codeSnippets_display_an_info_window_ios_point2": {
+    "text": "亞馬遜定位服務會針對類似目<1>的使用 MLNMapView.SelectAnNotation 屬性。</1>透過設定此屬性，您可以顯示與特定標記相關的資訊。但是，為了確保顯示信息彈出窗口，您還需要覆寫 <1>AnnotationCanShowC</1> allout 函數並返回 true。這種方法提供了高度的靈活性，允許開發人員根據特定條件自定義顯示的信息並控制其演示。"
+  },
+  "codeSnippets_display_an_info_window_ios_postDescription": {
+    "text": "透過整合這些功能，開發人員可以大幅提升地圖的互動性，為使用者提供有關特定位置或點的寶貴見解和前後關聯。"
+  },
+  "codeSnippets_adding_a_polyline_ios_about": {
+    "text": "Google 地圖和亞馬遜定位服務都提供全面的工具來添加線條，從而增強地圖上路線或邊界的視覺表現。"
+  },
+  "codeSnippets_adding_a_polyline_ios_postDescription": {
+    "text": "透過合併這些線條，開發人員可以顯著增強地圖的互動性和實用性，為使用者提供視覺化豐富的路線或地理邊界表示。"
+  },
+  "codeSnippets_adding_a_polyline_ios_point1": {
+    "text": "Google 地圖提供了形狀類，可用於繪製線條和多邊形。這是通過 GMSPolyline 類實現的，這是一個強大的工具，允許開發人員定義一系列座標並將其與線連接。此功能特別有用於表示應用程式內的路線或邊界。"
+  },
+  "codeSnippets_adding_a_polyline_ios_point2": {
+    "text": "另一方面，亞馬遜定位服務使用 MapLibre GL 庫來實現類似的功能。MLN 聚合線方法可用於為指定座標集加入直線。此方法提供靈活性和精確度，允許開發人員在地圖上創建複雜的形狀和路線。"
+  },
+  "codeSnippets_adding_a_polygon_ios_about": {
+    "text": "Google 地圖和 Amazon 定位服務都提供強大的功能，可為地圖添加多邊形，使開發人員能夠劃分特定區域或地區。"
+  },
+  "codeSnippets_adding_a_polygon_ios_point1": {
+    "text": "Google 地圖提供了「形狀」類別，這是一種多功能的工具，可以促進繪製線條和多邊形。<1>GMSPolygon 類別專門設</1>計用於建立多邊形，這些多邊形可以自訂以表示地圖上的特定區域或區域。此功能對於需要分界特定地理區域的應用程序非常有用。"
+  },
+  "codeSnippets_adding_a_polygon_ios_point2": {
+    "text": "相比之下，亞馬遜定位服務使用 MapLibre 程式庫執行類似的功能。<1>MLN Polygon 方法</1>可用於為指定座標集加入多邊形。此方法提供高度的靈活性和精確度，允許開發人員在地圖上創建複雜的形狀和區域。"
+  },
+  "codeSnippets_adding_a_polygon_ios_postDescription": {
+    "text": "通過整合這些多邊形功能，開發人員可以為用戶提供更全面和詳細的特定地理區域的視圖，從而增強整體座標。"
+  },
+  "codeSnippets_drawing_a_circle_ios_point1": {
+    "text": "谷歌地圖提供了<1>專門為此目的設計的 GMSCircle</1> 類別。此類別允許開發人員在指定點周圍定義具有特定半徑的圓，從而提供了一種簡單有效的方法來突出顯示地圖上特定區域。"
+  },
+  "codeSnippets_drawing_a_circle_ios_point2": {
+    "text": "另一方面，亞馬遜定位服務採用略有不同的方法。它使用 <1>MLNCircleStyleLayer 和 MLNShapeSource 類別與圓形來</1><1>源和圓形圖層識別符合</1>使用。此組合提供了高度的靈活性和精確度，使開發人員能夠在地圖上創建可以根據資料來源動態更新的自定義圓圈。"
+  },
+  "codeSnippets_drawing_a_circle_ios_postDescription": {
+    "text": "透過整合這些功能，開發人員可以增強使用者的地圖體驗，提供一種直觀的方式來表示特定半徑內的感興趣區域或區域。"
+  },
+  "codeSnippets_adding_a_heatmap_ios_about": {
+    "text": "熱圖是有價值的視覺化工具，可讓各地理區域表示資料強度。Google 地圖和亞馬遜定位服務都提供了全面的解決方案來整合此功能。"
+  },
+  "codeSnippets_adding_a_heatmap_ios_postDescription": {
+    "text": "透過整合這些熱圖功能，開發人員可以為使用者提供對各地區域的資料模式直觀且詳細的理解，從而提升整體使用者體驗。"
+  },
+  "codeSnippets_adding_a_heatmap_ios_point1": {
+    "text": "谷歌地圖利用形狀類別，特別是 <1>GMUHeatMapTileLayer 類，以便創建</1>熱圖。此類別可讓開發人員定義資料點的集合和對應的顏色漸變，然後處理以產生熱圖。此工具特別有用於表示地圖中各個區域之間的資料密度或強度。"
+  },
+  "codeSnippets_adding_a_heatmap_ios_point2": {
+    "text": "相比之下，亞馬遜定位服務使用 MapLibre GL 庫的功能來實現類似的結果。<1>MLNHeatMapStyleLayer 類用於創建</1>熱圖，提供顯著程度的靈活性和自定義。若要使用此功能，您需要為熱貼圖建立資料來源，該資料來源應該是 <1>MLN</1> PointFeature 物件的陣列。此陣列中的每個特徵都代表熱圖中的一個資料點，可以詳細且精確地表示資料強度。"
+  },
+  "codeSnippets_routing_services_ios_about": {
+    "text": "路由服務是對映應用程式的重要組成部分，為使用者提供不同位置之間的方向。Google 地圖和亞馬遜定位服務都為此功能提供強大的解決方案。"
+  },
+  "codeSnippets_routing_services_ios_point1": {
+    "text": "Google 地圖提供路<1>線</1>或電<1>腦路線，以</1>計算和顯示地圖上的路線數據。"
+  },
+  "codeSnippets_routing_services_ios_point2": {
+    "text": "相比之下，亞馬遜定位服務利用 <1>aws-sdk-swift</1> 庫進行其路由服務。<1>開發人員可以使用 <1>AuthHelper.WithAPIKEY（APIKey，區域）函數使用其 APIKey 初始化 AuthHelper，然後創建一個 GeoroutesClient（配置：<1>AuthHel</1> per.getGeoRoutesClientConfig ()</1><1>）對象來創建計算機 Out</1> esInput 對象。</1>此物件包含必要參數 (例如原點、目的地和行程模式)，會傳遞給 <1>GeoroutesClient.CalculateRoutes 方法來計算路線。</1>這種方法提供了高度的靈活性，允許開發人員自定義路由服務以滿足他們的特定需求。"
+  },
+  "codeSnippets_routing_services_ios_postDescription": {
+    "text": "透過整合這些路由服務，開發人員可以顯著增強其應用程式的功能，為使用者提供前往應用程式的詳細路由。"
+  },
+  "codeSnippets_places_search_ios_about": {
+    "text": "搜索地點是當今地圖服務的重要功能。Google 地圖和亞馬遜定位服務都提供了全面的工具，使用者能夠有效地執行這些搜索。"
+  },
+  "codeSnippets_places_search_ios_postDescription": {
+    "text": "通過結合這些地點搜索功能，開發人員可以顯著增強其應用程序的實用性，為用戶提供有效地發現和導航到景點的能力。"
+  },
+  "codeSnippets_places_search_ios_point1": {
+    "text": "Google 地圖提供了附近<1>搜索 API，這是一種功</1>能強大的工具，旨在執行基於近距離的搜索。此功能可讓使用者搜尋位置指定半徑內的地點，提供符合搜尋條件的地點清單。對於需要引導使用者前往附近的興趣點或服務的應用程式，這可能特別有用。"
+  },
+  "codeSnippets_places_search_ios_point2": {
+    "text": "相反，亞馬遜定位服務利用 <1>aws-sdk-swift</1> 庫提供類似的功能。<1>開發人員可以使用 <1>AuthHelper.WithAPIKEY（APIKey，區域）函數使用其 APIKey 初始化 AuthHelper，然後創建一個地理位置客戶端（配置：<1>AuthHel</1> per.get <1>GeoPlac</1> esClientConfig ()</1>）對象來創建一個 SuggestInput 對象。</1>然後將此物件傳遞給 <1>GeoplacesClient. SUGGEST 方法以執行搜尋</1>。這種方法提供了高度的靈活性，允許開發人員自定義搜索參數以滿足他們的特定需求。"
+  },
+  "migrateAnAndroidApp_heading": {
+    "text": "安卓-從谷歌地圖遷移到亞馬遜定位服務"
+  },
+  "initiating_a_kotlin_android_heading": {
+    "text": "創建一個科特林安卓項目"
+  },
+  "initiating_a_kotlin_android_dec": {
+    "text": "對於本指南，我們將在 Android Studio 中使用一個 Android 項目，這是一個全面的開發環境，它提供了使用 Kotlin 創建引人入勝的 Android 應用程序所需的工具。"
+  },
+  "integrating_the_android_amazon_location_sdk_description": {
+    "text": "要使用亞馬遜定位服務的地圖功能增強您的 Android 應用程序，您需要使用 Kotlin 將以下軟件包合到 Android Studio 項目中："
+  },
+  "integrating_the_android_amazon_location_sdk_description1": {
+    "text": "MapLibre Native 是一個免費的開源庫，旨在將地圖無縫整合到不同平台的移動應用程序和桌面應用程序中。它的傑出特點是快速顯示地圖，這是利用 GPU 加速向量圖形渲染的強大功能來實現。這可確保在您的應用程序中快速高效地圖呈現，為用戶提供視覺吸引力和響應式的映射體驗。MapLibre Native 使您能夠輕鬆地將地圖融入軟體專案中，同時利用先進技術實現最佳效能。其功能包括："
+  },
+  "MapLibre_For_Android": {
+    "text": "<0>適用於安卓版的地圖自由</0>"
+  },
+  "AWS_SDK_For_Android": {
+    "text": "適用於安卓的 AWS 開發套件"
+  },
+  "integrating_the_android_amazon_location_sdk_description2": {
+    "text": "適用於 Android 的 AWS SDK 套件專為各種亞馬遜網路服務設計，包括亞馬遜位置。它啟用各種功能，其中一些功能已在本文檔中實現："
+  },
+  "integrating_the_android_amazon_location_sdk_description3": {
+    "text": "通過使用 Kotlin 將這些軟件包整合到 Android Studio 項目中，您可以利用亞馬遜定位服務和 MapLibre 的功能，為 Android 應用程序用戶創建功能豐富的交互式地圖體驗。"
+  },
+  "webSdkExamples_Android_description": {
+    "text": "本指南提供了各種程式碼範例，每個程式碼範例都解決了一個單獨的使用案例。主要目標是利用 MapLibre 和適用於 Kotlin 的 AWS SDK 的功能，促進您的 Android 應用程序從 Google 地圖 SDK 轉換到亞馬遜定位服務。"
+  },
+  "webSdkExample_Android_description1": {
+    "text": "要繼續實現提供的示例，您將需要用每個範例中的代碼片段替換主 Android 活動文件中的現有內容（如 MainActivity.kt）。此過程將允許您將示例中展示的特定功能納入您的應用程序中。"
+  },
+  "codeSnippets_load_a_map_Android_about": {
+    "text": "Google 地圖和亞馬遜定位服務都提供了用於在應用程序中嵌入互動地圖的工具。這些地圖支援使用者互動，例如平移和縮放。"
+  },
+  "codeSnippets_load_a_map_Android_point1": {
+    "text": "對於 Android 上的 Google 地圖，<1>SupportMapFragment</1> 管理地圖生命週期，而 <1>GoogleMap 類可以</1>控制地圖內容和互動。"
+  },
+  "codeSnippets_load_a_map_Android_point2": {
+    "text": "使用亞馬遜定位服務，MapLibre 庫的 <1>MapView 是用於在應用</1>程序中初始化和顯示地圖的主要界面。"
+  },
+  "codeSnippets_load_a_map_Android_postDescription": {
+    "text": "要使用適用於 Android 的谷歌地圖 SDK 顯示地圖，請執行以下步驟："
+  },
+  "google_load_a_map_step1": {
+    "text": "<0>步驟 1</0><1>：打開模塊層級 <1>build.gradle</1> 並添加以下依賴項</1>"
+  },
+  "google_load_a_map_step2": {
+    "text": "<0>步驟 2</0>：在您的 <1>AndroidManifest.xml 中輸入以</1>下代碼，然後用您的谷歌地圖 API 密鑰替換 <1>MAPS_API_KEY</1>"
+  },
+  "google_load_a_map_step3": {
+    "text": "<0>步驟 3</0>：將以下代碼添加到 <1>activity_maps.xml</1>"
+  },
+  "google_load_a_map_step4": {
+    "text": "<0>步驟 4</0>：將以下代碼添加到 <1>Map</1> sActivity.kt"
+  },
+  "amazon_load_a_map_step1": {
+    "text": "<0>步驟 1</0>：打開模塊層級 <1>build.gradle</1> 並添加以下數據"
+  },
+  "amazon_load_a_map_step2": {
+    "text": "<0>步驟 2</0>：若要使用地圖名稱和 AWS 區域設定您的應用程式，請在 <1>configuration.xml</1> 中輸入它，如下所示"
+  },
+  "amazon_load_a_map_step3": {
+    "text": "<0>步驟 3</0>：在 <1>strings.xml</1> 中添加以下代碼"
+  },
+  "amazon_load_a_map_step4": {
+    "text": "<0>步驟 4</0>：在 <1>activity_map.xml</1> 中添加以下代碼"
+  },
+  "amazon_load_a_map_step5": {
+    "text": "<0>步驟 5</0>：將以下代碼添加到您的 <1>Map</1> Activity.kt"
+  },
+  "codeSnippets_adding_a_marker_android_about": {
+    "text": "Google 地圖和亞馬遜定位服務都可以將標記放置在地圖上的精確座標，這是突出顯示景點的必要功能。"
+  },
+  "codeSnippets_adding_a_marker_android_point1": {
+    "text": "谷歌地圖通過 <1>AddMarker</1> 功能提供本機支持。"
+  },
+  "codeSnippets_adding_a_marker_android_point2": {
+    "text": "<1>亞馬遜定位服務利用 MapLibre 程式庫使用「符號管理員」在地圖上渲染標記。</1>"
+  },
+  "google_adding_a_marker_step1": {
+    "text": "<0>步驟 1</0>：將以下代碼添加到 <1>activity_maps.xml</1>"
+  },
+  "google_adding_a_marker_step2": {
+    "text": "<0>步驟 2</0><1>：使用谷歌地圖，使用 MarkerActivity.kt 中的地圖 <1>AddMarker 方法添</1>加標記</1>"
+  },
+  "amazon_adding_a_marker_step1": {
+    "text": "<0>步驟 1：在 activity_add_marker.xml 中添加</0><1>以下代碼</1>"
+  },
+  "amazon_adding_a_marker_step2": {
+    "text": "<0>步驟：在/</0><1><1>res/可繪製目錄中添加一個名為 <1>ic_marker_blue.xml 的</1>標記圖像，然後將以下代碼</1>插入到 AddMarkerActivity.kt</1>"
+  },
+  "codeSnippets_marker_clustering_android_about": {
+    "text": "標記叢集是 Google 地圖和亞馬遜定位服務提供的強大功能，可以通過高密度的標記來增強地圖的視覺清晰度。"
+  },
+  "codeSnippets_marker_clustering_android_point1": {
+    "text": "Google 地圖使用<1>叢集管理器，</1>它需要地圖參考和一組標記才能在地圖上顯示標記叢集。"
+  },
+  "codeSnippets_marker_clustering_android_point2": {
+    "text": "<1>亞馬遜定位服務透過使用 AddSource 和 <1>Add</1> Layer 等方法直接透過 MapLibre 呈現標記和資料層來實現標記叢集。</1>"
+  },
+  "google_marker_clustering_step1": {
+    "text": "<0>步驟 1</0>：在 <1>build.gradle 中添加以下行在依賴關係中，然後單</1>擊立即同步。"
+  },
+  "google_marker_clustering_step2": {
+    "text": "<0>步驟 2</0>：將以下代碼添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_marker_clustering_step3": {
+    "text": "<0>步驟 3：在</0><1>標記叢集活動 .kt 中添加以下代碼</1>"
+  },
+  "amazon_marker_clustering_step1": {
+    "text": "<0>步驟 1</0>：在 <1>activity_marker_cluster.xml</1> 中添加下面的代碼。"
+  },
+  "amazon_marker_clustering_step2": {
+    "text": "<0>步驟 2：將</0>以下代碼包含到標記叢集活動 <1>.kt 中。</1>"
+  },
+  "codeSnippets_display_an_info_window_android_about": {
+    "text": "Google 地圖和 Amazon 位置服務都提供了在各自的地圖上顯示信息彈出窗口的功能，使用者可以查看有關特定位置或標記的更多詳細信息。"
+  },
+  "codeSnippets_display_an_info_window_android_point1": {
+    "text": "在 Google 地圖中，標記<1>選項會顯</1>示一個靠近標記的彈出窗口。"
+  },
+  "codeSnippets_display_an_info_window_android_point2": {
+    "text": "亞馬遜定位服務使用 Maplibre 的 Add <1>Source 和 AddLay</1> <1>er 方法來呈現資訊</1>彈出窗口。"
+  },
+  "google_display_an_info_window_step1": {
+    "text": "<0>步驟 1</0>：將以下代碼添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_display_an_info_window_step2": {
+    "text": "<0>步驟 2：在</0>信息 <1>Pop</1> upActivity.kt 中添加以下代碼。"
+  },
+  "amazon_display_an_info_window_step1": {
+    "text": "<0>步驟 1</0>：在 <1>activity_info_popup.xml</1> 中添加以下代碼。"
+  },
+  "amazon_display_an_info_window_step2": {
+    "text": "<0>步驟 2</0>：將以下代碼包含到 <1>layout_info_popup.xml</1>。"
+  },
+  "amazon_display_an_info_window_step3": {
+    "text": "<0>步驟 3：將</0>以下代碼包含到信息 <1>PopupActivity.kt。</1>"
+  },
+  "codeSnippets_adding_a_polyline_android_about": {
+    "text": "Google 地圖和亞馬遜定位服務都提供全面的工具來添加線條，從而增強地圖上路線或邊界的視覺表現。"
+  },
+  "codeSnippets_adding_a_polyline_android_point1": {
+    "text": "Google 地圖提供了用於渲<1>染線的添加聚合線</1>方法。"
+  },
+  "codeSnippets_adding_a_polyline_android_point2": {
+    "text": "亞馬遜定位服務使用 Maplibre 的 <1>Add Source 和 AddLay</1> <1>er 方法來渲</1>染行。"
+  },
+  "google_adding_a_polyline_step1": {
+    "text": "<0>步驟 1</0>：將以下代碼添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_adding_a_polyline_step2": {
+    "text": "<0>步驟 2</0>：在聚線活動 .kt 中添加以下代碼<1>。</1>"
+  },
+  "amazon_adding_a_polyline_step1": {
+    "text": "<0>步驟 1</0>：在 <1>activity_polyline.xml</1> 中添加以下代碼。"
+  },
+  "amazon_adding_a_polyline_step2": {
+    "text": "<0>步驟 2：將</0>以下代碼包含到聚線活動. <1>kt 中。</1>"
+  },
+  "codeSnippets_adding_a_polygon_android_about": {
+    "text": "多邊形是表示地圖上特定區域的幾何形狀。"
+  },
+  "codeSnippets_adding_a_polygon_android_point1": {
+    "text": "谷歌地圖提供了 <1>Add Polygon 方法，用</1>於在地圖上繪製多邊形。"
+  },
+  "codeSnippets_adding_a_polygon_android_point2": {
+    "text": "亞馬遜定位服務使用 Maplibre 的 <1>Add Source 和 AddLay</1> <1>er 方法來呈現多</1>邊形。"
+  },
+  "google_adding_a_polygon_step1": {
+    "text": "<0>步驟 1</0>：將以下代碼添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_adding_a_polygon_step2": {
+    "text": "<0>步驟 2：在</0>多邊形活動 .kt 中添加以下代碼<1>。</1>"
+  },
+  "amazon_adding_a_polygon_step1": {
+    "text": "<0>步驟 1</0>：在 <1>activity_polygon.xml</1> 中添加以下代碼。"
+  },
+  "amazon_adding_a_polygon_step2": {
+    "text": "<0>步驟 2：將</0>以下代碼包含到多邊形活動 <1>.kt 中。</1>"
+  },
+  "codeSnippets_adding_a_circle_android_about": {
+    "text": "在地圖上顯示圓圈是許多應用程序的常見要求，Google 地圖和亞馬遜定位服務都提供強大的工具來完成此任務。"
+  },
+  "codeSnippets_adding_a_circle_android_point1": {
+    "text": "谷歌地圖提供了專門<1>用於繪製圓圈的 AddCircle</1> 方法。"
+  },
+  "codeSnippets_adding_a_circle_android_point2": {
+    "text": "亞馬遜定位服務使用 Maplibre 的 <1>Add Source 和 AddLay</1> <1>er 方法來渲染</1>圓圈。此外，您可以使用 <1>org.maplibre.gl:android-sdk-grass 庫來獲取用於渲染圓的點</1>清單。"
+  },
+  "google_adding_a_circle_step1": {
+    "text": "<0>步驟 1</0>：將以下代碼添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_adding_a_circle_step2": {
+    "text": "<0>步驟 2：在</0> <1>Circle</1> DrawActivity.kt 中添加以下代碼。"
+  },
+  "amazon_adding_a_circle_step1": {
+    "text": "<0>步驟 1</0>：在 <1>buil</1> d.gradle 中的依賴關係中添加以下行。"
+  },
+  "amazon_adding_a_circle_step2": {
+    "text": "<0>步驟 2</0>：在 <1>activity_draw_circle.xml</1> 中添加以下代碼。"
+  },
+  "amazon_adding_a_circle_step3": {
+    "text": "<0>步驟 2：將</0>以下代碼包含到 <1>DrawCir</1> cleActivity.kt。"
+  },
+  "codeSnippets_adding_a_heatmap_android_about": {
+    "text": "熱圖是有價值的視覺化工具，可讓各地理區域表示資料強度。Google 地圖和亞馬遜定位服務都提供了全面的解決方案來整合此功能。"
+  },
+  "codeSnippets_adding_a_heatmap_android_point1": {
+    "text": "<1>在谷歌地圖中，熱圖層包含在 <1>com.google.maps.android: android-maps-utils 庫中，它使用 HeatMapTileProvider 方法包含</1>熱圖。</1>"
+  },
+  "codeSnippets_adding_a_heatmap_android_point2": {
+    "text": "亞馬遜定位服務使用 MapLibre 的功能，使用 <1>Add</1> Layer 函數。通常，您首先使用 <1>AddSource 添加一個來源，然</1>後創建一個引用此來源的圖層。"
+  },
+  "google_adding_a_heatmap_step1": {
+    "text": "<0>步驟 1</0>：在 <1>buil</1> d.gradle 中的<1>依賴關係中添</1>加以下行。"
+  },
+  "google_adding_a_heatmap_step2": {
+    "text": "<0>步驟 2</0>：將以下代碼添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_adding_a_heatmap_step3": {
+    "text": "<0>步驟 3</0><1>：使用谷歌地圖，使用 HeatmapActivity.kt 中的地圖 AddHeatMap 方法添加熱圖。</1>"
+  },
+  "amazon_adding_a_heatmap_step1": {
+    "text": "<0>步驟 1</0>：在 <1>activity_heat_map.xml</1> 中添加以下代碼。"
+  },
+  "amazon_adding_a_heatmap_step2": {
+    "text": "<0>步驟 2：將</0>以下代碼包含到<1>熱 mapActivity.kt 中。</1>"
+  },
+  "codeSnippets_calculating_a_route_android_about": {
+    "text": "路由服務是對映應用程式的重要組成部分，為使用者提供不同位置之間的方向。Google 地圖和亞馬遜定位服務都為此功能提供強大的解決方案。"
+  },
+  "codeSnippets_calculating_a_route_android_point1": {
+    "text": "Google 地圖提供路<1>線</1>或電<1>腦路線，以</1>計算和顯示地圖上的路線數據。"
+  },
+  "codeSnippets_calculating_a_route_android_point2": {
+    "text": "亞馬遜定位服務通過其位<1>置用戶端提供計算</1>機路徑方法。隨後，它利用 Maplibre 的渲染功能在地圖上顯示此路線數據。"
+  },
+  "google_calculating_a_route_step1": {
+    "text": "<0>步驟 1</0>：在 <1>buil</1> d.gradle 中的<1>依賴關係中添</1>加以下行。"
+  },
+  "google_calculating_a_route_step2": {
+    "text": "<0>步驟 2</0>：將以下代碼添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_calculating_a_route_step3": {
+    "text": "<0>步驟 3：在</0><1>計算器外活動 .kt 中添加以下數據。</1>"
+  },
+  "amazon_calculating_a_route_step1": {
+    "text": "<0>步驟 1：在</0> <1>build.gradle.kts 中添加以下<1>一行在依賴</1>關係中。</1>"
+  },
+  "amazon_calculating_a_route_step2": {
+    "text": "<0>步驟 2</0>：在 <1>activity_calculate_route.xml</1> 中添加以下代碼。"
+  },
+  "amazon_calculating_a_route_step3": {
+    "text": "<0>步驟 3：在</0> <1><1>/res/可繪製目錄中添加一個名為 <1>ic_marker_red 的標記圖像，然後</1>將以下代碼插入計算機外活動 .kt</1> 中。</1>"
+  },
+  "codeSnippets_searching_for_places_android_about": {
+    "text": "執行地點搜索的能力是現代地圖服務的基本功能。Google 地圖和亞馬遜定位服務都提供強大的工具來促進此功能。"
+  },
+  "codeSnippets_searching_for_places_android_point1": {
+    "text": "谷歌地圖會使用 <1>maps.googleapis.com/maps/api/地點/附近搜尋網址和谷歌地圖 API 密鑰來搜尋地點</1>。"
+  },
+  "codeSnippets_searching_for_places_android_point2": {
+    "text": "亞馬遜定位服務透過其位置<1>用戶端提供建議的搜尋位置索引</1>。此外，亞馬遜定位服務還提供其他地點 API，例如 <1>GetPlace</1> 和 <1>Search</1> PlaceIndexForText。更多詳細信息可以在這<0>裡</0>找到。"
+  },
+  "google_searching_for_places_step1": {
+    "text": "<0>步驟 1</0>：在 <1>buil</1> d.gradle 中的<1>依賴關係中添</1>加以下行。"
+  },
+  "google_searching_for_places_step2": {
+    "text": "<0>步驟 2</0>：在 <1>activity_search.xml</1> 中添加以下代碼。"
+  },
+  "google_searching_for_places_step3": {
+    "text": "<0>步驟 3：在</0> <1>SearchActiv</1> ity.kt 中添加以下數據。"
+  },
+  "amazon_searching_for_places_step1": {
+    "text": "<0>步驟 1</0>：在 <1>buil</1> d.gradle.kts 中的依<1>賴關係中添</1>加以下行。"
+  },
+  "amazon_searching_for_places_step2": {
+    "text": "<0>步驟 2</0>：在 <1>activity_search.xml</1> 中添加以下代碼。"
+  },
+  "amazon_searching_for_places_step3": {
+    "text": "<0>步驟 3：將以</0>下代碼包含到地理位置搜尋文字活<1>動 .kt。</1>"
+  },
+  "migrateAnAndroidApp_desc": {
+    "text": "本指南詳細介紹了將 Android 應用程序從 Google 地圖轉換為亞馬遜定位服務的技術過程。它強調了初始設置、Amazon 位置資源配置，並提供 SDK 比較範例，以便將映射功能集成到基於 Android 的平台中。"
+  },
+  "integrating_the_Android_amazon_location_sdk_description": {
+    "text": "要使用亞馬遜定位服務的地圖功能增強您的 Android 應用程序，您需要使用 Kotlin 將以下軟件包合到 Android Studio 項目中："
+  },
+  "positions_evaluated": {
+    "text": "評估職位"
+  },
+  "api_calls": {
+    "text": "API 呼叫"
+  },
+  "google_maps_price_disclaimer": {
+    "text": "反映了截至 2024 年 5 月 1 日的谷歌地圖的比率"
+  },
+  "information_is_not_publicly_available": {
+    "text": "Google 地圖不公開資訊"
+  },
+  "pricing_assumptions_and_variations": {
+    "text": "定價假設和變化"
+  },
+  "route-matrix-total-cost-formula": {
+    "text": "請求數 X 出發/出發地數 X 目的地數 X 單位價格 = 總成本"
+  },
+  "google-maps-not-available": {
+    "text": "谷歌地圖無法使用"
+  },
+  "tier_1": {
+    "text": "一級"
+  },
+  "tier_2": {
+    "text": "第二階"
+  },
+  "tier_3": {
+    "text": "第三階"
+  },
+  "tier_4": {
+    "text": "第四階"
+  },
+  "tier_1_unit_price": {
+    "text": "一級單價"
+  },
+  "tier_2_unit_price": {
+    "text": "第二級單位價"
+  },
+  "tier_3_unit_price": {
+    "text": "第三級單位價"
+  },
+  "tier_4_unit_price": {
+    "text": "4 級單價"
+  },
+  "tier_1_cost": {
+    "text": "一級成本"
+  },
+  "tier_2_cost": {
+    "text": "第 2 層成本"
+  },
+  "tier_3_cost": {
+    "text": "第三級成本"
+  },
+  "tier_4_cost": {
+    "text": "第 4 層成本"
+  },
+  "total_cost": {
+    "text": "總成本"
+  },
+  "trackers_write_API_calls": {
+    "text": "追蹤器編寫 API 呼叫"
+  },
+  "unit_price": {
+    "text": "單位價格"
+  },
+  "hr": {
+    "text": "小時"
+  },
+  "min": {
+    "text": "分鐘"
+  },
+  "position_updates": {
+    "text": "職位更新"
+  },
+  "total_requests_with_filter": {
+    "text": "套用過濾器的評估請求/月"
+  },
+  "total_requests": {
+    "text": "請求總數"
+  },
+  "filter_factor": {
+    "text": "過濾係數"
+  },
+  "hrs": {
+    "text": "小時"
+  },
+  "mins": {
+    "text": "分鐘"
+  },
+  "Hr": {
+    "text": "小時"
+  },
+  "Hrs": {
+    "text": "小時"
+  },
+  "Hour": {
+    "text": "小時"
+  },
+  "Hours": {
+    "text": "營業時間"
+  },
+  "Min": {
+    "text": "最小"
+  },
+  "Mins": {
+    "text": "分鐘"
+  },
+  "Minute": {
+    "text": "分鐘"
+  },
+  "Minutes": {
+    "text": "會議紀要"
+  },
+  "web_services_app_heading": {
+    "text": "網站服務-從 Google 地圖移轉到亞馬遜定位服務"
+  },
+  "web_services_app_desc": {
+    "text": "本指南詳細說明將後端應用程式從 Google 地圖轉換為亞馬遜定位服務的技術程序。它強調了初始設置、Amazon 位置資源配置，並提供 API 比較範例，以便將映射功能整合到支援 Web API 的任何平台中。"
+  },
+  "web_services_app_desc1": {
+    "text": "AWS 文件是開發人員掌握 Amazon 定位服務的關鍵資源，提供有關功能、設置和整合的完整指南。查看<0>官方指南和</0> <0>API 參考</0>，以獲取有關將定位服務添加到應用程序的實用見解。"
+  },
+  "web_services_app_dataProviders_title": {
+    "text": "數據提供者"
+  },
+  "web_services_app_dataProviders_description": {
+    "text": "使用 Amazon 位置時，您可以選擇要使用的資料提供者。地圖、地點和路線資料來自您選擇的全球位置資料提供者，包括："
+  },
+  "web_services_app_dataProviders_name_0": {
+    "text": "Esri"
+  },
+  "web_services_app_dataProviders_link_0": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
+  },
+  "web_services_app_dataProviders_name_1": {
+    "text": "Grab"
+  },
+  "web_services_app_dataProviders_link_1": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/grab.html"
+  },
+  "web_services_app_dataProviders_name_2": {
+    "text": "HERE 技術"
+  },
+  "web_services_app_dataProviders_link_2": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/HERE.html"
+  },
+  "web_services_app_dataProviders_name_3": {
+    "text": "開放資料"
+  },
+  "web_services_app_dataProviders_link_3": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/open-data.html"
+  },
+  "web_services_app_dataProviders_postDescription": {
+    "text": "如需其他資訊，請參閱 Amazon <0>定</0>位服務開發人員指南中的資料提供者。"
+  },
+  "web_services_app_serviceComparison_title": {
+    "text": "API 比較"
+  },
+  "web_services_app_serviceComparison_description": {
+    "text": "表格顯示 Amazon 位置服務 API，其功能與列出的 Google 地圖服務 API 類似。"
+  },
+  "web_services_app_serviceComparison_table_0_feature_text": {
+    "text": "地圖瓷磚"
+  },
+  "web_services_app_serviceComparison_table_0_googleMapsAPI": {
+    "text": "2 公分的圖塊"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_text": {
+    "text": "獲取地圖形"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetMapTile.html"
+  },
+  "web_services_app_serviceComparison_table_1_feature_text": {
+    "text": "地理編碼"
+  },
+  "web_services_app_serviceComparison_table_1_googleMapsAPI": {
+    "text": "地理編碼"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_text": {
+    "text": "搜尋位置文字索引"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-geocoding.html"
+  },
+  "web_services_app_serviceComparison_table_2_feature_text": {
+    "text": "反向地理編碼"
+  },
+  "web_services_app_serviceComparison_table_2_googleMapsAPI": {
+    "text": "地理編碼"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_text": {
+    "text": "搜尋位置索引"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-reverse-geocode.html"
+  },
+  "web_services_app_serviceComparison_table_3_feature_text": {
+    "text": "附近搜尋"
+  },
+  "web_services_app_serviceComparison_table_3_googleMapsAPI": {
+    "text": "地點:搜尋附近"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_text": {
+    "text": "搜尋位置索引"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForPosition.html"
+  },
+  "web_services_app_serviceComparison_table_4_feature_text": {
+    "text": "文字搜索"
+  },
+  "web_services_app_serviceComparison_table_4_googleMapsAPI": {
+    "text": "位置:搜尋文字"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_text": {
+    "text": "搜尋位置文字索引"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForText.html"
+  },
+  "web_services_app_serviceComparison_table_5_feature_text": {
+    "text": "自動完成"
+  },
+  "web_services_app_serviceComparison_table_5_googleMapsAPI": {
+    "text": "位置:自動完成"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_text": {
+    "text": "搜尋地點建議索引"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForSuggestions.html"
+  },
+  "web_services_app_serviceComparison_table_6_feature_text": {
+    "text": "使用地點 ID"
+  },
+  "web_services_app_serviceComparison_table_6_googleMapsAPI": {
+    "text": "地方"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_text": {
+    "text": "獲取地點"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetPlace.html"
+  },
+  "web_services_app_serviceComparison_table_7_googleMapsAPI": {
+    "text": "V2: 電腦輸出"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_text": {
+    "text": "計算器路徑"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRoute.html"
+  },
+  "web_services_app_serviceComparison_table_8_googleMapsAPI": {
+    "text": "V2: 計算機外部矩陣"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_text": {
+    "text": "計算器外部矩陣"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRouteMatrix.html"
+  },
+  "web_services_app_serviceComparison_postDescription": {
+    "text": "如需其他資訊，請參閱 Amazon <0>定</0>位服務開發人員指南中的資料提供者。"
+  },
+  "google_maps_api": {
+    "text": "谷歌地圖 API"
+  },
+  "amazon_location_api": {
+    "text": "亞馬遜位置 API"
+  },
+  "webServices_article_items_examples_description": {
+    "text": "從 Google 地圖遷移到 Amazon 定位服務時，瞭解每個服務提供的可比較服務和 API 端點非常重要。雖然兩種服務提供類似的地理定位功能，但 API 請求的結構和使用的命名慣例可能會有所不同。"
+  },
+  "codeSnippets_getting_map_tiles_heading": {
+    "text": "獲取地圖圖塊"
+  },
+  "codeSnippets_getting_map_tiles_description1": {
+    "text": "地圖圖塊是網絡地圖（如谷歌地圖和 Maplibre）的結構方式。它們是以網格排列方形點陣圖形顯示以顯示地圖。每個圖塊都是一個小圖像，並包含地圖的特定部分，具有特定的詳細等級或縮放等級。當您放大或縮小 Web 地圖時，基本上您正在載入具有不同詳細等級的不同圖塊集。"
+  },
+  "codeSnippets_getting_map_tiles_description2": {
+    "text": "地圖圖塊 API (例如 Google 地圖和亞馬遜位置提供的 API) 允許開發人員以編程方式檢索這些地圖圖塊。這對於各種應用程式很有用，例如建立自訂地圖檢視器、在網頁中嵌入地圖檢視，或對圖塊中包含的地理資訊進行分析。"
+  },
+  "codeSnippets_getting_map_tiles_description3": {
+    "text": "API 可以通過接受指定所需的地圖類型（例如路線圖、衛星）、地理座標（緯度和經度）以及縮放等級的 HTTP 要求來運作。然後，API 返回對應的地圖圖塊作為圖像文件（通常是 PNG 或 JPEG 格式）。"
+  },
+  "codeSnippets_getting_map_tiles_description4": {
+    "text": "在地圖圖塊的前後關聯中，Z、X 和 Y 是決定要從地圖擷取的特定圖塊的參數。以下是每個代表的內容："
+  },
+  "codeSnippets_getting_map_tiles_point1": {
+    "text": "Z (縮放等級)：此參數決定地圖的比例。較高的縮放等級將更詳細地顯示較小的區域。例如，在較高的縮放等級下，您可能會看到街道名稱和個別建築物。在較低的縮放程度下，您可能只會看到國家邊界和大城市。縮放等級通常以 2 的指數表示，因此縮放等級 n 將導致地圖被分為 2^n x 2^n 圖塊。"
+  },
+  "codeSnippets_getting_map_tiles_point2": {
+    "text": "X (欄)：此參數決定圖塊的縱向（東西）位置。在縮放等級 0 時，只有一個圖塊，因此 X 值為 0。在較高的縮放等級下，X 值可以從 0 到 2^Z-1 的範圍從西移到東。"
+  },
+  "codeSnippets_getting_map_tiles_point3": {
+    "text": "Y (列)：此參數決定圖塊的緯度（北南）位置。與 X 值一樣，Y 值在每個縮放級別的範圍為 0 到 2^Z-1，但它從北向南移動。"
+  },
+  "codeSnippets_getting_map_tiles_postDescription": {
+    "text": "這些參數一起可以指定地圖上的任何詳細等級的圖塊。透過變更這些參數，您可以導覽至地圖的不同部分，並放大或縮小。"
+  },
+  "Request": {
+    "text": "請求"
+  },
+  "Response": {
+    "text": "回應"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_heading": {
+    "text": "1.建立工作階段"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_description": {
+    "text": "在 Google 地圖中，第一步是創建會話。這是通過包括地圖類型、語言和區域的 POST 請求來完成。地圖類型可以是 '藍圖'、'衛星' 等。語言和區域參數用於本地化地圖圖塊。"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_heading": {
+    "text": "二.獲取地圖圖塊"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_description": {
+    "text": "建立工作階段後，您就可以擷取地圖圖塊。這是透過包含縮放等級 (Z)、x 座標 (X) 和 y 座標 (Y) 的 GET 要求來完成。在上一步驟中生成的會話令牌也是必要的。"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_response": {
+    "text": "<0>對此請求的回應是包含要求的地圖圖塊的 PNG 檔案。</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description": {
+    "text": "使用亞馬遜位置，獲取地圖圖塊是一個簡單的過程。它涉及一個包含地圖名稱、縮放等級 (Z)、x 座標 (X) 和 y 座標 (Y) 的單一 GET 請求。"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response": {
+    "text": "<0>返回的 BLOB 包含地圖框向量圖塊 (MVT) 數據</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result": {
+    "text": "對此請求的回應包括指示快取控制原則和內容類型的 HTTP 標頭，接著是對映圖塊資料 (稱為「blob」)。地圖瓷磚資料可用於在適當的應用程式中渲染地圖圖塊。"
+  },
+  "codeSnippets_getting-map-tiles_description1": {
+    "text": "地圖圖塊是網絡地圖（如谷歌地圖和 Maplibre）的結構方式。它們是以網格排列方形點陣圖形顯示以顯示地圖。每個圖塊都是一個小圖像，並包含地圖的特定部分，具有特定的詳細等級或縮放等級。當您放大或縮小 Web 地圖時，基本上您正在載入具有不同詳細等級的不同圖塊集。"
+  },
+  "codeSnippets_getting-map-tiles_description2": {
+    "text": "地圖圖塊 API (例如 Google 地圖和亞馬遜位置提供的 API) 允許開發人員以編程方式檢索這些地圖圖塊。這對於各種應用程式很有用，例如建立自訂地圖檢視器、在網頁中嵌入地圖檢視，或對圖塊中包含的地理資訊進行分析。"
+  },
+  "codeSnippets_getting-map-tiles_description3": {
+    "text": "API 可以通過接受指定所需的地圖類型（例如路線圖、衛星）、地理座標（緯度和經度）以及縮放等級的 HTTP 要求來運作。然後，API 返回對應的地圖圖塊作為圖像文件（通常是 PNG 或 JPEG 格式）。"
+  },
+  "codeSnippets_getting-map-tiles_description4": {
+    "text": "在地圖圖塊的前後關聯中，Z、X 和 Y 是決定要從地圖擷取的特定圖塊的參數。以下是每個代表的內容："
+  },
+  "codeSnippets_geocoding_heading": {
+    "text": "地理編碼"
+  },
+  "codeSnippets_geocoding_description": {
+    "text": "地理編碼是將地址轉換為地理座標的過程。這是許多需要位置數據的應用程序中的關鍵功能。"
+  },
+  "codeSnippets_geocoding_withGoogle_description1": {
+    "text": "在 Google 地圖中，地理編碼 API 用於將地址轉換為地理<0>座標</0>。地理編碼端點用於此目的。它確實允許您使用區域或組件參數將結果偏置為特定區域。"
+  },
+  "codeSnippets_geocoding_withGoogle_description2": {
+    "text": "<0>這些元件可讓您依政治或地理元件篩選結果，例如行<0>政區、地區或郵遞區</0>號<0>。</0></0>例如，元件 <0>= 地區：山 + 視圖 | 國家：美國會將結果偏向美國山景</0>的地方。以下是 Google 地圖中的地理編碼請求的範例："
+  },
+  "codeSnippets_geocoding_withAmazon_description": {
+    "text": "在亞馬遜定位服務中，與 Google 地圖的地理編碼相比的功能是「搜尋位置索引文字」操<0>作</0>。此操作使用自由形式文字（例如地址）搜尋地點，並傳回候選地點以及補充資訊。一個簡單的請求包含以下必要的參數："
+  },
+  "codeSnippets_geocoding_withAmazon_description_1": {
+    "text": "文字 — 要轉換為一組座標的地址、名稱、城市或區域。例如，字符串「任何城市」。"
+  },
+  "codeSnippets_geocoding_withAmazon_description_2": {
+    "text": "若要指定每頁最大結果數，請使用下列選擇性參數："
+  },
+  "codeSnippets_geocoding_withAmazon_description_3": {
+    "text": "最大結果 — 限制查詢回應中傳回的結果數目上限。"
+  },
+  "codeSnippets_geocoding_withAmazon_description_4": {
+    "text": "篩選國家 — 您要在其中進行地理編碼的國家或地區。您可以使用 ISO 3166 三字母的國家代碼在一個請求中定義多達 100 個國家/地區。"
+  },
+  "codeSnippets_geocoding_withAmazon_request_description": {
+    "text": "在此請求中，「文字」欄位相當於 Google 地圖中的輸入參數，指定要進行地理編碼的地址。偏差<1>位置和篩選</1>國<1>家欄位用於</1>將搜尋結果偏差設定為特定區域，類似於 Google 地圖中的位置偏差和<1>國家/地</1>區參數<1>。</1>關鍵參數是您的 API 金鑰。如需更多有關我們的地理編碼服務的詳細資訊，請參閱此處提供的詳細文件<0>。</0>"
+  },
+  "response_comparison": {
+    "text": "回應欄位映射"
+  },
+  "web_services_app_responseComparison_table_0_description": {
+    "text": "返回地址的全文。"
+  },
+  "web_services_app_responseComparison_table_1_description": {
+    "text": "地方的名稱。"
+  },
+  "description": {
+    "text": "描述"
+  },
+  "codeSnippets_reverse_geocoding_heading": {
+    "text": "反向地理編碼"
+  },
+  "codeSnippets_reverse_geocoding_description": {
+    "text": "兩種服務提供的另一個關鍵功能是反向地理編碼，其涉及將地理坐標轉換為人類可讀的地址或地點名稱。此功能通常用於需要以用戶易於理解的格式顯示位置信息的應用程序中。"
+  },
+  "codeSnippets_reverse_geocoding_withGoogle_description1": {
+    "text": "在 Google 地圖中，地點 API 的地理編<0>碼</0>端點也用於反向地理編碼。但是，您需要使用 <0>latlng 來提供反</0>向地理編碼的位置。以下是 Google 地圖中反向地理編碼請求的示例："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description": {
+    "text": "在亞馬遜定位服務中，「<0>搜尋位置索引索引」作業用於反向地</0>理編碼。此作業會搜尋指定位置周圍的位置。一個簡單的請求包含以下必要的參數："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1": {
+    "text": "位置 — 您要轉換為地址、興趣點或一般位置的座標集。使用格式 <0>[經度，緯度] 定</0>義。"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_2": {
+    "text": "若要指定每頁最大結果數，請新增下列選擇性參數："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_3": {
+    "text": "最大結果 — 限制查詢回應中傳回的結果數目上限。"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_4": {
+    "text": "如果要為查詢結果指定偏好的語言，請使用下列選擇性參數："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_5": {
+    "text": "語言 — 用於呈現結果的語言代碼。該值必須是有效的 BCP 47 語言代碼。例如，en 代表英語。"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_6": {
+    "text": "以下是 Amazon 定位服務中反向地理編碼請求的範例："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description": {
+    "text": "在此請求中，「位置」欄位相當於 Google 地圖中的位置參數，指定要反向地理編碼的地理座標。「最<1>大結果」</1> 欄位指定要傳回的結果數目上限。<1>語言</1>欄位指定傳回結果的語言，類似於 Google 地圖中的語言參數。關鍵參數是您的 API 金鑰。有關我們反向地理編碼服務的更全面信息，請參閱此處提供的詳細文件<0>。</0>"
+  },
+  "web_services_app_responseComparison_table_1_google_description": {
+    "text": "位置的人類可讀地址。"
+  },
+  "web_services_app_responseComparison_table_2_google_description": {
+    "text": "位置的緯度和經度。"
+  },
+  "web_services_app_responseComparison_table_3_google_description": {
+    "text": "位址元件的完整文字描述或名稱。"
+  },
+  "web_services_app_responseComparison_table_4_google_description": {
+    "text": "位址元件的類型。"
+  },
+  "web_services_app_responseComparison_table_1_amazon_description": {
+    "text": "位置的人類可讀地址。"
+  },
+  "web_services_app_responseComparison_table_2_amazon_description": {
+    "text": "坐標 "
+  },
+  "web_services_app_responseComparison_table_3_amazon_description": {
+    "text": "位址元件的完整文字描述或名稱。"
+  },
+  "web_services_app_responseComparison_table_4_amazon_description": {
+    "text": "地方的類型。"
+  },
+  "web_services_app_note_description": {
+    "text": "Google 地圖<0>中的結果 []</0> 和亞馬遜定位服務中的<0>結果 []</0> 是包含反向地理編碼結果的陣列。<0><0>陣列中的每個元素都代表符合搜尋條件的一個位置。-<0>結果 [] .place. <0>*</0> 中的 *</0> 代表 Amazon 中的<0>地址編號</0>、鄰近、市政區、子區域、地區<0>、</0>國家<0>、</0>郵政<0>編碼等</0>各種欄<0>位</0></0></0>"
+  },
+  "web_services_app_responseComparison_description": {
+    "text": "下表比較執行反向地理編碼作業時，Google 地圖和 Amazon 位置服務的常見回應欄位。"
+  },
+  "codeSnippets_text_searching_heading": {
+    "text": "文字搜尋"
+  },
+  "codeSnippets_text_searching_description": {
+    "text": "文字搜索是一項功能，允許用戶使用文本查詢搜索地點。Google 地圖和亞馬遜位置都提供了此功能，儘管有不同的請求結構和回應。"
+  },
+  "codeSnippets_text_searching_withGoogle_description1": {
+    "text": "谷歌地圖文本搜索請求是使用 POST HTTP 方法進行的。請求正文包含文本查詢字段，該欄位指定要搜索的位置。請求標頭包括內容<0>類型</0>、<0>X-Goog-API 金鑰（用於驗證）和 X-Google</0> 字段遮罩（用於指定要包<0>含在回應中的欄位）</0>。"
+  },
+  "codeSnippets_text_searching_withGoogle_description2": {
+    "text": "Google 地圖的回應包括一系列與搜索查詢匹配的地點。<0><0>每個位置都有一個格<0>式化地址和一個顯示</0><0>名稱，其中包含</0>文本和語言代碼。</0></0>"
+  },
+  "codeSnippets_text_searching_withAmazon_description": {
+    "text": "使用 POST HTTP 方法透過搜尋位置<0>索引文字服務提出亞馬遜位置文字</0>搜尋要求。此服務請求內文包含要搜尋位置的文字欄位、<0>BiasPosi</0> tion 以將搜尋偏向特定地理區域，以及語言來指定搜尋的語言。此服務還支持各種車身參數，例如："
+  },
+  "codeSnippets_text_searching_withAmazon_description_1": {
+    "text": "有關我們的文字搜索服務的更多詳細信息，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "web_services_app_responseComparison_table_2_description": {
+    "text": "搜尋結果的首選語言"
+  },
+  "codeSnippets_text_searching_withAmazon_description_2": {
+    "text": "以下是 Amazon 位置服務中文字搜尋請求的範例："
+  },
+  "codeSnippets_nearby_searching_heading": {
+    "text": "附近搜尋"
+  },
+  "codeSnippets_nearby_searching_description": {
+    "text": "「附近搜尋」可讓您搜尋特定位置附近的景點或景點。您可以添加限制，例如最大結果或國家/地區。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description": {
+    "text": "在亞馬遜定位服務中，「<0>搜尋位置索引索引」作業用於反向地</0>理編碼。此作業會搜尋指定位置周圍的位置。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description1": {
+    "text": "一個簡單的請求包含以下必要的參數："
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2": {
+    "text": "位置 — 您要轉換為地址、興趣點或一般位置的座標集。使用格式 <0>[經度，緯度] 定</0>義。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description3": {
+    "text": "若要指定每頁最大結果數，請新增下列選擇性參數："
+  },
+  "codeSnippets_nearby_searching_withAmazon_description4": {
+    "text": "最大結果 — 限制查詢回應中傳回的結果數目上限。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description5": {
+    "text": "如果要為查詢結果指定偏好的語言，請使用下列選擇性參數："
+  },
+  "codeSnippets_nearby_searching_withAmazon_description6": {
+    "text": "語言 — 用於呈現結果的語言代碼。該值必須是有效的 BCP 47 語言代碼。例如，en 代表英語。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description7": {
+    "text": "以下是 Amazon 定位服務中反向地理編碼請求的範例："
+  },
+  "codeSnippets_nearby_searching_request_description": {
+    "text": "在此請求中，「位置」欄位相當於 Google 地圖中的位置參數。「最大結果」欄位指定要傳回的結果數目上限。語言欄位指定傳回結果的語言，類似於 Google 地圖中的語言參數。關鍵參數是您的 API 金鑰。有關我們的文字搜索服務的更多詳細信息，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "codeSnippets_autocomplete_heading": {
+    "text": "自動完成"
+  },
+  "codeSnippets_autocomplete_description": {
+    "text": "自動完成提供使用者輸入的位置建議。這是需要使用者與位置資料互動的應用程式中的關鍵功能。"
+  },
+  "codeSnippets_autocomplete_withAmazon_request_description": {
+    "text": "在 Google 地圖中，地點 API 的自動完成端點用於此目的。以下是 Google 地圖中自動完成請求的範例："
+  },
+  "codeSnippets_autocomplete_withAmazon_response_description": {
+    "text": "在此請求中，輸入參數指定要搜尋的文字字串。關鍵參數是您的 API 金鑰。"
+  },
+  "codeSnippets_autocomplete_withAmazon_description1": {
+    "text": "在亞馬遜定位服務中，與 Google 地圖的自動完成相似功能是「建議搜尋位置索引」操<0>作</0>。此作業為基於文字的地理搜尋提供自動完成功能，並在回應使用者搜尋查詢時返回地點預測。以下是 Amazon 定位服務中的自動完成請求的範例："
+  },
+  "codeSnippets_autocomplete_withAmazon_description2": {
+    "text": "在此請求中，「文字」字段相當於 Google 地圖中的輸入參數，指定要搜索的文本字符串。「最<1>大結果」</1> 欄位指定要傳回的結果數目上限。關鍵參數是您的 API 金鑰。如需有關我們自動完成服務的更多全面資訊，請參閱此處提供的詳細文件<0>。</0>"
+  },
+  "codeSnippets_autocomplete_request_description": {
+    "text": "在此請求中，「位置」欄位相當於 Google 地圖中的位置參數。「最大結果」欄位指定要傳回的結果數目上限。語言欄位指定傳回結果的語言，類似於 Google 地圖中的語言參數。關鍵參數是您的 API 金鑰。有關我們的文字搜索服務的更多詳細信息，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "web_services_autocomplete_responseComparison_table_1_description": {
+    "text": "位置預測陣列"
+  },
+  "web_services_autocomplete_responseComparison_table_2_description": {
+    "text": "地點預測說明"
+  },
+  "web_services_autocomplete_responseComparison_table_3_description": {
+    "text": "地點預測唯一識別碼"
+  },
+  "web_services_autocomplete_responseComparison_table_4_description": {
+    "text": "搜尋請求的摘要，包括要搜尋的文字字串和要傳回的結果數目上限。"
+  },
+  "predictions": {
+    "text": "預測"
+  },
+  "place_id": {
+    "text": "地點編號"
+  },
+  "N/A": {
+    "text": "不適用"
+  },
+  "results": {
+    "text": "結果"
+  },
+  "text": {
+    "text": "文字"
+  },
+  "summary": {
+    "text": "摘要"
+  },
+  "codeSnippets_get-place-details_heading": {
+    "text": "獲取地點詳細信息"
+  },
+  "codeSnippets_get-place-details_description": {
+    "text": "其中一項功能是檢索地點詳細信息，這在需要有關特定位置的詳細信息的應用程序中至關重要。"
+  },
+  "codeSnippets_get-place-details_googleMap_description": {
+    "text": "在 Google 地圖中，地點 API 的詳細端點用於檢索地點詳細信息。以下是 Google 地圖中的 GetPlace 請求的範例："
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description": {
+    "text": "在此請求中，<0>place_id</0> 參數指定要擷取其詳細資料之地點的唯一識別碼。關鍵參數是您的 API 金鑰。"
+  },
+  "codeSnippets_get-place-details_withAmazon_description": {
+    "text": "在亞馬遜定位服務中，<0>GetPlace 作業</0>用於擷取地點詳細資訊。以下是亞馬遜定位服務中的 GetPlace 請求的範例："
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description": {
+    "text": "在此請求中，<0>placeID</0> 是要檢索其詳細信息的地方的唯一標識符，相當於 Google 地圖中<0>的 place_id</0> 參數。關鍵參數是您的 API 金鑰。有關我們的地點詳細信息服務的更多詳細信息，請參閱此處提供的詳細文<1>件</1>。"
+  },
+  "label": {
+    "text": "標準化地址"
+  },
+  "geometry": {
+    "text": "地點的坐標"
+  },
+  "street": {
+    "text": "街"
+  },
+  "neighborhood": {
+    "text": "鄰里"
+  },
+  "municipality": {
+    "text": "市政区划"
+  },
+  "subMunicipality": {
+    "text": "次市"
+  },
+  "region": {
+    "text": "地區"
+  },
+  "country": {
+    "text": "國家"
+  },
+  "postalCode": {
+    "text": "郵遞區號"
+  },
+  "categories": {
+    "text": "分類"
+  },
+  "derived_from": {
+    "text": "源自"
+  },
+  "Field": {
+    "text": "田野"
+  },
+  "subRegion": {
+    "text": "次地區"
+  },
+  "codeSnippets_calculating-a-route_description": {
+    "text": "計算路線，這在需要導航或行程距離信息的應用程序中非常重要。"
+  },
+  "codeSnippets_calculating-a-route_googleMap_description": {
+    "text": "在谷歌地圖中，您可以使用 V2：計<0>算機外接 API。</0>請求標頭包括內容<0>類型</0>、<0>X-Goog-API 金鑰（用於驗證）和 X-Google</0> 字段遮罩（用於指定要包<0>含在回應中的欄位）</0>。以下是 Google 地圖中計算路線請求的示例："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description": {
+    "text": "在 Amazon 定位服務中，計算器路徑作業用於計算路線。計算路線時，您可以使用航點位置在出發位置和目的地位置之間指定多達 23 個中間中停站點。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1": {
+    "text": "航點位置 — 指定要沿著出發位置和目的地位置之間的路線包含的中間位置的順序清單。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description2": {
+    "text": "注意：如果您指定不位於道路上的航點位置，Amazon Location 會將該位置移至最近的道路。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description3": {
+    "text": "下列計算器路徑要求會計算具有 2 個航點的路線："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4": {
+    "text": "<0>出發位置為 <0>[-122.7565、49.0021]，目的地位置為 [-122.3394、47.6159]</0>。</0>"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description5": {
+    "text": "對於請求參數航點位置："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description6": {
+    "text": "第一個停車位置是 <0>[-122.1884,</0> 48.0936]。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description7": {
+    "text": "第二個停靠點位置是 <0>[-122.3493</0>、47.6205]。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description8": {
+    "text": "若要在這兩個航點之間包含腿部線圈幾何圖形，請將下列選擇性參數設定為 true："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description9": {
+    "text": "包含幾何圖形-包括回應中一對位置之間的每個路徑的幾何圖形。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description10": {
+    "text": "以下是 Amazon 定位服務中的計算器路徑請求的範例："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription": {
+    "text": "在此請求中，「出發位置」欄位相當於 Google 地圖中的原點參數，指定路線計算的起點。目的<1>地位置欄位</1>相當於 Google 地圖中的目的地參數，指定端點。關鍵參數是您的 API 金鑰。如需有關我們路由服務的更詳細資訊，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_1_description": {
+    "text": "特定路線段的距離 (以米為單位)。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_1_description": {
+    "text": "路線路徑距離"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_2_description": {
+    "text": "特定路線段的持續時間 (以秒為單位)"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_2_description": {
+    "text": "路線路段時間"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_3_description": {
+    "text": "特定路線段的線表示。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_3_description": {
+    "text": "路線腿幾何"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_4_description": {
+    "text": "特定路線段所涉及的個別步驟。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_4_description": {
+    "text": "路線路徑步驟"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_5_description": {
+    "text": "路線的總距離（以米為單位）。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_5_description": {
+    "text": "總距離"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_6_description": {
+    "text": "路線的總持續時間，通常以秒或分鐘為單位。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_6_description": {
+    "text": "總持續時間"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_7_description": {
+    "text": "路線的視埠或地圖的可見區域。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_7_description": {
+    "text": "包含佈線中所有點的佈線邊界框。"
+  },
+  "codeSnippets_route-planning_googleMap_description": {
+    "text": "在谷歌地圖中，您可以使用 V2：<0>計算機外線 API 來計算</0>路線矩陣。請求標頭包括內容<0>類型</0>、<0>X-Goog-API 金鑰（用於驗證）和 X-Google</0> 字段遮罩（用於指定要包<0>含在回應中的欄位）</0>。以下是如何在 Google 地圖中計算路線矩陣的示例："
+  },
+  "codeSnippets_route-planning_withAmazon_description": {
+    "text": "亞馬遜定位服務與其路由矩陣 API 提供類似的功能。它允許開發人員計算多個起點和終點之間的距離和行駛時間。與 Google 地圖不同，亞馬遜定位服務使用 POST 請求來獲取這些數據。請求包括帶有出發位置、目的地位置和距離測量單位的 JSON 有效負載。"
+  },
+  "codeSnippets_route-planning_withAmazon_description1": {
+    "text": "計算路由矩陣請求可以使用計算外置<0>矩陣操作。</0>最小要求包含下列必要欄位："
+  },
+  "codeSnippets_route-planning_withAmazon_description2": {
+    "text": "出發位置 — 計算路線的起始位置集。定義為 [經度，緯度] 的數組"
+  },
+  "codeSnippets_route-planning_withAmazon_description3": {
+    "text": "目的地位置 — 計算路線的終點位置集合。定義為 [經度，緯度] 的數組。"
+  },
+  "codeSnippets_route-planning_withAmazon_description4": {
+    "text": "根據預設，回應返回距離 (以公里為單位)。您可以使用下列選擇性參數將測量單位變更為英里："
+  },
+  "codeSnippets_route-planning_withAmazon_description5": {
+    "text": "距離單位 — 指定要用於距離結果的單位系統。"
+  },
+  "codeSnippets_route-planning_withAmazon_description6": {
+    "text": "以下是 Amazon 位置服務路由矩陣 API 要求的範例："
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription": {
+    "text": "在此請求中，「出發位置」和「目的地位置」是緯度與經度對的陣列。distanceUnit 參數定義測量單位（在這種情況下，會使用英里）。有關我們的路線規劃服務的更多詳細信息，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "codeSnippets_route-planning_responseResult": {
+    "text": "從比較中，很明顯，儘管 Google 地圖和亞馬遜定位服務在其命名慣例和響應結構上有差異，但它們為路線規劃提供類似的功能。這一理解對於從 Google 地圖成功遷移到亞馬遜定位服務至關重要。"
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_1_description": {
+    "text": "回應中以公尺為單位提供。"
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_1_description": {
+    "text": "路線距離"
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_2_description": {
+    "text": "在回應中以幾秒鐘內提供。"
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_2_description": {
+    "text": "路線持續時間"
+  },
+  "duration": {
+    "text": "持續時間"
+  },
   "migration": {
     "text": "移轉"
   },
@@ -3670,9 +5701,6 @@
   },
   "migrate_a_web_service": {
     "text": "移轉 Web 服務"
-  },
-  "pricing": {
-    "text": "定價"
   },
   "migration_desc": {
     "text": "從谷歌地圖移轉"
@@ -3692,11 +5720,362 @@
   "web_service": {
     "text": "網路服務"
   },
+  "web_menu_item_desc": {
+    "text": "在網頁瀏覽器中探索亞馬遜定位服務"
+  },
+  "android_menu_item_desc": {
+    "text": "在行動裝置上享受亞馬遜定位服務優勢"
+  },
+  "Mobile_percentage": {
+    "text": "非固定百分比"
+  },
+  "Min_1_api_call": {
+    "text": "每月至少 1 個 API 呼叫"
+  },
+  "Examples": {
+    "text": "例子"
+  },
+  "notable_sdk_differences": {
+    "text": "顯著的 SDK 差異"
+  },
+  "displaying_a_marker": {
+    "text": "顯示標記"
+  },
+  "displaying_an_info_pop_up": {
+    "text": "顯示資訊彈出窗口"
+  },
+  "displaying_a_circle": {
+    "text": "顯示圓圈"
+  },
+  "displaying_a_heatmap": {
+    "text": "顯示熱圖"
+  },
+  "displaying_markers": {
+    "text": "顯示標記"
+  },
+  "displaying_circles": {
+    "text": "顯示圓圈"
+  },
+  "displaying_polygons": {
+    "text": "顯示多邊形"
+  },
+  "displaying_a_polygon": {
+    "text": "顯示多邊形"
+  },
+  "image_overlays": {
+    "text": "影像疊加"
+  },
+  "calculating_a_route": {
+    "text": "計算路線"
+  },
+  "displaying_lines": {
+    "text": "顯示線條"
+  },
+  "calculating_a_route_matrix": {
+    "text": "計算佈線矩陣"
+  },
+  "codeSnippets_image_overlays_about": {
+    "text": "影像疊加是指將一個影像疊加到另一個影像上的技術，建立結合兩個影像的視覺資訊的複合視圖。"
+  },
+  "codeSnippets_image_overlays_desc": {
+    "text": "影像覆疊可提供額外的前後關聯，例如衛星圖像、天氣模式或歷史地圖，豐富整體視覺表現，並協助更好地理解和分析地理資料。"
+  },
+  "codeSnippets_image_overlays_point1": {
+    "text": "谷歌地圖使用 <1>Google.Maps.GroundOverlay 在地圖上渲染圖像。</1>"
+  },
+  "codeSnippets_image_overlays_point2": {
+    "text": "亞馬遜定位服務使用 MapLibre 的 <1>LoadImage、AddiMage</1>、Add <1>Source 和 Ad</1> <1><1>d</1> Layer 在地圖上渲染圖像。</1>"
+  },
+  "codeSnippets_route_matrix_about": {
+    "text": "路線矩陣服務就像地圖的智能助手，可幫助找出從一個地方到另一個地方的最佳方法。它不僅計算不同位置之間的距離，還可以告訴您在它們之間旅行的時間可能需要多長時間。對於需要規劃路線、找到最快的路徑或優化旅行物流的應用程序來說，這可能非常方便。基本上，它使在地圖上導航更流暢，並幫助應用程序為用戶提供最有效的旅行選項。"
+  },
+  "codeSnippets_route_matrix_point1": {
+    "text": "谷歌地圖使用距離 <1>ATRIX 服務或計算機外部矩陣來計</1>算路<1>線矩陣。</1>"
+  },
+  "codeSnippets_route_matrix_point2": {
+    "text": "亞馬遜定位服務使用<1>計算器外部指令來計算路由矩陣。</1>"
+  },
+  "codeSnippets_image_overlays_android_about": {
+    "text": "影像疊加是指將一個影像疊加到另一個影像上的技術，建立結合兩個影像的視覺資訊的複合視圖。"
+  },
+  "codeSnippets_image_overlays_android_point1": {
+    "text": "谷歌地圖提供了 <1>AddGroundOverlay 方法，專門用</1>於在地圖上渲染圖像。"
+  },
+  "codeSnippets_image_overlays_android_point2": {
+    "text": "亞馬遜位置服務使用 Maplibre 的 <1>Add Source 和 Add</1> <1>Layer 方法在</1>地圖上渲染圖像。"
+  },
+  "google_image_overlays_step1": {
+    "text": "<0>步驟 1</0>：將以下代碼添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_image_overlays_step2": {
+    "text": "<0>步驟 2：在</0> <1><1>/res/可繪製目錄中添加<1>名為 newark.jpg</1> 的圖像，然後將以下代碼添</1>加到圖像覆蓋活動 .kt 中。</1>"
+  },
+  "amazon_image_overlays_step1": {
+    "text": "<0>步驟 1</0>：在 <1>activity_map.xml</1> 中添加以下代碼。"
+  },
+  "amazon_image_overlays_step2": {
+    "text": "<0>步驟：在</0> <1><1>/res/可繪製目錄中添加<1>名為 newark.jpg</1> 的圖像，並在圖像覆蓋活動</1> .kt 中添加以下代碼。</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_about": {
+    "text": "路線矩陣服務通常是指路由服務中的特徵，該功能允許使用者在不同位置之間產生多個路線，並獲取有關每條路線的距離和持續時間的資訊。此服務對於物流、運輸規劃和行程優化等應用非常有價值。"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point1": {
+    "text": "谷歌地圖提供了<1>距離矩陣或計算機外</1>部矩陣<1>來計算路線矩陣。</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2": {
+    "text": "亞馬遜定位服務通過其位置用戶端提供 <1>CalculateOutMatrix</1> 方法來計算路由矩陣。"
+  },
+  "google_calculating_a_route_matrix_step1": {
+    "text": "<0>步驟 1</0>：在 <1>buil</1> d.gradle 中的<1>依賴關係中添</1>加以下行。"
+  },
+  "google_calculating_a_route_matrix_step2": {
+    "text": "<0>步驟 2</0>：將以下代碼添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_calculating_a_route_matrix_step3": {
+    "text": "<0>步驟 3：將</0>以下代碼添加到計算器外活<1>動 .kt。</1>"
+  },
+  "amazon_calculating_a_route_matrix_step1": {
+    "text": "<0>步驟 1</0>：在 <1>buil</1> d.gradle.kts 中的依<1>賴關係中添</1>加以下行。"
+  },
+  "amazon_calculating_a_route_matrix_step2": {
+    "text": "<0>步驟 2</0>：在 <1>activity_route_matrix_service.xml</1> 中添加以下代碼。"
+  },
+  "amazon_calculating_a_route_matrix_step3": {
+    "text": "<0>步驟 3：在</0> <1><1>/res/可繪製目錄中添加一個名為 <1>ic_marker_red 的標記圖像，然後將以</1>下代碼插入 RouteMatrix ServiceActivity.kt</1> 中。</1>"
+  },
+  "codeSnippets_image_overlays_ios_about": {
+    "text": "影像疊加是指將一個影像疊加到另一個影像上的技術，建立結合兩個影像的視覺資訊的複合視圖。"
+  },
+  "codeSnippets_image_overlays_ios_point1": {
+    "text": "谷歌地圖提供專門用<1>於圖像疊加的 GMSGroundOverlay 類</1>別。"
+  },
+  "codeSnippets_image_overlays_ios_point2": {
+    "text": "亞馬遜定位服務使用 Maplibre 的 MLN 圖像來源和 <1>MLNRaster 樣式圖層方法來呈現影</1>像覆<1>疊。</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_about": {
+    "text": "路線矩陣服務通常是指路由服務中的特徵，該功能允許使用者在不同位置之間產生多個路線，並獲取有關每條路線的距離和持續時間的資訊。此服務對於物流、運輸規劃和行程優化等應用非常有價值。"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point1": {
+    "text": "谷歌地圖提供了<1>距離矩陣或計算機外</1>部矩陣<1>來計算路線矩陣。</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point2": {
+    "text": "亞馬遜定位服務通過其位置用戶端提供 <1>CalculateOutMatrix</1> 方法來計算路由矩陣。"
+  },
+  "reload": {
+    "text": "重新加載"
+  },
+  "codeSnippets_image_overlays_android_desc": {
+    "text": "影像覆疊可提供額外的前後關聯，例如衛星圖像、天氣模式或歷史地圖，豐富整體視覺表現，並協助更好地理解和分析地理資料。"
+  },
+  "codeSnippets_image_overlays_ios_desc": {
+    "text": "影像覆疊可提供額外的前後關聯，例如衛星圖像、天氣模式或歷史地圖，豐富整體視覺表現，並協助更好地理解和分析地理資料。"
+  },
+  "migrationOverview_heading": {
+    "text": "從谷歌地圖遷移到亞馬遜位置"
+  },
+  "migrationOverview_subHeading": {
+    "text": "本文提供了有關如何將網頁、行動裝置和伺服器型應用程式從 Google 地圖移轉至 Amazon 位置平台的深入解析。本教學課程包含移轉至 Amazon 位置的比較程式碼範例、移轉建議以及最佳做法。"
+  },
+  "migrationOverview_cta1": {
+    "text": "嘗試亞馬遜位置"
+  },
+  "migrationOverview_cta2": {
+    "text": "比較定價"
+  },
+  "migrationOverview_featuresList2_title": {
+    "text": "使用者隱私"
+  },
+  "migrationOverview_featuresList2_desc": {
+    "text": "保護使用者隱私、保護您的敏感資訊，並降低應用程式的安全風險。"
+  },
+  "migrationOverview_startMigration_heading": {
+    "text": "開始移轉"
+  },
+  "migrationOverview_article_point1": {
+    "text": "亞馬遜定位服務概述"
+  },
+  "migrationOverview_article_point2": {
+    "text": "高層次服務比較"
+  },
+  "migrationOverview_article_point3": {
+    "text": "功能比較"
+  },
+  "migrationOverview_article_point4": {
+    "text": "移轉考量"
+  },
+  "migrationOverview_article_point5": {
+    "text": "身份驗證"
+  },
+  "migrationOverview_article_point6": {
+    "text": "建議的移轉計劃"
+  },
+  "migrationOverview_article_point7": {
+    "text": "移轉支援"
+  },
+  "migrationOverview_serviceOverview_desc": {
+    "text": "Amazon 定位服務是一項完全受管理的定位服務，可為開發人員提供將位置資料和功能新增至其應用程式的功能。該服務包括一組提供多種功能的 REST API，包括："
+  },
+  "migrationOverview_serviceOverview_point1": {
+    "text": "地圖：以多種樣式和衛星圖像中獲取向量和點陣式地圖。"
+  },
+  "migrationOverview_serviceOverview_point2": {
+    "text": "地點：搜索並獲取有關景點的信息，例如商業、餐廳和景點。"
+  },
+  "migrationOverview_serviceOverview_point3": {
+    "text": "路線：考慮到交通狀況和其他因素，計算出旅行的最佳路線。"
+  },
+  "migrationOverview_serviceOverview_point4": {
+    "text": "地理位置：建立和管理地理區域，這些邊界是可在裝置進入或離開邊界時觸發動作的虛擬邊界。"
+  },
+  "migrationOverview_serviceOverview_point5": {
+    "text": "跟踪器：跟踪設備的位置並在設備進入或離開地理位置時接收通知。"
+  },
+  "migrationOverview_serviceComparison_desc1": {
+    "text": "這些表格提供與 Google 地圖功能相對應的 Amazon 位置功能的高級清單。此清單並不會顯示所有 Amazon 位置功能，例如地理位置和追蹤器。"
+  },
+  "migrationOverview_serviceComparison_desc2": {
+    "text": "亞馬遜定位服務支援兩種整合方法：直接 SDK 整合以及 REST 服務 API。"
+  },
+  "migrationOverview_featureComparison_desc": {
+    "text": "Google 地圖和亞馬遜位置都是基於位置的服務，提供一系列功能，以增強基於位置的體驗。<0>從地圖和地理編碼到路由和地理封鎖功能，這些服務使開發人員能夠使用準確且個性化的定位服務來構建應用程式。進一步了解</0>"
+  },
+  "migrationOverview_migrationConsiderations_desc1": {
+    "text": "從 Google 地圖移轉到亞馬遜定位服務時，請考慮以下幾點："
+  },
+  "migrationOverview_migrationConsiderations_point1": {
+    "text": "Amazon 位置地圖資源可讓您存取地圖的基礎地圖資料。您將需要一個地圖渲染庫，例如 <0>Maplibre</0>，才能將交互式地圖添加到您的應用程序中。"
+  },
+  "migrationOverview_migrationConsiderations_point2": {
+    "text": "Amazon Location 提供來自不同地圖提供者的地圖圖圖塊，您可以根據應用程式的需求進行相應的選擇。進一步了<0>解</0>這些資料提供者可能如何符合您的授權考量。"
+  },
+  "migrationOverview_migrationConsiderations_point3": {
+    "text": "Amazon Location 會收取互動式地圖的使用費用，這是根據載入的地圖圖塊數目而定。在互動式 Amazon 位置開發套件與 Maplibre 中，會自動快取地圖圖塊，以降低開發成本。"
+  },
+  "migrationOverview_migrationConsiderations_point4": {
+    "text": "亞馬遜位置和 MapLibre 開發套件使用地圖圖塊。除非使用者平移和縮放地圖，否則只會根據他們獲取的圖塊數量收取費用。"
+  },
+  "migrationOverview_migrationConsiderations_point5": {
+    "text": "亞馬遜位置將其資料儲存在 AWS 中。"
+  },
+  "migrationOverview_migrationConsiderations_desc2": {
+    "text": "以下是亞馬遜位置的一些相關資源："
+  },
+  "migrationOverview_migrationConsiderations_resource1": {
+    "text": "<0>亞馬遜位置定價頁面</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource2": {
+    "text": "<0>亞馬遜位置定價計算器</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource3": {
+    "text": "<0>亞馬遜定位服務條款</0>"
+  },
+  "migrationOverview_authentication_desc": {
+    "text": "Google 地圖提供基於鍵的基本身份驗證。Amazon 定位服務提供基本金鑰驗證和 AWS Cognito 驗證。AWS Cognito 驗證提供比基本金鑰驗證更多的安全性功能。"
+  },
+  "migrationOverview_authentication_point1_mainPoint": {
+    "text": "<0>基於金鑰的基本驗證</0>允許您簡單地插入 API 金鑰，並授權以下操作："
+  },
+  "migrationOverview_authentication_point1_subPoint1": {
+    "text": "地圖動作: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+  },
+  "migrationOverview_authentication_point1_subPoint2": {
+    "text": "位置動作: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+  },
+  "migrationOverview_authentication_point1_subPoint3": {
+    "text": "路線動作: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+  },
+  "migrationOverview_authentication_point2": {
+    "text": "另一<0>方面，AWS Cognito 驗證</0>方法為您提供更精細的控制權，並允許您根據隱私政策訪問所有資源。"
+  },
+  "migrationOverview_suggestedMigrationPlan_desc": {
+    "text": "高層次移轉計劃包含這些步驟。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point1": {
+    "text": "清查您的應用程序使用的 Google 地圖 API 和服務。確認 Amazon 位置是否提供替代 API 和服務。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point2": {
+    "text": "請參閱下面的技術資源和遷移支援，以取得特定詳細資訊和協助。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point3": {
+    "text": "建立 <0>AWS 帳戶</0>和 <1>API 金鑰或亞</1>馬<2>遜科尼托設定。</2>"
+  },
+  "migrationOverview_suggestedMigrationPlan_point4": {
+    "text": "移轉您的應用程式碼。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point5": {
+    "text": "測試您已移轉的應用程式。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point6": {
+    "text": "將移轉的應用程式部署到生產中。"
+  },
+  "migrationOverview_technicalResources_heading": {
+    "text": "亞馬遜定位服務技術資源"
+  },
+  "migrationOverview_technicalResources_resource1": {
+    "text": "<0>開發人員指南</0>"
+  },
+  "migrationOverview_technicalResources_resource2": {
+    "text": "<0>API 參考</0>"
+  },
+  "migrationOverview_technicalResources_resource3": {
+    "text": "<0>CLI 參考</0>"
+  },
+  "migrationOverview_technicalResources_resource4": {
+    "text": "<0>應用程式範例</0>"
+  },
+  "migrationOverview_migrationSupport_desc": {
+    "text": "開發人員可以在下列指南中找到詳細的移轉資訊："
+  },
+  "migrationOverview_footnotes_point1": {
+    "text": "如果客戶選擇 HERE 作為資料提供者，Amazon Location 會提供時區資訊"
+  },
+  "explore-working-sample": {
+    "text": "在這裡探索工作<0>範例</0>"
+  },
+  "volume_discounts_available": {
+    "text": "提供批量折扣。請<0>聯繫銷售人員</0>。"
+  },
+  "places_search": {
+    "text": "地點搜索"
+  },
+  "webSdkExample_Android_description2": {
+    "text": "通過在這裡探索我們功能齊全的 Android 應用程序來發現亞馬遜位置<0>的</0>功能。"
+  },
+  "response_field_mapping_disclaimer": {
+    "text": "下表比較在執行此操作時，Google 地圖和 Amazon 位置服務常用的回應欄位。"
+  },
+  "web_service_footnote_1": {
+    "text": "Google 地圖使用緯度、經度序列，而亞馬遜定位服務則使用經度、緯度序列。"
+  },
+  "Categories": {
+    "text": "分類"
+  },
+  "accuracy_filter": {
+    "text": "精度過濾器（米）"
+  },
+  "distance_filter": {
+    "text": "距離過濾器（米）"
+  },
+  "eval_req_with_filter_applied": {
+    "text": "已套用過濾器的評估要求"
+  },
+  "avg_device_speed_meters_per_min": {
+    "text": "設備平均速度（米/分鐘）"
+  },
   "error_handler__failed_fetch_tokens": {
     "text": "擷取令牌失敗"
   },
   "error_handler__failed_refresh_tokens": {
     "text": "重新整理令牌失敗"
+  },
+  "migrationSDK_title": {
+    "text": "亞馬遜位置移轉 SDK（可選）"
+  },
+  "migrationSDK_description": {
+    "text": "Amazon 位置移轉 SDK 提供了一個橋接器，可讓您將現有應用程式從 Google 地圖移轉到亞馬遜位置。如果 Amazon 位置支持使用所使用的功能，移轉 SDK 為您使用 Google 地圖 SDK 建置的應用程序提供了一個選項，可以使用 Amazon 位置服務，而無需重寫任何應用程序或商業邏輯。移轉 SDK 將所有 API 呼叫重新導向到亞馬遜位置，而不是 Google 地圖。如果您想在開始完整遷移之前在現有應用程式上嘗試移轉 SDK，請參閱 <0>GitHub 上的 Amazon 位置移轉 SDK</0>。"
+  },
+  "amazon_location_service": {
+    "text": "Amazon Location Service"
   },
   "geofences_and_trackers": {
     "text": "地理信息和追踪器"
@@ -3797,6 +6176,342 @@
   "new_developer_resources_desc": {
     "text": "指南和論壇"
   },
+  "demo_site": {
+    "text": "示範網站"
+  },
+  "demo_web": {
+    "text": "網頁示範"
+  },
+  "demo_android": {
+    "text": "演示安卓"
+  },
+  "migration_overview": {
+    "text": "移轉概述"
+  },
+  "version_1": {
+    "text": "原始 API"
+  },
+  "version_2": {
+    "text": "全新增強型 API"
+  },
+  "snapping_to_roads": {
+    "text": "突破道路"
+  },
+  "codeSnippets_places_search_point2_v2": {
+    "text": "<1><1><0>亞馬遜定位服務提供地理位置用戶端，其中包含用於自動<1>完成、地理編</1>碼、<1>GetPlace、反<1>向地理編碼</1>、搜尋附近、</1>搜尋<1>文字和建議的 API。</1>進一步<1>了</1>解</0></1></1>"
+  },
+  "codeSnippets_routing_services_point2_v2": {
+    "text": "Amazon 位置提供<1>計算機路徑，並</1>使用 MapLibre 的渲染功能在地圖上顯示該數據。"
+  },
+  "codeSnippets_snapping_to_roads_about": {
+    "text": "「快到道路」功能會傳回類似的資料集，將 GPS 追蹤與最近的道路相匹配，而點會鎖定至車輛行駛的最可能的道路。"
+  },
+  "codeSnippets_snapping_to_roads_point1": {
+    "text": "谷歌地圖從道路 <1>API 提供了 snapToRoads</1> 端點。"
+  },
+  "codeSnippets_snapping_to_roads_point2": {
+    "text": "亞馬遜定位服務可從<1>路由 API 提供 SnapToRoads</1> 端點。"
+  },
+  "codeSnippets_route_matrix_point2_v2": {
+    "text": "亞馬遜定位服務使用<1>計算器外置矩陣來計算路</1>由矩陣。"
+  },
+  "codeSnippets_load_a_map_Android_point2_v2": {
+    "text": "使用亞馬遜定位服務，MapLibre 庫的 <1>MapView 是用於在應用</1>程序中初始化和顯示地圖的主要界面。我們可以通過提供地圖服務 URL 輕鬆加載地圖，如下面的示例所示。"
+  },
+  "amazon_load_a_map_step1_v2": {
+    "text": "<0>步驟 1</0>：打開模塊級別的 <1>build.gradle</1> .kts 並添加以下數據"
+  },
+  "amazon_load_a_map_step2_v2": {
+    "text": "<0>步驟 2</0>：若要使用地圖樣式和 AWS 區域設定應用程式，請在 <1>configuration.xml</1> 中輸入它，如下所示"
+  },
+  "amazon_load_a_map_step5_v2": {
+    "text": "<0>步驟 5</0>：將以下代碼添加到您的 <1>Map</1> Activity.kt"
+  },
+  "amazon_display_an_info_window_step3_v2": {
+    "text": "<0>步驟 3</0>：將以下代碼包含到 <1>strings.xml</1>。"
+  },
+  "amazon_display_an_info_window_step4_v2": {
+    "text": "<0>步驟 4：將</0>以下代碼包含到信息 <1>PopupActivity.kt。</1>"
+  },
+  "amazon_adding_a_circle_step1_v2": {
+    "text": "<0>步驟 1：在</0> <1>build.gradle.kts 中添加以下<1>一行在依賴</1>關係中。</1>"
+  },
+  "codeSnippets_calculating_a_route_android_point2_v2": {
+    "text": "<1>亞馬遜定位服務通過 aws.sdk.kotlin<1>: 喬羅特斯開發套件中提供的 GeoRoutes</1> <1>客戶端提供計算機路</1>徑方法。</1>API 金鑰在計算機外部請<1>求中使用，如下面的</1>範例所示。隨後，它利用 MapLibre 的渲染功能在地圖上顯示此路線數據。"
+  },
+  "amazon_calculating_a_route_step3_v2": {
+    "text": "<0>步驟 3：在</0> <1><1>/res/可繪製目錄中添加一個名為 <1>ic_marker_red 的標記圖像，然後將以</1>下代碼插入 GeoRoutesCalculateRouteActivity.kt</1> 中。</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2_v2": {
+    "text": "<1>亞馬遜定位服務通過 aws.sdk.kotlin<1>: 喬羅特斯開發套件中提供的 GeoRoutes</1> <1> 客戶端提供計算器外置矩陣方法</1>。</1>API 金鑰在計算器外部 Matri <1>xRequest 中使用，如下面的範例所示</1>。"
+  },
+  "amazon_calculating_a_route_matrix_step3_v2": {
+    "text": "<0>步驟 3</0>：在 <1>strings.xml</1> 中添加以下代碼。"
+  },
+  "amazon_calculating_a_route_matrix_step4_v2": {
+    "text": "<0>步驟 4：在</0> <1><1>/res/可繪製目錄中添加一個名為 <1>ic_marker_red 的標記圖像，然後將以</1>下代碼插入 GeoRouteMatrixServiceActivity.kt</1> 中。</1>"
+  },
+  "codeSnippets_snapping_to_roads_android_point1": {
+    "text": "谷歌地圖從道路 <1>API 提供了 snapToRoads</1> 端點。"
+  },
+  "codeSnippets_snapping_to_roads_android_point2": {
+    "text": "<1>亞馬遜定位服務通過 aws.sdk.kot <1>lin: 喬羅特斯開發套件中提供的 GeoRoutes <1> 客戶端提供 SnapToRo</1> ads</1> 方法。</1>API 金鑰在 <1>SnapToRoadsRequest 中使用，如下面的範例</1>所示。"
+  },
+  "google_snapping_to_roads_step1": {
+    "text": "<0>步驟 1：在</0> <1>build.gradle.kts 中添加以下<1>一行在依賴</1>關係中。</1>"
+  },
+  "google_snapping_to_roads_step2": {
+    "text": "<0>步驟 2</0>：在 <1>activity_maps.xml</1> 中添加以下代碼。"
+  },
+  "google_snapping_to_roads_step3": {
+    "text": "<0>步驟 3：在</0> <1><1>/res/</1> 可繪製目錄中添加名為 <1>ic_marker_red 和 ic_marker_blue 的標記</1>圖像<1>，然後在 SnapToRoadActivity.</1> kt 中添加以下代碼。</1>"
+  },
+  "amazon_snapping_to_roads_step1": {
+    "text": "<0>步驟 1：在</0> <1>build.gradle.kts 中添加以下<1>一行在依賴</1>關係中。</1>"
+  },
+  "amazon_snapping_to_roads_step2": {
+    "text": "<0>步驟 2</0>：在 <1>activity_snap_to_road.xml</1> 中添加以下代碼。"
+  },
+  "amazon_snapping_to_roads_step3": {
+    "text": "<0>步驟 3</0>：將以下代碼包含到 <1>layout_text.xml</1>。"
+  },
+  "amazon_snapping_to_roads_step4": {
+    "text": "<0>步驟 4：在</0> <1><1>/res/可繪製的目錄中添加名為 <1>ic_marker_red 和 ic_marker_blue 的標記</1>圖像，然<1>後將以下代碼插入 GeoRoutesSnapToRoadActivity.kt</1> 中。</1></1>"
+  },
+  "codeSnippets_searching_for_places_android_point2_v2": {
+    "text": "<1>亞馬遜定位服務通過 aws.sdk.kot <1>lin: 地</1>理位置開發套件<1>中提供的地理位置客戶端</1>提供建議方法。</1>API 金鑰在建議要<1>求中使用，如</1>下面的範例所示。<1><1>此外，亞馬遜定位服務還提供其他地點 API，例如 <1>GetPlace、自動完成</1><1>、地理編碼、</1>反向<1>地理代碼</1>、搜<1>尋附近、搜尋文字</1>和建<1>議。</1></1></1>"
+  },
+  "providing_suggestions": {
+    "text": "提供建議"
+  },
+  "providing_autocomplete": {
+    "text": "提供自動完成"
+  },
+  "calculating_route_matrices": {
+    "text": "計算路線矩陣"
+  },
+  "amazon_location_auth_sdk_ios_heading": {
+    "text": "<0>亞馬遜定位服務行動驗證 SDK</0>"
+  },
+  "amazon_location_auth_sdk_ios_desc": {
+    "text": "這些公用程式可協助您在從其 iOS 應用程式進行 Amazon 定位服務 API 呼叫時進行驗證。在使用 Amazon Cognito 作為身份驗證方法時，這特別有幫助。"
+  },
+  "ios_swift_maplibre_package": {
+    "text": "為了渲染地圖，請將 MapLibre 原生軟件包添加到您的項目中。"
+  },
+  "ios_swift_add_package_desc": {
+    "text": "選擇您的項目並導航到<1>包相依性</1>標籤，然後單擊 <1>+</1> 圖標。"
+  },
+  "ios_swift_maplibre_package_url_desc": {
+    "text": "輸入套件網址：<1>https://github.com/maplibre/maplibre-gl-native-distribution，</1>然後點擊<1>添加包裹</1>按鈕。"
+  },
+  "ios_swift_add_maplibre_package_to_target": {
+    "text": "在「添<1>加到目標</1>」列的下拉列中選擇您的項目，然後單擊帶有<1>行 <1>Map</1> Libre 的添加包</1>按鈕。"
+  },
+  "ios_swift_aws_geo_places_routes": {
+    "text": "若要使用 AWS 地理位置和 AWSGeoRoutes API，請將 AWS SDK Swift 套件新增至您的專案中。"
+  },
+  "ios_swift_aws_geo_places_routes_url_desc": {
+    "text": "輸入套件網址：<1>https://github.com/awslabs/aws-sdk-swift，</1>然後點擊<1>添加包裹</1>按鈕。"
+  },
+  "ios_swift_add_aws_geo_places_routes_package_to_target": {
+    "text": "<1>在「<1>添加到目標</1>」列的下拉列中選擇您的項目，然後單擊帶有列 AWSGeoPlaces 或 <1>AWSGeo</1> Routes 的<1>添加包</1>按鈕。</1>"
+  },
+  "ios_swift_amazon_location_ios_auth_sdk": {
+    "text": "為了驗證 API 金鑰請求，請將 AmazonLocationIOSAuthSDK 套件添加到您的項目中。"
+  },
+  "ios_swift_amazon_location_ios_auth_sdk_url_desc": {
+    "text": "輸入套件網址：<1>https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios，</1>然後點擊<1>添加包裹</1>按鈕。"
+  },
+  "ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+    "text": "在「添<1>加到目標」列的下拉菜單中選擇您的項目</1>，然後單擊帶有行 <1>AmazonLocationIOSAuthSDK</1> <1> 的添加包</1>按鈕。"
+  },
+  "ios_swift_turf": {
+    "text": "對於「顯示圓圈」示例，您將需要將 Turf Swift 軟件包添加到您的項目中。"
+  },
+  "ios_swift_turf_url_desc": {
+    "text": "輸入套件網址：<1>https://github.com/mapbox/turf-swift，</1>然後點擊<1>添加包裹</1>按鈕。"
+  },
+  "ios_swift_add_turf_package_to_target": {
+    "text": "在「添<1>加到目標</1>」列的下拉菜單中選擇您的項目，然後單擊帶<1>有行草坪</1>的添加包按鈕<1>。</1>"
+  },
+  "codeSnippets_snapping_to_roads_ios_about": {
+    "text": "「快到道路」功能會傳回類似的資料集，將 GPS 追蹤與最近的道路相匹配，而點會鎖定至車輛行駛的最可能的道路。"
+  },
+  "codeSnippets_snapping_to_roads_ios_point1": {
+    "text": "谷歌地圖從道路 <1>API 提供了 snapToRoads</1> 端點。"
+  },
+  "codeSnippets_snapping_to_roads_ios_point2": {
+    "text": "<1>亞馬遜定位服務從 AWS <1>GeoRoutes API 提供 SnapToRoads</1> 服務。</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii_iii_v2": {
+    "text": "資源和動作：由此金鑰授權的動作。您必須為相應資源指定動作。"
+  },
+  "suggest_places": {
+    "text": "建議地點"
+  },
+  "get_static_map": {
+    "text": "獲取靜態地圖"
+  },
+  "optimizing_waypoints": {
+    "text": "優化航點"
+  },
+  "codeSnippets_geocoding_withAmazon_description_v2": {
+    "text": "在亞馬遜定位服務中，與 Google 地圖的地理編碼相比的功能是使用 HTTP POST <0>請求的地理編碼</0>服務。此服務使用自由形式文字（例如地址）搜索地點，並返回有關候選名地的坐標，地址和其他補充信息。一個簡單的請求包含以下必要的參數："
+  },
+  "codeSnippets_geocoding_withAmazon_description_1_v2": {
+    "text": "QueryText — 要轉換為一組座標的地址、名稱、城市或區域。例如，字符串「任何城市」。"
+  },
+  "codeSnippets_geocoding_withAmazon_request_description_v2": {
+    "text": "在此請求中，<1>QueryText 欄位</1>相當於 Google 地圖中的輸入參數，指定要進行地理編碼的地址。偏差<1>位置和篩選</1>國<1>家欄位用於</1>將搜尋結果偏差設定為特定區域，類似於 Google 地圖中的位置偏差和<1>國家/地</1>區參數<1>。</1>關<1>鍵</1>參數是您的 API 金鑰。如需更多有關我們的地理編碼服務的詳細資訊，請參閱此處提供的詳細文件<0>。</0>"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_v2": {
+    "text": "在亞馬遜定位服務中，<0>ReverseGeocode 服務用</0>於通過 HTTP POST 請求進行反向地理編碼。此 API 使用坐標來檢索地址和位置信息。簡單的請求包含下列必要參數："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1_v2": {
+    "text": "查詢位置 — 您要轉換為地址、興趣點或一般位置的座標集。使用格式 <0>[經度，緯度] 定</0>義。"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description_v2": {
+    "text": "在此請求中，<1>QueryPosition 欄</1>位相當於 Google 地圖中<1>的位置</1>參數，指定要反向地理編碼的地理座標。「最<1>大結果」</1> 欄位指定要傳回的結果數目上限。<1>語言</1>欄位指定傳回結果的語言，類似於 Google 地圖中的<1>語言</1>參數。關<1>鍵</1>參數是您的 API 金鑰。有關我們反向地理編碼服務的更全面信息，請參閱此處提供的詳細文件<0>。</0>"
+  },
+  "codeSnippets_text_searching_withAmazon_description_v2": {
+    "text": "Amazon 位置文字搜尋請求是透過搜尋<1>文字</1>服務使用 HTTP POST 要求提出的。請求內文包含要搜尋位置的 <1>QueryText</1> 欄位、<1>BiasPosi</1> tion 以將搜尋偏向特定地理區域，以及<1>語言</1>來指定搜尋的語言。有關我們的文字搜索服務的更多詳細信息，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description_v2": {
+    "text": "在 Amazon 位置服務中，「<0>搜尋附近</0>」服務用於通過 HTTP POST 請求進行附近搜索，此服務會搜索指定位置周圍的位置。簡單的請求包含下列必要參數："
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2_v2": {
+    "text": "查詢位置 — 您要轉換為地址、興趣點或一般位置的座標集。使用格式 <0>[經度，緯度] 定</0>義。"
+  },
+  "codeSnippets_nearby_searching_request_description_v2": {
+    "text": "在此請求中，查詢<1>位置欄</1>位相當於 Google 地圖中的<1>位置</1>參數。「最<1>大結果」</1> 欄位指定要傳回的結果數目上限。<1>語言</1>欄位指定傳回結果的語言，類似於 Google 地圖中的<1>語言</1>參數。關<1>鍵</1>參數是您的 API 金鑰。有關我們的文字搜索服務的更多詳細信息，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_v2": {
+    "text": "在亞馬遜定位服務中，與 Google 地圖的自動完成相似功能是「自動完<0>成</0>」服務，使用 POST HTTP 方法稱呼。此服務為基於文本的地理搜索提供自動完成功能，並在回應使用者搜尋查詢時返回地點預測。簡單的請求包含下列必要參數："
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_point1_v2": {
+    "text": "查詢文字-構成要填寫的部分地址的自由格式文字查詢。"
+  },
+  "codeSnippets_autocomplete_withAmazon_description2_v2": {
+    "text": "在此請求中，<1>QueryText 欄</1>位相當於 Google 地圖中的<1>輸入</1>參數，指定要搜索的文本字符串。「最<1>大結果」</1> 欄位指定要傳回的結果數目上限。關<1>鍵</1>參數是您的 API 金鑰。如需有關我們自動完成服務的更多全面資訊，請參閱此處提供的詳細文件<0>。</0>"
+  },
+  "codeSnippets_suggest_places_desc": {
+    "text": "這會根據不完整或拼寫錯誤的查詢來尋找建議的地址或位置候選人，從中選取最佳查詢。"
+  },
+  "codeSnippets_suggest_places_googleDesc": {
+    "text": "<1>在 Google 地圖中，地點 API 的 <1>「地點：自動完成</1>」端點會用於此目的，並將 <1>includeQueryPredictions 參數設定為 true。</1></1>"
+  },
+  "codeSnippets_suggest_places_amazonDesc": {
+    "text": "在亞馬遜定位服務中<1>，建議</1>服務是透過 HTTP POST 要求使用。"
+  },
+  "codeSnippets_suggest_places_amazonPostDesc": {
+    "text": "有關此服務的更詳細資訊，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "predicted_text": {
+    "text": "預測文字"
+  },
+  "codeSnippets_get-place-details_description_v2": {
+    "text": "若有唯一的地點 ID，您可以擷取有關該特定位置的延伸資訊。"
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description_v2": {
+    "text": "在 Google 地圖中，地點詳細<1>信息 API 的位置/地點 ID</1> 端點用於此目的。"
+  },
+  "codeSnippets_get-place-details_withAmazon_description_v2": {
+    "text": "在亞馬遜定位服務中，<1>GetPlace</1> 服務用於透過 HTTP GET 請求擷取地點詳細資訊。"
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description_v2": {
+    "text": "在此請求中，<1>placeID</1> 是要檢索其詳細信息的地方的唯一標識符，相當於 Google 地圖中<1>的 place_id</1> 參數。關<1>鍵</1>參數是您的 API 金鑰。有關我們的地點詳細信息服務的更多詳細信息，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "opening_hours": {
+    "text": "開放時間"
+  },
+  "phone_number": {
+    "text": "電話號碼"
+  },
+  "website": {
+    "text": "網站"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description_v2": {
+    "text": "<1><1><1><1>在亞馬遜定位服務中，<1>GetMapTile 服</1>務是透過 HTTP GET 要求使用，其中包含可以是<1>點陣式 .Satellite 或向量.</1> 基地圖、縮放等<1>級 Z、x 座標 X 和 y 座</1>標 Y。</1></1></1></1>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result_v2": {
+    "text": "<1>對此請求的回應包括指示快取控制原則和內容類型的 HTTP 標頭，然後是指定為 blob 的對映圖塊資料，該資料表示 <1>mvt</1> 格式的向量圖塊，或是 png 格式的點陣式圖塊。</1>這可用於在適當的應用程序中渲染地圖圖塊。"
+  },
+  "codeSnippets_get_static_map_desc": {
+    "text": "這允許您在網頁上嵌入地圖圖像，而無需 JavaScript 或任何動態頁面加載。"
+  },
+  "codeSnippets_get_static_map_googleDesc": {
+    "text": "在 Google 地圖中，地<1>圖 API</1> 的靜態地圖端點用於此目的。"
+  },
+  "codeSnippets_get_static_map_amazonDesc": {
+    "text": "在亞馬遜定位服務中，與谷歌地圖的靜態地圖相比<1>的功能是使用</1> HTTP GET 請<1>求的 GetStaticMap</1> 服務。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_v2": {
+    "text": "在亞馬遜定位服務中，<1>「計算機路線」</1> 服務用於使用 HTTP POST 要求來計算路由。計算路線時，您最多可以使用航點在起點和目的地位置之間指定 100 個中間中間停留點。必須使用下列參數："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point1_v2": {
+    "text": "原點-路線的起點位置。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point2_v2": {
+    "text": "目的地-路線的終點位置。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2": {
+    "text": "下列參數是選擇性的："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2Points_1": {
+    "text": "LegGeometry格式 — 選擇傳回的路線段幾何格式應該是什麼。可以是「彈性聚合線」或「簡單」，預設為「彈性聚合線」，這是用於縮小回應的壓縮幾何格式。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4_v2": {
+    "text": "<0>原點位置為 <0>[-122.7565、49.0021]，目的地位置為 [-122.3394，47.6159]</0>。</0>"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription_v2": {
+    "text": "<1>在此請求中，「<1>原</1>點」欄位相當於 Google 地圖中的原點參數，指定路線計算的起點。</1>「<1>目的地</1>」欄位相當於 Google 地圖中<1>的目的</1>地參數，指定端點。關<1>鍵</1>參數是您的 API 金鑰。如需有關我們路由服務的更詳細資訊，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "codeSnippets_optimizing_waypoints_desc": {
+    "text": "這可以計算一組航點之間行駛的最佳順序，以根據道路網限制和交通模式數據最大限度地減少旅行時間或旅程中所行駛的距離。"
+  },
+  "codeSnippets_optimizing_waypoints_googleDesc": {
+    "text": "<1>在 Google 地圖中，路線 API 的 <1>v2:computeRoutes</1> 端點將用於此目的，以及設定為 true 的 <1>optimizeWaypointOrder 參數。</1></1>"
+  },
+  "codeSnippets_optimizing_waypoints_amazonDesc": {
+    "text": "在亞馬遜定位服務中，可以使用 HTTP POST 要求使用 <1>OptimizeWaypoints 服務來</1>完成此操作。"
+  },
+  "codeSnippets_optimizing_waypoints_amazonPostDesc": {
+    "text": "有關我們優化航點服務的更全面資訊，請參閱此處提供的詳細文件<0>。</0>"
+  },
+  "optimized_waypoints": {
+    "text": "優化航點"
+  },
+  "codeSnippets_snapping_to_roads_desc": {
+    "text": "「快到道路」功能會傳回類似的數據集，將 GPS 追蹤與最近的道路相匹配，而點會鎖定到車輛行駛的最有可能的道路。"
+  },
+  "codeSnippets_snapping_to_roads_googleDesc": {
+    "text": "在 Google 地圖中，<1>使用 Roads API 的 snapToRoads</1> 端點，該端點需要接受<1>緯度和經度對列表的<1>路徑</1>參數。</1>"
+  },
+  "codeSnippets_snapping_to_roads_amazonDesc": {
+    "text": "在亞馬遜定位服務<1>中，SnapToRoads</1> 服務會透過 HTTP POST 要求以及 <1>TracePoints</1> 使用，這是要貼到道路網的追蹤點清單。"
+  },
+  "codeSnippets_snapping_to_roads_amazonPostDesc": {
+    "text": "如需更多關於我們的快速到達道路服務的詳細資訊，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "snapped_position": {
+    "text": "截斷位置"
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription_v2": {
+    "text": "在此請求中，「起點<1>」和</1>「<1>目的地</1>」是包含「位置」的物件陣列。有關我們的路線規劃服務的更多詳細信息，請參閱此處提供的詳細文<0>件</0>。"
+  },
+  "codeSnippets_route-planning_withAmazon_description_v2": {
+    "text": "亞馬遜定位服務提供類似的功能與其<1>計算器外置矩陣服務使用</1> HTTP POST 請求進行調用。它允許開發人員計算多個起點和終點之間的距離和行駛時間。結果包含「起點」和「目的地」的所有組合。每一列對應於從原點到目的地中的項目的路線。"
+  },
+  "codeSnippets_route-planning_withAmazon_description2_v2": {
+    "text": "最小要求包含下列必要欄位："
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point1_v2": {
+    "text": "起點 — 計算路線的起始位置集。"
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point2_v2": {
+    "text": "目的地 — 計算路線的終點位置集。"
+  },
   "error_handler__failed_create_places_client": {
     "text": "無法建立地點用戶端"
   },
@@ -3806,6 +6521,39 @@
   "multiple_region_disclaimer": {
     "text": "免責聲明：當使用者的 AWS 帳戶連線時，變更區域只會影響地圖、地點和路線。"
   },
+  "samples__js-quick-start-using-api-keys__title": {
+    "text": "快速入門使用 API 金鑰"
+  },
+  "samples__js-quick-start-using-api-keys__bodyText": {
+    "text": "此示例應用程序通過 API 密鑰顯示具有反向地理代碼功能的地圖。"
+  },
+  "samples__js-quick-start-using-api-keys__configure": {
+    "text": "打開 `main.js `，然後輸入 API 密鑰和創建資源的區域。"
+  },
+  "samples__js-quick-start-using-api-keys__run": {
+    "text": "在瀏覽器中打開 quickstart.html。"
+  },
+  "samples__js-quick-start-using-api-keys__cleanUp": {
+    "text": "如果您想刪除在此瀏覽中創建的所有資源，請刪除名為 `js-quick-start-using-api-keys` 的 CloudFormation 堆疊。"
+  },
+  "samples__react-tracking-data-streaming__title": {
+    "text": "使用 React 追踪器和數據流式傳輸"
+  },
+  "samples__react-tracking-data-streaming__bodyText": {
+    "text": "此範例演示了如何使用 React 和 react-map-gl 在網絡地圖上流式傳輸跟踪器數據。要創建必要的資源，從上方導航到 github 存儲庫，並在 `src/cfn_template` 下運行模板以創建此範例所需的資源。"
+  },
+  "samples__react-tracking-data-streaming__tabsTitle": {
+    "text": "React/跟踪器和數據串流"
+  },
+  "samples__react-tracking-data-streaming__configure": {
+    "text": "開啟「src/configuration.js」，然後輸入 IdentityPoolID、API 金鑰以及資源建立的區域。"
+  },
+  "samples__react-tracking-data-streaming__run": {
+    "text": "運行 `npm start` 以在 [`本地主機:3000`]（http://localhost:3000/）上啟動本地網絡服務器，使用此\n示例並在瀏覽器中打開它。"
+  },
+  "samples__react-tracking-data-streaming__cleanUp": {
+    "text": "若要移除此步驟中建立的所有資源，請刪除名為 CloudFormation 堆疊\n「反應跟踪-數據流」。"
+  },
   "documentation": {
     "text": "文件"
   },
@@ -3814,6 +6562,12 @@
   },
   "description_demo": {
     "text": "展示亞馬遜定位服務功能的演示應用程序"
+  },
+  "banner_enhanced_apis_label": {
+    "text": "我們推出了新增且增強的 API！"
+  },
+  "banner_enhanced_apis_action": {
+    "text": "開發人員指南"
   },
   "no_political_view": {
     "text": "沒有政治觀點"
@@ -3866,6 +6620,9 @@
   "industry_overview": {
     "text": "產業概述"
   },
+  "sign_in_to_the_console": {
+    "text": "登入主控台"
+  },
   "political_views": {
     "text": "政治觀點"
   },
@@ -3884,6 +6641,18 @@
   "greece_political_view_desc": {
     "text": "希臘政治觀"
   },
+  "cars": {
+    "text": "汽車作為旅行模式"
+  },
+  "trucks": {
+    "text": "卡車作為旅行模式"
+  },
+  "pedestrians": {
+    "text": "行人作為旅行模式"
+  },
+  "scooters": {
+    "text": "踏板車作為旅行模式"
+  },
   "avoid_dirtroads": {
     "text": "避免泥路"
   },
@@ -3896,23 +6665,17 @@
   "avoid": {
     "text": "避免"
   },
-  "navigate": {
-    "text": "導航"
-  },
   "arrive_by": {
     "text": "到達"
   },
   "depart_at": {
-    "text": "出發地點"
+    "text": "出發地點："
   },
   "leave_now": {
     "text": "立即離開"
   },
-  "time_in_past.error": {
-    "text": "所選時間不能在過去"
-  },
-  "date_in_past.error": {
-    "text": "所選日期不能在過去"
+  "navigate": {
+    "text": "導航"
   },
   "leave_at": {
     "text": "離開地點"

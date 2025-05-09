@@ -1,5 +1,6 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { FC, useEffect, useMemo, useState } from "react";
 
@@ -83,7 +84,7 @@ const ApiPlaygroundListPage: FC = () => {
 		if (filterLoading) {
 			setFilterLoading(false);
 		}
-	}, [filteredApiPlaygroundList]);
+	}, [filterLoading, filteredApiPlaygroundList, setFilterLoading]);
 
 	return (
 		<>

@@ -1,0 +1,47 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "Azioni sulle mappe: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "Luoghi e azioni: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "Azioni sugli itinerari: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "Google Maps fornisce <1>DirectionsService</1> e <1>DirectionsRenderer</1> o <1>ComputeRoutes</1> e <1>Polyline</1> per calcolare e visualizzare i dati del percorso sulla mappa."
+	},
+	"codeSnippets_route_matrix_point1": {
+		"text": "Google Maps utilizza <1>DistanceMatrixService</1> o <1>ComputeRouteMatrix</1> per calcolare una matrice di percorso."
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point1": {
+		"text": "Google Maps fornisce <1>distanceMatrix</1> o <1>computeRouteMatrix</1> per calcolare una matrice di percorso."
+	},
+	"codeSnippets_calculating_a_route_matrix_ios_point1": {
+		"text": "Google Maps fornisce <1>distanceMatrix</1> o <1>computeRouteMatrix</1> per calcolare una matrice di percorso."
+	},
+	"amazon_searching_for_places_step3": {
+		"text": "<0>Passaggio 3</0>: Includi il seguente codice in <1>GeoPlaceSearchTextActivity.kt</1>."
+	},
+	"codeSnippets_places_search_point2_v2": {
+		"text": "Amazon Location Service fornisce un client GeoPlaces, che contiene API per <1>autocomplete</1>, <1>geocode</1>, <1>getPlace</1>, <1>reverseGeocode</1>, <1>searchNearby</1>, <1>searchText</1> e <1>suggest</1>. <0>Ulteriori informazioni</0>"
+	},
+	"codeSnippets_snapping_to_roads_point1": {
+		"text": "Google Maps fornisce un endpoint <1>snapToRoads</1> dall'API Roads."
+	},
+	"codeSnippets_searching_for_places_android_point2_v2": {
+		"text": "<1>Amazon Location Service offre il metodo di <1>suggerimento</1> tramite il suo <1>GeoPlacesClient disponibile all'interno dell'SDK aws.sdk.kotlin:geoplaces</1>.</1> <1>La chiave API viene utilizzata all'interno di SuggestRequest come mostrato nell'esempio seguente.</1> <1><1><1>Inoltre, Amazon Location Service offre altre API Places come <1>getPlace</1>, <1>autocomplete</1>, <1>geocode, reverseGeocode, searchNearby</1><1>, searchText e suggest.</1></1></1></1>"
+	},
+	"codeSnippets_snapping_to_roads_ios_point1": {
+		"text": "Google Maps fornisce un endpoint <1>snapToRoads</1> dall'API Roads."
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1><1>In Google Maps, l'endpoint <1>v2:computeRoutes dell'API Routes</1> viene utilizzato a tale scopo insieme al parametro optimizeWaypointOrder impostato su true.</1></1>"
+	},
+	"codeSnippets_optimizing_waypoints_amazonDesc": {
+		"text": "In Amazon Location Service ciò può essere realizzato con il servizio <1>OptimizeWaypoints</1> utilizzando una richiesta HTTP POST."
+	},
+	"codeSnippets_snapping_to_roads_googleDesc": {
+		"text": "In Google Maps, viene utilizzato l'endpoint <1>snapToRoads</1> dell'API Roads che richiede un parametro <1>path</1> che accetta un elenco di coppie di <1>latitudine</1> e longitudine."
+	}
+}

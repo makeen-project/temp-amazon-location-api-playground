@@ -1,0 +1,41 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "Karten-Aktionen: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "Orte und Aktionen: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "Routen-Aktionen: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "Google Maps biedt <1>DirectionsService</1> en <1>DirectionsRenderer</1> of <1>ComputeRoutes</1> en <1>Polyline</1> om routegegevens op de kaart te berekenen en weer te geven."
+	},
+	"codeSnippets_routing_services_ios_point1": {
+		"text": "Google Maps biedt <1>directions</1> of <1>computeRoutes</1> om routegegevens op de kaart te berekenen en weer te geven."
+	},
+	"codeSnippets_calculating_a_route_android_point1": {
+		"text": "Google Maps biedt <1>directions</1> of <1>computeRoutes</1> om routegegevens op de kaart te berekenen en weer te geven."
+	},
+	"codeSnippets_route_matrix_point1": {
+		"text": "Google Maps gebruikt <1>DistanceMatrixService</1> of <1>ComputeRouteMatrix</1> om een ​​routematrix te berekenen."
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point1": {
+		"text": "Google Maps biedt <1>distanceMatrix</1> of <1>computeRouteMatrix</1> om een ​​routematrix te berekenen."
+	},
+	"codeSnippets_calculating_a_route_matrix_ios_point1": {
+		"text": "Google Maps biedt <1>distanceMatrix</1> of <1>computeRouteMatrix</1> om een ​​routematrix te berekenen."
+	},
+	"codeSnippets_places_search_point2_v2": {
+		"text": "<1><1><0>Amazon Location Service bietet einen GeoPlacesClient, der APIs für <1>Autocomplete</1>, Geocode, <1>GetPlace, <1><1>ReverseGeocode</1></1>, SearchNearby</1>, <1>SearchText</1> und Suggest enthält. Mehr erfahren</0></1></1>"
+	},
+	"ios_swift_add_aws_geo_places_routes_package_to_target": {
+		"text": "<1>Wählen Sie Ihr Projekt in der Dropdownliste der Spalte <1>Zu Ziel hinzufügen</1> aus und klicken Sie auf die Schaltfläche <1>Paket hinzufügen</1> mit den Zeilen <1>AWSGeoPlaces oder AWSGeoRoutes</1>.</1>"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>In Google Maps wird zu diesem Zweck der Endpunkt <1>v2:computeRoutes</1> der Routes API zusammen mit dem Parameter <1>optimizeWaypointOrder</1> verwendet, der auf true gesetzt ist.</1>"
+	},
+	"codeSnippets_snapping_to_roads_amazonDesc": {
+		"text": "In Amazon Location Service wird der <1>SnapToRoads</1> service zusammen mit <1>TracePoints, einer Liste von TracePoints, die in das Straßennetz</1> aufgenommen werden sollen, über eine HTTP-POST-Anfrage verwendet."
+	}
+}

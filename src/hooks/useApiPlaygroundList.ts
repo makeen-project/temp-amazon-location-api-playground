@@ -36,7 +36,7 @@ interface ApiConfig {
 function useApiPlaygroundList() {
 	const [apiPlaygroundList, setApiPlaygroundsList] = useState<ApiPlaygroundList | null>(null);
 	const [isLoading, setLoading] = useState(false);
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 
 	const fetchApiPlaygroundList = useCallback(async () => {
 		try {
@@ -63,7 +63,7 @@ function useApiPlaygroundList() {
 		} finally {
 			setLoading(false);
 		}
-	}, [t, i18n.language]);
+	}, [t]);
 
 	useEffect(() => {
 		fetchApiPlaygroundList();

@@ -1,0 +1,59 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "マップアクション: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "プレイスアクション: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "ルートアクション: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"codeSnippets_routing_services_ios_point1": {
+		"text": "Google Maps は、ルート データを計算して地図上に表示するための <1>directions</1> または <1>computeRoutes</1> を提供します。"
+	},
+	"codeSnippets_calculating_a_route_android_point1": {
+		"text": "Google Maps は、ルート データを計算して地図上に表示するための <1>directions</1> または <1>computeRoutes</1> を提供します。"
+	},
+	"codeSnippets_places_search_point2_v2": {
+		"text": "<1><1><0>Amazon ロケーションサービスには、<1>オートコンプリート</1>、ジオコード、<1>getPlace</1>、<1>reverseGeocode</1> <1>、searchNearby、<1>searchText</1>、サジェスト用の API を含む GeoPlaces</1> クライアントが用意されています。さらに詳しく</0></1></1>"
+	},
+	"codeSnippets_snapping_to_roads_point1": {
+		"text": "<1>グーグルマップは道路APIからsnapToRoadsエンドポイントを提供します</1>。"
+	},
+	"codeSnippets_load_a_map_Android_point2_v2": {
+		"text": "Amazon ロケーションサービスでは、MapLibre ライブラリの <1>MapView</1> がアプリ内でマップを初期化および表示するための主要なインターフェイスになります。以下の例のように、マップサービスの URL を指定することで、マップを簡単に読み込むことができます。"
+	},
+	"codeSnippets_snapping_to_roads_android_point1": {
+		"text": "<1>グーグルマップは道路APIからsnapToRoadsエンドポイントを提供します</1>。"
+	},
+	"codeSnippets_snapping_to_roads_android_point2": {
+		"text": "<1>アマゾンロケーションサービスは、aws.sdk.kotlin: <1>georoutes SDK 内で利用可能な GeoRoutes Client</1> <1>を通じて SnapToRoads</1> メソッドを提供しています。</1><1>API キーは、以下の例に示すように SnapToRoadsリクエストの内部で使用されます。</1>"
+	},
+	"google_snapping_to_roads_step3": {
+		"text": "<0>ステップ 3</0> <1><1>: /res/drawable ディレクトリ内に <1>ic_marker_red と ic_marker_blue</1> <1>という名前のマーカーイメージを追加し、SnapToRoadActivity.kt</1> に以下のコードを追加します。</1></1>"
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>ステップ 4</0> <1><1>: /res/drawable ディレクトリ内に <1>ic_marker_red と ic_marker_blue</1> <1>という名前のマーカーイメージを追加し、以下のコードを GeoRoutesSnapToRoadActivity.kt</1> に挿入します。</1></1>"
+	},
+	"ios_swift_add_aws_geo_places_routes_package_to_target": {
+		"text": "<1>「<1>ターゲットに追加</1>」列のドロップダウンでプロジェクトを選択し、「AWSGeoPlaces」または「<1>AWSGeoRoutes</1>」行の「<1>パッケージを追加</1>」ボタンをクリックします。</1>"
+	},
+	"ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+		"text": "「<1>ターゲットに追加</1>」列のドロップダウンでプロジェクトを選択し、<1>AmazonLocationIOSAuthSDK</1> という行が表示された「<1>パッケージを追加</1>」ボタンをクリックします。"
+	},
+	"codeSnippets_snapping_to_roads_ios_point1": {
+		"text": "<1>グーグルマップは道路APIからsnapToRoadsエンドポイントを提供します</1>。"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>Google マップでは、ルート API の <1>v2:computeRoutes</1> エンドポイントが <1>optimizeWaypointOrder</1> パラメーターを true に設定してこの目的で使用します。</1>"
+	},
+	"codeSnippets_optimizing_waypoints_amazonDesc": {
+		"text": "アマゾンロケーションサービスでは、これは HTTP POST リクエストを使用して <1>OptimizeWaypoints</1> サービスで実行できます。"
+	},
+	"codeSnippets_snapping_to_roads_googleDesc": {
+		"text": "Googleマップでは、<1>Roads APIのsnapToRoadsエンドポイントが使用されています</1>。これには、<1><1>緯度と経度のペアのリストを受け入れるパスパラメータが必要です</1></1>。"
+	},
+	"codeSnippets_snapping_to_roads_amazonDesc": {
+		"text": "Amazon ロケーションサービスでは、<1>道路網にスナップされるトレースポイントのリストである <1>TracePoints</1> とともに、SnapToRoads</1> サービスが HTTP POST リクエストを介して使用されます。"
+	}
+}

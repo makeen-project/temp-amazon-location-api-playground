@@ -1,0 +1,98 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "地图操作: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "地点操作: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "路线操作: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"notableDifferences_subPoint1d": {
+		"text": "遵循 <0>GeoJSON 標準定義的</0> <1>[x, y]</1> 慣例。"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "Google 地图提供<1>DirectionsService</1> 和<1>DirectionsRenderer</1> 或<1>ComputeRoutes</1> 和<1>Polyline</1> 来计算路线数据并在地图上显示。"
+	},
+	"codeSnippets_route_matrix_point1": {
+		"text": "Google 地图使用 <1>DistanceMatrixService</1> 或 <1>ComputeRouteMatrix</1> 来计算路线矩阵。"
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point1": {
+		"text": "Google 地图提供<1>distanceMatrix</1> 或<1>computeRouteMatrix</1> 来计算路线矩阵。"
+	},
+	"codeSnippets_calculating_a_route_matrix_ios_point1": {
+		"text": "Google 地图提供<1>distanceMatrix</1> 或<1>computeRouteMatrix</1> 来计算路线矩阵。"
+	},
+	"amazon_searching_for_places_step3": {
+		"text": "<0>第 3 步</0>：在 <1>GeoPlaceSearchTextActivity.kt</1> 中添加以下代码。"
+	},
+	"codeSnippets_routing_services_point2_v2": {
+		"text": "Amazon Location 提供<1>CalculateRoutes</1>并使用 MapLibre 的渲染功能在地图上显示该数据。"
+	},
+	"codeSnippets_snapping_to_roads_point1": {
+		"text": "谷歌地图提供了来自 Roads API 的 <1>snapToRoads</1> 终端节点。"
+	},
+	"codeSnippets_snapping_to_roads_point2": {
+		"text": "亚马逊定位服务通过 Routes API 提供 <1>SnapToRoads</1> 终端节点。"
+	},
+	"codeSnippets_calculating_a_route_android_point2_v2": {
+		"text": "<1>亚马逊定位服务通过其 <1>GeoRoutesClient 提供 Calc <1>ulateRoutes</1> 方法，该方法位于 aws.sdk.kotlin: georoutes S</1> DK 中。</1>API 密钥在 C <1>alculateRoutesReques</1> t 中使用，如以下示例所示。随后，它利用Maplibre的渲染功能在地图上显示该路线数据。"
+	},
+	"amazon_calculating_a_route_step3_v2": {
+		"text": "<0>第 3 步</0><1>：在 <1>/res/drawable</1> 目录中添加名为 <1>ic_marker_red</1> 的标记图片，并将以下代码插入到 GeoRoutesCalculateRouteActivity.kt 中。</1>"
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point2_v2": {
+		"text": "<1>亚马逊定位服务通过其 <1>GeoRoutesClient 提供 C <1>alculateRouteMatrix</1> 方法，该方法位于 aws.sdk.kotlin: georoutes</1> SDK 中。</1>API 密钥在 C <1>alculateRouteMatrixRequ</1> est 中使用，如以下示例所示。"
+	},
+	"amazon_calculating_a_route_matrix_step4_v2": {
+		"text": "<0>第 4 步</0><1>：在 <1>/res/drawable</1> <1>目录中添加名为 ic_marker_red 的标记图片，并将以下代码插入到 GeoRouteMatrixServiceActivity</1 中。</1>"
+	},
+	"codeSnippets_snapping_to_roads_android_point1": {
+		"text": "谷歌地图提供了来自 Roads API 的 <1>snapToRoads</1> 终端节点。"
+	},
+	"codeSnippets_snapping_to_roads_android_point2": {
+		"text": "<1>亚马逊定位服务通过其 <1>Ge <1>GeoRoutesClient 提供 SnapToRoads</1> 方法，该方法位于 aws.sdk.kotlin: georoutes S</1> DK 中。</1>API 密钥在 <1>SnapToRoadsRequest</1> t 中使用，如以下示例所示。"
+	},
+	"google_snapping_to_roads_step3": {
+		"text": "<0>第 3 步</0> <1><1>：在 /res/drawable 目录中添加名为 <1>ic_marker_red 和 ic_marker_blue</1> <1> 的标记图像，然后在 SnapToRoadActivity.kt</1> 中添加以下代码。</1></1>"
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>第 4 步</0> <1><1>：在 /res/drawable 目录中添加名为 <1>ic_marker_red 和 ic_marker_blue</1> <1> 的标记图像，并将以下代码插入到 GeoRoutesSnapToRoadActivity</1> tivity.kt 中。</1></1>"
+	},
+	"codeSnippets_searching_for_places_android_point2_v2": {
+		"text": "<1>亚马逊定位服务通过其 <1>GeoPlacesClient 提供<1>建议</1>方法，该客户端位于 aws.sdk.kotlin: geoplaces S</1> DK 中。</1>API 密钥在<1>建议请求中使用，</1>如以下示例所示。<1><1>此外，亚马逊定位服务还提供其他地点API，例如<1>获取地点</1>、<1>自动填</1>充、地理编码、<1>反向<1>地理编码</1>、附近<1>搜索、搜索</1>文本</1>和建议。</1></1>"
+	},
+	"ios_swift_maplibre_package": {
+		"text": "要渲染地图，请将 MapLibre 原生软件包添加到您的项目中。"
+	},
+	"ios_swift_add_maplibre_package_to_target": {
+		"text": "在 “<1>添加到目标</1>” 列的下拉列表中选择您的项目，然后单击 <1>MapLibre</1> 行的 “<1>添加软件包</1>” 按钮。"
+	},
+	"ios_swift_add_aws_geo_places_routes_package_to_target": {
+		"text": "<1>在 “<1>添加到目标</1>” 列的下拉列表中选择您的项目，然后单击带有行 <1>AWSGeoPlaces 或 AWSGeoRoutes</1> 的 “<1>添加软件包</1>” 按钮。</1>"
+	},
+	"ios_swift_amazon_location_ios_auth_sdk": {
+		"text": "要对 API 密钥请求进行身份验证，请将 AmazonLocationIOSAuthSDK 包添加到您的项目中。"
+	},
+	"ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+		"text": "在 “<1>添加到目标</1>” 列的下拉列表中选择您的项目，然后单击 <1>AmazonLocationIOSAuthSDK</1> 各行的 “<1>添加包裹</1>” 按钮。"
+	},
+	"codeSnippets_snapping_to_roads_ios_point1": {
+		"text": "谷歌地图提供了来自 Roads API 的 <1>snapToRoads</1> 终端节点。"
+	},
+	"codeSnippets_snapping_to_roads_ios_point2": {
+		"text": "<1>亚马逊定位服务通过 AWSGeoRoutes API <1> 提供 SnapToRoads</1> 服务。</1>"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1>在谷歌地图中，路由 API 的 <1>v2:computeRoutes</1> 端点用于此目的，同时将 O <1>optimizeWaypointOrder</1> 参数设置为 true。</1>"
+	},
+	"codeSnippets_optimizing_waypoints_amazonDesc": {
+		"text": "在亚马逊定位服务中，这可以通过使用 HTTP POST 请求的 <1>OptimizeWaypoints</1> ts 服务来实现。"
+	},
+	"codeSnippets_snapping_to_roads_googleDesc": {
+		"text": "在谷歌地图中，使用道路 API 的 <1>snapToRoads</1> 端点，这需要一个接受<1>纬度、经度</1>对列表的<1>路径</1>参数。"
+	},
+	"codeSnippets_snapping_to_roads_amazonDesc": {
+		"text": "在亚马逊定位服务中，通过HTTP POST请求使用 <1>SnapToRoads</1> 服务以及T <1>racePoin</1> ts，后者是要捕捉到道路网络的追踪点清单。"
+	}
+}

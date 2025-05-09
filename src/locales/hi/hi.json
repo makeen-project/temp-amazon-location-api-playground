@@ -210,7 +210,7 @@
     "text": "साइट की शर्तें"
   },
   "overview__hs__heading": {
-    "text": "Amazon लोकेशन सर्विस"
+    "text": "Amazon Location Service"
   },
   "overview__hs__subheading": {
     "text": "सुरक्षित रूप से और आसानी से एप्लिकेशन में स्थान डेटा जोड़ें"
@@ -486,7 +486,7 @@
     "text": "डिवाइस की स्थिति प्राप्त करें"
   },
   "product__trackers__product_3__link_2": {
-    "text": "बैच गेट डिवाइस पोजीशन"
+    "text": "डिवाइस की स्थिति की सूची बनाएं"
   },
   "product__trackers__product_3__link_3": {
     "text": "बैच अपडेट डिवाइस की स्थिति"
@@ -3065,6 +3065,9 @@
   "regions__ap_southeast_1": {
     "text": "Asia Pacific (Singapore) ap-southeast-1"
   },
+  "regions__ap_southeast_5": {
+    "text": "Asia Pacific (Malaysia) ap-southeast-5"
+  },
   "regions__ap_southeast_2": {
     "text": "Asia Pacific (Sydney) ap-southeast-2"
   },
@@ -3617,6 +3620,9 @@
   "nl_loader_sample_text_5": {
     "text": "मैपिंग ड्यूटी पर Amazon Bedrock! खोज रहे हैं।"
   },
+  "banner__message": {
+    "text": "Amazon Bedrock द्वारा संचालित प्राकृतिक भाषा खोज का प्रयास करें"
+  },
   "fm__header": {
     "text": "हमें बताओ कि तुम क्या सोचते हो?"
   },
@@ -3653,6 +3659,2031 @@
   "error_handler__failed_feedback_text_2": {
     "text": "स्थिति के साथ अनुरोध विफल हुआ"
   },
+  "banner_migration_label": {
+    "text": "आज ही Amazon लोकेशन पर माइग्रेट करें!"
+  },
+  "banner_migration_action": {
+    "text": "माइग्रेशन गाइड"
+  },
+  "pricing": {
+    "text": "मूल्य निर्धारण"
+  },
+  "avg_speed_per_hour": {
+    "text": "औसत गति प्रति घंटा"
+  },
+  "accuracy_value": {
+    "text": "सटीकता मान"
+  },
+  "price": {
+    "text": "क़ीमत"
+  },
+  "use_cases": {
+    "text": "केस इस्तेमाल करें"
+  },
+  "web_based_map_application": {
+    "text": "वेब-आधारित मानचित्र अनुप्रयोग"
+  },
+  "web_based_map_application_description": {
+    "text": "यह अनुभाग एक मिनी वेब एप्लिकेशन की लागत दिखाता है जो मैप टाइल लाने के लिए मैप टाइल्स एपीआई का उपयोग करता है और उन्हें MapLibre के सहयोग से प्रस्तुत करता है, जिससे उपयोगकर्ता नक्शे पर खोज का उपयोग कर सकता है और जगह के विवरण के साथ स्थानों को प्राप्त कर सकता है। इसके अलावा, यह उपयोगकर्ता को किन्हीं दो स्थितियों के बीच के मार्ग की गणना करने की भी अनुमति देता है। यह अनुमान लगाता है कि API खपत के लिए आपकी कुल लागत क्या होगी, यह मानते हुए कि आपका एप्लिकेशन GetMapTile, SearchPlaceIndexForSuggestions, GetPlace और CalculateRoute API का उपयोग करता है।"
+  },
+  "map_tiles": {
+    "text": "मैप टाइल्स"
+  },
+  "search_place_by_position": {
+    "text": "स्थिति के आधार पर जगह खोजें"
+  },
+  "calculate_route": {
+    "text": "रूट"
+  },
+  "total_monthly": {
+    "text": "कुल मासिक"
+  },
+  "amazon_location_charges": {
+    "text": "Amazon लोकेशन शुल्क"
+  },
+  "google_maps_charges": {
+    "text": "गूगल मैप्स शुल्क"
+  },
+  "trackers_and_geofences_application": {
+    "text": "ट्रैकर्स और जियोफेंस एप्लीकेशन"
+  },
+  "trackers_and_geofences_application_description_1": {
+    "text": "Amazon Location Service ट्रैकर्स और जियोफ़ेंस क्षमताएं प्रदान करती है जिन्हें आपके एप्लिकेशन में जोड़ा जा सकता है। ट्रैकर्स के साथ, आप अपने ट्रैक किए गए डिवाइस या संपत्ति से अपलोड किए गए डिवाइसों की वर्तमान और ऐतिहासिक स्थिति को तुरंत प्राप्त कर सकते हैं। जियोफ़ेंस आपके एप्लिकेशन को यह पता लगाने और उस पर कार्रवाई करने की सुविधा देता है जब कोई ट्रैक किया गया डिवाइस उस भौगोलिक सीमा में प्रवेश करता है या बाहर निकलता है जिसे आप जियोफ़ेंस के रूप में परिभाषित करते हैं। जब जियोफ़ेंस के उल्लंघन का पता चलता है, तो Amazon Location Service स्वचालित रूप से Amazon EventBridge को प्रविष्टि या निकास ईवेंट भेजती है, जो बाद में डाउनस्ट्रीम क्रियाओं को ट्रिगर कर सकती है।"
+  },
+  "trackers_and_geofences_application_description_2": {
+    "text": "1) ट्रैकर्स लिखने की लागत BatchUpdateDevicePosition API के उपयोग पर आधारित है, जो आपको किसी डिवाइस के ट्रैकर्स इतिहास को रिकॉर्ड करने और संग्रहीत करने की अनुमति देता है।"
+  },
+  "trackers_and_geofences_application_description_3": {
+    "text": "2) जियोफेंस की लागत batchEvaluateGeofences API पर आधारित है, जो दर्ज किए गए या बाहर निकलने वाले ईवेंट के लिए जियोफेंस के खिलाफ ट्रैक की गई स्थिति का मूल्यांकन करती है।"
+  },
+  "trackers_and_geofences_application_description_4": {
+    "text": "3) ट्रैकर्स की पठन लागत ListDevicePositions API पर आधारित है, जिससे आप डिवाइस की हालिया स्थिति का इतिहास प्राप्त कर सकते हैं। "
+  },
+  "devices": {
+    "text": "डिवाइसेस"
+  },
+  "ping_rate": {
+    "text": "पिंग रेट"
+  },
+  "avg_time_stationary": {
+    "text": "औसत समय स्थिर"
+  },
+  "avg_device_speed": {
+    "text": "औसत डिवाइस की गति"
+  },
+  "filter": {
+    "text": "फ़िल्टर करें"
+  },
+  "accuracy": {
+    "text": "सटीकता"
+  },
+  "distance": {
+    "text": "दूरी"
+  },
+  "time": {
+    "text": "टाइम"
+  },
+  "location_updates": {
+    "text": "स्थान अपडेट"
+  },
+  "geofence_evaluation": {
+    "text": "जियोफेंस मूल्यांकन"
+  },
+  "per": {
+    "text": "प्रति"
+  },
+  "requests": {
+    "text": "अनुरोध"
+  },
+  "items": {
+    "text": "आइटम"
+  },
+  "minute": {
+    "text": "मिनट"
+  },
+  "minutes": {
+    "text": "मिनटों"
+  },
+  "days": {
+    "text": "डेज़"
+  },
+  "hours": {
+    "text": "घंटे"
+  },
+  "month": {
+    "text": "महीना"
+  },
+  "all_devices": {
+    "text": "सभी डिवाइस"
+  },
+  "get_started_with_amazon_location_today": {
+    "text": "आज ही Amazon Location से शुरुआत करें"
+  },
+  "three_months_free_with_the_AWS_free_tier": {
+    "text": "AWS फ्री टियर के साथ तीन महीने मुफ्त।"
+  },
+  "migrate_to_amazon_location_today": {
+    "text": "आज ही Amazon लोकेशन पर माइग्रेट करें"
+  },
+  "pricing_calculators": {
+    "text": "मूल्य निर्धारण कैलकुलेटर"
+  },
+  "pricing_calculators_description": {
+    "text": "Amazon Location टूल खोजें, जिनकी आपको स्थान-आधारित सेवाएँ और एप्लिकेशन बनाने की ज़रूरत है, जिनका उपयोग आस-पास के स्थानों को खोजने, दिशा-निर्देश प्राप्त करने और रीयल-टाइम ट्रैफ़िक अपडेट प्रदर्शित करने के लिए किया जा सकता है।"
+  },
+  "three_month_free": {
+    "text": "3 महीने मुफ़्त"
+  },
+  "Web-based_map_app": {
+    "text": "वेब-आधारित मैप ऐप"
+  },
+  "tracking_and_geofencing_app": {
+    "text": "ट्रैकर्स और जियोफेंस ऐप"
+  },
+  "explore_use_cases": {
+    "text": "उपयोग के मामलों को एक्सप्लोर करें"
+  },
+  "maps_text": {
+    "text": "मैप्स"
+  },
+  "places_text": {
+    "text": "जगहें"
+  },
+  "routes_text": {
+    "text": "रूट्स"
+  },
+  "yearly_text": {
+    "text": "सालाना"
+  },
+  "monthly_text": {
+    "text": "मासिक"
+  },
+  "weekly_text": {
+    "text": "साप्ताहिक"
+  },
+  "daily_text": {
+    "text": "रोज़ाना"
+  },
+  "Product_text": {
+    "text": "प्रोडक्ट्स"
+  },
+  "Usage_text": {
+    "text": "उपयोग"
+  },
+  "hundred_requests": {
+    "text": "सौ अनुरोध"
+  },
+  "thousand_requests": {
+    "text": "हजार अनुरोध"
+  },
+  "million_requests": {
+    "text": "मिलियन अनुरोध"
+  },
+  "billion_requests": {
+    "text": "बिलियन अनुरोध"
+  },
+  "google_maps": {
+    "text": "Google Maps"
+  },
+  "amazon_location": {
+    "text": "Amazon Location"
+  },
+  "maps_sdk_for_android": {
+    "text": "एंड्रॉइड के लिए मैप्स एसडीके"
+  },
+  "maps_sdk_for_ios": {
+    "text": "iOS के लिए मैप्स SDK"
+  },
+  "maps_javascript_api": {
+    "text": "मैप्स जावास्क्रिप्ट एपीआई"
+  },
+  "search_place_index_for_suggestion": {
+    "text": "सुझाव"
+  },
+  "search_place_index_for_text": {
+    "text": "टेक्स्ट के आधार पर खोजें"
+  },
+  "search_place_index_for_position": {
+    "text": "स्थिति के आधार पर खोजें"
+  },
+  "get_place": {
+    "text": "जगह की जानकारी"
+  },
+  "calculate_route_matrix": {
+    "text": "रूट मैट्रिक्स"
+  },
+  "every": {
+    "text": "प्रत्येक"
+  },
+  "distance_value": {
+    "text": "दूरी का मान"
+  },
+  "time_value": {
+    "text": "समय का मान"
+  },
+  "trackers_pricing": {
+    "text": "ट्रैकर्स मूल्य निर्धारण"
+  },
+  "tracking_apis": {
+    "text": "ट्रैकर्स एपीआई"
+  },
+  "positions_written": {
+    "text": "लिखित पद"
+  },
+  "above": {
+    "text": "ऊपर"
+  },
+  "geofence_pricing": {
+    "text": "जियोफेंस प्राइसिंग"
+  },
+  "geofence_apis": {
+    "text": "जियोफेंस एपीआई"
+  },
+  "trackings_cost_driven": {
+    "text": "ट्रैकिंग की लागत से प्रेरित"
+  },
+  "description_driven_tooltip": {
+    "text": "विवरण पाठ यहां होगा, बाद में फिर से जांचें"
+  },
+  "geofencings_cost_driven": {
+    "text": "जियोफेंसिंग की लागत से प्रेरित"
+  },
+  "geofence_driven_tooltip": {
+    "text": "ये इनपुट आपको जियोफेंस इवैल्यूएशन के लिए कुल लागत का अनुमान लगाने में मदद करते हैं। डिवाइस से लोकेशन अपडेट में शोर, झटके या डेटा पॉइंट शामिल हो सकते हैं जो जियोफ़ेंस मूल्यांकन के लिए उपयोगी नहीं हैं, ऐसे समान या समान स्थान जब डिवाइस स्थिर हो या कम गति से चल रहा हो। Amazon Location Trackers सेवा जियोफ़ेंस मूल्यांकन की लागत को कम करने के लिए अप्रासंगिक स्थान अपडेट को हटाने में आपकी मदद करने के लिए कई फ़िल्टर प्रदान करती है।"
+  },
+  "hide_price_calculation": {
+    "text": "गणना विवरण छिपाएँ"
+  },
+  "automatic_unit": {
+    "text": "स्वचालित यूनिट"
+  },
+  "price_single_unit_tooltip": {
+    "text": "Google मानचित्र में एक यूनिट के लिए एक मूल्य"
+  },
+  "amazon_location_uses_here_data_provider_price_rate": {
+    "text": "Amazon Location Service की अलग-अलग यूनिट कीमत होती है जिसके आधार पर डेटा प्रदाता का उपयोग किया जा रहा है। वाणिज्यिक डेटा प्रदाता (Esri, HERE, GrabMaps) और OpenData प्रदाता।"
+  },
+  "photorealistic_3D_tiles": {
+    "text": "फोटोरिअलिस्टिक 3 डी टाइल्स"
+  },
+  "2D_tiles": {
+    "text": "2D टाइल्स"
+  },
+  "street_view_tiles": {
+    "text": "स्ट्रीट व्यू टाइल्स"
+  },
+  "dynamic_maps": {
+    "text": "डायनामिक नक्शे"
+  },
+  "dynamic_maps_description": {
+    "text": "Google Maps की कीमत SDK के ज़रिए किए गए API कॉल के लिए अलग-अलग होती है; हालांकि, Amazon Location SDK के साथ हमारा दृष्टिकोण, जो मुफ़्त है, निरंतरता सुनिश्चित करता है। प्लेटफ़ॉर्म चाहे जो भी हो, सभी Amazon Location SDK REST API के एक ही सेट का उपयोग करते हैं, जिसके परिणामस्वरूप एक एकीकृत और सुसंगत मूल्य निर्धारण संरचना होती है। Amazon Location Service के API और SDK टूल, MapLibre के साथ काम करते हैं।"
+  },
+  "view_pricing": {
+    "text": "मूल्य निर्धारण देखें"
+  },
+  "tracking_write_price": {
+    "text": "ट्रैकर्स मूल्य लिखते हैं"
+  },
+  "tracking_read_price": {
+    "text": "ट्रैकर्स ने कीमत पढ़ी"
+  },
+  "geofencing_price": {
+    "text": "जियोफेंस की कीमत"
+  },
+  "show_price_calculation": {
+    "text": "गणना का विवरण दिखाएं"
+  },
+  "other_tracking_apis": {
+    "text": "अन्य ट्रैकर्स API"
+  },
+  "batch_positions_read": {
+    "text": "बैच की स्थिति पढ़ी गई"
+  },
+  "one_request_can": {
+    "text": "एक अनुरोध अधिकतम 100 डिवाइस पुनर्प्राप्त कर सकता है।"
+  },
+  "tracking_write_tooltip": {
+    "text": "ये इनपुट डिवाइस स्थिति अपडेट के लिए कुल मासिक अनुरोधों की गणना करके ट्रैकर्स सेवा की लागत का अनुमान लगाने में आपकी मदद करते हैं।"
+  },
+  "tracking_read_tooltip": {
+    "text": "Amazon Location Service ट्रैकर्स से ऐतिहासिक डिवाइस स्थितियों के लिए प्रश्नों का समर्थन करती है, प्रति कॉल 100 पदों तक।"
+  },
+  "geofence_driven_tooltip_point1": {
+    "text": "अधिकांश डिवाइस, जिनमें अधिकांश मोबाइल डिवाइस शामिल हैं, माप के साथ-साथ माप की सटीकता का अनुमान प्रदान कर सकते हैं। सटीकता-आधारित फ़िल्टरिंग के साथ, यदि डिवाइस मापी गई सटीकता से कम स्थानांतरित होता है, तो Amazon Location स्थान अपडेट को अनदेखा कर देता है। लागत अनुमान के उद्देश्य से, कृपया अपने ट्रैक किए गए डिवाइस के लिए सबसे विशिष्ट सटीकता स्तर इनपुट करें।"
+  },
+  "geofence_driven_tooltip_point2": {
+    "text": "दूरी-आधारित फ़िल्टरिंग उन स्थान अपडेट को अनदेखा करती है जिनमें डिवाइस 30 मीटर (98.4 फीट) से कम चले गए हैं।"
+  },
+  "day": {
+    "text": "दिन"
+  },
+  "week": {
+    "text": "हफ़्ता"
+  },
+  "search_place_by_suggestions": {
+    "text": "सुझावों के आधार पर स्थान खोजें"
+  },
+  "commercial_data_providers": {
+    "text": "वाणिज्यिक डेटा प्रदाता"
+  },
+  "open_data_provider": {
+    "text": "OpenData प्रदाता"
+  },
+  "single_use": {
+    "text": "एकल उपयोग"
+  },
+  "storage": {
+    "text": "स्टोरेज"
+  },
+  "contact_sales": {
+    "text": "बिक्री से संपर्क करें"
+  },
+  "tracking_and_geofencing_application": {
+    "text": "ट्रैकिंग और जियोफेंसिंग एप्लिकेशन"
+  },
+  "geofencing_pricing": {
+    "text": "जियोफेंसिंग प्राइसिंग"
+  },
+  "dashboard_refresh_rate": {
+    "text": "प्रत्येक {{count}} डिवाइस पोजीशन के लिए डैशबोर्ड रिफ्रेश रेट"
+  },
+  "hour": {
+    "text": "घंटा"
+  },
+  "batch": {
+    "text": "बैच"
+  },
+  "number_of_requests": {
+    "text": "अनुरोधों की संख्या"
+  },
+  "number_of_departure_positions": {
+    "text": "प्रस्थान पदों की संख्या"
+  },
+  "number_of_destination_positions": {
+    "text": "गंतव्य पदों की संख्या"
+  },
+  "google_maps_does_not_permit": {
+    "text": "Google मानचित्र स्थानों की जानकारी संग्रहीत करने की अनुमति नहीं देता है"
+  },
+  "n/a": {
+    "text": "एन/ए"
+  },
+  "google_maps_allows_maximum_of_25": {
+    "text": "Google मानचित्र अधिकतम 25 प्रस्थान और 25 गंतव्य पदों की अनुमति देता है, प्रति अनुरोध 625 तत्वों तक"
+  },
+  "google_maps_unit_price": {
+    "text": "गूगल मैप्स यूनिट की कीमत"
+  },
+  "migrateAWebApp_heading": {
+    "text": "वेब - Google मैप्स से Amazon लोकेशन सर्विस में माइग्रेट करना"
+  },
+  "migrateAWebApp_desc": {
+    "text": "इस गाइड में वेब ऐप्लिकेशन को Google Maps से Amazon Location Service में बदलने की तकनीकी प्रक्रिया का विवरण दिया गया है। यह प्रारंभिक सेटअप, Amazon Location संसाधन कॉन्फ़िगरेशन पर प्रकाश डालता है, और वेब-आधारित प्लेटफ़ॉर्म में मैपिंग फ़ंक्शंस के एकीकरण को सुविधाजनक बनाने के लिए SDK तुलनात्मक उदाहरण प्रदान करता है।"
+  },
+  "migrateAWebApp_linkItems_ios": {
+    "text": "iOS ऐप माइग्रेट करें"
+  },
+  "migrateAWebApp_linkItems_android": {
+    "text": "Android ऐप माइग्रेट करें"
+  },
+  "migrateAWebApp_linkItems_web": {
+    "text": "वेब सेवा माइग्रेट करें"
+  },
+  "migrateAWebApp_article_heading1": {
+    "text": "इस लेख में"
+  },
+  "migrateAWebApp_article_point_1": {
+    "text": "नक्शा लोड हो रहा है"
+  },
+  "migrateAWebApp_article_point_5": {
+    "text": "जानकारी विंडो प्रदर्शित करें"
+  },
+  "migrateAWebApp_article_point_6": {
+    "text": "मार्कर क्लस्टरिंग"
+  },
+  "migrateAWebApp_article_point_8": {
+    "text": "जगह की खोज"
+  },
+  "migrateAWebApp_article_point_9": {
+    "text": "रूटिंग सेवा"
+  },
+  "migrateAWebApp_article_point_10": {
+    "text": "एक जियोफेंस खींचना"
+  },
+  "migrateAWebApp_article_heading2": {
+    "text": "इस पेज पर"
+  },
+  "migrateAWebApp_article_items_prerequisites": {
+    "text": "पूर्वापेक्षाएँ"
+  },
+  "migrateAWebApp_article_items_key_features": {
+    "text": "मुख्य विशेषताओं का समर्थन"
+  },
+  "migrateAWebApp_article_items_load_a_web": {
+    "text": "नक्शा लोड हो रहा है"
+  },
+  "migrateAWebApp_article_items_marker_clustering": {
+    "text": "मार्कर क्लस्टरिंग"
+  },
+  "migrateAWebApp_article_items_place_searches": {
+    "text": "स्थानों की खोज"
+  },
+  "migrateAWebApp_article_items_next_steps": {
+    "text": "अगले चरण"
+  },
+  "migrateAWebApp_article_description": {
+    "text": "यदि किसी मौजूदा वेब अनुप्रयोग को माइग्रेट किया जा रहा है, तो यह देखने के लिए जांचें कि क्या यह एक ओपन-सोर्स मैप कंट्रोल लाइब्रेरी का उपयोग कर रहा है। ओपन-सोर्स मैप कंट्रोल लाइब्रेरी के उदाहरण हैं: सीज़ियम, लीफलेट, और ओपनलेयर्स। आप अभी भी अपने एप्लिकेशन को माइग्रेट कर सकते हैं, भले ही वह एक ओपन-सोर्स मैप कंट्रोल लाइब्रेरी का उपयोग करता हो, और आप Azure Maps Web SDK का उपयोग नहीं करना चाहते हैं। ऐसी स्थिति में, अपने एप्लिकेशन को Azure Maps टाइल सेवाओं (रोड टाइल्स | सैटेलाइट टाइल्स) से कनेक्ट करें। आमतौर पर इस्तेमाल किए जाने वाले कुछ ओपन-सोर्स मैप कंट्रोल लाइब्रेरी में Azure Maps का उपयोग करने के तरीके के बारे में निम्नलिखित बिंदु विस्तार से बताते हैं।"
+  },
+  "migrateAWebApp_prerequisites_heading": {
+    "text": "पूर्वापेक्षाएँ"
+  },
+  "migrateAWebApp_prerequisites_description": {
+    "text": "उदाहरणों को पूरा करने से पहले निम्नलिखित चरणों को पूरा करना सुनिश्चित करें।"
+  },
+  "migrateAWebApp_prerequisites_point_1": {
+    "text": "AWS अकाउंट बनाएं"
+  },
+  "migrateAWebApp_prerequisites_point_2": {
+    "text": "अपनी पसंदीदा मानचित्र शैली चुनें"
+  },
+  "migrateAWebApp_prerequisites_point_2_a": {
+    "text": "Amazon Location Service कंसोल में <0>मैप्स सेक्शन</0> पर नेविगेट करें और उपलब्ध मैप शैलियों का पूर्वावलोकन करने के लिए 'मैप बनाएं' पर क्लिक करें।"
+  },
+  "migrateAWebApp_prerequisites_point_2_b": {
+    "text": "नए मानचित्र संसाधन को नाम और विवरण दें। याद रखें कि आपने इस मानचित्र संसाधन को क्या नाम दिया है, जिसका उपयोग बाद में ट्यूटोरियल में किया जाएगा।"
+  },
+  "migrateAWebApp_prerequisites_point_2_c": {
+    "text": "मैप स्टाइल चुनते समय, मैप डेटा प्रोवाइडर चुनें। अधिक जानकारी के लिए <0>AWS सेवा की शर्तों</0> की धारा 82 देखें।"
+  },
+  "migrateAWebApp_prerequisites_point_2_d": {
+    "text": "<0>Amazon स्थान की शर्तों</0> को पढ़ें और स्वीकार करें, फिर 'मैप बनाएं' पर क्लिक करें। मैप बनाने के बाद, आप किसी भी दिशा में ज़ूम इन, या पैन करके इसके साथ इंटरैक्ट कर सकते हैं।"
+  },
+  "migrateAWebApp_prerequisites_point_3": {
+    "text": "उस जगह इंडेक्स का चयन करें जिसका आप उपयोग करना चाहते हैं"
+  },
+  "migrateAWebApp_prerequisites_point_3_a": {
+    "text": "Amazon Location Service कंसोल के भीतर <0>प्लेस इंडेक्स</0> पेज पर नेविगेट करें और 'प्लेस इंडेक्स बनाएं' पर क्लिक करें।"
+  },
+  "migrateAWebApp_prerequisites_point_3_b": {
+    "text": "नए स्थान अनुक्रमणिका संसाधन के लिए नाम और विवरण प्रदान करें। उस नाम को याद रखें जिसे आपने इस स्थान इंडेक्स संसाधन को सौंपा था, जिसका उपयोग बाद में ट्यूटोरियल में किया जाएगा।"
+  },
+  "migrateAWebApp_prerequisites_point_3_c": {
+    "text": "मानचित्रों के साथ खोज संगतता सुनिश्चित करने के लिए, अपने चुने हुए मानचित्र प्रदाता के साथ आदर्श रूप से संरेखित डेटा प्रदाता का चयन करें। अधिक जानकारी के लिए <0>AWS सेवा की शर्तों</0> की धारा 82 देखें।"
+  },
+  "migrateAWebApp_prerequisites_point_3_d": {
+    "text": "डेटा स्टोरेज विकल्प चुनें। चूंकि इस ट्यूटोरियल के लिए कोई डेटा संग्रहीत नहीं किया गया है, इसलिए 'नहीं, केवल एक बार उपयोग करें' चुनें।"
+  },
+  "migrateAWebApp_prerequisites_point_3_e": {
+    "text": "<0>Amazon स्थान की शर्तों</0> को पढ़ें और स्वीकार करें, फिर 'प्लेस इंडेक्स बनाएं' पर क्लिक करें।"
+  },
+  "migrateAWebApp_prerequisites_point_4": {
+    "text": "उस रूट कैलकुलेटर का चयन करें जिसका आप उपयोग करना चाहते हैं"
+  },
+  "migrateAWebApp_prerequisites_point_4_a": {
+    "text": "Amazon Location Service कंसोल में, <0>रूट कैलकुलेटर पेज पर जाएं और 'रूट कैलकुलेटर</0> बनाएं' पर क्लिक करें।"
+  },
+  "migrateAWebApp_prerequisites_point_4_b": {
+    "text": "नए रूट कैलकुलेटर संसाधन के लिए एक नाम और विवरण प्रदान करें। इस रूट कैलकुलेटर संसाधन को दिया गया नाम याद रखें, जिसका उपयोग बाद में ट्यूटोरियल में किया जाएगा।"
+  },
+  "migrateAWebApp_prerequisites_point_4_c": {
+    "text": "एक डेटा प्रदाता का चयन करें, जो चुनी गई मानचित्र शैली और मानचित्र डेटा प्रदाता के साथ संरेखण सुनिश्चित करता है। अधिक जानकारी के लिए <0>AWS सेवा शर्तों</0> की धारा 82 देखें।"
+  },
+  "migrateAWebApp_prerequisites_point_4_d": {
+    "text": "<0>Amazon स्थान की शर्तों</0> को पढ़ें और स्वीकार करें, फिर 'रूट कैलकुलेटर बनाएं' पर क्लिक करें।"
+  },
+  "migrateAWebApp_prerequisites_point_5": {
+    "text": "अपने आवेदन के लिए प्रमाणीकरण स्थापित करें"
+  },
+  "migrateAWebApp_prerequisites_point_5_a": {
+    "text": "<0>Amazon Location कंसोल पर</0> नेविगेट करें और बाएं हाथ के मेनू से “API कुंजियाँ” चुनें।"
+  },
+  "migrateAWebApp_prerequisites_point_5_b": {
+    "text": "'API कुंजी बनाएं' पर क्लिक करें। API कुंजी उसी AWS खाते और क्षेत्र में होनी चाहिए, जिस पर पहले से बनाए गए Amazon Location Service संसाधन थे।"
+  },
+  "migrateAWebApp_prerequisites_point_5_c": {
+    "text": "'API कुंजी बनाएं' पेज पर आवश्यक विवरण भरें:"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_i": {
+    "text": "नाम: अपनी API कुंजी के लिए एक नाम प्रदान करें, जैसे 'MyAppKey'।"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii": {
+    "text": "संसाधन: पहले बनाए गए Amazon लोकेशन सर्विस मैप और प्लेस इंडेक्स रिसोर्स चुनें। आप 'संसाधन जोड़ें' का चयन करके कई संसाधन जोड़ सकते हैं। इससे API कुंजी का उपयोग निर्दिष्ट संसाधनों के साथ किया जा सकता है।"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iii": {
+    "text": "क्रियाएँ: इस API कुंजी के लिए अधिकृत क्रियाएँ निर्दिष्ट करें। <1>कम से कम, <1>GEO:GetMap, Geo:SearchPlaceIndexForText</1><1>, और Geo:CalculateRoute</1> का चयन करें, ताकि यह सुनिश्चित किया जा सके कि ट्यूटोरियल इच्छित कार्य करता है.</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iv": {
+    "text": "वैकल्पिक रूप से, आप किसी विशिष्ट डोमेन के लिए कुंजी के उपयोग को सीमित करने के लिए विवरण, समाप्ति समय, टैग या एक रेफ़रर (example.com) जोड़ सकते हैं, जिससे ट्यूटोरियल केवल उसी डोमेन के भीतर काम कर सकता है।"
+  },
+  "migrateAWebApp_prerequisites_point_5_d": {
+    "text": "API कुंजी जेनरेट करने के लिए 'API कुंजी बनाएं' पर क्लिक करें।"
+  },
+  "migrateAWebApp_prerequisites_point_5_e": {
+    "text": "ट्यूटोरियल में बाद में उपयोग के लिए 'API कुंजी दिखाएं' का चयन करें और कुंजी मान (<1>v1.public.a1b2c3d4</1>...) को कॉपी करें।"
+  },
+  "migrateAWebApp_prerequisites_alert": {
+    "text": "Amazon Location में प्रमाणीकरण के बारे में अधिक जानकारी के लिए, Amazon <0>Location में प्रमाणीकरण प्रबंधित करना</0> देखें।"
+  },
+  "cost_group": {
+    "text": "कॉस्ट ग्रुप"
+  },
+  "migrateAWebApp_features": {
+    "text": "विशेषताएँ"
+  },
+  "google_Maps_with_SDK": {
+    "text": "एसडीके के साथ गूगल मैप्स"
+  },
+  "amazon_location_with_SDK": {
+    "text": "SDK के साथ Amazon का स्थान"
+  },
+  "markers": {
+    "text": "मार्कर"
+  },
+  "marker_clustering": {
+    "text": "मार्कर क्लस्टरिंग"
+  },
+  "polylines_polygons": {
+    "text": "<0>रेखाएँ</0> और <1>बहुभुज</1>"
+  },
+  "data_layers": {
+    "text": "डेटा परतें"
+  },
+  "heatmaps": {
+    "text": "हीटमैप्स"
+  },
+  "tile_layers": {
+    "text": "टाइल की परतें"
+  },
+  "geocoder_service": {
+    "text": "जियोकोडिंग"
+  },
+  "routing_service": {
+    "text": "रूटिंग"
+  },
+  "route_matrix_service": {
+    "text": "मैट्रिक्स रूटिंग"
+  },
+  "notableDifferences_point1": {
+    "text": "निर्देशांक प्रतिनिधित्व"
+  },
+  "notableDifferences_point2": {
+    "text": "अमेज़ॅन लोकेशन मैप्स में निर्देशांक संभालना:"
+  },
+  "notableDifferences_point3": {
+    "text": "SDK/API एकीकरण:"
+  },
+  "webSdkExamples_description": {
+    "text": "इस गाइड में वेब-आधारित माइग्रेशन के लिए तैयार किए गए कोड नमूने शामिल हैं, जिनमें से प्रत्येक सामान्य उपयोग के मामलों को संबोधित करता है। <0>इसका उद्देश्य MapLibre का उपयोग करके आपके वेब एप्लिकेशन को Google Maps V3 JavaScript SDK से Amazon स्थान सेवा में माइग्रेट करने में सहायता करना है.</0> वेब अनुप्रयोगों के लिए दिए गए कोड स्निपेट विशेष रूप से JavaScript में हैं।"
+  },
+  "codeSnippets_load_a_map_heading": {
+    "text": "नक्शा लोड हो रहा है"
+  },
+  "codeSnippets_load_a_map_description": {
+    "text": "Google मानचित्र और Amazon स्थान सेवा दोनों से आप अपने अनुप्रयोगों में इंटरैक्टिव, अनुकूलन योग्य मानचित्रों को एकीकृत कर सकते हैं। ये नक्शे विभिन्न प्रकार के भौगोलिक डेटा प्रदर्शित कर सकते हैं और पैनिंग और ज़ूमिंग जैसी सुविधाओं की अनुमति दे सकते हैं।"
+  },
+  "codeSnippets_load_a_map_point1": {
+    "text": "Google मानचित्र मानचित्र रेंडर करने के लिए <1>Google.maps.map</1> का उपयोग करता है।"
+  },
+  "codeSnippets_load_a_map_point2": {
+    "text": "Amazon Location Service नक्शे को रेंडर करने के लिए MapLibre के <1>MapLibregl.map</1> का उपयोग करती है।"
+  },
+  "codeSnippets_with_google": {
+    "text": "गूगल मैप्स के साथ"
+  },
+  "codeSnippets_with_after": {
+    "text": "Amazon लोकेशन के साथ"
+  },
+  "codeSnippets_adding_a_marker_point1": {
+    "text": "Google Maps, मैप पर मार्कर रेंडर करने के लिए <1>Google.maps.Marker</1> का इस्तेमाल करता है।"
+  },
+  "codeSnippets_adding_a_marker_point2": {
+    "text": "Amazon Location Service, मैप पर मार्कर रेंडर करने के लिए MapLibre के <1>MapLibregl.marker</1> का उपयोग करती है।"
+  },
+  "codeSnippets_adding_a_polyline_description": {
+    "text": "आप Google मानचित्र पर रेखाएँ खींच सकते हैं। Amazon Location Service के लिए, आप उन्हें MapLibre के माध्यम से GeoJSON के साथ ड्रा कर सकते हैं।"
+  },
+  "codeSnippets_adding_a_polyline_point1": {
+    "text": "<1>Google.maps.polyline के माध्यम से रेखाएँ और बहुभुज बनाने के लिए आप Google Maps Shapes क्लास का उपयोग कर सकते हैं.</1>"
+  },
+  "codeSnippets_adding_a_polyline_point2": {
+    "text": "Amazon Location Service MapLibre लाइब्रेरी का उपयोग करती है। आप GeoJSON डेटा <1>जोड़ने के लिए AddSource</1> और <1>AddLayer</1> विधियों का उपयोग कर सकते हैं।"
+  },
+  "codeSnippets_adding_a_polygon_description": {
+    "text": "आप Google मानचित्र पर बहुभुज बना सकते हैं। Amazon Location Service के लिए, आप उन्हें MapLibre के माध्यम से GeoJSON के साथ ड्रा कर सकते हैं।"
+  },
+  "codeSnippets_adding_a_polygon_point1": {
+    "text": "<1>Google.maps.polygon के ज़रिए लाइनें और पॉलीगॉन बनाने के लिए, Google Maps Shapes क्लास का इस्तेमाल किया जा सकता है.</1>"
+  },
+  "codeSnippets_adding_a_polygon_point2": {
+    "text": "Amazon Location Service MapLibre लाइब्रेरी का उपयोग करती है। आप GeoJSON डेटा <1>जोड़ने के लिए AddSource</1> और <1>AddLayer</1> विधियों का उपयोग कर सकते हैं।"
+  },
+  "codeSnippets_display_an_info_window_description": {
+    "text": "Google मैप्स और Amazon लोकेशन सर्विस मैप पर जानकारी/पॉपअप रेंडर कर सकते हैं।"
+  },
+  "codeSnippets_display_an_info_window_point1": {
+    "text": "Google Maps, मार्कर के बगल में पॉपअप दिखाने के लिए <1>Google.maps.InfoWindow</1> का इस्तेमाल करता है।"
+  },
+  "codeSnippets_display_an_info_window_point2": {
+    "text": "<1>Amazon Location Service MapLibregl.popup के माध्यम से पॉपअप प्रदर्शित करने के लिए MapLibre का उपयोग करती है।</1>"
+  },
+  "codeSnippets_adding_a_heatmap_description": {
+    "text": "Google Maps डेटा लेयर की कार्यक्षमता का समर्थन करता है, जिससे आप मैप पर डेटा ओवरले कर सकते हैं। Amazon Location Service MapLibre के माध्यम से डेटा लेयर जोड़ने की भी अनुमति देती है।"
+  },
+  "codeSnippets_adding_a_heatmap_point1": {
+    "text": "Google Maps <1>google.maps.visualization</1> लाइब्रेरी के हिस्से के रूप में हीटमैप लेयर प्रदान करता है।"
+  },
+  "codeSnippets_adding_a_heatmap_point2": {
+    "text": "Amazon Location Service MapLibre के <1>AddLayer</1> फ़ंक्शन का उपयोग करती है। आमतौर पर, आप पहले <1>AddSource का उपयोग करके एक स्रोत जोड़ते हैं, फिर इस स्रोत</1> को संदर्भित करने वाली एक परत जोड़ते हैं।"
+  },
+  "codeSnippets_adding_a_heatmap_point3": {
+    "text": "नीचे दिए गए कोड स्निपेट में हीटमैप दिखाया गया है।"
+  },
+  "codeSnippets_places_search_post_description": {
+    "text": "Google Maps पते और भौगोलिक निर्देशांक के बीच कनवर्ट करने के लिए जियोकोडिंग API प्रदान करता है। Amazon Location Service उनके Places API के भीतर जियोकोडिंग और रिवर्स जियोकोडिंग क्षमताएं भी प्रदान करती है, जिनका उपयोग आप देशांतर और अक्षांश के आधार पर डेटा प्राप्त करने के लिए कर सकते हैं और इसके विपरीत।"
+  },
+  "codeSnippets_routing_services_description": {
+    "text": "Google Maps और Amazon Location Service दोनों ही रूटिंग सेवाएँ प्रदान करते हैं।"
+  },
+  "codeSnippets_routing_services_point1": {
+    "text": "मानचित्र पर मार्ग डेटा की गणना और प्रदर्शित करने के लिए Google मानचित्र <1>DirectionsService</1> और <1>DirectionsRenderer</1> या <1>ComputeRoutes</1> और <1>Polyline</1> प्रदान करता है।"
+  },
+  "codeSnippets_routing_services_point2": {
+    "text": "Amazon Location अपने लोकेशन क्लाइंट के माध्यम से <1>CalculateRouteCommand</1> प्रदान करता है और उस डेटा को मैप पर प्रदर्शित करने के लिए MapLibre की रेंडरिंग क्षमता का उपयोग करता है।"
+  },
+  "codeSnippets_drawing_a_circle_description": {
+    "text": "दोनों सेवाएं मानचित्र पर वृत्ताकार बहुभुज को चित्रित करने की अनुमति देती हैं।"
+  },
+  "codeSnippets_drawing_a_circle_point1": {
+    "text": "Google मानचित्र एक गोलाकार बहुभुज बनाने के लिए <1>Google.maps.circle</1> प्रदान करता है।"
+  },
+  "codeSnippets_drawing_a_circle_point2": {
+    "text": "Amazon Location Service एक गोलाकार बहुभुज को रेंडर करने के लिए MapLibre की <1>AddSource</1> और <1>addLayer</1> विधियों का उपयोग करती है और रेंडरिंग के लिए एक सर्कल को बहुभुज में बदलने के लिए आप <0>Turf.js</0> से <1>turf.circle</1> का उपयोग कर सकते हैं।"
+  },
+  "migrateAWebApp_title": {
+    "text": "वेब ऐप्लिकेशन माइग्रेट करें"
+  },
+  "migrateAWebApp_next_step_desc": {
+    "text": "Amazon Location के बारे में अधिक विस्तृत जानकारी और तकनीकी जानकारी के लिए, हम Amazon Location <0>Service डेवलपर गाइड</0> की खोज करने की सलाह देते हैं। यह व्यापक संसाधन Amazon Location Service के साथ शुरुआत करने, इसकी क्षमताओं को समझने और आपके एप्लिकेशन के भीतर स्थान-आधारित फ़ंक्शंस को लागू करने के बारे में गहन मार्गदर्शन प्रदान करता है।"
+  },
+  "try_demo": {
+    "text": "डेमो आजमाएं"
+  },
+  "active_days_per_month": {
+    "text": "सक्रिय दिन/माह"
+  },
+  "active_hours_per_month": {
+    "text": "सक्रिय घंटे/दिन"
+  },
+  "trackers_and_geofences_application_description_points": {
+    "text": "नीचे दिया गया कैलकुलेटर 3 लागत घटकों के लिए एक अनुमान प्रदान करता है:"
+  },
+  "migrateAWebApp_desc1": {
+    "text": "<0>AWS दस्तावेज़ीकरण</0> डेवलपर्स के लिए Amazon Location Service में महारत हासिल करने के लिए एक महत्वपूर्ण संसाधन है, जो सुविधाओं, सेटअप और एकीकरण पर एक संपूर्ण मार्गदर्शिका प्रदान करता है। ऐप्स में स्थान सेवाएँ जोड़ने के बारे में व्यावहारिक जानकारी के लिए आधिकारिक मार्गदर्शिका देखें।"
+  },
+  "integrating_the_amazon_location_sdk_heading": {
+    "text": "Amazon Location SDK को एकीकृत करना"
+  },
+  "integrating_the_amazon_location_sdk_description": {
+    "text": "आप <0>JavaScript SDK</0> और <1>MapLibre</1> का उपयोग करके अपने वेब प्रोजेक्ट में Amazon Location Service का उपयोग कर सकते हैं। इससे आपका एप्लिकेशन आसानी से Amazon Location Service का उपयोग कर सकेगा।"
+  },
+  "calculate_map_tile_request_costs": {
+    "text": "मैप टाइल अनुरोध लागतों की गणना करें"
+  },
+  "estimate_costs_for_place_search_suggestions": {
+    "text": "जगह खोजने के सुझावों के लिए अनुमानित लागत"
+  },
+  "estimate_costs_for_place_data_retrieval": {
+    "text": "स्थान डेटा पुनर्प्राप्ति के लिए अनुमानित लागत"
+  },
+  "calculate_cost_for_routing_requests": {
+    "text": "रूटिंग अनुरोधों के लिए लागत की गणना करें"
+  },
+  "devices_tooltip": {
+    "text": "ट्रैकर अपडेट लागतों की गणना करने के लिए डिवाइसों की संख्या सेट करें"
+  },
+  "ping_rate_tooltip": {
+    "text": "ट्रैकर संचार लागतों का अनुमान लगाने के लिए पिंग दर को परिभाषित करें"
+  },
+  "avg_time_stationary_tooltip": {
+    "text": "जियोफेंस लागत का अनुमान लगाने के लिए औसत स्थिर समय समायोजित करें"
+  },
+  "avg_device_stationary_tooltip": {
+    "text": "जियोफेंस लागत गणना के लिए औसत डिवाइस गति सेट करें"
+  },
+  "dashboard_refresh_rate_tooltip": {
+    "text": "डेटा पुनर्प्राप्ति लागतों पर नज़र रखने के लिए ताज़ा दर निर्धारित करें"
+  },
+  "filter_accuracy_tooltip": {
+    "text": "लागत गणना में शामिल किए जाने वाले स्थान अपडेट के लिए न्यूनतम दूरी निर्दिष्ट करें"
+  },
+  "filter_distance_tooltip": {
+    "text": "लागत गणना में शामिल किए जाने वाले स्थान अपडेट के लिए न्यूनतम दूरी निर्दिष्ट करें"
+  },
+  "migrateAWebApp_prerequisites_point_1_a": {
+    "text": "यदि आपने अभी तक AWS अकाउंट नहीं बनाया है, तो कृपया <0>यहां</0> एक अकाउंट बनाएं। आपका AWS अकाउंट तैयार होने के बाद आप Amazon Location Service रिसोर्स बना सकते हैं। दिए गए कोड स्निपेट को निष्पादित करने के लिए इन संसाधनों की आवश्यकता होगी।"
+  },
+  "codeSnippets_places_search_heading": {
+    "text": "स्थानों की खोज"
+  },
+  "codeSnippets_places_search_description": {
+    "text": "दोनों प्लेटफ़ॉर्म स्थान खोज क्षमताएं प्रदान करते हैं, और वे स्थानों के बारे में अतिरिक्त जानकारी प्रदान कर सकते हैं, जैसे कि पते, जियोकोडिंग, रिवर्स जियोकोडिंग, स्वतः पूर्ण, आदि।"
+  },
+  "codeSnippets_places_search_point1": {
+    "text": "गूगल मैप्स <1>Google.maps.places.places.placesService</1> प्रदान करता है।"
+  },
+  "codeSnippets_places_search_point2": {
+    "text": "Amazon <1>Location Service अपने लोकेशन क्लाइंट के माध्यम से PositionCommand के लिए SearchPlaceIndex</1> प्रदान करती है। <1><1><1><0>Amazon Location Service अन्य Places API भी प्रदान करती है, जैसे कि GetPlace, SearchPlaceIndexForSuggestions, SearchPlaceIndex ForText. और जानें</0></1></1></1>"
+  },
+  "codeSnippets_marker_clustering_heading": {
+    "text": "मार्कर क्लस्टरिंग"
+  },
+  "codeSnippets_marker_clustering_description": {
+    "text": "Google Maps और Amazon Location Service दोनों ही मार्कर क्लस्टरिंग प्रदान करते हैं।"
+  },
+  "codeSnippets_marker_clustering_point1": {
+    "text": "Google Maps <1>MarkerClusterer प्रदान करता है, जो मानचित्र पर मार्कर क्लस्टर</1> दिखाने के लिए मानचित्र संदर्भ और मार्करों की एक सरणी लेता है।"
+  },
+  "codeSnippets_marker_clustering_point2": {
+    "text": "<1><1>Amazon Location Service मार्कर को क्लस्टर करने के लिए MapLibre के बेस क्लास का उपयोग करती है; हालाँकि, आप AddSource और AddLayer के माध्यम से सीधे MapLibre से मार्कर और डेटा लेयर रेंडर करने के लिए कस्टम लॉजिक का उपयोग कर सकते हैं।</1></1>"
+  },
+  "notableDifferences_subPoint1a": {
+    "text": "<1>अक्षांश, देशांतर</1> अनुक्रम का उपयोग करता है।"
+  },
+  "notableDifferences_subPoint1b": {
+    "text": "<1>[y, x]</1> कन्वेंशन का अनुसरण करता है।"
+  },
+  "notableDifferences_subPoint1c": {
+    "text": "<1>स्थिति</1> वस्तु के रूप में परिभाषित <1>देशांतर, अक्षांश</1> अनुक्रम का उपयोग करता है।"
+  },
+  "notableDifferences_subPoint1d": {
+    "text": "<0>GeoJSON</0> मानकों द्वारा परिभाषित <1>[x, y]</1> कन्वेंशन का अनुसरण करता है।"
+  },
+  "notableDifferences_subPoint1e": {
+    "text": "“x” देशांतर (क्षैतिज अक्ष, पूर्व-पश्चिम स्थिति को दर्शाता है) है।"
+  },
+  "notableDifferences_subPoint1f": {
+    "text": "“y” अक्षांश (ऊर्ध्वाधर अक्ष, उत्तर-दक्षिण स्थिति को दर्शाता है) है।"
+  },
+  "integrating_the_amazon_location_sdk_description1": {
+    "text": "<1>MapLibre</1> एक फ्री-टू-यूज़ टाइपस्क्रिप्ट लाइब्रेरी है जिसे आपकी वेबसाइट पर आसानी से इंटरेक्टिव मैप प्रदर्शित करने के लिए डिज़ाइन किया गया है। यह अत्याधुनिक तकनीक की बदौलत अपने असाधारण प्रदर्शन के लिए सबसे अलग है, जो आपके डिवाइस की ग्राफिक्स प्रोसेसिंग यूनिट (GPU) का उपयोग करके वेक्टर टाइल्स के रेंडरिंग में तेजी लाती है। यह आपके वेबसाइट विज़िटर के लिए एक सहज और रेस्पॉन्सिव नक्शा देखने का अनुभव सुनिश्चित करता है। MapLibre उच्च प्रदर्शन वाली मैपिंग क्षमताओं को प्रदान करते हुए डायनामिक मानचित्रों को एकीकृत करना और प्रदर्शित करना आसान बनाता है। Amazon Location SDK को MapLibre के साथ एकीकृत करना आपके एप्लिकेशन को 'स्थान-जागरूक' बनाने के लिए एक महत्वपूर्ण कदम है। यह आपके ऐप को स्थान की जानकारी को प्रभावी ढंग से समझने और उपयोग करने की अनुमति देता है। इस इंटीग्रेशन के साथ, आप निम्न चीज़ें कर सकते हैं:"
+  },
+  "integrating_the_amazon_location_sdk_description1a": {
+    "text": "नक्शे लोड हो रहे हैं"
+  },
+  "integrating_the_amazon_location_sdk_description1c": {
+    "text": "हीटमैप लागू करना"
+  },
+  "integrating_the_amazon_location_sdk_description1e": {
+    "text": "लाइनों को शामिल करना"
+  },
+  "integrating_the_amazon_location_sdk_description1f": {
+    "text": "मार्गों की गणना"
+  },
+  "integrating_the_amazon_location_sdk_description2": {
+    "text": "<0>यदि आप एक डेवलपर हैं जो Amazon Location Service को अपने एप्लिकेशन में एकीकृत करने के लिए उपलब्ध विभिन्न SDK प्रोग्रामिंग भाषा विकल्पों का पता लगाना चाहते हैं, तो आप यहां क्लिक करके विस्तृत जानकारी प्राप्त कर सकते हैं.</0> इससे आपको सही SDK चुनने में मदद मिलेगी, जो आपके प्रोजेक्ट की खास ज़रूरतों के मुताबिक हो।"
+  },
+  "codeSnippets_adding_a_marker_postDescription": {
+    "text": "ये मार्कर-प्लॉटिंग क्षमताएं डेवलपर्स को इंटरैक्टिव, स्थान-जागरूक एप्लिकेशन बनाने में सक्षम बनाती हैं, जो उपयोगकर्ताओं को विशिष्ट बिंदुओं पर मार्गदर्शन कर सकते हैं, भौगोलिक डेटा को उजागर कर सकते हैं या स्थान-आधारित सेवाएं प्रदान कर सकते हैं।"
+  },
+  "codeSnippets_load_a_map_about": {
+    "text": "नक्शा लोड करने से वेब पेज या ऐप पर भौगोलिक डेटा प्रदर्शित होता है। Google Maps या Amazon Location Service जैसी मैप सेवा से कनेक्ट करके, यूज़र मैप को एक्सप्लोर करने और नेविगेट करने के लिए मार्कर, ओवरले और जियोलोकेशन सेवाओं के साथ इंटरैक्ट कर सकते हैं।"
+  },
+  "codeSnippets_adding_a_marker_about": {
+    "text": "मार्कर प्रदर्शित करने से रुचि के स्थान को दर्शाने के लिए मानचित्र पर एक आइकन रखा जाता है। मार्कर व्यवसाय या लैंडमार्क जैसी जगहों को हाइलाइट करते हैं। वे नेविगेशन, जियोलोकेशन को बेहतर बनाते हैं और मैप के साथ इंटरैक्ट करने वाले यूज़र के लिए बहुमूल्य जानकारी प्रदान करते हैं।"
+  },
+  "codeSnippets_marker_clustering_about": {
+    "text": "मार्कर क्लस्टरिंग एक ऐसी तकनीक है जिसका उपयोग मानचित्र पर आस-पास के मार्करों को क्लस्टर में समूहित करने के लिए किया जाता है, जिससे दृश्य स्पष्टता और प्रदर्शन में सुधार होता है। अलग-अलग मार्करों के साथ नक्शे को अव्यवस्थित करने के बजाय, क्लस्टर अलग-अलग ज़ूम स्तरों पर कई मार्करों का प्रतिनिधित्व करते हैं, जिससे यूज़र के लिए मानचित्र पर भीड़-भाड़ वाले क्षेत्रों को नेविगेट करना और समझना आसान हो जाता है।"
+  },
+  "codeSnippets_display_an_info_window_about": {
+    "text": "जानकारी पॉपअप प्रदर्शित करना एक ऐसी सुविधा है जो उपयोगकर्ता द्वारा मानचित्र पर मार्कर के साथ इंटरैक्ट करने पर अतिरिक्त जानकारी प्रदर्शित करती है। जब कोई उपयोगकर्ता किसी मार्कर पर क्लिक करता है या होवर करता है, तो एक पॉपअप विंडो दिखाई देती है, जो नक्शे पर स्थान से संबंधित पता, विवरण या अन्य प्रासंगिक डेटा जैसे विवरण प्रदान करती है।"
+  },
+  "codeSnippets_adding_a_polyline_about": {
+    "text": "लाइनों को प्रदर्शित करने में एक नक्शे पर एक सतत रेखा खींचना शामिल है जो कई बिंदुओं को जोड़ता है। इस सुविधा का इस्तेमाल आमतौर पर मार्गों, सीमाओं या पथों को दर्शाने के लिए किया जाता है। लाइनों को प्रदर्शित करके, उपयोगकर्ता कनेक्शन की कल्पना कर सकते हैं और नेविगेशन या डेटा प्रतिनिधित्व उद्देश्यों के लिए नक्शे पर विशिष्ट मार्गों का पता लगा सकते हैं।"
+  },
+  "codeSnippets_adding_a_polygon_about": {
+    "text": "बहुभुज प्रदर्शित करने से उपयोगकर्ता मानचित्र पर सीधी रेखाओं के साथ बंद आकार बना सकते हैं। इस सुविधा का इस्तेमाल आमतौर पर सीमाओं, रुचि के क्षेत्रों या क्षेत्रों को परिभाषित करने के लिए किया जाता है। बहुभुज प्रदर्शित करके, उपयोगकर्ता मानचित्र पर मूल्यवान संदर्भ और जानकारी प्रदान करते हुए, विशिष्ट भौगोलिक क्षेत्रों का विज़ुअल रूप से प्रतिनिधित्व कर सकते हैं और उनसे बातचीत कर सकते हैं।"
+  },
+  "codeSnippets_drawing_a_circle_about": {
+    "text": "वृत्त सुविधा प्रदर्शित करने से उपयोगकर्ता मानचित्र पर वृत्ताकार आकृतियाँ बना सकते हैं। इस कार्यक्षमता का उपयोग अक्सर प्रभाव, निकटता या कवरेज के क्षेत्रों का प्रतिनिधित्व करने के लिए किया जाता है। वृत्त प्रदर्शित करके, यूज़र विशिष्ट वृत्ताकार क्षेत्रों को विज़ुअल रूप से चित्रित कर सकते हैं और उनके साथ इंटरैक्ट कर सकते हैं, जिससे मानचित्र पर मूल्यवान स्थानिक जानकारी और विश्लेषण प्रदान किया जा सकता है।"
+  },
+  "codeSnippets_adding_a_heatmap_about": {
+    "text": "हीटमैप प्रदर्शित करने से यूज़र मैप पर डेटा घनत्व की कल्पना और विश्लेषण कर सकते हैं। यह सुविधा कलर ग्रेडिएंट्स का उपयोग करते हुए डेटा का प्रतिनिधित्व करती है, जिसमें गर्म रंग उच्च घनत्व और ठंडे रंग कम घनत्व का संकेत देते हैं। हीटमैप प्रदर्शित करने से डेटा के भीतर पैटर्न, रुझान और हॉटस्पॉट की पहचान करने में मदद मिलती है, जिससे डेटा की खोज और निर्णय लेने में सहायता मिलती है।"
+  },
+  "codeSnippets_routing_services_about": {
+    "text": "मार्ग की गणना करने में मानचित्र पर दो या दो से अधिक स्थानों के बीच इष्टतम पथ निर्धारित करने के लिए रूटिंग एल्गोरिदम का उपयोग करना शामिल है। दूरी, ट्रैफ़िक और परिवहन मोड जैसे कारकों पर विचार करके, यूज़र नेविगेशन निर्देश प्राप्त कर सकते हैं, जो उन्हें शुरुआती बिंदु से गंतव्य तक कुशलतापूर्वक मार्गदर्शन करते हैं, रूट प्लानिंग और नेविगेशन में सहायता करते हैं।"
+  },
+  "codeSnippets_places_search_about": {
+    "text": "स्थानों की खोज करने से यूज़र मानचित्र पर विशिष्ट स्थान या रुचि के बिंदु ढूंढ सकते हैं। कीवर्ड या पते दर्ज करके, यूज़र प्रासंगिक स्थानों, जैसे कि व्यवसाय, लैंडमार्क या पते की खोज कर सकते हैं। यह सुविधा उपयोगकर्ताओं को वांछित गंतव्यों का पता लगाने और उनका पता लगाने में मदद करती है, जिससे मैप एप्लिकेशन या वेबसाइट की उपयोगिता और कार्यक्षमता बढ़ जाती है।"
+  },
+  "trackers_and_geofences_application_description_5": {
+    "text": "इसके अलावा, आपके डिवाइस स्थिति अपडेट की पिंग दर आपके एप्लिकेशन के आधार पर सभी 3 तीन लागत घटकों को प्रभावित कर सकती है।"
+  },
+  "dashboard_refresh_rate_text": {
+    "text": "डैशबोर्ड रिफ्रेश रेट"
+  },
+  "processed_requests_with_device_speed": {
+    "text": "डिवाइस स्पीड के साथ प्रोसेस किए गए अनुरोध"
+  },
+  "travel_distance_per_ping": {
+    "text": "यात्रा की दूरी प्रति पिंग (मीटर)"
+  },
+  "migrateAniOSApp_heading": {
+    "text": "iOS - Google मानचित्र से Amazon स्थान सेवा में माइग्रेट करना"
+  },
+  "migrateAniOSApp_desc": {
+    "text": "यह मार्गदर्शिका Google मानचित्र से Amazon स्थान सेवा में iOS एप्लिकेशन को स्थानांतरित करने की तकनीकी प्रक्रिया का विवरण देती है। यह प्रारंभिक सेटअप, Amazon Location संसाधन कॉन्फ़िगरेशन पर प्रकाश डालता है, और iOS-आधारित प्लेटफ़ॉर्म में मैपिंग फ़ंक्शंस के एकीकरण को सुविधाजनक बनाने के लिए SDK तुलनात्मक उदाहरण प्रदान करता है।"
+  },
+  "migrateAniOSApp_desc1": {
+    "text": "AWS दस्तावेज़ीकरण डेवलपर्स के लिए Amazon Location Service में महारत हासिल करने के लिए एक महत्वपूर्ण संसाधन है, जो सुविधाओं, सेटअप और एकीकरण पर एक संपूर्ण मार्गदर्शिका प्रदान करता है। ऐप्स में स्थान सेवाएँ जोड़ने के बारे में व्यावहारिक जानकारी के लिए <0>आधिकारिक मार्गदर्शिका</0> देखें।"
+  },
+  "initiating_a_swift_iOS_heading": {
+    "text": "एक स्विफ्ट iOS प्रोजेक्ट बनाएं"
+  },
+  "initiating_a_swift_iOS_dec": {
+    "text": "इस गाइड के लिए, हम XCode में स्टोरीबोर्ड UI के साथ एक iOS ऐप प्रोजेक्ट का उपयोग करेंगे, जो एक व्यापक विकास वातावरण है जो स्विफ्ट का उपयोग करके आकर्षक iOS एप्लिकेशन बनाने के लिए आवश्यक टूल प्रदान करता है।"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description": {
+    "text": "Amazon Location Service की मैप फ़ंक्शंस के साथ अपने एप्लिकेशन को बेहतर बनाने के लिए, आपको अपने Xcode iOS प्रोजेक्ट में निम्नलिखित पैकेज शामिल करने होंगे:"
+  },
+  "MapLibre_Native": {
+    "text": "<0>मैपलिबर नेटिव</0>"
+  },
+  "AWS_SDK_SWIFT": {
+    "text": "<0>एडब्ल्यूएस एसडीके स्विफ्ट</0>"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2": {
+    "text": "AWS SDK स्विफ्ट पैकेज, जिसे Amazon Location सहित विभिन्न Amazon वेब सेवाओं के लिए डिज़ाइन किया गया है, उन विभिन्न विशेषताओं को सक्षम करता है, जिनमें से कुछ इस दस्तावेज़ में लागू की गई हैं:"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2a": {
+    "text": "स्थानों की खोज"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2b": {
+    "text": "रूटिंग सेवाएं प्रदान करना"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description3": {
+    "text": "इन पैकेजों को एकीकृत करके, आप अपने एप्लिकेशन उपयोगकर्ताओं के लिए एक सुविधा संपन्न, इंटरैक्टिव मानचित्र अनुभव बनाने के लिए Amazon Location Service और MapLibre की मजबूती का लाभ उठा सकते हैं।"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description4": {
+    "text": "उन डेवलपर्स के लिए जो आपके एप्लिकेशन में Amazon Location Service को एकीकृत करने के लिए उपलब्ध विभिन्न SDK प्रोग्रामिंग भाषा विकल्पों का पता लगाना चाहते हैं, विस्तृत जानकारी प्राप्त करने के लिए <0>यहां</0> क्लिक करें, जो आपके प्रोजेक्ट की ज़रूरतों के अनुरूप सही SDK का चयन करने में आपकी मदद करेगी।"
+  },
+  "webSdkExamples_iOS_description": {
+    "text": "इस गाइड में अलग-अलग प्लेटफ़ॉर्म के अनुरूप कई तरह के कोड उदाहरण दिए गए हैं, जिनमें से प्रत्येक में प्रचलित उपयोग के मामले को संबोधित किया गया है। <1><1>इसका मुख्य उद्देश्य MapLibre और AWS-SDK-Swift की क्षमताओं का लाभ उठाते हुए, आपके iOS एप्लिकेशन को Google Maps iOS SDK से Amazon Location Service में बदलने की सुविधा प्रदान करना है.</1></1> विशेष रूप से, iOS अनुप्रयोगों के बारे में कोड नमूने स्विफ्ट प्रोग्रामिंग भाषा में प्रस्तुत किए गए हैं।"
+  },
+  "webSdkExample_iOS_description1": {
+    "text": "दिए गए उदाहरणों के कार्यान्वयन के साथ आगे बढ़ने के लिए, आपको <1>ViewController.swift</1> में मौजूदा सामग्री को प्रत्येक उदाहरण के कोड स्निपेट से बदलना होगा। यह प्रक्रिया आपको उदाहरणों में प्रदर्शित विशिष्ट कार्यक्षमताओं को अपने आवेदन में शामिल करने की अनुमति देगी।"
+  },
+  "codeSnippets_load_a_map_iOS_about": {
+    "text": "Google Maps और Amazon Location Service दोनों ही आपके अनुप्रयोगों में गतिशील, अनुकूलन योग्य मानचित्रों को एकीकृत करने के लिए मजबूत समाधान प्रदान करते हैं। ये नक्शे भौगोलिक डेटा की एक विस्तृत श्रृंखला को प्रदर्शित करने में सक्षम हैं, जो उपयोगकर्ता के अनुभव को पैनिंग और ज़ूमिंग जैसी इंटरैक्टिव सुविधाओं से समृद्ध करते हैं।"
+  },
+  "codeSnippets_load_a_map_iOS_point1": {
+    "text": "Google मानचित्र मानचित्र रेंडर करने के लिए <1>GMSMapView</1> का उपयोग करता है।"
+  },
+  "codeSnippets_load_a_map_iOS_point2": {
+    "text": "Amazon Location Service मैप्स को रेंडर करने के लिए MapLibre के <1>MLNMapView</1> का उपयोग करती है।"
+  },
+  "codeSnippets_adding_a_marker_ios_about": {
+    "text": "Google Maps और Amazon Location Service दोनों ही मैप पर विशिष्ट निर्देशांक पर मार्करों को प्लॉट करने की कार्यक्षमता प्रदान करते हैं, जो रुचि के बिंदुओं को उजागर करने के लिए एक आवश्यक विशेषता है।"
+  },
+  "codeSnippets_adding_a_marker_ios_point1": {
+    "text": "Google Maps अतिरिक्त लाइब्रेरी या टूल की आवश्यकता के बिना, मूल रूप से यह सुविधा प्रदान करता है। यह <1>GMSMarker</1> क्लास का इस्तेमाल करता है, जिसकी मदद से डेवलपर उन मार्करों को इंस्टेंट कर सकते हैं और उन्हें कस्टमाइज़ कर सकते हैं जिन्हें मैप पर किसी भी देशांतर और अक्षांश पर रखा जा सकता है।"
+  },
+  "codeSnippets_adding_a_marker_ios_point2": {
+    "text": "इसके विपरीत, Amazon Location Service मैप पर मार्कर रेंडर करने के लिए MapLibre लाइब्रेरी की शक्ति का लाभ उठाती है। यह <1>mlnPointAnnotation क्लास और AddAnnotation</1> <1>विधि का उपयोग करके प्राप्त किया जाता है. <1>mlnPointAnnotation</1></1> एक लचीला टूल है जो न केवल मार्करों को लगाने की अनुमति देता है बल्कि कई प्रकार के कस्टमाइज़ेशन विकल्प भी प्रदान करता है। इसके बाद <1>AddAnnotation विधि का उपयोग इन कस्टम एनोटेशन</1> को मानचित्र में जोड़ने के लिए किया जाता है, जो उपयोगकर्ताओं के लिए अत्यधिक इंटरैक्टिव और गतिशील मानचित्र अनुभव प्रदान करता है।"
+  },
+  "codeSnippets_adding_a_marker_ios_postDescription": {
+    "text": "ये मार्कर-प्लॉटिंग क्षमताएं डेवलपर्स को इंटरैक्टिव, स्थान-जागरूक एप्लिकेशन बनाने में सक्षम बनाती हैं, जो उपयोगकर्ताओं को विशिष्ट बिंदुओं पर मार्गदर्शन कर सकते हैं, भौगोलिक डेटा को उजागर कर सकते हैं या स्थान-आधारित सेवाएं प्रदान कर सकते हैं।"
+  },
+  "codeSnippets_marker_clustering_ios_about": {
+    "text": "मार्कर क्लस्टरिंग Google Maps और Amazon Location Service दोनों द्वारा प्रदान की जाने वाली एक शक्तिशाली विशेषता है, जो मार्करों के उच्च घनत्व वाले मानचित्रों की दृश्य स्पष्टता को बढ़ाती है।"
+  },
+  "codeSnippets_marker_clustering_ios_description": {
+    "text": "Google Maps और Amazon Location Service दोनों ही मार्कर क्लस्टरिंग प्रदान करते हैं।"
+  },
+  "codeSnippets_marker_clustering_ios_point1": {
+    "text": "Google Maps इस उद्देश्य के लिए <1>GMUClusterManager</1> क्लास का उपयोग करता है। यह क्लास मैप पर मार्करों को प्रभावी ढंग से क्लस्टर करने के लिए मैप और GmuDefaultClusterRenderer का संदर्भ लेती है। यह सुविधा बड़ी संख्या में मार्करों के कुशल रेंडरिंग और प्रबंधन की अनुमति देती है, जिससे दृश्य अव्यवस्था को कम करके और नक्शे के प्रदर्शन को बढ़ाकर उपयोगकर्ता के अनुभव में सुधार होता है।"
+  },
+  "codeSnippets_marker_clustering_ios_point2": {
+    "text": "इसके विपरीत, Amazon Location Service MapLibre लाइब्रेरी के माध्यम से मार्कर क्लस्टरिंग प्राप्त करती है। <1>यह MLNShapeSource के साथ मिलकर <1>MLNShapeStyleLayer</1> का उपयोग करके किया जाता है।</1> <1>MLNShapeSource बनाते समय क्लस्टर विकल्प को सही पर सेट करके, आप मार्कर क्लस्टरिंग को सक्षम कर सकते हैं.</1> इसके बाद, क्लस्टर की पॉइंट काउंट के आधार पर <1>MLNSymbolStyleLayer</1> को स्टाइल करने के लिए एक्सप्रेशन का उपयोग किया जाता है। यह प्रत्येक क्लस्टर में अंकों की संख्या के आधार पर शैलियों को गतिशील रूप से लागू करने के लिए <1>NSExpression</1> का उपयोग करके प्राप्त किया जाता है। ध्यान दें कि क्लस्टर पर टैप को हैंडल करने और उन्हें अलग-अलग मार्करों में विस्तारित करने के लिए अतिरिक्त तर्क की आवश्यकता होगी, जो अधिक इंटरैक्टिव और उपयोगकर्ता-अनुकूल मानचित्र अनुभव की संभावना प्रदान करता है।"
+  },
+  "codeSnippets_marker_clustering_ios_postDescription": {
+    "text": "इन मार्कर क्लस्टरिंग क्षमताओं को एकीकृत करके, डेवलपर्स अपने मानचित्रों की उपयोगिता और प्रदर्शन में काफी सुधार कर सकते हैं, खासकर डेटा बिंदुओं के बड़े सेट के साथ काम करते समय।"
+  },
+  "codeSnippets_display_an_info_window_ios_about": {
+    "text": "मैप मार्करों के लिए सूचना पॉपअप प्रदर्शित करने की क्षमता इंटरेक्टिव मानचित्रों की एक प्रमुख विशेषता है, और Google Maps और Amazon Location Service दोनों ही इस कार्यक्षमता को लागू करने के लिए मजबूत समाधान प्रदान करते हैं।"
+  },
+  "codeSnippets_display_an_info_window_ios_point1": {
+    "text": "Google Maps में, किसी खास मार्कर से जुड़ी जानकारी दिखाने के लिए, <1>GMSMapView.selectedMarker</1> प्रॉपर्टी का इस्तेमाल किया जा सकता है। यह सुविधा यूज़र को मैप मार्करों के साथ इंटरैक्ट करने और अतिरिक्त विवरण एक्सेस करने की अनुमति देती है, जिससे प्रासंगिक जानकारी प्रदान करके उपयोगकर्ता के समग्र अनुभव को बढ़ाया जा सकता है।"
+  },
+  "codeSnippets_display_an_info_window_ios_point2": {
+    "text": "Amazon Location Service इसी तरह के उद्देश्य के लिए <1>MLNMapView.selectAnnotation</1> प्रॉपर्टी का उपयोग करती है। इस प्रॉपर्टी को सेट करके, आप किसी विशिष्ट मार्कर से संबंधित जानकारी प्रदर्शित कर सकते हैं। हालांकि, यह सुनिश्चित करने के लिए कि जानकारी पॉपअप प्रदर्शित हो, आपको <1>annotationCanShowCallout</1> फ़ंक्शन को ओवरराइड करना होगा और true वापस करना होगा। यह दृष्टिकोण उच्च स्तर का लचीलापन प्रदान करता है, जिससे डेवलपर्स प्रदर्शित जानकारी को अनुकूलित कर सकते हैं और विशिष्ट स्थितियों के आधार पर इसकी प्रस्तुति को नियंत्रित कर सकते हैं।"
+  },
+  "codeSnippets_display_an_info_window_ios_postDescription": {
+    "text": "इन सुविधाओं के एकीकरण के माध्यम से, डेवलपर अपने मानचित्रों की अन्तरक्रियाशीलता को महत्वपूर्ण रूप से बढ़ा सकते हैं, जिससे उपयोगकर्ताओं को विशिष्ट स्थानों या बिंदुओं के बारे में मूल्यवान जानकारी और संदर्भ प्रदान किया जा सकता है।"
+  },
+  "codeSnippets_adding_a_polyline_ios_about": {
+    "text": "Google Maps और Amazon Location Service दोनों ही लाइनों को जोड़ने के लिए व्यापक टूल प्रदान करते हैं, जो आपके नक्शे पर मार्गों या सीमाओं के दृश्य प्रतिनिधित्व को बढ़ाते हैं।"
+  },
+  "codeSnippets_adding_a_polyline_ios_postDescription": {
+    "text": "इन लाइनों को शामिल करके, डेवलपर मैप की अन्तरक्रियाशीलता और उपयोगिता को महत्वपूर्ण रूप से बढ़ा सकते हैं, जिससे यूज़र को मार्गों या भौगोलिक सीमाओं का विज़ुअल रूप से समृद्ध प्रतिनिधित्व मिलता है।"
+  },
+  "codeSnippets_adding_a_polyline_ios_point1": {
+    "text": "Google Maps शेप्स क्लास प्रदान करता है, जिसका उपयोग लाइनों और बहुभुजों को खींचने के लिए किया जा सकता है। इसे GMSpolyline क्लास के ज़रिए हासिल किया जाता है. यह एक शक्तिशाली टूल है. इसकी मदद से डेवलपर निर्देशांकों की एक श्रृंखला तय कर सकते हैं और उन्हें लाइनों से जोड़ सकते हैं। यह सुविधा आपके ऐप्लिकेशन के भीतर मार्गों या सीमाओं का प्रतिनिधित्व करने के लिए विशेष रूप से उपयोगी हो सकती है।"
+  },
+  "codeSnippets_adding_a_polyline_ios_point2": {
+    "text": "दूसरी ओर, Amazon Location Service समान कार्यक्षमता के लिए MapLibre GL लाइब्रेरी का उपयोग करती है। MLNPolyline विधि का उपयोग निर्देशांक के दिए गए सेट के लिए लाइनें जोड़ने के लिए किया जा सकता है। यह विधि लचीलापन और सटीकता प्रदान करती है, जिससे डेवलपर्स मानचित्र पर जटिल आकार और मार्ग बना सकते हैं।"
+  },
+  "codeSnippets_adding_a_polygon_ios_about": {
+    "text": "Google Maps और Amazon Location Service दोनों ही आपके मैप में पॉलीगॉन जोड़ने की मज़बूत क्षमताएं प्रदान करते हैं, जिससे डेवलपर विशिष्ट क्षेत्रों या क्षेत्रों को चित्रित कर सकते हैं।"
+  },
+  "codeSnippets_adding_a_polygon_ios_point1": {
+    "text": "Google Maps शेप्स क्लास प्रदान करता है, जो एक बहुमुखी टूल है जो लाइनों और बहुभुज दोनों को खींचने की सुविधा प्रदान करता है। <1>GMSPolygon क्लास को खास तौर पर</1> पॉलीगॉन बनाने के लिए डिज़ाइन किया गया है, जिसे मैप पर किसी खास क्षेत्र या क्षेत्र का प्रतिनिधित्व करने के लिए अनुकूलित किया जा सकता है। यह सुविधा उन अनुप्रयोगों के लिए अत्यधिक लाभदायक है, जिनके लिए विशिष्ट भौगोलिक क्षेत्रों के सीमांकन की आवश्यकता होती है।"
+  },
+  "codeSnippets_adding_a_polygon_ios_point2": {
+    "text": "इसके विपरीत, Amazon Location Service समान कार्यक्षमता के लिए MapLibre लाइब्रेरी का उपयोग करती है। <1>MLNPolygon</1> विधि का उपयोग निर्देशांक के दिए गए सेट के लिए बहुभुज जोड़ने के लिए किया जा सकता है। यह विधि उच्च स्तर की लचीलापन और सटीकता प्रदान करती है, जिससे डेवलपर्स मानचित्र पर जटिल आकार और क्षेत्र बना सकते हैं।"
+  },
+  "codeSnippets_adding_a_polygon_ios_postDescription": {
+    "text": "इन बहुभुज सुविधाओं को एकीकृत करके, डेवलपर्स उपयोगकर्ताओं को विशिष्ट भौगोलिक क्षेत्रों के बारे में अधिक व्यापक और विस्तृत दृश्य प्रदान कर सकते हैं, जिससे समग्र निर्देशांक बढ़ सकते हैं।"
+  },
+  "codeSnippets_drawing_a_circle_ios_point1": {
+    "text": "Google Maps, <1>GMSCircle</1> क्लास उपलब्ध कराता है, जिसे ख़ास तौर पर इस उद्देश्य के लिए डिज़ाइन किया गया है। यह क्लास डेवलपर को दिए गए बिंदु के चारों ओर एक विशिष्ट त्रिज्या वाले वृत्त को परिभाषित करने की अनुमति देती है, जो मानचित्र पर किसी विशेष क्षेत्र को हाइलाइट करने का एक सरल और कुशल तरीका प्रदान करता है।"
+  },
+  "codeSnippets_drawing_a_circle_ios_point2": {
+    "text": "दूसरी ओर, Amazon Location Service थोड़ा अलग दृष्टिकोण अपनाती है। यह सर्कल-सोर्स और सर्कल-लेयर आइडेंटिफ़ायर के साथ मिलकर <1>MLNCircleStyleLayer</1> और <1>MLNShapeSource</1> क्लासेस का उपयोग करता है। यह संयोजन उच्च स्तर का लचीलापन और सटीकता प्रदान करता है, जिससे डेवलपर्स मानचित्र पर अनुकूलित सर्कल बना सकते हैं जिन्हें डेटा स्रोतों के आधार पर गतिशील रूप से अपडेट किया जा सकता है।"
+  },
+  "codeSnippets_drawing_a_circle_ios_postDescription": {
+    "text": "इन सुविधाओं को एकीकृत करके, डेवलपर उपयोगकर्ता के मानचित्र अनुभव को बढ़ा सकते हैं, जो एक विशिष्ट त्रिज्या के भीतर रुचि के क्षेत्रों या क्षेत्रों का प्रतिनिधित्व करने के लिए एक सहज तरीका प्रदान करते हैं।"
+  },
+  "codeSnippets_adding_a_heatmap_ios_about": {
+    "text": "हीटमैप मूल्यवान विज़ुअलाइज़ेशन टूल हैं जो भौगोलिक क्षेत्रों में डेटा की तीव्रता का प्रतिनिधित्व करने की अनुमति देते हैं। Google Maps और Amazon Location Service दोनों ही इस सुविधा को एकीकृत करने के लिए व्यापक समाधान प्रदान करते हैं।"
+  },
+  "codeSnippets_adding_a_heatmap_ios_postDescription": {
+    "text": "इन हीटमैप क्षमताओं को एकीकृत करके, डेवलपर्स उपयोगकर्ताओं को भौगोलिक क्षेत्रों में डेटा पैटर्न की दृष्टिगत रूप से सहज और विस्तृत समझ प्रदान कर सकते हैं, जिससे समग्र उपयोगकर्ता अनुभव में वृद्धि होती है।"
+  },
+  "codeSnippets_adding_a_heatmap_ios_point1": {
+    "text": "Google Maps, <1>हीटमैप बनाने की सुविधा के लिए, Shapes क्लास, खास तौर से GMUHeatMapTileLayer क्लास का फ़ायदा</1> उठाता है। यह क्लास डेवलपर को डेटा बिंदुओं के संग्रह और संबंधित रंग ग्रेडिएंट को परिभाषित करने में सक्षम बनाती है, जिसे बाद में हीटमैप जनरेट करने के लिए प्रोसेस किया जाता है। यह टूल मैप के भीतर विभिन्न क्षेत्रों में डेटा घनत्व या तीव्रता का प्रतिनिधित्व करने में विशेष रूप से उपयोगी है।"
+  },
+  "codeSnippets_adding_a_heatmap_ios_point2": {
+    "text": "इसके विपरीत, Amazon Location Service समान परिणाम प्राप्त करने के लिए MapLibre GL लाइब्रेरी की क्षमताओं का उपयोग करती है। <1>MLNHeatmapStyleLayer क्लास का उपयोग हीटमैप बनाने</1> के लिए किया जाता है, जो काफी हद तक लचीलापन और अनुकूलन प्रदान करता है। <1>इस सुविधा का उपयोग करने के लिए, आपको हीटमैप के लिए एक डेटा स्रोत बनाना होगा, जो MLNPointFeature ऑब्जेक्ट्स की एक सरणी होनी चाहिए.</1> इस सरणी में प्रत्येक सुविधा हीटमैप में एक डेटा बिंदु का प्रतिनिधित्व करती है, जिससे डेटा की तीव्रता का विस्तृत और सटीक प्रतिनिधित्व किया जा सकता है।"
+  },
+  "codeSnippets_routing_services_ios_about": {
+    "text": "रूटिंग सेवाएं मैपिंग एप्लिकेशन के आवश्यक घटक हैं, जो उपयोगकर्ताओं को विभिन्न स्थानों के बीच दिशा-निर्देश प्रदान करती हैं। Google Maps और Amazon Location Service दोनों ही इस कार्यक्षमता के लिए मजबूत समाधान प्रदान करते हैं।"
+  },
+  "codeSnippets_routing_services_ios_point1": {
+    "text": "मानचित्र पर मार्ग डेटा की गणना और प्रदर्शित करने के लिए Google Maps <1>directions</1> या <1>computeRoutes</1> प्रदान करता है।"
+  },
+  "codeSnippets_routing_services_ios_point2": {
+    "text": "इसके विपरीत, Amazon Location Service अपनी रूटिंग सेवा के लिए <1>aws-sdk-swift</1> लाइब्रेरी का लाभ उठाती है। <1><1>डेवलपर <1>AuthHelper.withAPIKey (APIKey, region) फ़ंक्शन का उपयोग अपने APIKey के साथ <1>AuthHelper को इनिशियलाइज़ करने के लिए कर सकते हैं, फिर एक GeoroutesClient (config: authHelper.getGeoroutesClientConfig</1> ())</1> ऑब्जेक्ट बना सकते हैं ताकि कैलकुलेटररूट्स इनपुट ऑब्जेक्ट बनाया जा सके।</1></1> यह ऑब्जेक्ट, जिसमें मूल, गंतव्य और यात्रा मोड जैसे आवश्यक पैरामीटर शामिल हैं, फिर मार्ग की गणना करने के लिए <1>GeoroutesClient.calculateRoutes</1> विधि को पास किया जाता है। यह दृष्टिकोण उच्च स्तर का लचीलापन प्रदान करता है, जिससे डेवलपर्स अपनी विशिष्ट आवश्यकताओं के अनुरूप रूटिंग सेवा को अनुकूलित कर सकते हैं।"
+  },
+  "codeSnippets_routing_services_ios_postDescription": {
+    "text": "इन रूटिंग सेवाओं को एकीकृत करके, डेवलपर अपने एप्लिकेशन की कार्यक्षमता को महत्वपूर्ण रूप से बढ़ा सकते हैं, जिससे उपयोगकर्ताओं को आपके एप्लिकेशन के लिए विस्तृत मार्ग मिल सकते हैं।"
+  },
+  "codeSnippets_places_search_ios_about": {
+    "text": "स्थानों की खोज करना आज की मैपिंग सेवाओं की एक अनिवार्य विशेषता है। Google Maps और Amazon Location Service में से प्रत्येक व्यापक टूल प्रदान करता है जो यूज़र को इन खोजों को प्रभावी ढंग से करने में सक्षम बनाता है।"
+  },
+  "codeSnippets_places_search_ios_postDescription": {
+    "text": "इन जगह खोज सुविधाओं को शामिल करके, डेवलपर अपने अनुप्रयोगों की उपयोगिता को काफी बढ़ा सकते हैं, जिससे उपयोगकर्ताओं को प्रभावी ढंग से रुचि के स्थानों को खोजने और नेविगेट करने की क्षमता मिलती है।"
+  },
+  "codeSnippets_places_search_ios_point1": {
+    "text": "Google Maps आस-पास <1>खोज API प्रदान करता है, जो निकटता-आधारित खोज</1> करने के लिए डिज़ाइन किया गया एक शक्तिशाली उपकरण है। यह सुविधा उपयोगकर्ताओं को किसी स्थान के निर्दिष्ट दायरे में स्थानों की खोज करने की अनुमति देती है, जो खोज मानदंडों से मेल खाने वाले स्थानों की सूची प्रदान करती है। यह उन अनुप्रयोगों के लिए विशेष रूप से उपयोगी हो सकता है, जिन्हें यूज़र को नज़दीकी रुचि के बिंदुओं या सेवाओं के बारे में मार्गदर्शन करने की आवश्यकता होती है।"
+  },
+  "codeSnippets_places_search_ios_point2": {
+    "text": "इसके विपरीत, Amazon Location Service समान कार्यक्षमता प्रदान करने के लिए <1>aws-sdk-swift</1> लाइब्रेरी का लाभ उठाती है। <1><1>डेवलपर <1>AuthHelper.withAPIKey (APIKey, region) फ़ंक्शन का उपयोग अपने APIKey के साथ <1>AuthHelper को इनिशियलाइज़ करने के लिए कर सकते हैं, फिर सुझाव इनपुट ऑब्जेक्ट बनाने के लिए GeoplacesClient (config: authHelper.getGeoplacesClientConfig</1> ())</1> ऑब्जेक्ट बना सकते हैं.</1></1> <1>इसके बाद खोज को निष्पादित करने के लिए इस ऑब्जेक्ट को GeoplacesClient.suggest विधि में पास किया जाता है.</1> यह दृष्टिकोण उच्च स्तर का लचीलापन प्रदान करता है, जिससे डेवलपर्स अपनी विशिष्ट आवश्यकताओं के अनुरूप खोज मापदंडों को अनुकूलित कर सकते हैं।"
+  },
+  "migrateAnAndroidApp_heading": {
+    "text": "Android - Google मानचित्र से Amazon स्थान सेवा में माइग्रेट करना"
+  },
+  "initiating_a_kotlin_android_heading": {
+    "text": "कोटलिन एंड्रॉइड प्रोजेक्ट बनाएं"
+  },
+  "initiating_a_kotlin_android_dec": {
+    "text": "इस गाइड के लिए, हम एंड्रॉइड स्टूडियो में एक एंड्रॉइड प्रोजेक्ट का उपयोग करेंगे, जो एक व्यापक विकास वातावरण है जो कोटलिन का उपयोग करके आकर्षक एंड्रॉइड एप्लिकेशन बनाने के लिए आवश्यक टूल प्रदान करता है।"
+  },
+  "integrating_the_android_amazon_location_sdk_description": {
+    "text": "Amazon Location Service की मैप फ़ंक्शंस के साथ अपने Android एप्लिकेशन को बेहतर बनाने के लिए, आपको Kotlin का उपयोग करके अपने Android Studio प्रोजेक्ट में निम्नलिखित पैकेज शामिल करने होंगे:"
+  },
+  "integrating_the_android_amazon_location_sdk_description1": {
+    "text": "MapLibre Native एक लागत-मुक्त, ओपन-सोर्स लाइब्रेरी है, जिसे विभिन्न प्लेटफार्मों पर आपके मोबाइल ऐप और डेस्कटॉप एप्लिकेशन में मानचित्रों को मूल रूप से एकीकृत करने के लिए डिज़ाइन किया गया है। इसकी ख़ास विशेषता मानचित्रों का तेज़ प्रदर्शन है, जिसे GPU-त्वरित वेक्टर टाइल रेंडरिंग की शक्ति का उपयोग करके प्राप्त किया जा सकता है। यह आपके अनुप्रयोगों के भीतर तेजी से और कुशल मानचित्र प्रस्तुति सुनिश्चित करता है, जो उपयोगकर्ताओं के लिए आकर्षक और प्रतिक्रियाशील मैपिंग अनुभव प्रदान करता है। MapLibre Native आपको बेहतरीन प्रदर्शन के लिए उन्नत तकनीक का लाभ उठाते हुए आसानी से अपने सॉफ़्टवेयर प्रोजेक्ट में मैप को शामिल करने का अधिकार देता है। इसकी क्षमताओं में शामिल हैं:"
+  },
+  "MapLibre_For_Android": {
+    "text": "<0>Android के लिए MapLibre</0>"
+  },
+  "AWS_SDK_For_Android": {
+    "text": "Android के लिए AWS SDK"
+  },
+  "integrating_the_android_amazon_location_sdk_description2": {
+    "text": "Android पैकेज के लिए AWS SDK को विभिन्न Amazon वेब सेवाओं के लिए डिज़ाइन किया गया है, जिसमें Amazon Location भी शामिल है। यह विभिन्न सुविधाओं को सक्षम करता है, जिनमें से कुछ इस दस्तावेज़ में लागू की गई हैं:"
+  },
+  "integrating_the_android_amazon_location_sdk_description3": {
+    "text": "Kotlin का उपयोग करके इन पैकेजों को अपने Android Studio प्रोजेक्ट में एकीकृत करके, आप अपने Android एप्लिकेशन उपयोगकर्ताओं के लिए सुविधा संपन्न, इंटरैक्टिव मानचित्र अनुभव बनाने के लिए Amazon Location Service और MapLibre की क्षमताओं का लाभ उठा सकते हैं।"
+  },
+  "webSdkExamples_Android_description": {
+    "text": "इस गाइड में कई तरह के कोड उदाहरण हैं, जिनमें से प्रत्येक में एक अलग उपयोग के मामले को संबोधित किया गया है। इसका मुख्य उद्देश्य यह है कि कोटलिन के लिए MapLibre और AWS SDK की क्षमताओं का लाभ उठाते हुए आपके Android एप्लिकेशन को Google Maps SDK से Amazon स्थान सेवा में बदलने की सुविधा प्रदान की जाए।"
+  },
+  "webSdkExample_Android_description1": {
+    "text": "दिए गए उदाहरणों को लागू करने के लिए आगे बढ़ने के लिए, आपको मुख्य Android गतिविधि फ़ाइल (जैसे MainActivity.kt) में मौजूदा सामग्री को प्रत्येक उदाहरण के कोड स्निपेट से बदलना होगा। यह प्रक्रिया आपको उदाहरणों में प्रदर्शित विशिष्ट फ़ंक्शंस को अपने एप्लिकेशन में शामिल करने की अनुमति देगी।"
+  },
+  "codeSnippets_load_a_map_Android_about": {
+    "text": "Google Maps और Amazon Location Service दोनों ही अनुप्रयोगों में इंटरेक्टिव मानचित्र एम्बेड करने के लिए टूल प्रदान करते हैं। ये नक्शे पैनिंग और ज़ूमिंग जैसे यूज़र इंटरैक्शन का समर्थन करते हैं।"
+  },
+  "codeSnippets_load_a_map_Android_point1": {
+    "text": "Android पर Google Maps के लिए, <1>SupportMapFragment मैप लाइफ़साइकल</1> को मैनेज करता है, जबकि <1>GoogleMap</1> क्लास, मैप कॉन्टेंट और इंटरैक्शन पर नियंत्रण प्रदान करता है।"
+  },
+  "codeSnippets_load_a_map_Android_point2": {
+    "text": "Amazon Location Service के साथ, MapLibre लाइब्रेरी का <1>MapView ऐप के भीतर मैप्स</1> को इनिशियलाइज़ करने और प्रदर्शित करने के लिए प्राथमिक इंटरफ़ेस है।"
+  },
+  "codeSnippets_load_a_map_Android_postDescription": {
+    "text": "Android के लिए Google Maps SDK का उपयोग करके नक्शा प्रदर्शित करने के लिए, निम्नलिखित कदम उठाए जाएंगे:"
+  },
+  "google_load_a_map_step1": {
+    "text": "<0>चरण 1</0><1>: अपना मॉड्यूल-स्तरीय <1>build.gradle</1> खोलें और निम्नलिखित निर्भरताएं जोड़ें</1>"
+  },
+  "google_load_a_map_step2": {
+    "text": "<0>चरण 2</0>: अपने <1>AndroidManifest.xml</1> में नीचे दिया गया कोड दर्ज करें और <1>MAPS_API_KEY को अपनी Google मानचित्र API कुंजी</1> से बदलें"
+  },
+  "google_load_a_map_step3": {
+    "text": "<0>चरण 3</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें"
+  },
+  "google_load_a_map_step4": {
+    "text": "<0>चरण 4</0>: नीचे दिए गए कोड को <1>MapsActivity.kt</1> में जोड़ें"
+  },
+  "amazon_load_a_map_step1": {
+    "text": "<0>चरण 1</0>: अपना मॉड्यूल-स्तरीय <1>build.gradle</1> खोलें और निम्न डेटा जोड़ें"
+  },
+  "amazon_load_a_map_step2": {
+    "text": "<0>चरण 2</0>: अपने एप्लिकेशन को अपने मानचित्र नाम और AWS क्षेत्र के साथ कॉन्फ़िगर करने के लिए, इसे नीचे दिए गए की तरह <1>configuration.xml</1> के अंदर दर्ज करें"
+  },
+  "amazon_load_a_map_step3": {
+    "text": "<0>चरण 3</0>: नीचे दिए गए कोड को <1>strings.xml</1> के अंदर जोड़ें"
+  },
+  "amazon_load_a_map_step4": {
+    "text": "<0>चरण 4</0>: नीचे दिए गए कोड को <1>activity_map.xml</1> के अंदर जोड़ें"
+  },
+  "amazon_load_a_map_step5": {
+    "text": "<0>चरण 5</0>: अपने <1>MapActivity.kt</1> में निम्न कोड जोड़ें"
+  },
+  "codeSnippets_adding_a_marker_android_about": {
+    "text": "Google Maps और Amazon Location Service, दोनों ही मैप पर सटीक निर्देशांक पर मार्कर लगा सकते हैं, जो रुचि के बिंदुओं को उजागर करने के लिए एक आवश्यक विशेषता है।"
+  },
+  "codeSnippets_adding_a_marker_android_point1": {
+    "text": "Google Maps <1>AddMarker</1> फ़ंक्शन के माध्यम से मूल समर्थन प्रदान करता है।"
+  },
+  "codeSnippets_adding_a_marker_android_point2": {
+    "text": "<1>Amazon Location Service, SymbolManager का उपयोग करके मानचित्र पर मार्कर रेंडर करने के लिए MapLibre लाइब्रेरी का लाभ उठाती है।</1>"
+  },
+  "google_adding_a_marker_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें"
+  },
+  "google_adding_a_marker_step2": {
+    "text": "<0>चरण 2</0><1>: Google मानचित्र के साथ, MarkerActivity.kt में maps <1>addMarker विधि का उपयोग करके मार्कर</1> जोड़े जाते हैं</1>"
+  },
+  "amazon_adding_a_marker_step1": {
+    "text": "<0><1>चरण 1: नीचे दिए गए कोड को activity_add_marker.xml के अंदर जोड़ें</1></0>"
+  },
+  "amazon_adding_a_marker_step2": {
+    "text": "<0>चरण 2</0><1>: <1>/res/drawable</1> निर्देशिका के अंदर <1>ic_marker_blue.xml</1> नाम की एक मार्कर छवि जोड़ें और नीचे दिए गए कोड को addMarkerActivity.kt में डालें</1>"
+  },
+  "codeSnippets_marker_clustering_android_about": {
+    "text": "मार्कर क्लस्टरिंग Google Maps और Amazon Location Service दोनों द्वारा प्रदान की जाने वाली एक शक्तिशाली विशेषता है, जो मार्करों के उच्च घनत्व वाले मानचित्रों की दृश्य स्पष्टता को बढ़ाती है।"
+  },
+  "codeSnippets_marker_clustering_android_point1": {
+    "text": "Google Maps <1>ClusterManager का उपयोग करता है, जिसके लिए मानचित्र पर मार्कर क्लस्टर</1> प्रदर्शित करने के लिए मानचित्र संदर्भ और मार्करों की एक सरणी की आवश्यकता होती है।"
+  },
+  "codeSnippets_marker_clustering_android_point2": {
+    "text": "<1><1>Amazon Location Service AddSource और AddLayer जैसे तरीकों का उपयोग करके सीधे MapLibre के माध्यम से मार्कर और डेटा लेयर को रेंडर करके मार्कर क्लस्टरिंग को लागू करती है।</1></1>"
+  },
+  "google_marker_clustering_step1": {
+    "text": "<0>चरण 1</0>: <1>build.gradle</1> में निर्भरता के अंदर नीचे की रेखा जोड़ें और अभी सिंक पर क्लिक करें।"
+  },
+  "google_marker_clustering_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें।"
+  },
+  "google_marker_clustering_step3": {
+    "text": "<0>चरण 3</0>: <1>MarkerClusterActivity.kt</1> के अंदर नीचे दिए गए कोड को जोड़ें"
+  },
+  "amazon_marker_clustering_step1": {
+    "text": "<0>चरण 1</0>: <1>activity_marker_cluster.xml</1> के अंदर नीचे दिए गए कोड को जोड़ें।"
+  },
+  "amazon_marker_clustering_step2": {
+    "text": "<0>चरण 2</0>: <1>MarkerClusterActivity.kt</1> में निम्न कोड शामिल करें।"
+  },
+  "codeSnippets_display_an_info_window_android_about": {
+    "text": "Google Maps और Amazon Location Service दोनों ही अपने-अपने मानचित्रों पर सूचनात्मक पॉपअप प्रदर्शित करने की क्षमता प्रदान करते हैं, जिससे उपयोगकर्ता विशिष्ट स्थानों या मार्करों के बारे में अधिक जानकारी देख सकते हैं।"
+  },
+  "codeSnippets_display_an_info_window_android_point1": {
+    "text": "Google Maps में, <1>MarkerOptions एक मार्कर</1> के पास एक पॉपअप दिखाता है।"
+  },
+  "codeSnippets_display_an_info_window_android_point2": {
+    "text": "Amazon Location Service जानकारी पॉपअप को रेंडर करने के लिए MapLibre के <1>AddSource</1> और <1>AddLayer</1> तरीकों का उपयोग करती है।"
+  },
+  "google_display_an_info_window_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें।"
+  },
+  "google_display_an_info_window_step2": {
+    "text": "<0>चरण 2</0>: <1>InfoPopupActivity.kt</1> के अंदर नीचे दिए गए कोड को जोड़ें।"
+  },
+  "amazon_display_an_info_window_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_info_popup.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_display_an_info_window_step2": {
+    "text": "<0>चरण 2</0>: निम्न कोड को <1>layout_info_popup.xml में शामिल करें</1>।"
+  },
+  "amazon_display_an_info_window_step3": {
+    "text": "<0>चरण 3</0>: <1>InfoPopupActivity.kt</1> में निम्न कोड शामिल करें।"
+  },
+  "codeSnippets_adding_a_polyline_android_about": {
+    "text": "Google Maps और Amazon Location Service दोनों ही लाइनों को जोड़ने के लिए व्यापक टूल प्रदान करते हैं, जो आपके नक्शे पर मार्गों या सीमाओं के दृश्य प्रतिनिधित्व को बढ़ाते हैं।"
+  },
+  "codeSnippets_adding_a_polyline_android_point1": {
+    "text": "Google मानचित्र लाइनों को रेंडर करने के लिए <1>AddPolyline</1> विधि प्रदान करता है।"
+  },
+  "codeSnippets_adding_a_polyline_android_point2": {
+    "text": "Amazon Location Service लाइनों को रेंडर करने के लिए MapLibre की <1>AddSource</1> और <1>AddLayer</1> विधियों का उपयोग करती है"
+  },
+  "google_adding_a_polyline_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें।"
+  },
+  "google_adding_a_polyline_step2": {
+    "text": "<0>चरण 2</0>: <1>PolylineActivity.kt</1> के अंदर नीचे दिए गए कोड को जोड़ें।"
+  },
+  "amazon_adding_a_polyline_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_polyline.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_adding_a_polyline_step2": {
+    "text": "<0>चरण 2</0>: <1>PolylineActivity.kt</1> में निम्न कोड शामिल करें।"
+  },
+  "codeSnippets_adding_a_polygon_android_about": {
+    "text": "बहुभुज वे ज्यामितीय आकार होते हैं जो मानचित्र पर विशिष्ट क्षेत्रों का प्रतिनिधित्व करते हैं।"
+  },
+  "codeSnippets_adding_a_polygon_android_point1": {
+    "text": "Google मानचित्र मानचित्र पर बहुभुज बनाने के लिए <1>AddPolygon</1> विधि प्रदान करता है।"
+  },
+  "codeSnippets_adding_a_polygon_android_point2": {
+    "text": "Amazon Location Service पॉलीगॉन को रेंडर करने के लिए MapLibre के <1>AddSource</1> और <1>AddLayer</1> तरीकों का उपयोग करती है।"
+  },
+  "google_adding_a_polygon_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें।"
+  },
+  "google_adding_a_polygon_step2": {
+    "text": "<0>चरण 2</0>: <1>PolygonActivity.kt</1> के अंदर नीचे दिए गए कोड को जोड़ें।"
+  },
+  "amazon_adding_a_polygon_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_polygon.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_adding_a_polygon_step2": {
+    "text": "<0>चरण 2</0>: <1>PolygonActivity.kt</1> में निम्न कोड शामिल करें।"
+  },
+  "codeSnippets_adding_a_circle_android_about": {
+    "text": "मानचित्र पर एक वृत्त प्रदर्शित करना कई अनुप्रयोगों के लिए एक सामान्य आवश्यकता है, और Google Maps और Amazon Location Service दोनों ही इस कार्य को पूरा करने के लिए मजबूत टूल प्रदान करते हैं।"
+  },
+  "codeSnippets_adding_a_circle_android_point1": {
+    "text": "Google मानचित्र विशेष रूप से वृत्त बनाने के लिए <1>AddCircle</1> विधि प्रदान करता है।"
+  },
+  "codeSnippets_adding_a_circle_android_point2": {
+    "text": "Amazon Location Service सर्कल रेंडर करने के लिए MapLibre के <1>AddSource</1> और <1>AddLayer</1> तरीकों का उपयोग करती है। इसके अतिरिक्त, आप किसी वृत्त को रेंडर करने के लिए बिंदुओं की सूची प्राप्त करने के लिए <1>org.maplibre.gl:android-sdk-turf</1> लाइब्रेरी का उपयोग कर सकते हैं।"
+  },
+  "google_adding_a_circle_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें।"
+  },
+  "google_adding_a_circle_step2": {
+    "text": "<0>चरण 2</0>: <1>CircleDrawActivity.kt</1> में नीचे दिए गए कोड को जोड़ें।"
+  },
+  "amazon_adding_a_circle_step1": {
+    "text": "<0>चरण 1</0><1>: build.gradle में निर्भरता के अंदर नीचे की पंक्ति जोड़ें।</1>"
+  },
+  "amazon_adding_a_circle_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_draw_circle.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_adding_a_circle_step3": {
+    "text": "<0>चरण 2</0>: <1>DrawCircleActivity.kt</1> में निम्न कोड शामिल करें।"
+  },
+  "codeSnippets_adding_a_heatmap_android_about": {
+    "text": "हीटमैप मूल्यवान विज़ुअलाइज़ेशन टूल हैं जो भौगोलिक क्षेत्रों में डेटा की तीव्रता का प्रतिनिधित्व करने की अनुमति देते हैं। Google Maps और Amazon Location Service दोनों ही इस सुविधा को एकीकृत करने के लिए व्यापक समाधान प्रदान करते हैं।"
+  },
+  "codeSnippets_adding_a_heatmap_android_point1": {
+    "text": "<1>Google मानचित्र में, हीटमैप लेयर को <1>com.google.maps.android:android-maps-utils लाइब्रेरी में शामिल किया गया है, और इसमें HeatMaptileProvider</1> विधि का उपयोग करके हीटमैप शामिल किया गया है.</1>"
+  },
+  "codeSnippets_adding_a_heatmap_android_point2": {
+    "text": "<1>Amazon Location Service AddLayer फ़ंक्शन को नियोजित करते हुए, MapLibre की फ़ंक्शंस का उपयोग करती है।</1> आम तौर पर, आप <1>AddSource का उपयोग करके एक स्रोत जोड़कर शुरू करते हैं और फिर इस स्रोत</1> का संदर्भ देते हुए एक लेयर बनाते हैं।"
+  },
+  "google_adding_a_heatmap_step1": {
+    "text": "<0>चरण 1</0><1>: build.gradle में <1>निर्भरता</1> के अंदर नीचे की पंक्ति जोड़ें।</1>"
+  },
+  "google_adding_a_heatmap_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें।"
+  },
+  "google_adding_a_heatmap_step3": {
+    "text": "<0>चरण 3</0><1>: Google मानचित्र के साथ, HeatmapActivity.kt में मानचित्र AddHeatMap विधि का उपयोग करके हीटमैप जोड़े जाते हैं।</1>"
+  },
+  "amazon_adding_a_heatmap_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_heat_map.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_adding_a_heatmap_step2": {
+    "text": "<0>चरण 2</0>: <1>HeatmapActivity.kt</1> में निम्न कोड शामिल करें।"
+  },
+  "codeSnippets_calculating_a_route_android_about": {
+    "text": "रूटिंग सेवाएं मैपिंग एप्लिकेशन के आवश्यक घटक हैं, जो उपयोगकर्ताओं को विभिन्न स्थानों के बीच दिशा-निर्देश प्रदान करती हैं। Google Maps और Amazon Location Service दोनों ही इस कार्यक्षमता के लिए मजबूत समाधान प्रदान करते हैं।"
+  },
+  "codeSnippets_calculating_a_route_android_point1": {
+    "text": "मानचित्र पर मार्ग डेटा की गणना और प्रदर्शित करने के लिए Google Maps <1>directions</1> या <1>computeRoutes</1> प्रदान करता है।"
+  },
+  "codeSnippets_calculating_a_route_android_point2": {
+    "text": "Amazon Location Service अपने लोकेशन क्लाइंट के माध्यम से <1>CalculateRoute</1> विधि प्रदान करती है। इसके बाद, यह मैप पर इस रूट डेटा को प्रदर्शित करने के लिए मैप्लिब्रे की रेंडरिंग क्षमताओं का लाभ उठाता है।"
+  },
+  "google_calculating_a_route_step1": {
+    "text": "<0>चरण 1</0><1>: build.gradle में <1>निर्भरता</1> के अंदर नीचे की पंक्ति जोड़ें।</1>"
+  },
+  "google_calculating_a_route_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें।"
+  },
+  "google_calculating_a_route_step3": {
+    "text": "<0>चरण 3: <1>CalculateRouteActivity.kt</1></0> में नीचे दिए गए डेटा को जोड़ें।"
+  },
+  "amazon_calculating_a_route_step1": {
+    "text": "<0>चरण 1</0><1>: build.gradle.kts में <1>निर्भरता</1> के अंदर नीचे की पंक्ति जोड़ें।</1>"
+  },
+  "amazon_calculating_a_route_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_calculate_route.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_calculating_a_route_step3": {
+    "text": "<0>चरण 3</0><1>: <1>/res/drawable</1> निर्देशिका के अंदर <1>ic_marker_red</1> नामक एक मार्कर छवि जोड़ें और नीचे दिए गए कोड को CalculateRouteActivity.kt में डालें।</1>"
+  },
+  "codeSnippets_searching_for_places_android_about": {
+    "text": "स्थानों की खोज करने की क्षमता आधुनिक मानचित्रण सेवाओं की एक मूलभूत विशेषता है। Google Maps और Amazon Location Service दोनों ही इस कार्यक्षमता को सुविधाजनक बनाने के लिए मज़बूत टूल प्रदान करते हैं।"
+  },
+  "codeSnippets_searching_for_places_android_point1": {
+    "text": "Google Maps जगह की खोज के लिए Google Maps API कुंजी के साथ <1>maps.googleapis.com/maps/api/place/nearbysearch</1> URL का उपयोग करता है।"
+  },
+  "codeSnippets_searching_for_places_android_point2": {
+    "text": "Amazon Location Service अपने लोकेशन क्लाइंट के माध्यम से <1>SearchPlaceIndexForSuggestions</1> प्रदान करती है। <1><1>इसके अतिरिक्त, Amazon Location Service अन्य Places API जैसे GetPlace और SearchPlaceIndexForText प्रदान करती है।</1></1> ज़्यादा <0>जानकारी</0> यहां पाई जा सकती है।"
+  },
+  "google_searching_for_places_step1": {
+    "text": "<0>चरण 1</0><1>: build.gradle में <1>निर्भरता</1> के अंदर नीचे की पंक्ति जोड़ें।</1>"
+  },
+  "google_searching_for_places_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_search.xml</1> के अंदर जोड़ें।"
+  },
+  "google_searching_for_places_step3": {
+    "text": "<0>चरण 3</0>: <1>SearchActivity.kt</1> में नीचे दिए गए डेटा को जोड़ें।"
+  },
+  "amazon_searching_for_places_step1": {
+    "text": "<0>चरण 1: build.gradle.kts</0> <1>में <1>निर्भरता</1> के अंदर नीचे की पंक्तियों को जोड़ें।</1>"
+  },
+  "amazon_searching_for_places_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_search.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_searching_for_places_step3": {
+    "text": "<0>चरण 3</0>: निम्नलिखित कोड को <1>GeoPlaceSearchTextActivity.kt</1> में शामिल करें।"
+  },
+  "migrateAnAndroidApp_desc": {
+    "text": "यह मार्गदर्शिका Google मानचित्र से Amazon स्थान सेवा में Android एप्लिकेशन को स्थानांतरित करने की तकनीकी प्रक्रिया का विवरण देती है। यह प्रारंभिक सेटअप, Amazon Location संसाधन कॉन्फ़िगरेशन पर प्रकाश डालता है, और एंड्रॉइड-आधारित प्लेटफ़ॉर्म में मैपिंग फ़ंक्शंस के एकीकरण को सुविधाजनक बनाने के लिए SDK तुलनात्मक उदाहरण प्रदान करता है।"
+  },
+  "integrating_the_Android_amazon_location_sdk_description": {
+    "text": "Amazon Location Service की मैप फ़ंक्शंस के साथ अपने Android एप्लिकेशन को बेहतर बनाने के लिए, आपको Kotlin का उपयोग करके अपने Android Studio प्रोजेक्ट में निम्नलिखित पैकेज शामिल करने होंगे:"
+  },
+  "positions_evaluated": {
+    "text": "पदों का मूल्यांकन किया गया"
+  },
+  "api_calls": {
+    "text": "API कॉल"
+  },
+  "google_maps_price_disclaimer": {
+    "text": "01/05/2024 के अनुसार गूगल मैप्स की दर को दर्शाता है"
+  },
+  "information_is_not_publicly_available": {
+    "text": "Google मानचित्र के लिए जानकारी सार्वजनिक रूप से उपलब्ध नहीं है"
+  },
+  "pricing_assumptions_and_variations": {
+    "text": "मूल्य निर्धारण की धारणाएं और विविधताएं"
+  },
+  "route-matrix-total-cost-formula": {
+    "text": "अनुरोधों की संख्या X प्रस्थान/मूल की संख्या X गंतव्य की संख्या X इकाई मूल्य = कुल लागत"
+  },
+  "google-maps-not-available": {
+    "text": "Google Maps में उपलब्ध नहीं है"
+  },
+  "tier_1": {
+    "text": "टियर 1"
+  },
+  "tier_2": {
+    "text": "टियर 2"
+  },
+  "tier_3": {
+    "text": "टियर 3"
+  },
+  "tier_4": {
+    "text": "टियर 4"
+  },
+  "tier_1_unit_price": {
+    "text": "टियर 1 यूनिट की कीमत"
+  },
+  "tier_2_unit_price": {
+    "text": "टियर 2 यूनिट की कीमत"
+  },
+  "tier_3_unit_price": {
+    "text": "टियर 3 यूनिट की कीमत"
+  },
+  "tier_4_unit_price": {
+    "text": "टियर 4 यूनिट की कीमत"
+  },
+  "tier_1_cost": {
+    "text": "टियर 1 की लागत"
+  },
+  "tier_2_cost": {
+    "text": "टियर 2 की लागत"
+  },
+  "tier_3_cost": {
+    "text": "टियर 3 की लागत"
+  },
+  "tier_4_cost": {
+    "text": "टियर 4 की लागत"
+  },
+  "total_cost": {
+    "text": "कुल लागत"
+  },
+  "trackers_write_API_calls": {
+    "text": "ट्रैकर्स API कॉल लिखते हैं"
+  },
+  "unit_price": {
+    "text": "यूनिट की कीमत"
+  },
+  "hr": {
+    "text": "घंटा"
+  },
+  "min": {
+    "text": "मिनट"
+  },
+  "position_updates": {
+    "text": "स्थिति अपडेट"
+  },
+  "total_requests_with_filter": {
+    "text": "फ़िल्टर लागू होने के साथ मूल्यांकन किए गए अनुरोध/माह"
+  },
+  "total_requests": {
+    "text": "कुल अनुरोध"
+  },
+  "filter_factor": {
+    "text": "फ़िल्टर फ़ैक्टर"
+  },
+  "hrs": {
+    "text": "घंटे"
+  },
+  "mins": {
+    "text": "मिनट"
+  },
+  "Hr": {
+    "text": "Hr"
+  },
+  "Hrs": {
+    "text": "घंटे"
+  },
+  "Hour": {
+    "text": "घंटा"
+  },
+  "Hours": {
+    "text": "घंटे"
+  },
+  "Min": {
+    "text": "न्यूनतम"
+  },
+  "Mins": {
+    "text": "मिनट"
+  },
+  "Minute": {
+    "text": "मिनिट"
+  },
+  "Minutes": {
+    "text": "मिनट्स"
+  },
+  "web_services_app_heading": {
+    "text": "वेब सेवा - Google मानचित्र से Amazon स्थान सेवा में माइग्रेट करना"
+  },
+  "web_services_app_desc": {
+    "text": "इस गाइड में बैकएंड एप्लिकेशन को Google Maps से Amazon Location Service में बदलने की तकनीकी प्रक्रिया का विवरण दिया गया है। यह प्रारंभिक सेटअप, Amazon Location संसाधन कॉन्फ़िगरेशन पर प्रकाश डालता है, और वेब API का समर्थन करने वाले किसी भी प्लेटफ़ॉर्म में मैपिंग फ़ंक्शंस के एकीकरण की सुविधा के लिए API तुलनात्मक उदाहरण प्रदान करता है।"
+  },
+  "web_services_app_desc1": {
+    "text": "AWS दस्तावेज़ीकरण डेवलपर्स के लिए Amazon Location Service में महारत हासिल करने के लिए एक महत्वपूर्ण संसाधन है, जो सुविधाओं, सेटअप और एकीकरण पर एक संपूर्ण मार्गदर्शिका प्रदान करता है। ऐप्स में स्थान सेवाएँ जोड़ने के बारे में व्यावहारिक जानकारी के लिए <0>आधिकारिक मार्गदर्शिका</0> और <0>API संदर्भ</0> देखें।"
+  },
+  "web_services_app_dataProviders_title": {
+    "text": "डेटा प्रोवाइडर्स"
+  },
+  "web_services_app_dataProviders_description": {
+    "text": "Amazon Location का उपयोग करते समय, आप उस डेटा प्रदाता को चुनते हैं जिसका आप उपयोग करना चाहते हैं। मैप, जगह और रूट डेटा आपके चुने हुए वैश्विक स्थान डेटा प्रदाता से प्राप्त किया जाता है, जिसमें शामिल हैं:"
+  },
+  "web_services_app_dataProviders_name_0": {
+    "text": "Esri"
+  },
+  "web_services_app_dataProviders_link_0": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
+  },
+  "web_services_app_dataProviders_name_1": {
+    "text": "Grab"
+  },
+  "web_services_app_dataProviders_link_1": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/grab.html"
+  },
+  "web_services_app_dataProviders_name_2": {
+    "text": "HERE तकनीकें"
+  },
+  "web_services_app_dataProviders_link_2": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/HERE.html"
+  },
+  "web_services_app_dataProviders_name_3": {
+    "text": "डेटा खोलें"
+  },
+  "web_services_app_dataProviders_link_3": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/open-data.html"
+  },
+  "web_services_app_dataProviders_postDescription": {
+    "text": "अतिरिक्त जानकारी के लिए, Amazon Location Service डेवलपर गाइड में <0>डेटा प्रदाता</0> देखें।"
+  },
+  "web_services_app_serviceComparison_title": {
+    "text": "API तुलना"
+  },
+  "web_services_app_serviceComparison_description": {
+    "text": "तालिका में Amazon Locations सेवा API को दिखाया गया है, जिनकी कार्यक्षमता सूचीबद्ध Google मानचित्र सेवा API के समान है।"
+  },
+  "web_services_app_serviceComparison_table_0_feature_text": {
+    "text": "मैप टाइल्स"
+  },
+  "web_services_app_serviceComparison_table_0_googleMapsAPI": {
+    "text": "2 डी टाइल्स"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_text": {
+    "text": "GetMap टाइल"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetMapTile.html"
+  },
+  "web_services_app_serviceComparison_table_1_feature_text": {
+    "text": "जियोकोडिंग"
+  },
+  "web_services_app_serviceComparison_table_1_googleMapsAPI": {
+    "text": "जियोकोड"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_text": {
+    "text": "टेक्स्ट के लिए प्लेस इंडेक्स खोजें"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-geocoding.html"
+  },
+  "web_services_app_serviceComparison_table_2_feature_text": {
+    "text": "रिवर्स जियोकोडिंग"
+  },
+  "web_services_app_serviceComparison_table_2_googleMapsAPI": {
+    "text": "जियोकोड"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_text": {
+    "text": "स्थिति के लिए प्लेस इंडेक्स खोजें"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-reverse-geocode.html"
+  },
+  "web_services_app_serviceComparison_table_3_feature_text": {
+    "text": "आस-पास की खोज"
+  },
+  "web_services_app_serviceComparison_table_3_googleMapsAPI": {
+    "text": "स्थान: आस-पास खोजें"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_text": {
+    "text": "स्थिति के लिए प्लेस इंडेक्स खोजें"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForPosition.html"
+  },
+  "web_services_app_serviceComparison_table_4_feature_text": {
+    "text": "टेक्स्ट सर्च"
+  },
+  "web_services_app_serviceComparison_table_4_googleMapsAPI": {
+    "text": "स्थान: खोज टेक्स्ट"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_text": {
+    "text": "टेक्स्ट के लिए प्लेस इंडेक्स खोजें"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForText.html"
+  },
+  "web_services_app_serviceComparison_table_5_feature_text": {
+    "text": "स्वतः पूर्ण"
+  },
+  "web_services_app_serviceComparison_table_5_googleMapsAPI": {
+    "text": "स्थान:स्वतः पूर्ण"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_text": {
+    "text": "सुझावों के लिए सर्च प्लेस इंडेक्स"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForSuggestions.html"
+  },
+  "web_services_app_serviceComparison_table_6_feature_text": {
+    "text": "जगह के आईडी का इस्तेमाल करना"
+  },
+  "web_services_app_serviceComparison_table_6_googleMapsAPI": {
+    "text": "स्थानों"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_text": {
+    "text": "गेटप्लेस"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetPlace.html"
+  },
+  "web_services_app_serviceComparison_table_7_googleMapsAPI": {
+    "text": "V2: कंप्यूटर रूट्स"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_text": {
+    "text": "मार्ग की गणना करें"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRoute.html"
+  },
+  "web_services_app_serviceComparison_table_8_googleMapsAPI": {
+    "text": "V2: कंप्यूटर आउट मैट्रिक्स"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_text": {
+    "text": "रूट मैट्रिक्स की गणना करें"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRouteMatrix.html"
+  },
+  "web_services_app_serviceComparison_postDescription": {
+    "text": "अतिरिक्त जानकारी के लिए, Amazon Location Service डेवलपर गाइड में <0>डेटा प्रदाता</0> देखें।"
+  },
+  "google_maps_api": {
+    "text": "गूगल मैप्स एपीआई"
+  },
+  "amazon_location_api": {
+    "text": "अमेज़ॅन लोकेशन एपीआई"
+  },
+  "webServices_article_items_examples_description": {
+    "text": "Google मानचित्र से Amazon स्थान सेवा में माइग्रेट करते समय, प्रत्येक द्वारा प्रदान की जाने वाली तुलनीय सेवाओं और API एंडपॉइंट को समझना महत्वपूर्ण है। हालांकि दोनों सेवाएं समान जियोलोकेशन सुविधाएं प्रदान करती हैं, लेकिन API अनुरोधों की संरचना और उपयोग की जाने वाली नामकरण परंपराएं अलग-अलग हो सकती हैं।"
+  },
+  "codeSnippets_getting_map_tiles_heading": {
+    "text": "मैप टाइल पाएं"
+  },
+  "codeSnippets_getting_map_tiles_description1": {
+    "text": "मैप टाइल्स वेब मैप्स (जैसे गूगल मैप्स और मैप्लिब्रे) को संरचित करने का तरीका है। वे नक्शा दिखाने के लिए ग्रिड व्यवस्था में प्रदर्शित वर्गाकार बिटमैप ग्राफ़िक्स हैं। प्रत्येक टाइल एक छोटी सी छवि होती है, और इसमें नक्शे का एक विशेष हिस्सा होता है, जो विवरण या ज़ूम स्तर के विशिष्ट स्तर पर होता है। जब आप किसी वेब मैप को ज़ूम इन या ज़ूम आउट करते हैं, तो आप अनिवार्य रूप से उन टाइलों के अलग-अलग सेट लोड कर रहे होते हैं जिनमें विवरण के अलग-अलग स्तर होते हैं।"
+  },
+  "codeSnippets_getting_map_tiles_description2": {
+    "text": "मैप टाइल API, जैसे कि Google Maps और Amazon Location द्वारा प्रदान किए गए, डेवलपर्स को इन मैप टाइल को प्रोग्रामेटिक रूप से पुनर्प्राप्त करने की अनुमति देते हैं। यह कई तरह के एप्लिकेशन के लिए उपयोगी हो सकता है, जैसे कि कस्टम मैप व्यूअर बनाना, वेबपेज में मैप व्यू एम्बेड करना या टाइल्स में मौजूद भौगोलिक जानकारी का विश्लेषण करना।"
+  },
+  "codeSnippets_getting_map_tiles_description3": {
+    "text": "API उन HTTP अनुरोधों को स्वीकार करके काम करते हैं जो वांछित मानचित्र प्रकार (जैसे, रोडमैप, उपग्रह), भौगोलिक निर्देशांक (अक्षांश और देशांतर), और ज़ूम स्तर को निर्दिष्ट करते हैं। इसके बाद API संबंधित मैप टाइल को इमेज फ़ाइल (आमतौर पर PNG या JPEG फ़ॉर्मैट) के रूप में दिखाता है।"
+  },
+  "codeSnippets_getting_map_tiles_description4": {
+    "text": "मैप टाइल के संदर्भ में, Z, X, और Y ऐसे पैरामीटर हैं जो उस विशिष्ट टाइल को निर्धारित करते हैं जिसे आप मैप से पुनर्प्राप्त कर रहे हैं। यहां बताया गया है कि हर एक किसका प्रतिनिधित्व करता है:"
+  },
+  "codeSnippets_getting_map_tiles_point1": {
+    "text": "Z (ज़ूम स्तर): यह पैरामीटर नक्शे के पैमाने को निर्धारित करता है। उच्च ज़ूम स्तर छोटे क्षेत्र को अधिक विस्तार से दिखाएगा। उदाहरण के लिए, उच्च ज़ूम स्तर पर, आपको सड़क के नाम और अलग-अलग इमारतें दिखाई दे सकती हैं। ज़ूम के निचले स्तर पर, आपको सिर्फ़ देश की सीमाएं और बड़े शहर दिखाई दे सकते हैं। ज़ूम स्तर को अक्सर 2 के एक्सपोनेंट के रूप में दर्शाया जाता है, इसलिए n के ज़ूम स्तर के परिणामस्वरूप मैप को 2^n x 2^n टाइल में विभाजित किया जाएगा।"
+  },
+  "codeSnippets_getting_map_tiles_point2": {
+    "text": "X (कॉलम): यह पैरामीटर टाइल की अनुदैर्ध्य (पूर्व-पश्चिम) स्थिति को निर्धारित करता है। ज़ूम स्तर 0 पर, केवल एक टाइल है, इसलिए X मान 0 है। उच्च ज़ूम स्तरों पर, X मान 0 से 2^Z - 1 तक हो सकता है, जो पश्चिम से पूर्व की ओर बढ़ता है।"
+  },
+  "codeSnippets_getting_map_tiles_point3": {
+    "text": "Y (पंक्ति): यह पैरामीटर टाइल की अक्षांशीय (उत्तर-दक्षिण) स्थिति को निर्धारित करता है। X मान की तरह, Y मान प्रत्येक ज़ूम स्तर पर 0 से 2^Z - 1 तक होता है, लेकिन यह उत्तर से दक्षिण की ओर चलता है।"
+  },
+  "codeSnippets_getting_map_tiles_postDescription": {
+    "text": "साथ में, ये पैरामीटर किसी भी स्तर के विवरण पर नक्शे पर किसी भी टाइल को निर्दिष्ट कर सकते हैं। इन मापदंडों को बदलकर, आप नक्शे के विभिन्न हिस्सों में नेविगेट कर सकते हैं और ज़ूम इन या ज़ूम आउट कर सकते हैं।"
+  },
+  "Request": {
+    "text": "अनुरोध"
+  },
+  "Response": {
+    "text": "रिस्पांस"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_heading": {
+    "text": "1। सत्र बनाएँ"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_description": {
+    "text": "Google मानचित्र में, पहला चरण सत्र बनाना है। यह POST अनुरोध के माध्यम से किया जाता है जिसमें मानचित्र का प्रकार, भाषा और क्षेत्र शामिल होता है। मैप का प्रकार 'रोडमैप', 'सैटेलाइट' आदि हो सकता है. मैप टाइल्स को स्थानीय बनाने के लिए भाषा और क्षेत्र मापदंडों का उपयोग किया जाता है।"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_heading": {
+    "text": "2। मैप टाइल प्राप्त करें"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_description": {
+    "text": "सेशन बन जाने के बाद, आप मैप टाइल फिर से पा सकते हैं। यह GET अनुरोध के माध्यम से किया जाता है जिसमें ज़ूम स्तर (Z), x-निर्देशांक (X), और y-निर्देशांक (Y) शामिल होते हैं। पिछले चरण में जनरेट किया गया सेशन टोकन भी आवश्यक है।"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_response": {
+    "text": "<0>इस अनुरोध का जवाब एक PNG फ़ाइल है जिसमें अनुरोधित मैप टाइल है।</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description": {
+    "text": "Amazon Location के साथ, मैप टाइल प्राप्त करना एक सरल प्रक्रिया है। इसमें एक एकल GET अनुरोध शामिल है जिसमें मानचित्र का नाम, ज़ूम स्तर (Z), x-निर्देशांक (X), और y-निर्देशांक (Y) शामिल हैं।"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response": {
+    "text": "<0>लौटाए गए ब्लॉब में मैपबॉक्स वेक्टर टाइल (एमवीटी) डेटा शामिल है</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result": {
+    "text": "इस अनुरोध के जवाब में कैश नियंत्रण नीति और सामग्री के प्रकार को दर्शाने वाले HTTP शीर्षलेख शामिल हैं, इसके बाद मैप टाइल डेटा (जिसे “ब्लॉब” कहा जाता है) आता है। मैप टाइल डेटा का इस्तेमाल, मैप टाइल को उपयुक्त ऐप्लिकेशन में रेंडर करने के लिए किया जा सकता है।"
+  },
+  "codeSnippets_getting-map-tiles_description1": {
+    "text": "मैप टाइल्स वेब मैप्स (जैसे गूगल मैप्स और मैप्लिब्रे) को संरचित करने का तरीका है। वे नक्शा दिखाने के लिए ग्रिड व्यवस्था में प्रदर्शित वर्गाकार बिटमैप ग्राफ़िक्स हैं। प्रत्येक टाइल एक छोटी सी छवि होती है, और इसमें नक्शे का एक विशेष हिस्सा होता है, जो विवरण या ज़ूम स्तर के विशिष्ट स्तर पर होता है। जब आप किसी वेब मैप को ज़ूम इन या ज़ूम आउट करते हैं, तो आप अनिवार्य रूप से उन टाइलों के अलग-अलग सेट लोड कर रहे होते हैं जिनमें विवरण के अलग-अलग स्तर होते हैं।"
+  },
+  "codeSnippets_getting-map-tiles_description2": {
+    "text": "मैप टाइल API, जैसे कि Google Maps और Amazon Location द्वारा प्रदान किए गए, डेवलपर्स को इन मैप टाइल को प्रोग्रामेटिक रूप से पुनर्प्राप्त करने की अनुमति देते हैं। यह कई तरह के एप्लिकेशन के लिए उपयोगी हो सकता है, जैसे कि कस्टम मैप व्यूअर बनाना, वेबपेज में मैप व्यू एम्बेड करना या टाइल्स में मौजूद भौगोलिक जानकारी का विश्लेषण करना।"
+  },
+  "codeSnippets_getting-map-tiles_description3": {
+    "text": "API उन HTTP अनुरोधों को स्वीकार करके काम करते हैं जो वांछित मानचित्र प्रकार (जैसे, रोडमैप, उपग्रह), भौगोलिक निर्देशांक (अक्षांश और देशांतर), और ज़ूम स्तर को निर्दिष्ट करते हैं। इसके बाद API संबंधित मैप टाइल को इमेज फ़ाइल (आमतौर पर PNG या JPEG फ़ॉर्मैट) के रूप में दिखाता है।"
+  },
+  "codeSnippets_getting-map-tiles_description4": {
+    "text": "मैप टाइल के संदर्भ में, Z, X, और Y ऐसे पैरामीटर हैं जो उस विशिष्ट टाइल को निर्धारित करते हैं जिसे आप मैप से पुनर्प्राप्त कर रहे हैं। यहां बताया गया है कि हर एक किसका प्रतिनिधित्व करता है:"
+  },
+  "codeSnippets_geocoding_heading": {
+    "text": "जियोकोडिंग"
+  },
+  "codeSnippets_geocoding_description": {
+    "text": "जियोकोडिंग पतों को भौगोलिक निर्देशांक में बदलने की प्रक्रिया है। यह उन कई अनुप्रयोगों में एक प्रमुख विशेषता है, जिनके लिए स्थान डेटा की आवश्यकता होती है।"
+  },
+  "codeSnippets_geocoding_withGoogle_description1": {
+    "text": "<0>Google मानचित्र में, जियोकोडिंग API का उपयोग पतों को भौगोलिक निर्देशांक में बदलने के लिए किया जाता है.</0> इस उद्देश्य के लिए जियोकोड एंडपॉइंट का उपयोग किया जाता है। यह आपको क्षेत्र या घटक मापदंडों का उपयोग करके परिणामों को एक निश्चित क्षेत्र में बायस करने की अनुमति देता है।"
+  },
+  "codeSnippets_geocoding_withGoogle_description2": {
+    "text": "<0>वे घटक जो आपको राजनीतिक या भौगोलिक घटकों के आधार पर परिणामों को फ़िल्टर करने की अनुमति देते हैं, जैसे कि <0>व्यवस्थापक_क्षेत्र, <0>स्थानीयता</0>, या postal_code</0>.</0> उदाहरण के लिए, <0>components=locality:Mountain+View|Country:US</0> परिणामों को अमेरिका में माउंटेन व्यू के इलाके की ओर ले जाएगा। Google Maps में जियोकोडिंग अनुरोध का उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_geocoding_withAmazon_description": {
+    "text": "<0>Amazon Location Service में, Google Maps की जियोकोडिंग की तुलना करने योग्य विशेषता SearchPlaceIndexForText ऑपरेशन है।</0> यह ऑपरेशन फ़्री-फ़ॉर्म टेक्स्ट (जैसे पता) का उपयोग करके स्थानों की खोज करता है और पूरक जानकारी के साथ उम्मीदवार के स्थानों को लौटाता है। एक साधारण अनुरोध में निम्न आवश्यक पैरामीटर शामिल होते हैं:"
+  },
+  "codeSnippets_geocoding_withAmazon_description_1": {
+    "text": "टेक्स्ट — निर्देशांक के सेट में बदलने के लिए पता, नाम, शहर या क्षेत्र। उदाहरण के लिए, स्ट्रिंग 'एनी टाउन'।"
+  },
+  "codeSnippets_geocoding_withAmazon_description_2": {
+    "text": "हर पेज पर ज़्यादा से ज़्यादा नतीजे बताने के लिए, इस वैकल्पिक पैरामीटर का इस्तेमाल करें:"
+  },
+  "codeSnippets_geocoding_withAmazon_description_3": {
+    "text": "maxResults — क्वेरी रिस्पॉन्स में लौटाए गए परिणामों की अधिकतम संख्या को सीमित करता है।"
+  },
+  "codeSnippets_geocoding_withAmazon_description_4": {
+    "text": "फ़िल्टर देश — वह देश या क्षेत्र जिसमें आप जियोकोड करना चाहते हैं। आप ISO 3166 तीन अक्षर वाले देश कोड का उपयोग करके एक अनुरोध में अधिकतम 100 देशों को परिभाषित कर सकते हैं।"
+  },
+  "codeSnippets_geocoding_withAmazon_request_description": {
+    "text": "इस अनुरोध में, टेक्स्ट फ़ील्ड Google मानचित्र में इनपुट पैरामीटर के बराबर है, जो जियोकोड किए जाने वाले पते को निर्दिष्ट करता है। <1>biasPosition</1> <1><1>और <1>FilterCountries</1> फ़ील्ड का उपयोग खोज परिणामों को किसी विशिष्ट क्षेत्र में बायस करने के लिए किया जाता है, जो Google Maps में स्थान-पूर्वाग्रह और देश मापदंडों के समान है.</1></1> मुख्य पैरामीटर आपकी API कुंजी है। हमारी जियोकोडिंग सेवा के बारे में ज़्यादा जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "response_comparison": {
+    "text": "रिस्पांस फील्ड मैपिंग"
+  },
+  "web_services_app_responseComparison_table_0_description": {
+    "text": "लौटाए गए पते का पूरा टेक्स्ट।"
+  },
+  "web_services_app_responseComparison_table_1_description": {
+    "text": "जगह का नाम।"
+  },
+  "description": {
+    "text": "विवरण"
+  },
+  "codeSnippets_reverse_geocoding_heading": {
+    "text": "रिवर्स जियोकोडिंग"
+  },
+  "codeSnippets_reverse_geocoding_description": {
+    "text": "दोनों सेवाओं द्वारा प्रदान की जाने वाली एक अन्य प्रमुख विशेषता रिवर्स जियोकोडिंग है, जिसमें भौगोलिक निर्देशांक को मानव-पठनीय पते या स्थान के नाम में परिवर्तित करना शामिल है। इस सुविधा का उपयोग अक्सर उन अनुप्रयोगों में किया जाता है, जिन्हें उपयोगकर्ताओं द्वारा आसानी से समझे जाने वाले प्रारूप में स्थान की जानकारी प्रदर्शित करने की आवश्यकता होती है।"
+  },
+  "codeSnippets_reverse_geocoding_withGoogle_description1": {
+    "text": "Google Maps में, Places API के <0>जियोकोड</0> एंडपॉइंट का इस्तेमाल रिवर्स जियोकोडिंग के लिए भी किया जाता है। हालांकि, रिवर्स जियोकोडिंग के लिए स्थिति प्रदान करने के लिए आपको <0>latlng</0> का उपयोग करना होगा। Google Maps में रिवर्स जियोकोडिंग अनुरोध का उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description": {
+    "text": "Amazon Location Service में, <0>SearchPlaceIndexForPosition</0> ऑपरेशन का उपयोग रिवर्स जियोकोडिंग के लिए किया जाता है। यह ऑपरेशन किसी निर्दिष्ट स्थिति के आस-पास के स्थानों की खोज करता है। एक साधारण अनुरोध में निम्न आवश्यक पैरामीटर शामिल होते हैं:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1": {
+    "text": "स्थिति — निर्देशांक का एक सेट जिसे आप किसी पते, रुचि के बिंदु या सामान्य स्थान में बदलना चाहते हैं। <0>[देशांतर, अक्षांश]</0> फ़ॉर्मेट का उपयोग करके परिभाषित किया गया।"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_2": {
+    "text": "हर पेज पर ज़्यादा से ज़्यादा नतीजे बताने के लिए, यह वैकल्पिक पैरामीटर जोड़ें:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_3": {
+    "text": "maxResults — क्वेरी रिस्पॉन्स में लौटाए गए परिणामों की अधिकतम संख्या को सीमित करता है।"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_4": {
+    "text": "यदि आप अपनी क्वेरी के परिणामों के लिए पसंदीदा भाषा निर्दिष्ट करना चाहते हैं, तो निम्न वैकल्पिक पैरामीटर का उपयोग करें:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_5": {
+    "text": "भाषा — परिणामों को रेंडर करने के लिए इस्तेमाल किया जाने वाला भाषा कोड। मान मान्य BCP 47 भाषा कोड होना चाहिए। उदाहरण के लिए, अंग्रेज़ी के लिए en।"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_6": {
+    "text": "Amazon Location Service में रिवर्स जियोकोडिंग अनुरोध का एक उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description": {
+    "text": "इस अनुरोध में, स्थिति फ़ील्ड Google मानचित्र में स्थान पैरामीटर के बराबर है, जो भौगोलिक निर्देशांक को रिवर्स जियोकोड करने के लिए निर्दिष्ट करता है। <1>maxResults फ़ील्ड में रिटर्न करने के लिए परिणामों</1> की अधिकतम संख्या निर्दिष्ट की जाती है। <1>भाषा फ़ील्ड उस भाषा</1> को निर्दिष्ट करता है जिसमें परिणाम लौटाए जाने चाहिए, जैसा कि Google मानचित्र में भाषा पैरामीटर के समान है। मुख्य पैरामीटर आपकी API कुंजी है। हमारी रिवर्स जियोकोडिंग सेवा के बारे में अधिक व्यापक जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "web_services_app_responseComparison_table_1_google_description": {
+    "text": "स्थान का मानव-पठनीय पता।"
+  },
+  "web_services_app_responseComparison_table_2_google_description": {
+    "text": "स्थान का अक्षांश और देशांतर।"
+  },
+  "web_services_app_responseComparison_table_3_google_description": {
+    "text": "पता घटक का पूरा पाठ विवरण या नाम।"
+  },
+  "web_services_app_responseComparison_table_4_google_description": {
+    "text": "पता घटक का प्रकार।"
+  },
+  "web_services_app_responseComparison_table_1_amazon_description": {
+    "text": "स्थान का मानव-पठनीय पता।"
+  },
+  "web_services_app_responseComparison_table_2_amazon_description": {
+    "text": "निर्देशांक "
+  },
+  "web_services_app_responseComparison_table_3_amazon_description": {
+    "text": "पता घटक का पूरा पाठ विवरण या नाम।"
+  },
+  "web_services_app_responseComparison_table_4_amazon_description": {
+    "text": "जगह का क़िस्म।"
+  },
+  "web_services_app_note_description": {
+    "text": "Google मानचित्र में <0>परिणाम []</0> और Amazon Location Service में <0>परिणाम []</0> रिवर्स जियोकोडिंग परिणामों वाली सरणियों हैं। <0><0><0>सरणी में प्रत्येक तत्व एक स्थान का प्रतिनिधित्व करता है जो खोज मानदंडों से मेल खाता है। - <0>परिणाम में <0>* [] .Place.*</0></0> Amazon में <0>AddressNumber</0>, <0>पड़ोस</0>, <0>नगर पालिका</0>, <0>उपक्षेत्र</0>, क्षेत्र, देश, PostalCode जैसे विभिन्न क्षेत्रों का प्रतिनिधित्व करता है</0></0></0>"
+  },
+  "web_services_app_responseComparison_description": {
+    "text": "नीचे दी गई तालिका रिवर्स जियोकोडिंग ऑपरेशन करते समय Google मानचित्र और Amazon स्थान सेवा से सामान्य प्रतिक्रिया फ़ील्ड की तुलना करती है।"
+  },
+  "codeSnippets_text_searching_heading": {
+    "text": "टेक्स्ट सर्चिंग"
+  },
+  "codeSnippets_text_searching_description": {
+    "text": "टेक्स्ट सर्चिंग एक ऐसी सुविधा है जो यूज़र को टेक्स्ट क्वेरीज़ का उपयोग करके स्थानों की खोज करने की अनुमति देती है। Google Maps और Amazon Location, दोनों ही अलग-अलग अनुरोध संरचनाओं और प्रतिक्रियाओं के साथ यह सुविधा प्रदान करते हैं।"
+  },
+  "codeSnippets_text_searching_withGoogle_description1": {
+    "text": "Google Maps टेक्स्ट सर्च अनुरोध POST HTTP विधि का उपयोग करके किया जाता है। अनुरोध के मुख्य भाग में TextQuery फ़ील्ड शामिल है जो खोजे जाने वाले स्थान को निर्दिष्ट करता है। अनुरोध शीर्षलेखों में <0>सामग्री-प्रकार</0>, <0>X-Goog-Api-Key (प्रमाणीकरण के लिए), और <0>X-Goog-FieldMask</0></0> (यह निर्दिष्ट करने के लिए कि प्रतिक्रिया में कौन से फ़ील्ड शामिल किए जाएं) शामिल हैं।"
+  },
+  "codeSnippets_text_searching_withGoogle_description2": {
+    "text": "Google Maps की प्रतिक्रिया में खोज क्वेरी से मेल खाने वाले स्थानों की एक सरणी शामिल होती है। <0><0>प्रत्येक स्थान पर एक <0>फ़ॉर्मेटेड पता</0> और एक <0>DisplayName होता है जिसमें टेक्स्ट और भाषाकोड</0> शामिल होता है.</0></0>"
+  },
+  "codeSnippets_text_searching_withAmazon_description": {
+    "text": "Amazon Location टेक्स्ट सर्च अनुरोध एक POST HTTP विधि का उपयोग करके <0>SearchPlaceIndexForText</0> सेवा के माध्यम से किया जाता है। इस सेवा अनुरोध के मुख्य भाग में खोजे जाने वाले स्थान के लिए टेक्स्ट फ़ील्ड, किसी विशेष भौगोलिक क्षेत्र की ओर खोज को <0>पूर्वाग्रहित करने के लिए पूर्वाग्रह स्थिति और खोज की भाषा निर्दिष्ट</0> करने के लिए भाषा शामिल है। यह सेवा विभिन्न बॉडी मापदंडों का भी समर्थन करती है जैसे:"
+  },
+  "codeSnippets_text_searching_withAmazon_description_1": {
+    "text": "हमारी टेक्स्ट सर्च सेवा के बारे में अधिक व्यापक जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "web_services_app_responseComparison_table_2_description": {
+    "text": "नतीजों के लिए पसंदीदा भाषा"
+  },
+  "codeSnippets_text_searching_withAmazon_description_2": {
+    "text": "Amazon Location Service में टेक्स्ट सर्च करने के अनुरोध का एक उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_nearby_searching_heading": {
+    "text": "आस-पास की खोज"
+  },
+  "codeSnippets_nearby_searching_description": {
+    "text": "आस-पास की खोज से आप किसी दिए गए स्थान के आस-पास के स्थानों या रुचि के बिंदुओं की खोज कर सकते हैं। आप अधिकतम परिणाम या देश जैसे प्रतिबंध जोड़ सकते हैं।"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description": {
+    "text": "Amazon Location Service में, <0>SearchPlaceIndexForPosition</0> ऑपरेशन का उपयोग रिवर्स जियोकोडिंग के लिए किया जाता है। यह ऑपरेशन किसी निर्दिष्ट स्थिति के आस-पास के स्थानों की खोज करता है।"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description1": {
+    "text": "एक साधारण अनुरोध में निम्न आवश्यक पैरामीटर शामिल हैं:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2": {
+    "text": "स्थिति — निर्देशांक का एक सेट जिसे आप किसी पते, रुचि के बिंदु या सामान्य स्थान में बदलना चाहते हैं। <0>[देशांतर, अक्षांश]</0> फ़ॉर्मेट का उपयोग करके परिभाषित किया गया।"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description3": {
+    "text": "हर पेज पर ज़्यादा से ज़्यादा नतीजे बताने के लिए, यह वैकल्पिक पैरामीटर जोड़ें:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description4": {
+    "text": "maxResults — क्वेरी रिस्पॉन्स में लौटाए गए परिणामों की अधिकतम संख्या को सीमित करता है।"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description5": {
+    "text": "यदि आप अपनी क्वेरी के परिणामों के लिए पसंदीदा भाषा निर्दिष्ट करना चाहते हैं, तो निम्न वैकल्पिक पैरामीटर का उपयोग करें:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description6": {
+    "text": "भाषा — परिणामों को रेंडर करने के लिए इस्तेमाल किया जाने वाला भाषा कोड। मान मान्य BCP 47 भाषा कोड होना चाहिए। उदाहरण के लिए, अंग्रेज़ी के लिए en।"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description7": {
+    "text": "Amazon Location Service में रिवर्स जियोकोडिंग अनुरोध का एक उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_nearby_searching_request_description": {
+    "text": "इस अनुरोध में, स्थिति फ़ील्ड Google मानचित्र में स्थान पैरामीटर के बराबर है। maxResults फ़ील्ड रिटर्न करने के लिए परिणामों की अधिकतम संख्या निर्दिष्ट करता है। भाषा फ़ील्ड उस भाषा को निर्दिष्ट करता है जिसमें परिणाम लौटाए जाने चाहिए, जैसा कि Google मानचित्र में भाषा पैरामीटर के समान है। मुख्य पैरामीटर आपकी API कुंजी है। हमारी टेक्स्ट सर्च सेवा के बारे में अधिक विस्तृत जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "codeSnippets_autocomplete_heading": {
+    "text": "स्वतः पूर्ण"
+  },
+  "codeSnippets_autocomplete_description": {
+    "text": "ऑटोकंप्लीट उपयोगकर्ता के प्रकार के अनुसार स्थानों के लिए सुझाव प्रदान करता है। यह उन अनुप्रयोगों की एक प्रमुख विशेषता है, जिनके लिए स्थान डेटा के साथ यूज़र इंटरैक्शन की आवश्यकता होती है।"
+  },
+  "codeSnippets_autocomplete_withAmazon_request_description": {
+    "text": "Google Maps में, Places API के स्वत: पूर्ण समापन बिंदु का उपयोग इस उद्देश्य के लिए किया जाता है। Google Maps में स्वतः पूर्ण होने वाले अनुरोध का उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_autocomplete_withAmazon_response_description": {
+    "text": "इस अनुरोध में, इनपुट पैरामीटर उस टेक्स्ट स्ट्रिंग को निर्दिष्ट करता है जिस पर खोजना है। मुख्य पैरामीटर आपकी API कुंजी है।"
+  },
+  "codeSnippets_autocomplete_withAmazon_description1": {
+    "text": "<0>Amazon Location Service में, Google Maps के स्वतः पूर्ण होने की तुलना करने योग्य विशेषता SearchPlaceIndexForSuggestions ऑपरेशन है.</0> यह ऑपरेशन टेक्स्ट-आधारित भौगोलिक खोजों के लिए स्वतः पूर्ण कार्यक्षमता प्रदान करता है, उपयोगकर्ता खोज प्रश्नों के जवाब में स्थान की भविष्यवाणी वापस करता है। Amazon Location Service में स्वतः पूर्ण होने वाले अनुरोध का उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_autocomplete_withAmazon_description2": {
+    "text": "इस अनुरोध में, टेक्स्ट फ़ील्ड Google मानचित्र में इनपुट पैरामीटर के बराबर है, जो उस टेक्स्ट स्ट्रिंग को निर्दिष्ट करता है जिस पर खोजना है। <1>maxResults फ़ील्ड में वापस आने वाले परिणामों</1> की अधिकतम संख्या निर्दिष्ट की जाती है। मुख्य पैरामीटर आपकी API कुंजी है। हमारी स्वतः पूर्ण सेवा के बारे में अधिक विस्तृत जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "codeSnippets_autocomplete_request_description": {
+    "text": "इस अनुरोध में, स्थिति फ़ील्ड Google मानचित्र में स्थान पैरामीटर के बराबर है। maxResults फ़ील्ड रिटर्न करने के लिए परिणामों की अधिकतम संख्या निर्दिष्ट करता है। भाषा फ़ील्ड उस भाषा को निर्दिष्ट करता है जिसमें परिणाम लौटाए जाने चाहिए, जैसा कि Google मानचित्र में भाषा पैरामीटर के समान है। मुख्य पैरामीटर आपकी API कुंजी है। हमारी टेक्स्ट सर्च सेवा के बारे में अधिक विस्तृत जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "web_services_autocomplete_responseComparison_table_1_description": {
+    "text": "पूर्वानुमान सरणी रखें"
+  },
+  "web_services_autocomplete_responseComparison_table_2_description": {
+    "text": "जगह की भविष्यवाणी का वर्णन"
+  },
+  "web_services_autocomplete_responseComparison_table_3_description": {
+    "text": "जगह की भविष्यवाणी का यूनीक आइडेंटिफ़ायर"
+  },
+  "web_services_autocomplete_responseComparison_table_4_description": {
+    "text": "खोज अनुरोध का सारांश, जिसमें खोजने के लिए टेक्स्ट स्ट्रिंग और रिटर्न करने के लिए परिणामों की अधिकतम संख्या शामिल है।"
+  },
+  "predictions": {
+    "text": "भविष्यवाणियां"
+  },
+  "place_id": {
+    "text": "जगह_आईडी"
+  },
+  "N/A": {
+    "text": "एन/ए"
+  },
+  "results": {
+    "text": "नतीजे"
+  },
+  "text": {
+    "text": "टेक्स्ट"
+  },
+  "summary": {
+    "text": "सारांश"
+  },
+  "codeSnippets_get-place-details_heading": {
+    "text": "जगह की जानकारी पाएं"
+  },
+  "codeSnippets_get-place-details_description": {
+    "text": "ऐसी ही एक विशेषता है स्थान का विवरण प्राप्त करना, जो उन अनुप्रयोगों में आवश्यक है जिनके लिए किसी विशिष्ट स्थान के बारे में विस्तृत जानकारी की आवश्यकता होती है।"
+  },
+  "codeSnippets_get-place-details_googleMap_description": {
+    "text": "Google Maps में, Places API के विवरण एंडपॉइंट का इस्तेमाल जगह की जानकारी पाने के लिए किया जाता है। Google Maps में GetPlace अनुरोध का एक उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description": {
+    "text": "इस अनुरोध में, <0>place_id</0> पैरामीटर उस जगह के विशिष्ट पहचानकर्ता को निर्दिष्ट करता है जिसका विवरण पुनर्प्राप्त किया जाना है। मुख्य पैरामीटर आपकी API कुंजी है।"
+  },
+  "codeSnippets_get-place-details_withAmazon_description": {
+    "text": "Amazon Location Service में, <0>GetPlace</0> ऑपरेशन का उपयोग स्थान के विवरण को पुनः प्राप्त करने के लिए किया जाता है। Amazon Location Service में GetPlace अनुरोध का एक उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description": {
+    "text": "इस अनुरोध में, <0>placeID</0> उस जगह का विशिष्ट पहचानकर्ता है, जिसका विवरण पुनर्प्राप्त किया जाना है, जो Google मानचित्र में <0>place_id</0> पैरामीटर के बराबर है। मुख्य पैरामीटर आपकी API कुंजी है। हमारी जगह की जानकारी देने वाली सेवा के बारे में ज़्यादा जानकारी के लिए, कृपया <1>यहां</1> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "label": {
+    "text": "मानकीकृत पता"
+  },
+  "geometry": {
+    "text": "जगह के निर्देशांक"
+  },
+  "street": {
+    "text": "स्ट्रीट"
+  },
+  "neighborhood": {
+    "text": "पड़ोस"
+  },
+  "municipality": {
+    "text": "नगर पालिका"
+  },
+  "subMunicipality": {
+    "text": "उप-नगरपालिका"
+  },
+  "region": {
+    "text": "रीजन"
+  },
+  "country": {
+    "text": "देश"
+  },
+  "postalCode": {
+    "text": "पोस्टल कोड"
+  },
+  "categories": {
+    "text": "श्रेणियां"
+  },
+  "derived_from": {
+    "text": "से व्युत्पन्न"
+  },
+  "Field": {
+    "text": "फ़ील्ड"
+  },
+  "subRegion": {
+    "text": "उपक्षेत्र"
+  },
+  "codeSnippets_calculating-a-route_description": {
+    "text": "मार्गों की गणना करना, जो उन अनुप्रयोगों में महत्वपूर्ण है जिनके लिए नेविगेशन या यात्रा दूरी की जानकारी की आवश्यकता होती है।"
+  },
+  "codeSnippets_calculating-a-route_googleMap_description": {
+    "text": "Google मानचित्र में, आप <0>v2:ComputerOutes</0> API का उपयोग कर सकते हैं। <0>अनुरोध शीर्षलेखों में <0>सामग्री-प्रकार</0>, <0>X-Goog-Api-Key (प्रमाणीकरण के लिए), और X-Goog-FieldMask (यह निर्दिष्ट करने के लिए कि प्रतिक्रिया में कौन से फ़ील्ड शामिल किए</0> जाएं) शामिल हैं.</0> Google Maps में रूट अनुरोध की गणना करने का एक उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description": {
+    "text": "Amazon Location Service में, CalculateRoute ऑपरेशन का उपयोग मार्गों की गणना करने के लिए किया जाता है। किसी मार्ग की गणना करते समय, आप वेपॉइंट स्थितियों का उपयोग करके प्रस्थान स्थिति और गंतव्य स्थिति के बीच अधिकतम 23 मध्यवर्ती स्टॉपओवर बिंदु निर्दिष्ट कर सकते हैं।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1": {
+    "text": "WayPointPositions — प्रस्थान स्थिति और गंतव्य स्थिति के बीच के मार्ग में शामिल करने के लिए मध्यवर्ती स्थितियों की क्रमबद्ध सूची निर्दिष्ट करता है।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description2": {
+    "text": "ध्यान दें: यदि आप एक वेपॉइंट स्थिति निर्दिष्ट करते हैं जो सड़क पर स्थित नहीं है, तो Amazon Location स्थिति को निकटतम सड़क पर ले जाती है।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description3": {
+    "text": "निम्नलिखित CalculateRoute अनुरोध 2 वेपॉइंट वाले मार्ग की गणना करता है:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4": {
+    "text": "<0>प्रस्थान की स्थिति <0>[-122.7565, 49.0021] है, और गंतव्य स्थिति [-122.3394, 47.6159]</0> है।</0>"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description5": {
+    "text": "अनुरोध पैरामीटर WayPointPositions के लिए:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description6": {
+    "text": "पहला स्टॉप ओवर पोजीशन <0>[-122.1884, 48.0936]</0> है।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description7": {
+    "text": "दूसरा स्टॉप ओवर पोजीशन <0>[-122.3493, 47.6205]</0> है।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description8": {
+    "text": "इन दो वेपॉइंट के बीच लेग लाइनस्ट्रिंग ज्योमेट्री को शामिल करने के लिए, निम्न वैकल्पिक पैरामीटर को सही पर सेट करें:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description9": {
+    "text": "eLegGeometry शामिल करें — प्रतिक्रिया में स्थितियों की एक जोड़ी के बीच प्रत्येक पथ की ज्यामिति शामिल है।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description10": {
+    "text": "Amazon Location Service में CalculateRoute अनुरोध का एक उदाहरण यहां दिया गया है:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription": {
+    "text": "इस अनुरोध में, प्रस्थान स्थिति फ़ील्ड Google मानचित्र में मूल पैरामीटर के बराबर है, जो मार्ग गणना के लिए शुरुआती बिंदु को निर्दिष्ट करता है। <1>डेस्टिनेशनपोज़िशन</1> फ़ील्ड, Google Maps में डेस्टिनेशन पैरामीटर के बराबर है, जो एंडपॉइंट को निर्दिष्ट करता है। मुख्य पैरामीटर आपकी API कुंजी है। हमारी रूटिंग सेवा के बारे में अधिक विस्तृत जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_1_description": {
+    "text": "मार्ग के एक विशिष्ट पैर की दूरी मीटर में।"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_1_description": {
+    "text": "रूट लेग की दूरी"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_2_description": {
+    "text": "मार्ग के एक विशिष्ट चरण की अवधि (सेकंड में)"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_2_description": {
+    "text": "रूट लेग की अवधि"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_3_description": {
+    "text": "मार्ग के एक विशिष्ट चरण की रेखाएँ दर्शाती हैं।"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_3_description": {
+    "text": "रूट लेग ज्योमेट्री"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_4_description": {
+    "text": "मार्ग के एक विशिष्ट चरण में शामिल अलग-अलग चरण।"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_4_description": {
+    "text": "रूट लेग स्टेप्स"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_5_description": {
+    "text": "मार्ग की कुल दूरी मीटर में।"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_5_description": {
+    "text": "कुल दूरी"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_6_description": {
+    "text": "मार्ग की कुल अवधि, आमतौर पर सेकंड या मिनट में।"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_6_description": {
+    "text": "कुल अवधि"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_7_description": {
+    "text": "मार्ग के लिए व्यूपोर्ट या मानचित्र का दृश्यमान क्षेत्र।"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_7_description": {
+    "text": "मार्ग का बाउंडिंग बॉक्स जिसमें मार्ग के सभी बिंदु शामिल हैं।"
+  },
+  "codeSnippets_route-planning_googleMap_description": {
+    "text": "Google मानचित्र में, आप रूट मैट्रिक्स की गणना करने के लिए <0>v2:ComputerOutes</0> API का उपयोग कर सकते हैं। <0>अनुरोध शीर्षलेखों में <0>सामग्री-प्रकार</0>, <0>X-Goog-Api-Key (प्रमाणीकरण के लिए), और x-Goog-FieldMask</0> (यह निर्दिष्ट करने के लिए कि प्रतिक्रिया में कौन से फ़ील्ड शामिल किए जाएं) शामिल हैं.</0> Google Maps में रूट मैट्रिक्स की गणना करने का तरीका यहां दिया गया है:"
+  },
+  "codeSnippets_route-planning_withAmazon_description": {
+    "text": "Amazon Location Service अपने रूट मैट्रिक्स API के साथ समान कार्यक्षमता प्रदान करती है। यह डेवलपर्स को कई प्रारंभ और समाप्ति बिंदुओं के बीच की दूरी और यात्रा के समय की गणना करने की अनुमति देता है। Google Maps के विपरीत, Amazon Location Service इस डेटा को प्राप्त करने के लिए POST अनुरोध का उपयोग करती है। अनुरोध में प्रस्थान स्थितियों, गंतव्य स्थितियों और दूरी मापन के लिए यूनिट के साथ JSON पेलोड शामिल है।"
+  },
+  "codeSnippets_route-planning_withAmazon_description1": {
+    "text": "<0>कैलकुलेटरआउट मैट्रिक्स ऑपरेशन का उपयोग करके रूट मैट्रिक्स अनुरोध की गणना</0> की जा सकती है। न्यूनतम अनुरोध में निम्न आवश्यक फ़ील्ड शामिल हैं:"
+  },
+  "codeSnippets_route-planning_withAmazon_description2": {
+    "text": "प्रस्थान स्थितियां — शुरुआती स्थितियों का सेट जिसके लिए मार्गों की गणना की जाती है। [देशांतर, अक्षांश] की एक सरणी के रूप में परिभाषित किया गया है"
+  },
+  "codeSnippets_route-planning_withAmazon_description3": {
+    "text": "गंतव्य स्थितियां — अंतिम स्थितियों का सेट जिसके लिए मार्गों की गणना की जाती है। इसे [देशांतर, अक्षांश] की श्रेणी के रूप में परिभाषित किया गया है।"
+  },
+  "codeSnippets_route-planning_withAmazon_description4": {
+    "text": "डिफ़ॉल्ट रूप से, प्रतिक्रिया किलोमीटर में दूरी लौटाती है। आप निम्न वैकल्पिक पैरामीटर का उपयोग करके माप की इकाई को मील में बदल सकते हैं:"
+  },
+  "codeSnippets_route-planning_withAmazon_description5": {
+    "text": "DistanceUnit — दूरी के परिणामों के लिए उपयोग करने के लिए यूनिट सिस्टम को निर्दिष्ट करता है।"
+  },
+  "codeSnippets_route-planning_withAmazon_description6": {
+    "text": "यहां Amazon Location Service Route Matrix API अनुरोध का एक उदाहरण दिया गया है:"
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription": {
+    "text": "इस अनुरोध में, प्रस्थान स्थितियां और गंतव्य स्थितियां अक्षांश-देशांतर जोड़े की सरणियों हैं। DistanceUnit पैरामीटर माप की इकाई को परिभाषित करता है (इस स्थिति में, मील का उपयोग किया जाता है)। <0>हमारी रूट प्लानिंग सेवा के बारे में अधिक व्यापक जानकारी के लिए, कृपया यहां दिए गए विस्तृत दस्तावेज़ देखें.</0>"
+  },
+  "codeSnippets_route-planning_responseResult": {
+    "text": "तुलना से, यह स्पष्ट है कि Google Maps और Amazon Location Service के नामकरण सम्मेलनों और प्रतिक्रिया संरचनाओं में अंतर है, लेकिन वे रूट प्लानिंग के लिए समान कार्यक्षमताओं की पेशकश करते हैं। Google Maps से Amazon लोकेशन सर्विस में सफल माइग्रेशन के लिए यह समझ महत्वपूर्ण है।"
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_1_description": {
+    "text": "जवाब में मीटर में उपलब्ध कराया गया।"
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_1_description": {
+    "text": "मार्ग की दूरी"
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_2_description": {
+    "text": "जवाब में कुछ ही सेकंड में उपलब्ध कराया गया।"
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_2_description": {
+    "text": "रूट की अवधि"
+  },
+  "duration": {
+    "text": "अवधि"
+  },
   "migration": {
     "text": "माइग्रेशन"
   },
@@ -3670,9 +5701,6 @@
   },
   "migrate_a_web_service": {
     "text": "वेब सेवा माइग्रेट करें"
-  },
-  "pricing": {
-    "text": "मूल्य निर्धारण"
   },
   "migration_desc": {
     "text": "Google मानचित्र से माइग्रेट करें"
@@ -3692,11 +5720,362 @@
   "web_service": {
     "text": "वेब सर्विस"
   },
+  "web_menu_item_desc": {
+    "text": "अपने वेब ब्राउज़र में Amazon Location Service को एक्सप्लोर करें"
+  },
+  "android_menu_item_desc": {
+    "text": "मोबाइल पर Amazon Location Service के लाभों का लाभ उठाएं"
+  },
+  "Mobile_percentage": {
+    "text": "गैर-स्थिर प्रतिशत"
+  },
+  "Min_1_api_call": {
+    "text": "न्यूनतम 1 API कॉल/माह"
+  },
+  "Examples": {
+    "text": "उदाहरण"
+  },
+  "notable_sdk_differences": {
+    "text": "उल्लेखनीय SDK अंतर"
+  },
+  "displaying_a_marker": {
+    "text": "एक मार्कर प्रदर्शित करना"
+  },
+  "displaying_an_info_pop_up": {
+    "text": "जानकारी पॉपअप प्रदर्शित करना"
+  },
+  "displaying_a_circle": {
+    "text": "वृत्त प्रदर्शित करना"
+  },
+  "displaying_a_heatmap": {
+    "text": "हीटमैप प्रदर्शित करना"
+  },
+  "displaying_markers": {
+    "text": "मार्कर प्रदर्शित करना"
+  },
+  "displaying_circles": {
+    "text": "वृत्त प्रदर्शित करना"
+  },
+  "displaying_polygons": {
+    "text": "बहुभुज प्रदर्शित करना"
+  },
+  "displaying_a_polygon": {
+    "text": "बहुभुज प्रदर्शित करना"
+  },
+  "image_overlays": {
+    "text": "इमेज ओवरले"
+  },
+  "calculating_a_route": {
+    "text": "मार्ग की गणना करना"
+  },
+  "displaying_lines": {
+    "text": "लाइनों को प्रदर्शित करना"
+  },
+  "calculating_a_route_matrix": {
+    "text": "रूट मैट्रिक्स की गणना करना"
+  },
+  "codeSnippets_image_overlays_about": {
+    "text": "इमेज ओवरले एक इमेज को दूसरे पर सुपरइम्पोज़ करने की तकनीक को संदर्भित करते हैं, जिससे एक समग्र दृश्य बनता है जो दोनों छवियों से दृश्य जानकारी को जोड़ता है।"
+  },
+  "codeSnippets_image_overlays_desc": {
+    "text": "इमेज ओवरले अतिरिक्त संदर्भ प्रदान करके मानचित्रों को बेहतर बनाने में मदद करते हैं, जैसे कि सैटेलाइट इमेजरी, मौसम पैटर्न, या ऐतिहासिक मानचित्र, समग्र दृश्य प्रतिनिधित्व को समृद्ध करते हैं और भौगोलिक डेटा की बेहतर समझ और विश्लेषण में सहायता करते हैं।"
+  },
+  "codeSnippets_image_overlays_point1": {
+    "text": "Google Maps, मैप पर इमेज रेंडर करने के लिए <1>Google.maps.GroundOverlay</1> का इस्तेमाल करता है।"
+  },
+  "codeSnippets_image_overlays_point2": {
+    "text": "Amazon Location Service मैप पर इमेज रेंडर करने के लिए MapLibre की <1>LoadImage, <1>AdImage</1></1>, <1>AddSource और <1>AddLayer</1></1> का उपयोग करती है।"
+  },
+  "codeSnippets_route_matrix_about": {
+    "text": "रूट मैट्रिक्स सेवा मानचित्रों के लिए एक स्मार्ट सहायक की तरह है जो एक स्थान से दूसरे स्थान तक पहुंचने का सबसे अच्छा तरीका जानने में मदद करती है। यह न केवल अलग-अलग स्थानों के बीच की दूरी की गणना करता है, बल्कि आपको यह भी बताता है कि उनके बीच यात्रा करने में कितना समय लग सकता है। यह उन ऐप्स के लिए बहुत आसान हो सकता है, जिन्हें मार्गों की योजना बनाने, सबसे तेज़ रास्ता खोजने या यात्रा लॉजिस्टिक्स को अनुकूलित करने की आवश्यकता होती है। मूल रूप से, यह मानचित्रों के माध्यम से नेविगेट करना आसान बनाता है और एप्लिकेशन को उपयोगकर्ताओं को सबसे कुशल यात्रा विकल्प प्रदान करने में मदद करता है।"
+  },
+  "codeSnippets_route_matrix_point1": {
+    "text": "रूट मैट्रिक्स की गणना करने के लिए Google Maps <1>DistanceMatrixService</1> या <1>ComputeRouteMatrix</1> का उपयोग करता है।"
+  },
+  "codeSnippets_route_matrix_point2": {
+    "text": "Amazon Location <1>Service रूट मैट्रिक्स की गणना करने के लिए CalculateRouteMatrixCommand</1> का उपयोग करती है।"
+  },
+  "codeSnippets_image_overlays_android_about": {
+    "text": "इमेज ओवरले एक इमेज को दूसरे पर सुपरइम्पोज़ करने की तकनीक को संदर्भित करते हैं, जिससे एक समग्र दृश्य बनता है जो दोनों छवियों से दृश्य जानकारी को जोड़ता है।"
+  },
+  "codeSnippets_image_overlays_android_point1": {
+    "text": "Google मानचित्र विशेष रूप से मानचित्र पर छवि रेंडर करने के लिए <1>AddGroundOverlay</1> विधि प्रदान करता है।"
+  },
+  "codeSnippets_image_overlays_android_point2": {
+    "text": "Amazon Location Service, मैप पर इमेज रेंडर करने के लिए MapLibre के <1>AddSource</1> और <1>AddLayer</1> तरीकों का उपयोग करती है।"
+  },
+  "google_image_overlays_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें।"
+  },
+  "google_image_overlays_step2": {
+    "text": "<0>चरण 2</0><1>: <1>/res/drawable</1> निर्देशिका के अंदर <1>newark.jpg</1> नाम की छवि जोड़ें और नीचे दिए गए कोड को imageOverlaysActivity.kt में जोड़ें।</1>"
+  },
+  "amazon_image_overlays_step1": {
+    "text": "<0>चरण 1</0>: नीचे दिए गए कोड को <1>activity_map.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_image_overlays_step2": {
+    "text": "<0>चरण 2</0><1>: <1>/res/drawable</1> निर्देशिका के अंदर <1>newark.jpg</1> नाम की छवि जोड़ें और नीचे दिए गए कोड को imageOverlayActivity.kt के अंदर जोड़ें।</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_about": {
+    "text": "रूट मैट्रिक्स सेवा आम तौर पर रूटिंग सेवा के भीतर एक सुविधा को संदर्भित करती है जो उपयोगकर्ताओं को विभिन्न स्थानों के बीच कई मार्ग उत्पन्न करने और प्रत्येक मार्ग के लिए दूरी और अवधि के बारे में जानकारी प्राप्त करने की अनुमति देती है। यह सेवा लॉजिस्टिक्स, ट्रांसपोर्टेशन प्लानिंग और ट्रिप ऑप्टिमाइज़ेशन जैसे अनुप्रयोगों के लिए मूल्यवान है।"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point1": {
+    "text": "Google Maps रूट मैट्रिक्स की गणना करने के लिए <1>distanceMatrix</1> या <1>computeRouteMatrix</1> प्रदान करता है।"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2": {
+    "text": "Amazon Location <1>Service रूट मैट्रिक्स की गणना करने के लिए अपने लोकेशन क्लाइंट के माध्यम से CalculateRouteMatrix</1> विधि प्रदान करती है।"
+  },
+  "google_calculating_a_route_matrix_step1": {
+    "text": "<0>चरण 1</0><1>: build.gradle में <1>निर्भरता</1> के अंदर नीचे की पंक्ति जोड़ें।</1>"
+  },
+  "google_calculating_a_route_matrix_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> में जोड़ें।"
+  },
+  "google_calculating_a_route_matrix_step3": {
+    "text": "<0>चरण 3</0>: नीचे दिए गए कोड को <1>CalculateRouteActivity.kt</1> में जोड़ें।"
+  },
+  "amazon_calculating_a_route_matrix_step1": {
+    "text": "<0>चरण 1: build.gradle.kts</0> <1>में <1>निर्भरता</1> के अंदर नीचे की पंक्तियों को जोड़ें।</1>"
+  },
+  "amazon_calculating_a_route_matrix_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_route_matrix_service.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_calculating_a_route_matrix_step3": {
+    "text": "<0>चरण 3</0><1>: <1>/res/drawable</1> निर्देशिका के अंदर <1>ic_marker_red नामक एक मार्कर छवि जोड़ें और नीचे दिए गए कोड को RouteMatrixServiciceActivity.kt</1> में डालें।</1>"
+  },
+  "codeSnippets_image_overlays_ios_about": {
+    "text": "इमेज ओवरले एक इमेज को दूसरे पर सुपरइम्पोज़ करने की तकनीक को संदर्भित करते हैं, जिससे एक समग्र दृश्य बनता है जो दोनों छवियों से दृश्य जानकारी को जोड़ता है।"
+  },
+  "codeSnippets_image_overlays_ios_point1": {
+    "text": "Google Maps, खास तौर पर इमेज ओवरले के लिए <1>GMSGroundOverlay क्लास</1> देता है।"
+  },
+  "codeSnippets_image_overlays_ios_point2": {
+    "text": "<1>Amazon Location Service इमेज ओवरले को रेंडर करने के लिए MapLibre के <1>MLNImageSource और MLNRasterStyleLayer</1> विधियों का उपयोग करती है।</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_about": {
+    "text": "रूट मैट्रिक्स सेवा आम तौर पर रूटिंग सेवा के भीतर एक सुविधा को संदर्भित करती है जो उपयोगकर्ताओं को विभिन्न स्थानों के बीच कई मार्ग उत्पन्न करने और प्रत्येक मार्ग के लिए दूरी और अवधि के बारे में जानकारी प्राप्त करने की अनुमति देती है। यह सेवा लॉजिस्टिक्स, ट्रांसपोर्टेशन प्लानिंग और ट्रिप ऑप्टिमाइज़ेशन जैसे अनुप्रयोगों के लिए मूल्यवान है।"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point1": {
+    "text": "Google Maps रूट मैट्रिक्स की गणना करने के लिए <1>distanceMatrix</1> या <1>computeRouteMatrix</1> प्रदान करता है।"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point2": {
+    "text": "Amazon Location <1>Service रूट मैट्रिक्स की गणना करने के लिए अपने लोकेशन क्लाइंट के माध्यम से CalculateRouteMatrix</1> विधि प्रदान करती है।"
+  },
+  "reload": {
+    "text": "रीलोड"
+  },
+  "codeSnippets_image_overlays_android_desc": {
+    "text": "इमेज ओवरले अतिरिक्त संदर्भ प्रदान करके मानचित्रों को बेहतर बनाने में मदद करते हैं, जैसे कि सैटेलाइट इमेजरी, मौसम पैटर्न, या ऐतिहासिक मानचित्र, समग्र दृश्य प्रतिनिधित्व को समृद्ध करते हैं और भौगोलिक डेटा की बेहतर समझ और विश्लेषण में सहायता करते हैं।"
+  },
+  "codeSnippets_image_overlays_ios_desc": {
+    "text": "इमेज ओवरले अतिरिक्त संदर्भ प्रदान करके मानचित्रों को बेहतर बनाने में मदद करते हैं, जैसे कि सैटेलाइट इमेजरी, मौसम पैटर्न, या ऐतिहासिक मानचित्र, समग्र दृश्य प्रतिनिधित्व को समृद्ध करते हैं और भौगोलिक डेटा की बेहतर समझ और विश्लेषण में सहायता करते हैं।"
+  },
+  "migrationOverview_heading": {
+    "text": "Google मानचित्र से Amazon स्थान पर माइग्रेट करें"
+  },
+  "migrationOverview_subHeading": {
+    "text": "यह लेख Google Maps से Amazon Location प्लेटफ़ॉर्म पर वेब, मोबाइल और सर्वर-आधारित एप्लिकेशन को माइग्रेट करने के तरीके के बारे में जानकारी प्रदान करता है। इस ट्यूटोरियल में तुलनात्मक कोड नमूने, माइग्रेशन सुझाव, और Amazon स्थान पर माइग्रेट करने के सर्वोत्तम तरीके शामिल हैं।"
+  },
+  "migrationOverview_cta1": {
+    "text": "Amazon Location आज़माएं"
+  },
+  "migrationOverview_cta2": {
+    "text": "मूल्य निर्धारण की तुलना करें"
+  },
+  "migrationOverview_featuresList2_title": {
+    "text": "यूज़र प्राइवेसी"
+  },
+  "migrationOverview_featuresList2_desc": {
+    "text": "उपयोगकर्ता की गोपनीयता को सुरक्षित रखें, अपनी संवेदनशील जानकारी को सुरक्षित रखें, और अपने एप्लिकेशन के सुरक्षा जोखिमों को कम करें।"
+  },
+  "migrationOverview_startMigration_heading": {
+    "text": "माइग्रेशन प्रारंभ करें"
+  },
+  "migrationOverview_article_point1": {
+    "text": "Amazon स्थान सेवा का अवलोकन"
+  },
+  "migrationOverview_article_point2": {
+    "text": "उच्च-स्तरीय सेवा तुलना"
+  },
+  "migrationOverview_article_point3": {
+    "text": "फ़ीचर तुलना"
+  },
+  "migrationOverview_article_point4": {
+    "text": "माइग्रेशन संबंधी विचार"
+  },
+  "migrationOverview_article_point5": {
+    "text": "प्रमाणीकरण"
+  },
+  "migrationOverview_article_point6": {
+    "text": "सुझाए गए माइग्रेशन प्लान"
+  },
+  "migrationOverview_article_point7": {
+    "text": "माइग्रेशन सहायता"
+  },
+  "migrationOverview_serviceOverview_desc": {
+    "text": "Amazon Location Service एक पूरी तरह से प्रबंधित स्थान सेवा है जो डेवलपर्स को अपने अनुप्रयोगों में स्थान डेटा और कार्यक्षमता जोड़ने की क्षमता प्रदान करती है। इस सेवा में REST API का एक सेट शामिल है, जो कई प्रकार की सुविधाएँ प्रदान करता है, जिनमें शामिल हैं:"
+  },
+  "migrationOverview_serviceOverview_point1": {
+    "text": "मानचित्र: कई शैलियों और सैटेलाइट इमेजरी में वेक्टर और रास्टर मानचित्र प्राप्त करें।"
+  },
+  "migrationOverview_serviceOverview_point2": {
+    "text": "स्थान: व्यवसाय, रेस्तरां और आकर्षण जैसे रुचि के स्थानों के बारे में जानकारी खोजें और प्राप्त करें।"
+  },
+  "migrationOverview_serviceOverview_point3": {
+    "text": "मार्ग: यातायात की स्थिति और अन्य कारकों को ध्यान में रखते हुए यात्रा के लिए इष्टतम मार्गों की गणना करें।"
+  },
+  "migrationOverview_serviceOverview_point4": {
+    "text": "जियोफेंस: जियोफेंस बनाएं और प्रबंधित करें, जो वर्चुअल सीमाएं हैं जो किसी डिवाइस के सीमा में प्रवेश करने या छोड़ने पर क्रियाओं को ट्रिगर कर सकती हैं।"
+  },
+  "migrationOverview_serviceOverview_point5": {
+    "text": "ट्रैकर्स: डिवाइस के स्थान को ट्रैक करें और जियोफेंस में प्रवेश करने या छोड़ने पर सूचनाएं प्राप्त करें।"
+  },
+  "migrationOverview_serviceComparison_desc1": {
+    "text": "ये तालिकाएँ Amazon स्थान सुविधाओं की एक उच्च-स्तरीय सूची प्रदान करती हैं, जो Google मानचित्र सुविधाओं के अनुरूप हैं। इस सूची में Amazon Location के सभी फ़ीचर, जैसे कि जियोफ़ेंस और ट्रैकर नहीं दिखाए गए हैं।"
+  },
+  "migrationOverview_serviceComparison_desc2": {
+    "text": "Amazon Location Service एकीकरण के दो तरीकों का समर्थन करती है, एक सीधा SDK एकीकरण और साथ ही REST सेवा API।"
+  },
+  "migrationOverview_featureComparison_desc": {
+    "text": "Google Maps और Amazon Location दोनों ही स्थान-आधारित सेवाएँ हैं जो स्थान-आधारित अनुभवों को बढ़ाने के लिए कई सुविधाएँ प्रदान करती हैं। <0>मैपिंग और जियोकोडिंग से लेकर रूटिंग और जियोफ़ेंसिंग क्षमताओं तक, ये सेवाएँ डेवलपर को सटीक और वैयक्तिकृत स्थान सेवाओं के साथ एप्लिकेशन बनाने में सक्षम बनाती हैं. और जानें</0>"
+  },
+  "migrationOverview_migrationConsiderations_desc1": {
+    "text": "Google मानचित्र से Amazon स्थान सेवा में माइग्रेट करते समय, निम्नलिखित बातों पर विचार करें:"
+  },
+  "migrationOverview_migrationConsiderations_point1": {
+    "text": "Amazon Location Map संसाधन आपको मैप के लिए अंतर्निहित बेस मैप डेटा तक पहुँच प्रदान करता है। अपने एप्लिकेशन में इंटरेक्टिव मानचित्र जोड़ने के लिए आपको मैप रेंडरिंग लाइब्रेरी जैसे कि <0>मैप्लिब्रे</0> की आवश्यकता होगी।"
+  },
+  "migrationOverview_migrationConsiderations_point2": {
+    "text": "Amazon Location अलग-अलग मैप प्रदाताओं से मैप टाइल प्रदान करता है और आप अपने आवेदन की ज़रूरतों के आधार पर तदनुसार चुन सकते हैं. उन डेटा प्रदाताओं को आपके लाइसेंस संबंधी विचारों में कैसे फिट किया जा सकता है, इसके बारे में और <0>जानें</0>।"
+  },
+  "migrationOverview_migrationConsiderations_point3": {
+    "text": "अमेज़ॅन लोकेशन इंटरेक्टिव मैप्स के उपयोग के लिए शुल्क लेता है, जो लोड किए गए मैप टाइल्स की संख्या पर आधारित होता है। मेप्लिब्रे के साथ इंटरैक्टिव Amazon Location SDK में, विकास लागत को कम करने के लिए मैप टाइल्स स्वचालित रूप से कैश किए जाते हैं।"
+  },
+  "migrationOverview_migrationConsiderations_point4": {
+    "text": "Amazon Location और MapLibre SDK मैप टाइल का उपयोग करते हैं। जब तक यूज़र मैप को पैन और ज़ूम नहीं करता, तब तक उनसे सिर्फ़ उन टाइलों की संख्या के लिए शुल्क लिया जाता है, जिन्हें वे प्राप्त करते हैं।"
+  },
+  "migrationOverview_migrationConsiderations_point5": {
+    "text": "Amazon Location AWS में अपना डेटा संग्रहीत करता है।"
+  },
+  "migrationOverview_migrationConsiderations_desc2": {
+    "text": "Amazon Location के लिए यहां कुछ संबंधित संसाधन दिए गए हैं:"
+  },
+  "migrationOverview_migrationConsiderations_resource1": {
+    "text": "<0>अमेज़न लोकेशन प्राइसिंग पेज</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource2": {
+    "text": "<0>अमेज़ॅन लोकेशन प्राइसिंग कैलकुलेटर</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource3": {
+    "text": "<0>Amazon स्थान सेवा की शर्तें</0>"
+  },
+  "migrationOverview_authentication_desc": {
+    "text": "Google Maps बुनियादी कुंजी-आधारित प्रमाणीकरण प्रदान करता है। Amazon Location Service मूल कुंजी-आधारित प्रमाणीकरण और AWS Cognito प्रमाणीकरण दोनों प्रदान करती है। AWS Cognito प्रमाणीकरण मूल कुंजी-आधारित प्रमाणीकरण की तुलना में अधिक सुरक्षा सुविधाएँ प्रदान करता है।"
+  },
+  "migrationOverview_authentication_point1_mainPoint": {
+    "text": "<0>मूल कुंजी-आधारित प्रमाणीकरण</0> से आप अपनी API कुंजी को आसानी से प्लग इन कर सकते हैं और निम्न क्रियाओं को अधिकृत कर सकते हैं:"
+  },
+  "migrationOverview_authentication_point1_subPoint1": {
+    "text": "मानचित्र क्रियाएँ: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+  },
+  "migrationOverview_authentication_point1_subPoint2": {
+    "text": "स्थानों की कार्रवाइयां: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+  },
+  "migrationOverview_authentication_point1_subPoint3": {
+    "text": "रूट्स क्रियाएँ: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+  },
+  "migrationOverview_authentication_point2": {
+    "text": "दूसरी ओर <0>AWS Cognito प्रमाणीकरण</0> विधि आपको बहुत अधिक बारीक नियंत्रण प्रदान करती है और आपको अपनी गोपनीयता नीति के आधार पर सभी संसाधनों तक पहुँचने की अनुमति देती है।"
+  },
+  "migrationOverview_suggestedMigrationPlan_desc": {
+    "text": "एक उच्च-स्तरीय माइग्रेशन योजना में ये चरण होते हैं।"
+  },
+  "migrationOverview_suggestedMigrationPlan_point1": {
+    "text": "Google Maps API और उन सेवाओं की इन्वेंट्री लें, जिनका इस्तेमाल आपका ऐप्लिकेशन करता है। सत्यापित करें कि Amazon Location वैकल्पिक API और सेवाएँ प्रदान करता है।"
+  },
+  "migrationOverview_suggestedMigrationPlan_point2": {
+    "text": "विशिष्ट विवरण और सहायता के लिए नीचे दिए गए तकनीकी संसाधनों और माइग्रेशन सहायता की समीक्षा करें।"
+  },
+  "migrationOverview_suggestedMigrationPlan_point3": {
+    "text": "<0>AWS अकाउंट</0> और <1>API कुंजी</1> या <2>Amazon Cognito सेटअप</2> बनाएं।"
+  },
+  "migrationOverview_suggestedMigrationPlan_point4": {
+    "text": "अपना ऐप्लिकेशन कोड माइग्रेट करें।"
+  },
+  "migrationOverview_suggestedMigrationPlan_point5": {
+    "text": "अपने माइग्रेट किए गए एप्लिकेशन का परीक्षण करें।"
+  },
+  "migrationOverview_suggestedMigrationPlan_point6": {
+    "text": "अपने माइग्रेट किए गए एप्लिकेशन को उत्पादन में परिनियोजित करें।"
+  },
+  "migrationOverview_technicalResources_heading": {
+    "text": "Amazon Location Service तकनीकी संसाधन"
+  },
+  "migrationOverview_technicalResources_resource1": {
+    "text": "<0>डेवलपर गाइड</0>"
+  },
+  "migrationOverview_technicalResources_resource2": {
+    "text": "<0>API का संदर्भ</0>"
+  },
+  "migrationOverview_technicalResources_resource3": {
+    "text": "<0>CLI संदर्भ</0>"
+  },
+  "migrationOverview_technicalResources_resource4": {
+    "text": "<0>सैंपल ऐप्लिकेशन</0>"
+  },
+  "migrationOverview_migrationSupport_desc": {
+    "text": "डेवलपर निम्नलिखित गाइड में विस्तृत माइग्रेशन जानकारी पा सकते हैं:"
+  },
+  "migrationOverview_footnotes_point1": {
+    "text": "यदि ग्राहक डेटा प्रदाता के रूप में HERE का चयन करता है, तो Amazon Location समय क्षेत्र की जानकारी प्रदान करता है"
+  },
+  "explore-working-sample": {
+    "text": "<0>यहां काम करने का नमूना देखें</0>"
+  },
+  "volume_discounts_available": {
+    "text": "वॉल्यूम छूट उपलब्ध हैं। कृपया <0>सेल्स से संपर्क करें</0>।"
+  },
+  "places_search": {
+    "text": "स्थानों की खोज"
+  },
+  "webSdkExample_Android_description2": {
+    "text": "हमारे पूरी तरह कार्यात्मक एंड्रॉइड ऐप को <0>यहां</0> एक्सप्लोर करके Amazon Location की विशेषताओं के बारे में जानें।"
+  },
+  "response_field_mapping_disclaimer": {
+    "text": "नीचे दी गई तालिका इस ऑपरेशन को करते समय Google मानचित्र और Amazon स्थान सेवा से आमतौर पर उपयोग किए जाने वाले प्रतिक्रिया फ़ील्ड की तुलना करती है।"
+  },
+  "web_service_footnote_1": {
+    "text": "Google मानचित्र अक्षांश, देशांतर अनुक्रम का उपयोग करता है जबकि Amazon स्थान सेवा देशांतर, अक्षांश अनुक्रम का उपयोग करती है।"
+  },
+  "Categories": {
+    "text": "श्रेणियां"
+  },
+  "accuracy_filter": {
+    "text": "सटीकता फ़िल्टर (मीटर)"
+  },
+  "distance_filter": {
+    "text": "दूरी फ़िल्टर (मीटर)"
+  },
+  "eval_req_with_filter_applied": {
+    "text": "फ़िल्टर लागू करने के साथ मूल्यांकन किए गए अनुरोध"
+  },
+  "avg_device_speed_meters_per_min": {
+    "text": "औसत डिवाइस गति (मीटर/मिनट)"
+  },
   "error_handler__failed_fetch_tokens": {
     "text": "टोकन लाने में असफल"
   },
   "error_handler__failed_refresh_tokens": {
     "text": "टोकन रीफ़्रेश करने में विफल"
+  },
+  "migrationSDK_title": {
+    "text": "Amazon लोकेशन माइग्रेशन SDK (वैकल्पिक)"
+  },
+  "migrationSDK_description": {
+    "text": "Amazon Location Migration SDK एक ब्रिज प्रदान करता है, जिससे आप मौजूदा एप्लिकेशन को Google मानचित्र से Amazon स्थान पर माइग्रेट कर सकते हैं। माइग्रेशन SDK आपके एप्लिकेशन के लिए JavaScript के लिए Google Maps SDK का उपयोग करके बनाए गए Amazon स्थान सेवा का उपयोग करने का विकल्प प्रदान करता है, अगर Amazon Location उपयोग की गई क्षमताओं का समर्थन करता है, तो किसी भी एप्लिकेशन या व्यावसायिक तर्क को फिर से लिखने की आवश्यकता के बिना Amazon स्थान सेवा का उपयोग किया जा सकता है। माइग्रेशन SDK सभी API कॉल को Google मानचित्र के बजाय Amazon स्थान पर रीडायरेक्ट करता है। यदि आप अपना पूरा माइग्रेशन शुरू करने से पहले अपने मौजूदा एप्लिकेशन पर माइग्रेशन SDK को आज़माना चाहते हैं, तो GitHub पर <0>Amazon Location माइग्रेशन</0> SDK देखें।"
+  },
+  "amazon_location_service": {
+    "text": "Amazon Location Service"
   },
   "geofences_and_trackers": {
     "text": "जियोफेंस और ट्रैकर्स"
@@ -3797,6 +6176,342 @@
   "new_developer_resources_desc": {
     "text": "मार्गदर्शिकाएँ और फ़ोरम"
   },
+  "demo_site": {
+    "text": "डेमो साइट"
+  },
+  "demo_web": {
+    "text": "डेमो वेब"
+  },
+  "demo_android": {
+    "text": "डेमो एंड्रॉइड"
+  },
+  "migration_overview": {
+    "text": "माइग्रेशन अवलोकन"
+  },
+  "version_1": {
+    "text": "मूल API"
+  },
+  "version_2": {
+    "text": "नए उन्नत API"
+  },
+  "snapping_to_roads": {
+    "text": "तड़क-भड़क कर सड़कों पर"
+  },
+  "codeSnippets_places_search_point2_v2": {
+    "text": "<1><1><1><0>Amazon Location Service एक GeoPlaces क्लाइंट प्रदान करती है, जिसमें <1>स्वतः पूर्ण</1>, जियोकोड, <1>GetPlace</1>, <1><1>ReverseGeocode</1></1>, SearchNearby, SearchText और सुझाव के लिए API शामिल हैं. और जानें</0></1></1></1>"
+  },
+  "codeSnippets_routing_services_point2_v2": {
+    "text": "Amazon Location <1>CalculateRoutes प्रदान करता है</1> और उस डेटा को मानचित्र पर प्रदर्शित करने के लिए MapLibre की रेंडरिंग क्षमता का उपयोग करता है।"
+  },
+  "codeSnippets_snapping_to_roads_about": {
+    "text": "स्नैप टू रोड्स की कार्यक्षमता डेटा के समान सेट को वापस करके निकटतम सड़क पर एक जीपीएस ट्रेस से मेल खाती है, जिसमें वाहन यात्रा कर रहा था, सबसे संभावित सड़कों पर स्नैप किए गए बिंदुओं के साथ।"
+  },
+  "codeSnippets_snapping_to_roads_point1": {
+    "text": "Google Maps Roads API से <1>snapToRoads</1> एंडपॉइंट प्रदान करता है।"
+  },
+  "codeSnippets_snapping_to_roads_point2": {
+    "text": "Amazon Location Service, रूट्स API से <1>SnapToRoads</1> एंडपॉइंट प्रदान करती है।"
+  },
+  "codeSnippets_route_matrix_point2_v2": {
+    "text": "Amazon Location <1>Service रूट मैट्रिक्स की गणना करने के लिए CalculateRouteMatrix</1> का उपयोग करती है।"
+  },
+  "codeSnippets_load_a_map_Android_point2_v2": {
+    "text": "Amazon Location Service के साथ, MapLibre लाइब्रेरी का <1>MapView एक ऐप के भीतर मैप्स</1> को इनिशियलाइज़ करने और प्रदर्शित करने के लिए प्राथमिक इंटरफ़ेस है। हम मैप सेवा URL प्रदान करके आसानी से मैप लोड कर सकते हैं, जैसा कि नीचे दिए गए उदाहरण में दिखाया गया है।"
+  },
+  "amazon_load_a_map_step1_v2": {
+    "text": "<0>चरण 1</0>: अपना मॉड्यूल-स्तरीय <1>build.gradle.kts</1> खोलें और नीचे दिया गया डेटा जोड़ें"
+  },
+  "amazon_load_a_map_step2_v2": {
+    "text": "<0>चरण 2</0>: अपने एप्लिकेशन को अपनी मानचित्र शैली और AWS क्षेत्र के साथ कॉन्फ़िगर करने के लिए, इसे नीचे की तरह <1>configuration.xml</1> के अंदर दर्ज करें"
+  },
+  "amazon_load_a_map_step5_v2": {
+    "text": "<0>चरण 5</0>: नीचे दिए गए कोड को अपने <1>MapActivity.kt</1> में जोड़ें"
+  },
+  "amazon_display_an_info_window_step3_v2": {
+    "text": "<0>चरण 3</0>: <1>strings.xml में निम्न कोड शामिल करें</1>।"
+  },
+  "amazon_display_an_info_window_step4_v2": {
+    "text": "<0>चरण 4</0>: <1>InfoPopupActivity.kt</1> में निम्न कोड शामिल करें।"
+  },
+  "amazon_adding_a_circle_step1_v2": {
+    "text": "<0>चरण 1</0><1>: build.gradle.kts में <1>निर्भरता</1> के अंदर नीचे की पंक्ति जोड़ें।</1>"
+  },
+  "codeSnippets_calculating_a_route_android_point2_v2": {
+    "text": "<1>Amazon Location <1>Service <1>aws.sdk.kotlin:georoutes SDK के अंदर उपलब्ध अपने GeoRoutesClient के माध्यम से CalculateRoutes</1></1> विधि प्रदान करती है.</1> API कुंजी का <1>उपयोग</1> CalculateRoutesRequest के अंदर किया जाता है जैसा कि नीचे दिए गए उदाहरण में दिखाया गया है। इसके बाद, यह मैप पर इस रूट डेटा को प्रदर्शित करने के लिए MapLibre की रेंडरिंग क्षमताओं का लाभ उठाता है।"
+  },
+  "amazon_calculating_a_route_step3_v2": {
+    "text": "<0>चरण 3</0><1>: <1>/res/drawable निर्देशिका के अंदर <1>ic_marker_red</1> नामक एक मार्कर छवि जोड़ें और नीचे दिए गए कोड को GeoRoutesCalculateRouteActivity.kt</1> में डालें।</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2_v2": {
+    "text": "<1>Amazon Location <1>Service <1>aws.sdk.kotlin:georoutes SDK के अंदर उपलब्ध अपने GeoRoutesClient</1> के माध्यम से CalculateRouteMatrix</1> विधि प्रदान करती है.</1> API कुंजी का <1>उपयोग</1> CalculateRouteMatrixRequest के अंदर किया जाता है जैसा कि नीचे दिए गए उदाहरण में दिखाया गया है।"
+  },
+  "amazon_calculating_a_route_matrix_step3_v2": {
+    "text": "<0>चरण 3</0>: नीचे दिए गए कोड को <1>strings.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_calculating_a_route_matrix_step4_v2": {
+    "text": "<0>चरण 4</0><1>: <1>/res/drawable</1> निर्देशिका के अंदर <1>ic_marker_red नामक एक मार्कर छवि जोड़ें और नीचे दिए गए कोड को GeoRouteMatrixServiceActivity.kt</1> में डालें।</1>"
+  },
+  "codeSnippets_snapping_to_roads_android_point1": {
+    "text": "Google Maps Roads API से <1>snapToRoads</1> एंडपॉइंट प्रदान करता है।"
+  },
+  "codeSnippets_snapping_to_roads_android_point2": {
+    "text": "<1>Amazon Location Service <1><1>aws.sdk.kotlin:georoutes SDK के अंदर उपलब्ध अपने GeoRoutesClient</1> के माध्यम से SnapToRoads</1> विधि प्रदान करती है.</1> <1>API कुंजी का उपयोग SnapToRoadsRequest के अंदर किया जाता है जैसा कि नीचे दिए गए उदाहरण में दिखाया गया है.</1>"
+  },
+  "google_snapping_to_roads_step1": {
+    "text": "<0>चरण 1</0><1>: build.gradle.kts में <1>निर्भरता</1> के अंदर नीचे की पंक्ति जोड़ें।</1>"
+  },
+  "google_snapping_to_roads_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_maps.xml</1> के अंदर जोड़ें।"
+  },
+  "google_snapping_to_roads_step3": {
+    "text": "<0>चरण 3: /res/drawable</0> <1><1>निर्देशिका के अंदर <1>ic_marker_red और ic_marker_blue</1> <1>नाम की मार्कर छवियां जोड़ें और नीचे दिए गए कोड को SnapToRoadActivity.kt</1> में जोड़ें।</1></1>"
+  },
+  "amazon_snapping_to_roads_step1": {
+    "text": "<0>चरण 1</0><1>: build.gradle.kts में <1>निर्भरता</1> के अंदर नीचे की पंक्ति जोड़ें।</1>"
+  },
+  "amazon_snapping_to_roads_step2": {
+    "text": "<0>चरण 2</0>: नीचे दिए गए कोड को <1>activity_snap_to_road.xml</1> के अंदर जोड़ें।"
+  },
+  "amazon_snapping_to_roads_step3": {
+    "text": "<0>चरण 3</0>: <1>layout_text.xml में निम्न कोड शामिल करें</1>।"
+  },
+  "amazon_snapping_to_roads_step4": {
+    "text": "<0>चरण 4: /res/drawable</0> <1><1>निर्देशिका के अंदर <1>ic_marker_red और ic_marker_blue</1> <1>नाम की मार्कर छवियां जोड़ें और नीचे दिए गए कोड को GeoRoutesSnapToRoadActivity.kt</1> में डालें।</1></1>"
+  },
+  "codeSnippets_searching_for_places_android_point2_v2": {
+    "text": "<1>Amazon Location Service <1><1>aws.sdk.kotlin:geoplaces SDK के अंदर उपलब्ध अपने GeoPlacesClient</1> के माध्यम से सुझाव</1> विधि प्रदान करती है.</1> <1>API कुंजी का उपयोग सुझाव अनुरोध के अंदर किया जाता है जैसा कि नीचे दिए गए उदाहरण में दिखाया गया है.</1> <1><1><1>इसके अतिरिक्त, Amazon Location Service अन्य Places API जैसे <1>getPlace</1>, <1>स्वतः पूर्ण</1>, जियोकोड, <1><1>reverseGeocode</1></1>, searchNearby, searchText, और सुझाव प्रदान करती है.</1></1></1>"
+  },
+  "providing_suggestions": {
+    "text": "सुझाव प्रदान करना"
+  },
+  "providing_autocomplete": {
+    "text": "स्वतः पूर्ण प्रदान करना"
+  },
+  "calculating_route_matrices": {
+    "text": "रूट मैट्रिसेस की गणना करना"
+  },
+  "amazon_location_auth_sdk_ios_heading": {
+    "text": "<0>अमेज़ॅन लोकेशन सर्विस मोबाइल ऑथेंटिकेशन एसडीके</0>"
+  },
+  "amazon_location_auth_sdk_ios_desc": {
+    "text": "Amazon Location Service API कॉल करते समय उनके iOS एप्लिकेशन से कॉल करते समय ये यूटिलिटीज आपको प्रमाणित करने में मदद करती हैं। प्रमाणीकरण विधि के रूप में Amazon Cognito का उपयोग करते समय यह विशेष रूप से मदद करता है।"
+  },
+  "ios_swift_maplibre_package": {
+    "text": "नक्शा रेंडर करने के लिए, अपने प्रोजेक्ट में MapLibre Native पैकेज जोड़ें।"
+  },
+  "ios_swift_add_package_desc": {
+    "text": "अपना प्रोजेक्ट चुनें और <1>पैकेज डिपेंडेंसी</1> टैब पर जाएं और <1>+</1> आइकन पर क्लिक करें।"
+  },
+  "ios_swift_maplibre_package_url_desc": {
+    "text": "पैकेज URL दर्ज करें: <1>https://github.com/maplibre/maplibre-gl-native-distribution</1> और <1>पैकेज जोड़ें</1> बटन पर क्लिक करें।"
+  },
+  "ios_swift_add_maplibre_package_to_target": {
+    "text": "<1>Add to Target</1> कॉलम के ड्रॉपडाउन में अपनी परियोजना का चयन करें और पंक्ति <1>MapLibre</1> के साथ <1>पैकेज जोड़ें</1> बटन पर क्लिक करें।"
+  },
+  "ios_swift_aws_geo_places_routes": {
+    "text": "AWSGeoPlaces और AWSGeoRoutes API का उपयोग करने के लिए, अपने प्रोजेक्ट में AWS SDK स्विफ्ट पैकेज जोड़ें।"
+  },
+  "ios_swift_aws_geo_places_routes_url_desc": {
+    "text": "पैकेज URL दर्ज करें: <1>https://github.com/awslabs/aws-sdk-swift</1> और <1>पैकेज जोड़ें</1> बटन पर क्लिक करें।"
+  },
+  "ios_swift_add_aws_geo_places_routes_package_to_target": {
+    "text": "<1>लक्ष्य में जोड़ें कॉलम के</1> <1>ड्रॉपडाउन में अपनी परियोजना का चयन करें और पंक्तियों के साथ <1>पैकेज जोड़ें</1> बटन पर क्लिक करें <1>AWSGeoPlaces या AWSGeoRoutes</1>.</1>"
+  },
+  "ios_swift_amazon_location_ios_auth_sdk": {
+    "text": "API कुंजी अनुरोधों को प्रमाणित करने के लिए, अपने प्रोजेक्ट में AmazonLocationIOSAuthSDK पैकेज जोड़ें।"
+  },
+  "ios_swift_amazon_location_ios_auth_sdk_url_desc": {
+    "text": "पैकेज URL दर्ज करें: <1>https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios</1> और <1>पैकेज जोड़ें</1> बटन पर क्लिक करें।"
+  },
+  "ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+    "text": "<1>ऐड टू टारगेट</1> कॉलम के ड्रॉपडाउन में अपनी परियोजना का चयन करें और पंक्तियों के साथ <1>पैकेज जोड़ें</1> बटन पर क्लिक करें <1>AmazonLocationIOSAuthSDK</1>।"
+  },
+  "ios_swift_turf": {
+    "text": "'वृत्त प्रदर्शित करने' के उदाहरण के लिए, आपको अपने प्रोजेक्ट में टर्फ स्विफ्ट पैकेज जोड़ना होगा।"
+  },
+  "ios_swift_turf_url_desc": {
+    "text": "पैकेज URL दर्ज करें: <1>https://github.com/mapbox/turf-swift</1> और <1>पैकेज जोड़ें</1> बटन पर क्लिक करें।"
+  },
+  "ios_swift_add_turf_package_to_target": {
+    "text": "<1>टारगेट कॉलम के</1> ड्रॉपडाउन में अपनी परियोजना का चयन करें और पंक्तियों के <1>टर्फ</1> के साथ <1>पैकेज जोड़ें</1> बटन पर क्लिक करें।"
+  },
+  "codeSnippets_snapping_to_roads_ios_about": {
+    "text": "स्नैप टू रोड्स की कार्यक्षमता डेटा के समान सेट को वापस करके निकटतम सड़क पर एक जीपीएस ट्रेस से मेल खाती है, जिसमें वाहन यात्रा कर रहा था, सबसे संभावित सड़कों पर स्नैप किए गए बिंदुओं के साथ।"
+  },
+  "codeSnippets_snapping_to_roads_ios_point1": {
+    "text": "Google Maps Roads API से <1>snapToRoads</1> एंडपॉइंट प्रदान करता है।"
+  },
+  "codeSnippets_snapping_to_roads_ios_point2": {
+    "text": "<1>Amazon <1>Location Service AWSGeoRoutes API से SnapToRoads</1> सेवा प्रदान करती है।</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii_iii_v2": {
+    "text": "संसाधन और क्रियाएँ: इस कुंजी द्वारा अधिकृत क्रियाएँ। आपको संबंधित संसाधनों के लिए कार्रवाइयां निर्दिष्ट करनी होंगी।"
+  },
+  "suggest_places": {
+    "text": "स्थानों का सुझाव दें"
+  },
+  "get_static_map": {
+    "text": "स्थैतिक नक्शा प्राप्त करें"
+  },
+  "optimizing_waypoints": {
+    "text": "वेपॉइंट ऑप्टिमाइज़ करना"
+  },
+  "codeSnippets_geocoding_withAmazon_description_v2": {
+    "text": "Amazon Location Service में, Google Maps की जियोकोडिंग के साथ तुलनीय विशेषता HTTP POST अनुरोध का उपयोग करने वाली <0>जियोकोड</0> सेवा है। यह सेवा फ़्री-फ़ॉर्म टेक्स्ट (जैसे पता) का उपयोग करके स्थानों की खोज करती है और उम्मीदवारों के स्थानों के बारे में निर्देशांक, पते और अन्य पूरक जानकारी लौटाती है। एक साधारण अनुरोध में निम्न आवश्यक पैरामीटर शामिल होते हैं:"
+  },
+  "codeSnippets_geocoding_withAmazon_description_1_v2": {
+    "text": "QueryText — निर्देशांक के सेट में बदलने के लिए पता, नाम, शहर या क्षेत्र। उदाहरण के लिए, स्ट्रिंग 'एनी टाउन'।"
+  },
+  "codeSnippets_geocoding_withAmazon_request_description_v2": {
+    "text": "इस अनुरोध में, <1>QueryText</1> फ़ील्ड Google मानचित्र में इनपुट पैरामीटर के बराबर है, जो जियोकोड किए जाने वाले पते को निर्दिष्ट करता है। <1>biasPosition</1> <1><1>और <1>FilterCountries</1> फ़ील्ड का उपयोग खोज परिणामों को किसी विशिष्ट क्षेत्र में बायस करने के लिए किया जाता है, जैसा कि Google मानचित्र में स्थान/पूर्वाग्रह और देश मापदंडों के समान होता है.</1></1> <1>मुख्य पैरामीटर आपकी API कुंजी है.</1> हमारी जियोकोडिंग सेवा के बारे में ज़्यादा जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_v2": {
+    "text": "Amazon Location Service में, <0>ReverseGeocode</0> सेवा का उपयोग HTTP POST अनुरोध के माध्यम से रिवर्स जियोकोडिंग के लिए किया जाता है। यह API पते और जानकारी प्राप्त करने के लिए निर्देशांक का उपयोग करता है। एक साधारण अनुरोध में निम्न आवश्यक पैरामीटर शामिल होते हैं:"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1_v2": {
+    "text": "QueryPosition — निर्देशांक का एक सेट जिसे आप किसी पते, रुचि के बिंदु या सामान्य स्थान में बदलना चाहते हैं। <0>[देशांतर, अक्षांश]</0> फ़ॉर्मेट का उपयोग करके परिभाषित किया गया।"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description_v2": {
+    "text": "इस अनुरोध में, <1>QueryPosition</1> फ़ील्ड Google मानचित्र में <1>स्थान</1> पैरामीटर के बराबर है, जो भौगोलिक निर्देशांक को रिवर्स जियोकोड करने के लिए निर्दिष्ट करता है। <1>maxResults फ़ील्ड में वापस आने वाले परिणामों</1> की अधिकतम संख्या निर्दिष्ट की जाती है। <1>भाषा फ़ील्ड उस भाषा</1> को निर्दिष्ट करता है जिसमें परिणाम लौटाए जाने चाहिए, जैसा कि Google मानचित्र में <1>भाषा</1> पैरामीटर के समान है। <1>मुख्य</1> पैरामीटर आपकी API कुंजी है। हमारी रिवर्स जियोकोडिंग सेवा के बारे में अधिक व्यापक जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "codeSnippets_text_searching_withAmazon_description_v2": {
+    "text": "Amazon Location टेक्स्ट सर्च अनुरोध HTTP POST अनुरोध का उपयोग करके <1>SearchText</1> सेवा के माध्यम से किया जाता है। अनुरोध के मुख्य भाग में खोजे जाने वाले स्थान के लिए <1>QueryText</1> फ़ील्ड, किसी विशेष भौगोलिक क्षेत्र की ओर खोज को <1>पूर्वाग्रहित करने के लिए पूर्वाग्रहों की स्थिति और खोज की भाषा निर्दिष्ट</1> करने के लिए <1>भाषा</1> शामिल है। <0>हमारी टेक्स्ट सर्च सेवा के बारे में अधिक व्यापक जानकारी के लिए, कृपया यहां दिए गए विस्तृत दस्तावेज़ देखें.</0>"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description_v2": {
+    "text": "Amazon Location Service में, <0>SearchNearby</0> सेवा का उपयोग HTTP POST अनुरोध के माध्यम से आस-पास की खोज के लिए किया जाता है, यह सेवा एक निर्दिष्ट स्थिति के आसपास के स्थानों की खोज करती है। एक साधारण अनुरोध में निम्न आवश्यक पैरामीटर शामिल होते हैं:"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2_v2": {
+    "text": "QueryPosition — निर्देशांक का एक सेट जिसे आप किसी पते, रुचि के बिंदु या सामान्य स्थान में बदलना चाहते हैं। <0>[देशांतर, अक्षांश]</0> फ़ॉर्मेट का उपयोग करके परिभाषित किया गया।"
+  },
+  "codeSnippets_nearby_searching_request_description_v2": {
+    "text": "इस अनुरोध में, <1>QueryPosition</1> फ़ील्ड Google मानचित्र में <1>स्थान</1> पैरामीटर के बराबर है। <1>maxResults फ़ील्ड रिटर्न करने के लिए परिणामों</1> की अधिकतम संख्या निर्दिष्ट करता है। <1>भाषा फ़ील्ड उस भाषा</1> को निर्दिष्ट करता है जिसमें परिणाम लौटाए जाने चाहिए, जैसा कि Google मानचित्र में <1>भाषा</1> पैरामीटर के समान है। <1>मुख्य</1> पैरामीटर आपकी API कुंजी है। हमारी टेक्स्ट सर्च सेवा के बारे में अधिक विस्तृत जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_v2": {
+    "text": "Amazon Location Service में, Google Maps के स्वतः पूर्ण होने की तुलना करने योग्य विशेषता स्वतः <0>पूर्ण सेवा है, जिसे POST HTTP</0> विधि का उपयोग करके कहा जाता है। यह सेवा टेक्स्ट-आधारित भौगोलिक खोजों के लिए स्वत: पूर्ण कार्यक्षमता प्रदान करती है, उपयोगकर्ता खोज प्रश्नों के जवाब में स्थान की भविष्यवाणी वापस करती है। एक साधारण अनुरोध में निम्न आवश्यक पैरामीटर शामिल होते हैं:"
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_point1_v2": {
+    "text": "QueryText - पूर्ण किए जाने वाले आंशिक पते को बनाने वाली निःशुल्क फ़ॉर्म टेक्स्ट क्वेरी।"
+  },
+  "codeSnippets_autocomplete_withAmazon_description2_v2": {
+    "text": "इस अनुरोध में, <1>QueryText</1> फ़ील्ड Google मानचित्र में <1>इनपुट</1> पैरामीटर के बराबर है, जो उस टेक्स्ट स्ट्रिंग को निर्दिष्ट करता है जिस पर खोजना है। <1>maxResults फ़ील्ड रिटर्न करने के लिए परिणामों</1> की अधिकतम संख्या निर्दिष्ट करता है। <1>मुख्य पैरामीटर आपकी API कुंजी</1> है। हमारी स्वतः पूर्ण सेवा के बारे में अधिक विस्तृत जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "codeSnippets_suggest_places_desc": {
+    "text": "यह सुझाए गए पते ढूंढता है या उम्मीदवारों को अपूर्ण या गलत वर्तनी वाले प्रश्न के आधार पर रखता है, जिसमें से आप सबसे अच्छी क्वेरी का चयन करते हैं।"
+  },
+  "codeSnippets_suggest_places_googleDesc": {
+    "text": "<1>Google मानचित्र में, Places API के <1>places:autocomplete</1> एंडपॉइंट का उपयोग इस उद्देश्य के लिए किया जाता है, साथ ही <1>includeQueryPredictions</1> पैरामीटर को सही पर सेट किया जाता है.</1>"
+  },
+  "codeSnippets_suggest_places_amazonDesc": {
+    "text": "Amazon Location Service में, <1>सुझाव</1> सेवा का उपयोग HTTP POST अनुरोध के माध्यम से किया जाता है।"
+  },
+  "codeSnippets_suggest_places_amazonPostDesc": {
+    "text": "इस सेवा के बारे में अधिक व्यापक जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "predicted_text": {
+    "text": "पूर्वानुमानित पाठ"
+  },
+  "codeSnippets_get-place-details_description_v2": {
+    "text": "किसी खास जगह का आईडी मिलने पर, आप उस खास जगह के बारे में ज़्यादा जानकारी पा सकते हैं।"
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description_v2": {
+    "text": "Google मानचित्र में, स्थान विवरण API के <1>स्थान/place_id</1> एंडपॉइंट का उपयोग इस उद्देश्य के लिए किया जाता है।"
+  },
+  "codeSnippets_get-place-details_withAmazon_description_v2": {
+    "text": "Amazon Location Service में, <1>GetPlace</1> सेवा का उपयोग HTTP GET अनुरोध के माध्यम से स्थान का विवरण प्राप्त करने के लिए किया जाता है।"
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description_v2": {
+    "text": "इस अनुरोध में, <1>placeID</1> उस जगह का विशिष्ट पहचानकर्ता है, जिसका विवरण पुनर्प्राप्त किया जाना है, जो Google मानचित्र में <1>place_id</1> पैरामीटर के बराबर है। <1>मुख्य पैरामीटर आपकी API कुंजी है.</1> हमारी जगह की जानकारी देने वाली सेवा के बारे में ज़्यादा जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "opening_hours": {
+    "text": "खुलने का समय"
+  },
+  "phone_number": {
+    "text": "फ़ोन नंबर"
+  },
+  "website": {
+    "text": "वेबसाइट"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description_v2": {
+    "text": "<1><1><1>Amazon Location Service में, <1>GetMapTile</1> सेवा का उपयोग HTTP <1>GET अनुरोध के माध्यम से किया जाता है जिसमें टाइलसेट</1> शामिल होता है जो या तो <1>raster.satellite या <1>vector.basemap</1></1>, ज़ूम स्तर Z, x-निर्देशांक X, और y-निर्देशांक Y हो सकता है.</1></1></1>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result_v2": {
+    "text": "<1>इस अनुरोध के जवाब में कैश नियंत्रण नीति और सामग्री प्रकार को दर्शाने वाले HTTP शीर्षलेख शामिल हैं, इसके बाद मैप टाइल डेटा को ब्लॉब के रूप में संदर्भित किया जाता है जो या तो <1>mvt</1> प्रारूप में वेक्टर टाइल या png प्रारूप में एक रैस्टर टाइल का प्रतिनिधित्व करता है.</1> इसका उपयोग मैप टाइल को उपयुक्त अनुप्रयोग में रेंडर करने के लिए किया जा सकता है।"
+  },
+  "codeSnippets_get_static_map_desc": {
+    "text": "इससे आप जावास्क्रिप्ट या किसी डायनामिक पेज लोड किए बिना अपने वेब पेज पर मैप इमेज एम्बेड कर सकते हैं।"
+  },
+  "codeSnippets_get_static_map_googleDesc": {
+    "text": "Google Maps में, Maps API के <1>staticmap</1> एंडपॉइंट का उपयोग इस उद्देश्य के लिए किया जाता है।"
+  },
+  "codeSnippets_get_static_map_amazonDesc": {
+    "text": "Amazon Location Service में, Google Maps के <1>staticmap की तुलनीय विशेषता HTTP GET अनुरोध का उपयोग करके <1>GetStaticMap</1></1> सेवा है।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_v2": {
+    "text": "Amazon Location Service में, <1>CalculateRoutes</1> सेवा का उपयोग HTTP POST अनुरोध का उपयोग करके मार्गों की गणना करने के लिए किया जाता है। किसी रूट की गणना करते समय, आप वेपॉइंट का उपयोग करके मूल और गंतव्य स्थितियों के बीच अधिकतम 100 इंटरमीडिएट स्टॉपओवर पॉइंट निर्दिष्ट कर सकते हैं। निम्न पैरामीटर्स आवश्यक हैं:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point1_v2": {
+    "text": "उत्पत्ति - मार्ग के लिए प्रारंभ स्थिति।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point2_v2": {
+    "text": "गंतव्य - मार्ग के लिए अंतिम स्थिति।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2": {
+    "text": "निम्नलिखित पैरामीटर वैकल्पिक हैं:"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2Points_1": {
+    "text": "LegGeometryFormat - चुनता है कि लौटाया गया रूट लेग ज्योमेट्री प्रारूप क्या होना चाहिए। FlexiblePolyline या Simple हो सकता है, डिफ़ॉल्ट रूप से FlexiblePolyline पर निर्भर करता है, जो एक संकुचित ज्यामिति प्रारूप है जिसका उपयोग प्रतिक्रियाओं को छोटा करने के लिए किया जाता है।"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4_v2": {
+    "text": "<0>मूल स्थिति <0>[-122.7565, 49.0021] है, और गंतव्य स्थिति [-122.3394, 47.6159]</0> है।</0>"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription_v2": {
+    "text": "इस अनुरोध में, <1>मूल</1> फ़ील्ड Google मानचित्र में <1>मूल</1> पैरामीटर के बराबर है, जो रूट गणना के लिए शुरुआती बिंदु को निर्दिष्ट करता है। <1>गंतव्य</1> फ़ील्ड Google मानचित्र में <1>गंतव्य</1> पैरामीटर के बराबर है, जो समापन बिंदु को निर्दिष्ट करता है। <1>मुख्य पैरामीटर आपकी API कुंजी</1> है। हमारी रूटिंग सेवा के बारे में अधिक विस्तृत जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "codeSnippets_optimizing_waypoints_desc": {
+    "text": "यह सड़क नेटवर्क प्रतिबंधों और ट्रैक पैटर्न डेटा के आधार पर यात्रा के समय या यात्रा के दौरान तय की गई दूरी को कम करने के लिए वेपॉइंट के एक सेट के बीच यात्रा करने के लिए इष्टतम ऑर्डर की गणना करने की अनुमति देता है।"
+  },
+  "codeSnippets_optimizing_waypoints_googleDesc": {
+    "text": "<1><1>Google मानचित्र में, रूट्स API के <1>v2:computeRoutes</1> एंडपॉइंट का उपयोग इस उद्देश्य के लिए किया जाता है, साथ ही OptimizeWaypointOrder पैरामीटर को सही पर सेट किया जाता है।</1></1>"
+  },
+  "codeSnippets_optimizing_waypoints_amazonDesc": {
+    "text": "Amazon Location Service में इसे HTTP POST अनुरोध का उपयोग करके <1>OptimizeWaypoints</1> सेवा के साथ पूरा किया जा सकता है।"
+  },
+  "codeSnippets_optimizing_waypoints_amazonPostDesc": {
+    "text": "<0>हमारी ऑप्टिमाइज़िंग वेपॉइंट सेवा के बारे में अधिक व्यापक जानकारी के लिए, कृपया यहां दिए गए विस्तृत दस्तावेज़ देखें.</0>"
+  },
+  "optimized_waypoints": {
+    "text": "अनुकूलित वेपॉइंट"
+  },
+  "codeSnippets_snapping_to_roads_desc": {
+    "text": "स्नैप टू रोड्स डेटा के एक समान सेट को वापस करके निकटतम सड़क पर एक जीपीएस ट्रेस से मेल खाता है, जिसमें वाहन यात्रा कर रहा था, सबसे संभावित सड़कों पर स्नैप किए गए बिंदुओं के साथ।"
+  },
+  "codeSnippets_snapping_to_roads_googleDesc": {
+    "text": "<1>Google मानचित्र में, Roads API के <1>snapToRoads</1> एंडपॉइंट का उपयोग किया जाता है जिसके लिए <1>पथ</1> पैरामीटर की आवश्यकता होती है जो अक्षांश, देशांतर जोड़े की सूची को स्वीकार करता है.</1>"
+  },
+  "codeSnippets_snapping_to_roads_amazonDesc": {
+    "text": "Amazon Location Service में, <1>SnapToRoads</1> सेवा का उपयोग HTTP POST अनुरोध के माध्यम से <1>TracePoints</1> के साथ किया जाता है, जो सड़क नेटवर्क पर स्नैप किए जाने वाले ट्रेस बिंदुओं की एक सूची है।"
+  },
+  "codeSnippets_snapping_to_roads_amazonPostDesc": {
+    "text": "हमारी स्नैप टू रोड सेवा के बारे में अधिक व्यापक जानकारी के लिए, कृपया <0>यहां</0> दिए गए विस्तृत दस्तावेज़ देखें।"
+  },
+  "snapped_position": {
+    "text": "स्नैप की गई स्थिति"
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription_v2": {
+    "text": "इस अनुरोध में, <1>ऑरिजिन्स</1> और <1>डेस्टिनेशन</1> ऑब्जेक्ट की सरणियां हैं जिनमें स्थितियां शामिल हैं। <0>हमारी रूट प्लानिंग सेवा के बारे में अधिक व्यापक जानकारी के लिए, कृपया यहां दिए गए विस्तृत दस्तावेज़ देखें.</0>"
+  },
+  "codeSnippets_route-planning_withAmazon_description_v2": {
+    "text": "Amazon Location Service अपनी <1>CalculateRouteMatrix</1> सेवा के साथ एक समान कार्यक्षमता प्रदान करती है, जिसे HTTP POST अनुरोध का उपयोग करके कहा जाता है। यह डेवलपर्स को कई प्रारंभ और समाप्ति बिंदुओं के बीच की दूरी और यात्रा के समय की गणना करने की अनुमति देता है। नतीजों में ऑरिजिन और डेस्टिनेशन के सभी कॉम्बिनेशन होते हैं। प्रत्येक पंक्ति मूल स्थान से गंतव्य में प्रविष्टि तक के मार्ग से मेल खाती है।"
+  },
+  "codeSnippets_route-planning_withAmazon_description2_v2": {
+    "text": "न्यूनतम अनुरोध में निम्नलिखित आवश्यक फ़ील्ड शामिल हैं:"
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point1_v2": {
+    "text": "मूल — शुरुआती स्थितियों का सेट जिसके लिए मार्गों की गणना की जाती है।"
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point2_v2": {
+    "text": "गंतव्य — अंतिम स्थितियों का सेट जिसके लिए मार्गों की गणना की जाती है।"
+  },
   "error_handler__failed_create_places_client": {
     "text": "स्थान क्लाइंट बनाने में विफल"
   },
@@ -3806,6 +6521,39 @@
   "multiple_region_disclaimer": {
     "text": "अस्वीकरण: जब उपयोगकर्ता का AWS खाता कनेक्ट होता है, तो क्षेत्र बदलने से केवल मानचित्र, स्थान और मार्ग प्रभावित होंगे।"
   },
+  "samples__js-quick-start-using-api-keys__title": {
+    "text": "API कुंजियों का उपयोग करना त्वरित प्रारंभ करें"
+  },
+  "samples__js-quick-start-using-api-keys__bodyText": {
+    "text": "यह नमूना ऐप API कुंजियों के माध्यम से रिवर्स जियोकोड कार्यक्षमता वाला नक्शा प्रदर्शित करता है।"
+  },
+  "samples__js-quick-start-using-api-keys__configure": {
+    "text": "`main.js` खोलें और API कुंजी और उस क्षेत्र को दर्ज करें जहां संसाधन बनाए गए थे।"
+  },
+  "samples__js-quick-start-using-api-keys__run": {
+    "text": "अपने ब्राउज़र में quickstart.html खोलें।"
+  },
+  "samples__js-quick-start-using-api-keys__cleanUp": {
+    "text": "यदि आप इस वॉकथ्रू में बनाए गए सभी संसाधनों को हटाना चाहते हैं, तो `js-quick-start-using-api-keys` नामक CloudFormation स्टैक को हटा दें।"
+  },
+  "samples__react-tracking-data-streaming__title": {
+    "text": "React का उपयोग करके ट्रैकर्स और डेटा स्ट्रीमिंग"
+  },
+  "samples__react-tracking-data-streaming__bodyText": {
+    "text": "यह उदाहरण दर्शाता है कि React और react-map-gl का उपयोग करके वेब मैप पर ट्रैकर्स डेटा को कैसे स्ट्रीम किया जाए। आवश्यक संसाधन बनाने के लिए ऊपर से github रेपो पर नेविगेट करें और इस उदाहरण के लिए आवश्यक संसाधन बनाने के लिए `src/cfn_template` के अंतर्गत टेम्पलेट चलाएँ।"
+  },
+  "samples__react-tracking-data-streaming__tabsTitle": {
+    "text": "रिएक्ट/ट्रैकर्स और डेटा स्ट्रीमिंग"
+  },
+  "samples__react-tracking-data-streaming__configure": {
+    "text": "`src/configuration.js` खोलें और IdentityPoolID, API कुंजी और उस क्षेत्र को दर्ज करें जहां संसाधन बनाए गए थे।"
+  },
+  "samples__react-tracking-data-streaming__run": {
+    "text": "इसके साथ [`लोकलहोस्ट: 3000`] (http://localhost:3000/) पर स्थानीय वेब सर्वर शुरू करने के लिए `npm start` चलाएँ\nउदाहरण दें और इसे ब्राउज़र में खोलें।"
+  },
+  "samples__react-tracking-data-streaming__cleanUp": {
+    "text": "इस वॉकथ्रू में बनाए गए सभी संसाधनों को निकालने के लिए, नामित CloudFormation स्टैक को हटा दें\n`रिएक्ट-ट्रैकिंग-डेटा-स्ट्रीमिंग`।"
+  },
   "documentation": {
     "text": "दस्तावेजीकरण"
   },
@@ -3814,6 +6562,12 @@
   },
   "description_demo": {
     "text": "Amazon Location Service की क्षमताओं को प्रदर्शित करने वाला डेमो ऐप"
+  },
+  "banner_enhanced_apis_label": {
+    "text": "हमने नए और उन्नत API लॉन्च किए हैं!"
+  },
+  "banner_enhanced_apis_action": {
+    "text": "डेवलपर गाइड"
   },
   "no_political_view": {
     "text": "कोई राजनैतिक दृष्टिकोण नहीं"
@@ -3866,6 +6620,9 @@
   "industry_overview": {
     "text": "उद्योग का अवलोकन"
   },
+  "sign_in_to_the_console": {
+    "text": "कंसोल में साइन इन करें"
+  },
   "political_views": {
     "text": "राजनीतिक विचार"
   },
@@ -3884,11 +6641,23 @@
   "greece_political_view_desc": {
     "text": "ग्रीस का राजनीतिक नज़रिया"
   },
+  "cars": {
+    "text": "यात्रा मोड के रूप में कार"
+  },
+  "trucks": {
+    "text": "यात्रा मोड के रूप में ट्रक"
+  },
+  "pedestrians": {
+    "text": "यात्रा मोड के रूप में पैदल यात्री"
+  },
+  "scooters": {
+    "text": "यात्रा मोड के रूप में स्कूटर"
+  },
   "avoid_dirtroads": {
     "text": "गंदगी वाली सड़कों से बचें"
   },
   "avoid_uturns": {
-    "text": "U-turn से बचें"
+    "text": "uTurns से बचें"
   },
   "avoid_tunnels": {
     "text": "सुरंगों से बचें"
@@ -3896,23 +6665,17 @@
   "avoid": {
     "text": "बचें"
   },
-  "navigate": {
-    "text": "नेविगेट करें"
-  },
   "arrive_by": {
     "text": "यहां पहुंचें"
   },
   "depart_at": {
-    "text": "यहां से प्रस्थान करें"
+    "text": "पर प्रस्थान करें"
   },
   "leave_now": {
-    "text": "अभी छोड़ें"
+    "text": "अभी छोड़ो"
   },
-  "time_in_past.error": {
-    "text": "चयनित समय अतीत में नहीं हो सकता"
-  },
-  "date_in_past.error": {
-    "text": "चुनी गई तारीख अतीत में नहीं हो सकती"
+  "navigate": {
+    "text": "नेविगेट करें"
   },
   "leave_at": {
     "text": "पर छोड़ दें"

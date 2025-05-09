@@ -1,0 +1,95 @@
+{
+	"migrationOverview_authentication_point1_subPoint1": {
+		"text": "मानचित्र क्रियाएँ: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint2": {
+		"text": "स्थानों की कार्रवाइयां: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+	},
+	"migrationOverview_authentication_point1_subPoint3": {
+		"text": "रूट्स क्रियाएँ: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+	},
+	"codeSnippets_routing_services_point1": {
+		"text": "मानचित्र पर मार्ग डेटा की गणना और प्रदर्शित करने के लिए Google मानचित्र <1>DirectionsService</1> और <1>DirectionsRenderer</1> या <1>ComputeRoutes</1> और <1>Polyline</1> प्रदान करता है।"
+	},
+	"codeSnippets_routing_services_ios_point1": {
+		"text": "मानचित्र पर मार्ग डेटा की गणना और प्रदर्शित करने के लिए Google Maps <1>directions</1> या <1>computeRoutes</1> प्रदान करता है।"
+	},
+	"codeSnippets_calculating_a_route_android_point1": {
+		"text": "मानचित्र पर मार्ग डेटा की गणना और प्रदर्शित करने के लिए Google Maps <1>directions</1> या <1>computeRoutes</1> प्रदान करता है।"
+	},
+	"codeSnippets_route_matrix_point1": {
+		"text": "रूट मैट्रिक्स की गणना करने के लिए Google Maps <1>DistanceMatrixService</1> या <1>ComputeRouteMatrix</1> का उपयोग करता है।"
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point1": {
+		"text": "Google Maps रूट मैट्रिक्स की गणना करने के लिए <1>distanceMatrix</1> या <1>computeRouteMatrix</1> प्रदान करता है।"
+	},
+	"codeSnippets_calculating_a_route_matrix_ios_point1": {
+		"text": "Google Maps रूट मैट्रिक्स की गणना करने के लिए <1>distanceMatrix</1> या <1>computeRouteMatrix</1> प्रदान करता है।"
+	},
+	"amazon_searching_for_places_step3": {
+		"text": "<0>चरण 3</0>: निम्नलिखित कोड को <1>GeoPlaceSearchTextActivity.kt</1> में शामिल करें।"
+	},
+	"codeSnippets_snapping_to_roads_point1": {
+		"text": "Google Maps Roads API से <1>snapToRoads</1> एंडपॉइंट प्रदान करता है।"
+	},
+	"codeSnippets_calculating_a_route_android_point2_v2": {
+		"text": "<1>Amazon Location <1>Service <1>aws.sdk.kotlin:georoutes SDK के अंदर उपलब्ध अपने GeoRoutesClient के माध्यम से CalculateRoutes</1></1> विधि प्रदान करती है.</1> API कुंजी का <1>उपयोग</1> CalculateRoutesRequest के अंदर किया जाता है जैसा कि नीचे दिए गए उदाहरण में दिखाया गया है। इसके बाद, यह मैप पर इस रूट डेटा को प्रदर्शित करने के लिए MapLibre की रेंडरिंग क्षमताओं का लाभ उठाता है।"
+	},
+	"amazon_calculating_a_route_step3_v2": {
+		"text": "<0>चरण 3</0><1>: <1>/res/drawable निर्देशिका के अंदर <1>ic_marker_red</1> नामक एक मार्कर छवि जोड़ें और नीचे दिए गए कोड को GeoRoutesCalculateRouteActivity.kt</1> में डालें।</1>"
+	},
+	"codeSnippets_calculating_a_route_matrix_android_point2_v2": {
+		"text": "<1>Amazon Location <1>Service <1>aws.sdk.kotlin:georoutes SDK के अंदर उपलब्ध अपने GeoRoutesClient</1> के माध्यम से CalculateRouteMatrix</1> विधि प्रदान करती है.</1> API कुंजी का <1>उपयोग</1> CalculateRouteMatrixRequest के अंदर किया जाता है जैसा कि नीचे दिए गए उदाहरण में दिखाया गया है।"
+	},
+	"codeSnippets_snapping_to_roads_point2": {
+		"text": "Amazon Location Service, रूट्स API से <1>SnapToRoads</1> एंडपॉइंट प्रदान करती है।"
+	},
+	"amazon_calculating_a_route_matrix_step4_v2": {
+		"text": "<0>चरण 4</0><1>: <1>/res/drawable</1> निर्देशिका के अंदर <1>ic_marker_red नामक एक मार्कर छवि जोड़ें और नीचे दिए गए कोड को GeoRouteMatrixServiceActivity.kt</1> में डालें।</1>"
+	},
+	"codeSnippets_snapping_to_roads_android_point1": {
+		"text": "Google Maps Roads API से <1>snapToRoads</1> एंडपॉइंट प्रदान करता है।"
+	},
+	"codeSnippets_snapping_to_roads_android_point2": {
+		"text": "<1>Amazon Location Service <1><1>aws.sdk.kotlin:georoutes SDK के अंदर उपलब्ध अपने GeoRoutesClient</1> के माध्यम से SnapToRoads</1> विधि प्रदान करती है.</1> <1>API कुंजी का उपयोग SnapToRoadsRequest के अंदर किया जाता है जैसा कि नीचे दिए गए उदाहरण में दिखाया गया है.</1>"
+	},
+	"google_snapping_to_roads_step3": {
+		"text": "<0>चरण 3: /res/drawable</0> <1><1>निर्देशिका के अंदर <1>ic_marker_red और ic_marker_blue</1> <1>नाम की मार्कर छवियां जोड़ें और नीचे दिए गए कोड को SnapToRoadActivity.kt</1> में जोड़ें।</1></1>"
+	},
+	"amazon_snapping_to_roads_step4": {
+		"text": "<0>चरण 4: /res/drawable</0> <1><1>निर्देशिका के अंदर <1>ic_marker_red और ic_marker_blue</1> <1>नाम की मार्कर छवियां जोड़ें और नीचे दिए गए कोड को GeoRoutesSnapToRoadActivity.kt</1> में डालें।</1></1>"
+	},
+	"codeSnippets_searching_for_places_android_point2_v2": {
+		"text": "<1>Amazon Location Service <1><1>aws.sdk.kotlin:geoplaces SDK के अंदर उपलब्ध अपने GeoPlacesClient</1> के माध्यम से सुझाव</1> विधि प्रदान करती है.</1> <1>API कुंजी का उपयोग सुझाव अनुरोध के अंदर किया जाता है जैसा कि नीचे दिए गए उदाहरण में दिखाया गया है.</1> <1><1><1>इसके अतिरिक्त, Amazon Location Service अन्य Places API जैसे <1>getPlace</1>, <1>स्वतः पूर्ण</1>, जियोकोड, <1><1>reverseGeocode</1></1>, searchNearby, searchText, और सुझाव प्रदान करती है.</1></1></1>"
+	},
+	"ios_swift_aws_geo_places_routes": {
+		"text": "AWSGeoPlaces और AWSGeoRoutes API का उपयोग करने के लिए, अपने प्रोजेक्ट में AWS SDK स्विफ्ट पैकेज जोड़ें।"
+	},
+	"ios_swift_add_aws_geo_places_routes_package_to_target": {
+		"text": "<1>लक्ष्य में जोड़ें कॉलम के</1> <1>ड्रॉपडाउन में अपनी परियोजना का चयन करें और पंक्तियों के साथ <1>पैकेज जोड़ें</1> बटन पर क्लिक करें <1>AWSGeoPlaces या AWSGeoRoutes</1>.</1>"
+	},
+	"ios_swift_amazon_location_ios_auth_sdk": {
+		"text": "API कुंजी अनुरोधों को प्रमाणित करने के लिए, अपने प्रोजेक्ट में AmazonLocationIOSAuthSDK पैकेज जोड़ें।"
+	},
+	"ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+		"text": "<1>ऐड टू टारगेट</1> कॉलम के ड्रॉपडाउन में अपनी परियोजना का चयन करें और पंक्तियों के साथ <1>पैकेज जोड़ें</1> बटन पर क्लिक करें <1>AmazonLocationIOSAuthSDK</1>।"
+	},
+	"codeSnippets_snapping_to_roads_ios_point1": {
+		"text": "Google Maps Roads API से <1>snapToRoads</1> एंडपॉइंट प्रदान करता है।"
+	},
+	"codeSnippets_snapping_to_roads_ios_point2": {
+		"text": "<1>Amazon <1>Location Service AWSGeoRoutes API से SnapToRoads</1> सेवा प्रदान करती है।</1>"
+	},
+	"codeSnippets_optimizing_waypoints_googleDesc": {
+		"text": "<1><1>Google मानचित्र में, रूट्स API के <1>v2:computeRoutes</1> एंडपॉइंट का उपयोग इस उद्देश्य के लिए किया जाता है, साथ ही OptimizeWaypointOrder पैरामीटर को सही पर सेट किया जाता है।</1></1>"
+	},
+	"codeSnippets_optimizing_waypoints_amazonDesc": {
+		"text": "Amazon Location Service में इसे HTTP POST अनुरोध का उपयोग करके <1>OptimizeWaypoints</1> सेवा के साथ पूरा किया जा सकता है।"
+	},
+	"codeSnippets_snapping_to_roads_googleDesc": {
+		"text": "<1>Google मानचित्र में, Roads API के <1>snapToRoads</1> एंडपॉइंट का उपयोग किया जाता है जिसके लिए <1>पथ</1> पैरामीटर की आवश्यकता होती है जो अक्षांश, देशांतर जोड़े की सूची को स्वीकार करता है.</1>"
+	},
+	"codeSnippets_snapping_to_roads_amazonDesc": {
+		"text": "Amazon Location Service में, <1>SnapToRoads</1> सेवा का उपयोग HTTP POST अनुरोध के माध्यम से <1>TracePoints</1> के साथ किया जाता है, जो सड़क नेटवर्क पर स्नैप किए जाने वाले ट्रेस बिंदुओं की एक सूची है।"
+	}
+}

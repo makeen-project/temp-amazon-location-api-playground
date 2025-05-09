@@ -210,7 +210,7 @@
     "text": "网站条款"
   },
   "overview__hs__heading": {
-    "text": "亚马逊定位服务"
+    "text": "Amazon Location Service"
   },
   "overview__hs__subheading": {
     "text": "安全轻松地向应用程序添加位置数据"
@@ -486,7 +486,7 @@
     "text": "获取设备位置"
   },
   "product__trackers__product_3__link_2": {
-    "text": "批量获取设备位置"
+    "text": "列出设备位置"
   },
   "product__trackers__product_3__link_3": {
     "text": "批量更新设备位置"
@@ -3061,6 +3061,9 @@
   "regions__ap_southeast_1": {
     "text": "Asia Pacific (Singapore) ap-southeast-1"
   },
+  "regions__ap_southeast_5": {
+    "text": "Asia Pacific (Malaysia) ap-southeast-5"
+  },
   "regions__ap_southeast_2": {
     "text": "Asia Pacific (Sydney) ap-southeast-2"
   },
@@ -3613,6 +3616,9 @@
   "nl_loader_sample_text_5": {
     "text": "亚马逊 Bedrock 正在执行测绘任务！正在搜索。"
   },
+  "banner__message": {
+    "text": "试试由亚马逊 Bedrock 提供支持的自然语言搜索"
+  },
   "fm__header": {
     "text": "告诉我们你的想法？"
   },
@@ -3649,6 +3655,2031 @@
   "error_handler__failed_feedback_text_2": {
     "text": "请求失败，状态为"
   },
+  "banner_migration_label": {
+    "text": "立即迁移到亚马逊地点！"
+  },
+  "banner_migration_action": {
+    "text": "迁移指南"
+  },
+  "pricing": {
+    "text": "定价"
+  },
+  "avg_speed_per_hour": {
+    "text": "每小时平均速度"
+  },
+  "accuracy_value": {
+    "text": "精度值"
+  },
+  "price": {
+    "text": "价格"
+  },
+  "use_cases": {
+    "text": "用例"
+  },
+  "web_based_map_application": {
+    "text": "基于 Web 的地图应用程序"
+  },
+  "web_based_map_application_description": {
+    "text": "本节展示了使用地图图块 API 获取地图图块并与 Maplibre 合作进行渲染的微型 Web 应用程序的成本，允许用户使用地图搜索并获取地点和地点详细信息。此外，它还允许用户计算任意两个位置之间的路线。假设您的应用程序使用getMapTile、searchPlaceIndexforSuggestions、GetPlace和CalculateRoute API，这可以估算出您的API消耗总成本。"
+  },
+  "map_tiles": {
+    "text": "地图图块"
+  },
+  "search_place_by_position": {
+    "text": "按位置搜索地点"
+  },
+  "calculate_route": {
+    "text": "路线"
+  },
+  "total_monthly": {
+    "text": "每月总计"
+  },
+  "amazon_location_charges": {
+    "text": "亚马逊定位费"
+  },
+  "google_maps_charges": {
+    "text": "谷歌地图收费"
+  },
+  "trackers_and_geofences_application": {
+    "text": "追踪器和地理围栏应用程序"
+  },
+  "trackers_and_geofences_application_description_1": {
+    "text": "亚马逊定位服务提供跟踪器和地理围栏功能，可以将其添加到您的应用程序中。使用跟踪器，您可以立即检索从跟踪的设备或资产上传的设备的当前和历史位置。Geofences 使您的应用程序能够检测被跟踪设备何时进入或离开您定义为地理围栏的地理边界并采取行动。当检测到地理围栏遭到破坏时，亚马逊定位服务会自动将进入或退出事件发送到亚马逊 EventBridge，然后该事件可以触发下游操作。"
+  },
+  "trackers_and_geofences_application_description_2": {
+    "text": "1) 跟踪器的写入成本基于BatchUpdateDevicePosition API的使用情况，该API允许您记录和存储设备的跟踪器历史记录。"
+  },
+  "trackers_and_geofences_application_description_3": {
+    "text": "2) Geofences 成本基于 batchEvaluateGeofences API，该API根据地理围栏评估进入或退出事件的追踪位置。"
+  },
+  "trackers_and_geofences_application_description_4": {
+    "text": "3) 跟踪器的读取费用基于ListDevicePositions API，它允许你获取设备最近的位置历史记录。 "
+  },
+  "devices": {
+    "text": "设备"
+  },
+  "ping_rate": {
+    "text": "ping 速率"
+  },
+  "avg_time_stationary": {
+    "text": "平均时间不变"
+  },
+  "avg_device_speed": {
+    "text": "平均设备速度"
+  },
+  "filter": {
+    "text": "筛选"
+  },
+  "accuracy": {
+    "text": "准确性"
+  },
+  "distance": {
+    "text": "距离"
+  },
+  "time": {
+    "text": "时间"
+  },
+  "location_updates": {
+    "text": "位置更新"
+  },
+  "geofence_evaluation": {
+    "text": "地理围栏评估"
+  },
+  "per": {
+    "text": "每"
+  },
+  "requests": {
+    "text": "请求"
+  },
+  "items": {
+    "text": "物品"
+  },
+  "minute": {
+    "text": "分钟"
+  },
+  "minutes": {
+    "text": "分钟"
+  },
+  "days": {
+    "text": "天数"
+  },
+  "hours": {
+    "text": "小时"
+  },
+  "month": {
+    "text": "月"
+  },
+  "all_devices": {
+    "text": "所有设备"
+  },
+  "get_started_with_amazon_location_today": {
+    "text": "立即开始使用亚马逊定位服务"
+  },
+  "three_months_free_with_the_AWS_free_tier": {
+    "text": "使用 AWS 免费套餐可免费使用三个月。"
+  },
+  "migrate_to_amazon_location_today": {
+    "text": "立即迁移到亚马逊地点"
+  },
+  "pricing_calculators": {
+    "text": "定价计算器"
+  },
+  "pricing_calculators_description": {
+    "text": "探索您构建基于位置的服务和应用程序所需的亚马逊定位工具，这些服务和应用程序可用于查找附近地点、获取路线和显示实时路况更新。"
+  },
+  "three_month_free": {
+    "text": "3 个月免费"
+  },
+  "Web-based_map_app": {
+    "text": "基于 Web 的地图应用程序"
+  },
+  "tracking_and_geofencing_app": {
+    "text": "追踪器和地理围栏应用程序"
+  },
+  "explore_use_cases": {
+    "text": "探索用例"
+  },
+  "maps_text": {
+    "text": "地图"
+  },
+  "places_text": {
+    "text": "地点"
+  },
+  "routes_text": {
+    "text": "路线"
+  },
+  "yearly_text": {
+    "text": "每年"
+  },
+  "monthly_text": {
+    "text": "每月"
+  },
+  "weekly_text": {
+    "text": "每周"
+  },
+  "daily_text": {
+    "text": "每日"
+  },
+  "Product_text": {
+    "text": "产品"
+  },
+  "Usage_text": {
+    "text": "用法"
+  },
+  "hundred_requests": {
+    "text": "一百个请求"
+  },
+  "thousand_requests": {
+    "text": "数千个请求"
+  },
+  "million_requests": {
+    "text": "百万次请求"
+  },
+  "billion_requests": {
+    "text": "十亿次请求"
+  },
+  "google_maps": {
+    "text": "Google Maps"
+  },
+  "amazon_location": {
+    "text": "Amazon Location"
+  },
+  "maps_sdk_for_android": {
+    "text": "安卓版地图 SDK"
+  },
+  "maps_sdk_for_ios": {
+    "text": "iOS 版地图 SDK"
+  },
+  "maps_javascript_api": {
+    "text": "地图脚本 API"
+  },
+  "search_place_index_for_suggestion": {
+    "text": "建议"
+  },
+  "search_place_index_for_text": {
+    "text": "按文字搜索"
+  },
+  "search_place_index_for_position": {
+    "text": "按位置搜索"
+  },
+  "get_place": {
+    "text": "地点详情"
+  },
+  "calculate_route_matrix": {
+    "text": "路线矩阵"
+  },
+  "every": {
+    "text": "每一个"
+  },
+  "distance_value": {
+    "text": "距离值"
+  },
+  "time_value": {
+    "text": "时间值"
+  },
+  "trackers_pricing": {
+    "text": "追踪器定价"
+  },
+  "tracking_apis": {
+    "text": "追踪器 API"
+  },
+  "positions_written": {
+    "text": "已写的立场"
+  },
+  "above": {
+    "text": "以上"
+  },
+  "geofence_pricing": {
+    "text": "地理围栏定价"
+  },
+  "geofence_apis": {
+    "text": "地理围栏 API"
+  },
+  "trackings_cost_driven": {
+    "text": "追踪是由成本驱动的"
+  },
+  "description_driven_tooltip": {
+    "text": "描述文本将在这里，稍后再来查看"
+  },
+  "geofencings_cost_driven": {
+    "text": "地理围栏的成本驱动"
+  },
+  "geofence_driven_tooltip": {
+    "text": "这些输入可帮助您估算 Geofence 评估的总成本。来自设备的位置更新可能包括噪音、抖动或对地理围栏评估无用的数据点，例如设备静止或低速移动时的位置相同或相似。亚马逊位置追踪器服务提供多个筛选条件，可帮助您删除无关的位置更新，以降低 Geofence 评估的成本。"
+  },
+  "hide_price_calculation": {
+    "text": "隐藏计算详情"
+  },
+  "automatic_unit": {
+    "text": "自动装置"
+  },
+  "price_single_unit_tooltip": {
+    "text": "谷歌地图中单个单位的价格"
+  },
+  "amazon_location_uses_here_data_provider_price_rate": {
+    "text": "亚马逊定位服务根据使用的数据提供商有不同的单价。商业数据提供商（Esri、HERE、GrabMaps）和开放数据提供商。"
+  },
+  "photorealistic_3D_tiles": {
+    "text": "逼真的 3D 图块"
+  },
+  "2D_tiles": {
+    "text": "2D 图块"
+  },
+  "street_view_tiles": {
+    "text": "街景图块"
+  },
+  "dynamic_maps": {
+    "text": "动态地图"
+  },
+  "dynamic_maps_description": {
+    "text": "谷歌地图通过其软件开发工具包进行API调用的定价各不相同；但是，我们采用的免费亚马逊位置软件开发工具包的方法可确保一致性。无论使用哪种平台，所有 Amazon Location 软件开发工具包都使用相同的 REST API 集，从而形成统一一致的定价结构。亚马逊定位服务的 API 和软件开发工具包可与 Maplibre 配合使用。"
+  },
+  "view_pricing": {
+    "text": "查看定价"
+  },
+  "tracking_write_price": {
+    "text": "追踪器写下价格"
+  },
+  "tracking_read_price": {
+    "text": "追踪器读取价格"
+  },
+  "geofencing_price": {
+    "text": "地理围栏价格"
+  },
+  "show_price_calculation": {
+    "text": "显示计算详情"
+  },
+  "other_tracking_apis": {
+    "text": "其他追踪器 API"
+  },
+  "batch_positions_read": {
+    "text": "批量读取位置"
+  },
+  "one_request_can": {
+    "text": "一个请求最多可以检索 100 台设备。"
+  },
+  "tracking_write_tooltip": {
+    "text": "这些输入通过计算每月设备位置更新请求总数来帮助您估算跟踪器服务的成本。"
+  },
+  "tracking_read_tooltip": {
+    "text": "亚马逊定位服务支持从追踪器查询历史设备位置，每次通话最多 100 个位置。"
+  },
+  "geofence_driven_tooltip_point1": {
+    "text": "大多数设备，包括大多数移动设备，都可以在测量的同时提供测量精度的估计值。使用基于精度的筛选功能，如果设备的移动速度低于测量的精度，则亚马逊位置会忽略位置更新。出于成本估算的目的，请输入您的追踪设备的最典型精度等级。"
+  },
+  "geofence_driven_tooltip_point2": {
+    "text": "基于距离的筛选会忽略设备移动小于 30 m（98.4 英尺）的位置更新。"
+  },
+  "day": {
+    "text": "天"
+  },
+  "week": {
+    "text": "周"
+  },
+  "search_place_by_suggestions": {
+    "text": "按建议搜索地点"
+  },
+  "commercial_data_providers": {
+    "text": "商业数据提供商"
+  },
+  "open_data_provider": {
+    "text": "开放数据提供商"
+  },
+  "single_use": {
+    "text": "一次性使用"
+  },
+  "storage": {
+    "text": "存储"
+  },
+  "contact_sales": {
+    "text": "联系销售人员"
+  },
+  "tracking_and_geofencing_application": {
+    "text": "跟踪和地理围栏应用程序"
+  },
+  "geofencing_pricing": {
+    "text": "地理围栏定价"
+  },
+  "dashboard_refresh_rate": {
+    "text": "每个 {{count}} 个设备位置的仪表板刷新率"
+  },
+  "hour": {
+    "text": "小时"
+  },
+  "batch": {
+    "text": "批量"
+  },
+  "number_of_requests": {
+    "text": "请求数"
+  },
+  "number_of_departure_positions": {
+    "text": "出发位置数量"
+  },
+  "number_of_destination_positions": {
+    "text": "目标位置的数量"
+  },
+  "google_maps_does_not_permit": {
+    "text": "谷歌地图不允许存储地点信息"
+  },
+  "n/a": {
+    "text": "不适用"
+  },
+  "google_maps_allows_maximum_of_25": {
+    "text": "谷歌地图最多允许 25 个出发位置和 25 个目的地位置，每个请求最多允许 625 个元素"
+  },
+  "google_maps_unit_price": {
+    "text": "谷歌地图单价"
+  },
+  "migrateAWebApp_heading": {
+    "text": "网页-从谷歌地图迁移到亚马逊定位服务"
+  },
+  "migrateAWebApp_desc": {
+    "text": "本指南详细介绍了将网络应用程序从谷歌地图过渡到亚马逊定位服务的技术流程。它重点介绍了初始设置、Amazon Location 资源配置，并提供了软件开发工具包比较示例，以促进将映射功能集成到基于 Web 的平台中。"
+  },
+  "migrateAWebApp_linkItems_ios": {
+    "text": "迁移 iOS 应用程序"
+  },
+  "migrateAWebApp_linkItems_android": {
+    "text": "迁移安卓应用程序"
+  },
+  "migrateAWebApp_linkItems_web": {
+    "text": "迁移 Web 服务"
+  },
+  "migrateAWebApp_article_heading1": {
+    "text": "在这篇文章中"
+  },
+  "migrateAWebApp_article_point_1": {
+    "text": "正在加载地图"
+  },
+  "migrateAWebApp_article_point_5": {
+    "text": "显示信息窗口"
+  },
+  "migrateAWebApp_article_point_6": {
+    "text": "标记聚类"
+  },
+  "migrateAWebApp_article_point_8": {
+    "text": "地点搜索"
+  },
+  "migrateAWebApp_article_point_9": {
+    "text": "路由服务"
+  },
+  "migrateAWebApp_article_point_10": {
+    "text": "绘制地理围栏"
+  },
+  "migrateAWebApp_article_heading2": {
+    "text": "在此页面上"
+  },
+  "migrateAWebApp_article_items_prerequisites": {
+    "text": "先决条件"
+  },
+  "migrateAWebApp_article_items_key_features": {
+    "text": "主要功能支持"
+  },
+  "migrateAWebApp_article_items_load_a_web": {
+    "text": "正在加载地图"
+  },
+  "migrateAWebApp_article_items_marker_clustering": {
+    "text": "标记聚类"
+  },
+  "migrateAWebApp_article_items_place_searches": {
+    "text": "搜索地点"
+  },
+  "migrateAWebApp_article_items_next_steps": {
+    "text": "下一步行动"
+  },
+  "migrateAWebApp_article_description": {
+    "text": "如果要迁移现有 Web 应用程序，请检查其是否使用开源地图控制库。开源地图控制库的示例有：Cesium、Leaflet 和 OpenLayers。即使应用程序使用开源地图控制库，而且你不想使用 Azure Maps Web SDK，你仍然可以迁移该应用程序。在这种情况下，将你的应用程序连接到 Azure Maps 切片服务（道路图块 | 卫星图块）。以下几点详细介绍了如何在一些常用的开源地图控制库中使用 Azure Maps。"
+  },
+  "migrateAWebApp_prerequisites_heading": {
+    "text": "先决条件"
+  },
+  "migrateAWebApp_prerequisites_description": {
+    "text": "在完成示例之前，请务必完成以下步骤。"
+  },
+  "migrateAWebApp_prerequisites_point_1": {
+    "text": "创建一个 AWS 账户"
+  },
+  "migrateAWebApp_prerequisites_point_2": {
+    "text": "选择你喜欢的地图风格"
+  },
+  "migrateAWebApp_prerequisites_point_2_a": {
+    "text": "导航到亚马逊定位服务控制台中的<0>地图部分</0>，然后单击 “创建地图” 以预览可用的地图样式。"
+  },
+  "migrateAWebApp_prerequisites_point_2_b": {
+    "text": "为新地图资源命名和描述。记住您为该地图资源分配的名称，该名称将在本教程的后面部分使用。"
+  },
+  "migrateAWebApp_prerequisites_point_2_c": {
+    "text": "选择地图样式时，请选择地图数据提供者。有关更多详细信息，请参阅 <0>AWS 服务条款</0>第 82 节。"
+  },
+  "migrateAWebApp_prerequisites_point_2_d": {
+    "text": "阅读并接受<0>亚马逊位置条款</0>，然后点击 “创建地图”。创建地图后，您可以通过放大、缩小或向任意方向平移来与地图进行交互。"
+  },
+  "migrateAWebApp_prerequisites_point_3": {
+    "text": "选择您要使用的地点索引"
+  },
+  "migrateAWebApp_prerequisites_point_3_a": {
+    "text": "导航到亚马逊定位服务控制台中的<0>地点索引</0>页面，然后单击 “创建地点索引”。"
+  },
+  "migrateAWebApp_prerequisites_point_3_b": {
+    "text": "为新的地点索引资源提供名称和描述。记住您为该地点索引资源分配的名称，该名称将在本教程的后面部分使用。"
+  },
+  "migrateAWebApp_prerequisites_point_3_c": {
+    "text": "选择数据提供商，最好与您选择的地图提供商保持一致，以确保搜索与地图的兼容性。有关更多详细信息，请参阅 <0>AWS 服务条款</0>第 82 节。"
+  },
+  "migrateAWebApp_prerequisites_point_3_d": {
+    "text": "选择数据存储选项。由于本教程未存储任何数据，请选择 “否，仅限一次性使用”。"
+  },
+  "migrateAWebApp_prerequisites_point_3_e": {
+    "text": "阅读并接受《<0>亚马逊位置条款</0>》，然后点击 “创建地点索引”。"
+  },
+  "migrateAWebApp_prerequisites_point_4": {
+    "text": "选择你想使用的路线计算器"
+  },
+  "migrateAWebApp_prerequisites_point_4_a": {
+    "text": "在亚马逊定位服务控制台中，导航到<0>路线计算器页面</0>，然后单击 “创建路径计算器”。"
+  },
+  "migrateAWebApp_prerequisites_point_4_b": {
+    "text": "为新的路线计算器资源提供名称和描述。记住分配给该路线计算器资源的名称，该名称将在本教程的后面部分使用。"
+  },
+  "migrateAWebApp_prerequisites_point_4_c": {
+    "text": "选择数据提供者，确保与所选的地图样式和地图数据提供者保持一致。有关更多信息，请参阅 <0>AWS 服务条款</0>第 82 节。"
+  },
+  "migrateAWebApp_prerequisites_point_4_d": {
+    "text": "阅读并接受<0>亚马逊位置条款</0>，然后点击 “创建路线计算器”。"
+  },
+  "migrateAWebApp_prerequisites_point_5": {
+    "text": "为您的应用程序建立身份验证"
+  },
+  "migrateAWebApp_prerequisites_point_5_a": {
+    "text": "导航到<0>亚马逊位置控制台</0>，然后从左侧菜单中选择 “API 密钥”。"
+  },
+  "migrateAWebApp_prerequisites_point_5_b": {
+    "text": "点击 “创建 API 密钥”。API 密钥必须与之前创建的亚马逊定位服务资源位于相同的 AWS 账户和区域中。"
+  },
+  "migrateAWebApp_prerequisites_point_5_c": {
+    "text": "在 “创建 API 密钥” 页面上填写所需的详细信息："
+  },
+  "migrateAWebApp_prerequisites_point_5_c_i": {
+    "text": "名称：提供您的 API 密钥的名称，例如 “myAppKey”。"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii": {
+    "text": "资源：选择之前创建的亚马逊定位服务地图和地点索引资源。您可以通过选择 “添加资源” 来添加多个资源。这允许将 API 密钥用于指定的资源。"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iii": {
+    "text": "操作：为此 API 密钥指定授权操作。<1>至少选择 geo<1>: GetMap、geo: se</1> <1>archPlaceIndexforText和 geo: CalculaTeRoute，以确保教</1>程按预期运行。</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_iv": {
+    "text": "或者，您可以添加描述、过期时间、标签或引用地址（example.com），将密钥的使用限制在特定域中，从而使本教程仅在该域内运行。"
+  },
+  "migrateAWebApp_prerequisites_point_5_d": {
+    "text": "单击 “创建 API 密钥” 以生成 API 密钥。"
+  },
+  "migrateAWebApp_prerequisites_point_5_e": {
+    "text": "选择 “显示 API 密钥” 并复制密钥值（<1>v1.public.a1b2c</1> 3d4...）以供稍后在教程中使用。"
+  },
+  "migrateAWebApp_prerequisites_alert": {
+    "text": "有关在亚马逊位置进行身份验证的更多信息，请参阅在亚马逊位置<0>管理身份验证</0>。"
+  },
+  "cost_group": {
+    "text": "成本组"
+  },
+  "migrateAWebApp_features": {
+    "text": "特征"
+  },
+  "google_Maps_with_SDK": {
+    "text": "带有 SDK 的谷歌地图"
+  },
+  "amazon_location_with_SDK": {
+    "text": "使用 SDK 的亚马逊定位信息"
+  },
+  "markers": {
+    "text": "标记"
+  },
+  "marker_clustering": {
+    "text": "标记聚类"
+  },
+  "polylines_polygons": {
+    "text": "<0>线条</0>和<1>多边形</1>"
+  },
+  "data_layers": {
+    "text": "数据层"
+  },
+  "heatmaps": {
+    "text": "热图"
+  },
+  "tile_layers": {
+    "text": "拼贴图层"
+  },
+  "geocoder_service": {
+    "text": "地理编码"
+  },
+  "routing_service": {
+    "text": "路由"
+  },
+  "route_matrix_service": {
+    "text": "矩阵路由"
+  },
+  "notableDifferences_point1": {
+    "text": "坐标表示"
+  },
+  "notableDifferences_point2": {
+    "text": "亚马逊位置地图中的操作坐标："
+  },
+  "notableDifferences_point3": {
+    "text": "SDK/API 集成："
+  },
+  "webSdkExamples_description": {
+    "text": "本指南包含针对基于 Web 的迁移量身定制的代码示例，每个示例都涉及常见用例。其目的是帮助使用Map <0>li</0> bre将您的网络应用程序从谷歌地图V3 JavaScript SDK迁移到亚马逊定位服务。为 Web 应用程序提供的代码片段专门使用了 JavaScript。"
+  },
+  "codeSnippets_load_a_map_heading": {
+    "text": "正在加载地图"
+  },
+  "codeSnippets_load_a_map_description": {
+    "text": "谷歌地图和亚马逊定位服务都允许您将交互式、可自定义的地图集成到您的应用程序中。这些地图可以显示各种类型的地理数据，并支持平移和缩放等功能。"
+  },
+  "codeSnippets_load_a_map_point1": {
+    "text": "谷歌地图使用 <1>Google.maps.Map</1> 来渲染地图。"
+  },
+  "codeSnippets_load_a_map_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 Maplibreg <1>l.Map 来渲染地图</1>。"
+  },
+  "codeSnippets_with_google": {
+    "text": "使用谷歌地图"
+  },
+  "codeSnippets_with_after": {
+    "text": "使用亚马逊定位"
+  },
+  "codeSnippets_adding_a_marker_point1": {
+    "text": "谷歌地图使用 <1>Google.maps.Marker 在地图上呈现标记。</1>"
+  },
+  "codeSnippets_adding_a_marker_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 Maplibre <1>gl.Marker 在地图上渲染标记</1>。"
+  },
+  "codeSnippets_adding_a_polyline_description": {
+    "text": "你可以在谷歌地图上画线。对于亚马逊定位服务，你可以通过 Maplibre 使用 GeoJSON 绘制它们。"
+  },
+  "codeSnippets_adding_a_polyline_point1": {
+    "text": "<1>你可以通过 Google.maps.Polyline 使用谷歌地图形状类来画线条和多边形。</1>"
+  },
+  "codeSnippets_adding_a_polyline_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 库。您可以使用 addS <1>ource 和 add</1> L <1>ayer</1> 方法添加 GeoJSON 数据。"
+  },
+  "codeSnippets_adding_a_polygon_description": {
+    "text": "你可以在 Google 地图上绘制多边形。对于亚马逊定位服务，你可以通过 Maplibre 使用 GeoJSON 绘制它们。"
+  },
+  "codeSnippets_adding_a_polygon_point1": {
+    "text": "<1>你可以通过 Google.maps.Polygon 使用谷歌地图形状类来画线条和多边形。</1>"
+  },
+  "codeSnippets_adding_a_polygon_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 库。您可以使用 addS <1>ource 和 add</1> L <1>ayer</1> 方法添加 GeoJSON 数据。"
+  },
+  "codeSnippets_display_an_info_window_description": {
+    "text": "谷歌地图和亚马逊定位服务可以在地图上呈现信息/弹出窗口。"
+  },
+  "codeSnippets_display_an_info_window_point1": {
+    "text": "谷歌地图使用 <1>Google.maps.InfoWindow 在标记旁边显示弹出窗口</1>。"
+  },
+  "codeSnippets_display_an_info_window_point2": {
+    "text": "<1>亚马逊定位服务使用 Maplibre 通过 Maplibregl.Popup 显示弹出窗口。</1>"
+  },
+  "codeSnippets_adding_a_heatmap_description": {
+    "text": "Google 地图支持数据层功能，允许您在地图上叠加数据。亚马逊定位服务还允许通过Maplibre添加数据层。"
+  },
+  "codeSnippets_adding_a_heatmap_point1": {
+    "text": "谷歌地图提供了一个热图层作为 <1>google.maps.visu</1> alization 库的一部分。"
+  },
+  "codeSnippets_adding_a_heatmap_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 <1>Add</1> Layer 功能。通常，您需要先使用 <1>addSource 添加源</1>，然后添加引用该源的图层。"
+  },
+  "codeSnippets_adding_a_heatmap_point3": {
+    "text": "下面的代码片段展示了如何显示热图。"
+  },
+  "codeSnippets_places_search_post_description": {
+    "text": "Google 地图提供地理编码 API，用于在地址和地理坐标之间进行转换。亚马逊定位服务还在其 Places API 中提供地理编码和反向地理编码功能，您可以使用这些功能来获取基于经度和纬度的数据，反之亦然。"
+  },
+  "codeSnippets_routing_services_description": {
+    "text": "谷歌地图和亚马逊定位服务都提供路线服务。"
+  },
+  "codeSnippets_routing_services_point1": {
+    "text": "Google 地图提供<1>DirectionsService</1> 和<1>DirectionsRenderer</1> 或<1>ComputeRoutes</1> 和<1>Polyline</1> 来计算路线数据并在地图上显示。"
+  },
+  "codeSnippets_routing_services_point2": {
+    "text": "亚马逊位置通过其位置客户端提供C <1>alculateRouteCommand</1>，并使用Maplibre的渲染功能在地图上显示这些数据。"
+  },
+  "codeSnippets_drawing_a_circle_description": {
+    "text": "这两种服务都允许在地图上绘制圆形多边形。"
+  },
+  "codeSnippets_drawing_a_circle_point1": {
+    "text": "谷歌地图提供了 <1>google.maps.Circle 来画一个圆形的多边形。</1>"
+  },
+  "codeSnippets_drawing_a_circle_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 <1>addSource</1> 和 <1>addLay</1> er 方法来渲染圆形多边形，你可以使用 <0>Turf.js</0> 中的 <1>turf.circle 将圆</1>转换为多边形进行渲染。"
+  },
+  "migrateAWebApp_title": {
+    "text": "迁移 Web 应用程序"
+  },
+  "migrateAWebApp_next_step_desc": {
+    "text": "要了解有关亚马逊定位的更多详细信息和技术见解，我们建议您浏览<0>亚马逊定位服务开发者指南</0>。这份全面的资源为入门使用亚马逊定位服务、了解其功能以及在应用程序中实现基于位置的功能提供了深入的指导。"
+  },
+  "try_demo": {
+    "text": "试试演示"
+  },
+  "active_days_per_month": {
+    "text": "活跃天数/月"
+  },
+  "active_hours_per_month": {
+    "text": "活跃时间/日"
+  },
+  "trackers_and_geofences_application_description_points": {
+    "text": "下面的计算器提供了 3 个成本组成部分的估算值："
+  },
+  "migrateAWebApp_desc1": {
+    "text": "<0>AWS 文档</0>是开发人员掌握亚马逊定位服务的关键资源，提供了有关功能、设置和集成的完整指南。查看官方指南，了解有关向应用程序添加定位服务的实用见解。"
+  },
+  "integrating_the_amazon_location_sdk_heading": {
+    "text": "集成亚马逊定位 SDK"
+  },
+  "integrating_the_amazon_location_sdk_description": {
+    "text": "您可以使用 <0>JavaScript SDK</0> 和 <1>Mapli</1> bre 在 Web 项目中使用亚马逊定位服务。这将使您的应用程序可以轻松使用亚马逊定位服务。"
+  },
+  "calculate_map_tile_request_costs": {
+    "text": "计算地图图块请求费用"
+  },
+  "estimate_costs_for_place_search_suggestions": {
+    "text": "估算地点搜索建议的费用"
+  },
+  "estimate_costs_for_place_data_retrieval": {
+    "text": "估算地点数据检索的成本"
+  },
+  "calculate_cost_for_routing_requests": {
+    "text": "计算路由请求的成本"
+  },
+  "devices_tooltip": {
+    "text": "设置设备数量以计算跟踪器更新成本"
+  },
+  "ping_rate_tooltip": {
+    "text": "定义 ping 速率以估算跟踪器通信成本"
+  },
+  "avg_time_stationary_tooltip": {
+    "text": "调整平均静止时间以估算地理围栏成本"
+  },
+  "avg_device_stationary_tooltip": {
+    "text": "为地理围栏成本计算设置平均设备速度"
+  },
+  "dashboard_refresh_rate_tooltip": {
+    "text": "确定追踪数据检索成本的刷新率"
+  },
+  "filter_accuracy_tooltip": {
+    "text": "指定要包含在成本计算中的位置更新的最小距离"
+  },
+  "filter_distance_tooltip": {
+    "text": "指定要包含在成本计算中的位置更新的最小距离"
+  },
+  "migrateAWebApp_prerequisites_point_1_a": {
+    "text": "如果您尚未创建 AWS 账户，请<0>在此处</0>创建一个。您的 AWS 账户准备就绪后，您可以创建亚马逊定位服务资源。执行提供的代码片段将需要这些资源。"
+  },
+  "codeSnippets_places_search_heading": {
+    "text": "搜索地点"
+  },
+  "codeSnippets_places_search_description": {
+    "text": "这两个平台都提供地点搜索功能，它们可以提供有关地点的更多信息，例如地址、地理编码、反向地理编码、自动填充等。"
+  },
+  "codeSnippets_places_search_point1": {
+    "text": "谷歌地图提供 google.maps.p <1>laces.Pl</1> acesService。"
+  },
+  "codeSnippets_places_search_point2": {
+    "text": "亚马逊定位服务通过其定位客户端提供 <1>SearchPlaceIndexforPositionCommand</1>。<1><0>亚马逊定位服务还提供其他 Places API，例如 <1>getPl</1> ace、searchPlaceIndexforSuggences、<1>searchPlaceIndexforTexforText</1></0></1>"
+  },
+  "codeSnippets_marker_clustering_heading": {
+    "text": "标记聚类"
+  },
+  "codeSnippets_marker_clustering_description": {
+    "text": "谷歌地图和亚马逊定位服务都提供标记聚类。"
+  },
+  "codeSnippets_marker_clustering_point1": {
+    "text": "谷歌地图提供了 <1>MarkerClusterer</1>，它利用地图参考和一系列标记来在地图上显示标记集群。"
+  },
+  "codeSnippets_marker_clustering_point2": {
+    "text": "<1><1>亚马逊定位服务使用Maplibre的基类来聚类标记；但是，您可以使用自定义逻辑通过AddSource和AddLayer直接从Maplibre渲染标记和数据层。</1></1>"
+  },
+  "notableDifferences_subPoint1a": {
+    "text": "使用<1>纬度、经度</1>序列。"
+  },
+  "notableDifferences_subPoint1b": {
+    "text": "遵循 <1>[y, x]</1> 惯例。"
+  },
+  "notableDifferences_subPoint1c": {
+    "text": "使用定义为<1>位置</1>对象的经<1>度、纬度</1>序列。"
+  },
+  "notableDifferences_subPoint1d": {
+    "text": "遵循 <0>GeoJSON 標準定義的</0> <1>[x, y]</1> 慣例。"
+  },
+  "notableDifferences_subPoint1e": {
+    "text": "“x” 是经度（水平轴，反映东西方位置）。"
+  },
+  "notableDifferences_subPoint1f": {
+    "text": "“y” 是纬度（垂直轴，反映南北位置）。"
+  },
+  "integrating_the_amazon_location_sdk_description1": {
+    "text": "<1>Maplibre</1> 是一个免费使用的 TypeScript 库，旨在轻松地在您的网站上显示交互式地图。它以其卓越的性能脱颖而出，这要归功于使用设备的图形处理单元 (GPU) 加速矢量切片渲染的尖端技术。这可确保您的网站访问者获得流畅且响应迅速的地图查看体验。Maplibre 可以轻松集成和展示动态地图，同时提供高性能测绘功能。将亚马逊定位软件开发工具包与Maplibre集成是使您的应用程序 “位置感知” 的关键步骤。它使您的应用程序能够有效地理解和使用位置信息。通过这种集成，您可以执行以下操作："
+  },
+  "integrating_the_amazon_location_sdk_description1a": {
+    "text": "正在加载地图"
+  },
+  "integrating_the_amazon_location_sdk_description1c": {
+    "text": "实现热图"
+  },
+  "integrating_the_amazon_location_sdk_description1e": {
+    "text": "合并线路"
+  },
+  "integrating_the_amazon_location_sdk_description1f": {
+    "text": "计算路线"
+  },
+  "integrating_the_amazon_location_sdk_description2": {
+    "text": "如果您是一名开发人员，希望探索可用于将亚马逊定位服务集成到应用程序中的不同 SDK 编程语言选项，则可以通过单击<0>此处</0>找到详细信息。这将帮助您选择适合项目特定需求的合适的 SDK。"
+  },
+  "codeSnippets_adding_a_marker_postDescription": {
+    "text": "这些标记绘制功能使开发人员能够创建交互式位置感知应用程序，这些应用程序可以引导用户前往特定的兴趣点，突出显示地理数据或提供基于位置的服务。"
+  },
+  "codeSnippets_load_a_map_about": {
+    "text": "加载地图会在网页或应用程序上显示地理数据。通过连接谷歌地图或亚马逊定位服务等地图服务，用户可以与标记、叠加层和地理定位服务进行交互，以浏览和浏览地图。"
+  },
+  "codeSnippets_adding_a_marker_about": {
+    "text": "显示标记会在地图上放置一个图标以指示感兴趣的位置。标记会突出显示企业或地标等地点。它们增强了导航和地理定位，并为与地图互动的用户提供有价值的信息。"
+  },
+  "codeSnippets_marker_clustering_about": {
+    "text": "标记聚类是一种用于将地图上附近的标记分组为集群的技术，从而提高视觉清晰度和性能。群集不是将单个标记弄得乱七八糟，而是代表不同缩放级别的多个标记，使用户可以更轻松地导航和了解地图上的拥挤区域。"
+  },
+  "codeSnippets_display_an_info_window_about": {
+    "text": "显示信息弹出窗口是一项在用户与地图上的标记互动时显示其他信息的功能。当用户点击或将鼠标悬停在标记上时，会出现一个弹出窗口，提供地址、描述或其他与地图上的位置相关的数据等详细信息。"
+  },
+  "codeSnippets_adding_a_polyline_about": {
+    "text": "显示线条包括在地图上绘制一条连接多个点的连续线。此功能通常用于表示路线、边界或路径。通过显示线条，用户可以在地图上可视化连接并追踪特定的路线，以实现导航或数据表示的目的。"
+  },
+  "codeSnippets_adding_a_polygon_about": {
+    "text": "显示多边形允许用户在地图上使用直线创建封闭形状。此功能通常用于定义边界、感兴趣区域或区域。通过显示多边形，用户可以直观地表示特定地理区域并与之交互，从而在地图上提供有价值的背景和信息。"
+  },
+  "codeSnippets_drawing_a_circle_about": {
+    "text": "显示圆形要素使用户可以在地图上绘制圆形。此功能通常用于表示影响区域、距离区域或覆盖范围。通过显示圆圈，用户可以直观地描绘特定的圆形区域并与之互动，从而在地图上提供有价值的空间信息和分析。"
+  },
+  "codeSnippets_adding_a_heatmap_about": {
+    "text": "显示热图允许用户在地图上可视化和分析数据密度。此功能使用颜色渐变表示数据，较暖的颜色表示密度高，较冷的颜色表示密度较低。显示热图有助于识别数据中的模式、趋势和热点，有助于数据探索和决策。"
+  },
+  "codeSnippets_routing_services_about": {
+    "text": "计算路径涉及使用路由算法来确定地图上两个或多个位置之间的最佳路径。通过考虑距离、交通和交通模式等因素，用户可以获得导航指令，这些指令可以有效地引导他们从起点到目的地，从而帮助进行路线规划和导航。"
+  },
+  "codeSnippets_places_search_about": {
+    "text": "搜索地点允许用户在地图上查找特定的位置或兴趣点。通过输入关键字或地址，用户可以发现相关地点，例如企业、地标或地址。此功能可帮助用户探索和定位所需的目的地，增强地图应用程序或网站的可用性和功能。"
+  },
+  "trackers_and_geofences_application_description_5": {
+    "text": "此外，设备位置更新的ping速率可能会影响所有三个成本组成部分，具体取决于您的应用程序。"
+  },
+  "dashboard_refresh_rate_text": {
+    "text": "仪表板刷新率"
+  },
+  "processed_requests_with_device_speed": {
+    "text": "以设备速度处理请求"
+  },
+  "travel_distance_per_ping": {
+    "text": "每个 ping 的行程距离（米）"
+  },
+  "migrateAniOSApp_heading": {
+    "text": "iOS-从谷歌地图迁移到亚马逊定位服务"
+  },
+  "migrateAniOSApp_desc": {
+    "text": "本指南详细介绍了将iOS应用程序从谷歌地图过渡到亚马逊定位服务的技术流程。它重点介绍了初始设置、Amazon Location 资源配置，并提供了软件开发工具包比较示例，以促进映射功能集成到基于 iOS 的平台中。"
+  },
+  "migrateAniOSApp_desc1": {
+    "text": "AWS 文档是开发人员掌握亚马逊定位服务的关键资源，提供了有关功能、设置和集成的完整指南。查看<0>官方指南</0>，了解有关向应用程序添加定位服务的实用见解。"
+  },
+  "initiating_a_swift_iOS_heading": {
+    "text": "创建 Swift iOS 项目"
+  },
+  "initiating_a_swift_iOS_dec": {
+    "text": "在本指南中，我们将在 XCode 中使用带有故事板用户界面的 iOS 应用程序项目，这是一个全面的开发环境，为使用 Swift 创建引人入胜的 iOS 应用程序提供了必要的工具。"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description": {
+    "text": "要使用亚马逊定位服务的地图功能增强您的应用程序，您需要将以下软件包整合到您的 Xcode iOS 项目中："
+  },
+  "MapLibre_Native": {
+    "text": "<0>Maplibre 原生版本</0>"
+  },
+  "AWS_SDK_SWIFT": {
+    "text": "<0>AWS SDK Sw</0>"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2": {
+    "text": "AWS SDK Swift 包专为包括亚马逊位置在内的各种亚马逊网络服务而设计，支持各种功能，其中一些功能在本文档中实现："
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2a": {
+    "text": "搜索地点"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description2b": {
+    "text": "提供路由服务"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description3": {
+    "text": "通过集成这些软件包，您可以利用亚马逊定位服务和 Maplibre 的稳健性为应用程序用户创建功能丰富的交互式地图体验。"
+  },
+  "integrating_the_iOS_amazon_location_sdk_description4": {
+    "text": "对于希望探索可用于将亚马逊定位服务集成到应用程序的不同 SDK 编程语言选项的开发人员，请单击<0>此处</0>查找详细信息，这些信息将帮助您选择适合项目需求的合适软件开发工具包。"
+  },
+  "webSdkExamples_iOS_description": {
+    "text": "本指南包含针对不同平台量身定制的各种代码示例，每个示例都涉及一个常见的用例。<1>主要目标是利用Map <1>libre</1> 和AWS-SDK-SWIFT的功能，促进您的iOS应用程序从谷歌地图iOS SDK过渡到亚马逊定位服务。</1>具体而言，有关 iOS 应用程序的代码示例以 Swift 编程语言呈现。"
+  },
+  "webSdkExample_iOS_description1": {
+    "text": "要继续实现所提供的示例，您需要将 <1>ViewController.swift</1> 中的现有内容替换为每个示例的代码片段。此过程将允许您将示例中演示的特定功能整合到您的应用程序中。"
+  },
+  "codeSnippets_load_a_map_iOS_about": {
+    "text": "谷歌地图和亚马逊定位服务都提供了强大的解决方案，可将动态、可自定义的地图集成到您的应用程序中。这些地图能够展示各种地理数据，通过平移和缩放等交互式功能丰富用户体验。"
+  },
+  "codeSnippets_load_a_map_iOS_point1": {
+    "text": "谷歌地图使用 <1>GMSMapView</1> 来渲染地图。"
+  },
+  "codeSnippets_load_a_map_iOS_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 <1>MLNMap</1> View 来渲染地图。"
+  },
+  "codeSnippets_adding_a_marker_ios_about": {
+    "text": "谷歌地图和亚马逊定位服务都提供在地图上的特定坐标处绘制标记的功能，这是突出显示景点的重要功能。"
+  },
+  "codeSnippets_adding_a_marker_ios_point1": {
+    "text": "Google 地图原生提供此功能，无需额外的库或工具。它采用 <1>GMSMarker</1> 类，允许开发人员实例化和自定义标记，这些标记可以放置在地图上的任何经度和纬度。"
+  },
+  "codeSnippets_adding_a_marker_ios_point2": {
+    "text": "相比之下，亚马逊定位服务利用Maplibre库的强大功能在地图上呈现标记。这是使用 <1>mlnPointaN</1> otation 类和 <1>addAnnotation</1> 方法实现的。<1>mlnPointaN</1> otation 是一款灵活的工具，不仅允许放置标记，还提供一系列自定义选项。然后使用 <1>addAnnotation</1> 方法将这些自定义注释添加到地图中，为用户提供高度互动的动态地图体验。"
+  },
+  "codeSnippets_adding_a_marker_ios_postDescription": {
+    "text": "这些标记绘制功能使开发人员能够创建交互式位置感知应用程序，这些应用程序可以引导用户前往特定的兴趣点，突出显示地理数据或提供基于位置的服务。"
+  },
+  "codeSnippets_marker_clustering_ios_about": {
+    "text": "标记聚类是谷歌地图和亚马逊定位服务提供的一项强大功能，可使用高密度标记增强地图的视觉清晰度。"
+  },
+  "codeSnippets_marker_clustering_ios_description": {
+    "text": "谷歌地图和亚马逊定位服务都提供标记聚类。"
+  },
+  "codeSnippets_marker_clustering_ios_point1": {
+    "text": "谷歌地图为此目的使用了 <1>GMUClusterManager</1> 类。该类引用了地图和 GmuDefaultClusterRenderer，以有效地对地图上的标记进行聚类。此功能允许高效地渲染和管理大量标记，从而通过减少视觉混乱和增强地图性能来改善用户体验。"
+  },
+  "codeSnippets_marker_clustering_ios_point2": {
+    "text": "相比之下，亚马逊定位服务通过Maplibre库实现标记聚类。<1>这是使用 mlnSym <1>bolStyleLayer 和 mlnShapeS</1> ource 结合使用来完成的。</1>通过在创建 <1>MLnShapeSource</1> 时将群集选项设置为 true，您可以启用标记聚类。随后，使用表达式根据集群的点数对 <1>mlnSymbolStyleLayer</1> 进行样式设置。这是使用 <1>NSExpression</1> 根据每个集群中的点数动态应用样式来实现的。请注意，处理集群上的点击并将其扩展为单个标记需要额外的逻辑，这为更具交互性和用户友好性的地图体验提供了可能性。"
+  },
+  "codeSnippets_marker_clustering_ios_postDescription": {
+    "text": "通过集成这些标记聚类功能，开发人员可以显著提高其地图的可用性和性能，尤其是在处理大量数据点时。"
+  },
+  "codeSnippets_display_an_info_window_ios_about": {
+    "text": "显示地图标记信息弹出窗口的能力是交互式地图的关键功能，谷歌地图和亚马逊定位服务都为实现此功能提供了强大的解决方案。"
+  },
+  "codeSnippets_display_an_info_window_ios_point1": {
+    "text": "在谷歌地图中，你可以使用 <1>gmsmapView.selectedMarker 属性来显示与特定标记</1>相关的信息。此功能允许用户与地图标记进行交互并访问其他详细信息，通过提供与上下文相关的信息来增强整体用户体验。"
+  },
+  "codeSnippets_display_an_info_window_ios_point2": {
+    "text": "亚马逊定位服务将 <1>mlnmapView.selectAnn</1> otation 属性用于类似目的。通过设置此属性，您可以显示与特定标记相关的信息。但是，为了确保显示信息弹出窗口，你还需要覆盖 <1>annotationCanShowC</1> allout 函数并返回真值。这种方法提供了高度的灵活性，允许开发人员自定义显示的信息并根据特定条件控制其呈现方式。"
+  },
+  "codeSnippets_display_an_info_window_ios_postDescription": {
+    "text": "通过集成这些功能，开发人员可以显著增强其地图的交互性，为用户提供有关特定位置或点的宝贵见解和背景信息。"
+  },
+  "codeSnippets_adding_a_polyline_ios_about": {
+    "text": "谷歌地图和亚马逊定位服务都提供了全面的添加线条的工具，从而增强了地图上路线或边界的直观呈现。"
+  },
+  "codeSnippets_adding_a_polyline_ios_postDescription": {
+    "text": "通过整合这些线条，开发人员可以显著增强地图的交互性和实用性，为用户提供视觉上丰富的路线或地理边界表示。"
+  },
+  "codeSnippets_adding_a_polyline_ios_point1": {
+    "text": "谷歌地图提供形状类，可用于绘制线条和多边形。这是通过 GmsPolyline 类实现的，这是一个强大的工具，允许开发人员定义一系列坐标并将其与直线连接。此功能对于在应用程序中表示路径或边界特别有用。"
+  },
+  "codeSnippets_adding_a_polyline_ios_point2": {
+    "text": "另一方面，亚马逊定位服务使用Maplibre GL库来实现类似的功能。mlnPolyline 方法可用于为一组给定的坐标添加线。这种方法提供了灵活性和精度，允许开发人员在地图上创建复杂的形状和路线。"
+  },
+  "codeSnippets_adding_a_polygon_ios_about": {
+    "text": "谷歌地图和亚马逊定位服务都提供了向地图添加多边形的强大功能，使开发人员能够划定特定的区域或区域。"
+  },
+  "codeSnippets_adding_a_polygon_ios_point1": {
+    "text": "谷歌地图提供了形状类，这是一种便于绘制线条和多边形的多功能工具。<1>GmsPolygon</1> 类专为创建多边形而设计，可以对其进行自定义以表示地图上的特定区域或区域。此功能对于需要划定特定地理区域的应用程序非常有用。"
+  },
+  "codeSnippets_adding_a_polygon_ios_point2": {
+    "text": "相比之下，亚马逊定位服务使用Maplibre库来实现类似的功能。<1>mlnPolygon</1> 方法可用于为一组给定的坐标添加多边形。这种方法提供了高度的灵活性和精度，允许开发人员在地图上创建复杂的形状和区域。"
+  },
+  "codeSnippets_adding_a_polygon_ios_postDescription": {
+    "text": "通过集成这些多边形功能，开发人员可以为用户提供更全面、更详细的特定地理区域视图，从而增强总体坐标。"
+  },
+  "codeSnippets_drawing_a_circle_ios_point1": {
+    "text": "谷歌地图提供了专门为此目的设计的 <1>GMSCircle</1> 类。该类允许开发人员围绕给定点定义具有特定半径的圆，从而为在地图上突出显示特定区域提供了一种简单而有效的方法。"
+  },
+  "codeSnippets_drawing_a_circle_ios_point2": {
+    "text": "另一方面，亚马逊定位服务采用的方法略有不同。它使用 <1>mlnCircleStyleLayer 和 ml <1>nShapeSource 类以及圈源</1>和圆层</1>标识符。这种组合提供了高度的灵活性和精确性，使开发人员能够在地图上创建可根据数据源动态更新的自定义圆圈。"
+  },
+  "codeSnippets_drawing_a_circle_ios_postDescription": {
+    "text": "通过集成这些功能，开发人员可以增强用户的地图体验，提供一种直观的方式来表示特定半径内的感兴趣区域或区域。"
+  },
+  "codeSnippets_adding_a_heatmap_ios_about": {
+    "text": "热图是有价值的可视化工具，可以表示各个地理区域的数据强度。谷歌地图和亚马逊定位服务都为集成此功能提供了全面的解决方案。"
+  },
+  "codeSnippets_adding_a_heatmap_ios_postDescription": {
+    "text": "通过集成这些热图功能，开发人员可以让用户直观、详细地了解各个地理区域的数据模式，从而增强整体用户体验。"
+  },
+  "codeSnippets_adding_a_heatmap_ios_point1": {
+    "text": "谷歌地图利用 Shapes 类，特别是 <1>GmuHeatmapTileLayer 类来促进热图</1>的创建。该类使开发人员能够定义数据点的集合和相应的颜色渐变，然后对其进行处理以生成热图。该工具在表示地图内各个区域的数据密度或强度方面特别有用。"
+  },
+  "codeSnippets_adding_a_heatmap_ios_point2": {
+    "text": "相比之下，亚马逊定位服务利用Maplibre GL库的功能来实现类似的结果。<1>mlnHeatmapStyleLayer</1> 类用于创建热图，具有很大的灵活性和可定制性。要使用此功能，你需要为热图创建一个数据源，它应该是一个由 <1>mln</1> PointFeature 对象组成的数组。该数组中的每个要素代表热图中的一个数据点，可以详细而精确地表示数据强度。"
+  },
+  "codeSnippets_routing_services_ios_about": {
+    "text": "路径服务是测绘应用程序的重要组成部分，为用户提供不同位置之间的路线。谷歌地图和亚马逊定位服务都为此功能提供了强大的解决方案。"
+  },
+  "codeSnippets_routing_services_ios_point1": {
+    "text": "谷歌地图提供<1>路线</1>或<1>计算机路线，用于计算</1>和显示地图上的路线数据。"
+  },
+  "codeSnippets_routing_services_ios_point2": {
+    "text": "相比之下，亚马逊定位服务利用 <1>aws-sdk-swift</1> 库提供其路由服务。<1>开发人员可以使用 <1>AuthHelper.withApiKey（apiKey，区域）函数使用他们的 API 密钥初始化 AuthHelper，</1>然后创建 GeoroutesClient（配置：<1>authHelp</1> er.getGe <1>oroutesClientConfig ()）对象来创建 CalculateRoutes</1> Input 对象。</1>然后，该对象包含起点、目的地和出行模式等必要参数，将传递给 Ge <1>oroutesClient.calcilaTeRoutes 方法</1>来计算路线。这种方法提供了高度的灵活性，允许开发人员自定义路由服务以满足其特定需求。"
+  },
+  "codeSnippets_routing_services_ios_postDescription": {
+    "text": "通过集成这些路由服务，开发人员可以显著增强其应用程序的功能，为用户提供指向您的应用程序的详细路由。"
+  },
+  "codeSnippets_places_search_ios_about": {
+    "text": "搜索地点是当今地图服务的基本功能。谷歌地图和亚马逊定位服务均提供全面的工具，使用户能够有效地进行这些搜索。"
+  },
+  "codeSnippets_places_search_ios_postDescription": {
+    "text": "通过整合这些地点搜索功能，开发人员可以显著增强其应用程序的实用性，使用户能够有效地发现和导航到名胜古迹。"
+  },
+  "codeSnippets_places_search_ios_point1": {
+    "text": "谷歌地图提供了<1>附近搜索</1> API，这是一款旨在执行基于距离的搜索的强大工具。此功能允许用户搜索位置指定半径范围内的地点，提供符合搜索条件的地点列表。这对于需要引导用户前往附近景点或服务的应用程序特别有用。"
+  },
+  "codeSnippets_places_search_ios_point2": {
+    "text": "相反，亚马逊定位服务利用 <1>aws-sdk-swift</1> 库来提供类似的功能。<1>开发人员可以使用 <1>AuthHelper.withApiKey（apiKey，区域）函数使用他们的 apiKey 初始化 AuthHelper，</1>然后创建 GeoplacesClient（配置：<1>authHelp</1> er.getGeop <1>lacesClientConfig ()）对象来创建 Sugge</1> stInput 对象。</1>然后将该对象传递给 Geop <1>lacesClient.SUGGEST 方法来执行搜索。</1>这种方法提供了高度的灵活性，允许开发人员自定义搜索参数以满足其特定需求。"
+  },
+  "migrateAnAndroidApp_heading": {
+    "text": "Android-从谷歌地图迁移到亚马逊定位服务"
+  },
+  "initiating_a_kotlin_android_heading": {
+    "text": "创建 Kotlin 安卓项目"
+  },
+  "initiating_a_kotlin_android_dec": {
+    "text": "在本指南中，我们将使用安卓工作室中的安卓项目，这是一个全面的开发环境，为使用科特林创建引人入胜的安卓应用程序提供了必要的工具。"
+  },
+  "integrating_the_android_amazon_location_sdk_description": {
+    "text": "要使用亚马逊定位服务的地图功能增强您的安卓应用程序，您需要使用 Kotlin 将以下软件包整合到您的安卓工作室项目中："
+  },
+  "integrating_the_android_amazon_location_sdk_description1": {
+    "text": "Maplibre Native 是一个免费的开源库，旨在跨不同平台将地图无缝集成到您的移动应用程序和桌面应用程序中。它的突出特点是快速显示地图，这可以通过利用 GPU 加速矢量切片渲染的强大功能来实现。这可确保在您的应用程序中快速高效地呈现地图，为用户提供具有视觉吸引力和响应迅速的地图体验。Maplibre Native 使您能够毫不费力地将地图整合到软件项目中，同时利用先进的技术实现最佳性能。它的功能包括："
+  },
+  "MapLibre_For_Android": {
+    "text": "<0>安卓版 Maplibre</0>"
+  },
+  "AWS_SDK_For_Android": {
+    "text": "适用于安卓的 AWS 开发工具包"
+  },
+  "integrating_the_android_amazon_location_sdk_description2": {
+    "text": "适用于安卓的 AWS 开发工具包专为包括亚马逊位置在内的各种亚马逊网络服务而设计。它支持各种功能，其中一些功能在本文档中实现："
+  },
+  "integrating_the_android_amazon_location_sdk_description3": {
+    "text": "通过使用科特林将这些软件包集成到你的安卓工作室项目中，你可以利用亚马逊定位服务和Maplibre的功能，为你的安卓应用程序用户创造功能丰富的交互式地图体验。"
+  },
+  "webSdkExamples_Android_description": {
+    "text": "本指南包含各种代码示例，每个示例都涉及一个单独的用例。主要目标是利用Maplibre和适用于Kotlin的AWS SDK的功能，促进您的安卓应用程序从谷歌地图软件开发工具包过渡到亚马逊定位服务。"
+  },
+  "webSdkExample_Android_description1": {
+    "text": "要继续实现所提供的示例，您需要使用每个示例的代码片段替换主安卓活动文件（如 MainActivity.kt）中的现有内容。此过程将允许您将示例中演示的特定功能整合到您的应用程序中。"
+  },
+  "codeSnippets_load_a_map_Android_about": {
+    "text": "谷歌地图和亚马逊定位服务都提供了在应用程序中嵌入交互式地图的工具。这些地图支持用户互动，例如平移和缩放。"
+  },
+  "codeSnippets_load_a_map_Android_point1": {
+    "text": "对于安卓版谷歌地图，<1>SupportMapFragment</1> 管理地图生命周期，而<1>谷歌地图类则提供对地图</1>内容和互动的控制。"
+  },
+  "codeSnippets_load_a_map_Android_point2": {
+    "text": "借助亚马逊定位服务，MapLibre库的 <1>MapView</1> 是在应用程序中初始化和显示地图的主要界面。"
+  },
+  "codeSnippets_load_a_map_Android_postDescription": {
+    "text": "要使用安卓版谷歌地图 SDK 显示地图，需要执行以下步骤："
+  },
+  "google_load_a_map_step1": {
+    "text": "<0>第 1 步</0><1>：打开模块级 <1>build.gradle</1> 并添加以下依赖项</1>"
+  },
+  "google_load_a_map_step2": {
+    "text": "<0>第 2 步</0>：在 <1>AndroidManifest.xml</1> 中输入以下代码并将 <1>MAPS_API_KEY 替换为你的 Google 地图 API 密钥</1>"
+  },
+  "google_load_a_map_step3": {
+    "text": "<0>第 3 步</0>：将以下代码添加到 <1>activity_maps.xml</1>"
+  },
+  "google_load_a_map_step4": {
+    "text": "<0>第 4 步</0>：将以下代码添加到 <1>Maps</1> Activity.kt"
+  },
+  "amazon_load_a_map_step1": {
+    "text": "<0>第 1 步</0>：打开模块级 <1>build.gradle</1> 并添加以下数据"
+  },
+  "amazon_load_a_map_step2": {
+    "text": "<0>第 2 步</0>：要使用您的地图名称和 AWS 区域配置应用程序，请将其输入到 <1>configuration.xml</1> 中，如下所示"
+  },
+  "amazon_load_a_map_step3": {
+    "text": "<0>第 3 步</0>：在 <1>strings.xml</1> 中添加以下代码"
+  },
+  "amazon_load_a_map_step4": {
+    "text": "<0>第 4 步</0>：在 <1>activity_map.xml</1> 中添加以下代码"
+  },
+  "amazon_load_a_map_step5": {
+    "text": "<0>第 5 步</0>：将以下代码添加到您的 <1>Map</1> Activity.kt"
+  },
+  "codeSnippets_adding_a_marker_android_about": {
+    "text": "谷歌地图和亚马逊定位服务都可以在地图上的精确坐标上放置标记，这是突出显示景点的重要功能。"
+  },
+  "codeSnippets_adding_a_marker_android_point1": {
+    "text": "谷歌地图通过 <1>AddMarker</1> 功能提供原生支持。"
+  },
+  "codeSnippets_adding_a_marker_android_point2": {
+    "text": "<1>亚马逊定位服务利用 Maplibre 库使用 SymbolManager 在地图上渲染标记。</1>"
+  },
+  "google_adding_a_marker_step1": {
+    "text": "<0>第 1 步</0>：将以下代码添加到 <1>activity_maps.xml</1>"
+  },
+  "google_adding_a_marker_step2": {
+    "text": "<0>第 2 步</0><1>：在谷歌地图中，使用 MarkerActivity.kt 中的地图 <1>addMarker 方法添加标记</1></1>"
+  },
+  "amazon_adding_a_marker_step1": {
+    "text": "<0>第 1 步：在 activity_add_marker.xml 中添加</0><1>以下代码</1>"
+  },
+  "amazon_adding_a_marker_step2": {
+    "text": "<0>第 2 步</0><1>：在 <1>/res/drawable</1> 目录中添加名为 <1>ic_marker_blue.xml</1> 的标记图片，并将以下代码插入到 addMarkerActivity.kt</1>"
+  },
+  "codeSnippets_marker_clustering_android_about": {
+    "text": "标记聚类是谷歌地图和亚马逊定位服务提供的一项强大功能，可使用高密度标记增强地图的视觉清晰度。"
+  },
+  "codeSnippets_marker_clustering_android_point1": {
+    "text": "谷歌地图使用<1>集群管理器</1>，它需要地图参考和一组标记才能在地图上显示标记集群。"
+  },
+  "codeSnippets_marker_clustering_android_point2": {
+    "text": "<1>亚马逊定位服务通过使用AddSource和 <1>Add</1> Layer等方法直接通过Maplibre渲染标记和数据层来实现标记聚类。</1>"
+  },
+  "google_marker_clustering_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.gradle</1> 的依赖项中添加以下行，然后单击 “立即同步”。"
+  },
+  "google_marker_clustering_step2": {
+    "text": "<0>第 2 步</0>：将以下代码添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_marker_clustering_step3": {
+    "text": "<0>第 3 步</0>：在 MarkerClusterActivity. <1>k</1> t 中添加以下代码"
+  },
+  "amazon_marker_clustering_step1": {
+    "text": "<0>第 1 步</0>：在 <1>activity_marker_cluster.xml</1> 中添加以下代码。"
+  },
+  "amazon_marker_clustering_step2": {
+    "text": "<0>第 2 步</0>：在 MarkerClust <1>erActivity.k</1> t 中添加以下代码。"
+  },
+  "codeSnippets_display_an_info_window_android_about": {
+    "text": "谷歌地图和亚马逊定位服务都提供在各自的地图上显示信息弹出窗口的功能，使用户能够查看有关特定位置或标记的更多详细信息。"
+  },
+  "codeSnippets_display_an_info_window_android_point1": {
+    "text": "在谷歌地图中，<1>MarkerOptions</1> 在标记旁边显示一个弹出窗口。"
+  },
+  "codeSnippets_display_an_info_window_android_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 <1>AddSource 和 Add</1> <1>Layer</1> 方法来呈现信息弹出窗口。"
+  },
+  "google_display_an_info_window_step1": {
+    "text": "<0>第 1 步</0>：将以下代码添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_display_an_info_window_step2": {
+    "text": "<0>第 2 步</0>：在 <1>InfoPop</1> upActivity.kt 中添加以下代码。"
+  },
+  "amazon_display_an_info_window_step1": {
+    "text": "<0>第 1 步</0>：在 <1>activity_info_popup.xml</1> 中添加以下代码。"
+  },
+  "amazon_display_an_info_window_step2": {
+    "text": "<0>第 2 步</0>：在 <1>layout_info_popup.xml</1> 中添加以下代码。"
+  },
+  "amazon_display_an_info_window_step3": {
+    "text": "<0>第 3 步</0>：在 <1>InfoPop</1> upActivity.kt 中添加以下代码。"
+  },
+  "codeSnippets_adding_a_polyline_android_about": {
+    "text": "谷歌地图和亚马逊定位服务都提供了全面的添加线条的工具，从而增强了地图上路线或边界的直观呈现。"
+  },
+  "codeSnippets_adding_a_polyline_android_point1": {
+    "text": "谷歌地图提供了 <1>addPolyline</1> 方法来渲染线条。"
+  },
+  "codeSnippets_adding_a_polyline_android_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 <1>AddSource 和 add</1> <1>Layer</1> 方法来渲染线条。"
+  },
+  "google_adding_a_polyline_step1": {
+    "text": "<0>第 1 步</0>：将以下代码添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_adding_a_polyline_step2": {
+    "text": "<0>第 2 步</0>：在 P <1>olylineActivity</1> .kt 中添加以下代码。"
+  },
+  "amazon_adding_a_polyline_step1": {
+    "text": "<0>第 1 步</0>：在 <1>activity_polyline.xml</1> 中添加以下代码。"
+  },
+  "amazon_adding_a_polyline_step2": {
+    "text": "<0>第 2 步</0>：将以下代码添加到 <1>PolylineActivity.kt</1>。"
+  },
+  "codeSnippets_adding_a_polygon_android_about": {
+    "text": "多边形是代表地图上特定区域的几何形状。"
+  },
+  "codeSnippets_adding_a_polygon_android_point1": {
+    "text": "谷歌地图提供了 <1>addPolygon 方法来在地图上绘制多边形</1>。"
+  },
+  "codeSnippets_adding_a_polygon_android_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 <1>AddSource 和 Add</1> <1>Layer</1> 方法来渲染多边形。"
+  },
+  "google_adding_a_polygon_step1": {
+    "text": "<0>第 1 步</0>：将以下代码添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_adding_a_polygon_step2": {
+    "text": "<0>第 2 步</0>：在 P <1>olygon</1> Activity.kt 中添加以下代码。"
+  },
+  "amazon_adding_a_polygon_step1": {
+    "text": "<0>第 1 步</0>：在 <1>activity_polygon.xml</1> 中添加以下代码。"
+  },
+  "amazon_adding_a_polygon_step2": {
+    "text": "<0>第 2 步</0>：在 <1>Polygon</1> Activity.kt 中添加以下代码。"
+  },
+  "codeSnippets_adding_a_circle_android_about": {
+    "text": "在地图上显示圆圈是许多应用程序的常见要求，谷歌地图和亚马逊定位服务都提供了强大的工具来完成这项任务。"
+  },
+  "codeSnippets_adding_a_circle_android_point1": {
+    "text": "谷歌地图提供了专门用于绘制<1>圆圈的 addCirc</1> le 方法。"
+  },
+  "codeSnippets_adding_a_circle_android_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 <1>addSource 和 add</1> <1>Layer</1> 方法来渲染圆圈。此外，你可以使用 <1>org.maplibre.gl: android-sdk-turf</1> 库来获取渲染圆形的点列表。"
+  },
+  "google_adding_a_circle_step1": {
+    "text": "<0>第 1 步</0>：将以下代码添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_adding_a_circle_step2": {
+    "text": "<0>第 2 步</0>：在 <1>Circle</1> DrawActivity.kt 中添加以下代码。"
+  },
+  "amazon_adding_a_circle_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.g</1> radle 的依赖项中添加以下行。"
+  },
+  "amazon_adding_a_circle_step2": {
+    "text": "<0>第 2 步</0>：在 <1>activity_draw_circle.xml</1> 中添加以下代码。"
+  },
+  "amazon_adding_a_circle_step3": {
+    "text": "<0>第 2 步</0>：在 d <1>rawCirc</1> leActivity.kt 中添加以下代码。"
+  },
+  "codeSnippets_adding_a_heatmap_android_about": {
+    "text": "热图是有价值的可视化工具，可以表示各个地理区域的数据强度。谷歌地图和亚马逊定位服务都为集成此功能提供了全面的解决方案。"
+  },
+  "codeSnippets_adding_a_heatmap_android_point1": {
+    "text": "<1>在谷歌地图中，热图层包含在 <1>com.google.maps.android: android-maps-utils 库中，它使用 HeatmapTileProvid</1> er 方法合并了热图。</1>"
+  },
+  "codeSnippets_adding_a_heatmap_android_point2": {
+    "text": "<1>亚马逊定位服务使用Maplibre的功能，使用AddLayer功能。</1>通常，首先使用 <1>addSource 添加一个源</1>，然后创建一个引用该源的图层。"
+  },
+  "google_adding_a_heatmap_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.g</1> radle 的<1>依赖项</1>中添加以下行。"
+  },
+  "google_adding_a_heatmap_step2": {
+    "text": "<0>第 2 步</0>：将以下代码添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_adding_a_heatmap_step3": {
+    "text": "<0>第 3 步</0><1>：在谷歌地图中，使用 HeatmapActivity.kt 中的地图 addHeatmap 方法添加热图。</1>"
+  },
+  "amazon_adding_a_heatmap_step1": {
+    "text": "<0>第 1 步</0>：在 <1>activity_heat_map.xml</1> 中添加以下代码。"
+  },
+  "amazon_adding_a_heatmap_step2": {
+    "text": "<0>第 2 步</0>：在 <1>Heatmap</1> Activity.kt 中添加以下代码。"
+  },
+  "codeSnippets_calculating_a_route_android_about": {
+    "text": "路径服务是测绘应用程序的重要组成部分，为用户提供不同位置之间的路线。谷歌地图和亚马逊定位服务都为此功能提供了强大的解决方案。"
+  },
+  "codeSnippets_calculating_a_route_android_point1": {
+    "text": "谷歌地图提供<1>路线</1>或<1>计算机路线，用于计算</1>和显示地图上的路线数据。"
+  },
+  "codeSnippets_calculating_a_route_android_point2": {
+    "text": "亚马逊定位服务通过其定位客户端提供 C <1>alculaTeRoute</1> 方法。随后，它利用Maplibre的渲染功能在地图上显示该路线数据。"
+  },
+  "google_calculating_a_route_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.g</1> radle 的<1>依赖项</1>中添加以下行。"
+  },
+  "google_calculating_a_route_step2": {
+    "text": "<0>第 2 步</0>：将以下代码添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_calculating_a_route_step3": {
+    "text": "<0>第 3 步</0>：在 C <1>alculat</1> eRouteActivity.kt 中添加以下数据。"
+  },
+  "amazon_calculating_a_route_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.gradle.</1> kts 的<1>依赖项</1>中添加以下行。"
+  },
+  "amazon_calculating_a_route_step2": {
+    "text": "<0>第 2 步</0>：在 <1>activity_calculate_route.xml</1> 中添加以下代码。"
+  },
+  "amazon_calculating_a_route_step3": {
+    "text": "<0>第 3 步</0><1>：在 <1>/res/drawable</1> 目录中添加名为 <1>ic_marker_red</1> 的标记图片，并将以下代码插入到 CalculateRouteActivity.kt 中。</1>"
+  },
+  "codeSnippets_searching_for_places_android_about": {
+    "text": "搜索地点的能力是现代测绘服务的基本特征。谷歌地图和亚马逊定位服务都提供了强大的工具来促进此功能。"
+  },
+  "codeSnippets_searching_for_places_android_point1": {
+    "text": "谷歌地图使用 m <1>aps.googleapis.com/maps/api/place/nearbysearch 网址以及谷歌地图 API 密钥进行地点</1>搜索。"
+  },
+  "codeSnippets_searching_for_places_android_point2": {
+    "text": "亚马逊定位服务通过其定位客户端提供 <1>SearchPlaceIndexforSuggenc</1> es。此外，亚马逊定位服务还提供其他 Place API，例如 <1>getPlace 和 s <1>earch</1> Plac</1> eIndexforText。更多细节可以<0>在这里</0>找到。"
+  },
+  "google_searching_for_places_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.g</1> radle 的<1>依赖项</1>中添加以下行。"
+  },
+  "google_searching_for_places_step2": {
+    "text": "<0>第 2 步</0>：在 <1>activity_search.xml</1> 中添加以下代码。"
+  },
+  "google_searching_for_places_step3": {
+    "text": "<0>第 3 步</0>：在 S <1>earchActivity.kt</1> 中添加以下数据。"
+  },
+  "amazon_searching_for_places_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.gradle.</1> kts 的<1>依赖项</1>中添加以下行。"
+  },
+  "amazon_searching_for_places_step2": {
+    "text": "<0>第 2 步</0>：在 <1>activity_search.xml</1> 中添加以下代码。"
+  },
+  "amazon_searching_for_places_step3": {
+    "text": "<0>第 3 步</0>：在 <1>GeoPlaceSearchTextActivity.kt</1> 中添加以下代码。"
+  },
+  "migrateAnAndroidApp_desc": {
+    "text": "本指南详细介绍了将安卓应用程序从谷歌地图过渡到亚马逊定位服务的技术流程。它重点介绍了初始设置、Amazon Location 资源配置，并提供了软件开发工具包比较示例，以促进将映射功能集成到基于 Android 的平台中。"
+  },
+  "integrating_the_Android_amazon_location_sdk_description": {
+    "text": "要使用亚马逊定位服务的地图功能增强您的安卓应用程序，您需要使用 Kotlin 将以下软件包整合到您的安卓工作室项目中："
+  },
+  "positions_evaluated": {
+    "text": "已评估的职位"
+  },
+  "api_calls": {
+    "text": "API 调用"
+  },
+  "google_maps_price_disclaimer": {
+    "text": "反映了截至 2024 年 5 月 1 日的谷歌地图费率"
+  },
+  "information_is_not_publicly_available": {
+    "text": "谷歌地图上的信息不对外公开"
+  },
+  "pricing_assumptions_and_variations": {
+    "text": "定价假设和变化"
+  },
+  "route-matrix-total-cost-formula": {
+    "text": "请求数量 X 出发地/出发地数量 X 目的地数量 X 单价 = 总成本"
+  },
+  "google-maps-not-available": {
+    "text": "在谷歌地图中不可用"
+  },
+  "tier_1": {
+    "text": "第 1 级"
+  },
+  "tier_2": {
+    "text": "第 2 级"
+  },
+  "tier_3": {
+    "text": "第 3 级"
+  },
+  "tier_4": {
+    "text": "第 4 级"
+  },
+  "tier_1_unit_price": {
+    "text": "第 1 级单价"
+  },
+  "tier_2_unit_price": {
+    "text": "第 2 级单价"
+  },
+  "tier_3_unit_price": {
+    "text": "第 3 层单价"
+  },
+  "tier_4_unit_price": {
+    "text": "第 4 层单价"
+  },
+  "tier_1_cost": {
+    "text": "第 1 级成本"
+  },
+  "tier_2_cost": {
+    "text": "第 2 级成本"
+  },
+  "tier_3_cost": {
+    "text": "第 3 级成本"
+  },
+  "tier_4_cost": {
+    "text": "第 4 级成本"
+  },
+  "total_cost": {
+    "text": "总成本"
+  },
+  "trackers_write_API_calls": {
+    "text": "跟踪器编写 API 调用"
+  },
+  "unit_price": {
+    "text": "单价"
+  },
+  "hr": {
+    "text": "hr"
+  },
+  "min": {
+    "text": "分钟"
+  },
+  "position_updates": {
+    "text": "最新职位"
+  },
+  "total_requests_with_filter": {
+    "text": "应用筛选条件的每月评估请求数"
+  },
+  "total_requests": {
+    "text": "请求总数"
+  },
+  "filter_factor": {
+    "text": "过滤因子"
+  },
+  "hrs": {
+    "text": "小时"
+  },
+  "mins": {
+    "text": "分钟"
+  },
+  "Hr": {
+    "text": "Hr"
+  },
+  "Hrs": {
+    "text": "小时"
+  },
+  "Hour": {
+    "text": "小时"
+  },
+  "Hours": {
+    "text": "小时"
+  },
+  "Min": {
+    "text": "最小"
+  },
+  "Mins": {
+    "text": "分钟"
+  },
+  "Minute": {
+    "text": "分钟"
+  },
+  "Minutes": {
+    "text": "分钟"
+  },
+  "web_services_app_heading": {
+    "text": "网络服务-从谷歌地图迁移到亚马逊定位服务"
+  },
+  "web_services_app_desc": {
+    "text": "本指南详细介绍了将后端应用程序从谷歌地图过渡到亚马逊定位服务的技术流程。它重点介绍了初始设置、Amazon Location 资源配置，并提供了 API 比较示例，以促进将地图功能集成到支持 Web API 的任何平台中。"
+  },
+  "web_services_app_desc1": {
+    "text": "AWS 文档是开发人员掌握亚马逊定位服务的关键资源，提供了有关功能、设置和集成的完整指南。查看<0>官方指南</0>和 <0>API 参考</0>，了解有关向应用程序添加定位服务的实用见解。"
+  },
+  "web_services_app_dataProviders_title": {
+    "text": "数据提供者"
+  },
+  "web_services_app_dataProviders_description": {
+    "text": "使用 Amazon Location 时，您可以选择要使用的数据提供商。地图、地点和路线数据来自您选择的全球位置数据提供商，包括："
+  },
+  "web_services_app_dataProviders_name_0": {
+    "text": "Esri"
+  },
+  "web_services_app_dataProviders_link_0": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/esri.html"
+  },
+  "web_services_app_dataProviders_name_1": {
+    "text": "Grab"
+  },
+  "web_services_app_dataProviders_link_1": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/grab.html"
+  },
+  "web_services_app_dataProviders_name_2": {
+    "text": "HERE 科技"
+  },
+  "web_services_app_dataProviders_link_2": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/HERE.html"
+  },
+  "web_services_app_dataProviders_name_3": {
+    "text": "打开数据"
+  },
+  "web_services_app_dataProviders_link_3": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/open-data.html"
+  },
+  "web_services_app_dataProviders_postDescription": {
+    "text": "有关更多信息，请参阅《亚马逊定位服务开发者指南》中的<0>数据提供</0>商。"
+  },
+  "web_services_app_serviceComparison_title": {
+    "text": "API 对比"
+  },
+  "web_services_app_serviceComparison_description": {
+    "text": "该表显示了亚马逊定位服务 API，其功能与列出的谷歌地图服务 API 类似。"
+  },
+  "web_services_app_serviceComparison_table_0_feature_text": {
+    "text": "地图图块"
+  },
+  "web_services_app_serviceComparison_table_0_googleMapsAPI": {
+    "text": "2dtiles"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_text": {
+    "text": "GetMapTile"
+  },
+  "web_services_app_serviceComparison_table_0_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetMapTile.html"
+  },
+  "web_services_app_serviceComparison_table_1_feature_text": {
+    "text": "地理编码"
+  },
+  "web_services_app_serviceComparison_table_1_googleMapsAPI": {
+    "text": "地理编码"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_text": {
+    "text": "文本的搜索地点索引"
+  },
+  "web_services_app_serviceComparison_table_1_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-geocoding.html"
+  },
+  "web_services_app_serviceComparison_table_2_feature_text": {
+    "text": "反向地理编码"
+  },
+  "web_services_app_serviceComparison_table_2_googleMapsAPI": {
+    "text": "地理编码"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_text": {
+    "text": "在位置索引中搜索位置"
+  },
+  "web_services_app_serviceComparison_table_2_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/developerguide/search-place-index-reverse-geocode.html"
+  },
+  "web_services_app_serviceComparison_table_3_feature_text": {
+    "text": "附近搜寻"
+  },
+  "web_services_app_serviceComparison_table_3_googleMapsAPI": {
+    "text": "地点：在附近搜索"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_text": {
+    "text": "在位置索引中搜索位置"
+  },
+  "web_services_app_serviceComparison_table_3_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForPosition.html"
+  },
+  "web_services_app_serviceComparison_table_4_feature_text": {
+    "text": "文字搜寻"
+  },
+  "web_services_app_serviceComparison_table_4_googleMapsAPI": {
+    "text": "地点：搜索文本"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_text": {
+    "text": "文本的搜索地点索引"
+  },
+  "web_services_app_serviceComparison_table_4_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForText.html"
+  },
+  "web_services_app_serviceComparison_table_5_feature_text": {
+    "text": "自动完成"
+  },
+  "web_services_app_serviceComparison_table_5_googleMapsAPI": {
+    "text": "地点:自动完成"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_text": {
+    "text": "在地点索引中搜索建议"
+  },
+  "web_services_app_serviceComparison_table_5_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_SearchPlaceIndexForSuggestions.html"
+  },
+  "web_services_app_serviceComparison_table_6_feature_text": {
+    "text": "使用地点 ID"
+  },
+  "web_services_app_serviceComparison_table_6_googleMapsAPI": {
+    "text": "地方"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_text": {
+    "text": "GetPlace"
+  },
+  "web_services_app_serviceComparison_table_6_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_GetPlace.html"
+  },
+  "web_services_app_serviceComparison_table_7_googleMapsAPI": {
+    "text": "v2：计算机路线"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_text": {
+    "text": "计算路线"
+  },
+  "web_services_app_serviceComparison_table_7_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRoute.html"
+  },
+  "web_services_app_serviceComparison_table_8_googleMapsAPI": {
+    "text": "v2：计算机输出矩阵"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_text": {
+    "text": "计算路由矩阵"
+  },
+  "web_services_app_serviceComparison_table_8_amazonLocationAPI_link": {
+    "text": "https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRouteMatrix.html"
+  },
+  "web_services_app_serviceComparison_postDescription": {
+    "text": "有关更多信息，请参阅《亚马逊定位服务开发者指南》中的<0>数据提供</0>商。"
+  },
+  "google_maps_api": {
+    "text": "谷歌地图 API"
+  },
+  "amazon_location_api": {
+    "text": "亚马逊定位 API"
+  },
+  "webServices_article_items_examples_description": {
+    "text": "从谷歌地图迁移到亚马逊定位服务时，了解每种服务提供的可比服务和API终端节点非常重要。虽然这两种服务提供相似的地理定位功能，但API请求的结构和使用的命名约定可能有所不同。"
+  },
+  "codeSnippets_getting_map_tiles_heading": {
+    "text": "获取地图图块"
+  },
+  "codeSnippets_getting_map_tiles_description1": {
+    "text": "地图图块是网络地图（如谷歌地图和Maplibre）的构造方式。它们是以网格排列方式显示的方形位图图形，用于显示地图。每个图块都是一张小图像，包含地图的特定部分，具有特定的细节级别或缩放级别。放大或缩小 Web 地图时，实际上是在加载具有不同细节级别的不同切片集。"
+  },
+  "codeSnippets_getting_map_tiles_description2": {
+    "text": "地图图块 API（例如谷歌地图和亚马逊位置提供的那些 API）允许开发人员以编程方式检索这些地图图块。这对于各种应用程序都很有用，例如创建自定义地图查看器、在网页中嵌入地图视图或对切片中包含的地理信息进行分析。"
+  },
+  "codeSnippets_getting_map_tiles_description3": {
+    "text": "API 的工作原理是接受指定所需地图类型（例如路线图、卫星）、地理坐标（纬度和经度）和缩放级别的 HTTP 请求。然后，API 将相应的地图图块作为图像文件（通常为 PNG 或 JPEG 格式）返回。"
+  },
+  "codeSnippets_getting_map_tiles_description4": {
+    "text": "在地图图块的上下文中，Z、X 和 Y 是决定您从地图中检索的特定图块的参数。以下是每个代表的内容："
+  },
+  "codeSnippets_getting_map_tiles_point1": {
+    "text": "Z（缩放级别）：此参数决定地图的比例。更高的缩放级别将更详细地显示更小的区域。例如，在较高的缩放级别下，您可能会看到街道名称和单个建筑物。在较低的缩放级别下，您可能只能看到国家边界和大城市。缩放级别通常以 2 的指数表示，因此 n 的缩放级别将导致地图分成 2^n x 2^n 个图块。"
+  },
+  "codeSnippets_getting_map_tiles_point2": {
+    "text": "X（列）：此参数确定图块的纵向（东西向）位置。缩放级别为 0 时，只有一个图块，因此 X 值为 0。在更高的缩放级别下，X 值的范围可以从 0 到 2^Z-1，从西向东移动。"
+  },
+  "codeSnippets_getting_map_tiles_point3": {
+    "text": "Y（行）：此参数确定图块的纬度（南北）位置。与 X 值一样，每个缩放级别的 Y 值范围从 0 到 2^Z-1，但它从北向南移动。"
+  },
+  "codeSnippets_getting_map_tiles_postDescription": {
+    "text": "这些参数一起可以指定地图上任何细节级别的图块。通过更改这些参数，您可以导航到地图的不同部分并放大或缩小。"
+  },
+  "Request": {
+    "text": "请求"
+  },
+  "Response": {
+    "text": "回应"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_heading": {
+    "text": "1。创建会话"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_google_description": {
+    "text": "在谷歌地图中，第一步是创建会话。这是通过包含地图类型、语言和区域的 POST 请求完成的。地图类型可以是 “路线图”、“卫星” 等。语言和区域参数用于本地化地图图块。"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_heading": {
+    "text": "2。获取地图图块"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_description": {
+    "text": "创建会话后，您可以检索地图切片。这是通过包含缩放级别 (Z)、x 坐标 (X) 和 y 坐标 (Y) 的 GET 请求完成的。还需要在上一步中生成的会话令牌。"
+  },
+  "codeSnippets_getting_map_tiles_request_step2_google_response": {
+    "text": "<0>对该请求的响应是一个包含所请求地图图块的 PNG 文件。</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description": {
+    "text": "使用亚马逊位置，获取地图图块的过程很简单。它涉及一个包含地图名称、缩放级别 (Z)、x 坐标 (X) 和 y 坐标 (Y) 的 GET 请求。"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response": {
+    "text": "<0>返回的 blob 包含 Mapbox 矢量图块 (MVT) 数据</0>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result": {
+    "text": "对此请求的响应包括指示缓存控制策略和内容类型的 HTTP 标头，然后是地图切片数据（称为 “blob”）。地图图块数据可用于在合适的应用程序中渲染地图图块。"
+  },
+  "codeSnippets_getting-map-tiles_description1": {
+    "text": "地图图块是网络地图（如谷歌地图和Maplibre）的构造方式。它们是以网格排列方式显示的方形位图图形，用于显示地图。每个图块都是一张小图像，包含地图的特定部分，具有特定的细节级别或缩放级别。放大或缩小 Web 地图时，实际上是在加载具有不同细节级别的不同切片集。"
+  },
+  "codeSnippets_getting-map-tiles_description2": {
+    "text": "地图图块 API（例如谷歌地图和亚马逊位置提供的那些 API）允许开发人员以编程方式检索这些地图图块。这对于各种应用程序都很有用，例如创建自定义地图查看器、在网页中嵌入地图视图或对切片中包含的地理信息进行分析。"
+  },
+  "codeSnippets_getting-map-tiles_description3": {
+    "text": "API 的工作原理是接受指定所需地图类型（例如路线图、卫星）、地理坐标（纬度和经度）和缩放级别的 HTTP 请求。然后，API 将相应的地图图块作为图像文件（通常为 PNG 或 JPEG 格式）返回。"
+  },
+  "codeSnippets_getting-map-tiles_description4": {
+    "text": "在地图图块的上下文中，Z、X 和 Y 是决定您从地图中检索的特定图块的参数。以下是每个代表的内容："
+  },
+  "codeSnippets_geocoding_heading": {
+    "text": "地理编码"
+  },
+  "codeSnippets_geocoding_description": {
+    "text": "地理编码是将地址转换为地理坐标的过程。这是许多需要位置数据的应用程序中的一项关键功能。"
+  },
+  "codeSnippets_geocoding_withGoogle_description1": {
+    "text": "在谷歌地图中，地理编码 API 用于将地址转换为<0>地理</0>坐标。地理编码终端节点用于此目的。它确实允许您使用区域或分量参数将结果偏差到某个区域。"
+  },
+  "codeSnippets_geocoding_withGoogle_description2": {
+    "text": "<0>这些组件允许您按政治或地理组成部分筛选结果，例如<0>行政区域、地区或邮</0><0>政编码。</0></0>例如，<0>components=Locality: Mountain+View|country: US 会将结果偏向于美国</0>山景城的位置。以下是 Google 地图中的地理编码请求示例："
+  },
+  "codeSnippets_geocoding_withAmazon_description": {
+    "text": "在亚马逊定位服务中，与谷歌地图的地理编码相当的功能是Se <0>arch</0> PlaceIndexforText操作。此操作使用自由格式文本（例如地址）搜索地点，并返回候选地点以及补充信息。一个简单的请求包含以下必需的参数："
+  },
+  "codeSnippets_geocoding_withAmazon_description_1": {
+    "text": "文本-要转换为一组坐标的地址、名称、城市或地区。例如，字符串 “任何城镇”。"
+  },
+  "codeSnippets_geocoding_withAmazon_description_2": {
+    "text": "要指定每页的最大结果数，请使用以下可选参数："
+  },
+  "codeSnippets_geocoding_withAmazon_description_3": {
+    "text": "maxResults — 限制查询响应中返回的最大结果数。"
+  },
+  "codeSnippets_geocoding_withAmazon_description_4": {
+    "text": "筛选国家/地区-您要在其中进行地理编码的国家或地区。使用 ISO 3166 三个字母的国家/地区代码，您最多可以在一个请求中定义 100 个国家/地区。"
+  },
+  "codeSnippets_geocoding_withAmazon_request_description": {
+    "text": "在此请求中，文本字段等效于 Google 地图中的输入参数，用于指定要进行地理编码的地址。<1>biasPosition</1> 和 <1>filter</1> Countribes 字段用于将搜索结果偏向特定区域，类似于谷歌<1>地图中的位置偏差</1>和<1>国家/</1> 地区参数。密钥参数是你的 API 密钥。有关我们的地理编码服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "response_comparison": {
+    "text": "响应字段映射"
+  },
+  "web_services_app_responseComparison_table_0_description": {
+    "text": "返回地址的全文。"
+  },
+  "web_services_app_responseComparison_table_1_description": {
+    "text": "地点的名字。"
+  },
+  "description": {
+    "text": "描述"
+  },
+  "codeSnippets_reverse_geocoding_heading": {
+    "text": "反向地理编码"
+  },
+  "codeSnippets_reverse_geocoding_description": {
+    "text": "这两项服务提供的另一个关键功能是反向地理编码，它涉及将地理坐标转换为人类可读的地址或地名。此功能通常用于需要以用户易于理解的格式显示位置信息的应用程序。"
+  },
+  "codeSnippets_reverse_geocoding_withGoogle_description1": {
+    "text": "在 Google 地图中，Places API <0>的地理编码</0>端点也用于反向地理编码。但是，您需要使用 <0>latlng</0> 为反向地理编码提供位置。以下是 Google 地图中反向地理编码请求的示例："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description": {
+    "text": "在亚马逊定位服务中，<0>SearchPlaceIndexforPosition</0> 操作用于反向地理编码。此操作搜索指定位置周围的地点。一个简单的请求包含以下必需的参数："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1": {
+    "text": "位置-要转换为地址、兴趣点或大致位置的一组坐标。使用 <0>[经度、纬度]</0> 格式定义。"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_2": {
+    "text": "要指定每页的最大结果数，请添加以下可选参数："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_3": {
+    "text": "maxResults — 限制查询响应中返回的最大结果数。"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_4": {
+    "text": "如果要为查询结果指定首选语言，请使用以下可选参数："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_5": {
+    "text": "语言-用于呈现结果的语言代码。该值必须是有效的 BCP 47 语言代码。例如，en 表示英语。"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_6": {
+    "text": "以下是亚马逊定位服务中的反向地理编码请求示例："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description": {
+    "text": "在此请求中，位置字段等同于 Google 地图中的位置参数，用于指定要进行反向地理编码的地理坐标。<1>maxResul</1> ts 字段指定要返回的最大结果数。<1>语言</1>字段指定应返回结果的语言，类似于 Google 地图中的语言参数。密钥参数是你的 API 密钥。有关我们的反向地理编码服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "web_services_app_responseComparison_table_1_google_description": {
+    "text": "该地点的人类可读地址。"
+  },
+  "web_services_app_responseComparison_table_2_google_description": {
+    "text": "该位置的纬度和经度。"
+  },
+  "web_services_app_responseComparison_table_3_google_description": {
+    "text": "地址组件的全文描述或名称。"
+  },
+  "web_services_app_responseComparison_table_4_google_description": {
+    "text": "地址组件的类型。"
+  },
+  "web_services_app_responseComparison_table_1_amazon_description": {
+    "text": "该地点的人类可读地址。"
+  },
+  "web_services_app_responseComparison_table_2_amazon_description": {
+    "text": "坐标 "
+  },
+  "web_services_app_responseComparison_table_3_amazon_description": {
+    "text": "地址组件的全文描述或名称。"
+  },
+  "web_services_app_responseComparison_table_4_amazon_description": {
+    "text": "地点的类型。"
+  },
+  "web_services_app_note_description": {
+    "text": "谷歌地图中的<0>结果 []</0> 和亚马逊定位服务中的<0>结果 []</0> 是包含反向地理编码结果的数组。<0><0>数组中的每个元素代表一个与搜索条件相匹配的地点。-<0>结果 [] .Place. <0>* 中的*</0></0> 代表各种字段，例如亚马逊<0>的地址号码</0>、<0>邻里</0>、<0>直辖市</0>、<0>次</0>区域、<0>地区</0>、国家、邮政编码</0></0>"
+  },
+  "web_services_app_responseComparison_description": {
+    "text": "下表比较了执行反向地理编码操作时谷歌地图和亚马逊定位服务的常见响应字段。"
+  },
+  "codeSnippets_text_searching_heading": {
+    "text": "文字搜索"
+  },
+  "codeSnippets_text_searching_description": {
+    "text": "文本搜索是一项允许用户使用文本查询搜索地点的功能。尽管请求结构和响应不同，但谷歌地图和亚马逊位置都提供此功能。"
+  },
+  "codeSnippets_text_searching_withGoogle_description1": {
+    "text": "谷歌地图文本搜索请求是使用 POST HTTP 方法发出的。请求正文包含 TextQuery 字段，该字段指定要搜索的位置。请求标头包括 <0>Content-Type</0>、<0>X-Goog-Api-Key</0>（用于身份验证）和 <0>X-Goog-FieldMask</0>（用于指定在响应中包含哪些字段）。"
+  },
+  "codeSnippets_text_searching_withGoogle_description2": {
+    "text": "谷歌地图的回复包括一系列与搜索查询相匹配的地点。<0>每个地点都有一个<0>格式化的地址</0>和一个包含<0>文本</0>和语言代码的<0>显示名称</0>。</0>"
+  },
+  "codeSnippets_text_searching_withAmazon_description": {
+    "text": "亚马逊位置文本搜索请求通过 <0>SearchPlaceIndexforText</0> 服务使用 POST HTTP 方法提出。该服务请求正文包含用于搜索位置的文本字段、用于将搜索偏向特定地理区域的 <0>BiasPos</0> ition 和用于指定搜索语言的语言。该服务还支持各种身体参数，例如："
+  },
+  "codeSnippets_text_searching_withAmazon_description_1": {
+    "text": "有关我们的文本搜索服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "web_services_app_responseComparison_table_2_description": {
+    "text": "搜索结果的首选语言"
+  },
+  "codeSnippets_text_searching_withAmazon_description_2": {
+    "text": "以下是亚马逊定位服务中的文本搜索请求示例："
+  },
+  "codeSnippets_nearby_searching_heading": {
+    "text": "附近搜寻"
+  },
+  "codeSnippets_nearby_searching_description": {
+    "text": "附近搜索允许您搜索给定位置附近的地点或兴趣点。您可以添加限制，例如最大结果或国家/地区。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description": {
+    "text": "在亚马逊定位服务中，<0>SearchPlaceIndexforPosition</0> 操作用于反向地理编码。此操作搜索指定位置周围的地点。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description1": {
+    "text": "一个简单的请求包含以下必需的参数："
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2": {
+    "text": "位置-要转换为地址、兴趣点或大致位置的一组坐标。使用 <0>[经度、纬度]</0> 格式定义。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description3": {
+    "text": "要指定每页的最大结果数，请添加以下可选参数："
+  },
+  "codeSnippets_nearby_searching_withAmazon_description4": {
+    "text": "maxResults — 限制查询响应中返回的最大结果数。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description5": {
+    "text": "如果要为查询结果指定首选语言，请使用以下可选参数："
+  },
+  "codeSnippets_nearby_searching_withAmazon_description6": {
+    "text": "语言-用于呈现结果的语言代码。该值必须是有效的 BCP 47 语言代码。例如，en 表示英语。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description7": {
+    "text": "以下是亚马逊定位服务中的反向地理编码请求示例："
+  },
+  "codeSnippets_nearby_searching_request_description": {
+    "text": "在此请求中，位置字段等同于 Google 地图中的位置参数。maxResults 字段指定要返回的最大结果数。语言字段指定应返回结果的语言，类似于 Google 地图中的语言参数。密钥参数是你的 API 密钥。有关我们的文本搜索服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_autocomplete_heading": {
+    "text": "自动完成"
+  },
+  "codeSnippets_autocomplete_description": {
+    "text": "自动填充功能会在用户键入时为地点提供建议。这是需要用户与位置数据交互的应用程序中的一项关键功能。"
+  },
+  "codeSnippets_autocomplete_withAmazon_request_description": {
+    "text": "在谷歌地图中，Places API 的自动填充端点用于此目的。以下是 Google 地图中自动填充请求的示例："
+  },
+  "codeSnippets_autocomplete_withAmazon_response_description": {
+    "text": "在此请求中，输入参数指定要搜索的文本字符串。密钥参数是你的 API 密钥。"
+  },
+  "codeSnippets_autocomplete_withAmazon_description1": {
+    "text": "在亚马逊定位服务中，与谷歌地图自动填充功能相当的功能是S <0>earch</0> PlaceIndexforSuggessions操作。此操作为基于文本的地理搜索提供自动完成功能，返回对用户搜索查询的地点预测结果。以下是亚马逊定位服务中自动填写请求的示例："
+  },
+  "codeSnippets_autocomplete_withAmazon_description2": {
+    "text": "在此请求中，文本字段等效于 Google 地图中的输入参数，用于指定要搜索的文本字符串。<1>maxResul</1> ts 字段指定要返回的最大结果数。密钥参数是你的 API 密钥。有关我们的自动完成服务的更多全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_autocomplete_request_description": {
+    "text": "在此请求中，位置字段等同于 Google 地图中的位置参数。maxResults 字段指定要返回的最大结果数。语言字段指定应返回结果的语言，类似于 Google 地图中的语言参数。密钥参数是你的 API 密钥。有关我们的文本搜索服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "web_services_autocomplete_responseComparison_table_1_description": {
+    "text": "放置预测数组"
+  },
+  "web_services_autocomplete_responseComparison_table_2_description": {
+    "text": "地点预测描述"
+  },
+  "web_services_autocomplete_responseComparison_table_3_description": {
+    "text": "地点预测唯一标识符"
+  },
+  "web_services_autocomplete_responseComparison_table_4_description": {
+    "text": "搜索请求的摘要，包括要搜索的文本字符串和要返回的最大结果数。"
+  },
+  "predictions": {
+    "text": "预测"
+  },
+  "place_id": {
+    "text": "place_id"
+  },
+  "N/A": {
+    "text": "不适用"
+  },
+  "results": {
+    "text": "结果"
+  },
+  "text": {
+    "text": "文本"
+  },
+  "summary": {
+    "text": "摘要"
+  },
+  "codeSnippets_get-place-details_heading": {
+    "text": "获取地点详情"
+  },
+  "codeSnippets_get-place-details_description": {
+    "text": "其中一项功能是检索地点详细信息，这对于需要有关特定地点的详细信息的应用程序至关重要。"
+  },
+  "codeSnippets_get-place-details_googleMap_description": {
+    "text": "在 Google 地图中，Places API 的详细信息端点用于检索地点详情。以下是谷歌地图中 GetPlace 请求的示例："
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description": {
+    "text": "在此请求中，p <0>lace_id</0> 参数指定要检索其详细信息的地点的唯一标识符。密钥参数是你的 API 密钥。"
+  },
+  "codeSnippets_get-place-details_withAmazon_description": {
+    "text": "在亚马逊定位服务中，<0>GetPlace</0> 操作用于检索地点详情。以下是亚马逊定位服务中的 GetPlace 请求示例："
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description": {
+    "text": "在此请求中，<0>PlaceID</0> 是要检索详细信息的地点的唯一标识符，等效于 Google 地图中的 p <0>lace_id</0> 参数。密钥参数是你的 API 密钥。有关我们的地点详情服务的更全面信息，请参阅此<1>处</1>提供的详细文档。"
+  },
+  "label": {
+    "text": "标准化地址"
+  },
+  "geometry": {
+    "text": "该地点的坐标"
+  },
+  "street": {
+    "text": "街"
+  },
+  "neighborhood": {
+    "text": "邻里"
+  },
+  "municipality": {
+    "text": "直辖市"
+  },
+  "subMunicipality": {
+    "text": "次直辖市"
+  },
+  "region": {
+    "text": "区域"
+  },
+  "country": {
+    "text": "国家"
+  },
+  "postalCode": {
+    "text": "邮政编码"
+  },
+  "categories": {
+    "text": "类别"
+  },
+  "derived_from": {
+    "text": "源自"
+  },
+  "Field": {
+    "text": "字段"
+  },
+  "subRegion": {
+    "text": "次区域"
+  },
+  "codeSnippets_calculating-a-route_description": {
+    "text": "计算路线，这对于需要导航或行驶距离信息的应用程序至关重要。"
+  },
+  "codeSnippets_calculating-a-route_googleMap_description": {
+    "text": "在谷歌地图中，你可以使用 <0>v2: ComputerOutes API</0>。请求标头包括 <0>Content-Type</0>、<0>X-Goog-Api-Key</0>（用于身份验证）和 <0>X-Goog-FieldMask</0>（用于指定在响应中包含哪些字段）。以下是 Google 地图中计算路径请求的示例："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description": {
+    "text": "在亚马逊定位服务中，计算路径操作用于计算路线。计算路线时，您可以使用航点位置在出发位置和目的地位置之间指定最多 23 个中间中途停留点。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1": {
+    "text": "WaypointPositions — 指定中间位置的有序列表，包括在出发位置和目的地位置之间的路线上。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description2": {
+    "text": "注意：如果您指定的航点位置不在道路上，Amazon Location 会将该位置移至最近的道路。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description3": {
+    "text": "以下 calculateRoute 请求计算出具有 2 个航点的路线："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4": {
+    "text": "<0>出发位置是 <0>[-122.7565，49.0021]，目的地位置是 [-122.3394，47.6159]</0>。</0>"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description5": {
+    "text": "对于请求参数 WaypointPositions："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description6": {
+    "text": "第一个停留位置是 <0>[-122.1884</0>，48.0936]。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description7": {
+    "text": "第二个中途停留位置是 <0>[-122.3493</0>，47.6205]。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description8": {
+    "text": "要包括这两个航点之间的支线串几何形状，请将以下可选参数设置为 true："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description9": {
+    "text": "includeLegeMetry — 包括响应中一对位置之间的每条路径的几何形状。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description10": {
+    "text": "以下是亚马逊定位服务中的 CalculaTeRoute 请求示例："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription": {
+    "text": "在此请求中，departurePosition 字段等同于 Google 地图中的起点参数，用于指定路线计算的起点。<1>目的地位置</1>字段等效于谷歌地图中的目的地参数，用于指定终端节点。密钥参数是你的 API 密钥。有关我们的路由服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_1_description": {
+    "text": "路径特定路段的距离，以米为单位。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_1_description": {
+    "text": "路线路段距离"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_2_description": {
+    "text": "路线特定路段的持续时间（以秒为单位）"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_2_description": {
+    "text": "路线路段时长"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_3_description": {
+    "text": "路径特定路段的线条表示。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_3_description": {
+    "text": "路线路段几何形状"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_4_description": {
+    "text": "路线的特定路段所涉及的各个步骤。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_4_description": {
+    "text": "规划腿部步数"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_5_description": {
+    "text": "路径的总距离（以米为单位）。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_5_description": {
+    "text": "总距离"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_6_description": {
+    "text": "路径的总持续时间，通常以秒或分钟为单位。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_6_description": {
+    "text": "总时长"
+  },
+  "codeSnippets_calculating-a-route_responseComparison_google_row_7_description": {
+    "text": "路线的地图视口或可见区域。"
+  },
+  "codeSnippets_calculating-a-route_responseComparison__amazon_row_7_description": {
+    "text": "路径的边界框，包含路径中的所有点。"
+  },
+  "codeSnippets_route-planning_googleMap_description": {
+    "text": "在谷歌地图中，你可以使用 <0>v2: ComputerOutes</0> API 来计算路线矩阵。请求标头包括 <0>Content-Type</0>、<0>X-Goog-Api-Key</0>（用于身份验证）和 <0>X-Goog-FieldMask</0>（用于指定在响应中包含哪些字段）。以下是如何在 Google 地图中计算路线矩阵的示例："
+  },
+  "codeSnippets_route-planning_withAmazon_description": {
+    "text": "亚马逊定位服务通过其路由矩阵API提供了类似的功能。它允许开发人员计算多个起点和终点之间的距离和行程时间。与谷歌地图不同，亚马逊定位服务使用 POST 请求来获取这些数据。该请求包括一个包含出发位置、目的地位置和距离测量单位的 JSON 负载。"
+  },
+  "codeSnippets_route-planning_withAmazon_description1": {
+    "text": "计算路径矩阵请求可以通过使用 <0>calculateRouteMat</0> rix 操作提出。最低请求包含以下必填字段："
+  },
+  "codeSnippets_route-planning_withAmazon_description2": {
+    "text": "出发位置 — 用于计算路径的一组起始位置。定义为 [经度、纬度] 的数组"
+  },
+  "codeSnippets_route-planning_withAmazon_description3": {
+    "text": "目的地位置-用于计算路径的一组终点位置。定义为 [经度、纬度] 的数组。"
+  },
+  "codeSnippets_route-planning_withAmazon_description4": {
+    "text": "默认情况下，响应返回以千米为单位的距离。您可以使用以下可选参数将计量单位更改为英里："
+  },
+  "codeSnippets_route-planning_withAmazon_description5": {
+    "text": "距离单位 — 指定用于距离结果的单位制。"
+  },
+  "codeSnippets_route-planning_withAmazon_description6": {
+    "text": "以下是亚马逊定位服务路由矩阵 API 请求的示例："
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription": {
+    "text": "在此请求中，出发位置和目的地位置是纬度-经度对的数组。DistanceUnit 参数定义计量单位（在这种情况下，使用英里）。有关我们的路线规划服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_route-planning_responseResult": {
+    "text": "从比较中可以明显看出，尽管谷歌地图和亚马逊定位服务的命名惯例和响应结构有所不同，但它们为路线规划提供了相似的功能。这种理解对于成功从谷歌地图迁移到亚马逊定位服务至关重要。"
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_1_description": {
+    "text": "响应中以米为单位提供。"
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_1_description": {
+    "text": "路线距离"
+  },
+  "codeSnippets_route-planning_responseComparison_google_row_2_description": {
+    "text": "在响应中以秒为单位提供。"
+  },
+  "codeSnippets_route-planning_responseComparison__amazon_row_2_description": {
+    "text": "路线持续时间"
+  },
+  "duration": {
+    "text": "持续时间"
+  },
   "migration": {
     "text": "移民"
   },
@@ -3666,9 +5697,6 @@
   },
   "migrate_a_web_service": {
     "text": "迁移 Web 服务"
-  },
-  "pricing": {
-    "text": "定价"
   },
   "migration_desc": {
     "text": "从谷歌地图迁移"
@@ -3688,11 +5716,362 @@
   "web_service": {
     "text": "网络服务"
   },
+  "web_menu_item_desc": {
+    "text": "在您的网络浏览器中浏览亚马逊定位服务"
+  },
+  "android_menu_item_desc": {
+    "text": "在移动设备上享受亚马逊定位服务的好处"
+  },
+  "Mobile_percentage": {
+    "text": "非平稳百分比"
+  },
+  "Min_1_api_call": {
+    "text": "每月至少 1 次 API 调用"
+  },
+  "Examples": {
+    "text": "例子"
+  },
+  "notable_sdk_differences": {
+    "text": "明显的 SDK 差异"
+  },
+  "displaying_a_marker": {
+    "text": "显示标记"
+  },
+  "displaying_an_info_pop_up": {
+    "text": "显示信息弹出窗口"
+  },
+  "displaying_a_circle": {
+    "text": "显示圆圈"
+  },
+  "displaying_a_heatmap": {
+    "text": "显示热图"
+  },
+  "displaying_markers": {
+    "text": "显示标记"
+  },
+  "displaying_circles": {
+    "text": "显示圆圈"
+  },
+  "displaying_polygons": {
+    "text": "显示多边形"
+  },
+  "displaying_a_polygon": {
+    "text": "显示多边形"
+  },
+  "image_overlays": {
+    "text": "图像叠加层"
+  },
+  "calculating_a_route": {
+    "text": "计算路线"
+  },
+  "displaying_lines": {
+    "text": "显示线条"
+  },
+  "calculating_a_route_matrix": {
+    "text": "计算路径矩阵"
+  },
+  "codeSnippets_image_overlays_about": {
+    "text": "图像叠加是指将一个图像叠加到另一个图像上，从而创建组合来自两个图像的视觉信息的复合视图的技术。"
+  },
+  "codeSnippets_image_overlays_desc": {
+    "text": "图像叠加层通过提供额外的背景信息（例如卫星图像、天气模式或历史地图）来帮助增强地图，丰富整体视觉表现形式，并有助于更好地理解和分析地理数据。"
+  },
+  "codeSnippets_image_overlays_point1": {
+    "text": "谷歌地图使用 <1>Google.maps.GroundOver</1> lay 在地图上渲染图像。"
+  },
+  "codeSnippets_image_overlays_point2": {
+    "text": "亚马逊定位服务使用 Maplibre 的 <1>LoadImage、ad</1> dI <1>mage、Ad</1> dSour <1>ce 和 Add</1> <1>Layer</1> 在地图上渲染图像。"
+  },
+  "codeSnippets_route_matrix_about": {
+    "text": "路径矩阵服务就像地图的智能助手，可以帮助找出从一个地方到另一个地方的最佳方式。它不仅可以计算不同地点之间的距离，还可以告诉你它们之间可能需要多长时间。对于需要规划路线、找到最快路径或优化旅行物流的应用程序来说，这可能非常方便。基本上，它可以更顺畅地浏览地图，并帮助应用程序为用户提供最有效的出行选择。"
+  },
+  "codeSnippets_route_matrix_point1": {
+    "text": "Google 地图使用 <1>DistanceMatrixService</1> 或 <1>ComputeRouteMatrix</1> 来计算路线矩阵。"
+  },
+  "codeSnippets_route_matrix_point2": {
+    "text": "亚马逊定位服务使用 <1>CalculateRouteMatrixCommand</1> 来计算路由矩阵。"
+  },
+  "codeSnippets_image_overlays_android_about": {
+    "text": "图像叠加是指将一个图像叠加到另一个图像上，从而创建组合来自两个图像的视觉信息的复合视图的技术。"
+  },
+  "codeSnippets_image_overlays_android_point1": {
+    "text": "谷歌地图提供专门用于在地图上渲染图像的 <1>addGroundOverlay</1> 方法。"
+  },
+  "codeSnippets_image_overlays_android_point2": {
+    "text": "亚马逊定位服务使用Maplibre的 <1>AddSou</1> rce和 <1>AddLay</1> er方法在地图上渲染图像。"
+  },
+  "google_image_overlays_step1": {
+    "text": "<0>第 1 步</0>：将以下代码添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_image_overlays_step2": {
+    "text": "<0>第 2 步</0><1>：在 <1>/res/drawable</1> 目录中添加名为 <1>newark.jpg</1> 的图片，并将以下代码添加到 ImageOverlaysActivity.kt。</1>"
+  },
+  "amazon_image_overlays_step1": {
+    "text": "<0>第 1 步</0>：在 <1>activity_map.xml</1> 中添加以下代码。"
+  },
+  "amazon_image_overlays_step2": {
+    "text": "<0>第 2 步</0><1>：在 <1>/res/drawable</1> 目录中添加名为 <1>newark.jpg</1> 的图片，并在 ImageOverlayActivity.kt 中添加以下代码。</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_about": {
+    "text": "路径矩阵服务通常是指路径服务中的一项功能，该功能允许用户在不同位置之间生成多条路由，并获取有关每条路径的距离和持续时间的信息。该服务对于物流、运输规划和行程优化等应用非常有价值。"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point1": {
+    "text": "Google 地图提供<1>distanceMatrix</1> 或<1>computeRouteMatrix</1> 来计算路线矩阵。"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2": {
+    "text": "亚马逊定位服务通过其位置客户端提供C <1>alculateRouteMatrix方法来计算路线矩阵</1>。"
+  },
+  "google_calculating_a_route_matrix_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.g</1> radle 的<1>依赖项</1>中添加以下行。"
+  },
+  "google_calculating_a_route_matrix_step2": {
+    "text": "<0>第 2 步</0>：将以下代码添加到 <1>activity_maps.xml</1>。"
+  },
+  "google_calculating_a_route_matrix_step3": {
+    "text": "<0>第 3 步</0>：将以下代码添加到 C <1>alculat</1> eRouteActivity.kt。"
+  },
+  "amazon_calculating_a_route_matrix_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.gradle.</1> kts 的<1>依赖项</1>中添加以下行。"
+  },
+  "amazon_calculating_a_route_matrix_step2": {
+    "text": "<0>第 2 步</0>：在 <1>activity_route_matrix_service.xml</1> 中添加以下代码。"
+  },
+  "amazon_calculating_a_route_matrix_step3": {
+    "text": "<0>第 3 步</0><1>：在 <1>/res/drawable</1> <1>目录中添加名为 ic_marker_red 的标记图像，并将以下代码插入到 RouteMatrixServ</1> iceActivity.kt 中。</1>"
+  },
+  "codeSnippets_image_overlays_ios_about": {
+    "text": "图像叠加是指将一个图像叠加到另一个图像上，从而创建组合来自两个图像的视觉信息的复合视图的技术。"
+  },
+  "codeSnippets_image_overlays_ios_point1": {
+    "text": "谷歌地图提供专门用于图像叠<1>加的 GMSGroundOverlay</1> 类。"
+  },
+  "codeSnippets_image_overlays_ios_point2": {
+    "text": "<1>亚马逊定位服务使用 Maplibre 的 <1>MLNImageSource 和 mlnRasterStyleLayer 方法来渲染图像</1>叠加层。</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_about": {
+    "text": "路径矩阵服务通常是指路径服务中的一项功能，该功能允许用户在不同位置之间生成多条路由，并获取有关每条路径的距离和持续时间的信息。该服务对于物流、运输规划和行程优化等应用非常有价值。"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point1": {
+    "text": "Google 地图提供<1>distanceMatrix</1> 或<1>computeRouteMatrix</1> 来计算路线矩阵。"
+  },
+  "codeSnippets_calculating_a_route_matrix_ios_point2": {
+    "text": "亚马逊定位服务通过其位置客户端提供C <1>alculateRouteMatrix方法来计算路线矩阵</1>。"
+  },
+  "reload": {
+    "text": "重新加载"
+  },
+  "codeSnippets_image_overlays_android_desc": {
+    "text": "图像叠加层通过提供额外的背景信息（例如卫星图像、天气模式或历史地图）来帮助增强地图，丰富整体视觉表现形式，并有助于更好地理解和分析地理数据。"
+  },
+  "codeSnippets_image_overlays_ios_desc": {
+    "text": "图像叠加层通过提供额外的背景信息（例如卫星图像、天气模式或历史地图）来帮助增强地图，丰富整体视觉表现形式，并有助于更好地理解和分析地理数据。"
+  },
+  "migrationOverview_heading": {
+    "text": "从谷歌地图迁移到亚马逊地点"
+  },
+  "migrationOverview_subHeading": {
+    "text": "本文提供了有关如何将基于网络、移动和服务器的应用程序从 Google 地图迁移到 Amazon Location 平台的见解。本教程包括比较代码示例、迁移建议和迁移到 Amazon Location 的最佳实践。"
+  },
+  "migrationOverview_cta1": {
+    "text": "试试亚马逊位置"
+  },
+  "migrationOverview_cta2": {
+    "text": "比较价格"
+  },
+  "migrationOverview_featuresList2_title": {
+    "text": "用户隐私"
+  },
+  "migrationOverview_featuresList2_desc": {
+    "text": "保护用户隐私，保护您的敏感信息，降低应用程序的安全风险。"
+  },
+  "migrationOverview_startMigration_heading": {
+    "text": "开始迁移"
+  },
+  "migrationOverview_article_point1": {
+    "text": "亚马逊定位服务概述"
+  },
+  "migrationOverview_article_point2": {
+    "text": "高级服务比较"
+  },
+  "migrationOverview_article_point3": {
+    "text": "功能对比"
+  },
+  "migrationOverview_article_point4": {
+    "text": "迁移注意事项"
+  },
+  "migrationOverview_article_point5": {
+    "text": "身份验证"
+  },
+  "migrationOverview_article_point6": {
+    "text": "建议的迁移计划"
+  },
+  "migrationOverview_article_point7": {
+    "text": "迁移支持"
+  },
+  "migrationOverview_serviceOverview_desc": {
+    "text": "Amazon Location Service 是一项完全托管的定位服务，为开发人员提供向其应用程序添加位置数据和功能的能力。该服务包括一组提供各种功能的 REST API，包括："
+  },
+  "migrationOverview_serviceOverview_point1": {
+    "text": "地图：获取多种样式的矢量和栅格地图以及卫星图像。"
+  },
+  "migrationOverview_serviceOverview_point2": {
+    "text": "地点：搜索并获取有关名胜古迹的信息，例如企业、餐厅和景点。"
+  },
+  "migrationOverview_serviceOverview_point3": {
+    "text": "路线：考虑到交通状况和其他因素，计算最佳的出行路线。"
+  },
+  "migrationOverview_serviceOverview_point4": {
+    "text": "地理围栏：创建和管理地理围栏，地理围栏是虚拟边界，可以在设备进入或离开边界时触发操作。"
+  },
+  "migrationOverview_serviceOverview_point5": {
+    "text": "跟踪器：跟踪设备的位置，并在设备进入或离开地理围栏时收到通知。"
+  },
+  "migrationOverview_serviceComparison_desc1": {
+    "text": "这些表格提供了亚马逊定位功能的高级列表，这些功能对应于谷歌地图的功能。此列表未显示所有亚马逊位置功能，例如地理围栏和追踪器。"
+  },
+  "migrationOverview_serviceComparison_desc2": {
+    "text": "亚马逊定位服务支持两种集成方法，即直接集成软件开发工具包和 REST 服务 API。"
+  },
+  "migrationOverview_featureComparison_desc": {
+    "text": "谷歌地图和亚马逊位置都是基于位置的服务，提供了一系列功能来增强基于位置的体验。<0>从地图和地理编码到路径和地理围栏功能，这些服务使开发人员能够使用准确和个性化的定位服务构建应用程序。了解更多</0>"
+  },
+  "migrationOverview_migrationConsiderations_desc1": {
+    "text": "从谷歌地图迁移到亚马逊定位服务时，请考虑以下几点："
+  },
+  "migrationOverview_migrationConsiderations_point1": {
+    "text": "亚马逊位置地图资源使您可以访问地图的基础地图数据。您将需要诸如 <0>Maplibre</0> 之类的地图渲染库来向您的应用程序添加交互式地图。"
+  },
+  "migrationOverview_migrationConsiderations_point2": {
+    "text": "Amazon Location 提供来自不同地图提供商的地图块，您可以根据应用程序的需求进行相应的选择。<0>详细了解</0>这些数据提供商如何符合您的许可注意事项。"
+  },
+  "migrationOverview_migrationConsiderations_point3": {
+    "text": "Amazon Location 根据加载的地图图块数量收取交互式地图的使用费。在交互式亚马逊定位软件开发工具包和Maplibre中，地图图块会自动缓存以降低开发成本。"
+  },
+  "migrationOverview_migrationConsiderations_point4": {
+    "text": "亚马逊位置和 MapLibre 软件开发工具包使用地图图块。除非用户平移和缩放地图，否则他们只需要按获取的图块数量付费。"
+  },
+  "migrationOverview_migrationConsiderations_point5": {
+    "text": "亚马逊位置将其数据存储在AWS中。"
+  },
+  "migrationOverview_migrationConsiderations_desc2": {
+    "text": "以下是亚马逊位置的一些相关资源："
+  },
+  "migrationOverview_migrationConsiderations_resource1": {
+    "text": "<0>亚马逊位置定价页面</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource2": {
+    "text": "<0>亚马逊位置定价计算器</0>"
+  },
+  "migrationOverview_migrationConsiderations_resource3": {
+    "text": "<0>亚马逊定位服务条款</0>"
+  },
+  "migrationOverview_authentication_desc": {
+    "text": "谷歌地图提供基于密钥的基本身份验证。亚马逊定位服务提供基于密钥的基本身份验证和 AWS Cognito 身份验证。与基于密钥的基本身份验证相比，AWS Cognito 身份验证提供更多的安全功能。"
+  },
+  "migrationOverview_authentication_point1_mainPoint": {
+    "text": "<0>基于基本密钥的身份验证</0>允许您简单地插入 API 密钥并授权以下操作："
+  },
+  "migrationOverview_authentication_point1_subPoint1": {
+    "text": "地图操作: <0>GetMapGlyphs</0>, <0>GetMapSprites</0>, <0>GetMapStyleDescriptor</0>, <0>GetMapTile</0>"
+  },
+  "migrationOverview_authentication_point1_subPoint2": {
+    "text": "地点操作: <0>SearchPlaceIndexForText</0>, <0>SearchPlaceIndexForPosition</0>, <0>SearchPlaceIndexForSuggestions</0>, <0>GetPlace</0>"
+  },
+  "migrationOverview_authentication_point1_subPoint3": {
+    "text": "路线操作: <0>CalculateRoute</0>, <0>CalculateRouteMatrix</0>"
+  },
+  "migrationOverview_authentication_point2": {
+    "text": "另一方面，<0>AWS Cognito 身份验证</0>方法可为您提供更精细的控制，并允许您根据隐私政策访问所有资源。"
+  },
+  "migrationOverview_suggestedMigrationPlan_desc": {
+    "text": "高级迁移计划包括这些步骤。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point1": {
+    "text": "清点您的应用程序使用的 Google 地图 API 和服务。验证亚马逊位置是否提供备用 API 和服务。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point2": {
+    "text": "查看下面的技术资源和迁移支持，以获取具体的详细信息和帮助。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point3": {
+    "text": "创建 A <0>WS 账户</0>和 <1>API 密钥</1>或 A <2>mazon Cognito 设置</2>。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point4": {
+    "text": "迁移您的应用程序代码。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point5": {
+    "text": "测试您迁移的应用程序。"
+  },
+  "migrationOverview_suggestedMigrationPlan_point6": {
+    "text": "将迁移的应用程序部署到生产环境中。"
+  },
+  "migrationOverview_technicalResources_heading": {
+    "text": "亚马逊定位服务技术资源"
+  },
+  "migrationOverview_technicalResources_resource1": {
+    "text": "<0>开发者指南</0>"
+  },
+  "migrationOverview_technicalResources_resource2": {
+    "text": "<0>API 参考</0>"
+  },
+  "migrationOverview_technicalResources_resource3": {
+    "text": "<0>CLI 参考</0>"
+  },
+  "migrationOverview_technicalResources_resource4": {
+    "text": "<0>示例应用程序</0>"
+  },
+  "migrationOverview_migrationSupport_desc": {
+    "text": "开发人员可以在以下指南中找到详细的迁移信息："
+  },
+  "migrationOverview_footnotes_point1": {
+    "text": "如果客户选择 HERE 作为数据提供商，Amazon Location 会提供时区信息"
+  },
+  "explore-working-sample": {
+    "text": "<0>在此处</0>浏览工作示例"
+  },
+  "volume_discounts_available": {
+    "text": "批量折扣可用。请<0>联系销售人员</0>。"
+  },
+  "places_search": {
+    "text": "地点搜索"
+  },
+  "webSdkExample_Android_description2": {
+    "text": "<0>在此处</0>浏览我们功能齐全的安卓应用程序，探索亚马逊定位的功能。"
+  },
+  "response_field_mapping_disclaimer": {
+    "text": "下表比较了执行此操作时谷歌地图和亚马逊定位服务中常用的响应字段。"
+  },
+  "web_service_footnote_1": {
+    "text": "谷歌地图使用纬度、经度序列，而亚马逊定位服务使用经度、纬度序列。"
+  },
+  "Categories": {
+    "text": "类别"
+  },
+  "accuracy_filter": {
+    "text": "精度过滤器（米）"
+  },
+  "distance_filter": {
+    "text": "距离过滤器（米）"
+  },
+  "eval_req_with_filter_applied": {
+    "text": "已评估应用过滤器的请求"
+  },
+  "avg_device_speed_meters_per_min": {
+    "text": "平均设备速度（米/分钟）"
+  },
   "error_handler__failed_fetch_tokens": {
     "text": "无法提取代币"
   },
   "error_handler__failed_refresh_tokens": {
     "text": "刷新令牌失败"
+  },
+  "migrationSDK_title": {
+    "text": "亚马逊位置迁移 SDK（可选）"
+  },
+  "migrationSDK_description": {
+    "text": "亚马逊位置迁移软件开发工具包提供了一个桥梁，允许您将现有应用程序从谷歌地图迁移到亚马逊位置。如果亚马逊位置支持所使用的功能，则迁移软件开发工具包为使用适用于 JavaScript 的 Google Maps SDK 构建的应用程序提供了一个选项，无需重写任何应用程序或业务逻辑，即可使用亚马逊定位服务。迁移 SDK 将所有 API 调用重定向到亚马逊地点，而不是谷歌地图。如果您想在开始完全迁移之前在现有应用程序上试用迁移软件开发工具包，请参阅 <0>GitHub 上的亚马逊位置迁移 SDK。</0>"
+  },
+  "amazon_location_service": {
+    "text": "Amazon Location Service"
   },
   "geofences_and_trackers": {
     "text": "地理围栏和追踪器"
@@ -3793,6 +6172,342 @@
   "new_developer_resources_desc": {
     "text": "指南和论坛"
   },
+  "demo_site": {
+    "text": "演示网站"
+  },
+  "demo_web": {
+    "text": "演示网页"
+  },
+  "demo_android": {
+    "text": "安卓演示"
+  },
+  "migration_overview": {
+    "text": "迁移概述"
+  },
+  "version_1": {
+    "text": "原创 API"
+  },
+  "version_2": {
+    "text": "新的增强版 API"
+  },
+  "snapping_to_roads": {
+    "text": "抢先上路"
+  },
+  "codeSnippets_places_search_point2_v2": {
+    "text": "<1><1><0>亚马逊定位服务提供了 GeoPlaces 客户端，其中包含用于<1>自动填</1>充、地理编码、<1>GetPlac</1> <1>e、反向地理编码</1><1>、附近<1>搜索、搜索</1>文本和建议</1>的 API。了解更多</0></1></1>"
+  },
+  "codeSnippets_routing_services_point2_v2": {
+    "text": "Amazon Location 提供<1>CalculateRoutes</1>并使用 MapLibre 的渲染功能在地图上显示该数据。"
+  },
+  "codeSnippets_snapping_to_roads_about": {
+    "text": "snap to roads 功能通过返回一组类似的数据来将 GPS 追踪与最近的道路进行匹配，并将点捕捉到车辆最有可能行驶的道路。"
+  },
+  "codeSnippets_snapping_to_roads_point1": {
+    "text": "谷歌地图提供了来自 Roads API 的 <1>snapToRoads</1> 终端节点。"
+  },
+  "codeSnippets_snapping_to_roads_point2": {
+    "text": "亚马逊定位服务通过 Routes API 提供 <1>SnapToRoads</1> 终端节点。"
+  },
+  "codeSnippets_route_matrix_point2_v2": {
+    "text": "亚马逊定位服务使用 C <1>alculateRouteMatrix 来计算路线矩阵</1>。"
+  },
+  "codeSnippets_load_a_map_Android_point2_v2": {
+    "text": "借助亚马逊定位服务，MapLibre库的 <1>MapView</1> 是在应用程序中初始化和显示地图的主要界面。我们可以通过提供地图服务 URL 轻松加载地图，如下例所示。"
+  },
+  "amazon_load_a_map_step1_v2": {
+    "text": "<0>第 1 步</0>：打开您的模块级 <1>build.gradle.kts 并添加以下数据</1>"
+  },
+  "amazon_load_a_map_step2_v2": {
+    "text": "<0>第 2 步</0>：要使用您的地图样式和 AWS 区域配置应用程序，请将其输入到 <1>configuration.xml</1> 中，如下所示"
+  },
+  "amazon_load_a_map_step5_v2": {
+    "text": "<0>第 5 步</0>：将以下代码添加到您的 <1>Map</1> Activity.kt"
+  },
+  "amazon_display_an_info_window_step3_v2": {
+    "text": "<0>第 3 步</0>：在 <1>strings.xml</1> 中添加以下代码。"
+  },
+  "amazon_display_an_info_window_step4_v2": {
+    "text": "<0>第 4 步</0>：在 <1>InfoPop</1> upActivity.kt 中添加以下代码。"
+  },
+  "amazon_adding_a_circle_step1_v2": {
+    "text": "<0>第 1 步</0>：在 <1>build.gradle.</1> kts 的<1>依赖项</1>中添加以下行。"
+  },
+  "codeSnippets_calculating_a_route_android_point2_v2": {
+    "text": "<1>亚马逊定位服务通过其 <1>GeoRoutesClient 提供 Calc <1>ulateRoutes</1> 方法，该方法位于 aws.sdk.kotlin: georoutes S</1> DK 中。</1>API 密钥在 C <1>alculateRoutesReques</1> t 中使用，如以下示例所示。随后，它利用Maplibre的渲染功能在地图上显示该路线数据。"
+  },
+  "amazon_calculating_a_route_step3_v2": {
+    "text": "<0>第 3 步</0><1>：在 <1>/res/drawable</1> 目录中添加名为 <1>ic_marker_red</1> 的标记图片，并将以下代码插入到 GeoRoutesCalculateRouteActivity.kt 中。</1>"
+  },
+  "codeSnippets_calculating_a_route_matrix_android_point2_v2": {
+    "text": "<1>亚马逊定位服务通过其 <1>GeoRoutesClient 提供 C <1>alculateRouteMatrix</1> 方法，该方法位于 aws.sdk.kotlin: georoutes</1> SDK 中。</1>API 密钥在 C <1>alculateRouteMatrixRequ</1> est 中使用，如以下示例所示。"
+  },
+  "amazon_calculating_a_route_matrix_step3_v2": {
+    "text": "<0>第 3 步</0>：在 <1>strings.xml</1> 中添加以下代码。"
+  },
+  "amazon_calculating_a_route_matrix_step4_v2": {
+    "text": "<0>第 4 步</0><1>：在 <1>/res/drawable</1> <1>目录中添加名为 ic_marker_red 的标记图片，并将以下代码插入到 GeoRouteMatrixServiceActivity</1 中。</1>"
+  },
+  "codeSnippets_snapping_to_roads_android_point1": {
+    "text": "谷歌地图提供了来自 Roads API 的 <1>snapToRoads</1> 终端节点。"
+  },
+  "codeSnippets_snapping_to_roads_android_point2": {
+    "text": "<1>亚马逊定位服务通过其 <1>Ge <1>GeoRoutesClient 提供 SnapToRoads</1> 方法，该方法位于 aws.sdk.kotlin: georoutes S</1> DK 中。</1>API 密钥在 <1>SnapToRoadsRequest</1> t 中使用，如以下示例所示。"
+  },
+  "google_snapping_to_roads_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.gradle.</1> kts 的<1>依赖项</1>中添加以下行。"
+  },
+  "google_snapping_to_roads_step2": {
+    "text": "<0>第 2 步</0>：在 <1>activity_maps.xml</1> 中添加以下代码。"
+  },
+  "google_snapping_to_roads_step3": {
+    "text": "<0>第 3 步</0> <1><1>：在 /res/drawable 目录中添加名为 <1>ic_marker_red 和 ic_marker_blue</1> <1> 的标记图像，然后在 SnapToRoadActivity.kt</1> 中添加以下代码。</1></1>"
+  },
+  "amazon_snapping_to_roads_step1": {
+    "text": "<0>第 1 步</0>：在 <1>build.gradle.</1> kts 的<1>依赖项</1>中添加以下行。"
+  },
+  "amazon_snapping_to_roads_step2": {
+    "text": "<0>第 2 步</0>：在 <1>activity_snap_to_road.xml</1> 中添加以下代码。"
+  },
+  "amazon_snapping_to_roads_step3": {
+    "text": "<0>第 3 步</0>：在 <1>layout_text.xml</1> 中添加以下代码。"
+  },
+  "amazon_snapping_to_roads_step4": {
+    "text": "<0>第 4 步</0> <1><1>：在 /res/drawable 目录中添加名为 <1>ic_marker_red 和 ic_marker_blue</1> <1> 的标记图像，并将以下代码插入到 GeoRoutesSnapToRoadActivity</1> tivity.kt 中。</1></1>"
+  },
+  "codeSnippets_searching_for_places_android_point2_v2": {
+    "text": "<1>亚马逊定位服务通过其 <1>GeoPlacesClient 提供<1>建议</1>方法，该客户端位于 aws.sdk.kotlin: geoplaces S</1> DK 中。</1>API 密钥在<1>建议请求中使用，</1>如以下示例所示。<1><1>此外，亚马逊定位服务还提供其他地点API，例如<1>获取地点</1>、<1>自动填</1>充、地理编码、<1>反向<1>地理编码</1>、附近<1>搜索、搜索</1>文本</1>和建议。</1></1>"
+  },
+  "providing_suggestions": {
+    "text": "提供建议"
+  },
+  "providing_autocomplete": {
+    "text": "提供自动完成功能"
+  },
+  "calculating_route_matrices": {
+    "text": "计算路径矩阵"
+  },
+  "amazon_location_auth_sdk_ios_heading": {
+    "text": "<0>亚马逊定位服务移动身份验证 SDK</0>"
+  },
+  "amazon_location_auth_sdk_ios_desc": {
+    "text": "这些实用程序可帮助您在通过其 iOS 应用程序进行亚马逊定位服务 API 调用时进行身份验证。这在使用亚马逊 Cognito 作为身份验证方法时特别有用。"
+  },
+  "ios_swift_maplibre_package": {
+    "text": "要渲染地图，请将 MapLibre 原生软件包添加到您的项目中。"
+  },
+  "ios_swift_add_package_desc": {
+    "text": "选择您的项目并导航到 “<1>包依赖关系</1>” 选项卡，然后单击 <1>+</1> 图标。"
+  },
+  "ios_swift_maplibre_package_url_desc": {
+    "text": "输入包裹网址：<1>https://github.com/maplibre/maplibre-gl-native-distribution</1> 然后点击 “<1>添加包裹</1>” 按钮。"
+  },
+  "ios_swift_add_maplibre_package_to_target": {
+    "text": "在 “<1>添加到目标</1>” 列的下拉列表中选择您的项目，然后单击 <1>MapLibre</1> 行的 “<1>添加软件包</1>” 按钮。"
+  },
+  "ios_swift_aws_geo_places_routes": {
+    "text": "要使用 AWSGeoPlaces 和 AWSGeoRoutes API，请将 AWS 开发工具包 Swift 包添加到您的项目中。"
+  },
+  "ios_swift_aws_geo_places_routes_url_desc": {
+    "text": "输入包裹网址：<1>https://github.com/awslabs/aws-sdk-swift</1> 然后点击 “<1>添加包裹</1>” 按钮。"
+  },
+  "ios_swift_add_aws_geo_places_routes_package_to_target": {
+    "text": "<1>在 “<1>添加到目标</1>” 列的下拉列表中选择您的项目，然后单击带有行 <1>AWSGeoPlaces 或 AWSGeoRoutes</1> 的 “<1>添加软件包</1>” 按钮。</1>"
+  },
+  "ios_swift_amazon_location_ios_auth_sdk": {
+    "text": "要对 API 密钥请求进行身份验证，请将 AmazonLocationIOSAuthSDK 包添加到您的项目中。"
+  },
+  "ios_swift_amazon_location_ios_auth_sdk_url_desc": {
+    "text": "输入包裹网址：<1>https://github.com/aws-geospatial/amazon-location-mobile-auth-sdk-ios</1> 然后点击 “<1>添加包裹</1>” 按钮。"
+  },
+  "ios_swift_add_amazon_location_ios_auth_sdk_package_to_target": {
+    "text": "在 “<1>添加到目标</1>” 列的下拉列表中选择您的项目，然后单击 <1>AmazonLocationIOSAuthSDK</1> 各行的 “<1>添加包裹</1>” 按钮。"
+  },
+  "ios_swift_turf": {
+    "text": "对于 “显示圆圈” 示例，你需要将 Turf Swift 包添加到你的项目中。"
+  },
+  "ios_swift_turf_url_desc": {
+    "text": "输入包裹网址：<1>https://github.com/mapbox/turf-swift</1> 然后点击 “<1>添加包裹</1>” 按钮。"
+  },
+  "ios_swift_add_turf_package_to_target": {
+    "text": "在 “<1>添加到目标</1>” 列的下拉列表中选择您的项目，然后单击带有 <1>Turf</1> 行的 “<1>添加包</1>” 按钮。"
+  },
+  "codeSnippets_snapping_to_roads_ios_about": {
+    "text": "snap to roads 功能通过返回一组类似的数据来将 GPS 追踪与最近的道路进行匹配，并将点捕捉到车辆最有可能行驶的道路。"
+  },
+  "codeSnippets_snapping_to_roads_ios_point1": {
+    "text": "谷歌地图提供了来自 Roads API 的 <1>snapToRoads</1> 终端节点。"
+  },
+  "codeSnippets_snapping_to_roads_ios_point2": {
+    "text": "<1>亚马逊定位服务通过 AWSGeoRoutes API <1> 提供 SnapToRoads</1> 服务。</1>"
+  },
+  "migrateAWebApp_prerequisites_point_5_c_ii_iii_v2": {
+    "text": "资源和操作：此密钥授权的操作。必须为相应的资源指定操作。"
+  },
+  "suggest_places": {
+    "text": "推荐地点"
+  },
+  "get_static_map": {
+    "text": "获取静态地图"
+  },
+  "optimizing_waypoints": {
+    "text": "优化航点"
+  },
+  "codeSnippets_geocoding_withAmazon_description_v2": {
+    "text": "在亚马逊定位服务中，与谷歌地图的地理编码相当的功能是使用HTTP POST请求进行<0>地理编码</0>的服务。该服务使用自由格式文本（例如地址）搜索地点，并返回有关候选地点的坐标、地址和其他补充信息。一个简单的请求包含以下必填参数："
+  },
+  "codeSnippets_geocoding_withAmazon_description_1_v2": {
+    "text": "queryText — 要转换为一组坐标的地址、名称、城市或地区。例如，字符串 “任何城镇”。"
+  },
+  "codeSnippets_geocoding_withAmazon_request_description_v2": {
+    "text": "在此请求中，<1>queryText</1> 字段等同于 Google 地图中的输入参数，用于指定要进行地理编码的地址。<1>biasPosition</1> 和 <1>filter</1> Countrids 字段用于将搜索结果偏向特定区域，类似于谷歌<1>地图中的位置偏差</1>和<1>国家/</1> 地区参数。<1>密钥</1>参数是你的 API 密钥。有关我们的地理编码服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_v2": {
+    "text": "在亚马逊定位服务中，<0>反向地理编码</0>服务用于通过 HTTP POST 请求进行反向地理编码。此 API 使用坐标来检索地址和地点信息。一个简单的请求包含以下必需的参数："
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_description_1_v2": {
+    "text": "QueryPosition — 要转换为地址、兴趣点或一般位置的一组坐标。使用 <0>[经度、纬度]</0> 格式定义。"
+  },
+  "codeSnippets_reverse_geocoding_withAmazon_request_description_v2": {
+    "text": "在此请求中，<1>queryPosit</1> ion 字段等效于 Google 地图中的<1>位置</1>参数，用于指定要进行反向地理编码的地理坐标。<1>maxResul</1> ts 字段指定要返回的最大结果数。<1>语言</1>字段指定应返回结果的语言，类似于 Google 地图中的<1>语言</1>参数。<1>密钥</1>参数是你的 API 密钥。有关我们的反向地理编码服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_text_searching_withAmazon_description_v2": {
+    "text": "亚马逊位置文本搜索请求通过 <1>SearchText</1> 服务使用 HTTP POST 请求提出。请求正文包含用于搜索位置的 <1>queryText</1> 字段，用于将搜索偏向特定地理区域的 <1>BiasPos</1> ition 字段，以及用于指定搜索<1>语言</1>的语言。有关我们的文本搜索服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_nearby_searching_withAmazon_description_v2": {
+    "text": "在亚马逊定位服务中，<0>Search</0> Nearby 服务用于通过 HTTP POST 请求进行就近搜索，该服务搜索指定位置周围的地点。一个简单的请求包含以下必需的参数："
+  },
+  "codeSnippets_nearby_searching_withAmazon_description2_v2": {
+    "text": "QueryPosition — 要转换为地址、兴趣点或一般位置的一组坐标。使用 <0>[经度、纬度]</0> 格式定义。"
+  },
+  "codeSnippets_nearby_searching_request_description_v2": {
+    "text": "在此请求中，<1>queryPosit</1> ion 字段等同于谷歌<1>地图中的位置</1>参数。<1>maxResul</1> ts 字段指定要返回的最大结果数。<1>语言</1>字段指定应返回结果的语言，类似于 Google 地图中的<1>语言</1>参数。<1>密钥</1>参数是你的 API 密钥。有关我们的文本搜索服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_v2": {
+    "text": "在亚马逊定位服务中，与谷歌地图自动填充功能相当的功能是自动补<0>全服务，使用POS</0> T HTTP方法调用。该服务为基于文本的地理搜索提供自动完成功能，返回对用户搜索查询的地点预测结果。一个简单的请求包含以下必填参数："
+  },
+  "codeSnippets_autocomplete_withAmazon_description1_point1_v2": {
+    "text": "queryText-构成待填部分地址的自由格式文本查询。"
+  },
+  "codeSnippets_autocomplete_withAmazon_description2_v2": {
+    "text": "在此请求中，<1>queryText</1> 字段等效于 Google 地图中的<1>输入</1>参数，用于指定要搜索的文本字符串。<1>maxResul</1> ts 字段指定要返回的最大结果数。<1>密钥</1>参数是你的 API 密钥。有关我们的自动完成服务的更多全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_suggest_places_desc": {
+    "text": "这将根据不完整或拼写错误的查询来查找建议的地址或候选地点，然后从中选择最佳查询。"
+  },
+  "codeSnippets_suggest_places_googleDesc": {
+    "text": "<1>在谷歌地图中，Places API 的 p <1>laces: autocomplet</1> e 端点用于此目的，同时将 incl <1>udeQuery</1> Predictions 参数设置为 true。</1>"
+  },
+  "codeSnippets_suggest_places_amazonDesc": {
+    "text": "在亚马逊定位服务中，<1>建议</1>服务通过 HTTP POST 请求使用。"
+  },
+  "codeSnippets_suggest_places_amazonPostDesc": {
+    "text": "有关此服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "predicted_text": {
+    "text": "预测的文本"
+  },
+  "codeSnippets_get-place-details_description_v2": {
+    "text": "给定一个唯一的地点 ID，您可以检索有关该特定位置的扩展信息。"
+  },
+  "codeSnippets_get-place-details_withGoogle_request_description_v2": {
+    "text": "在谷歌地图中，<1>地点详情 API 的地点/place_id</1> 端点用于此目的。"
+  },
+  "codeSnippets_get-place-details_withAmazon_description_v2": {
+    "text": "在亚马逊定位服务中，<1>GetPlace</1> 服务用于通过 HTTP GET 请求检索地点详情。"
+  },
+  "codeSnippets_get-place-details_withAmazon_request_description_v2": {
+    "text": "在此请求中，<1>PlaceID</1> 是要检索详细信息的地点的唯一标识符，等效于 Google 地图中的 p <1>lace_id</1> 参数。<1>密钥</1>参数是你的 API 密钥。有关我们的地点详情服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "opening_hours": {
+    "text": "营业时间"
+  },
+  "phone_number": {
+    "text": "电话号码"
+  },
+  "website": {
+    "text": "网站"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_description_v2": {
+    "text": "<1><1><1>在亚马逊定位服务中，<1>GetMapTil</1> e服务是通过HTTP GET请求使用的，该请求包括图块<1>集，图块集可以是raster.satellite或vect</1> <1>or.basemap，缩</1><1>放级别 Z，x坐标X和y坐标Y</1>。</1></1></1>"
+  },
+  "codeSnippets_getting_map_tiles_request_step1_amazon_response_result_v2": {
+    "text": "对该请求的响应包括指示缓存控制策略和内容类型的 HTTP 标头，然后是被称为 blob 的地图切片数据，它表示 <1>mvt</1> 格式的矢量切片或 <1>png</1> 格式的栅格切片。这可用于在合适的应用程序中渲染地图图块。"
+  },
+  "codeSnippets_get_static_map_desc": {
+    "text": "这允许您在网页上嵌入地图图像，而无需加载 JavaScript 或任何动态页面。"
+  },
+  "codeSnippets_get_static_map_googleDesc": {
+    "text": "在谷歌地图中，地图API的<1>静态</1>地图端点用于此目的。"
+  },
+  "codeSnippets_get_static_map_amazonDesc": {
+    "text": "在亚马逊定位服务中，与谷歌地图<1>静态地图相当的功能是使用HTTP</1> GET请求的 <1>getStatic</1> Map服务。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_v2": {
+    "text": "在亚马逊定位服务中，<1>计算路</1>径服务用于通过使用 HTTP POST 请求来计算路线。计算路线时，您可以使用航点在起点和目的地之间指定最多 100 个中间中途停留点。以下参数是必需的："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point1_v2": {
+    "text": "起点-路径的起始位置。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description1_point2_v2": {
+    "text": "目的地-路线的终点位置。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2": {
+    "text": "以下参数是可选的："
+  },
+  "codeSnippets_calculating-a-route_withAmazon_amazonDesc2Points_1": {
+    "text": "legGeometryFormat — 选择返回的路段几何格式应该是什么格式。可以是 FlexiblePolyline 或 Simple，默认为 FlexiblePolyline，这是一种压缩的几何格式，用于缩小响应的尺寸。"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_description4_v2": {
+    "text": "<0>起点位置是 <0>[-122.7565，49.0021]，目的地位置是 [-122.3394，47.6159]</0>。</0>"
+  },
+  "codeSnippets_calculating-a-route_withAmazon_postDescription_v2": {
+    "text": "<1>在此请求中，O <1>rigin</1> 字段等同于 Google 地图中的起点参数，用于指定路线计算的起点。</1><1>目的地</1>字段等效于 Google 地图中的<1>目的地</1>参数，用于指定终端节点。<1>密钥</1>参数是你的 API 密钥。有关我们的路由服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_optimizing_waypoints_desc": {
+    "text": "这允许根据道路网络限制和交通模式数据，计算一组航点之间的最佳行驶顺序，从而最大限度地减少行驶时间或旅途中的行驶距离。"
+  },
+  "codeSnippets_optimizing_waypoints_googleDesc": {
+    "text": "<1>在谷歌地图中，路由 API 的 <1>v2:computeRoutes</1> 端点用于此目的，同时将 O <1>optimizeWaypointOrder</1> 参数设置为 true。</1>"
+  },
+  "codeSnippets_optimizing_waypoints_amazonDesc": {
+    "text": "在亚马逊定位服务中，这可以通过使用 HTTP POST 请求的 <1>OptimizeWaypoints</1> ts 服务来实现。"
+  },
+  "codeSnippets_optimizing_waypoints_amazonPostDesc": {
+    "text": "有关我们的优化航点服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "optimized_waypoints": {
+    "text": "优化的航点"
+  },
+  "codeSnippets_snapping_to_roads_desc": {
+    "text": "道路捕捉通过返回一组类似的数据来匹配到最近道路的 GPS 追踪，并将点捕捉到车辆最有可能行驶的道路。"
+  },
+  "codeSnippets_snapping_to_roads_googleDesc": {
+    "text": "在谷歌地图中，使用道路 API 的 <1>snapToRoads</1> 端点，这需要一个接受<1>纬度、经度</1>对列表的<1>路径</1>参数。"
+  },
+  "codeSnippets_snapping_to_roads_amazonDesc": {
+    "text": "在亚马逊定位服务中，通过HTTP POST请求使用 <1>SnapToRoads</1> 服务以及T <1>racePoin</1> ts，后者是要捕捉到道路网络的追踪点清单。"
+  },
+  "codeSnippets_snapping_to_roads_amazonPostDesc": {
+    "text": "有关我们的 snap to roads 服务的更全面信息，请参阅<0>此处</0>提供的详细文档。"
+  },
+  "snapped_position": {
+    "text": "抢占位置"
+  },
+  "codeSnippets_route-planning_withAmazon_postDescription_v2": {
+    "text": "在此请求中，<1>起</1><1>点和目的地</1>是包含位置的对象数组。有关我们的路线规划服务的更全面信息，请参阅此<0>处</0>提供的详细文档。"
+  },
+  "codeSnippets_route-planning_withAmazon_description_v2": {
+    "text": "亚马逊定位服务在其 C <1>alculateRouteMatrix 服务中提供了类似的功能，该服务使用 HTT</1> P POST 请求调用。它允许开发人员计算多个起点和终点之间的距离和行程时间。结果包含起点和目的地的所有组合。每行对应从起点到目的地条目的路线。"
+  },
+  "codeSnippets_route-planning_withAmazon_description2_v2": {
+    "text": "最低请求包含以下必填字段："
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point1_v2": {
+    "text": "起点-用于计算路线的一组起始位置。"
+  },
+  "codeSnippets_route-planning_withAmazon_description2_point2_v2": {
+    "text": "目的地-用于计算路径的一组终点位置。"
+  },
   "error_handler__failed_create_places_client": {
     "text": "无法创建地点客户端"
   },
@@ -3802,6 +6517,39 @@
   "multiple_region_disclaimer": {
     "text": "免责声明：当用户的 AWS 账户连接时，更改区域只会影响地图、地点和路线。"
   },
+  "samples__js-quick-start-using-api-keys__title": {
+    "text": "使用 API 密钥快速入门"
+  },
+  "samples__js-quick-start-using-api-keys__bodyText": {
+    "text": "此示例应用程序通过 API 密钥显示具有反向地理编码功能的地图。"
+  },
+  "samples__js-quick-start-using-api-keys__configure": {
+    "text": "打开 `main.js` 并输入 API 密钥和创建资源的区域。"
+  },
+  "samples__js-quick-start-using-api-keys__run": {
+    "text": "在浏览器中打开 quickstart.html。"
+  },
+  "samples__js-quick-start-using-api-keys__cleanUp": {
+    "text": "如果你想移除本演练中创建的所有资源，请删除名为 “js-quickstart-using-api-keys” 的 CloudFormation 堆栈。"
+  },
+  "samples__react-tracking-data-streaming__title": {
+    "text": "使用 React 进行跟踪器和数据传输"
+  },
+  "samples__react-tracking-data-streaming__bodyText": {
+    "text": "这个例子演示了如何使用 React 和 react-map-gl 在 Web 地图上流式传输跟踪器数据。要创建必要的资源，请从上方导航到github存储库，然后在`src/cfn_template`下运行模板来创建此示例所需的资源。"
+  },
+  "samples__react-tracking-data-streaming__tabsTitle": {
+    "text": "React/Trackers 和数据流"
+  },
+  "samples__react-tracking-data-streaming__configure": {
+    "text": "打开 src/configuration.js 并输入 IdentityPoolID、API 密钥和创建资源的区域。"
+  },
+  "samples__react-tracking-data-streaming__run": {
+    "text": "运行 `npm start` 用这个在 [`localhost: 3000`] (http://localhost:3000/) 上启动本地 Web 服务器\n示例，然后在浏览器中将其打开。"
+  },
+  "samples__react-tracking-data-streaming__cleanUp": {
+    "text": "要移除本演练中创建的所有资源，请删除名为的 CloudFormation 堆栈\n`反应跟踪数据流式传输'。"
+  },
   "documentation": {
     "text": "文档"
   },
@@ -3810,6 +6558,12 @@
   },
   "description_demo": {
     "text": "演示应用程序展示了亚马逊定位服务的功能"
+  },
+  "banner_enhanced_apis_label": {
+    "text": "我们推出了新的和增强的 API！"
+  },
+  "banner_enhanced_apis_action": {
+    "text": "开发者指南"
   },
   "no_political_view": {
     "text": "没有政治观点"
@@ -3862,6 +6616,9 @@
   "industry_overview": {
     "text": "行业概述"
   },
+  "sign_in_to_the_console": {
+    "text": "登录控制台"
+  },
   "political_views": {
     "text": "政治观点"
   },
@@ -3880,6 +6637,18 @@
   "greece_political_view_desc": {
     "text": "希腊的政治观点"
   },
+  "cars": {
+    "text": "汽车作为出行模式"
+  },
+  "trucks": {
+    "text": "卡车作为出行模式"
+  },
+  "pedestrians": {
+    "text": "行人作为出行模式"
+  },
+  "scooters": {
+    "text": "滑板车作为出行模式"
+  },
   "avoid_dirtroads": {
     "text": "避开土路"
   },
@@ -3892,9 +6661,6 @@
   "avoid": {
     "text": "避免"
   },
-  "navigate": {
-    "text": "导航"
-  },
   "arrive_by": {
     "text": "抵达时间"
   },
@@ -3902,13 +6668,10 @@
     "text": "出发地点"
   },
   "leave_now": {
-    "text": "立即离开"
+    "text": "现在就离开"
   },
-  "time_in_past.error": {
-    "text": "所选时间不能在过去"
-  },
-  "date_in_past.error": {
-    "text": "所选日期不能是过去的日期"
+  "navigate": {
+    "text": "导航"
   },
   "leave_at": {
     "text": "离开这里"
