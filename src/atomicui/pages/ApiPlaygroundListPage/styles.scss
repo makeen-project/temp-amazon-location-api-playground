@@ -11,9 +11,6 @@
 		background-size: cover;
 
 		> div:first-child {
-			margin: 0px auto;
-			max-width: 1024px;
-			width: 900px;
 			display: flex;
 			justify-content: space-between;
 			padding-left: 20px;
@@ -26,8 +23,6 @@
 			margin-top: 10px;
 			white-space: break-spaces;
 			max-width: 500px;
-
-			
 		}
 
 		.header-icon {
@@ -43,8 +38,6 @@
 
 	.content-container {
 		padding-top: 50px !important;
-		margin: auto;
-		max-width: 1024px;
 	}
 
 	.checkbox-filter-container {

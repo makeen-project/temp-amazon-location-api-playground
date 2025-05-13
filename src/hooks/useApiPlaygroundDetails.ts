@@ -18,7 +18,7 @@ const useApiPlaygroundDetails = () => {
 	const { apiId } = useParams();
 	const { t } = useTranslation();
 	const navigate = useNavigate();
-	const { apiListData } = useApiPlaygroundList();
+	// const { apiListData } = useApiPlaygroundList();
 
 	// const fetchApiDetails = useCallback(() => {
 	// 	try {

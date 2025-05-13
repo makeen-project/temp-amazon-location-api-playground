@@ -19,7 +19,7 @@ const useApiPlaygroundFilters = () => {
 	const [isFiltering, setIsFiltering] = useState(false);
 	const [searchText, setSearchText] = useState("");
 	const [filteredApiListData, setFilteredApiListData] = useState<ApiListData | null>(null);
-	const { isFetching, apiListData } = useApiPlaygroundList();
+	// const { isFetching, apiListData } = useApiPlaygroundList();
 
 	// const filterBySearch = useCallback(() => {
 	// 	setIsFiltering(true);
