@@ -1,0 +1,36 @@
+.content {
+    &__text {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+
+        &--highlighted {
+            display: inline;
+            border: 1px solid var(--Theme-Light---3, #E5E5EA);
+            background: var(--Theme-Light---2, #F2F2F7);
+            padding: 1px 4px 2px 4px;
+            border-radius: 4px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__list {
+        margin: 0;
+        padding-left: 1.5rem;
+        list-style-position: outside;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__list-item {
+        line-height: 1.5;
+        padding-left: 0.5rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
