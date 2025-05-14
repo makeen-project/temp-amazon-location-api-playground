@@ -132,3 +132,5 @@ export { ReactComponent as IconProductResources } from "./icon-product-resources
 export { ReactComponent as IconDeveloperResources } from "./icon-developer-resources.svg";
 export { ReactComponent as IconCustomers } from "./icon-customers.svg";
 export { ReactComponent as IconFaqsPrimary } from "./icon-faqs-primary.svg";
+export { ReactComponent as IconAccordionClose } from "./icon-accordion-close.svg";
+export { ReactComponent as IconAccordionOpen } from "./icon-accordion-open.svg";
