@@ -1,0 +1,68 @@
+.slider {
+    gap: 0.5rem;
+    width: 100%;
+
+    &__field {
+        .amplify-label {
+            font-family: "AmazonEmber-Medium";
+            color: var(--tertiary-color);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .amplify-sliderfield {
+            width: 100%;
+            padding: 0.5rem 0;
+
+            &__track {
+                background-color: var(--grey-color-2);
+                height: 4px;
+                border-radius: 2px;
+
+                &--filled {
+                    background-color: var(--primary-color);
+                }
+            }
+
+            &__thumb {
+                width: 16px;
+                height: 16px;
+                background-color: var(--primary-color);
+                border: 2px solid var(--white-color);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                &:active {
+                    transform: scale(0.95);
+                }
+
+                &--disabled {
+                    background-color: var(--grey-color-2);
+                    cursor: not-allowed;
+
+                    &:hover,
+                    &:active {
+                        transform: none;
+                    }
+                }
+            }
+        }
+
+        .amplify-field__error-message {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+    }
+
+    &__value {
+        font-size: 0.875rem;
+        color: var(--tertiary-color);
+        margin-top: 0.25rem;
+        text-align: right;
+    }
+}
