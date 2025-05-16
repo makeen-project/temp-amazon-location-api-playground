@@ -134,3 +134,4 @@ export { ReactComponent as IconCustomers } from "./icon-customers.svg";
 export { ReactComponent as IconFaqsPrimary } from "./icon-faqs-primary.svg";
 export { ReactComponent as IconAccordionClose } from "./icon-accordion-close.svg";
 export { ReactComponent as IconAccordionOpen } from "./icon-accordion-open.svg";
+export { ReactComponent as IconChevronDown } from "./icon-chevron-down.svg";
