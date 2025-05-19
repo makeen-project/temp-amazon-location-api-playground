@@ -1,0 +1,101 @@
+.map-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	&.dark-mode {
+		--map-background: var(--amplify-colors-background-primary);
+		--map-text: var(--amplify-colors-font-primary);
+		--map-border: var(--amplify-colors-border-primary);
+	}
+
+	&.light-mode {
+		--map-background: var(--amplify-colors-background-primary);
+		--map-text: var(--amplify-colors-font-primary);
+		--map-border: var(--amplify-colors-border-primary);
+	}
+
+	.loader-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: var(--map-background);
+		z-index: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.location-disabled {
+		position: absolute;
+		z-index: 1;
+		background-color: var(--map-background);
+		border: 1px solid var(--map-border);
+		border-radius: 4px;
+		padding: 8px;
+		cursor: pointer;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+		&:hover {
+			background-color: var(--amplify-colors-background-secondary);
+		}
+
+		svg {
+			width: 24px;
+			height: 24px;
+			fill: var(--map-text);
+		}
+	}
+
+	:global {
+		.maplibregl-ctrl-group {
+			background-color: var(--map-background);
+			border: 1px solid var(--map-border);
+			border-radius: 4px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+			button {
+				width: 30px;
+				height: 30px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: transparent;
+				border: none;
+				cursor: pointer;
+				color: var(--map-text);
+
+				&:hover {
+					background-color: var(--amplify-colors-background-secondary);
+				}
+
+				&:not(:last-child) {
+					border-bottom: 1px solid var(--map-border);
+				}
+			}
+		}
+
+		.maplibregl-ctrl-attrib {
+			background-color: var(--map-background);
+			border: 1px solid var(--map-border);
+			border-radius: 4px;
+			padding: 4px 8px;
+			font-size: 12px;
+			line-height: 1.2;
+			color: var(--map-text);
+			opacity: 0.8;
+
+			a {
+				color: var(--map-text);
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+} 

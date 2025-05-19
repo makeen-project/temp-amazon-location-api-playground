@@ -45,6 +45,7 @@
 		"@aws/polyline": "^0.1.0",
 		"@turf/turf": "^6.5.0",
 		"aws-amplify": "^6.13.1",
+		"aws-iot-device-sdk-v2": "^1.21.4",
 		"date-fns": "^2.29.3",
 		"i18next": "^23.2.8",
 		"i18next-browser-languagedetector": "^7.1.0",

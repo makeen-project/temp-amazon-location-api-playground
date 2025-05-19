@@ -38,6 +38,7 @@ export default defineConfig(() => {
 				"@api-playground/theme": resolve(__dirname, "./src/theme"),
 				"@api-playground/utils": resolve(__dirname, "./src/utils"),
 				"@api-playground/locales": resolve(__dirname, "./src/locales"),
+				axios: "axios/dist/axios.js",
 				"./runtimeConfig": "./runtimeConfig.browser"
 			}
 		},
