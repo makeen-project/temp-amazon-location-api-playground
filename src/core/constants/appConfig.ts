@@ -43,7 +43,8 @@ const appConfig = {
 		GOOGLE_PLAY_STORE_LINK: getEnv("VITE_GOOGLE_PLAY_STORE_LINK"),
 		APP_VERSION: getEnv("VITE_APP_VERSION"),
 		API_PLAYGROUND_URL: getEnv("VITE_API_PLAYGROUND_URL"),
-		API_PLAYGROUND_LIST_FILENAME: getEnv("VITE_API_PLAYGROUND_LIST_FILENAME")
+		API_PLAYGROUND_LIST_FILENAME: getEnv("VITE_API_PLAYGROUND_LIST_FILENAME"),
+		VITE_MAP_STYLE_URL: getEnv("VITE_MAP_STYLE_URL")
 	},
 	PERSIST_STORAGE_KEYS: {
 		LOCAL_STORAGE_PREFIX: "amazon-location_",
@@ -88,18 +89,9 @@ const appConfig = {
 		MAX_BOUNDS: {
 			DEFAULT: [-210, -80, 290, 85],
 			VANCOUVER: {
-				DESKTOP: [
-					[-123.185777, 49.258543], // southwest corner
-					[-123.061047, 49.303531] // northeast corner
-				],
-				TABLET: [
-					[-123.196983, 49.234978], // southwest corner
-					[-123.040067, 49.317798] // northeast corner
-				],
-				MOBILE: [
-					[-123.209922, 49.192026], // southwest corner
-					[-123.037722, 49.347977] // northeast corner
-				]
+				DESKTOP: [-123.2, 49.2, -123.0, 49.3],
+				TABLET: [-123.2, 49.2, -123.0, 49.3],
+				MOBILE: [-123.2, 49.2, -123.0, 49.3]
 			}
 		},
 		MAP_STYLES: [
@@ -237,11 +229,16 @@ const appConfig = {
 				speed: 5,
 				linear: true
 			}
+		},
+		DEFAULT_VIEWPOINT: {
+			longitude: -122.3394, // Seattle Amazon headquarters
+			latitude: 47.6153,
+			zoom: 12
 		}
 	},
 	LINKS: {
-		AMAZON_LOCATION_GIT: "https://github.com/aws-geospatial",
-		AMAZON_LOCATION_BLOGS: "https://aws.amazon.com/blogs/mobile/category/mobile-services/amazon-location/",
+		AMAZON_LOCATION_GIT: "https://github.com/aws-samples/amazon-location-samples",
+		AMAZON_LOCATION_BLOGS: "https://aws.amazon.com/blogs/mobile/",
 		AMAZON_LOCATION_DEV_GUIDE_SAMPLES: "https://docs.aws.amazon.com/location/latest/developerguide/samples.html",
 		AMAZON_LOCATION_NEW:
 			"https://aws.amazon.com/about-aws/whats-new/front-end-web-and-mobile/?whats-new-content.sort-by=item.additionalFields.postDateTime&whats-new-content.sort-order=desc&awsf.whats-new-products=general-products%23amazon-location-service&awsm.page-whats-new-content=1",

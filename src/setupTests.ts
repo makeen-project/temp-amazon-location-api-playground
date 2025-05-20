@@ -96,8 +96,8 @@ jest.mock("@api-playground/core/constants/appConfig", () => ({
 			{ id: "monochrome", name: "Monochrome" }
 		],
 		MAP_COLOR_SCHEMES: [
-			{ id: "light", name: "Light" },
-			{ id: "dark", name: "Dark" }
+			{ id: "Light", name: "Light" },
+			{ id: "Dark", name: "Dark" }
 		],
 		MAP_POLITICAL_VIEWS: [
 			{ alpha2: "", alpha3: "", desc: "no_political_view.text", isSupportedByPlaces: false },
