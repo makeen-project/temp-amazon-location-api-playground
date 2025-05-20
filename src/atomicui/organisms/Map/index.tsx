@@ -1,10 +1,9 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { FC, useCallback, useMemo, useRef, useState } from "react";
 
 import { IconLocateMe } from "@api-playground/assets/svgs";
-
 import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
 import useMap from "@api-playground/hooks/useMap";
 import useMapManager from "@api-playground/hooks/useMapManager";
@@ -13,7 +12,6 @@ import { MapColorSchemeEnum } from "@api-playground/types/Enums";
 import { errorHandler } from "@api-playground/utils/errorHandler";
 import { Flex, View } from "@aws-amplify/ui-react";
 import type { GeolocateControl as GeolocateControlRef, LngLatBoundsLike } from "maplibre-gl";
-import { useTranslation } from "react-i18next";
 import {
 	AttributionControl,
 	GeolocateControl,
@@ -52,6 +50,8 @@ interface MapProps {
 	onMapZoom?: (e: any) => void;
 	onMapDragEnd?: (e: any) => void;
 	className?: string;
+	apiId?: string;
+	fullScreenButton: any;
 }
 
 const Map: FC<MapProps> = ({
@@ -61,16 +61,16 @@ const Map: FC<MapProps> = ({
 	onMapClick,
 	onMapZoom,
 	onMapDragEnd,
-	className = ""
+	className = "",
+	apiId,
+	fullScreenButton
 }) => {
 	const [show, setShow] = useState<ShowStateType>(initShow);
-
 	const mapRef = useRef<MapRef | null>(null);
 	const geolocateControlRef = useRef<GeolocateControlRef | null>(null);
 	const { currentLocationData, viewpoint, mapColorScheme, setBiasPosition, zoom, setZoom } = useMap();
-	const { t } = useTranslation();
 	const [locationError, setLocationError] = useState(false);
-	const { isDesktop, isMobile, isTablet, isMax766 } = useDeviceMediaQuery();
+	const { isDesktop, isTablet } = useDeviceMediaQuery();
 
 	const {
 		mapStyleWithLanguageUrl,
@@ -94,30 +94,6 @@ const Map: FC<MapProps> = ({
 		onLoad();
 		onMapLoad?.();
 	}, [onLoad, onMapLoad]);
-
-	const handleMapClickEvent = useCallback(
-		(e: any) => {
-			handleMapClick(e);
-			onMapClick?.(e);
-		},
-		[handleMapClick, onMapClick]
-	);
-
-	const handleMapZoomEvent = useCallback(
-		(e: any) => {
-			// setZoom(e.viewState.zoom);
-			onMapZoom?.(e);
-		},
-		[onMapZoom]
-	);
-
-	const handleMapDragEndEvent = useCallback(
-		(e: any) => {
-			setBiasPosition([e.viewState.longitude, e.viewState.latitude]);
-			onMapDragEnd?.(e);
-		},
-		[setBiasPosition, onMapDragEnd]
-	);
 
 	const handleGeoLocateError = useCallback(
 		(e: any) => {
@@ -209,6 +185,7 @@ const Map: FC<MapProps> = ({
 					{children}
 					<NavigationControl position="bottom-right" showZoom showCompass={false} />
 					{_GeolocateControl}
+					{fullScreenButton}
 				</View>
 				<AttributionControl
 					style={{

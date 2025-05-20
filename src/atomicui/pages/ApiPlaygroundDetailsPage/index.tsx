@@ -1,81 +1,43 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, useCallback } from "react";
+import { FC, useCallback, useState } from "react";
 
 import Map from "@api-playground/atomicui/organisms/Map";
 import { EventTypeEnum } from "@api-playground/types/Enums";
 import { record } from "@api-playground/utils/record";
-import { View } from "@aws-amplify/ui-react";
+import { Button, View } from "@aws-amplify/ui-react";
 import { useParams } from "react-router-dom";
 import "./styles.scss";
+import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 
 const ApiPlaygroundDetailsPage: FC = () => {
 	const { apiId } = useParams();
+	const [isFullScreen, setIsFullScreen] = useState(false);
 
-	const handleMapClick = useCallback(
-		(e: any) => {
-			record([
-				{
-					EventType: EventTypeEnum.MAP_CLICKED,
-					Attributes: {
-						apiId,
-						coordinates: [e.lngLat.lng, e.lngLat.lat]
-					}
-				}
-			]);
-		},
-		[apiId]
-	);
+	const toggleFullScreen = useCallback(() => {
+		setIsFullScreen(prev => !prev);
+	}, [apiId, isFullScreen]);
 
-	const handleMapZoom = useCallback(
-		(e: any) => {
-			record([
-				{
-					EventType: EventTypeEnum.MAP_ZOOMED,
-					Attributes: {
-						apiId,
-						zoom: e.viewState.zoom
-					}
-				}
-			]);
-		},
-		[apiId]
-	);
-
-	const handleMapDragEnd = useCallback(
-		(e: any) => {
-			record([
-				{
-					EventType: EventTypeEnum.MAP_DRAGGED,
-					Attributes: {
-						apiId,
-						coordinates: [e.viewState.longitude, e.viewState.latitude]
-					}
-				}
-			]);
-		},
-		[apiId]
-	);
-
-	const handleMapLoad = useCallback(() => {
-		record([
-			{
-				EventType: EventTypeEnum.MAP_LOADED,
-				Attributes: { apiId }
-			}
-		]);
-	}, [apiId]);
+	const handleMapClick = useCallback((e: any) => {}, [apiId]);
+	const handleMapZoom = useCallback((e: any) => {}, [apiId]);
+	const handleMapDragEnd = useCallback((e: any) => {}, [apiId]);
+	const handleMapLoad = useCallback(() => {}, [apiId]);
 
 	return (
 		<View className="api-playground-details-page">
-			<View className="map-container" style={{ padding: 32 }}>
+			<View className={`map-container ${isFullScreen ? "fullscreen" : ""}`} style={isFullScreen ? {} : { padding: 32 }}>
 				<Map
 					showMap={true}
 					onMapClick={handleMapClick}
 					onMapZoom={handleMapZoom}
 					onMapDragEnd={handleMapDragEnd}
 					onMapLoad={handleMapLoad}
+					fullScreenButton={
+						<Button className="fullscreen-button" onClick={toggleFullScreen}>
+							<img src={isFullScreen ? FullScreenOff : FullScreenOn} style={{ width: 15, height: 15 }} />
+						</Button>
+					}
 				/>
 			</View>
 		</View>
