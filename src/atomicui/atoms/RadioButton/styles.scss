@@ -1,0 +1,39 @@
+.radio-group {
+  gap: 1rem;
+
+  &__label-container {
+    font-family: "AmazonEmber-Medium";
+  }
+
+  &__info-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--grey-color-3);
+    cursor: help;
+
+    &:hover {
+      fill: var(--primary-color);
+    }
+  }
+
+  .radio-option {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+
+  // Hide the fieldset legend
+  .amplify-fieldset__legend {
+    display: none;
+  }
+}
