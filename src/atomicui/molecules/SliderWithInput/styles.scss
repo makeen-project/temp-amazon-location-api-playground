@@ -1,0 +1,45 @@
+.slider-with-input {
+    width: 100%;
+    gap: 0;
+
+    &__header {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__label {
+        font-family: "AmazonEmber-Medium";
+        color: var(--tertiary-color);
+        font-size: 1rem;
+    }
+
+    &__controls {
+        gap: 1rem;
+        align-items: center;
+    }
+
+    &__slider {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__input {
+        width: 80px;
+
+        text-align: center;
+            padding: 0.5rem;
+            border-radius: 4px;
+            background-color: #F2F2F7;
+            border: none;
+            color: var(--tertiary-color);
+            font-size: 1rem;
+
+            -moz-appearance: textfield;
+            appearance: textfield;
+    }
+
+    &__toggle {
+        margin: 0;
+        margin-bottom: .4rem;
+    }
+}
