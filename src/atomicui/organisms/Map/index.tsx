@@ -3,7 +3,7 @@
 
 import { FC, useCallback, useMemo, useRef, useState } from "react";
 
-import { IconLocateMe } from "@api-playground/assets/svgs";
+import { IconLocateMe, IconMapSolid } from "@api-playground/assets/svgs";
 import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
 import useMap from "@api-playground/hooks/useMap";
 import useMapManager from "@api-playground/hooks/useMapManager";
@@ -109,10 +109,10 @@ const Map: FC<MapProps> = ({
 				<Flex
 					style={{
 						display: locationError ? "flex" : "none",
-						bottom: "2rem",
+						bottom: "11.9rem",
 						right: "2rem"
 					}}
-					className="location-disabled"
+					className="map-styles-button-container"
 					onClick={() => getCurrentGeoLocation()}
 				>
 					<IconLocateMe />
@@ -120,8 +120,8 @@ const Map: FC<MapProps> = ({
 				<GeolocateControl
 					ref={geolocateControlRef}
 					style={{
-						bottom: "0.55rem",
-						right: "0.5rem",
+						bottom: "11.1rem",
+						right: "1.2rem",
 						display: locationError ? "none" : "flex"
 					}}
 					position="bottom-right"
@@ -131,6 +131,25 @@ const Map: FC<MapProps> = ({
 					onGeolocate={onGeoLocate}
 					onError={handleGeoLocateError}
 				/>
+				<Flex
+					data-testid="map-styles-button"
+					className={
+						false
+							? "map-styles-button-container map-styles-button active"
+							: "map-styles-button-container map-styles-button"
+					}
+					data-tooltip-id="map-styles-button"
+					data-tooltip-place="left"
+					data-tooltip-content="tooltip__mps.text"
+					style={{
+						display: "flex",
+						bottom: "9.3rem",
+						right: "2rem",
+						position: "absolute"
+					}}
+				>
+					<IconMapSolid />
+				</Flex>
 			</>
 		),
 		[locationError, onGeoLocate, handleGeoLocateError, getCurrentGeoLocation]
