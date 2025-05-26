@@ -13,6 +13,7 @@ import useApiPlaygroundList, { useApiPlaygroundFilters } from "@api-playground/h
 import useMediaQuery from "@api-playground/hooks/useMediaQuery";
 import { Flex, Heading, Placeholder, SearchField, Text, View } from "@aws-amplify/ui-react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import "./styles.scss";
 
 // to be used later
@@ -34,7 +35,7 @@ type ApiListData = {
 
 const ApiPlaygroundListPage: FC = () => {
 	const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	// useRecordViewPage("ApiPlaygroundsListPage");
 	const { t, i18n } = useTranslation();
 	const { isLoading, data } = useApiPlaygroundList();
@@ -65,7 +66,7 @@ const ApiPlaygroundListPage: FC = () => {
 
 	const handleCardClick = (apiPlaygroundId: string, apiPlaygroundTitle: string) => () => {
 		// record([{ EventType: EventTypeEnum.SAMPLE_CLICKED, Attributes: { apiPlaygroundId, apiPlaygroundTitle } }]);
-		// navigate(`/apiPlayground/${apiPlaygroundId}`);
+		navigate(`/api-playground/${apiPlaygroundId}`);
 		document.body.scrollTop = 0;
 		document.documentElement.scrollTop = 0;
 	};
