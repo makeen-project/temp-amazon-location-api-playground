@@ -6,14 +6,19 @@ import { FC, useCallback, useState } from "react";
 import Map from "@api-playground/atomicui/organisms/Map";
 import { EventTypeEnum } from "@api-playground/types/Enums";
 import { record } from "@api-playground/utils/record";
-import { Button, View } from "@aws-amplify/ui-react";
-import { useParams } from "react-router-dom";
+import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
+import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
+import { IconBackArrow } from "@api-playground/assets/svgs";
 
 const ApiPlaygroundDetailsPage: FC = () => {
 	const { apiId } = useParams();
+	const apiPlaygroundItem = useApiPlaygroundItem(apiId);
 	const [isFullScreen, setIsFullScreen] = useState(false);
+	const [descExpanded, setDescExpanded] = useState(false);
+	const navigate = useNavigate();
 
 	const toggleFullScreen = useCallback(() => {
 		setIsFullScreen(prev => !prev);
@@ -24,8 +29,84 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const handleMapDragEnd = useCallback((e: any) => {}, [apiId]);
 	const handleMapLoad = useCallback(() => {}, [apiId]);
 
+	if (!apiPlaygroundItem) {
+		return <div className="api-playground-details-loading">Loading...</div>;
+	}
+
 	return (
 		<View className="api-playground-details-page">
+			<Flex
+				className="api-playground-header"
+				direction="row"
+				alignItems="flex-start"
+				justifyContent="space-between"
+				gap={"2rem"}
+				style={{ padding: 32 }}
+			>
+				<Flex direction="column" flex={1} alignItems="flex-start" gap={"0.5rem"}>
+					<Button className="back-button-link" variation="link" onClick={() => navigate(-1)}>
+						<span className="back-button-content">
+							<IconBackArrow className="back-arrow-icon" />
+							Back
+						</span>
+					</Button>
+					<Text as="h2" className="api-playground-title" fontWeight={700} fontSize="2rem">
+						{apiPlaygroundItem.title}
+					</Text>
+					<View className={`api-playground-description${descExpanded ? " expanded" : ""}`}>
+						{apiPlaygroundItem.brief}
+					</View>
+					<Button className="show-more-btn" variation="link" onClick={() => setDescExpanded(e => !e)}>
+						{descExpanded ? "Show less" : "Show more"}
+					</Button>
+				</Flex>
+				<Flex direction="column" alignItems="flex-start" className="api-playground-right-col">
+					<Button
+						className="build-sample-btn"
+						variation="primary"
+						onClick={() =>
+							window.open("https://docs.aws.amazon.com/location/latest/developerguide/geocoding.html", "_blank")
+						}
+					>
+						Build a sample Geocoding solution
+					</Button>
+					<Button
+						className="share-btn"
+						variation="link"
+						onClick={() =>
+							navigator.share
+								? navigator.share({ title: apiPlaygroundItem.title, url: window.location.href })
+								: navigator.clipboard.writeText(window.location.href)
+						}
+					>
+						<span className="share-icon">🔗</span>Share
+					</Button>
+					<View className="related-resources">
+						<Text fontWeight={600} fontSize="1rem" marginBottom={"0.5rem"} className="related-title">
+							Related resources
+						</Text>
+						<View className="related-links">
+							<a
+								href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-amazon-location.html"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Geocode API documentation
+							</a>
+							<a
+								href="https://docs.aws.amazon.com/location/latest/developerguide/geocoding.html"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Geocode Developer Guide
+							</a>
+							<a href="https://demos.location.aws.dev/" target="_blank" rel="noopener noreferrer">
+								Demo Application
+							</a>
+						</View>
+					</View>
+				</Flex>
+			</Flex>
 			<View className={`map-container ${isFullScreen ? "fullscreen" : ""}`} style={isFullScreen ? {} : { padding: 32 }}>
 				<Map
 					showMap={true}

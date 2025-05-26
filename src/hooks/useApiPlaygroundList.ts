@@ -139,5 +139,11 @@ function useApiPlaygroundFilters() {
 	};
 }
 
+function useApiPlaygroundItem(apiId: string | undefined) {
+	const { data } = useApiPlaygroundList();
+	if (!apiId || !data) return null;
+	return data.find(item => item.id === apiId) || null;
+}
+
 export default useApiPlaygroundList;
-export { useApiPlaygroundFilters };
+export { useApiPlaygroundFilters, useApiPlaygroundItem };
