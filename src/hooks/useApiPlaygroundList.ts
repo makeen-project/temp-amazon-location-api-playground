@@ -23,8 +23,12 @@ interface ApiConfigItem {
 	title: string;
 	description: string;
 	shouldRenderMap: boolean;
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	requestParams: any[];
+	buildSampleButton?: {
+		text: string;
+		link: string;
+	};
+	relatedResources?: { text: string; link: string }[];
 }
 
 interface ApiConfig {
@@ -51,7 +55,9 @@ function useApiPlaygroundList() {
 						title: item.title,
 						imageSource: item.imageSource,
 						brief: item.description,
-						category
+						category,
+						buildSampleButton: item.buildSampleButton,
+						relatedResources: item.relatedResources
 					}));
 					return [...acc, ...itemsWithCategory];
 				},

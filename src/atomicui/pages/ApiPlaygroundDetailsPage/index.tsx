@@ -1,7 +1,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, useCallback, useState } from "react";
+import { FC, Fragment, useCallback, useState } from "react";
 
 import Map from "@api-playground/atomicui/organisms/Map";
 import { EventTypeEnum } from "@api-playground/types/Enums";
@@ -12,6 +12,7 @@ import "./styles.scss";
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import { IconBackArrow } from "@api-playground/assets/svgs";
+import { Content } from "@api-playground/atomicui/atoms/Content";
 
 const ApiPlaygroundDetailsPage: FC = () => {
 	const { apiId } = useParams();
@@ -53,9 +54,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					<Text as="h2" className="api-playground-title" fontWeight={700} fontSize="2rem">
 						{apiPlaygroundItem.title}
 					</Text>
-					<View className={`api-playground-description${descExpanded ? " expanded" : ""}`}>
-						{apiPlaygroundItem.brief}
-					</View>
+					<Content
+						items={[{ text: apiPlaygroundItem.brief }]}
+						className={`api-playground-description${descExpanded ? " expanded" : ""}`}
+					/>
 					<Button className="show-more-btn" variation="link" onClick={() => setDescExpanded(e => !e)}>
 						{descExpanded ? "Show less" : "Show more"}
 					</Button>
@@ -64,11 +66,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					<Button
 						className="build-sample-btn"
 						variation="primary"
-						onClick={() =>
-							window.open("https://docs.aws.amazon.com/location/latest/developerguide/geocoding.html", "_blank")
-						}
+						onClick={() => window.open(apiPlaygroundItem.buildSampleButton?.link, "_blank")}
 					>
-						Build a sample Geocoding solution
+						{apiPlaygroundItem.buildSampleButton?.text}
 					</Button>
 					<Button
 						className="share-btn"
@@ -86,23 +86,11 @@ const ApiPlaygroundDetailsPage: FC = () => {
 							Related resources
 						</Text>
 						<View className="related-links">
-							<a
-								href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-amazon-location.html"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Geocode API documentation
-							</a>
-							<a
-								href="https://docs.aws.amazon.com/location/latest/developerguide/geocoding.html"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Geocode Developer Guide
-							</a>
-							<a href="https://demos.location.aws.dev/" target="_blank" rel="noopener noreferrer">
-								Demo Application
-							</a>
+							{apiPlaygroundItem.relatedResources?.map((res: any, idx: number) => (
+								<a key={idx} href={res.link} target="_blank" rel="noopener noreferrer">
+									{res.text}
+								</a>
+							))}
 						</View>
 					</View>
 				</Flex>

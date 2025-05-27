@@ -5,9 +5,27 @@
         "id": "1",
         "imageSource": "images/Map1.png",
         "title": "CreateMap Playground",
-        "description": "The Geocode API transforms addresses or place names into geographic coordinates with detailed location information. When building a query, you have two main approaches: use the Query parameter for simple free-form text input like '123 Main St, Boston, MA', or use QueryComponents for precise structured queries where address elements (street, city, country) are specified separately. The API accepts several optional parameters to refine results: BiasPosition lets you provide coordinates to prioritize results near a specific location. Filter lets you restrict results to certain countries or place types. Language determines the response language, and AdditionalFeatures allows you to restrict results to certain countries or place types, can request extra data such as time zones. The API returns a JSON response containing coordinates, formatted address components, and any additional requested information. Query customization helps ensure accurate results — for example, combining BiasPosition with Filter can help find the correct 'Main Street' in a specific city rather than returning matches from around the world.",
+        "description": "The Geocode API [[transforms addresses]] or place names into geographic coordinates with detailed location information. When building a query, you have two main approaches: use the Query parameter for simple free-form text input like '123 Main St, Boston, MA', or use QueryComponents for precise structured queries where address elements (street, city, country) are specified separately. The API accepts several optional parameters to refine results: BiasPosition lets you provide coordinates to prioritize results near a specific location. Filter lets you restrict results to certain countries or place types. Language determines the response language, and AdditionalFeatures allows you to restrict results to certain countries or place types, can request extra data such as time zones. The API returns a JSON response containing coordinates, formatted address components, and any additional requested information. Query customization helps ensure accurate results — for example, combining BiasPosition with Filter can help find the correct 'Main Street' in a specific city rather than returning matches from around the world.",
         "shouldRenderMap": true,
-        "requestParams": []
+        "requestParams": [],
+        "buildSampleButton": {
+          "text": "Build a sample Geocoding solution",
+          "link": "https://docs.aws.amazon.com/location/latest/developerguide/geocoding.html"
+        },
+        "relatedResources": [
+          {
+            "text": "Geocode API documentation",
+            "link": "https://docs.aws.amazon.com/location/latest/developerguide/what-is-amazon-location.html"
+          },
+          {
+            "text": "Geocode Developer Guide",
+            "link": "https://docs.aws.amazon.com/location/latest/developerguide/geocoding.html"
+          },
+          {
+            "text": "Demo Application",
+            "link": "https://demos.location.aws.dev/"
+          }
+        ]
       }
     ],
     "Places": [
@@ -17,7 +35,25 @@
         "title": "SearchNearby API Playground",
         "description": "Find points of interest around specific locations on the map. Select a position, set your search radius, and filter by categories to discover nearby places. View detailed results including addresses, business information, and opening hours",
         "shouldRenderMap": false,
-        "requestParams": []
+        "requestParams": [],
+        "buildSampleButton": {
+          "text": "Build a sample Places solution",
+          "link": "https://docs.aws.amazon.com/location/latest/developerguide/places.html"
+        },
+        "relatedResources": [
+          {
+            "text": "Places API documentation",
+            "link": "https://docs.aws.amazon.com/location/latest/developerguide/places.html"
+          },
+          {
+            "text": "Places Developer Guide",
+            "link": "https://docs.aws.amazon.com/location/latest/developerguide/places.html"
+          },
+          {
+            "text": "Demo Application",
+            "link": "https://demos.location.aws.dev/"
+          }
+        ]
       }
     ],
     "Routes": [
@@ -27,7 +63,25 @@
         "title": "Routes API Playground",
         "description": "Calculate optimal routes with turn-by-turn directions using multiple travel modes. Plan journeys by car (even with live traffic), walking, or truck to see the best path between locations",
         "shouldRenderMap": true,
-        "requestParams": []
+        "requestParams": [],
+        "buildSampleButton": {
+          "text": "Build a sample Routes solution",
+          "link": "https://docs.aws.amazon.com/location/latest/developerguide/routes.html"
+        },
+        "relatedResources": [
+          {
+            "text": "Routes API documentation",
+            "link": "https://docs.aws.amazon.com/location/latest/developerguide/routes.html"
+          },
+          {
+            "text": "Routes Developer Guide",
+            "link": "https://docs.aws.amazon.com/location/latest/developerguide/routes.html"
+          },
+          {
+            "text": "Demo Application",
+            "link": "https://demos.location.aws.dev/"
+          }
+        ]
       }
     ],
     "Trackers": [
@@ -37,7 +91,25 @@
         "title": "Location Tracking with AWS Amplify on Android",
         "description": "How to implement location tracking using AWS Amplify and Amazon Location on Android",
         "shouldRenderMap": false,
-        "requestParams": []
+        "requestParams": [],
+        "buildSampleButton": {
+          "text": "Build a sample Tracking solution",
+          "link": "https://docs.aws.amazon.com/location/latest/developerguide/trackers.html"
+        },
+        "relatedResources": [
+          {
+            "text": "Trackers API documentation",
+            "link": "https://docs.aws.amazon.com/location/latest/developerguide/trackers.html"
+          },
+          {
+            "text": "Trackers Developer Guide",
+            "link": "https://docs.aws.amazon.com/location/latest/developerguide/trackers.html"
+          },
+          {
+            "text": "Demo Application",
+            "link": "https://demos.location.aws.dev/"
+          }
+        ]
       }
     ]
   }

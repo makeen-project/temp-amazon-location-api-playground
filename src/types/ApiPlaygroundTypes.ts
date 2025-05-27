@@ -36,6 +36,11 @@ export interface ApiPlaygroundItem {
 	imageSource: string;
 	brief: string;
 	category: string;
+	buildSampleButton?: {
+		text: string;
+		link: string;
+	};
+	relatedResources?: { text: string; link: string }[];
 }
 
 export type ApiPlaygroundList = ApiPlaygroundItem[];
