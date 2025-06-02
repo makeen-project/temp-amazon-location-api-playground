@@ -6,3 +6,4 @@ export * from "./regionUtils";
 export * from "./getStyleWithPreferredLanguage";
 export * from "./normalizeLng";
 export * from "./getUserAgent";
+export * from "./getFlagEmoji";

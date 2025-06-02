@@ -1,17 +1,24 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, useCallback, useMemo, useRef, useState } from "react";
+import { FC, lazy, useCallback, useMemo, useRef, useState } from "react";
 
 import { IconLocateMe, IconMapSolid } from "@api-playground/assets/svgs";
 import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
 import useMap from "@api-playground/hooks/useMap";
 import useMapManager from "@api-playground/hooks/useMapManager";
 import { ShowStateType } from "@api-playground/types";
-import { MapColorSchemeEnum } from "@api-playground/types/Enums";
+import { MapColorSchemeEnum, TriggeredByEnum } from "@api-playground/types/Enums";
 import { errorHandler } from "@api-playground/utils/errorHandler";
 import { Flex, View } from "@aws-amplify/ui-react";
 import type { GeolocateControl as GeolocateControlRef, LngLatBoundsLike } from "maplibre-gl";
+
+const MapButtons = lazy(() =>
+	import("@api-playground/atomicui/molecules/MapButtons").then(module => ({
+		default: module.MapButtons
+	}))
+);
+
 import {
 	AttributionControl,
 	GeolocateControl,
@@ -131,28 +138,18 @@ const Map: FC<MapProps> = ({
 					onGeolocate={onGeoLocate}
 					onError={handleGeoLocateError}
 				/>
-				<Flex
-					data-testid="map-styles-button"
-					className={
-						false
-							? "map-styles-button-container map-styles-button active"
-							: "map-styles-button-container map-styles-button"
-					}
-					data-tooltip-id="map-styles-button"
-					data-tooltip-place="left"
-					data-tooltip-content="tooltip__mps.text"
-					style={{
-						display: "flex",
-						bottom: "9.3rem",
-						right: "2rem",
-						position: "absolute"
-					}}
-				>
-					<IconMapSolid />
-				</Flex>
+				<MapButtons
+					renderedUpon={TriggeredByEnum.API_PLAYGROUND_DETAILS_PAGE}
+					openStylesCard={show.stylesCard}
+					setOpenStylesCard={b => setShow(s => ({ ...s, stylesCard: b }))}
+					onCloseSidebar={() => setShow(s => ({ ...s, sidebar: false }))}
+					onShowGridLoader={() => setShow(s => ({ ...s, gridLoader: true }))}
+					isUnauthSimulationOpen={show.unauthSimulation}
+					onSetShowUnauthSimulation={(b: boolean) => setShow(s => ({ ...s, unauthSimulation: b }))}
+				/>
 			</>
 		),
-		[locationError, onGeoLocate, handleGeoLocateError, getCurrentGeoLocation]
+		[locationError, onGeoLocate, handleGeoLocateError, getCurrentGeoLocation, show.stylesCard]
 	);
 
 	if (!showMap || !mapStyleWithLanguageUrl) {
