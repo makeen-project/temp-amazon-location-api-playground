@@ -50,6 +50,7 @@
 		"i18next": "^23.2.8",
 		"i18next-browser-languagedetector": "^7.1.0",
 		"maplibre-gl": "^4.5.2",
+		"nuqs": "^2.4.3",
 		"ramda": "^0.28.0",
 		"react": "^18.2.0",
 		"react-device-detect": "^2.2.3",
