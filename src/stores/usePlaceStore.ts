@@ -1,14 +1,13 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { ClustersType, IStateProps, SuggestionType, ViewPointType } from "@api-playground/types";
+import { IStateProps, SuggestionType, ViewPointType } from "@api-playground/types";
 
 import createStore from "./createStore";
 
 interface PlaceStoreProps {
 	isSearching: boolean;
 	isFetchingPlaceData: boolean;
-	clusters?: ClustersType;
 	clusterZoom: number;
 	precision: number;
 	suggestions?: { list: SuggestionType[]; renderMarkers: boolean };

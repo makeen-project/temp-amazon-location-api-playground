@@ -3,7 +3,6 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import { IconLocationPin } from "@api-playground/assets/svgs";
 
 import usePlace from "@api-playground/hooks/usePlace";
-import { TriggeredByEnum } from "@api-playground/types/Enums";
 import { isGeoString } from "@api-playground/utils/geoCalculation";
 import { Autocomplete, Label, Text, View } from "@aws-amplify/ui-react";
 import type { ComboBoxOption } from "@aws-amplify/ui-react/dist/types/primitives/types/autocomplete";
@@ -46,7 +45,7 @@ export default function AutoCompleteLatLonInput({
 	const optionDataMap = useRef<Map<string, OptionData>>(new Map());
 
 	const handleSearch = useCallback(
-		async (searchValue: string, exact = false) => {
+		async (searchValue: string) => {
 			if (timeoutIdRef.current) {
 				clearTimeout(timeoutIdRef.current);
 			}
@@ -54,16 +53,7 @@ export default function AutoCompleteLatLonInput({
 			timeoutIdRef.current = setTimeout(async () => {
 				try {
 					if (searchValue) {
-						await search(
-							searchValue,
-							{ longitude: 0, latitude: 0 },
-							exact,
-							undefined,
-							TriggeredByEnum.PLACES_SEARCH,
-							"search",
-							false,
-							false
-						);
+						await search(searchValue, { longitude: 0, latitude: 0 }, undefined);
 					}
 				} catch (error) {
 					console.error("Search failed:", error);
@@ -75,7 +65,7 @@ export default function AutoCompleteLatLonInput({
 
 	const handleChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
 		setValue(value);
-		handleSearch(value, false);
+		handleSearch(value);
 	};
 
 	const onSelectSuggestion = useCallback(
