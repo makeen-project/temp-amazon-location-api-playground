@@ -9,7 +9,7 @@ export type { StateOf, IStateProps } from "./StateOf";
 export type { ViewPointType } from "./ViewPointType";
 export type { SuggestionType } from "./SuggestionType";
 export type { CurrentLocationDataType } from "./CurrentLocationDataType";
-export type { ClustersType } from "./ClustersType";
+
 export {
 	CirclreDrawTypeEnum,
 	DistanceUnitEnum,

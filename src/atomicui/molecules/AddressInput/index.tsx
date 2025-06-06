@@ -1,11 +1,11 @@
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import { IconLocationPin } from "@api-playground/assets/svgs";
-
 import usePlace from "@api-playground/hooks/usePlace";
-import { isGeoString } from "@api-playground/utils/geoCalculation";
+
 import { Autocomplete, Label, Text, View } from "@aws-amplify/ui-react";
 import type { ComboBoxOption } from "@aws-amplify/ui-react/dist/types/primitives/types/autocomplete";
+
 import "./styles.scss";
 
 // Basic suggestion type matching the API response
@@ -27,17 +27,13 @@ interface OptionData {
 	region?: string;
 }
 
-interface AutoCompleteLatLonProps {
-	onChange?: (position: number[]) => void;
+interface AddressInputProps {
+	onChange?: (address: string) => void;
 	placeholder?: string;
 	label: string;
 }
 
-export default function AutoCompleteLatLonInput({
-	onChange,
-	label,
-	placeholder = "Search for a location..."
-}: AutoCompleteLatLonProps) {
+export default function AddressInput({ onChange, label, placeholder = "Enter an address..." }: AddressInputProps) {
 	const autocompleteRef = useRef<HTMLInputElement>(null);
 	const { suggestions, search, isSearching } = usePlace();
 	const [value, setValue] = useState("");
@@ -70,12 +66,8 @@ export default function AutoCompleteLatLonInput({
 
 	const onSelectSuggestion = useCallback(
 		(option: ComboBoxOption) => {
-			const optionData = optionDataMap.current.get(option.value);
-			if (optionData?.position) {
-				const [longitude, latitude] = optionData.position;
-				onChange?.([latitude, longitude]);
-				setValue(option.label);
-			}
+			setValue(option.label);
+			onChange?.(option.label);
 		},
 		[onChange]
 	);
@@ -90,7 +82,9 @@ export default function AutoCompleteLatLonInput({
 				<IconLocationPin />
 				<View className="content-wrapper">
 					<Text>{title}</Text>
-					{optionData?.region && optionData?.country && <Text variation="tertiary">{`${optionData.position}`}</Text>}
+					{optionData?.region && optionData?.country && (
+						<Text variation="tertiary">{`${optionData.region}, ${optionData.country}`}</Text>
+					)}
 				</View>
 			</View>
 		);
@@ -111,8 +105,6 @@ export default function AutoCompleteLatLonInput({
 			id: suggestion.id
 		};
 
-		if (isGeoString(value)) option.label += ` (${value})`;
-
 		// Store additional data in the Map
 		optionDataMap.current.set(suggestion.id, {
 			position: suggestion.position,
@@ -125,7 +117,7 @@ export default function AutoCompleteLatLonInput({
 
 	return (
 		<View>
-			<Label className="geocode-label" htmlFor="autocomplete-input">
+			<Label className="address-label" htmlFor="autocomplete-input">
 				{label}
 			</Label>
 			<Autocomplete
@@ -135,7 +127,7 @@ export default function AutoCompleteLatLonInput({
 				value={value}
 				onClear={() => {
 					setValue("");
-					onChange?.([0, 0]);
+					onChange?.("");
 				}}
 				options={options}
 				placeholder={placeholder}
@@ -143,7 +135,7 @@ export default function AutoCompleteLatLonInput({
 				onSelect={onSelectSuggestion}
 				renderOption={renderOption}
 				isLoading={isSearching}
-				className="geocode-autocomplete"
+				className="address-autocomplete"
 				borderRadius={"20px"}
 			/>
 		</View>
