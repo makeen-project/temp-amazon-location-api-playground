@@ -48,7 +48,6 @@ jest.mock("hooks", () => ({
 
 describe("<Popup/>", () => {
 	let popupContainer: HTMLElement;
-	let directionsButton: HTMLElement | null;
 	let copyIcon: HTMLElement | null;
 
 	const renderComponent = () => {
@@ -60,6 +59,8 @@ describe("<Popup/>", () => {
 					label={`${faker.address.street()}, ${faker.address.city()}, ${faker.address.state()}, ${faker.address.zipCode()}`}
 					active
 					select={jest.fn()}
+					popupType={"geocode"}
+					onClosePopUp={jest.fn()}
 				/>
 			</I18nextProvider>
 		);
@@ -67,7 +68,6 @@ describe("<Popup/>", () => {
 
 		popupContainer = queryByTestId("popup-container") as HTMLElement;
 		copyIcon = queryByTestId("copy-icon");
-		directionsButton = queryByTestId("directions-button");
 
 		return renderedComponent;
 	};
@@ -80,7 +80,6 @@ describe("<Popup/>", () => {
 		renderComponent();
 		expect(popupContainer).toBeInTheDocument();
 		expect(copyIcon).toBeInTheDocument();
-		expect(directionsButton).toBeInTheDocument();
 	});
 
 	it("should call copy icon onClick function when copy icon is clicked", async () => {
