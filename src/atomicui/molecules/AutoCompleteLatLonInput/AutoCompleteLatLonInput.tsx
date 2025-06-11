@@ -4,7 +4,7 @@ import { IconLocationPin } from "@api-playground/assets/svgs";
 
 import usePlace from "@api-playground/hooks/usePlace";
 import { isGeoString } from "@api-playground/utils/geoCalculation";
-import { Autocomplete, Label, Text, View } from "@aws-amplify/ui-react";
+import { Autocomplete, Flex, Label, Text, View } from "@aws-amplify/ui-react";
 import type { ComboBoxOption } from "@aws-amplify/ui-react/dist/types/primitives/types/autocomplete";
 import "./styles.scss";
 
@@ -31,16 +31,18 @@ interface AutoCompleteLatLonProps {
 	onChange?: (position: number[]) => void;
 	placeholder?: string;
 	label: string;
+	defaultValue?: string;
 }
 
 export default function AutoCompleteLatLonInput({
 	onChange,
 	label,
+	defaultValue,
 	placeholder = "Search for a location..."
 }: AutoCompleteLatLonProps) {
 	const autocompleteRef = useRef<HTMLInputElement>(null);
 	const { suggestions, search, isSearching } = usePlace();
-	const [value, setValue] = useState("");
+	const [value, setValue] = useState(defaultValue);
 	const timeoutIdRef = useRef<ReturnType<typeof setTimeout>>();
 	const optionDataMap = useRef<Map<string, OptionData>>(new Map());
 
@@ -111,7 +113,7 @@ export default function AutoCompleteLatLonInput({
 			id: suggestion.id
 		};
 
-		if (isGeoString(value)) option.label += ` (${value})`;
+		if (isGeoString(value || "")) option.label += ` (${value})`;
 
 		// Store additional data in the Map
 		optionDataMap.current.set(suggestion.id, {
@@ -124,7 +126,7 @@ export default function AutoCompleteLatLonInput({
 	});
 
 	return (
-		<View>
+		<Flex direction={"column"} gap="0.1rem">
 			<Label className="geocode-label" htmlFor="autocomplete-input">
 				{label}
 			</Label>
@@ -145,7 +147,8 @@ export default function AutoCompleteLatLonInput({
 				isLoading={isSearching}
 				className="geocode-autocomplete"
 				borderRadius={"20px"}
+				// defaultValue={}
 			/>
-		</View>
+		</Flex>
 	);
 }
