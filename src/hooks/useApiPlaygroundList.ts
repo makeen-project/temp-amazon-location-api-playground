@@ -23,6 +23,7 @@ interface ApiConfigItem {
 	title: string;
 	description: string;
 	shouldRenderMap: boolean;
+	type: string;
 	requestParams: any[];
 	buildSampleButton?: {
 		text: string;
@@ -57,7 +58,8 @@ function useApiPlaygroundList() {
 						brief: item.description,
 						category,
 						buildSampleButton: item.buildSampleButton,
-						relatedResources: item.relatedResources
+						relatedResources: item.relatedResources,
+						type: item.type
 					}));
 					return [...acc, ...itemsWithCategory];
 				},

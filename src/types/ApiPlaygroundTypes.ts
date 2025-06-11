@@ -36,6 +36,7 @@ export interface ApiPlaygroundItem {
 	imageSource: string;
 	brief: string;
 	category: string;
+	type?: "geocode" | "reverseGeocode";
 	buildSampleButton?: {
 		text: string;
 		link: string;

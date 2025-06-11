@@ -1,21 +1,26 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, Fragment, useCallback, useState } from "react";
+import { FC, useCallback, useState } from "react";
 
+import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
+import { IconBackArrow } from "@api-playground/assets/svgs";
+import { Content } from "@api-playground/atomicui/atoms/Content";
+import { MapMarker } from "@api-playground/atomicui/molecules";
+import { AutoCompleteLatLonInput } from "@api-playground/atomicui/molecules/AutoCompleteLatLonInput";
 import Map from "@api-playground/atomicui/organisms/Map";
-import { EventTypeEnum } from "@api-playground/types/Enums";
-import { record } from "@api-playground/utils/record";
+import { usePlace } from "@api-playground/hooks";
+import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
+import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
-import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
-import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
-import { IconBackArrow } from "@api-playground/assets/svgs";
-import { Content } from "@api-playground/atomicui/atoms/Content";
 
 const ApiPlaygroundDetailsPage: FC = () => {
 	const { apiId } = useParams();
+	const {} = useAuthManager();
+	const { selectedMarker, suggestions } = usePlace();
+
 	const apiPlaygroundItem = useApiPlaygroundItem(apiId);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
@@ -107,7 +112,24 @@ const ApiPlaygroundDetailsPage: FC = () => {
 							<img src={isFullScreen ? FullScreenOff : FullScreenOn} style={{ width: 15, height: 15 }} />
 						</Button>
 					}
-				/>
+				>
+					<AutoCompleteLatLonInput label={""} />
+
+					{suggestions?.list.map((s: any) => (
+						<MapMarker
+							key={s.id}
+							label={s.label}
+							active={selectedMarker?.id === s.id}
+							searchValue={"desc"}
+							setSearchValue={function (v: string): void {}}
+							id={s.id}
+							placeId={s.placeId}
+							address={s.address}
+							position={s.position}
+							popupType={apiPlaygroundItem.type}
+						/>
+					))}
+				</Map>
 			</View>
 		</View>
 	);
