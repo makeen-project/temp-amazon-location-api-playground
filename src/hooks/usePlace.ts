@@ -5,9 +5,9 @@ import { useMemo } from "react";
 
 import usePlaceService from "@api-playground/services/usePlaceService";
 import usePlaceStore from "@api-playground/stores/usePlaceStore";
-import { ClustersType, SuggestionType, TriggeredByEnum, ViewPointType } from "@api-playground/types";
+import { SuggestionType, ViewPointType } from "@api-playground/types";
 import { errorHandler } from "@api-playground/utils";
-import { calculateClusters, getHash, getPrecision, isGeoString } from "@api-playground/utils/geoCalculation";
+import { isGeoString } from "@api-playground/utils/geoCalculation";
 import { uuid } from "@api-playground/utils/uuid";
 import { SearchForTextResult } from "@aws-sdk/client-location";
 
@@ -77,9 +77,8 @@ const usePlace = () => {
 
 					if (data?.ResultItems) {
 						const { ResultItems } = data;
-						const clusters: ClustersType = {};
+
 						const suggestions = ResultItems.map(({ Position, PlaceId, Address }) => {
-							const hash = getHash(Position!, store.precision);
 							const sg: SuggestionType = {
 								id: uuid.randomUUID(),
 								placeId: PlaceId,
@@ -87,10 +86,9 @@ const usePlace = () => {
 								label: Address?.Label,
 								address: Address,
 								country: Address?.Country?.Name,
-								region: Address?.Region ? Address?.Region?.Name : Address?.SubRegion?.Name,
-								hash
+								region: Address?.Region ? Address?.Region?.Name : Address?.SubRegion?.Name
 							};
-							clusters[hash] = clusters[hash] ? [...clusters[hash], sg] : [sg];
+
 							return sg;
 						});
 
@@ -98,7 +96,6 @@ const usePlace = () => {
 							cb(suggestions);
 						} else {
 							setState({ suggestions: { list: suggestions, renderMarkers: true } });
-							setState({ clusters });
 						}
 
 						setViewpoint(viewpoint);
@@ -116,19 +113,17 @@ const usePlace = () => {
 
 					if (data.Results) {
 						const { Results } = data;
-						const clusters: ClustersType = {};
+
 						const suggestions: SuggestionType[] = Results.map(({ Place, PlaceId }: SearchForTextResult) => {
-							const hash = getHash(Place!.Geometry!.Point!, store.precision);
 							const sg: SuggestionType = {
 								id: uuid.randomUUID(),
 								placeId: PlaceId,
 								position: Place?.Geometry?.Point,
 								label: Place?.Label,
 								country: Place?.Country,
-								region: Place?.Region ? Place?.Region : Place?.SubRegion,
-								hash
+								region: Place?.Region ? Place?.Region : Place?.SubRegion
 							};
-							clusters[hash] = clusters[hash] ? [...clusters[hash], sg] : [sg];
+
 							return sg;
 						});
 
@@ -136,7 +131,6 @@ const usePlace = () => {
 							cb(suggestions);
 						} else {
 							setState({ suggestions: { list: suggestions, renderMarkers: true } });
-							setState({ clusters });
 						}
 
 						setViewpoint(viewpoint);
@@ -168,7 +162,7 @@ const usePlace = () => {
 						const { ResultItems } = data;
 						const { Position, Title, PlaceId, Address } = ResultItems[0];
 						const vPoint = Position ? { longitude: Position[0], latitude: Position[1] } : viewpoint;
-						const hash = getHash([vPoint.longitude, vPoint.latitude], 10);
+
 						const suggestion: SuggestionType = {
 							id: uuid.randomUUID(),
 							placeId: PlaceId,
@@ -176,8 +170,7 @@ const usePlace = () => {
 							label: Title,
 							address: Address,
 							country: Address?.Country?.Name,
-							region: Address?.Region ? Address?.Region?.Name : Address?.SubRegion?.Name,
-							hash
+							region: Address?.Region ? Address?.Region?.Name : Address?.SubRegion?.Name
 						};
 						cb ? cb([suggestion]) : setState({ suggestions: { list: [suggestion], renderMarkers: false } });
 						setViewpoint(vPoint);
@@ -188,69 +181,19 @@ const usePlace = () => {
 					setState({ isSearching: false });
 				}
 			},
-			search: async (
-				value: string,
-				viewpoint: ViewPointType,
-				exact: boolean,
-				cb: ((sg: SuggestionType[]) => void) | undefined,
-				triggeredBy: TriggeredByEnum,
-				action: string,
-				isNLSearchEnabled = false,
-				isQueryId = false
-			) => {
+			search: async (value: string, viewpoint: ViewPointType, cb: ((sg: SuggestionType[]) => void) | undefined) => {
 				if (isGeoString(value)) {
 					await methods.searchPlacesByCoordinates(value, viewpoint, cb);
-				} else if (exact && isNLSearchEnabled) {
-					await methods.searchNLPlacesByText(value, viewpoint, cb);
-				} else if (exact && !isNLSearchEnabled) {
-					await methods.searchPlacesByText(value, viewpoint, cb, isQueryId);
 				} else if (value?.length) {
 					await methods.searchPlaceSuggestions(value, viewpoint, cb);
 				}
 			},
-			setZoom: (zoom: number) => {
-				setState(s => {
-					const v = Math.round(s.clusterZoom - zoom);
-					if (s.clusters && s.suggestions && s.suggestions.list.length > 1 && Math.abs(v) >= 1) {
-						const precision = getPrecision(zoom, s.precision);
-						const clusters = calculateClusters(s.suggestions.list, precision);
-						return { zoom, clusterZoom: Math.round(zoom), precision, clusters };
-					}
-					return { zoom };
-				});
-			},
-			setMarker: (marker?: ViewPointType) => {
-				setState({ marker });
-			},
-			setSelectedMarker: async (selectedMarker?: SuggestionType) => {
-				if (selectedMarker === undefined) {
-					setState({ selectedMarker });
-				} else if (selectedMarker.position) {
-					const { position } = selectedMarker;
-					setState({ selectedMarker, hoveredMarker: undefined, zoom: 15 });
-					setViewpoint({ longitude: position[0], latitude: position[1] });
-				} else if (selectedMarker.placeId) {
-					try {
-						const { placeId } = selectedMarker;
-						const place = await placeService.getPlaceById(placeId);
-						setState({ selectedMarker, hoveredMarker: undefined, zoom: 15 });
-						setViewpoint({ longitude: place!.Position![0], latitude: place!.Position![1] });
-					} catch (error) {
-						errorHandler(error, t("error_handler__failed_fetch_place_id_marker.text") as string);
-					}
-				} else {
-					console.error("setSelectedMarker - edge case", { selectedMarker });
-				}
-			},
-			setHoveredMarker: (hoveredMarker?: SuggestionType) => {
-				setState({ hoveredMarker });
-			},
+
 			clearPoiList: () => {
 				setState({
 					suggestions: undefined,
 					selectedMarker: undefined,
-					marker: undefined,
-					clusters: undefined
+					marker: undefined
 				});
 			},
 			setIsSearching: (isSearching: boolean) => {
@@ -261,7 +204,6 @@ const usePlace = () => {
 			},
 			resetStore() {
 				setState({
-					clusters: undefined,
 					suggestions: undefined,
 					selectedMarker: undefined,
 					hoveredMarker: undefined,
@@ -270,7 +212,7 @@ const usePlace = () => {
 				setInitial();
 			}
 		}),
-		[placeService, setState, store.precision, setInitial, setViewpoint, t]
+		[placeService, setState, setInitial, setViewpoint, t]
 	);
 	return useMemo(() => ({ ...methods, ...store }), [methods, store]);
 };

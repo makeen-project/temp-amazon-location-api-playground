@@ -3,28 +3,11 @@
 
 import turfHaversineDistance from "@turf/distance";
 import { Coord, Units } from "@turf/turf";
-import Geohash from "ngeohash";
-
-import { ClustersType, SuggestionType } from "../types";
 
 const pattern = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
 
 export const isGeoString = (v: string): boolean => {
 	return pattern.test(v);
-};
-
-// calculate geohash by coordinates and precision
-export const getHash = (point: number[], precision = 6): string => Geohash.encode(point[1], point[0], precision);
-
-// group poi in clusters by geohash based on precision level
-export const calculateClusters = (suggestions: SuggestionType[], precision: number): ClustersType => {
-	return suggestions.reduce((acc, currentValue) => {
-		const hash = currentValue.hash
-			? currentValue.hash.substring(0, precision)
-			: getHash(currentValue.position as number[], precision);
-		acc[hash] = acc[hash] ? [...acc[hash], currentValue] : [currentValue];
-		return acc;
-	}, {} as ClustersType);
 };
 
 // get precision by zoom level
