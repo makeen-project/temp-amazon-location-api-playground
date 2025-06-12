@@ -1,18 +1,17 @@
 .amplify-autocomplete {
   width: 100%;
-  max-width: 600px;
+  max-width: 100%;
 
   background-color: white;
 
   input {
-    border-radius:8px;
+    border-radius: 8px;
     outline: none;
+    border: none;
 
     &:focus {
-      border-color: #008296;
-
-      box-shadow: none;
-    
+      background-color: white;
+      box-shadow: 0px 0px 0px 2px #008296;
     }
   }
 
@@ -23,11 +22,22 @@
   }
 }
 
+.amplify-field-group__inner-end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  & > button {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
+
 .geocode-label {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 8px;
-    font-family: "AmazonEmber-Medium";
+  font-size: 14px;
+  color: #333;
+
+  font-family: "AmazonEmber-Medium";
 }
 
 .option-details {
@@ -50,7 +60,7 @@
   .content-wrapper {
     display: flex;
     flex-direction: column;
-    
+
     .amplify-text {
       &:first-child {
         font-weight: 500;
@@ -65,6 +75,6 @@
   }
 }
 
-.amplify-autocomplete__menu	 {
-    width: auto;
+.amplify-autocomplete__menu {
+  width: 100%;
 }

@@ -8,7 +8,7 @@ interface ContentItem {
 	text: string;
 }
 
-interface ContentProps {
+export interface ContentProps {
 	items: ContentItem[];
 	type?: "text" | "list";
 	className?: string;

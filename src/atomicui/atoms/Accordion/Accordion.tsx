@@ -11,12 +11,14 @@ interface AccordionProps {
 	defaultOpen?: boolean;
 	openIcon?: ReactNode;
 	closeIcon?: ReactNode;
+	shadowEnabled?: boolean;
 }
 
 export const Accordion = ({
 	children,
 	title,
 	defaultOpen = false,
+	shadowEnabled = true,
 	openIcon = <IconAccordionOpen />,
 	closeIcon = <IconAccordionClose />
 }: AccordionProps) => {
@@ -25,7 +27,7 @@ export const Accordion = ({
 
 	return (
 		<AmplifyAccordion.Container
-			className="accordion"
+			className={`accordion ${shadowEnabled ? "accordion-shadow" : ""}`}
 			value={value}
 			onValueChange={items => setIsExpanded(items?.includes("item") ?? false)}
 		>

@@ -4,3 +4,4 @@
 export { default as useAuthStore } from "./useAuthStore";
 export { default as useClientStore } from "./useClientStore";
 export { default as useMapStore } from "./useMapStore";
+export { default as useReverseGeoCodeRequestStore } from "./useReverseGeocodeRequestStore";
