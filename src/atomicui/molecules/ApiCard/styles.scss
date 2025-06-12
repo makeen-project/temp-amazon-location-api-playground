@@ -20,6 +20,30 @@
 		line-height: 1.4;
 		margin-top: 4px;
 		margin-bottom: 5px;
+		transition: max-height 0.2s ease;
+	}
+
+	.card-text.collapsed::after {
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 1.2em;
+		background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 90%);
+	}
+
+	.show-more-btn {
+		background: none;
+		border: none;
+		color: #0073bb;
+		cursor: pointer;
+		padding: 0;
+		font-size: 0.95em;
+		margin-top: 2px;
+		margin-bottom: 4px;
+		align-self: flex-start;
 	}
 
 	.card-tags {

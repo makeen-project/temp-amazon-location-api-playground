@@ -9,8 +9,7 @@ import { PoliticalViewDropdown } from "@api-playground/atomicui/atoms/PoliticalV
 import { appConfig } from "@api-playground/core/constants";
 import { useMap } from "@api-playground/hooks";
 import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
-import { EventTypeEnum, MapColorSchemeEnum, MapStyleEnum } from "@api-playground/types/Enums";
-import { record } from "@api-playground/utils/analyticsUtils";
+import { MapColorSchemeEnum, MapStyleEnum } from "@api-playground/types/Enums";
 import { Card, Flex, Placeholder, Text } from "@aws-amplify/ui-react";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
@@ -91,12 +90,6 @@ const MapButtons: FC<MapButtonsProps> = ({
 				style === MapStyleEnum.SATELLITE &&
 					setMapPoliticalView({ alpha2: "", alpha3: "", desc: "no_political_view.text", isSupportedByPlaces: false });
 				setMapStyle(style);
-				record([
-					{
-						EventType: EventTypeEnum.MAP_STYLE_CHANGE,
-						Attributes: { id, style, triggeredBy: renderedUpon }
-					}
-				]);
 			}
 		},
 		[mapStyle, onShowGridLoader, renderedUpon, setMapPoliticalView, setMapStyle]
@@ -107,12 +100,6 @@ const MapButtons: FC<MapButtonsProps> = ({
 			if (mapColorScheme !== colorScheme) {
 				onShowGridLoader();
 				setMapColorScheme(colorScheme);
-				record([
-					{
-						EventType: EventTypeEnum.MAP_STYLE_CHANGE,
-						Attributes: { id, colorScheme, triggeredBy: renderedUpon }
-					}
-				]);
 			}
 		},
 		[mapColorScheme, onShowGridLoader, renderedUpon, setMapColorScheme]
@@ -268,6 +255,7 @@ const MapButtons: FC<MapButtonsProps> = ({
 							? "map-styles-button-container map-styles-button active"
 							: "map-styles-button-container map-styles-button"
 					}
+					data-testid="map-styles-button"
 					data-tooltip-id="map-styles-button"
 					data-tooltip-place="left"
 					data-tooltip-content="tooltip__mps.text"

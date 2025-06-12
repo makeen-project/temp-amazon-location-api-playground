@@ -188,7 +188,32 @@ const usePlace = () => {
 					await methods.searchPlaceSuggestions(value, viewpoint, cb);
 				}
 			},
-
+			setMarker: (marker?: ViewPointType) => {
+				setState({ marker });
+			},
+			setSelectedMarker: async (selectedMarker?: SuggestionType) => {
+				if (selectedMarker === undefined) {
+					setState({ selectedMarker });
+				} else if (selectedMarker.position) {
+					const { position } = selectedMarker;
+					setState({ selectedMarker, hoveredMarker: undefined, zoom: 15 });
+					setViewpoint({ longitude: position[0], latitude: position[1] });
+				} else if (selectedMarker.placeId) {
+					try {
+						const { placeId } = selectedMarker;
+						const place = await placeService.getPlaceById(placeId);
+						setState({ selectedMarker, hoveredMarker: undefined, zoom: 15 });
+						setViewpoint({ longitude: place!.Position![0], latitude: place!.Position![1] });
+					} catch (error) {
+						errorHandler(error, t("error_handler__failed_fetch_place_id_marker.text") as string);
+					}
+				} else {
+					console.error("setSelectedMarker - edge case", { selectedMarker });
+				}
+			},
+			setHoveredMarker: (hoveredMarker?: SuggestionType) => {
+				setState({ hoveredMarker });
+			},
 			clearPoiList: () => {
 				setState({
 					suggestions: undefined,

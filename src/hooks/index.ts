@@ -6,3 +6,5 @@ export { default as useMap } from "./useMap";
 export { default as useClient } from "./useClient";
 export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useMapManager } from "./useMapManager";
+export { default as usePlace } from "./usePlace";
+export { default as useAuthManager } from "./useAuthManager";

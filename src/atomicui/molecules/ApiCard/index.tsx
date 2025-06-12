@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 
 import appConfig from "@api-playground/core/constants/appConfig";
 import { Badge, Card, Flex, Image, Text, View, useTheme } from "@aws-amplify/ui-react";
@@ -24,6 +24,21 @@ const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, brief, category, on
 	const langDir = i18n.dir();
 	const isLtr = langDir === "ltr";
 
+	const [isExpanded, setIsExpanded] = useState(false);
+	const [isCollapsible, setIsCollapsible] = useState(false);
+	const textRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (textRef.current) {
+			const lineHeight = parseFloat(getComputedStyle(textRef.current).lineHeight || "20");
+			const maxLines = 3;
+			const maxHeight = lineHeight * maxLines;
+			if (textRef.current.scrollHeight > maxHeight + 2) {
+				setIsCollapsible(true);
+			}
+		}
+	}, [brief]);
+
 	return (
 		<View data-testid="api-card-container" key={id} className={"card-container"}>
 			<Card data-testid="api-card" onClick={onCardClick(id, title)} variation="outlined">
@@ -40,9 +55,27 @@ const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, brief, category, on
 							{title}
 						</Text>
 
-						<Text className="card-text regular-text" variation="tertiary" textAlign={isLtr ? "start" : "end"}>
+						<div
+							className={`card-text regular-text${isCollapsible && !isExpanded ? " collapsed" : ""}`}
+							style={
+								isCollapsible && !isExpanded ? { maxHeight: "4.2em", overflow: "hidden", position: "relative" } : {}
+							}
+							ref={textRef}
+						>
 							{brief}
-						</Text>
+						</div>
+						{isCollapsible && (
+							<button
+								type="button"
+								className="show-more-btn"
+								onClick={e => {
+									e.stopPropagation();
+									setIsExpanded(v => !v);
+								}}
+							>
+								{isExpanded ? "Show less" : "Show more"}
+							</button>
+						)}
 
 						{!!category && (
 							<Flex className="card-category">

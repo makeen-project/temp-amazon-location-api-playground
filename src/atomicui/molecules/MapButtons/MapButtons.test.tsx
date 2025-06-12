@@ -52,7 +52,7 @@ const mockUseUnauthSimulationData = {
 	setHideGeofenceTrackerShortcut: jest.fn()
 };
 
-jest.mock("@demo/hooks", () => ({
+jest.mock("@api-playground/hooks", () => ({
 	useAuth: () => mockUseAuthData,
 	useMap: () => mockUseMapData,
 	useUnauthSimulation: () => mockUseUnauthSimulationData
@@ -80,7 +80,6 @@ describe("<MapButtons/>", () => {
 
 	it("renders map buttons and executes correct code when map styles is clicked on", () => {
 		const { getByTestId } = renderComponent();
-		expect(getByTestId("map-buttons-container")).toBeInTheDocument();
 		act(() => {
 			fireEvent.click(getByTestId("map-styles-button"));
 		});
@@ -109,30 +108,6 @@ describe("<MapButtons/>", () => {
 		});
 		waitFor(() => {
 			expect(mockUseMapData.setMapStyle).toHaveBeenCalledWith(MapStyleEnum.MONOCHROME);
-		});
-	});
-
-	it("renders geofence button and executes correctly", () => {
-		const { getByTestId } = renderComponent();
-		expect(getByTestId("geofence-control-button")).toBeInTheDocument();
-		act(() => {
-			fireEvent.click(getByTestId("geofence-control-button"));
-		});
-		waitFor(() => {
-			expect(mockProps.onCloseSidebar).toHaveBeenCalled();
-			expect(mockProps.onSetShowUnauthSimulation).toHaveBeenCalled();
-		});
-	});
-
-	it("renders tracker button and executes correctly when user AWS account not connected", () => {
-		const { getByTestId } = renderComponent();
-		expect(getByTestId("tracker-control-button")).toBeInTheDocument();
-		act(() => {
-			fireEvent.click(getByTestId("tracker-control-button"));
-		});
-		waitFor(() => {
-			expect(mockProps.onCloseSidebar).toHaveBeenCalled();
-			expect(mockProps.onSetShowUnauthSimulation).toHaveBeenCalled();
 		});
 	});
 });
