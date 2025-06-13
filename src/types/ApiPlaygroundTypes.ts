@@ -30,13 +30,20 @@ export interface ApiPlaygroundListFilter {
 	platform?: string[];
 }
 
+export interface LocationPopupConfig {
+	showPlaceId?: boolean;
+	showLatitude?: boolean;
+	showLongitude?: boolean;
+}
+
 export interface ApiPlaygroundItem {
 	id: string;
 	title: string;
 	imageSource: string;
 	brief: string;
 	category: string;
-	type?: "geocode" | "reverseGeocode";
+	type: string;
+	locationPopupConfig?: LocationPopupConfig;
 	buildSampleButton?: {
 		text: string;
 		link: string;

@@ -117,16 +117,16 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 					{suggestions?.list.map((s: any) => (
 						<MapMarker
+							id={s.id}
 							key={s.id}
 							label={s.label}
 							active={selectedMarker?.id === s.id}
 							searchValue={"desc"}
-							setSearchValue={function (v: string): void {}}
-							id={s.id}
 							placeId={s.placeId}
 							address={s.address}
 							position={s.position}
-							popupType={apiPlaygroundItem.type}
+							setSearchValue={function (v: string): void {}}
+							locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
 						/>
 					))}
 				</Map>

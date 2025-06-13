@@ -4,7 +4,7 @@ import { faker } from "@faker-js/faker";
 import { act, fireEvent, render } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
 
-import Popup from "./Popup";
+import Popup from "./LocationPopup";
 
 /* @ts-expect-error: error */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -59,7 +59,11 @@ describe("<Popup/>", () => {
 					label={`${faker.address.street()}, ${faker.address.city()}, ${faker.address.state()}, ${faker.address.zipCode()}`}
 					active
 					select={jest.fn()}
-					popupType={"geocode"}
+					locationPopupConfig={{
+						showPlaceId: true,
+						showLatitude: true,
+						showLongitude: true
+					}}
 					onClosePopUp={jest.fn()}
 				/>
 			</I18nextProvider>
