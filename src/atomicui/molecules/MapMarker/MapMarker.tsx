@@ -4,11 +4,11 @@
 import { FC, memo, useCallback, useEffect, useMemo, useState } from "react";
 
 import { IconSelected, IconSuggestion } from "@api-playground/assets/svgs";
-import { Popup } from "@api-playground/atomicui/molecules";
+import { LocationPopup } from "@api-playground/atomicui/molecules";
 import { usePlace } from "@api-playground/hooks";
 import { SuggestionType } from "@api-playground/types";
+import { LocationPopupConfig } from "@api-playground/types/ApiPlaygroundTypes";
 import { View } from "@aws-amplify/ui-react";
-import { GetPlaceCommandOutput } from "@aws-sdk/client-geo-places";
 import { Marker } from "react-map-gl/maplibre";
 
 interface Props extends SuggestionType {
@@ -23,7 +23,7 @@ interface Props extends SuggestionType {
 	position: number[];
 	id: string;
 	label: string;
-	popupType?: "geocode" | "reverseGeocode";
+	locationPopupConfig?: LocationPopupConfig;
 }
 
 const MapMarker: FC<Props> = ({
@@ -36,7 +36,7 @@ const MapMarker: FC<Props> = ({
 	position,
 	id,
 	label,
-	popupType
+	locationPopupConfig
 }) => {
 	const { setSelectedMarker, suggestions, hoveredMarker, setHoveredMarker, clearPoiList } = usePlace();
 
@@ -101,13 +101,13 @@ const MapMarker: FC<Props> = ({
 			>
 				{active || isHovered ? <IconSelected /> : <IconSuggestion onMouseOver={() => setHover(info)} />}
 				{active ? (
-					<Popup
+					<LocationPopup
 						placeId={info.placeId!}
 						position={info.position!}
 						label={info.label}
 						active={active}
 						select={select}
-						popupType={popupType || "geocode"}
+						locationPopupConfig={locationPopupConfig}
 						onClosePopUp={
 							suggestions?.list.length === 1
 								? () => {

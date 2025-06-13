@@ -7,7 +7,8 @@ import appConfig from "@api-playground/core/constants/appConfig";
 import {
 	ApiPlaygroundItem,
 	ApiPlaygroundList,
-	ApiPlaygroundListFilter
+	ApiPlaygroundListFilter,
+	LocationPopupConfig
 } from "@api-playground/types/ApiPlaygroundTypes";
 import { downloadJson } from "@api-playground/utils/downloadJsonFileUtils";
 import { errorHandler } from "@api-playground/utils/errorHandler";
@@ -30,6 +31,7 @@ interface ApiConfigItem {
 		link: string;
 	};
 	relatedResources?: { text: string; link: string }[];
+	locationPopupConfig?: LocationPopupConfig;
 }
 
 interface ApiConfig {
@@ -52,14 +54,15 @@ function useApiPlaygroundList() {
 			const flattenedList = Object.entries((apiConfig as ApiConfig).apis).reduce<ApiPlaygroundList>(
 				(acc, [category, items]) => {
 					const itemsWithCategory = items.map(item => ({
-						id: item.id,
-						title: item.title,
-						imageSource: item.imageSource,
-						brief: item.description,
 						category,
-						buildSampleButton: item.buildSampleButton,
+						id: item.id,
+						type: item.type,
+						title: item.title,
+						brief: item.description,
+						imageSource: item.imageSource,
 						relatedResources: item.relatedResources,
-						type: item.type
+						buildSampleButton: item.buildSampleButton,
+						locationPopupConfig: item.locationPopupConfig
 					}));
 					return [...acc, ...itemsWithCategory];
 				},
