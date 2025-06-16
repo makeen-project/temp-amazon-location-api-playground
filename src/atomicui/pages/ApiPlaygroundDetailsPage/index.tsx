@@ -9,10 +9,12 @@ import { Content } from "@api-playground/atomicui/atoms/Content";
 import { MapMarker } from "@api-playground/atomicui/molecules";
 import { AutoCompleteLatLonInput } from "@api-playground/atomicui/molecules/AutoCompleteLatLonInput";
 import Map from "@api-playground/atomicui/organisms/Map";
+import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
+import ReverseGeocodeRequest from "@api-playground/atomicui/organisms/ReverseGeocodeRequest";
 import { usePlace } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
-import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
+import { Button, Flex, Heading, Text, View } from "@aws-amplify/ui-react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
 
@@ -108,12 +110,13 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					onMapDragEnd={handleMapDragEnd}
 					onMapLoad={handleMapLoad}
 					fullScreenButton={
-						<Button className="fullscreen-button" onClick={toggleFullScreen}>
+						<Button className="fullscreen-button" style={{ right: "400px" }} onClick={toggleFullScreen}>
 							<img src={isFullScreen ? FullScreenOff : FullScreenOn} style={{ width: 15, height: 15 }} />
 						</Button>
 					}
 				>
-					<AutoCompleteLatLonInput label={""} />
+					<ReverseGeocodeRequest />
+					<RequestSnippets />
 
 					{suggestions?.list.map((s: any) => (
 						<MapMarker

@@ -157,7 +157,7 @@ export default function ReverseGeoCodeRequest() {
 	useAuthManager();
 
 	const store = useReverseGeoCodeRequestStore();
-	const { urlState, setUrlState, shareableUrl } = useUrlState({
+	const { urlState, setUrlState } = useUrlState({
 		defaultValue: store,
 		paramName: "reverseGeocode"
 	});
@@ -210,36 +210,9 @@ export default function ReverseGeoCodeRequest() {
 		setUrlState(newState);
 	};
 
-	const handleCopyUrl = async () => {
-		try {
-			await navigator.clipboard.writeText(shareableUrl);
-		} catch (err) {
-			console.error("Failed to copy URL:", err);
-		}
-	};
-
 	return (
 		<div className="container">
 			<FormRender content={formContent} fields={createFormFields(urlState)} onChange={handleChange} />
-
-			<div className="container__snippet">
-				<div>
-					<Heading fontSize={"1.2rem"}>Request Snippet</Heading>
-				</div>
-
-				<div className="container__snippet__card">
-					<div className="container__snippet__heading">
-						<Text>Request URL</Text>
-						<Button gap={"5px"} onClick={handleCopyUrl} size="small" variation="link">
-							<IconCopy width={20} height={20} />
-							<Text>Copy</Text>
-						</Button>
-					</div>
-					<div className="container__snippet__content">
-						<Text>{shareableUrl}</Text>
-					</div>
-				</div>
-			</div>
 		</div>
 	);
 }
