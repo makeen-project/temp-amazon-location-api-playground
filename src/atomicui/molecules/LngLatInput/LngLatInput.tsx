@@ -10,16 +10,28 @@ import "./styles.scss";
 interface LngLatProps {
 	onChange?: (position: number[]) => void;
 	defaultValue?: number[];
+	value?: number[];
+	isRequired?: boolean;
+	isDisabled?: boolean;
+	name?: string;
 }
 
-export default function LngLat({ onChange, defaultValue }: LngLatProps) {
-	const [lng, setLng] = useState<string>(defaultValue?.[0]?.toString() || "");
-	const [lat, setLat] = useState<string>(defaultValue?.[1]?.toString() || "");
+export default function LngLat({ onChange, defaultValue, value, isRequired, isDisabled, name }: LngLatProps) {
+	const [lng, setLng] = useState<string>(value?.[0]?.toString() || defaultValue?.[0]?.toString() || "");
+	const [lat, setLat] = useState<string>(value?.[1]?.toString() || defaultValue?.[1]?.toString() || "");
 	const [focusedInput, setFocusedInput] = useState<"lng" | "lat" | null>(null);
 	const lngInputRef = useRef<HTMLInputElement>(null);
 	const latInputRef = useRef<HTMLInputElement>(null);
 	const { viewpoint } = useMapStore();
 	const prevViewpointRef = useRef<ViewPointType>(viewpoint);
+
+	// Update state when value prop changes
+	useEffect(() => {
+		if (value) {
+			setLng(value[0]?.toString() || "");
+			setLat(value[1]?.toString() || "");
+		}
+	}, [value]);
 
 	useEffect(() => {
 		if (
@@ -58,26 +70,27 @@ export default function LngLat({ onChange, defaultValue }: LngLatProps) {
 	};
 
 	const clearLng = () => {
+		onChange?.([0, parseFloat(lat)]);
 		setLng("");
-		onChange?.([0, parseFloat(lat) || 0]);
 	};
 
 	const clearLat = () => {
+		onChange?.([parseFloat(lng), 0]);
 		setLat("");
-		onChange?.([parseFloat(lng) || 0, 0]);
 	};
 
 	return (
 		<Flex direction="column" gap="0.1rem">
 			<div className="lnglat-container">
 				<div className="input-wrapper">
-					<Label htmlFor="longitude-input" className="input-label">
+					<Label htmlFor={`${name}-longitude-input`} className="input-label">
 						Longitude
 					</Label>
 					<div className="input-container">
 						<Input
 							ref={lngInputRef}
-							id="longitude-input"
+							id={`${name}-longitude-input`}
+							name={`${name}-longitude`}
 							type="text"
 							inputMode="decimal"
 							className="input-field"
@@ -85,6 +98,8 @@ export default function LngLat({ onChange, defaultValue }: LngLatProps) {
 							onChange={handleLngChange}
 							onFocus={() => setFocusedInput("lng")}
 							onBlur={() => setFocusedInput(null)}
+							required={isRequired}
+							disabled={isDisabled}
 						/>
 						{lng && (
 							<Button className="clear-button" onClick={clearLng} size="small">
@@ -94,13 +109,14 @@ export default function LngLat({ onChange, defaultValue }: LngLatProps) {
 					</div>
 				</div>
 				<div className="input-wrapper">
-					<Label htmlFor="latitude-input" className="input-label">
+					<Label htmlFor={`${name}-latitude-input`} className="input-label">
 						Latitude
 					</Label>
 					<div className="input-container">
 						<Input
 							ref={latInputRef}
-							id="latitude-input"
+							id={`${name}-latitude-input`}
+							name={`${name}-latitude`}
 							type="text"
 							inputMode="decimal"
 							className="input-field"
@@ -108,6 +124,8 @@ export default function LngLat({ onChange, defaultValue }: LngLatProps) {
 							onChange={handleLatChange}
 							onFocus={() => setFocusedInput("lat")}
 							onBlur={() => setFocusedInput(null)}
+							required={isRequired}
+							disabled={isDisabled}
 						/>
 						{lat && (
 							<Button className="clear-button" onClick={clearLat} size="small">

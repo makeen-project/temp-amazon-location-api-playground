@@ -19,11 +19,11 @@ const {
 
 const createFormFields = (urlState: ReverseGeocodeRequestStore): FormField[] => [
 	{
-		type: "latLonInput",
+		type: "lngLatInput",
 		name: "queryPosition",
 		label: "Query Position",
 		required: true,
-		defaultValue: urlState.queryPosition?.join(" , ")
+		value: urlState.queryPosition?.map(Number) as number[]
 	},
 	{
 		type: "multiSelect",
@@ -157,7 +157,7 @@ export default function ReverseGeoCodeRequest() {
 	useAuthManager();
 
 	const store = useReverseGeoCodeRequestStore();
-	const { urlState, setUrlState } = useUrlState({
+	const { urlState, setUrlState, shareableUrl } = useUrlState({
 		defaultValue: store,
 		paramName: "reverseGeocode"
 	});
@@ -180,7 +180,7 @@ export default function ReverseGeoCodeRequest() {
 			const key = name as keyof ReverseGeocodeRequestStore;
 			switch (key) {
 				case "queryPosition":
-					newState.queryPosition = value as string[];
+					newState.queryPosition = (value as number[]).map(String);
 					break;
 				case "additionalFeatures":
 					newState.additionalFeatures = value as AdditionalFeatures[];
@@ -210,9 +210,42 @@ export default function ReverseGeoCodeRequest() {
 		setUrlState(newState);
 	};
 
+	const handleCopyUrl = async () => {
+		try {
+			await navigator.clipboard.writeText(shareableUrl);
+		} catch (err) {
+			console.error("Failed to copy URL:", err);
+		}
+	};
+
 	return (
 		<div className="container">
-			<FormRender content={formContent} fields={createFormFields(urlState)} onChange={handleChange} />
+			<FormRender
+				content={formContent}
+				fields={createFormFields(urlState)}
+				onChange={handleChange}
+				submitButtonText="Reverse Geocode"
+				onSubmit={e => console.log(e)}
+			/>
+
+			<div className="container__snippet">
+				<div>
+					<Heading fontSize={"1.2rem"}>Request Snippet</Heading>
+				</div>
+
+				<div className="container__snippet__card">
+					<div className="container__snippet__heading">
+						<Text>Request URL</Text>
+						<Button gap={"5px"} onClick={handleCopyUrl} size="small" variation="link">
+							<IconCopy width={20} height={20} />
+							<Text>Copy</Text>
+						</Button>
+					</div>
+					<div className="container__snippet__content">
+						<Text>{shareableUrl}</Text>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }
