@@ -1,5 +1,6 @@
 import React from "react";
 
+import { IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { Button, Divider, Flex, TextAreaField, TextField } from "@aws-amplify/ui-react";
 
@@ -11,6 +12,7 @@ import { Slider } from "../../atoms/Slider/Slider";
 import AddressInput from "../AddressInput";
 import { AutoCompleteLatLonInput } from "../AutoCompleteLatLonInput";
 import CheckboxGroup from "../CheckboxGroup";
+import LngLatInput from "../LngLatInput/LngLatInput";
 import MultiSelectDropdown from "../MultiSelectDropdown";
 import { SliderWithInput } from "../SliderWithInput/SliderWithInput";
 
@@ -132,6 +134,13 @@ interface LatLonInputFieldConfig extends BaseField {
 	defaultValue?: string;
 }
 
+// LngLatInput field specific interface
+interface LngLatInputFieldConfig extends BaseField {
+	type: "lngLatInput";
+	defaultValue?: number[];
+	value?: number[];
+}
+
 // Union type for all field configurations
 export type FormField =
 	| TextFieldConfig
@@ -144,7 +153,8 @@ export type FormField =
 	| AddressFieldConfig
 	| SliderWithInputFieldConfig
 	| MultiSelectFieldConfig
-	| LatLonInputFieldConfig;
+	| LatLonInputFieldConfig
+	| LngLatInputFieldConfig;
 
 interface FormRenderProps {
 	fields: FormField[];
@@ -176,9 +186,37 @@ export const FormRender: React.FC<FormRenderProps> = ({
 		const data: Record<string, unknown> = {};
 
 		fields.forEach(field => {
-			const value = formData.get(field.name);
-			if (value !== null) {
-				data[field.name] = value;
+			if (field.disabled) {
+				return;
+			}
+
+			switch (field.type) {
+				case "lngLatInput":
+					const lng = formData.get(`${field.name}-longitude`);
+					const lat = formData.get(`${field.name}-latitude`);
+					if (lng !== null && lat !== null) {
+						data[field.name] = [parseFloat(lng as string), parseFloat(lat as string)];
+					}
+					break;
+				case "checkbox":
+					const checkboxValues = formData.getAll(field.name);
+					data[field.name] = checkboxValues;
+					break;
+				case "multiSelect":
+					const multiSelectValue = formData.get(field.name);
+					if (multiSelectValue !== null) {
+						try {
+							data[field.name] = JSON.parse(multiSelectValue as string);
+						} catch {
+							data[field.name] = multiSelectValue;
+						}
+					}
+					break;
+				default:
+					const value = formData.get(field.name);
+					if (value !== null) {
+						data[field.name] = value;
+					}
 			}
 		});
 
@@ -327,6 +365,17 @@ export const FormRender: React.FC<FormRenderProps> = ({
 					/>
 				);
 
+			case "lngLatInput":
+				return (
+					<LngLatInput
+						{...commonProps}
+						defaultValue={field.defaultValue}
+						onChange={value => handleChange(field.name, value)}
+						value={field.value}
+						name={field.name}
+					/>
+				);
+
 			default:
 				return null;
 		}
@@ -336,12 +385,46 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const requiredFields = fields.filter(field => field.required);
 	const optionalFields = fields.filter(field => !field.required);
 
+	const handleReset = () => {
+		fields.forEach(field => {
+			switch (field.type) {
+				case "multiSelect":
+				case "checkbox":
+					handleChange(field.name, []);
+					break;
+				case "number":
+				case "slider":
+				case "sliderWithInput":
+					handleChange(field.name, field.min || 0);
+					break;
+				case "lngLatInput":
+					handleChange(field.name, []);
+					break;
+				default:
+					handleChange(field.name, "");
+			}
+		});
+
+		location.search = "";
+	};
+
 	return (
 		<Accordion title="Customize Request">
 			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
 				<Flex direction="column" padding="1rem" gap="1rem">
 					{content && <Content {...content} />}
 					{requiredFields.map(renderField)}
+
+					<Flex gap="1rem">
+						<Button size="small" onClick={handleReset} type="reset">
+							<IconReloadLined width={20} height={20} color="black" />
+						</Button>
+						{onSubmit && (
+							<Button width={"100%"} type="submit" variation="primary">
+								{submitButtonText}
+							</Button>
+						)}
+					</Flex>
 				</Flex>
 
 				{optionalFields.length > 0 && (
@@ -354,8 +437,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						</Accordion>
 					</Flex>
 				)}
-
-				{onSubmit && <Button type="submit">{submitButtonText}</Button>}
 			</form>
 		</Accordion>
 	);

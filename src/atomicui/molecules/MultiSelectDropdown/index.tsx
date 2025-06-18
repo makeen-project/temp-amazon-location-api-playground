@@ -62,8 +62,9 @@ export default function MultiSelectDropdown<T extends string>({
 
 	return (
 		<Flex direction="column" gap="0.5rem" className="dropdown">
+			<input type="hidden" name={name} value={JSON.stringify(selected)} />
 			<SelectField
-				name={name}
+				name={`${name}-select`}
 				label={label}
 				placeholder={placeholder || "Select..."}
 				value={isOpen ? "" : undefined}

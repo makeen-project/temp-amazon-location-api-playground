@@ -78,7 +78,7 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 			</Flex>
 			<Flex className="slider-with-input__controls">
 				<Slider
-					name={name}
+					name={`${name}-slider`}
 					min={min}
 					max={max}
 					step={step}
@@ -91,6 +91,7 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 				/>
 				<Input
 					type="number"
+					name={name}
 					value={value}
 					onChange={handleInputChange}
 					min={min}

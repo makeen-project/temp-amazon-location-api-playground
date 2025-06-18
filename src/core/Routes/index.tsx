@@ -8,11 +8,12 @@ import { Navigate, RouteObject } from "react-router-dom";
 import appConfig from "../constants/appConfig";
 
 const {
-	ROUTES: { ERROR_BOUNDARY, DEFAULT, API_PLAYGROUND, API_PLAYGROUND_DETAILS }
+	ROUTES: { ERROR_BOUNDARY, DEFAULT, API_PLAYGROUND, API_PLAYGROUND_DETAILS, TESTING }
 } = appConfig;
 
 const ApiPlaygroundListPage = lazy(() => import("@api-playground/atomicui/pages/ApiPlaygroundListPage"));
 const ApiPlaygroundDetailsPage = lazy(() => import("@api-playground/atomicui/pages/ApiPlaygroundDetailsPage"));
+const TestingPage = lazy(() => import("@api-playground/atomicui/pages/TestingPage"));
 
 const RouteChunks: RouteObject[] = [
 	{
@@ -28,6 +29,10 @@ const RouteChunks: RouteObject[] = [
 		path: API_PLAYGROUND_DETAILS,
 		element: <ApiPlaygroundDetailsPage />,
 		errorElement: <Navigate to={ERROR_BOUNDARY} />
+	},
+	{
+		path: TESTING,
+		element: <TestingPage />
 	}
 ];
 
