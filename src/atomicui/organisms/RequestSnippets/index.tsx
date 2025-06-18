@@ -1,15 +1,26 @@
 import { FC, useState } from "react";
 
-import { IconCopy, IconExpand } from "@api-playground/assets/svgs";
+import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
+import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
 import { Accordion } from "@api-playground/atomicui/atoms/Accordion";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
 import { useReverseGeoCodeRequestStore } from "@api-playground/stores";
 import { Button, Divider, Tabs, Text, View } from "@aws-amplify/ui-react";
 import "./styles.scss";
 
-type TabType = "JavaScript" | "Python" | "Java";
+const SNIPPETS_COLLAPSED_WIDTH = 400;
+const SNIPPETS_EXPANDED_WIDTH = 750;
 
-const RequestSnippets: FC = () => {
+type TabType = "JavaScript" | "Python" | "Ruby";
+
+interface RequestSnippetsProps {
+	width: number;
+	onWidthChange: (width: number) => void;
+	isFullScreen: boolean;
+	onFullScreenToggle: () => void;
+}
+
+const RequestSnippets: FC<RequestSnippetsProps> = ({ width, onWidthChange, isFullScreen, onFullScreenToggle }) => {
 	const store = useReverseGeoCodeRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
 
@@ -19,15 +30,51 @@ const RequestSnippets: FC = () => {
 	});
 
 	const CODE_SNIPPETS = {
-		JavaScript: `const response = await fetch('${shareableUrl}', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json'
-  }
+		JavaScript: `import { GeoPlacesClient, ReverseGeocodeCommand } from "@aws-sdk/client-geo-places";
+
+// Initialize the client
+const client = new GeoPlacesClient({
+  region: "us-east-1" // Replace with your region
 });
-const data = await response.json();`,
-		Python: `import requests\n\nresponse = requests.get('${shareableUrl}')\ndata = response.json()`,
-		Java: `import java.net.http.HttpClient;\nimport java.net.http.HttpRequest;\nimport java.net.http.HttpResponse;\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"${shareableUrl}\"))\n    .build();\nHttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());\nString data = response.body();`
+
+// Create the reverse geocode request
+const params = {
+  Position: [${store.queryPosition?.[0] || 0}, ${store.queryPosition?.[1] || 0}], // [longitude, latitude]
+  MaxResults: ${store.maxResults || 1}
+};
+
+// Make the request
+const command = new ReverseGeocodeCommand(params);
+const response = await client.send(command);
+console.log(response);`,
+		Python: `import boto3
+
+# Initialize the client
+client = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region
+
+# Create the reverse geocode request
+params = {
+    'Position': [${store.queryPosition?.[0] || 0}, ${store.queryPosition?.[1] || 0}],  # [longitude, latitude]
+    'MaxResults': ${store.maxResults || 1}
+}
+
+# Make the request
+response = client.reverse_geocode(**params)
+print(response)`,
+		Ruby: `require 'aws-sdk-geoplaces'
+
+# Initialize the client
+client = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region
+
+# Create the reverse geocode request
+params = {
+  position: [${store.queryPosition?.[0] || 0}, ${store.queryPosition?.[1] || 0}],  # [longitude, latitude]
+  max_results: ${store.maxResults || 1}
+}
+
+# Make the request
+response = client.reverse_geocode(params)
+puts response`
 	};
 
 	const handleCopyUrl = async () => {
@@ -58,17 +105,34 @@ const data = await response.json();`,
 		</View>
 	);
 
+	const handleWidthToggle = (e: React.MouseEvent<SVGSVGElement>) => {
+		e.stopPropagation();
+		e.preventDefault();
+		onWidthChange(width === SNIPPETS_EXPANDED_WIDTH ? SNIPPETS_COLLAPSED_WIDTH : SNIPPETS_EXPANDED_WIDTH);
+	};
+
 	return (
 		<View className="snippets-container">
 			<Accordion
 				defaultOpen={true}
+				style={{
+					width: `${width}px`
+				}}
 				title={
 					<View className="accordion-title">
-						<IconExpand /> Request Snippets
+						{width === SNIPPETS_EXPANDED_WIDTH ? (
+							<IconCollapse onClick={handleWidthToggle} style={{ cursor: "pointer" }} />
+						) : (
+							<IconExpand onClick={handleWidthToggle} style={{ cursor: "pointer" }} />
+						)}
+						Request Snippets
+						<Button className="fullscreen-button" style={{ marginLeft: "auto" }} onClick={onFullScreenToggle}>
+							<img src={isFullScreen ? FullScreenOff : FullScreenOn} style={{ width: 15, height: 15 }} />
+						</Button>
 					</View>
 				}
 			>
-				<form onSubmit={() => {}} className="form-render">
+				<form onSubmit={() => {}} className="snippets-form">
 					<View className="snippets-container__snippet">
 						<View className="snippets-container__snippet__heading">
 							<Text>Request URL</Text>
@@ -121,7 +185,7 @@ const data = await response.json();`,
 									content: renderCodeBlock(CODE_SNIPPETS.JavaScript, "javascript")
 								},
 								{ label: "Python", value: "Python", content: renderCodeBlock(CODE_SNIPPETS.Python, "python") },
-								{ label: "Java", value: "Java", content: renderCodeBlock(CODE_SNIPPETS.Java, "java") }
+								{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby, "ruby") }
 							]}
 						/>
 					</View>
