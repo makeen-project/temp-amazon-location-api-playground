@@ -19,11 +19,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
 
 const ApiPlaygroundDetailsPage: FC = () => {
-	const { apiId } = useParams();
+	const { apiPlaygroundId } = useParams();
 	const {} = useAuthManager();
 	const { selectedMarker, suggestions } = usePlace();
 
-	const apiPlaygroundItem = useApiPlaygroundItem(apiId);
+	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const navigate = useNavigate();

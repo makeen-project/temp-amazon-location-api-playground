@@ -79,7 +79,7 @@ const appConfig = {
 		MIGRATE_A_WEB_SERVICE: "/migrate-a-web-service",
 		PRICING: "/pricing",
 		API_PLAYGROUND: "/api-playground",
-		API_PLAYGROUND_DETAILS: "/api-playground/:apiId"
+		API_PLAYGROUND_DETAILS: "/api-playground/:apiPlaygroundId"
 	},
 	GET_PARAMS: {
 		NL_TOGGLE: "nl"
