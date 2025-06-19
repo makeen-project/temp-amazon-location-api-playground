@@ -58,7 +58,6 @@ interface MapProps {
 	onMapDragEnd?: (e: any) => void;
 	className?: string;
 	apiId?: string;
-	fullScreenButton: any;
 }
 
 const Map: FC<MapProps> = ({
@@ -69,8 +68,7 @@ const Map: FC<MapProps> = ({
 	onMapZoom,
 	onMapDragEnd,
 	className = "",
-	apiId,
-	fullScreenButton
+	apiId
 }) => {
 	const [show, setShow] = useState<ShowStateType>(initShow);
 	const mapRef = useRef<MapRef | null>(null);
@@ -201,7 +199,6 @@ const Map: FC<MapProps> = ({
 					{children}
 					<NavigationControl position="bottom-right" showZoom showCompass={false} />
 					{_GeolocateControl}
-					{fullScreenButton}
 				</View>
 				<AttributionControl
 					style={{

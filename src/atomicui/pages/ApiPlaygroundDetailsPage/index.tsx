@@ -18,6 +18,9 @@ import { Button, Flex, Heading, Text, View } from "@aws-amplify/ui-react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
 
+const SNIPPETS_COLLAPSED_WIDTH = 400;
+const SNIPPETS_EXPANDED_WIDTH = 750;
+
 const ApiPlaygroundDetailsPage: FC = () => {
 	const { apiPlaygroundId } = useParams();
 	const {} = useAuthManager();
@@ -25,6 +28,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 	const [isFullScreen, setIsFullScreen] = useState(false);
+	const [isExpanded, setIsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const navigate = useNavigate();
 
@@ -109,14 +113,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					onMapZoom={handleMapZoom}
 					onMapDragEnd={handleMapDragEnd}
 					onMapLoad={handleMapLoad}
-					fullScreenButton={
-						<Button className="fullscreen-button" style={{ right: "400px" }} onClick={toggleFullScreen}>
-							<img src={isFullScreen ? FullScreenOff : FullScreenOn} style={{ width: 15, height: 15 }} />
-						</Button>
-					}
 				>
 					<ReverseGeocodeRequest />
-					<RequestSnippets />
+					<RequestSnippets
+						width={isExpanded ? SNIPPETS_EXPANDED_WIDTH : SNIPPETS_COLLAPSED_WIDTH}
+						onWidthChange={width => setIsExpanded(width === SNIPPETS_EXPANDED_WIDTH)}
+						isFullScreen={isFullScreen}
+						onFullScreenToggle={toggleFullScreen}
+					/>
 
 					{suggestions?.list.map((s: any) => (
 						<MapMarker
