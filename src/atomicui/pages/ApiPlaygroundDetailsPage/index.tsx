@@ -34,12 +34,12 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const toggleFullScreen = useCallback(() => {
 		setIsFullScreen(prev => !prev);
-	}, [apiId, isFullScreen]);
+	}, [apiPlaygroundId, isFullScreen]);
 
-	const handleMapClick = useCallback((e: any) => {}, [apiId]);
-	const handleMapZoom = useCallback((e: any) => {}, [apiId]);
-	const handleMapDragEnd = useCallback((e: any) => {}, [apiId]);
-	const handleMapLoad = useCallback(() => {}, [apiId]);
+	const handleMapClick = useCallback((e: any) => {}, [apiPlaygroundId]);
+	const handleMapZoom = useCallback((e: any) => {}, [apiPlaygroundId]);
+	const handleMapDragEnd = useCallback((e: any) => {}, [apiPlaygroundId]);
+	const handleMapLoad = useCallback(() => {}, [apiPlaygroundId]);
 
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
