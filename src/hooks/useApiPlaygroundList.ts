@@ -25,6 +25,7 @@ interface ApiConfigItem {
 	description: string;
 	shouldRenderMap: boolean;
 	type: string;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	requestParams: any[];
 	buildSampleButton?: {
 		text: string;
