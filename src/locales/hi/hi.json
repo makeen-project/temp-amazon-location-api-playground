@@ -6679,5 +6679,14 @@
   },
   "leave_at": {
     "text": "पर छोड़ दें"
+  },
+  "time_in_past.error": {
+    "text": "चयनित समय अतीत में नहीं हो सकता"
+  },
+  "date_in_past.error": {
+    "text": "चुनी गई तारीख अतीत में नहीं हो सकती"
+  },
+  "api_playground": {
+    "text": "API खेल का मैदान"
   }
 }

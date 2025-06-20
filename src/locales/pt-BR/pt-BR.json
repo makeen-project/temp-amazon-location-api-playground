@@ -6679,5 +6679,14 @@
   },
   "leave_at": {
     "text": "Sair às"
+  },
+  "time_in_past.error": {
+    "text": "O horário selecionado não pode estar no passado"
+  },
+  "date_in_past.error": {
+    "text": "A data selecionada não pode estar no passado"
+  },
+  "api_playground": {
+    "text": "Recreio de API"
   }
 }

@@ -6679,5 +6679,14 @@
   },
   "leave_at": {
     "text": "で出発"
+  },
+  "time_in_past.error": {
+    "text": "選択した時間が過去のものであってはなりません"
+  },
+  "date_in_past.error": {
+    "text": "選択した日付は過去の日付であってはなりません"
+  },
+  "api_playground": {
+    "text": "API プレイグラウンド"
   }
 }

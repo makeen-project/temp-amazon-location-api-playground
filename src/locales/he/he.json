@@ -6679,5 +6679,14 @@
   },
   "leave_at": {
     "text": "עזוב ב"
+  },
+  "time_in_past.error": {
+    "text": "הזמן שנבחר לא יכול להיות בעבר"
+  },
+  "date_in_past.error": {
+    "text": "התאריך הנבחר לא יכול להיות בעבר"
+  },
+  "api_playground": {
+    "text": "מגרש משחקים API"
   }
 }

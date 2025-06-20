@@ -6675,5 +6675,14 @@
   },
   "leave_at": {
     "text": "离开这里"
+  },
+  "time_in_past.error": {
+    "text": "所选时间不能在过去"
+  },
+  "date_in_past.error": {
+    "text": "所选日期不能是过去的日期"
+  },
+  "api_playground": {
+    "text": "API 游乐场"
   }
 }

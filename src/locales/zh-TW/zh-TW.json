@@ -6679,5 +6679,14 @@
   },
   "leave_at": {
     "text": "離開地點"
+  },
+  "time_in_past.error": {
+    "text": "所選時間不能在過去"
+  },
+  "date_in_past.error": {
+    "text": "所選日期不能在過去"
+  },
+  "api_playground": {
+    "text": "API 遊樂場"
   }
 }

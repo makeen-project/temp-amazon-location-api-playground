@@ -6679,5 +6679,14 @@
   },
   "leave_at": {
     "text": "에서 출발"
+  },
+  "time_in_past.error": {
+    "text": "선택한 시간은 과거일 수 없습니다"
+  },
+  "date_in_past.error": {
+    "text": "선택한 날짜는 과거일 수 없습니다."
+  },
+  "api_playground": {
+    "text": "API 플레이그라운드"
   }
 }

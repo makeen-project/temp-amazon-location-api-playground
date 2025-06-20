@@ -1,21 +1,21 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { default as arTranslations } from "@api-playground/locales/ar/ar.json";
-import { default as deTranslations } from "@api-playground/locales/de/de.json";
-import { default as enTranslations } from "@api-playground/locales/en/en.json";
-import { default as esTranslations } from "@api-playground/locales/es/es.json";
-import { default as frTranslations } from "@api-playground/locales/fr/fr.json";
-import { default as heTranslations } from "@api-playground/locales/he/he.json";
-import { default as hiTranslations } from "@api-playground/locales/hi/hi.json";
-import { default as itTranslations } from "@api-playground/locales/it/it.json";
-import { default as jaTranslations } from "@api-playground/locales/ja/ja.json";
-import { default as koTranslations } from "@api-playground/locales/ko/ko.json";
-import { default as ptbrTranslations } from "@api-playground/locales/pt-BR/pt-BR.json";
-import { default as zhcnTranslations } from "@api-playground/locales/zh-CN/zh-CN.json";
-import { default as zhtwTranslations } from "@api-playground/locales/zh-TW/zh-TW.json";
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import { default as arTranslations } from "locales/ar/ar.json";
+import { default as deTranslations } from "locales/de/de.json";
+import { default as enTranslations } from "locales/en/en.json";
+import { default as esTranslations } from "locales/es/es.json";
+import { default as frTranslations } from "locales/fr/fr.json";
+import { default as heTranslations } from "locales/he/he.json";
+import { default as hiTranslations } from "locales/hi/hi.json";
+import { default as itTranslations } from "locales/it/it.json";
+import { default as jaTranslations } from "locales/ja/ja.json";
+import { default as koTranslations } from "locales/ko/ko.json";
+import { default as ptbrTranslations } from "locales/pt-BR/pt-BR.json";
+import { default as zhcnTranslations } from "locales/zh-CN/zh-CN.json";
+import { default as zhtwTranslations } from "locales/zh-TW/zh-TW.json";
 import { initReactI18next } from "react-i18next";
 
 const resources = {

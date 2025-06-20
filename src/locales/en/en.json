@@ -6676,5 +6676,8 @@
   },
   "leave_at": {
     "text": "Leave at"
+  },
+  "api_playground": {
+    "text": "API Playground"
   }
 }
