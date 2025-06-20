@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
@@ -7,6 +7,7 @@ import { useUrlState } from "@api-playground/hooks/useUrlState";
 import { useReverseGeoCodeRequestStore } from "@api-playground/stores";
 import { Button, Divider, Tabs, Text, View } from "@aws-amplify/ui-react";
 import "./styles.scss";
+import { ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 
 const SNIPPETS_COLLAPSED_WIDTH = 400;
 const SNIPPETS_EXPANDED_WIDTH = 750;
@@ -18,9 +19,16 @@ interface RequestSnippetsProps {
 	onWidthChange: (width: number) => void;
 	isFullScreen: boolean;
 	onFullScreenToggle: () => void;
+	response?: ReverseGeocodeCommandOutput;
 }
 
-const RequestSnippets: FC<RequestSnippetsProps> = ({ width, onWidthChange, isFullScreen, onFullScreenToggle }) => {
+const RequestSnippets: FC<RequestSnippetsProps> = ({
+	width,
+	onWidthChange,
+	isFullScreen,
+	onFullScreenToggle,
+	response
+}) => {
 	const store = useReverseGeoCodeRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
 
@@ -29,8 +37,10 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({ width, onWidthChange, isFul
 		paramName: "reverseGeocode"
 	});
 
-	const CODE_SNIPPETS = {
-		JavaScript: `import { GeoPlacesClient, ReverseGeocodeCommand } from "@aws-sdk/client-geo-places";
+	// Make CODE_SNIPPETS reactive to store changes
+	const CODE_SNIPPETS = useMemo(
+		() => ({
+			JavaScript: `import { GeoPlacesClient, ReverseGeocodeCommand } from "@aws-sdk/client-geo-places";
 
 // Initialize the client
 const client = new GeoPlacesClient({
@@ -47,7 +57,7 @@ const params = {
 const command = new ReverseGeocodeCommand(params);
 const response = await client.send(command);
 console.log(response);`,
-		Python: `import boto3
+			Python: `import boto3
 
 # Initialize the client
 client = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region
@@ -61,7 +71,7 @@ params = {
 # Make the request
 response = client.reverse_geocode(**params)
 print(response)`,
-		Ruby: `require 'aws-sdk-geoplaces'
+			Ruby: `require 'aws-sdk-geoplaces'
 
 # Initialize the client
 client = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region
@@ -75,13 +85,25 @@ params = {
 # Make the request
 response = client.reverse_geocode(params)
 puts response`
-	};
+		}),
+		[store.queryPosition, store.maxResults]
+	);
 
 	const handleCopyUrl = async () => {
 		try {
 			await navigator.clipboard.writeText(shareableUrl);
 		} catch (err) {
 			console.error("Failed to copy URL:", err);
+		}
+	};
+
+	const handleCopyResponse = async () => {
+		try {
+			if (response) {
+				await navigator.clipboard.writeText(JSON.stringify(response, null, 2));
+			}
+		} catch (err) {
+			console.error("Failed to copy response:", err);
 		}
 	};
 
@@ -118,6 +140,7 @@ puts response`
 				style={{
 					width: `${width}px`
 				}}
+				contentClassName="scrollable-content"
 				title={
 					<View className="accordion-title">
 						{width === SNIPPETS_EXPANDED_WIDTH ? (
@@ -151,13 +174,19 @@ puts response`
 					<View className="snippets-container__snippet">
 						<View className="snippets-container__snippet__heading">
 							<Text>Response</Text>
-							<Button gap={"5px"} onClick={() => {}} size="small" variation="link">
+							<Button gap={"5px"} onClick={handleCopyResponse} size="small" variation="link">
 								<IconCopy width={20} height={20} />
 								<Text>Copy</Text>
 							</Button>
 						</View>
 						<View className="snippets-container__snippet__content">
-							<Text>Placeholder</Text>
+							{response ? (
+								<pre style={{ margin: 0, fontSize: "0.875rem", whiteSpace: "pre-wrap" }}>
+									{JSON.stringify(response, null, 2)}
+								</pre>
+							) : (
+								<Text color="var(--tertiary-color)">No response yet. Submit a request to see the response.</Text>
+							)}
 						</View>
 					</View>
 

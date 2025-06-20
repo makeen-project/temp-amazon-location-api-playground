@@ -20,3 +20,14 @@
     box-shadow: 0px 0px 0px 2px #008296;
   }
 }
+
+.optional-items {
+  height: 40vh !important;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

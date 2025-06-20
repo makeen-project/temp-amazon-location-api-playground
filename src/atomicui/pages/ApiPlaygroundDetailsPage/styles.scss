@@ -24,7 +24,7 @@
 			bottom: 0;
 			z-index: 1000;
 			padding: 0;
-		}		
+		}
 	}
 
 	.api-playground-header {
@@ -37,7 +37,7 @@
 	}
 
 	.back-button-link {
-		color: #00819D;
+		color: #00819d;
 		font-size: 14px;
 		font-weight: 500;
 		padding: 0;
@@ -85,7 +85,7 @@
 	}
 
 	.show-more-btn {
-		color: #00819D;
+		color: #00819d;
 		font-size: 14px;
 		font-weight: 500;
 		padding: 0;
@@ -111,13 +111,13 @@
 		font-weight: 700;
 		font-size: 1rem;
 		color: #fff;
-		background: linear-gradient(45deg, #005276 0%, #007FAA 49.65%, #007FAA 100%),
+		background: linear-gradient(45deg, #005276 0%, #007faa 49.65%, #007faa 100%),
 			linear-gradient(225deg, rgba(124, 232, 244, 0.367106) 0%, rgba(124, 232, 244, 0.0001) 100%),
 			linear-gradient(225deg, rgba(56, 239, 125, 0.549525) 0%, rgba(56, 239, 125, 0.0001) 100%);
 		border-radius: 8px;
 		margin-bottom: 8px;
 		padding: 8px;
-		box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
 		border: none;
 		transition: background 0.2s;
 	}
@@ -127,12 +127,12 @@
 
 	.share-btn {
 		width: 100%;
-		border: 1px solid #D1D5DB;
+		border: 1px solid #d1d5db;
 		border-radius: 8px;
 		font-weight: 500;
 		font-size: 14px;
 		color: #374151;
-		background: #F3F4F6;
+		background: #f3f4f6;
 		margin-bottom: 16px;
 		display: flex;
 		align-items: center;
@@ -163,7 +163,7 @@
 		gap: 4px;
 	}
 	.related-links a {
-		color: #00819D;
+		color: #00819d;
 		font-weight: 600;
 		text-decoration: none;
 		transition: text-decoration 0.2s, color 0.2s;

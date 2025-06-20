@@ -1,20 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/jsx-no-comment-textnodes */
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useRef, useState } from "react";
 
-import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconBackArrow } from "@api-playground/assets/svgs";
 import { Content } from "@api-playground/atomicui/atoms/Content";
-import { MapMarker } from "@api-playground/atomicui/molecules";
-import { AutoCompleteLatLonInput } from "@api-playground/atomicui/molecules/AutoCompleteLatLonInput";
-import Map from "@api-playground/atomicui/organisms/Map";
+import { MapMarker, ReverseGeocodeMarker } from "@api-playground/atomicui/molecules";
+import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
 import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
 import ReverseGeocodeRequest from "@api-playground/atomicui/organisms/ReverseGeocodeRequest";
 import { usePlace } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
-import { Button, Flex, Heading, Text, View } from "@aws-amplify/ui-react";
+import { useReverseGeoCodeRequestStore } from "@api-playground/stores";
+import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { NuqsAdapter } from "nuqs/adapters/react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
@@ -26,11 +27,15 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const { apiPlaygroundId } = useParams();
 	const {} = useAuthManager();
 	const { selectedMarker, suggestions } = usePlace();
+	const reverseGeocodeStore = useReverseGeoCodeRequestStore();
+	const { setState } = useReverseGeoCodeRequestStore;
+	const mapRef = useRef<MapRef | null>(null);
 
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
+	const [reverseGeocodeActive, setReverseGeocodeActive] = useState(false);
 	const navigate = useNavigate();
 
 	const toggleFullScreen = useCallback(() => {
@@ -41,6 +46,31 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const handleMapZoom = useCallback((e: any) => {}, [apiPlaygroundId]);
 	const handleMapDragEnd = useCallback((e: any) => {}, [apiPlaygroundId]);
 	const handleMapLoad = useCallback(() => {}, [apiPlaygroundId]);
+
+	const handleReverseGeocodeClose = useCallback(() => {
+		setReverseGeocodeActive(false);
+	}, []);
+
+	const handleReverseGeocodeToggle = useCallback((isActive: boolean) => {
+		setReverseGeocodeActive(isActive);
+	}, []);
+
+	const handleReverseGeocodeResponse = useCallback(() => {
+		setReverseGeocodeActive(true);
+
+		// Fly to the reverse geocode marker
+		if (reverseGeocodeStore.queryPosition?.length === 2) {
+			const [lng, lat] = reverseGeocodeStore.queryPosition.map(Number);
+			mapRef.current?.flyTo({
+				center: [lng, lat],
+				zoom: 15,
+				duration: 2000
+			});
+		}
+	}, [reverseGeocodeStore.queryPosition]);
+
+	// Show reverse geocode marker when there's a response
+	const showReverseGeocodeMarker = reverseGeocodeStore.response && reverseGeocodeStore.queryPosition?.length === 2;
 
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
@@ -113,14 +143,17 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					style={isFullScreen ? {} : { padding: 32 }}
 				>
 					<Map
+						ref={mapRef}
 						showMap={true}
 						onMapClick={handleMapClick}
 						onMapZoom={handleMapZoom}
 						onMapDragEnd={handleMapDragEnd}
 						onMapLoad={handleMapLoad}
 					>
-						<ReverseGeocodeRequest />
+						<ReverseGeocodeRequest onResponseReceived={handleReverseGeocodeResponse} />
 						<RequestSnippets
+							key={`snippets-${reverseGeocodeStore.response ? "with-response" : "no-response"}`}
+							response={reverseGeocodeStore.response}
 							width={isExpanded ? SNIPPETS_EXPANDED_WIDTH : SNIPPETS_COLLAPSED_WIDTH}
 							onWidthChange={width => setIsExpanded(width === SNIPPETS_EXPANDED_WIDTH)}
 							isFullScreen={isFullScreen}
@@ -141,6 +174,19 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
 							/>
 						))}
+
+						{showReverseGeocodeMarker && (
+							<ReverseGeocodeMarker
+								key={`reverse-geocode-marker-${JSON.stringify(
+									reverseGeocodeStore.response?.ResultItems?.[0]?.PlaceId || ""
+								)}-${reverseGeocodeStore.queryPosition?.join(",")}`}
+								response={reverseGeocodeStore.response}
+								position={reverseGeocodeStore.queryPosition.map(Number)}
+								isActive={reverseGeocodeActive}
+								onClose={handleReverseGeocodeClose}
+								onToggle={handleReverseGeocodeToggle}
+							/>
+						)}
 					</Map>
 				</View>
 			</View>
