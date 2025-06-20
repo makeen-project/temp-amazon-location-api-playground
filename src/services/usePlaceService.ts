@@ -5,6 +5,7 @@ import { useMemo } from "react";
 
 import { appConfig } from "@api-playground/core/constants";
 import { useClient, useMap } from "@api-playground/hooks";
+import { AdditionalFeatures } from "@api-playground/types/ReverseGeocodeRequestForm";
 import {
 	GetPlaceCommand,
 	GetPlaceCommandInput,
@@ -20,6 +21,14 @@ import { useTranslation } from "react-i18next";
 const {
 	ENV: { NL_BASE_URL, NL_API_KEY }
 } = appConfig;
+
+interface ReverseGeocodeParams {
+	QueryPosition: number[];
+	AdditionalFeatures?: AdditionalFeatures[];
+	Language?: string;
+	MaxResults?: number;
+	PoliticalView?: string;
+}
 
 const usePlaceService = () => {
 	const { placesClient } = useClient();
@@ -64,11 +73,13 @@ const usePlaceService = () => {
 				const command = new SearchTextCommand(input);
 				return await placesClient?.send(command);
 			},
-			getPlaceByCoordinates: async (QueryPosition: number[]) => {
+			getPlaceByCoordinates: async (params: ReverseGeocodeParams) => {
 				const input: ReverseGeocodeCommandInput = {
-					QueryPosition,
-					Language,
-					PoliticalView: isSupportedByPlaces ? alpha3 : undefined
+					QueryPosition: params.QueryPosition,
+					Language: params.Language || Language,
+					PoliticalView: params.PoliticalView || (isSupportedByPlaces ? alpha3 : undefined),
+					AdditionalFeatures: params.AdditionalFeatures,
+					MaxResults: params.MaxResults
 				};
 				const command = new ReverseGeocodeCommand(input);
 				return await placesClient?.send(command);

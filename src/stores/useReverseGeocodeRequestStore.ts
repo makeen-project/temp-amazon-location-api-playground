@@ -1,5 +1,6 @@
 import { IStateProps } from "@api-playground/types";
 import { AdditionalFeatures, IncludePlaceTypes, IntendedUse } from "@api-playground/types/ReverseGeocodeRequestForm";
+import { ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 
 import createStore from "./createStore";
 
@@ -15,10 +16,15 @@ export interface ReverseGeocodeRequestStore {
 	maxResults?: number;
 	politicalView?: string;
 	queryResults?: number;
+	// Response data
+	response?: ReverseGeocodeCommandOutput;
+	isLoading: boolean;
+	error?: string;
 }
 
 export const initialState: IStateProps<ReverseGeocodeRequestStore> = {
-	queryPosition: []
+	queryPosition: [],
+	isLoading: false
 };
 
 export default createStore<ReverseGeocodeRequestStore>(initialState);

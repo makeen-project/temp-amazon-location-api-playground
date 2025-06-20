@@ -1,17 +1,18 @@
 import { useEffect } from "react";
 
-import { IconCopy } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { FormField, FormRender } from "@api-playground/atomicui/molecules/FormRender";
-import "./styles.scss";
 import { appConfig } from "@api-playground/core/constants";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
+import usePlaceService from "@api-playground/services/usePlaceService";
 import { useReverseGeoCodeRequestStore } from "@api-playground/stores";
 import { ReverseGeocodeRequestStore } from "@api-playground/stores/useReverseGeocodeRequestStore";
 import { BaseStateProps } from "@api-playground/types/BaseStateProps";
 import { AdditionalFeatures, IncludePlaceTypes, IntendedUse } from "@api-playground/types/ReverseGeocodeRequestForm";
-import { Button, Heading, Text } from "@aws-amplify/ui-react";
+import { errorHandler } from "@api-playground/utils/errorHandler";
+import { useTranslation } from "react-i18next";
+import "./styles.scss";
 
 const {
 	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
@@ -19,11 +20,11 @@ const {
 
 const createFormFields = (urlState: ReverseGeocodeRequestStore): FormField[] => [
 	{
-		type: "latLonInput",
+		type: "lngLatInput",
 		name: "queryPosition",
 		label: "Query Position",
 		required: true,
-		defaultValue: urlState.queryPosition?.join(" , ")
+		value: urlState.queryPosition?.map(Number) as number[]
 	},
 	{
 		type: "multiSelect",
@@ -153,19 +154,33 @@ const formContent: ContentProps = {
 
 type StoreType = ReverseGeocodeRequestStore & BaseStateProps;
 
-export default function ReverseGeoCodeRequest() {
+interface ReverseGeocodeRequestProps {
+	onResponseReceived?: () => void;
+}
+
+export default function ReverseGeoCodeRequest({ onResponseReceived }: ReverseGeocodeRequestProps) {
 	useAuthManager();
 
 	const store = useReverseGeoCodeRequestStore();
+	const { setState } = useReverseGeoCodeRequestStore;
 	const { urlState, setUrlState } = useUrlState({
 		defaultValue: store,
 		paramName: "reverseGeocode"
 	});
+	const placeService = usePlaceService();
+	const { t } = useTranslation();
 
 	// Sync URL state with store state
 	useEffect(() => {
 		Object.assign(store, urlState);
 	}, [urlState, store]);
+
+	// Notify parent when response is received
+	useEffect(() => {
+		if (store.response && onResponseReceived) {
+			onResponseReceived();
+		}
+	}, [store.response, onResponseReceived]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
 		const newState = { ...store } as StoreType;
@@ -180,7 +195,7 @@ export default function ReverseGeoCodeRequest() {
 			const key = name as keyof ReverseGeocodeRequestStore;
 			switch (key) {
 				case "queryPosition":
-					newState.queryPosition = value as string[];
+					newState.queryPosition = (value as number[]).map(String);
 					break;
 				case "additionalFeatures":
 					newState.additionalFeatures = value as AdditionalFeatures[];
@@ -210,9 +225,66 @@ export default function ReverseGeoCodeRequest() {
 		setUrlState(newState);
 	};
 
+	const handleSubmit = async () => {
+		try {
+			// Set loading state
+			setState({ isLoading: true, error: undefined });
+
+			// Validate required fields
+			if (!urlState.queryPosition || urlState.queryPosition.length !== 2) {
+				throw new Error("Query Position is required and must contain longitude and latitude");
+			}
+
+			// Convert string coordinates to numbers
+			const queryPosition = urlState.queryPosition.map(Number);
+
+			// Prepare parameters for the API call
+			const params = {
+				QueryPosition: queryPosition,
+				AdditionalFeatures: urlState.additionalFeatures,
+				Language: urlState.language,
+				MaxResults: urlState.maxResults,
+				PoliticalView: urlState.politicalView
+			};
+
+			// Make the API call using the place service
+			const response = await placeService.getPlaceByCoordinates(params);
+
+			// Store the response
+			setState({
+				response,
+				isLoading: false,
+				error: undefined
+			});
+
+			const newState = { ...store } as StoreType;
+			setUrlState({
+				...newState,
+				response,
+				isLoading: false,
+				error: undefined
+			});
+		} catch (error) {
+			setState({
+				isLoading: false,
+				error: error instanceof Error ? error.message : "An error occurred during reverse geocoding"
+			});
+			errorHandler(
+				error,
+				(t("error_handler__failed_reverse_geocode.text") as string) || "Failed to perform reverse geocoding"
+			);
+		}
+	};
+
 	return (
 		<div className="container">
-			<FormRender content={formContent} fields={createFormFields(urlState)} onChange={handleChange} />
+			<FormRender
+				content={formContent}
+				fields={createFormFields(urlState)}
+				onChange={handleChange}
+				submitButtonText="Reverse Geocode"
+				onSubmit={handleSubmit}
+			/>
 		</div>
 	);
 }

@@ -143,7 +143,7 @@ const usePlace = () => {
 			},
 			getPlaceDataByCoordinates: async (input: number[]) => {
 				try {
-					return await placeService.getPlaceByCoordinates(input);
+					return await placeService.getPlaceByCoordinates({ QueryPosition: input });
 				} catch (error) {
 					errorHandler(error, t("error_handler__failed_fetch_place_coords.text") as string);
 				}
@@ -156,7 +156,9 @@ const usePlace = () => {
 				try {
 					setState({ isSearching: true });
 					const [lat, lng] = value.split(",");
-					const data = await placeService.getPlaceByCoordinates([parseFloat(lng), parseFloat(lat)]);
+					const data = await placeService.getPlaceByCoordinates({
+						QueryPosition: [parseFloat(lng), parseFloat(lat)]
+					});
 
 					if (data?.ResultItems) {
 						const { ResultItems } = data;

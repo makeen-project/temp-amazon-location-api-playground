@@ -13,6 +13,7 @@ interface AccordionProps {
 	closeIcon?: ReactNode;
 	shadowEnabled?: boolean;
 	style?: React.CSSProperties;
+	contentClassName?: string;
 }
 
 export const Accordion = ({
@@ -22,7 +23,8 @@ export const Accordion = ({
 	shadowEnabled = true,
 	openIcon = <IconAccordionOpen />,
 	closeIcon = <IconAccordionClose />,
-	style
+	style,
+	contentClassName
 }: AccordionProps) => {
 	const [isExpanded, setIsExpanded] = useState(defaultOpen);
 	const value = isExpanded ? ["item"] : [];
@@ -39,8 +41,8 @@ export const Accordion = ({
 					<span className="accordion__title">{title}</span>
 					<span className={"accordion__icon"}>{isExpanded ? openIcon : closeIcon}</span>
 				</AmplifyAccordion.Trigger>
-				<AmplifyAccordion.Content className="accordion__content">
-					<div className="accordion__body">{children}</div>
+				<AmplifyAccordion.Content className={`accordion__content ${contentClassName}`}>
+					{children}
 				</AmplifyAccordion.Content>
 			</AmplifyAccordion.Item>
 		</AmplifyAccordion.Container>
