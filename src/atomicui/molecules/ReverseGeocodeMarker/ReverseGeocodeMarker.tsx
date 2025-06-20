@@ -1,13 +1,12 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useState } from "react";
 
-import { IconSelected, IconSuggestion } from "@api-playground/assets/svgs";
-import { Popup } from "@api-playground/atomicui/molecules/Popup";
 import { uuid } from "@api-playground/utils/uuid";
 import { ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
-import { Marker } from "react-map-gl/maplibre";
+
+import { MapMarker } from "../MapMarker";
 
 interface ReverseGeocodeMarkerProps {
 	response?: ReverseGeocodeCommandOutput;
@@ -18,60 +17,44 @@ interface ReverseGeocodeMarkerProps {
 }
 
 const ReverseGeocodeMarker: FC<ReverseGeocodeMarkerProps> = ({ response, position, isActive, onClose, onToggle }) => {
-	const [isHovered, setIsHovered] = useState(false);
+	const [searchValue, setSearchValue] = useState("");
 
-	const select = useCallback(
-		async (id?: string) => {
-			// Handle marker selection - could be used to show/hide popup
-			if (!id) {
-				onClose();
-			}
-		},
-		[onClose]
-	);
+	const handleClose = useCallback(() => {
+		onClose();
+		onToggle?.(false);
+	}, [onClose, onToggle]);
 
 	if (!position || position.length !== 2) {
 		return null;
 	}
 
+	const resultItem = response?.ResultItems?.[0];
+	if (!resultItem) {
+		return null;
+	}
+
+	const placeId = resultItem.PlaceId || uuid.randomUUID();
+	const label = resultItem.Title || "Unknown location";
+	const address = {
+		Label: label
+	};
+
 	return (
-		<Marker
-			style={{
-				display: "flex",
-				justifyContent: "center",
-				alignItems: "center",
-				cursor: "pointer",
-				zIndex: isActive || isHovered ? 2 : 1,
-				textShadow: "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
+		<MapMarker
+			active={isActive}
+			onClosePopUp={handleClose}
+			searchValue={searchValue}
+			setSearchValue={setSearchValue}
+			placeId={placeId}
+			address={address}
+			position={position}
+			id={placeId}
+			label={label}
+			locationPopupConfig={{
+				showLatitude: true,
+				showLongitude: true
 			}}
-			clickTolerance={22}
-			longitude={position[0]}
-			latitude={position[1]}
-			onClick={async e => {
-				e.originalEvent.preventDefault();
-				e.originalEvent.stopPropagation();
-				// Toggle the popup state
-				onToggle?.(!isActive);
-			}}
-		>
-			{isActive || isHovered ? (
-				<IconSelected />
-			) : (
-				<IconSuggestion onMouseOver={() => setIsHovered(true)} onMouseOut={() => setIsHovered(false)} />
-			)}
-			{isActive && response?.ResultItems?.[0] && (
-				<Popup
-					key={`popup-${response.ResultItems[0].PlaceId || "no-id"}-${response.ResultItems[0].Title || "no-title"}`}
-					placeId={response.ResultItems[0].PlaceId || uuid.randomUUID()}
-					position={position}
-					label={response.ResultItems[0].Title}
-					active={isActive}
-					select={select}
-					popupType="reverseGeocode"
-					onClosePopUp={onClose}
-				/>
-			)}
-		</Marker>
+		/>
 	);
 };
 
