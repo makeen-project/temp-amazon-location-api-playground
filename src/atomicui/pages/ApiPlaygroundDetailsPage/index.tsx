@@ -36,6 +36,19 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [activeMarker, setActiveMarker] = useState(false);
+
+	const [searchValue, setSearchValue] = useState("");
+
+	const resultItem = customRequestStore.response?.ResultItems?.[0];
+	const position = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
+
+	// Show marker when there's a response
+	const showMapMarker = customRequestStore?.response && (position?.length === 2 || position?.length === 2);
+
+	const placeId = resultItem?.PlaceId || uuid.randomUUID();
+	const label = resultItem?.Title || "Unknown location";
+	const address = { Label: label };
+
 	const navigate = useNavigate();
 
 	const toggleFullScreen = useCallback(() => {
@@ -59,8 +72,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		setActiveMarker(true);
 
 		// Fly to the marker
-		if (customRequestStore?.queryPosition?.length === 2) {
-			const [lng, lat] = customRequestStore.queryPosition.map(Number);
+		if (position?.length === 2) {
+			const [lng, lat] = position;
 			mapRef.current?.flyTo({
 				center: [lng, lat],
 				zoom: 15,
@@ -69,35 +82,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		}
 	}, [customRequestStore.queryPosition]);
 
-	// Show marker when there's a response
-	const showMapMarker = customRequestStore?.response && customRequestStore?.queryPosition?.length === 2;
-
-	const [searchValue, setSearchValue] = useState("");
-
 	const handleClose = useCallback(() => {
 		handleMarkerClose();
 		handleMarkerToggle?.(false);
 	}, [handleMarkerClose, handleMarkerToggle]);
-
-	const resultItem = customRequestStore.response?.ResultItems?.[0];
-
-	const placeId = resultItem?.PlaceId || uuid.randomUUID();
-	const label = resultItem?.Title || "Unknown location";
-	const address = { Label: label };
-
-	console.log("Debug info:", {
-		resultItem,
-		showMapMarker,
-		customRequestStore?.response,
-		customRequestStore?.queryPosition,
-		customRequestStore,
-		apiPlaygroundItem,
-		activeMarker,
-		searchValue,
-		placeId,
-		label,
-		address
-	});
 
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
@@ -187,7 +175,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								setSearchValue={setSearchValue}
 								placeId={placeId}
 								address={address}
-								position={customRequestStore?.queryPosition.map(Number)}
+								position={position}
 								id={placeId}
 								label={label}
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
