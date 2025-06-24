@@ -80,7 +80,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				duration: 2000
 			});
 		}
-	}, [customRequestStore.queryPosition]);
+	}, [position]);
 
 	const handleClose = useCallback(() => {
 		handleMarkerClose();

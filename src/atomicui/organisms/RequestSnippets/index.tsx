@@ -3,10 +3,13 @@ import { FC, useEffect, useMemo, useState } from "react";
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
 import { Accordion } from "@api-playground/atomicui/atoms/Accordion";
+import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
 import { useCustomRequestStore } from "@api-playground/stores";
 import { RequestSnippetsProps } from "@api-playground/stores/useCustomRequestStore";
+import { generateCodeSnippets } from "@api-playground/utils/formConfigUtils";
 import { Button, Divider, Tabs, Text, View } from "@aws-amplify/ui-react";
+import { useParams } from "react-router-dom";
 import "./styles.scss";
 
 const SNIPPETS_COLLAPSED_WIDTH = 400;
@@ -23,15 +26,22 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 }) => {
 	const store = useCustomRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
+	const { apiPlaygroundId } = useParams();
+	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 
 	const { shareableUrl } = useUrlState({
 		defaultValue: store,
-		paramName: "reverseGeocode"
+		paramName: apiPlaygroundItem?.id || "reverseGeocode"
 	});
 
-	// Make CODE_SNIPPETS reactive to store changes
-	const CODE_SNIPPETS = useMemo(
-		() => ({
+	// Generate dynamic code snippets from configuration
+	const CODE_SNIPPETS = useMemo(() => {
+		if (apiPlaygroundItem?.codeSnippets) {
+			return generateCodeSnippets(apiPlaygroundItem.codeSnippets, store);
+		}
+
+		// Fallback snippets for backward compatibility
+		return {
 			JavaScript: `import { GeoPlacesClient, ReverseGeocodeCommand } from "@aws-sdk/client-geo-places";
 
 // Initialize the client
@@ -77,9 +87,8 @@ params = {
 # Make the request
 response = client.reverse_geocode(params)
 puts response`
-		}),
-		[store.queryPosition, store.maxResults]
-	);
+		};
+	}, [apiPlaygroundItem?.codeSnippets, store, apiPlaygroundItem?.id]);
 
 	const handleCopyUrl = async () => {
 		try {

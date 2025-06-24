@@ -192,6 +192,17 @@
               "message": "Query Position is required and must contain longitude and latitude"
             }
           ]
+        },
+        "codeSnippets": {
+          "JavaScript": "import { GeoPlacesClient, ReverseGeocodeCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the reverse geocode request\nconst params = {\n  QueryPosition: [{{queryPosition}}], // [longitude, latitude]\n  MaxResults: {{maxResults}},\n  Language: \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\"\n};\n\n// Make the request\nconst command = new ReverseGeocodeCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
+          "Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the reverse geocode request\nparams = {\n    'QueryPosition': [{{queryPosition}}],  # [longitude, latitude]\n    'MaxResults': {{maxResults}},\n    'Language': '{{language}}',\n    'PoliticalView': '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.reverse_geocode(**params)\nprint(response)",
+          "Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the reverse geocode request\nparams = {\n  query_position: [{{queryPosition}}],  # [longitude, latitude]\n  max_results: {{maxResults}},\n  language: '{{language}}',\n  political_view: '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.reverse_geocode(params)\nputs response",
+          "paramPlaceholders": {
+            "queryPosition": "0, 0",
+            "maxResults": "1",
+            "language": "en",
+            "politicalView": "US"
+          }
         }
       }
     ],
@@ -345,6 +356,18 @@
               "message": "Address query is required"
             }
           ]
+        },
+        "codeSnippets": {
+          "JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"{{query}}\",\n  BiasPosition: [{{biasPosition}}],\n  MaxResults: {{maxResults}},\n  Language: \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\"\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
+          "Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '{{query}}',\n    'BiasPosition': [{{biasPosition}}],\n    'MaxResults': {{maxResults}},\n    'Language': '{{language}}',\n    'PoliticalView': '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
+          "Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  query_text: '{{query}}',\n  bias_position: [{{biasPosition}}],\n  max_results: {{maxResults}},\n  language: '{{language}}',\n  political_view: '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
+          "paramPlaceholders": {
+            "query": "123 Main St, New York, NY",
+            "biasPosition": "0, 0",
+            "maxResults": "1",
+            "language": "en",
+            "politicalView": "US"
+          }
         }
       }
     ]

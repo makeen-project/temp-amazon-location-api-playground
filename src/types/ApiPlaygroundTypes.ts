@@ -83,6 +83,13 @@ export interface ApiHandlerConfig {
 	transformResponse?: (response: any) => any;
 }
 
+export interface CodeSnippetConfig {
+	JavaScript: string;
+	Python: string;
+	Ruby: string;
+	paramPlaceholders?: Record<string, string>;
+}
+
 export interface ApiPlaygroundItem {
 	id: string;
 	title: string;
@@ -103,6 +110,7 @@ export interface ApiPlaygroundItem {
 	formFields?: FormFieldConfig[];
 	formContent?: FormContentConfig;
 	apiHandler?: ApiHandlerConfig;
+	codeSnippets?: CodeSnippetConfig;
 }
 
 export type ApiPlaygroundList = ApiPlaygroundItem[];

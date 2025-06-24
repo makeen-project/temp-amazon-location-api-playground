@@ -3,7 +3,7 @@
 
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { FormField } from "@api-playground/atomicui/molecules/FormRender";
-import { FormContentConfig, FormFieldConfig } from "@api-playground/types/ApiPlaygroundTypes";
+import { CodeSnippetConfig, FormContentConfig, FormFieldConfig } from "@api-playground/types/ApiPlaygroundTypes";
 
 export const convertFormFieldConfigToFormField = (
 	fieldConfig: FormFieldConfig,
@@ -220,4 +220,52 @@ export const mapFormDataToApiParams = (
 	});
 
 	return apiParams;
+};
+
+export const generateCodeSnippets = (
+	codeSnippets: CodeSnippetConfig,
+	formData: Record<string, any>
+): Record<string, string> => {
+	const snippets: Record<string, string> = {};
+
+	Object.entries(codeSnippets).forEach(([language, snippet]) => {
+		if (language === "paramPlaceholders") return;
+
+		let processedSnippet = snippet as string;
+
+		// Replace placeholders with actual values or defaults
+		Object.entries(codeSnippets.paramPlaceholders || {}).forEach(([placeholder, defaultValue]) => {
+			const value = formData[placeholder];
+			const replacementValue =
+				value !== undefined && value !== null && value !== ""
+					? formatValueForSnippet(value, placeholder)
+					: defaultValue;
+
+			processedSnippet = processedSnippet.replace(new RegExp(`{{${placeholder}}}`, "g"), replacementValue);
+		});
+
+		snippets[language] = processedSnippet;
+	});
+
+	return snippets;
+};
+
+const formatValueForSnippet = (value: any, placeholder: string): string => {
+	// Handle special formatting for different field types
+	switch (placeholder) {
+		case "queryPosition":
+		case "biasPosition":
+			if (Array.isArray(value)) {
+				return value.join(", ");
+			}
+			return String(value);
+		case "maxResults":
+			return String(value);
+		case "language":
+		case "politicalView":
+		case "query":
+			return String(value);
+		default:
+			return String(value);
+	}
 };
