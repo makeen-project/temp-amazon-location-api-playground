@@ -6,5 +6,4 @@ export * from "./LocationPopup";
 export * from "./ApiCard";
 export * from "./AutoCompleteLatLonInput";
 export * from "./MapMarker";
-export * from "./ReverseGeocodeMarker";
 export * from "./SliderWithInput";
