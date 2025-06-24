@@ -1,0 +1,223 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
+import { FormField } from "@api-playground/atomicui/molecules/FormRender";
+import { FormContentConfig, FormFieldConfig } from "@api-playground/types/ApiPlaygroundTypes";
+
+export const convertFormFieldConfigToFormField = (
+	fieldConfig: FormFieldConfig,
+	urlState: Record<string, any> = {}
+): FormField => {
+	const baseField = {
+		name: fieldConfig.name,
+		label: fieldConfig.label,
+		required: fieldConfig.required,
+		disabled: fieldConfig.disabled,
+		placeholder: fieldConfig.placeholder,
+		className: fieldConfig.className
+	};
+
+	const value = urlState?.[fieldConfig.name] || fieldConfig.value || fieldConfig.defaultValue;
+
+	switch (fieldConfig.type) {
+		case "text":
+			return {
+				...baseField,
+				type: "text" as const,
+				value: value as string
+			};
+
+		case "number":
+			return {
+				...baseField,
+				type: "number" as const,
+				value: value as number,
+				min: fieldConfig.min,
+				max: fieldConfig.max
+			};
+
+		case "textarea":
+			return {
+				...baseField,
+				type: "textarea" as const,
+				value: value as string
+			};
+
+		case "address":
+			return {
+				...baseField,
+				type: "address" as const
+			};
+
+		case "latLonInput":
+			return {
+				...baseField,
+				type: "latLonInput" as const,
+				defaultValue: value as string
+			};
+
+		case "slider":
+			return {
+				...baseField,
+				type: "slider" as const,
+				value: value as number,
+				min: fieldConfig.min!,
+				max: fieldConfig.max!,
+				step: fieldConfig.step
+			};
+
+		case "sliderWithInput":
+			return {
+				...baseField,
+				type: "sliderWithInput" as const,
+				value: value as number,
+				min: fieldConfig.min!,
+				max: fieldConfig.max!,
+				step: fieldConfig.step
+			};
+
+		case "radio":
+			return {
+				...baseField,
+				type: "radio" as const,
+				value: value as string,
+				options: (fieldConfig.options || []).map(opt => ({
+					label: opt.label,
+					value: String(opt.value),
+					disabled: opt.disabled,
+					tooltipText: opt.tooltipText
+				}))
+			};
+
+		case "dropdown":
+			return {
+				...baseField,
+				type: "dropdown" as const,
+				value: value as string,
+				options: (fieldConfig.options || []).map(opt => ({
+					label: opt.label,
+					value: String(opt.value),
+					disabled: opt.disabled
+				}))
+			};
+
+		case "multiSelect":
+			return {
+				...baseField,
+				type: "multiSelect" as const,
+				value: value as string[],
+				options: (fieldConfig.options || []).map(opt => ({
+					label: opt.label,
+					value: String(opt.value),
+					disabled: opt.disabled
+				})),
+				minSelected: fieldConfig.minSelected,
+				maxSelected: fieldConfig.maxSelected
+			};
+
+		case "checkbox":
+			return {
+				...baseField,
+				type: "checkbox" as const,
+				options: (fieldConfig.options || []).map(opt => ({
+					label: opt.label,
+					value: String(opt.value),
+					disabled: opt.disabled
+				})),
+				values: Array.isArray(value) ? value : []
+			};
+
+		case "lngLatInput":
+			return {
+				...baseField,
+				type: "lngLatInput" as const,
+				value: Array.isArray(value) ? value : []
+			};
+
+		default:
+			return {
+				...baseField,
+				type: "text" as const,
+				value: value as string
+			};
+	}
+};
+
+export const convertFormContentConfigToContentProps = (contentConfig: FormContentConfig): ContentProps => {
+	return {
+		type: contentConfig.type,
+		items: contentConfig.items || []
+	};
+};
+
+export const createFormFieldsFromConfig = (
+	formFields: FormFieldConfig[],
+	urlState: Record<string, any> = {}
+): FormField[] => {
+	return formFields.map(fieldConfig => convertFormFieldConfigToFormField(fieldConfig, urlState));
+};
+
+export const validateFormData = (
+	formData: Record<string, any>,
+	validationRules: Array<{ field: string; rule: string; message: string }>
+): { isValid: boolean; errors: Record<string, string> } => {
+	const errors: Record<string, string> = {};
+
+	validationRules.forEach(rule => {
+		const value = formData[rule.field];
+
+		switch (rule.rule) {
+			case "required":
+				if (!value || (Array.isArray(value) && value.length === 0)) {
+					errors[rule.field] = rule.message;
+				}
+				break;
+			case "minLength":
+				if (value && value.length < parseInt(rule.message)) {
+					errors[rule.field] = rule.message;
+				}
+				break;
+			case "maxLength":
+				if (value && value.length > parseInt(rule.message)) {
+					errors[rule.field] = rule.message;
+				}
+				break;
+			case "pattern":
+				if (value && !new RegExp(rule.message).test(value)) {
+					errors[rule.field] = rule.message;
+				}
+				break;
+		}
+	});
+
+	return {
+		isValid: Object.keys(errors).length === 0,
+		errors
+	};
+};
+
+export const mapFormDataToApiParams = (
+	formData: Record<string, any>,
+	paramMapping: Record<string, string>
+): Record<string, any> => {
+	const apiParams: Record<string, any> = {};
+
+	Object.entries(paramMapping).forEach(([formField, apiParam]) => {
+		const value = formData[formField];
+		if (value !== undefined && value !== null && value !== "") {
+			// Handle nested parameters (e.g., "Filter.IncludePlaceTypes")
+			if (apiParam.includes(".")) {
+				const [parent, child] = apiParam.split(".");
+				if (!apiParams[parent]) {
+					apiParams[parent] = {};
+				}
+				apiParams[parent][child] = value;
+			} else {
+				apiParams[apiParam] = value;
+			}
+		}
+	});
+
+	return apiParams;
+};

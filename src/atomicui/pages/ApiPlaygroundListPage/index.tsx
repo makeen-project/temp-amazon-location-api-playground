@@ -168,7 +168,7 @@ const ApiPlaygroundListPage: FC = () => {
 												id={apiPlayground.id}
 												title={apiPlayground.title}
 												imageSource={apiPlayground.imageSource}
-												brief={apiPlayground.brief}
+												description={apiPlayground.description}
 												category={apiPlayground.category}
 												onCardClick={handleCardClick}
 											/>
@@ -184,7 +184,7 @@ const ApiPlaygroundListPage: FC = () => {
 												id={apiPlayground.id}
 												title={apiPlayground.title}
 												imageSource={apiPlayground.imageSource}
-												brief={apiPlayground.brief}
+												description={apiPlayground.description}
 												category={apiPlayground.category}
 												onCardClick={handleCardClick}
 											/>

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { FormField, FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { appConfig } from "@api-playground/core/constants";
+import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
 import usePlaceService from "@api-playground/services/usePlaceService";
@@ -11,20 +12,28 @@ import { CustomRequestStore } from "@api-playground/stores/useCustomRequestStore
 import { BaseStateProps } from "@api-playground/types/BaseStateProps";
 import { AdditionalFeatures, IncludePlaceTypes, IntendedUse } from "@api-playground/types/CustomRequestForm";
 import { errorHandler } from "@api-playground/utils/errorHandler";
+import {
+	convertFormContentConfigToContentProps,
+	createFormFieldsFromConfig,
+	mapFormDataToApiParams,
+	validateFormData
+} from "@api-playground/utils/formConfigUtils";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
+import { useParams } from "react-router-dom";
 
 const {
 	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
 } = appConfig;
 
-const createFormFields = (urlState: CustomRequestStore): FormField[] => [
+// Fallback form fields for backward compatibility
+const createFallbackFormFields = (urlState: CustomRequestStore): FormField[] => [
 	{
 		type: "lngLatInput",
 		name: "queryPosition",
 		label: "Query Position",
 		required: true,
-		value: urlState.queryPosition?.map(Number) as number[]
+		value: urlState?.queryPosition?.map(Number) as number[]
 	},
 	{
 		type: "multiSelect",
@@ -41,7 +50,7 @@ const createFormFields = (urlState: CustomRequestStore): FormField[] => [
 			}
 		],
 		required: false,
-		value: urlState.additionalFeatures
+		value: urlState?.additionalFeatures
 	},
 	{
 		type: "multiSelect",
@@ -70,7 +79,7 @@ const createFormFields = (urlState: CustomRequestStore): FormField[] => [
 			}
 		],
 		required: false,
-		value: urlState.filter?.includePlaceTypes
+		value: urlState?.filter?.includePlaceTypes
 	},
 	{
 		type: "radio",
@@ -87,14 +96,14 @@ const createFormFields = (urlState: CustomRequestStore): FormField[] => [
 			}
 		],
 		required: false,
-		value: urlState.intendedUse
+		value: urlState?.intendedUse
 	},
 	{
 		type: "text",
 		name: "apiKey",
 		label: "API Key",
 		required: false,
-		value: urlState.apiKey
+		value: urlState?.apiKey
 	},
 	{
 		type: "dropdown",
@@ -105,7 +114,7 @@ const createFormFields = (urlState: CustomRequestStore): FormField[] => [
 			value: lang.value
 		})),
 		required: false,
-		value: urlState.language
+		value: urlState?.language
 	},
 	{
 		type: "sliderWithInput",
@@ -115,7 +124,7 @@ const createFormFields = (urlState: CustomRequestStore): FormField[] => [
 		max: 100,
 		step: 1,
 		required: false,
-		value: urlState.maxResults
+		value: urlState?.maxResults
 	},
 	{
 		type: "dropdown",
@@ -126,7 +135,7 @@ const createFormFields = (urlState: CustomRequestStore): FormField[] => [
 			value: i.alpha2
 		})),
 		required: false,
-		value: urlState.politicalView
+		value: urlState?.politicalView
 	},
 	{
 		type: "slider",
@@ -136,11 +145,12 @@ const createFormFields = (urlState: CustomRequestStore): FormField[] => [
 		max: 100,
 		step: 1,
 		required: false,
-		value: urlState.queryResults
+		value: urlState?.queryResults
 	}
 ];
 
-const formContent: ContentProps = {
+// Fallback form content for backward compatibility
+const fallbackFormContent: ContentProps = {
 	type: "list",
 	items: [
 		{
@@ -161,11 +171,14 @@ interface CustomRequestProps {
 export default function CustomRequest({ onResponseReceived }: CustomRequestProps) {
 	useAuthManager();
 
+	const { apiPlaygroundId } = useParams();
+	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
+
 	const store = useCustomRequestStore();
 	const { setState } = useCustomRequestStore;
 	const { urlState, setUrlState } = useUrlState({
 		defaultValue: store,
-		paramName: "reverseGeocode"
+		paramName: apiPlaygroundItem?.id
 	});
 	const placeService = usePlaceService();
 	const { t } = useTranslation();
@@ -181,6 +194,22 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 			onResponseReceived();
 		}
 	}, [store.response, onResponseReceived]);
+
+	// Create form fields from configuration or fallback
+	const createFormFields = (urlState: CustomRequestStore): FormField[] => {
+		if (apiPlaygroundItem?.formFields) {
+			return createFormFieldsFromConfig(apiPlaygroundItem.formFields, urlState);
+		}
+		return createFallbackFormFields(urlState);
+	};
+
+	// Create form content from configuration or fallback
+	const getFormContent = (): ContentProps => {
+		if (apiPlaygroundItem?.formContent) {
+			return convertFormContentConfigToContentProps(apiPlaygroundItem.formContent);
+		}
+		return fallbackFormContent;
+	};
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
 		const newState = { ...store } as StoreType;
@@ -218,6 +247,9 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 				case "queryResults":
 					newState.queryResults = value as number;
 					break;
+				default:
+					// Handle dynamic fields from configuration
+					(newState as any)[key] = value;
 			}
 		}
 
@@ -230,59 +262,93 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 			// Set loading state
 			setState({ isLoading: true, error: undefined });
 
-			// Validate required fields
-			if (!urlState.queryPosition || urlState.queryPosition.length !== 2) {
-				throw new Error("Query Position is required and must contain longitude and latitude");
+			// Use dynamic validation if available
+			if (apiPlaygroundItem?.apiHandler?.validationRules) {
+				const validation = validateFormData(urlState, apiPlaygroundItem.apiHandler.validationRules);
+				if (!validation.isValid) {
+					const firstError = Object.values(validation.errors)[0];
+					throw new Error(firstError);
+				}
+			} else {
+				// Fallback validation for backward compatibility
+				if (!urlState?.queryPosition || urlState?.queryPosition.length !== 2) {
+					throw new Error("Query Position is required and must contain longitude and latitude");
+				}
 			}
 
-			// Convert string coordinates to numbers
-			const queryPosition = urlState.queryPosition.map(Number);
+			// Use dynamic API call if available
+			if (apiPlaygroundItem?.apiHandler) {
+				const apiParams = mapFormDataToApiParams(urlState, apiPlaygroundItem.apiHandler.paramMapping);
 
-			// Prepare parameters for the API call
-			const params = {
-				QueryPosition: queryPosition,
-				AdditionalFeatures: urlState.additionalFeatures,
-				Language: urlState.language,
-				MaxResults: urlState.maxResults,
-				PoliticalView: urlState.politicalView
-			};
+				// Call the appropriate API method
+				const apiMethod = apiPlaygroundItem.apiHandler.apiMethod as keyof typeof placeService;
+				if (typeof placeService[apiMethod] === "function") {
+					const response = await (placeService[apiMethod] as any)(apiParams);
 
-			// Make the API call using the place service
-			const response = await placeService.getPlaceByCoordinates(params);
+					// Transform response if needed
+					const finalResponse = apiPlaygroundItem.apiHandler.transformResponse
+						? apiPlaygroundItem.apiHandler.transformResponse(response)
+						: response;
 
-			// Store the response
-			setState({
-				response,
-				isLoading: false,
-				error: undefined
-			});
+					setState({
+						response: finalResponse,
+						isLoading: false,
+						error: undefined
+					});
 
-			const newState = { ...store } as StoreType;
-			setUrlState({
-				...newState,
-				response,
-				isLoading: false,
-				error: undefined
-			});
+					const newState = { ...store } as StoreType;
+					setUrlState({
+						...newState,
+						response: finalResponse,
+						isLoading: false,
+						error: undefined
+					});
+				} else {
+					throw new Error(`API method ${apiMethod} not found`);
+				}
+			} else {
+				// Fallback API call for backward compatibility
+				const queryPosition = urlState?.queryPosition.map(Number);
+				const params = {
+					QueryPosition: queryPosition,
+					AdditionalFeatures: urlState?.additionalFeatures,
+					Language: urlState?.language,
+					MaxResults: urlState?.maxResults,
+					PoliticalView: urlState?.politicalView
+				};
+
+				const response = await placeService.getPlaceByCoordinates(params);
+
+				setState({
+					response,
+					isLoading: false,
+					error: undefined
+				});
+
+				const newState = { ...store } as StoreType;
+				setUrlState({
+					...newState,
+					response,
+					isLoading: false,
+					error: undefined
+				});
+			}
 		} catch (error) {
 			setState({
 				isLoading: false,
-				error: error instanceof Error ? error.message : "An error occurred during reverse geocoding"
+				error: error instanceof Error ? error.message : "An error occurred during API call"
 			});
-			errorHandler(
-				error,
-				(t("error_handler__failed_reverse_geocode.text") as string) || "Failed to perform reverse geocoding"
-			);
+			errorHandler(error, (t("error_handler__failed_reverse_geocode.text") as string) || "Failed to perform API call");
 		}
 	};
 
 	return (
 		<div className="container">
 			<FormRender
-				content={formContent}
-				fields={createFormFields(urlState)}
+				content={getFormContent()}
+				fields={createFormFields(urlState || {})}
 				onChange={handleChange}
-				submitButtonText="Reverse Geocode"
+				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
 				onSubmit={handleSubmit}
 			/>
 		</div>

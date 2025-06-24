@@ -41,8 +41,8 @@ const client = new GeoPlacesClient({
 
 // Create the reverse geocode request
 const params = {
-  Position: [${store.queryPosition?.[0] || 0}, ${store.queryPosition?.[1] || 0}], // [longitude, latitude]
-  MaxResults: ${store.maxResults || 1}
+  Position: [${store?.queryPosition?.[0] || 0}, ${store?.queryPosition?.[1] || 0}], // [longitude, latitude]
+  MaxResults: ${store?.maxResults || 1}
 };
 
 // Make the request
@@ -56,8 +56,8 @@ client = boto3.client('geo-places', region_name='us-east-1')  # Replace with you
 
 # Create the reverse geocode request
 params = {
-    'Position': [${store.queryPosition?.[0] || 0}, ${store.queryPosition?.[1] || 0}],  # [longitude, latitude]
-    'MaxResults': ${store.maxResults || 1}
+    'Position': [${store?.queryPosition?.[0] || 0}, ${store?.queryPosition?.[1] || 0}],  # [longitude, latitude]
+    'MaxResults': ${store?.maxResults || 1}
 }
 
 # Make the request
@@ -70,8 +70,8 @@ client = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your re
 
 # Create the reverse geocode request
 params = {
-  position: [${store.queryPosition?.[0] || 0}, ${store.queryPosition?.[1] || 0}],  # [longitude, latitude]
-  max_results: ${store.maxResults || 1}
+  position: [${store?.queryPosition?.[0] || 0}, ${store?.queryPosition?.[1] || 0}],  # [longitude, latitude]
+  max_results: ${store?.maxResults || 1}
 }
 
 # Make the request

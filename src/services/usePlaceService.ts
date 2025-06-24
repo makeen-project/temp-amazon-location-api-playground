@@ -30,6 +30,15 @@ interface ReverseGeocodeParams {
 	PoliticalView?: string;
 }
 
+interface GeocodeParams {
+	Query: string;
+	BiasPosition?: number[];
+	AdditionalFeatures?: AdditionalFeatures[];
+	Language?: string;
+	MaxResults?: number;
+	PoliticalView?: string;
+}
+
 const usePlaceService = () => {
 	const { placesClient } = useClient();
 	const {
@@ -82,6 +91,18 @@ const usePlaceService = () => {
 					MaxResults: params.MaxResults
 				};
 				const command = new ReverseGeocodeCommand(input);
+				return await placesClient?.send(command);
+			},
+			getPlaceByAddress: async (params: GeocodeParams) => {
+				const input: SearchTextCommandInput = {
+					QueryText: params.Query,
+					BiasPosition: params.BiasPosition || BiasPosition,
+					Language: params.Language || Language,
+					PoliticalView: params.PoliticalView || (isSupportedByPlaces ? alpha3 : undefined),
+					AdditionalFeatures: params.AdditionalFeatures,
+					MaxResults: params.MaxResults
+				};
+				const command = new SearchTextCommand(input);
 				return await placesClient?.send(command);
 			},
 			getNLPlacesByText: async (Text: string) => {

@@ -25,14 +25,13 @@ const SNIPPETS_COLLAPSED_WIDTH = 400;
 const SNIPPETS_EXPANDED_WIDTH = 750;
 
 const ApiPlaygroundDetailsPage: FC = () => {
-	const { apiPlaygroundId } = useParams();
-	const {} = useAuthManager();
-	const { selectedMarker, suggestions } = usePlace();
-	const customRequestStore = useCustomRequestStore();
-	const { setState } = useCustomRequestStore;
-	const mapRef = useRef<MapRef | null>(null);
+	useAuthManager();
 
+	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
+	const customRequestStore = useCustomRequestStore();
+
+	const mapRef = useRef<MapRef | null>(null);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
@@ -59,8 +58,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const handleCustomResponse = useCallback(() => {
 		setActiveMarker(true);
 
-		// Fly to the reverse geocode marker
-		if (customRequestStore.queryPosition?.length === 2) {
+		// Fly to the marker
+		if (customRequestStore?.queryPosition?.length === 2) {
 			const [lng, lat] = customRequestStore.queryPosition.map(Number);
 			mapRef.current?.flyTo({
 				center: [lng, lat],
@@ -70,8 +69,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		}
 	}, [customRequestStore.queryPosition]);
 
-	// Show reverse geocode marker when there's a response
-	const showMapMarker = customRequestStore.response && customRequestStore.queryPosition?.length === 2;
+	// Show marker when there's a response
+	const showMapMarker = customRequestStore?.response && customRequestStore?.queryPosition?.length === 2;
 
 	const [searchValue, setSearchValue] = useState("");
 
@@ -85,6 +84,20 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const placeId = resultItem?.PlaceId || uuid.randomUUID();
 	const label = resultItem?.Title || "Unknown location";
 	const address = { Label: label };
+
+	console.log("Debug info:", {
+		resultItem,
+		showMapMarker,
+		customRequestStore?.response,
+		customRequestStore?.queryPosition,
+		customRequestStore,
+		apiPlaygroundItem,
+		activeMarker,
+		searchValue,
+		placeId,
+		label,
+		address
+	});
 
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
@@ -112,7 +125,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 							{apiPlaygroundItem.title}
 						</Text>
 						<Content
-							items={[{ text: apiPlaygroundItem.brief }]}
+							items={[{ text: apiPlaygroundItem.description }]}
 							className={`api-playground-description${descExpanded ? " expanded" : ""}`}
 						/>
 						<Button className="show-more-btn" variation="link" onClick={() => setDescExpanded(e => !e)}>
@@ -174,7 +187,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								setSearchValue={setSearchValue}
 								placeId={placeId}
 								address={address}
-								position={customRequestStore.queryPosition.map(Number)}
+								position={customRequestStore?.queryPosition.map(Number)}
 								id={placeId}
 								label={label}
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
