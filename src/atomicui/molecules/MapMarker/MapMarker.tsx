@@ -42,6 +42,11 @@ const MapMarker: FC<Props> = ({
 
 	const [info, setInfo] = useState<SuggestionType>({ placeId, address, position, id, label });
 
+	// Update info when props change
+	useEffect(() => {
+		setInfo({ placeId, address, position, id, label });
+	}, [placeId, address, position, id, label]);
+
 	useEffect(() => {
 		if (info.address?.Label && active && !!searchValue) {
 			setSearchValue(info.address?.Label);
@@ -136,4 +141,4 @@ const MapMarker: FC<Props> = ({
 	}
 };
 
-export default memo(MapMarker);
+export default MapMarker;

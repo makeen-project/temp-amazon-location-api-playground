@@ -57,14 +57,15 @@ function useApiPlaygroundList() {
 				(acc, [category, items]) => {
 					const itemsWithCategory = items.map(item => ({
 						category,
-						id: item.id,
-						type: item.type,
-						title: item.title,
-						brief: item.description,
-						imageSource: item.imageSource,
-						relatedResources: item.relatedResources,
-						buildSampleButton: item.buildSampleButton,
-						locationPopupConfig: item.locationPopupConfig
+						...item
+						// id: item.id,
+						// type: item.type,
+						// title: item.title,
+						// description: item.description,
+						// imageSource: item.imageSource,
+						// relatedResources: item.relatedResources,
+						// buildSampleButton: item.buildSampleButton,
+						// locationPopupConfig: item.locationPopupConfig
 					}));
 					return [...acc, ...itemsWithCategory];
 				},
@@ -127,7 +128,7 @@ function useApiPlaygroundFilters() {
 					title: apiPlayground.title.toLowerCase(),
 					category: apiPlayground.category.toLowerCase(),
 					type: apiPlayground.type.toLowerCase(),
-					brief: apiPlayground.brief.toLowerCase()
+					description: apiPlayground.description.toLowerCase()
 				};
 
 				// Helper function to split text into searchable words

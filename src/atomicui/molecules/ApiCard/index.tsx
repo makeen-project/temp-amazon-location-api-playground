@@ -13,12 +13,12 @@ export interface ApiCardProps {
 	id: string;
 	title: string;
 	imageSource?: string;
-	brief: string;
+	description: string;
 	category?: string;
 	onCardClick: (apiId: string, apiTitle: string) => () => void;
 }
 
-const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, brief, category, onCardClick }) => {
+const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, description, category, onCardClick }) => {
 	const { tokens } = useTheme();
 	const { i18n } = useTranslation();
 	const langDir = i18n.dir();
@@ -37,7 +37,7 @@ const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, brief, category, on
 				setIsCollapsible(true);
 			}
 		}
-	}, [brief]);
+	}, [description]);
 
 	return (
 		<View data-testid="api-card-container" key={id} className={"card-container"}>
@@ -62,7 +62,7 @@ const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, brief, category, on
 							}
 							ref={textRef}
 						>
-							{brief}
+							{description}
 						</div>
 						{isCollapsible && (
 							<button
