@@ -7,7 +7,7 @@ import { FC, useCallback, useRef, useState } from "react";
 
 import { IconBackArrow } from "@api-playground/assets/svgs";
 import { Content } from "@api-playground/atomicui/atoms/Content";
-import { MapMarker, ReverseGeocodeMarker } from "@api-playground/atomicui/molecules";
+import { MapMarker } from "@api-playground/atomicui/molecules";
 import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
 import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
 import ReverseGeocodeRequest from "@api-playground/atomicui/organisms/ReverseGeocodeRequest";
@@ -36,6 +36,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [reverseGeocodeActive, setReverseGeocodeActive] = useState(false);
+	const [searchValue, setSearchValue] = useState("");
 	const navigate = useNavigate();
 
 	const toggleFullScreen = useCallback(() => {
@@ -176,15 +177,25 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						))}
 
 						{showReverseGeocodeMarker && (
-							<ReverseGeocodeMarker
+							<MapMarker
 								key={`reverse-geocode-marker-${JSON.stringify(
 									reverseGeocodeStore.response?.ResultItems?.[0]?.PlaceId || ""
 								)}-${reverseGeocodeStore.queryPosition?.join(",")}`}
-								response={reverseGeocodeStore.response}
+								id={reverseGeocodeStore.response?.ResultItems?.[0]?.PlaceId || "reverse-geocode"}
+								label={reverseGeocodeStore.response?.ResultItems?.[0]?.Title || "Reverse Geocode Result"}
+								active={reverseGeocodeActive}
+								searchValue={searchValue}
+								placeId={reverseGeocodeStore.response?.ResultItems?.[0]?.PlaceId || "reverse-geocode"}
+								address={{
+									Label: reverseGeocodeStore.response?.ResultItems?.[0]?.Title || "Reverse Geocode Result"
+								}}
 								position={reverseGeocodeStore.queryPosition.map(Number)}
-								isActive={reverseGeocodeActive}
-								onClose={handleReverseGeocodeClose}
-								onToggle={handleReverseGeocodeToggle}
+								setSearchValue={setSearchValue}
+								onClosePopUp={handleReverseGeocodeClose}
+								locationPopupConfig={{
+									showLatitude: true,
+									showLongitude: true
+								}}
 							/>
 						)}
 					</Map>
