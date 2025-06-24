@@ -3,6 +3,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
+import { FilterData, generateApiPlaygroundFiltersData } from "@api-playground/core/constants/apiPlaygroundFiltersData";
 import appConfig from "@api-playground/core/constants/appConfig";
 import {
 	ApiPlaygroundItem,
@@ -113,9 +114,51 @@ function useApiPlaygroundFilters() {
 		}
 
 		if (filters.searchText) {
-			filteredData = filteredData.filter((apiPlayground: ApiPlaygroundItem) =>
-				apiPlayground.title.toLowerCase().includes(filters.searchText!.toLowerCase())
-			);
+			const searchTerm = filters.searchText.toLowerCase().trim();
+
+			// Early return if search term is empty after trimming
+			if (!searchTerm) {
+				return;
+			}
+
+			filteredData = filteredData.filter((apiPlayground: ApiPlaygroundItem) => {
+				// Normalize all searchable fields
+				const searchableFields = {
+					title: apiPlayground.title.toLowerCase(),
+					category: apiPlayground.category.toLowerCase(),
+					type: apiPlayground.type.toLowerCase(),
+					brief: apiPlayground.brief.toLowerCase()
+				};
+
+				// Helper function to split text into searchable words
+				const splitIntoWords = (text: string): string[] => {
+					return text
+						.replace(/([A-Z])/g, " $1") // Split camelCase
+						.replace(/-/g, " ") // Split hyphenated words
+						.split(/\s+/)
+						.filter(word => word.length > 0); // Remove empty strings
+				};
+
+				// Split search term into individual words
+				const searchWords = searchTerm.split(/\s+/).filter(word => word.length > 0);
+
+				// Check if all search words are found across any of the searchable fields
+				return searchWords.every(searchWord => {
+					// Check for exact field matches first
+					if (Object.values(searchableFields).some(field => field === searchWord)) {
+						return true;
+					}
+
+					// Check for partial matches in all fields
+					if (Object.values(searchableFields).some(field => field.includes(searchWord))) {
+						return true;
+					}
+
+					// Check for exact word matches across all fields
+					const allWords = Object.values(searchableFields).flatMap(splitIntoWords);
+					return allWords.some(word => word === searchWord);
+				});
+			});
 		}
 
 		const filterCategories = [...(filters.features || []), ...(filters.language || []), ...(filters.platform || [])];
@@ -157,5 +200,36 @@ function useApiPlaygroundItem(apiId: string | undefined) {
 	return data.find(item => item.id === apiId) || null;
 }
 
+const useDynamicApiPlaygroundFilters = () => {
+	const [filterData, setFilterData] = useState<FilterData | null>(null);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
+
+	const fetchFilterData = useCallback(async () => {
+		try {
+			setIsLoading(true);
+			setError(null);
+			const data = await generateApiPlaygroundFiltersData();
+			setFilterData(data);
+		} catch (err) {
+			setError(err instanceof Error ? err.message : "Failed to load filter data");
+			console.error("Error loading dynamic filter data:", err);
+		} finally {
+			setIsLoading(false);
+		}
+	}, []);
+
+	useEffect(() => {
+		fetchFilterData();
+	}, [fetchFilterData]);
+
+	return {
+		filterData,
+		isLoading,
+		error,
+		refetch: fetchFilterData
+	};
+};
+
 export default useApiPlaygroundList;
-export { useApiPlaygroundFilters, useApiPlaygroundItem };
+export { useApiPlaygroundFilters, useApiPlaygroundItem, useDynamicApiPlaygroundFilters };

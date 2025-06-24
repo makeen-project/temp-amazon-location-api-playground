@@ -8,8 +8,10 @@ import { IconCode, IconFilter, IconSearch } from "@api-playground/assets/svgs";
 import ApiCard from "@api-playground/atomicui/molecules/ApiCard";
 import CheckboxGroup from "@api-playground/atomicui/molecules/CheckboxGroup";
 import FilterModal from "@api-playground/atomicui/molecules/FilterModal";
-import apiPlaygroundFiltersData from "@api-playground/core/constants/apiPlaygroundFiltersData";
-import useApiPlaygroundList, { useApiPlaygroundFilters } from "@api-playground/hooks/useApiPlaygroundList";
+import useApiPlaygroundList, {
+	useApiPlaygroundFilters,
+	useDynamicApiPlaygroundFilters
+} from "@api-playground/hooks/useApiPlaygroundList";
 import useMediaQuery from "@api-playground/hooks/useMediaQuery";
 import { Flex, Heading, Placeholder, SearchField, Text, View } from "@aws-amplify/ui-react";
 import { useTranslation } from "react-i18next";
@@ -40,6 +42,7 @@ const ApiPlaygroundListPage: FC = () => {
 	const { t, i18n } = useTranslation();
 	const { isLoading, data } = useApiPlaygroundList();
 	const { filters, setFilters, filteredApiPlaygroundList, filterLoading, setFilterLoading } = useApiPlaygroundFilters();
+	const { filterData, isLoading: filterDataLoading } = useDynamicApiPlaygroundFilters();
 	const apiPlaygroundList = filteredApiPlaygroundList ?? data ?? [];
 	const tabScreen = useMediaQuery("(max-width: 1023px)");
 	const langDir = i18n.dir();
@@ -112,15 +115,22 @@ const ApiPlaygroundListPage: FC = () => {
 
 				<Flex className="content-container">
 					<View className="checkbox-filter-container">
-						{apiPlaygroundFiltersData.map(apiPlaygroundListFilter => (
-							<CheckboxGroup
-								key={apiPlaygroundListFilter.key}
-								title={"Features"}
-								options={apiPlaygroundListFilter.options}
-								values={filters?.[apiPlaygroundListFilter.key] || []}
-								onChange={val => handleFilterChange(apiPlaygroundListFilter.key, val)}
-							/>
-						))}
+						{!filterDataLoading &&
+							filterData?.map((apiPlaygroundListFilter: any) => {
+								const filterKey = apiPlaygroundListFilter.key as keyof typeof filters;
+								const filterValues = filters?.[filterKey];
+								const values = Array.isArray(filterValues) ? filterValues : [];
+
+								return (
+									<CheckboxGroup
+										key={apiPlaygroundListFilter.key}
+										title={apiPlaygroundListFilter.title}
+										options={apiPlaygroundListFilter.options}
+										values={values}
+										onChange={val => handleFilterChange(apiPlaygroundListFilter.key, val)}
+									/>
+								);
+							})}
 					</View>
 					<View flex={3}>
 						<Flex flex={1} width={"100%"} className="search-field-container">
@@ -195,7 +205,7 @@ const ApiPlaygroundListPage: FC = () => {
 					onChange={filters => {
 						setFilters(prevFilters => ({ ...prevFilters, ...filters }));
 					}}
-					options={apiPlaygroundFiltersData}
+					options={filterData || []}
 					values={filters ? { features: filters.features || [] } : {}}
 				/>
 			</View>
