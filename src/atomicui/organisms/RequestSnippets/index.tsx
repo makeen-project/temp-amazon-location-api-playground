@@ -4,23 +4,15 @@ import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
 import { Accordion } from "@api-playground/atomicui/atoms/Accordion";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
-import { useReverseGeoCodeRequestStore } from "@api-playground/stores";
+import { useCustomRequestStore } from "@api-playground/stores";
+import { RequestSnippetsProps } from "@api-playground/stores/useCustomRequestStore";
 import { Button, Divider, Tabs, Text, View } from "@aws-amplify/ui-react";
 import "./styles.scss";
-import { ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 
 const SNIPPETS_COLLAPSED_WIDTH = 400;
 const SNIPPETS_EXPANDED_WIDTH = 750;
 
 type TabType = "JavaScript" | "Python" | "Ruby";
-
-interface RequestSnippetsProps {
-	width: number;
-	onWidthChange: (width: number) => void;
-	isFullScreen: boolean;
-	onFullScreenToggle: () => void;
-	response?: ReverseGeocodeCommandOutput;
-}
 
 const RequestSnippets: FC<RequestSnippetsProps> = ({
 	width,
@@ -29,7 +21,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	onFullScreenToggle,
 	response
 }) => {
-	const store = useReverseGeoCodeRequestStore();
+	const store = useCustomRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
 
 	const { shareableUrl } = useUrlState({

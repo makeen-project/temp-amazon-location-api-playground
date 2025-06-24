@@ -6,10 +6,10 @@ import { appConfig } from "@api-playground/core/constants";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
 import usePlaceService from "@api-playground/services/usePlaceService";
-import { useReverseGeoCodeRequestStore } from "@api-playground/stores";
-import { ReverseGeocodeRequestStore } from "@api-playground/stores/useReverseGeocodeRequestStore";
+import { useCustomRequestStore } from "@api-playground/stores";
+import { CustomRequestStore } from "@api-playground/stores/useCustomRequestStore";
 import { BaseStateProps } from "@api-playground/types/BaseStateProps";
-import { AdditionalFeatures, IncludePlaceTypes, IntendedUse } from "@api-playground/types/ReverseGeocodeRequestForm";
+import { AdditionalFeatures, IncludePlaceTypes, IntendedUse } from "@api-playground/types/CustomRequestForm";
 import { errorHandler } from "@api-playground/utils/errorHandler";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
@@ -18,7 +18,7 @@ const {
 	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
 } = appConfig;
 
-const createFormFields = (urlState: ReverseGeocodeRequestStore): FormField[] => [
+const createFormFields = (urlState: CustomRequestStore): FormField[] => [
 	{
 		type: "lngLatInput",
 		name: "queryPosition",
@@ -152,17 +152,17 @@ const formContent: ContentProps = {
 	]
 };
 
-type StoreType = ReverseGeocodeRequestStore & BaseStateProps;
+type StoreType = CustomRequestStore & BaseStateProps;
 
-interface ReverseGeocodeRequestProps {
+interface CustomRequestProps {
 	onResponseReceived?: () => void;
 }
 
-export default function ReverseGeoCodeRequest({ onResponseReceived }: ReverseGeocodeRequestProps) {
+export default function CustomRequest({ onResponseReceived }: CustomRequestProps) {
 	useAuthManager();
 
-	const store = useReverseGeoCodeRequestStore();
-	const { setState } = useReverseGeoCodeRequestStore;
+	const store = useCustomRequestStore();
+	const { setState } = useCustomRequestStore;
 	const { urlState, setUrlState } = useUrlState({
 		defaultValue: store,
 		paramName: "reverseGeocode"
@@ -192,7 +192,7 @@ export default function ReverseGeoCodeRequest({ onResponseReceived }: ReverseGeo
 				includePlaceTypes: value as IncludePlaceTypes[]
 			};
 		} else {
-			const key = name as keyof ReverseGeocodeRequestStore;
+			const key = name as keyof CustomRequestStore;
 			switch (key) {
 				case "queryPosition":
 					newState.queryPosition = (value as number[]).map(String);

@@ -7,14 +7,15 @@ import { FC, useCallback, useRef, useState } from "react";
 
 import { IconBackArrow } from "@api-playground/assets/svgs";
 import { Content } from "@api-playground/atomicui/atoms/Content";
-import { MapMarker, ReverseGeocodeMarker } from "@api-playground/atomicui/molecules";
+import { MapMarker } from "@api-playground/atomicui/molecules";
+import CustomRequest from "@api-playground/atomicui/organisms/CustomRequest";
 import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
 import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
-import ReverseGeocodeRequest from "@api-playground/atomicui/organisms/ReverseGeocodeRequest";
 import { usePlace } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
-import { useReverseGeoCodeRequestStore } from "@api-playground/stores";
+import { useCustomRequestStore } from "@api-playground/stores";
+import { uuid } from "@api-playground/utils";
 import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { NuqsAdapter } from "nuqs/adapters/react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -27,15 +28,15 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const { apiPlaygroundId } = useParams();
 	const {} = useAuthManager();
 	const { selectedMarker, suggestions } = usePlace();
-	const reverseGeocodeStore = useReverseGeoCodeRequestStore();
-	const { setState } = useReverseGeoCodeRequestStore;
+	const customRequestStore = useCustomRequestStore();
+	const { setState } = useCustomRequestStore;
 	const mapRef = useRef<MapRef | null>(null);
 
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
-	const [reverseGeocodeActive, setReverseGeocodeActive] = useState(false);
+	const [activeMarker, setActiveMarker] = useState(false);
 	const navigate = useNavigate();
 
 	const toggleFullScreen = useCallback(() => {
@@ -47,30 +48,43 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const handleMapDragEnd = useCallback((e: any) => {}, [apiPlaygroundId]);
 	const handleMapLoad = useCallback(() => {}, [apiPlaygroundId]);
 
-	const handleReverseGeocodeClose = useCallback(() => {
-		setReverseGeocodeActive(false);
+	const handleMarkerClose = useCallback(() => {
+		setActiveMarker(false);
 	}, []);
 
-	const handleReverseGeocodeToggle = useCallback((isActive: boolean) => {
-		setReverseGeocodeActive(isActive);
+	const handleMarkerToggle = useCallback((isActive: boolean) => {
+		setActiveMarker(isActive);
 	}, []);
 
-	const handleReverseGeocodeResponse = useCallback(() => {
-		setReverseGeocodeActive(true);
+	const handleCustomResponse = useCallback(() => {
+		setActiveMarker(true);
 
 		// Fly to the reverse geocode marker
-		if (reverseGeocodeStore.queryPosition?.length === 2) {
-			const [lng, lat] = reverseGeocodeStore.queryPosition.map(Number);
+		if (customRequestStore.queryPosition?.length === 2) {
+			const [lng, lat] = customRequestStore.queryPosition.map(Number);
 			mapRef.current?.flyTo({
 				center: [lng, lat],
 				zoom: 15,
 				duration: 2000
 			});
 		}
-	}, [reverseGeocodeStore.queryPosition]);
+	}, [customRequestStore.queryPosition]);
 
 	// Show reverse geocode marker when there's a response
-	const showReverseGeocodeMarker = reverseGeocodeStore.response && reverseGeocodeStore.queryPosition?.length === 2;
+	const showMapMarker = customRequestStore.response && customRequestStore.queryPosition?.length === 2;
+
+	const [searchValue, setSearchValue] = useState("");
+
+	const handleClose = useCallback(() => {
+		handleMarkerClose();
+		handleMarkerToggle?.(false);
+	}, [handleMarkerClose, handleMarkerToggle]);
+
+	const resultItem = customRequestStore.response?.ResultItems?.[0];
+
+	const placeId = resultItem?.PlaceId || uuid.randomUUID();
+	const label = resultItem?.Title || "Unknown location";
+	const address = { Label: label };
 
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
@@ -150,43 +164,31 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						onMapDragEnd={handleMapDragEnd}
 						onMapLoad={handleMapLoad}
 					>
-						<ReverseGeocodeRequest onResponseReceived={handleReverseGeocodeResponse} />
+						<CustomRequest onResponseReceived={handleCustomResponse} />
+
+						{showMapMarker && resultItem && (
+							<MapMarker
+								active={activeMarker}
+								onClosePopUp={handleClose}
+								searchValue={searchValue}
+								setSearchValue={setSearchValue}
+								placeId={placeId}
+								address={address}
+								position={customRequestStore.queryPosition.map(Number)}
+								id={placeId}
+								label={label}
+								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
+							/>
+						)}
+
 						<RequestSnippets
-							key={`snippets-${reverseGeocodeStore.response ? "with-response" : "no-response"}`}
-							response={reverseGeocodeStore.response}
+							key={`snippets-${customRequestStore.response ? "with-response" : "no-response"}`}
+							response={customRequestStore.response}
 							width={isExpanded ? SNIPPETS_EXPANDED_WIDTH : SNIPPETS_COLLAPSED_WIDTH}
 							onWidthChange={width => setIsExpanded(width === SNIPPETS_EXPANDED_WIDTH)}
 							isFullScreen={isFullScreen}
 							onFullScreenToggle={toggleFullScreen}
 						/>
-
-						{suggestions?.list.map((s: any) => (
-							<MapMarker
-								id={s.id}
-								key={s.id}
-								label={s.label}
-								active={selectedMarker?.id === s.id}
-								searchValue={"desc"}
-								placeId={s.placeId}
-								address={s.address}
-								position={s.position}
-								setSearchValue={function (v: string): void {}}
-								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
-							/>
-						))}
-
-						{showReverseGeocodeMarker && (
-							<ReverseGeocodeMarker
-								key={`reverse-geocode-marker-${JSON.stringify(
-									reverseGeocodeStore.response?.ResultItems?.[0]?.PlaceId || ""
-								)}-${reverseGeocodeStore.queryPosition?.join(",")}`}
-								response={reverseGeocodeStore.response}
-								position={reverseGeocodeStore.queryPosition.map(Number)}
-								isActive={reverseGeocodeActive}
-								onClose={handleReverseGeocodeClose}
-								onToggle={handleReverseGeocodeToggle}
-							/>
-						)}
 					</Map>
 				</View>
 			</View>

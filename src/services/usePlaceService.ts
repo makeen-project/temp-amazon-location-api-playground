@@ -5,7 +5,7 @@ import { useMemo } from "react";
 
 import { appConfig } from "@api-playground/core/constants";
 import { useClient, useMap } from "@api-playground/hooks";
-import { AdditionalFeatures } from "@api-playground/types/ReverseGeocodeRequestForm";
+import { AdditionalFeatures } from "@api-playground/types/CustomRequestForm";
 import {
 	GetPlaceCommand,
 	GetPlaceCommandInput,
