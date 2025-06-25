@@ -10,7 +10,7 @@ import usePlaceService from "@api-playground/services/usePlaceService";
 import { useCustomRequestStore } from "@api-playground/stores";
 import { CustomRequestStore } from "@api-playground/stores/useCustomRequestStore";
 import { BaseStateProps } from "@api-playground/types/BaseStateProps";
-import { AdditionalFeatures, IncludePlaceTypes, IntendedUse } from "@api-playground/types/CustomRequestForm";
+import { AdditionalFeatures, IntendedUse } from "@api-playground/types/CustomRequestForm";
 import { errorHandler } from "@api-playground/utils/errorHandler";
 import {
 	convertFormContentConfigToContentProps,
@@ -18,6 +18,7 @@ import {
 	mapFormDataToApiParams,
 	validateFormData
 } from "@api-playground/utils/formConfigUtils";
+import { ReverseGeocodeFilterPlaceType } from "@aws-sdk/client-geo-places";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
 import { useParams } from "react-router-dom";
@@ -58,33 +59,34 @@ const createFallbackFormFields = (urlState: CustomRequestStore): FormField[] => 
 		label: "Include Place Types ",
 		options: [
 			{
-				value: IncludePlaceTypes.InterpolatedAddress,
+				value: ReverseGeocodeFilterPlaceType.INTERPOLATED_ADDRESS,
 				label: "InterpolatedAddress"
 			},
 			{
-				value: IncludePlaceTypes.Intersection,
+				value: ReverseGeocodeFilterPlaceType.INTERSECTION,
 				label: "Intersection"
 			},
 			{
-				value: IncludePlaceTypes.Locality,
+				value: ReverseGeocodeFilterPlaceType.LOCALITY,
 				label: "Locality"
 			},
 			{
-				value: IncludePlaceTypes.PointAddress,
+				value: ReverseGeocodeFilterPlaceType.POINT_ADDRESS,
 				label: "PointAddress"
 			},
 			{
-				value: IncludePlaceTypes.Street,
+				value: ReverseGeocodeFilterPlaceType.STREET,
 				label: "Street"
 			}
 		],
 		required: false,
-		value: urlState?.filter?.includePlaceTypes
+		value: urlState?.includePlaceTypes
 	},
 	{
 		type: "radio",
 		name: "intendedUse",
 		label: "Intended use",
+		defaultValue: IntendedUse.SingleUse,
 		options: [
 			{
 				label: "Single use",
@@ -100,6 +102,7 @@ const createFallbackFormFields = (urlState: CustomRequestStore): FormField[] => 
 	},
 	{
 		type: "text",
+		inputType: "password",
 		name: "apiKey",
 		label: "API Key",
 		required: false,
@@ -139,13 +142,13 @@ const createFallbackFormFields = (urlState: CustomRequestStore): FormField[] => 
 	},
 	{
 		type: "slider",
-		name: "queryResults",
-		label: "Query Results",
+		name: "queryRadius",
+		label: "Query Radius",
 		min: 1,
 		max: 100,
 		step: 1,
 		required: false,
-		value: urlState?.queryResults
+		value: urlState.queryRadius
 	}
 ];
 
@@ -215,42 +218,39 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 		const newState = { ...store } as StoreType;
 
 		// Handle nested fields (e.g., filter.includePlaceTypes)
-		if (name === "includePlaceTypes") {
-			newState.filter = {
-				...newState.filter,
-				includePlaceTypes: value as IncludePlaceTypes[]
-			};
-		} else {
-			const key = name as keyof CustomRequestStore;
-			switch (key) {
-				case "queryPosition":
-					newState.queryPosition = (value as number[]).map(String);
-					break;
-				case "additionalFeatures":
-					newState.additionalFeatures = value as AdditionalFeatures[];
-					break;
-				case "intendedUse":
-					newState.intendedUse = value as IntendedUse;
-					break;
-				case "apiKey":
-					newState.apiKey = value as string;
-					break;
-				case "language":
-					newState.language = value as string;
-					break;
-				case "maxResults":
-					newState.maxResults = value as number;
-					break;
-				case "politicalView":
-					newState.politicalView = value as string;
-					break;
-				case "queryResults":
-					newState.queryResults = value as number;
-					break;
-				default:
-					// Handle dynamic fields from configuration
-					(newState as any)[key] = value;
-			}
+		const key = name as keyof CustomRequestStore;
+		switch (key) {
+			case "queryPosition":
+				newState.queryPosition = (value as number[]).map(String);
+				break;
+			case "additionalFeatures":
+				newState.additionalFeatures = value as AdditionalFeatures[];
+				break;
+			case "includePlaceTypes":
+				newState.includePlaceTypes = value as ReverseGeocodeFilterPlaceType[];
+				break;
+			case "intendedUse":
+				newState.intendedUse = value as IntendedUse;
+				break;
+			case "apiKey":
+				newState.apiKey = value as string;
+				break;
+			case "language":
+				newState.language = value as string;
+				break;
+			case "maxResults":
+				newState.maxResults = value as number;
+				break;
+			case "politicalView":
+				newState.politicalView = value as string;
+				break;
+			case "queryRadius":
+				newState.queryRadius = value as number;
+				break;
+			default:
+				// Handle dynamic fields from configuration
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				(newState as any)[key] = value;
 		}
 
 		Object.assign(store, newState);
@@ -283,6 +283,7 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 				// Call the appropriate API method
 				const apiMethod = apiPlaygroundItem.apiHandler.apiMethod as keyof typeof placeService;
 				if (typeof placeService[apiMethod] === "function") {
+					// eslint-disable-next-line @typescript-eslint/no-explicit-any
 					const response = await (placeService[apiMethod] as any)(apiParams);
 
 					// Transform response if needed
@@ -314,7 +315,10 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 					AdditionalFeatures: urlState?.additionalFeatures,
 					Language: urlState?.language,
 					MaxResults: urlState?.maxResults,
-					PoliticalView: urlState?.politicalView
+					PoliticalView: urlState?.politicalView,
+					Filter: {
+						IncludePlaceTypes: urlState?.includePlaceTypes || []
+					}
 				};
 
 				const response = await placeService.getPlaceByCoordinates(params);

@@ -22,7 +22,7 @@
 }
 
 .optional-items {
-  height: 40vh !important;
+  max-height: calc(100vh - 500px);
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;

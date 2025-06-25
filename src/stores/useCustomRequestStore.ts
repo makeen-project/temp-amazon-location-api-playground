@@ -1,6 +1,10 @@
 import { IStateProps } from "@api-playground/types";
-import { AdditionalFeatures, IncludePlaceTypes, IntendedUse } from "@api-playground/types/CustomRequestForm";
-import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
+import { AdditionalFeatures, IntendedUse } from "@api-playground/types/CustomRequestForm";
+import {
+	GeocodeCommandOutput,
+	ReverseGeocodeCommandOutput,
+	ReverseGeocodeFilterPlaceType
+} from "@aws-sdk/client-geo-places";
 
 import createStore from "./createStore";
 
@@ -15,15 +19,13 @@ export interface RequestSnippetsProps {
 export interface CustomRequestStore {
 	queryPosition: string[];
 	additionalFeatures?: AdditionalFeatures[];
-	filter?: {
-		includePlaceTypes: IncludePlaceTypes[];
-	};
+	includePlaceTypes?: ReverseGeocodeFilterPlaceType[];
 	intendedUse?: IntendedUse;
 	apiKey?: string;
 	language?: string;
 	maxResults?: number;
 	politicalView?: string;
-	queryResults?: number;
+	queryRadius?: number;
 	// Response data
 	response?: ReverseGeocodeCommandOutput | GeocodeCommandOutput;
 	isLoading: boolean;

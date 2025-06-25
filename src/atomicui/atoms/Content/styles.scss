@@ -5,8 +5,8 @@
 
         &--highlighted {
             display: inline;
-            border: 1px solid var(--Theme-Light---3, #E5E5EA);
-            background: var(--Theme-Light---2, #F2F2F7);
+            border: 1px solid var(--Theme-Light---3, #e5e5ea);
+            background: var(--Theme-Light---2, #f2f2f7);
             padding: 1px 4px 2px 4px;
             border-radius: 4px;
         }
@@ -18,7 +18,7 @@
 
     &__list {
         margin: 0;
-        padding-left: 1.5rem;
+        padding-left: 1rem;
         list-style-position: outside;
         display: flex;
         flex-direction: column;
@@ -27,7 +27,6 @@
 
     &__list-item {
         line-height: 1.5;
-        padding-left: 0.5rem;
 
         &:last-child {
             margin-bottom: 0;

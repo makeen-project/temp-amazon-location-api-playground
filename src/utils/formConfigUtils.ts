@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
@@ -203,21 +204,27 @@ export const mapFormDataToApiParams = (
 ): Record<string, any> => {
 	const apiParams: Record<string, any> = {};
 
+	console.log("formData", formData);
+	console.log("paramMapping", paramMapping);
+
 	Object.entries(paramMapping).forEach(([formField, apiParam]) => {
 		const value = formData[formField];
-		if (value !== undefined && value !== null && value !== "") {
-			// Handle nested parameters (e.g., "Filter.IncludePlaceTypes")
-			if (apiParam.includes(".")) {
-				const [parent, child] = apiParam.split(".");
-				if (!apiParams[parent]) {
-					apiParams[parent] = {};
+		// Only skip undefined/null, but allow empty arrays/strings if needed
+		if (value !== undefined && value !== null) {
+			const keys = apiParam.split(".");
+			let current = apiParams;
+			keys.forEach((key, idx) => {
+				if (idx === keys.length - 1) {
+					current[key] = value;
+				} else {
+					if (!current[key]) current[key] = {};
+					current = current[key];
 				}
-				apiParams[parent][child] = value;
-			} else {
-				apiParams[apiParam] = value;
-			}
+			});
 		}
 	});
+
+	console.log("apiParams", apiParams);
 
 	return apiParams;
 };

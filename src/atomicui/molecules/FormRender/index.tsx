@@ -34,6 +34,7 @@ interface TextFieldConfig extends BaseField {
 	type: "text";
 	defaultValue?: string;
 	value?: string;
+	inputType?: "text" | "password";
 }
 
 // Number field specific interface
@@ -244,6 +245,11 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						defaultValue={field.defaultValue}
 						value={field.value}
 						onChange={e => handleChange(field.name, e.target.value)}
+						type={field.inputType || "text"}
+						autoComplete="new-password"
+						autoCorrect="off"
+						autoCapitalize="off"
+						spellCheck="false"
 					/>
 				);
 
@@ -409,9 +415,9 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	};
 
 	return (
-		<Accordion title="Customize Request" defaultOpen={true}>
+		<Accordion title="Customize Request" defaultOpen={true} contentClassName="form-render-accordion">
 			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
-				<Flex direction="column" padding="1rem" gap="1rem">
+				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" height="250px">
 					{content && <Content {...content} />}
 					{requiredFields.map(renderField)}
 
@@ -428,10 +434,10 @@ export const FormRender: React.FC<FormRenderProps> = ({
 				</Flex>
 
 				{optionalFields.length > 0 && (
-					<Flex direction={"column"} gap={0}>
+					<Flex direction={"column"} flex={1} gap={0}>
 						<Divider />
 						<Accordion shadowEnabled={false} title="Optional Parameters" contentClassName="optional-items">
-							<Flex direction="column" padding="1rem" gap="1rem">
+							<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem">
 								{optionalFields.map(renderField)}
 							</Flex>
 						</Accordion>
