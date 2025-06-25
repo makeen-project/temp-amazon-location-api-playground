@@ -54,53 +54,23 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 	const handleLngChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
 		setLng(value);
-
-		// Only call onChange when we have valid coordinates
-		const numValue = parseFloat(value);
-		const currentLat = parseFloat(lat);
-
-		if (!isNaN(numValue) && !isNaN(currentLat)) {
-			// Both values are valid, update both
-			onChange?.([numValue, currentLat]);
-		} else if (!isNaN(numValue)) {
-			// Only lng is valid, keep existing lat value if available
-			const existingLat = defaultValue?.[1] || 0;
-			onChange?.([numValue, existingLat]);
-		}
-		// Don't call onChange if the value is invalid or empty
+		onChange?.([parseFloat(value) || 0, parseFloat(lat) || 0]);
 	};
 
 	const handleLatChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
 		setLat(value);
-
-		// Only call onChange when we have valid coordinates
-		const numValue = parseFloat(value);
-		const currentLng = parseFloat(lng);
-
-		if (!isNaN(numValue) && !isNaN(currentLng)) {
-			// Both values are valid, update both
-			onChange?.([currentLng, numValue]);
-		} else if (!isNaN(numValue)) {
-			// Only lat is valid, keep existing lng value if available
-			const existingLng = defaultValue?.[0] || 0;
-			onChange?.([existingLng, numValue]);
-		}
-		// Don't call onChange if the value is invalid or empty
+		onChange?.([parseFloat(lng) || 0, parseFloat(value) || 0]);
 	};
 
 	const clearLng = () => {
 		setLng("");
-		// Keep the current lat value when clearing lng
-		const currentLat = parseFloat(lat);
-		onChange?.([0, isNaN(currentLat) ? 0 : currentLat]);
+		onChange?.([0, parseFloat(lat) || 0]);
 	};
 
 	const clearLat = () => {
 		setLat("");
-		// Keep the current lng value when clearing lat
-		const currentLng = parseFloat(lng);
-		onChange?.([isNaN(currentLng) ? 0 : currentLng, 0]);
+		onChange?.([parseFloat(lng) || 0, 0]);
 	};
 
 	return (
@@ -115,7 +85,7 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 							ref={lngInputRef}
 							id={`${name}-longitude-input`}
 							name={`${name}-longitude`}
-							type="text"
+							type="number"
 							inputMode="decimal"
 							className="input-field"
 							value={lng}
@@ -142,7 +112,7 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 							ref={latInputRef}
 							id={`${name}-latitude-input`}
 							name={`${name}-latitude`}
-							type="text"
+							type="number"
 							inputMode="decimal"
 							className="input-field"
 							value={lat}

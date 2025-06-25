@@ -11,7 +11,6 @@ import { MapMarker } from "@api-playground/atomicui/molecules";
 import CustomRequest from "@api-playground/atomicui/organisms/CustomRequest";
 import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
 import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
-import { usePlace } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useCustomRequestStore } from "@api-playground/stores";
@@ -46,7 +45,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const showMapMarker = customRequestStore?.response && (position?.length === 2 || position?.length === 2);
 
 	const placeId = resultItem?.PlaceId || uuid.randomUUID();
-	const label = resultItem?.Title || "Unknown location";
+	const label = resultItem?.Address?.Label || "Unknown location";
 	const address = { Label: label };
 
 	const navigate = useNavigate();

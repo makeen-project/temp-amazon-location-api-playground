@@ -11,6 +11,7 @@ import {
 	GetPlaceCommandInput,
 	ReverseGeocodeCommand,
 	ReverseGeocodeCommandInput,
+	ReverseGeocodeFilterPlaceType,
 	SearchTextCommand,
 	SearchTextCommandInput,
 	SuggestCommand,
@@ -28,6 +29,9 @@ interface ReverseGeocodeParams {
 	Language?: string;
 	MaxResults?: number;
 	PoliticalView?: string;
+	Filter?: {
+		IncludePlaceTypes: ReverseGeocodeFilterPlaceType[];
+	};
 }
 
 interface GeocodeParams {
@@ -87,9 +91,19 @@ const usePlaceService = () => {
 					QueryPosition: params.QueryPosition,
 					Language: params.Language || Language,
 					PoliticalView: params.PoliticalView || (isSupportedByPlaces ? alpha3 : undefined),
-					AdditionalFeatures: params.AdditionalFeatures,
 					MaxResults: params.MaxResults
 				};
+
+				if (params.AdditionalFeatures && params.AdditionalFeatures.length > 0) {
+					input.AdditionalFeatures = params.AdditionalFeatures;
+				}
+
+				if (params.Filter?.IncludePlaceTypes && params.Filter.IncludePlaceTypes.length > 0) {
+					input.Filter = {
+						IncludePlaceTypes: params.Filter.IncludePlaceTypes as ReverseGeocodeFilterPlaceType[]
+					};
+				}
+
 				const command = new ReverseGeocodeCommand(input);
 				return await placesClient?.send(command);
 			},

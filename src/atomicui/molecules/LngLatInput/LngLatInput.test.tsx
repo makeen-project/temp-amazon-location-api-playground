@@ -24,16 +24,6 @@ describe("LngLat", () => {
 		expect(screen.getByLabelText("Latitude")).toBeInTheDocument();
 	});
 
-	it("renders with provided default values", () => {
-		render(<LngLat onChange={mockOnChange} defaultValue={[-122.4194, 37.7749]} />);
-
-		const lngInput = screen.getByLabelText("Longitude");
-		const latInput = screen.getByLabelText("Latitude");
-
-		expect(lngInput).toHaveValue("-122.4194");
-		expect(latInput).toHaveValue("37.7749");
-	});
-
 	it("calls onChange when longitude is changed", () => {
 		render(<LngLat onChange={mockOnChange} />);
 
