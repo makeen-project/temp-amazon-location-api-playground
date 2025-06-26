@@ -20,7 +20,7 @@ const parseHighlightedText = (text: string) => {
 		if (part.startsWith("[[") && part.endsWith("]]")) {
 			const highlightedText = part.slice(2, -2);
 			return (
-				<Text key={i} as="span" className="content__text--highlighted">
+				<Text key={i} as="span" className="ct__text--highlighted">
 					{highlightedText}
 				</Text>
 			);
@@ -32,23 +32,23 @@ const parseHighlightedText = (text: string) => {
 export const Content: FC<ContentProps> = ({ items, type = "text", className = "" }) => {
 	const renderTextItems = () => {
 		return items.map((item, index) => (
-			<Text key={index} className={`content__text ${className}`}>
+			<Text key={index} className={`ct__text ${className}`}>
 				{parseHighlightedText(item.text)}
 			</Text>
 		));
 	};
 
 	const renderListItems = () => (
-		<ol className={`content__list ${className}`}>
+		<ol className={`ct__list ${className}`}>
 			{items.map((item, index) => (
-				<li key={index} className="content__list-item">
+				<li key={index} className="ct__list-item">
 					{parseHighlightedText(item.text)}
 				</li>
 			))}
 		</ol>
 	);
 
-	return <View className="content">{type === "list" ? renderListItems() : renderTextItems()}</View>;
+	return <View className="ct">{type === "list" ? renderListItems() : renderTextItems()}</View>;
 };
 
 export default Content;

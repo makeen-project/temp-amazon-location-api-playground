@@ -75,15 +75,15 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 							name={`${name}-longitude`}
 							type="number"
 							inputMode="decimal"
-							step="0.000000001"
 							className="input-field"
 							value={lng}
 							onChange={handleLngChange}
 							required={isRequired}
 							disabled={isDisabled}
 							placeholder="e.g., -122.4194"
-							min={-180}
-							max={180}
+							min="-180"
+							max="180"
+							step="any"
 						/>
 						{lng && (
 							<Button className="clear-button" onClick={clearLng} size="small">
@@ -101,7 +101,6 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 							id={`${name}-latitude-input`}
 							name={`${name}-latitude`}
 							type="number"
-							step="0.000000001"
 							inputMode="decimal"
 							className="input-field"
 							value={lat}
@@ -109,8 +108,9 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 							required={isRequired}
 							disabled={isDisabled}
 							placeholder="e.g., 37.7749"
-							min={-90}
-							max={90}
+							min="-90"
+							max="90"
+							step="any"
 						/>
 						{lat && (
 							<Button className="clear-button" onClick={clearLat} size="small">
