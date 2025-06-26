@@ -34,7 +34,8 @@ const createFallbackFormFields = (urlState: CustomRequestStore): FormField[] => 
 		name: "queryPosition",
 		label: "Query Position",
 		required: true,
-		value: urlState?.queryPosition?.map(Number) as number[]
+		value: urlState?.queryPosition?.map(Number) as number[],
+		disabled: (urlState?.response?.ResultItems?.length ?? 0) > 0
 	},
 	{
 		type: "multiSelect",
@@ -145,7 +146,7 @@ const createFallbackFormFields = (urlState: CustomRequestStore): FormField[] => 
 		name: "queryRadius",
 		label: "Query Radius",
 		min: 1,
-		max: 100,
+		max: 21000000,
 		step: 1,
 		required: false,
 		value: urlState.queryRadius

@@ -17,6 +17,7 @@ import {
 	SuggestCommand,
 	SuggestCommandInput
 } from "@aws-sdk/client-geo-places";
+import { IntendedUse } from "@aws-sdk/client-location";
 import { useTranslation } from "react-i18next";
 
 const {
@@ -29,6 +30,8 @@ interface ReverseGeocodeParams {
 	Language?: string;
 	MaxResults?: number;
 	PoliticalView?: string;
+	QueryRadius?: number;
+	IntendedUse?: IntendedUse;
 	Filter?: {
 		IncludePlaceTypes: ReverseGeocodeFilterPlaceType[];
 	};
@@ -91,11 +94,16 @@ const usePlaceService = () => {
 					QueryPosition: params.QueryPosition,
 					Language: params.Language || Language,
 					PoliticalView: params.PoliticalView || (isSupportedByPlaces ? alpha3 : undefined),
-					MaxResults: params.MaxResults
+					MaxResults: params.MaxResults,
+					IntendedUse: params.IntendedUse
 				};
 
 				if (params.AdditionalFeatures && params.AdditionalFeatures.length > 0) {
 					input.AdditionalFeatures = params.AdditionalFeatures;
+				}
+
+				if (params.QueryRadius) {
+					input.QueryRadius = params.QueryRadius;
 				}
 
 				if (params.Filter?.IncludePlaceTypes && params.Filter.IncludePlaceTypes.length > 0) {

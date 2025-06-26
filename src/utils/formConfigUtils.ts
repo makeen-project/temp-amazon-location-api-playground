@@ -204,9 +204,6 @@ export const mapFormDataToApiParams = (
 ): Record<string, any> => {
 	const apiParams: Record<string, any> = {};
 
-	console.log("formData", formData);
-	console.log("paramMapping", paramMapping);
-
 	Object.entries(paramMapping).forEach(([formField, apiParam]) => {
 		const value = formData[formField];
 		// Only skip undefined/null, but allow empty arrays/strings if needed
@@ -223,8 +220,6 @@ export const mapFormDataToApiParams = (
 			});
 		}
 	});
-
-	console.log("apiParams", apiParams);
 
 	return apiParams;
 };

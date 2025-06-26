@@ -375,10 +375,11 @@ export const FormRender: React.FC<FormRenderProps> = ({
 				return (
 					<LngLatInput
 						{...commonProps}
-						defaultValue={field.defaultValue}
+						defaultValue={field.value}
 						onChange={value => handleChange(field.name, value)}
 						value={field.value}
 						name={field.name}
+						isDisabled={field.disabled}
 					/>
 				);
 
@@ -417,7 +418,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	return (
 		<Accordion title="Customize Request" defaultOpen={true} contentClassName="form-render-accordion">
 			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
-				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" height="250px">
+				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" minHeight="250px">
 					{content && <Content {...content} />}
 					{requiredFields.map(renderField)}
 
