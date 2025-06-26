@@ -1,9 +1,7 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { IconClose } from "@api-playground/assets/svgs";
 
-import useMapStore from "@api-playground/stores/useMapStore";
-import { ViewPointType } from "@api-playground/types";
 import { Button, Flex, Input, Label } from "@aws-amplify/ui-react";
 import "./styles.scss";
 
@@ -19,58 +17,49 @@ interface LngLatProps {
 export default function LngLat({ onChange, defaultValue, value, isRequired, isDisabled, name }: LngLatProps) {
 	const [lng, setLng] = useState<string>(value?.[0]?.toString() || defaultValue?.[0]?.toString() || "");
 	const [lat, setLat] = useState<string>(value?.[1]?.toString() || defaultValue?.[1]?.toString() || "");
-	const [focusedInput, setFocusedInput] = useState<"lng" | "lat" | null>(null);
-	const lngInputRef = useRef<HTMLInputElement>(null);
-	const latInputRef = useRef<HTMLInputElement>(null);
-	const { viewpoint } = useMapStore();
-	const prevViewpointRef = useRef<ViewPointType>(viewpoint);
-
-	// Update state when value prop changes
-	useEffect(() => {
-		if (value) {
-			setLng(value[0]?.toString() || "");
-			setLat(value[1]?.toString() || "");
-		}
-	}, [value]);
 
 	useEffect(() => {
-		if (
-			focusedInput &&
-			(prevViewpointRef.current.longitude !== viewpoint.longitude ||
-				prevViewpointRef.current.latitude !== viewpoint.latitude)
-		) {
-			const { longitude, latitude } = viewpoint;
-			if (focusedInput === "lng") {
-				setLng(longitude.toString());
-				onChange?.([longitude, parseFloat(lat) || 0]);
-			} else if (focusedInput === "lat") {
-				setLat(latitude.toString());
-				onChange?.([parseFloat(lng) || 0, latitude]);
-			}
+		if (defaultValue) {
+			console.log("defaultValue", defaultValue);
+			setLng(defaultValue[0]?.toString() || "");
+			setLat(defaultValue[1]?.toString() || "");
 		}
-		prevViewpointRef.current = viewpoint;
-	}, [viewpoint]);
+	}, [defaultValue]);
 
 	const handleLngChange = (e: ChangeEvent<HTMLInputElement>) => {
-		const value = e.target.value;
-		setLng(value);
-		onChange?.([parseFloat(value) || 0, parseFloat(lat) || 0]);
+		const lngValue = e.target.value;
+		setLng(lngValue);
+		if (onChange) {
+			const lngNum = parseFloat(lngValue);
+			const latNum = parseFloat(lat);
+			onChange([lngNum, latNum]);
+		}
 	};
 
 	const handleLatChange = (e: ChangeEvent<HTMLInputElement>) => {
-		const value = e.target.value;
-		setLat(value);
-		onChange?.([parseFloat(lng) || 0, parseFloat(value) || 0]);
+		const latValue = e.target.value;
+		setLat(latValue);
+		if (onChange) {
+			const lngNum = parseFloat(lng);
+			const latNum = parseFloat(latValue);
+			onChange([lngNum, latNum]);
+		}
 	};
 
 	const clearLng = () => {
 		setLng("");
-		onChange?.([0, parseFloat(lat) || 0]);
+		if (onChange) {
+			const latNum = parseFloat(lat);
+			onChange([0, isNaN(latNum) ? 0 : latNum]);
+		}
 	};
 
 	const clearLat = () => {
 		setLat("");
-		onChange?.([parseFloat(lng) || 0, 0]);
+		if (onChange) {
+			const lngNum = parseFloat(lng);
+			onChange([isNaN(lngNum) ? 0 : lngNum, 0]);
+		}
 	};
 
 	return (
@@ -82,19 +71,19 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 					</Label>
 					<div className="input-container">
 						<Input
-							ref={lngInputRef}
 							id={`${name}-longitude-input`}
 							name={`${name}-longitude`}
 							type="number"
 							inputMode="decimal"
+							step="0.000000001"
 							className="input-field"
 							value={lng}
 							onChange={handleLngChange}
-							onFocus={() => setFocusedInput("lng")}
-							onBlur={() => setFocusedInput(null)}
 							required={isRequired}
 							disabled={isDisabled}
 							placeholder="e.g., -122.4194"
+							min={-180}
+							max={180}
 						/>
 						{lng && (
 							<Button className="clear-button" onClick={clearLng} size="small">
@@ -109,19 +98,19 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 					</Label>
 					<div className="input-container">
 						<Input
-							ref={latInputRef}
 							id={`${name}-latitude-input`}
 							name={`${name}-latitude`}
 							type="number"
+							step="0.000000001"
 							inputMode="decimal"
 							className="input-field"
 							value={lat}
 							onChange={handleLatChange}
-							onFocus={() => setFocusedInput("lat")}
-							onBlur={() => setFocusedInput(null)}
 							required={isRequired}
 							disabled={isDisabled}
 							placeholder="e.g., 37.7749"
+							min={-90}
+							max={90}
 						/>
 						{lat && (
 							<Button className="clear-button" onClick={clearLat} size="small">
