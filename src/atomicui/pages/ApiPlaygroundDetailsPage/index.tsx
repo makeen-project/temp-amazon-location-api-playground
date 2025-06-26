@@ -92,7 +92,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	return (
 		<NuqsAdapter>
-			<View className="api-playground-details-page">
+			<View className="api-playground-details-page no-side-gaps">
 				<Flex
 					className="api-playground-header"
 					direction="row"
