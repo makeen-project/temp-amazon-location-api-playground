@@ -7,6 +7,18 @@
   gap: 1rem;
 }
 
+.form-render-accordion {
+  max-height: 50vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .amplify-input {
   padding: 0.5rem;
   border-radius: 4px;
@@ -22,7 +34,6 @@
 }
 
 .optional-items {
-  max-height: calc(100vh - 480px);
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
