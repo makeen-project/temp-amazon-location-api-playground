@@ -238,10 +238,15 @@ export const generateCodeSnippets = (
 		// Replace placeholders with actual values or defaults
 		Object.entries(codeSnippets.paramPlaceholders || {}).forEach(([placeholder, defaultValue]) => {
 			const value = formData[placeholder];
-			const replacementValue =
-				value !== undefined && value !== null && value !== ""
-					? formatValueForSnippet(value, placeholder)
-					: defaultValue;
+			let replacementValue = defaultValue;
+
+			if (value !== undefined && value !== null && value !== "") {
+				const formattedValue = formatValueForSnippet(value, placeholder);
+				// For array fields, if the formatted value is empty, use the default
+				if (formattedValue !== "" || !isArrayField(placeholder)) {
+					replacementValue = formattedValue;
+				}
+			}
 
 			processedSnippet = processedSnippet.replace(new RegExp(`{{${placeholder}}}`, "g"), replacementValue);
 		});
@@ -267,7 +272,33 @@ const formatValueForSnippet = (value: any, placeholder: string): string => {
 		case "politicalView":
 		case "query":
 			return String(value);
+		case "intendedUse":
+			if (value && value !== "") {
+				return `"${value}" `;
+			}
+			return "";
+		case "queryRadius":
+			if (value && value !== "") {
+				return `${value}`;
+			}
+			return "";
+		case "additionalFeatures":
+			if (Array.isArray(value) && value.length > 0) {
+				const formattedFeatures = value.map(item => `"${item}"`).join(", ");
+				return `[${formattedFeatures}]`;
+			}
+			return "";
+		case "includePlaceTypes":
+			if (Array.isArray(value) && value.length > 0) {
+				const formattedTypes = value.map(item => `"${item}"`).join(", ");
+				return `[${formattedTypes}]`;
+			}
+			return "";
 		default:
 			return String(value);
 	}
+};
+
+const isArrayField = (placeholder: string): boolean => {
+	return ["additionalFeatures", "includePlaceTypes", "intendedUse", "queryRadius"].includes(placeholder);
 };

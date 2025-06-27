@@ -3,7 +3,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, useCallback, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 
 import { IconBackArrow } from "@api-playground/assets/svgs";
 import { Content } from "@api-playground/atomicui/atoms/Content";
@@ -11,11 +11,13 @@ import { MapMarker } from "@api-playground/atomicui/molecules";
 import CustomRequest from "@api-playground/atomicui/organisms/CustomRequest";
 import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
 import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
+import { useMap } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useCustomRequestStore } from "@api-playground/stores";
 import { uuid } from "@api-playground/utils";
 import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
+import { bbox, circle } from "@turf/turf";
 import { NuqsAdapter } from "nuqs/adapters/react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
@@ -70,16 +72,44 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const handleCustomResponse = useCallback(() => {
 		setActiveMarker(true);
 
-		// Fly to the marker
+		// Fly to the marker with zoom that accommodates the circle
 		if (position?.length === 2) {
 			const [lng, lat] = position;
-			mapRef.current?.flyTo({
-				center: [lng, lat],
-				zoom: 15,
-				duration: 2000
-			});
+			const queryRadius = customRequestStore.queryRadius;
+
+			if (queryRadius && queryRadius > 0) {
+				// Create circle to get its bounding box
+				const radiusInKm = queryRadius / 1000;
+				const circleFeature = circle([lng, lat], radiusInKm, {
+					units: "kilometers",
+					steps: 64
+				});
+
+				// Get the bounding box of the circle
+				const boundingBox = bbox(circleFeature);
+
+				// Fit the map to the bounding box with some padding
+				mapRef.current?.fitBounds(
+					[
+						[boundingBox[0], boundingBox[1]], // southwest
+						[boundingBox[2], boundingBox[3]] // northeast
+					],
+					{
+						padding: 50, // Add some padding around the circle
+						duration: 2000, // Smooth animation
+						essential: true
+					}
+				);
+			} else {
+				// Fallback to center on position with default zoom
+				mapRef.current?.flyTo({
+					center: [lng, lat],
+					zoom: 15,
+					duration: 2000
+				});
+			}
 		}
-	}, [position]);
+	}, [position, customRequestStore.queryRadius]);
 
 	const handleClose = useCallback(() => {
 		handleMarkerClose();
