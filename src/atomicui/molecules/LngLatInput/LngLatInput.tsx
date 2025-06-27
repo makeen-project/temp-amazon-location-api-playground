@@ -20,7 +20,6 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 
 	useEffect(() => {
 		if (defaultValue) {
-			console.log("defaultValue", defaultValue);
 			setLng(defaultValue[0]?.toString() || "");
 			setLat(defaultValue[1]?.toString() || "");
 		}

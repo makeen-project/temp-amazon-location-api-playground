@@ -22,11 +22,17 @@ const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
 		if (!map) return;
 
 		const cleanup = () => {
-			if (map.getLayer(layerId)) {
-				map.removeLayer(layerId);
+			// Get a fresh reference to the map inside cleanup
+			const currentMap = mapRef?.current?.getMap();
+			if (!currentMap) return;
+
+			// Safely check if map exists and has the required methods
+			if (typeof currentMap.getLayer === "function" && currentMap.getLayer(layerId)) {
+				currentMap.removeLayer(layerId);
+				console.log("removed layer", layerId);
 			}
-			if (map.getSource(sourceId)) {
-				map.removeSource(sourceId);
+			if (typeof currentMap.getSource === "function" && currentMap.getSource(sourceId)) {
+				currentMap.removeSource(sourceId);
 			}
 		};
 
