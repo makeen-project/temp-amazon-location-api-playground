@@ -4,6 +4,7 @@
 import { FC, forwardRef, lazy, useCallback, useImperativeHandle, useMemo, useRef, useState } from "react";
 
 import { IconLocateMe, IconMapSolid } from "@api-playground/assets/svgs";
+import { QueryRadiusCircle } from "@api-playground/atomicui/molecules";
 import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
 import useMap from "@api-playground/hooks/useMap";
 import useMapManager from "@api-playground/hooks/useMapManager";
@@ -63,6 +64,11 @@ interface MapProps {
 
 export interface MapRef {
 	flyTo: (options: { center: [number, number]; zoom: number; duration?: number }) => void;
+	zoomTo: (number: number) => void;
+	fitBounds: (
+		bounds: [[number, number], [number, number]],
+		options?: { padding?: number; duration?: number; essential?: boolean }
+	) => void;
 }
 
 const Map = forwardRef<MapRef, MapProps>(
@@ -78,6 +84,15 @@ const Map = forwardRef<MapRef, MapProps>(
 		useImperativeHandle(ref, () => ({
 			flyTo: (options: { center: [number, number]; zoom: number; duration?: number }) => {
 				mapRef.current?.flyTo(options);
+			},
+			zoomTo: (zoom: number) => {
+				mapRef.current?.zoomTo(zoom);
+			},
+			fitBounds: (
+				bounds: [[number, number], [number, number]],
+				options?: { padding?: number; duration?: number; essential?: boolean }
+			) => {
+				mapRef.current?.fitBounds(bounds, options);
 			}
 		}));
 
@@ -200,6 +215,7 @@ const Map = forwardRef<MapRef, MapProps>(
 				>
 					<View className={gridLoader ? "loader-container" : ""}>
 						{children}
+						<QueryRadiusCircle mapRef={mapRef} />
 						<NavigationControl position="bottom-right" showZoom showCompass={false} />
 						{_GeolocateControl}
 					</View>

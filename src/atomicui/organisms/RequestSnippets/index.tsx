@@ -40,6 +40,65 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 			return generateCodeSnippets(apiPlaygroundItem.codeSnippets, store);
 		}
 
+		// Helper function to build filter object
+		const buildFilterObject = () => {
+			if (store?.includePlaceTypes && store.includePlaceTypes.length > 0) {
+				return `  Filter: {
+    IncludePlaceTypes: [${store.includePlaceTypes.map(type => `"${type}"`).join(", ")}]
+  }`;
+			}
+			return "";
+		};
+
+		// Helper function to build additional features
+		const buildAdditionalFeatures = () => {
+			if (store?.additionalFeatures && store.additionalFeatures.length > 0) {
+				return `  AdditionalFeatures: [${store.additionalFeatures.map(feature => `"${feature}"`).join(", ")}]`;
+			}
+			return "";
+		};
+
+		// Helper function to build params object
+		const buildParamsObject = () => {
+			const params = [];
+
+			// Required parameters
+			params.push(
+				`  Position: [${store?.queryPosition?.[0] || 0}, ${store?.queryPosition?.[1] || 0}] // [longitude, latitude]`
+			);
+
+			// Optional parameters
+			if (store?.maxResults) {
+				params.push(`  MaxResults: ${store.maxResults}`);
+			}
+			if (store?.language) {
+				params.push(`  Language: "${store.language}"`);
+			}
+			if (store?.politicalView) {
+				params.push(`  PoliticalView: "${store.politicalView}"`);
+			}
+			if (store?.intendedUse) {
+				params.push(`  IntendedUse: "${store.intendedUse}"`);
+			}
+			if (store?.queryRadius) {
+				params.push(`  QueryRadius: ${store.queryRadius}`);
+			}
+
+			// Additional features
+			const additionalFeatures = buildAdditionalFeatures();
+			if (additionalFeatures) {
+				params.push(additionalFeatures);
+			}
+
+			// Filter
+			const filter = buildFilterObject();
+			if (filter) {
+				params.push(filter);
+			}
+
+			return params.join(",\n");
+		};
+
 		// Fallback snippets for backward compatibility
 		return {
 			JavaScript: `import { GeoPlacesClient, ReverseGeocodeCommand } from "@aws-sdk/client-geo-places";
@@ -51,8 +110,7 @@ const client = new GeoPlacesClient({
 
 // Create the reverse geocode request
 const params = {
-  Position: [${store?.queryPosition?.[0] || 0}, ${store?.queryPosition?.[1] || 0}], // [longitude, latitude]
-  MaxResults: ${store?.maxResults || 1}
+${buildParamsObject()}
 };
 
 // Make the request
@@ -66,8 +124,10 @@ client = boto3.client('geo-places', region_name='us-east-1')  # Replace with you
 
 # Create the reverse geocode request
 params = {
-    'Position': [${store?.queryPosition?.[0] || 0}, ${store?.queryPosition?.[1] || 0}],  # [longitude, latitude]
-    'MaxResults': ${store?.maxResults || 1}
+${buildParamsObject()
+	.split("\n")
+	.map(line => `    ${line.replace("  ", "")}`)
+	.join("\n")}
 }
 
 # Make the request
@@ -80,15 +140,27 @@ client = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your re
 
 # Create the reverse geocode request
 params = {
-  position: [${store?.queryPosition?.[0] || 0}, ${store?.queryPosition?.[1] || 0}],  # [longitude, latitude]
-  max_results: ${store?.maxResults || 1}
+${buildParamsObject()
+	.split("\n")
+	.map(line => `  ${line.replace("  ", "")}`)
+	.join("\n")}
 }
 
 # Make the request
 response = client.reverse_geocode(params)
 puts response`
 		};
-	}, [apiPlaygroundItem?.codeSnippets, store, apiPlaygroundItem?.id]);
+	}, [
+		apiPlaygroundItem?.codeSnippets,
+		store?.queryPosition,
+		store?.maxResults,
+		store?.language,
+		store?.politicalView,
+		store?.intendedUse,
+		store?.queryRadius,
+		store?.additionalFeatures,
+		store?.includePlaceTypes
+	]);
 
 	const handleCopyUrl = async () => {
 		try {
