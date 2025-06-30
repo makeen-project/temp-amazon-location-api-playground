@@ -2,7 +2,6 @@ import { ChangeEvent, useEffect, useState } from "react";
 
 import { IconClose } from "@api-playground/assets/svgs";
 import { useMap } from "@api-playground/hooks";
-import { useCustomRequestStore } from "@api-playground/stores";
 
 import { Button, Flex, Input, Label } from "@aws-amplify/ui-react";
 import "./styles.scss";
@@ -54,7 +53,7 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 		if (onChange) {
 			const lngNum = parseFloat(lngValue);
 			const latNum = parseFloat(lat);
-			const newPosition = [lngNum, latNum];
+			const newPosition = [isNaN(lngNum) ? 0 : lngNum, isNaN(latNum) ? 0 : latNum];
 			onChange(newPosition);
 		}
 	};
@@ -65,7 +64,7 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 		if (onChange) {
 			const lngNum = parseFloat(lng);
 			const latNum = parseFloat(latValue);
-			const newPosition = [lngNum, latNum];
+			const newPosition = [isNaN(lngNum) ? 0 : lngNum, isNaN(latNum) ? 0 : latNum];
 			onChange(newPosition);
 		}
 	};

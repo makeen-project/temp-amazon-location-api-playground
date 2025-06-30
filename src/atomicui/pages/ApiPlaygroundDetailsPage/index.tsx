@@ -7,6 +7,7 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 
 import { IconBackArrow } from "@api-playground/assets/svgs";
 import { Content } from "@api-playground/atomicui/atoms/Content";
+import { HintMessage } from "@api-playground/atomicui/atoms/HintMessage";
 import { MapMarker } from "@api-playground/atomicui/molecules";
 import CustomRequest from "@api-playground/atomicui/organisms/CustomRequest";
 import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
@@ -15,6 +16,7 @@ import { useMap } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useCustomRequestStore } from "@api-playground/stores";
+import { CustomRequestStore } from "@api-playground/stores/useCustomRequestStore";
 import { uuid } from "@api-playground/utils";
 import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { bbox, circle } from "@turf/turf";
@@ -30,8 +32,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
-	const customRequestStore = useCustomRequestStore();
-	const { setClickedPosition } = useMap();
+	const customRequestStore = useCustomRequestStore() as CustomRequestStore;
+	const { setClickedPosition, clickedPosition } = useMap();
 
 	const mapRef = useRef<MapRef | null>(null);
 	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -41,6 +43,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [activeMarker, setActiveMarker] = useState(false);
 
 	const [searchValue, setSearchValue] = useState("");
+	const [message, setMessage] = useState<string | undefined>(undefined);
 
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
 	const position = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
@@ -51,6 +54,29 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const placeId = resultItem?.PlaceId || uuid.randomUUID();
 	const label = resultItem?.Address?.Label || "Unknown location";
 	const address = { Label: label };
+
+	// Calculate missing required fields and message when customRequestStore or apiPlaygroundItem changes
+	useEffect(() => {
+		if (!apiPlaygroundItem) return;
+
+		const requiredFields = (apiPlaygroundItem.formFields || []).filter((f: any) => f.required);
+		const hasMissingRequired = requiredFields.some((f: any) => {
+			const key = f.name as keyof CustomRequestStore;
+			const val = customRequestStore[key];
+
+			if (Array.isArray(val))
+				return (
+					val.length === 0 ||
+					val.every(v => (typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false))
+				);
+			if (typeof val === "string") return val === "" || val === "0";
+			if (typeof val === "number") return val === 0;
+
+			return val === undefined || val === null;
+		});
+
+		setMessage(hasMissingRequired ? apiPlaygroundItem.missingFieldsMessage : undefined);
+	}, [customRequestStore, apiPlaygroundItem, clickedPosition]);
 
 	const navigate = useNavigate();
 
@@ -239,6 +265,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
 							/>
 						)}
+
+						{/* Centralized message above the map */}
+						{message && <HintMessage message={message} />}
 
 						<RequestSnippets
 							key={`snippets-${customRequestStore.response ? "with-response" : "no-response"}`}

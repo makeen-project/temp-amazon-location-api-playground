@@ -9,6 +9,7 @@
 				"title": "Reverse Geocode Playground",
 				"description": "The Reverse Geocode API transforms geographic coordinates into human-readable addresses or place names. Provide latitude and longitude to receive detailed location information, including formatted address components. Optional parameters allow you to refine results, such as specifying the language for the response. The API returns a JSON response with address details and any additional requested information.\n\nThis API is ideal for applications that need to display user-friendly addresses based on map clicks, GPS data, or device location. It supports localization, enabling results in multiple languages, and can be tailored to return specific address components or place types. The API is optimized for real-time use cases, such as ride-sharing, delivery tracking, and asset management, where accurate and up-to-date address information is critical. Additionally, it integrates seamlessly with other mapping and geospatial services, making it a versatile tool for developers building location-aware applications.",
 				"shouldRenderMap": true,
+				"missingFieldsMessage": "Click the map to reverse geocode",
 				"requestParams": [],
 				"buildSampleButton": {
 					"text": "Build a sample Reverse Geocoding solution",
@@ -271,6 +272,7 @@
 				"submitButtonText": "Geocode",
 				"imageSource": "images/Map2.png",
 				"title": "Geocode Playground",
+				"missingFieldsMessage": "Enter an address to geocode",
 				"description": "The Geocode API transforms addresses or place names into geographic coordinates with detailed location information. Use the Query parameter for free-form text input or QueryComponents for structured queries. Optional parameters include BiasPosition, Filter, Language, and AdditionalFeatures. The API returns coordinates, formatted address components, and any additional requested information.",
 				"shouldRenderMap": false,
 				"requestParams": [],
