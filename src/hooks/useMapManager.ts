@@ -48,7 +48,8 @@ const useMapManager = ({
 		mapStyle,
 		mapColorScheme,
 		mapPoliticalView,
-		mapLanguage
+		mapLanguage,
+		setZoom
 	} = useMap();
 	const { t } = useTranslation();
 	const apiKeyRegion = useMemo(

@@ -126,6 +126,13 @@ const Map = forwardRef<MapRef, MapProps>(
 			[onGeoLocateError]
 		);
 
+		const handleMapClick = useCallback(
+			(e: any) => {
+				onMapClick?.(e);
+			},
+			[onMapClick]
+		);
+
 		const _GeolocateControl = useMemo(
 			() => (
 				<>
@@ -207,7 +214,7 @@ const Map = forwardRef<MapRef, MapProps>(
 					onDragEnd={({ viewState }) => {
 						setBiasPosition([viewState.longitude, viewState.latitude]);
 					}}
-					// onClick={handleMapClickEvent}
+					onClick={handleMapClick}
 					onLoad={handleMapLoad}
 					onError={error => errorHandler(error.error)}
 					onIdle={() => gridLoader && setGridLoader(false)}

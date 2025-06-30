@@ -1,6 +1,8 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
 import { IconClose } from "@api-playground/assets/svgs";
+import { useMap } from "@api-playground/hooks";
+import { useCustomRequestStore } from "@api-playground/stores";
 
 import { Button, Flex, Input, Label } from "@aws-amplify/ui-react";
 import "./styles.scss";
@@ -17,6 +19,7 @@ interface LngLatProps {
 export default function LngLat({ onChange, defaultValue, value, isRequired, isDisabled, name }: LngLatProps) {
 	const [lng, setLng] = useState<string>(value?.[0]?.toString() || defaultValue?.[0]?.toString() || "");
 	const [lat, setLat] = useState<string>(value?.[1]?.toString() || defaultValue?.[1]?.toString() || "");
+	const { clickedPosition } = useMap();
 
 	useEffect(() => {
 		if (defaultValue) {
@@ -25,13 +28,34 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 		}
 	}, [defaultValue]);
 
+	useEffect(() => {
+		if (value) {
+			setLng(value[0]?.toString() || "");
+			setLat(value[1]?.toString() || "");
+		}
+	}, [value]);
+
+	// Use clickedPosition from map store when both inputs are empty
+	useEffect(() => {
+		const isLngEmpty = !lng || lng === "0" || lng === "0.0" || parseFloat(lng) === 0;
+		const isLatEmpty = !lat || lat === "0" || lat === "0.0" || parseFloat(lat) === 0;
+
+		if (clickedPosition && clickedPosition.length === 2 && isLngEmpty && isLatEmpty && onChange) {
+			const [clickedLng, clickedLat] = clickedPosition;
+			setLng(clickedLng.toString());
+			setLat(clickedLat.toString());
+			onChange([clickedLng, clickedLat]);
+		}
+	}, [clickedPosition, lng, lat, onChange]);
+
 	const handleLngChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const lngValue = e.target.value;
 		setLng(lngValue);
 		if (onChange) {
 			const lngNum = parseFloat(lngValue);
 			const latNum = parseFloat(lat);
-			onChange([lngNum, latNum]);
+			const newPosition = [lngNum, latNum];
+			onChange(newPosition);
 		}
 	};
 
@@ -41,7 +65,8 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 		if (onChange) {
 			const lngNum = parseFloat(lng);
 			const latNum = parseFloat(latValue);
-			onChange([lngNum, latNum]);
+			const newPosition = [lngNum, latNum];
+			onChange(newPosition);
 		}
 	};
 
@@ -49,7 +74,8 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 		setLng("");
 		if (onChange) {
 			const latNum = parseFloat(lat);
-			onChange([0, isNaN(latNum) ? 0 : latNum]);
+			const newPosition = [0, isNaN(latNum) ? 0 : latNum];
+			onChange(newPosition);
 		}
 	};
 
@@ -57,7 +83,8 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 		setLat("");
 		if (onChange) {
 			const lngNum = parseFloat(lng);
-			onChange([isNaN(lngNum) ? 0 : lngNum, 0]);
+			const newPosition = [isNaN(lngNum) ? 0 : lngNum, 0];
+			onChange(newPosition);
 		}
 	};
 

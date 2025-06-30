@@ -31,8 +31,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 	const customRequestStore = useCustomRequestStore();
+	const { setClickedPosition } = useMap();
 
 	const mapRef = useRef<MapRef | null>(null);
+	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
@@ -56,7 +58,34 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		setIsFullScreen(prev => !prev);
 	}, [apiPlaygroundId, isFullScreen]);
 
-	const handleMapClick = useCallback((e: any) => {}, [apiPlaygroundId]);
+	const handleMapClick = useCallback(
+		(e: { lngLat: { lng: number; lat: number } }) => {
+			const { lng, lat } = e.lngLat;
+			// Update the clickedPosition in the map store
+			setClickedPosition([lng, lat]);
+
+			// Clear any existing timeout
+			if (resetTimeoutRef.current) {
+				clearTimeout(resetTimeoutRef.current);
+			}
+
+			// Set a new timeout to reset clickedPosition after 1.5 seconds
+			resetTimeoutRef.current = setTimeout(() => {
+				setClickedPosition([]);
+			}, 1500);
+		},
+		[setClickedPosition]
+	);
+
+	// Cleanup timeout on unmount
+	useEffect(() => {
+		return () => {
+			if (resetTimeoutRef.current) {
+				clearTimeout(resetTimeoutRef.current);
+			}
+		};
+	}, []);
+
 	const handleMapZoom = useCallback((e: any) => {}, [apiPlaygroundId]);
 	const handleMapDragEnd = useCallback((e: any) => {}, [apiPlaygroundId]);
 	const handleMapLoad = useCallback(() => {}, [apiPlaygroundId]);

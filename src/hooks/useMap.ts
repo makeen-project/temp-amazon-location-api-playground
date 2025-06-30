@@ -66,6 +66,9 @@ const useMap = () => {
 			setBiasPosition: (biasPosition: number[]) => {
 				setState({ biasPosition });
 			},
+			setClickedPosition: (clickedPosition: number[]) => {
+				setState({ clickedPosition });
+			},
 			setMapLanguage: (mapLanguage: { value: string; label: string }) => {
 				setState({ mapLanguage });
 			},
