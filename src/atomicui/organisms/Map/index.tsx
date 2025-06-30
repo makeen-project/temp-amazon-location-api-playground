@@ -198,6 +198,7 @@ const Map = forwardRef<MapRef, MapProps>(
 					}
 					mapStyle={mapStyleWithLanguageUrl}
 					minZoom={2}
+					maxZoom={14.3}
 					maxBounds={
 						show.unauthSimulation && show.unauthSimulationBounds
 							? isDesktop
