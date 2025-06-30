@@ -111,6 +111,7 @@ export interface ApiPlaygroundItem {
 	formContent?: FormContentConfig;
 	apiHandler?: ApiHandlerConfig;
 	codeSnippets?: CodeSnippetConfig;
+	missingFieldsMessage?: string;
 }
 
 export type ApiPlaygroundList = ApiPlaygroundItem[];

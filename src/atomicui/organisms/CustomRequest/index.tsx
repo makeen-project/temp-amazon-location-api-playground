@@ -189,8 +189,49 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 
 	// Sync URL state with store state
 	useEffect(() => {
-		Object.assign(store, urlState);
-	}, [urlState, store]);
+		// Only update if urlState exists and is different from current store
+		if (urlState && typeof urlState === "object") {
+			// Check if any values actually changed to prevent infinite loops
+			let hasChanges = false;
+			const updatedStore = { ...store };
+
+			Object.keys(urlState).forEach(key => {
+				const urlValue = (urlState as any)[key];
+				const currentValue = (store as any)[key];
+
+				// Deep comparison for arrays
+				if (Array.isArray(urlValue)) {
+					const isDifferent =
+						!Array.isArray(currentValue) ||
+						urlValue.length !== currentValue.length ||
+						urlValue.some((val: any, index: number) => val !== currentValue[index]);
+
+					if (isDifferent) {
+						(updatedStore as any)[key] = [...urlValue];
+						hasChanges = true;
+					}
+				}
+				// Deep comparison for objects
+				else if (urlValue && typeof urlValue === "object") {
+					const isDifferent = JSON.stringify(urlValue) !== JSON.stringify(currentValue);
+					if (isDifferent) {
+						(updatedStore as any)[key] = { ...urlValue };
+						hasChanges = true;
+					}
+				}
+				// Simple comparison for primitives
+				else if (urlValue !== currentValue) {
+					(updatedStore as any)[key] = urlValue;
+					hasChanges = true;
+				}
+			});
+
+			// Only update store if there are actual changes
+			if (hasChanges) {
+				setState(updatedStore);
+			}
+		}
+	}, [urlState, store]); // Removed setState from dependencies to prevent infinite loop
 
 	// Notify parent when response is received
 	useEffect(() => {
@@ -254,7 +295,7 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 				(newState as any)[key] = value;
 		}
 
-		Object.assign(store, newState);
+		// Only update URL state, let the useEffect handle store updates
 		setUrlState(newState);
 	};
 
