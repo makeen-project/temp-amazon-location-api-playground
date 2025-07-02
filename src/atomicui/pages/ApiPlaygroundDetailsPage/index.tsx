@@ -158,7 +158,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			} else {
 				// Fallback to center on position with default zoom
 				mapRef.current?.flyTo({
-					center: [lng, lat],
+					center: [lng + 0.0076, lat - 0.003],
 					zoom: 15,
 					duration: 2000
 				});
