@@ -308,13 +308,6 @@
 						"placeholder": "Enter an address or place name"
 					},
 					{
-						"type": "lngLatInput",
-						"name": "biasPosition",
-						"label": "Bias Position",
-						"required": false,
-						"placeholder": "Optional bias coordinates"
-					},
-					{
 						"type": "multiSelect",
 						"name": "additionalFeatures",
 						"label": "Additional Features",
