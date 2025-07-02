@@ -90,6 +90,11 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			// Update the clickedPosition in the map store
 			setClickedPosition([lng, lat]);
 
+			// Close active marker when map is clicked
+			if (activeMarker) {
+				setActiveMarker(false);
+			}
+
 			// Clear any existing timeout
 			if (resetTimeoutRef.current) {
 				clearTimeout(resetTimeoutRef.current);
@@ -100,7 +105,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				setClickedPosition([]);
 			}, 1500);
 		},
-		[setClickedPosition]
+		[setClickedPosition, activeMarker]
 	);
 
 	// Cleanup timeout on unmount
@@ -122,6 +127,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const handleMarkerToggle = useCallback((isActive: boolean) => {
 		setActiveMarker(isActive);
+	}, []);
+
+	const handleMarkerActivate = useCallback(() => {
+		setActiveMarker(true);
 	}, []);
 
 	const handleCustomResponse = useCallback(() => {
@@ -254,7 +263,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						{showMapMarker && resultItem && (
 							<MapMarker
 								active={activeMarker}
-								onClosePopUp={handleClose}
+								onClosePopUp={handleMarkerClose}
+								onActivate={handleMarkerActivate}
 								searchValue={searchValue}
 								setSearchValue={setSearchValue}
 								placeId={placeId}

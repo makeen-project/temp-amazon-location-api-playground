@@ -4,6 +4,9 @@
     align-items: start;
     gap: 40px;
     padding: 30px;
-    z-index: 4;
-    position: relative;
+
+    .amplify-accordion {
+        z-index: 4;
+        position: relative;    
+    }
 }
