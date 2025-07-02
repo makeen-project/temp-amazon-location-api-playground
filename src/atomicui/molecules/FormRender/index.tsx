@@ -336,7 +336,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						{...commonProps}
 						placeholder={field.placeholder}
 						onChange={value => handleChange(field.name, value)}
-						value={field.value}
 						ref={ref => {
 							if (ref) {
 								addressRefs.current.set(field.name, ref);

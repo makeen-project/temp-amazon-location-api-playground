@@ -31,7 +31,7 @@ interface AddressInputProps {
 	onChange?: (address: string) => void;
 	placeholder?: string;
 	label: string;
-	value?: string;
+	isRequired?: boolean;
 }
 
 export interface AddressInputRef {
@@ -39,7 +39,7 @@ export interface AddressInputRef {
 }
 
 const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
-	({ onChange, label, placeholder = "Enter an address...", value }, ref) => {
+	({ onChange, label, placeholder = "Enter an address...", isRequired }, ref) => {
 		const autocompleteRef = useRef<HTMLInputElement>(null);
 		const { suggestions, search, isSearching } = usePlace();
 		const [localValue, setLocalValue] = useState("");
@@ -153,6 +153,7 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 					isLoading={isSearching}
 					className="address-autocomplete"
 					borderRadius={"20px"}
+					required={isRequired}
 				/>
 			</View>
 		);
