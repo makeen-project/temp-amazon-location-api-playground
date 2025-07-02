@@ -446,7 +446,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	return (
 		<Accordion title="Customize Request" defaultOpen={true} contentClassName="form-render-accordion">
 			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
-				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" minHeight="250px">
+				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem">
 					{content && <Content {...content} />}
 					{requiredFields.map(renderField)}
 
