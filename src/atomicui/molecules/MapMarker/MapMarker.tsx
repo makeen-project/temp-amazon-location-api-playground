@@ -14,6 +14,7 @@ import { Marker } from "react-map-gl/maplibre";
 interface Props extends SuggestionType {
 	active?: boolean;
 	onClosePopUp?: () => void;
+	onMarkerClick?: () => void;
 	searchValue: string;
 	setSearchValue: (v: string) => void;
 	placeId: string;
@@ -29,6 +30,7 @@ interface Props extends SuggestionType {
 const MapMarker: FC<Props> = ({
 	active,
 	onClosePopUp,
+	onMarkerClick,
 	searchValue,
 	setSearchValue,
 	placeId,
@@ -102,6 +104,9 @@ const MapMarker: FC<Props> = ({
 					e.originalEvent.preventDefault();
 					e.originalEvent.stopPropagation();
 					await select(info.id);
+					if (onMarkerClick) {
+						onMarkerClick();
+					}
 				}}
 			>
 				{active || isHovered ? <IconSelected /> : <IconSuggestion onMouseOver={() => setHover(info)} />}

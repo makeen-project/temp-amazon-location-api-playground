@@ -1,36 +1,45 @@
-import { useQueryStates } from "nuqs";
+import { createParser, useQueryStates } from "nuqs";
 
-export interface UseUrlStateOptions<T extends object> {
-	defaultValue: T;
-	paramName?: string;
-}
-
-export function useUrlState<T extends object>(options: UseUrlStateOptions<T>) {
-	const { defaultValue, paramName = "state" } = options;
-
-	const [state, setState] = useQueryStates({
-		[paramName]: {
-			defaultValue,
-			parse: (value: string) => {
-				try {
-					return JSON.parse(value) as T;
-				} catch {
-					return defaultValue;
+export function useUrlState<T extends object>(defaultValue: T) {
+	const [state, setState] = useQueryStates(
+		Object.entries(defaultValue).reduce((acc, [key, value]) => {
+			acc[key] = createParser({
+				parse: (query: string) => {
+					try {
+						return query ? JSON.parse(query) : value;
+					} catch (e) {
+						return value;
+					}
+				},
+				serialize: (val: unknown) => {
+					try {
+						return JSON.stringify(val ?? value);
+					} catch (e) {
+						return JSON.stringify(value);
+					}
 				}
-			},
-			serialize: (value: T) => JSON.stringify(value)
+			}).withDefault(value);
+			return acc;
+		}, {} as Record<string, ReturnType<typeof createParser>>),
+		{
+			history: "push",
+			shallow: false,
+			throttleMs: 0
 		}
-	});
+	);
 
-	const getShareableUrl = () => {
-		return window.location.href;
-	};
+	function resetUrlState() {
+		const resetState = Object.keys(defaultValue).reduce((acc, key) => {
+			acc[key] = undefined;
+			return acc;
+		}, {} as Record<string, undefined>);
+		setState(resetState);
+	}
 
 	return {
-		urlState: state[paramName],
-		setUrlState: (newState: T) => {
-			setState({ [paramName]: newState });
-		},
-		shareableUrl: getShareableUrl()
+		urlState: state,
+		setUrlState: setState,
+		shareableUrl: window.location.href,
+		resetUrlState
 	};
 }

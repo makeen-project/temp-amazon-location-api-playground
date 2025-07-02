@@ -139,3 +139,4 @@ export { ReactComponent as IconLocationPin } from "./icon-location-pin.svg";
 export { ReactComponent as IconHashtag } from "./icon-hashtag.svg";
 export { ReactComponent as IconExpand } from "./icon-expand.svg";
 export { ReactComponent as IconCollapse } from "./icon-collapse.svg";
+export { ReactComponent as IconShare } from "./icon-share.svg";

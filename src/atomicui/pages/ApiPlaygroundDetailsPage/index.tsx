@@ -5,7 +5,7 @@
 
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 
-import { IconBackArrow } from "@api-playground/assets/svgs";
+import { IconBackArrow, IconShare } from "@api-playground/assets/svgs";
 import { Content } from "@api-playground/atomicui/atoms/Content";
 import { HintMessage } from "@api-playground/atomicui/atoms/HintMessage";
 import { MapMarker } from "@api-playground/atomicui/molecules";
@@ -41,6 +41,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [activeMarker, setActiveMarker] = useState(false);
+	const [mapLoaded, setMapLoaded] = useState(false);
 
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
@@ -48,8 +49,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
 	const position = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
 
-	// Show marker when there's a response
-	const showMapMarker = customRequestStore?.response && (position?.length === 2 || position?.length === 2);
+	// Show marker when there's a response and valid position
+	const showMapMarker =
+		customRequestStore?.response && position?.length === 2 && position.every(coord => !isNaN(coord));
 
 	const placeId = resultItem?.PlaceId || uuid.randomUUID();
 	const label = resultItem?.Address?.Label || "Unknown location";
@@ -114,24 +116,32 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const handleMapZoom = useCallback((e: any) => {}, [apiPlaygroundId]);
 	const handleMapDragEnd = useCallback((e: any) => {}, [apiPlaygroundId]);
-	const handleMapLoad = useCallback(() => {}, [apiPlaygroundId]);
-
-	const handleMarkerClose = useCallback(() => {
-		setActiveMarker(false);
-	}, []);
-
-	const handleMarkerToggle = useCallback((isActive: boolean) => {
-		setActiveMarker(isActive);
-	}, []);
 
 	const handleCustomResponse = useCallback(() => {
+		// Get the latest position data from the store
+		const resultItem = customRequestStore.response?.ResultItems?.[0];
+		const currentPosition = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
+
+		// Ensure position is valid before proceeding
+		if (!currentPosition || currentPosition.length !== 2 || currentPosition.some(isNaN)) {
+			console.warn("Invalid position data received");
+			return;
+		}
+
 		setActiveMarker(true);
 
-		// Fly to the marker with zoom that accommodates the circle
-		if (position?.length === 2) {
-			const [lng, lat] = position;
-			const queryRadius = customRequestStore.queryRadius;
+		const [lng, lat] = currentPosition;
+		const queryRadius = customRequestStore.queryRadius;
 
+		// Handle zoom behavior based on query radius
+		try {
+			console.log({
+				queryRadius,
+				lng,
+				lat,
+				activeMarker,
+				showMapMarker
+			});
 			if (queryRadius && queryRadius > 0) {
 				// Create circle to get its bounding box
 				const radiusInKm = queryRadius / 1000;
@@ -163,8 +173,30 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					duration: 2000
 				});
 			}
+		} catch (error) {
+			console.error("Error updating map view:", error);
 		}
-	}, [position, customRequestStore.queryRadius]);
+	}, [customRequestStore]);
+
+	const handleMapLoad = useCallback(() => {
+		if (customRequestStore.response) {
+			setTimeout(() => {
+				handleCustomResponse();
+			}, 500);
+		}
+	}, [customRequestStore.response, handleCustomResponse]);
+
+	const handleMarkerClose = useCallback(() => {
+		setActiveMarker(false);
+	}, []);
+
+	const handleMarkerToggle = useCallback((isActive: boolean) => {
+		setActiveMarker(isActive);
+	}, []);
+
+	const handleMarkerClick = useCallback(() => {
+		setActiveMarker(true);
+	}, []);
 
 	const handleClose = useCallback(() => {
 		handleMarkerClose();
@@ -221,7 +253,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 									: navigator.clipboard.writeText(window.location.href)
 							}
 						>
-							<span className="share-icon">🔗</span>Share
+							<IconShare width={14} height={14} className="share-icon" />
+							Share
 						</Button>
 						<View className="related-resources">
 							<Text fontWeight={600} fontSize="1rem" marginBottom={"0.5rem"} className="related-title">
@@ -263,6 +296,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								id={placeId}
 								label={label}
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
+								onMarkerClick={handleMarkerClick}
 							/>
 						)}
 

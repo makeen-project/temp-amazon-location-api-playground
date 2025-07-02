@@ -3,22 +3,22 @@
 		"reverseGeocode": [
 			{
 				"type": "reverseGeocode",
-				"submitButtonText": "Reverse Geocode",
+				"submitButtonText": "ReverseGeocode",
 				"id": "reverse-geocode",
 				"imageSource": "images/Map1.png",
-				"title": "Reverse Geocode Playground",
-				"description": "The Reverse Geocode API transforms geographic coordinates into human-readable addresses or place names. Provide latitude and longitude to receive detailed location information, including formatted address components. Optional parameters allow you to refine results, such as specifying the language for the response. The API returns a JSON response with address details and any additional requested information.\n\nThis API is ideal for applications that need to display user-friendly addresses based on map clicks, GPS data, or device location. It supports localization, enabling results in multiple languages, and can be tailored to return specific address components or place types. The API is optimized for real-time use cases, such as ride-sharing, delivery tracking, and asset management, where accurate and up-to-date address information is critical. Additionally, it integrates seamlessly with other mapping and geospatial services, making it a versatile tool for developers building location-aware applications.",
+				"title": "ReverseGeocode API Playground",
+				"description": "The Reverse Geocode API converts latitude/Longitude into human-readable addresses.Use [[QueryPosition]] with latitude/longitude. Optional parameters include [[BiasPosition]], [[Filter]], and [[MaxResults]].The response contains [[ResultItems]] with [[Address]], [[Position]], and Optional [[TimeZone]] data. Use [[AdditionalFeatures]] to request extra information like time zones.",
 				"shouldRenderMap": true,
 				"missingFieldsMessage": "Click the map to reverse geocode",
 				"requestParams": [],
 				"buildSampleButton": {
-					"text": "Build a sample Reverse Geocoding solution",
+					"text": "Build a sample ReverseGeocode Solution",
 					"link": "https://docs.aws.amazon.com/location/latest/developerguide/reverse-geocoding.html"
 				},
 				"relatedResources": [
 					{
 						"text": "Reverse Geocode API documentation",
-						"link": "https://docs.aws.amazon.com/location/latest/developerguide/reverse-geocoding.html"
+						"link": "https://docs.aws.amazon.com/location/latest/developerguide/what-is.html"
 					},
 					{
 						"text": "Geocode Developer Guide",
@@ -249,18 +249,14 @@
 					]
 				},
 				"codeSnippets": {
-					"JavaScript": "import { GeoPlacesClient, ReverseGeocodeCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the reverse geocode request\nconst params = {\n  'QueryPosition': [{{queryPosition}}], // [longitude, latitude]\n  'MaxResults': {{maxResults}},\n  'Language': \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\"\n  IntendedUse: {{intendedUse}},\n  QueryRadius: {{queryRadius}},\n  AdditionalFeatures: {{additionalFeatures}}, \n  Filter: {\n    IncludePlaceTypes: {{includePlaceTypes}} \n  }\n};\n\n// Make the request\nconst command = new ReverseGeocodeCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
-					"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the reverse geocode request\nparams = {\n    'QueryPosition': [{{queryPosition}}],  # [longitude, latitude]\n    'MaxResults': {{maxResults}},\n    'Language': '{{language}}',\n    'PoliticalView': '{{politicalView}}'\n     'IntendedUse': {{intendedUse}},\n     'QueryRadius': {{queryRadius}},\n     'AdditionalFeatures': {{additionalFeatures}},\n     'Filter': {\n        'IncludePlaceTypes': {{includePlaceTypes}} \n    }\n}\n\n# Make the request\nresponse = client.reverse_geocode(**params)\nprint(response)",
-					"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the reverse geocode request\nparams = {\n  query_position: [{{queryPosition}}],  # [longitude, latitude]\n  max_results: {{maxResults}},\n  language: '{{language}}',\n  political_view: '{{politicalView}}',\n  intended_use: {{intendedUse}},\n  query_radius: {{queryRadius}},\n  additional_features: {{additionalFeatures}},\n  filter: {\n    include_place_types: {{includePlaceTypes}} \n  }\n}\n\n# Make the request\nresponse = client.reverse_geocode(params)\nputs response",
+					"JavaScript": "import { GeoPlacesClient, ReverseGeocodeCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the reverse geocode request\nconst params = {\n  QueryPosition: [{{queryPosition}}], // [longitude, latitude]\n  MaxResults: {{maxResults}},\n  Language: \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\"\n};\n\n// Make the request\nconst command = new ReverseGeocodeCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
+					"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the reverse geocode request\nparams = {\n    'QueryPosition': [{{queryPosition}}],  # [longitude, latitude]\n    'MaxResults': {{maxResults}},\n    'Language': '{{language}}',\n    'PoliticalView': '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.reverse_geocode(**params)\nprint(response)",
+					"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the reverse geocode request\nparams = {\n  query_position: [{{queryPosition}}],  # [longitude, latitude]\n  max_results: {{maxResults}},\n  language: '{{language}}',\n  political_view: '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.reverse_geocode(params)\nputs response",
 					"paramPlaceholders": {
 						"queryPosition": "0, 0",
 						"maxResults": "1",
 						"language": "en",
-						"politicalView": "US",
-						"intendedUse": "\"SingleUse\"",
-						"queryRadius": "1000",
-						"additionalFeatures": "[]",
-						"includePlaceTypes": "[]"
+						"politicalView": "US"
 					}
 				}
 			}

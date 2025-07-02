@@ -42,3 +42,23 @@
     display: none;
   }
 }
+
+.submit-button {
+  width: 100%;
+
+  &:disabled {
+    background-color: #0082964d;
+    color: white;
+  }
+}
+
+.accordion-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: bottom;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
