@@ -13,6 +13,7 @@ interface QueryRadiusCircleProps {
 
 const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
 	const { queryPosition, queryRadius, response } = useCustomRequestStore();
+
 	const sourceId = "query-radius-circle-source";
 	const layerId = "query-radius-circle-layer";
 
@@ -43,6 +44,10 @@ const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
 	useEffect(() => {
 		const map = mapRef?.current?.getMap();
 		if (!map || !queryPosition || queryPosition.length !== 2 || !queryRadius || queryRadius <= 0) {
+			return;
+		}
+
+		if (!response) {
 			return;
 		}
 

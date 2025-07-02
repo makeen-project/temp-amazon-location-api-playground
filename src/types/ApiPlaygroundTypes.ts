@@ -45,7 +45,19 @@ export interface FormFieldOption {
 }
 
 export interface FormFieldConfig {
-	type: "text" | "number" | "textarea" | "slider" | "radio" | "dropdown" | "checkbox" | "address" | "sliderWithInput" | "multiSelect" | "latLonInput" | "lngLatInput";
+	type:
+		| "text"
+		| "number"
+		| "textarea"
+		| "slider"
+		| "radio"
+		| "dropdown"
+		| "checkbox"
+		| "address"
+		| "sliderWithInput"
+		| "multiSelect"
+		| "latLonInput"
+		| "lngLatInput";
 	name: string;
 	label: string;
 	required?: boolean;

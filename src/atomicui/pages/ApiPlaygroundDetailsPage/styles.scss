@@ -76,7 +76,7 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		font-size: 15px;
-		line-height: 1.5;
+		line-height: 1.9;
 		margin-top: 4px;
 		transition: -webkit-line-clamp 0.2s;
 	}
@@ -137,7 +137,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: background 0.2s, border 0.2s;
+		background-color: #e5e5ea;
+		transition:
+			background 0.2s,
+			border 0.2s;
 	}
 	.share-btn:hover {
 		background: #e5e7eb;
@@ -166,7 +169,9 @@
 		color: #00819d;
 		font-weight: 600;
 		text-decoration: none;
-		transition: text-decoration 0.2s, color 0.2s;
+		transition:
+			text-decoration 0.2s,
+			color 0.2s;
 	}
 	.related-links a:hover {
 		text-decoration: underline;

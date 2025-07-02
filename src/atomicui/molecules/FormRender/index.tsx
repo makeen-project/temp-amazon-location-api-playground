@@ -2,7 +2,7 @@ import React from "react";
 
 import { IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
-import { Button, Divider, Flex, TextAreaField, TextField } from "@aws-amplify/ui-react";
+import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
 
 import { Accordion } from "../../atoms/Accordion";
 import { Content } from "../../atoms/Content";
@@ -164,6 +164,8 @@ interface FormRenderProps {
 	className?: string;
 	submitButtonText?: string;
 	content?: ContentProps;
+	submitButtonDisabled?: boolean;
+	onReset?: () => void;
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
@@ -172,7 +174,9 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	onChange,
 	className = "",
 	submitButtonText = "Submit",
-	content
+	content,
+	submitButtonDisabled = false,
+	onReset
 }) => {
 	const handleChange = (name: string, value: unknown) => {
 		onChange?.({
@@ -392,10 +396,17 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const requiredFields = fields.filter(field => field.required);
 	const optionalFields = fields.filter(field => !field.required);
 
-	const handleReset = () => {
+	const handleReset = (event?: React.MouseEvent) => {
+		if (event) {
+			event.preventDefault();
+		}
+
 		fields.forEach(field => {
+			if (field.disabled) return;
+
 			switch (field.type) {
 				case "multiSelect":
+					handleChange(field.name, field.defaultValue);
 				case "checkbox":
 					handleChange(field.name, []);
 					break;
@@ -407,27 +418,45 @@ export const FormRender: React.FC<FormRenderProps> = ({
 				case "lngLatInput":
 					handleChange(field.name, []);
 					break;
-				default:
+				case "radio":
+				case "dropdown":
 					handleChange(field.name, "");
+					break;
+				case "text":
+				case "textarea":
+				case "address":
+				case "latLonInput":
+					handleChange(field.name, "");
+					break;
 			}
 		});
 
-		location.search = "";
+		onReset?.();
 	};
 
 	return (
-		<Accordion title="Customize Request" defaultOpen={true} contentClassName="form-render-accordion">
+		<Accordion
+			title={<View className="accordion-title">Customize Request</View>}
+			defaultOpen={true}
+			contentClassName="form-render-accordion"
+		>
 			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
 				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" minHeight="250px">
 					{content && <Content {...content} />}
 					{requiredFields.map(renderField)}
 
 					<Flex gap="1rem">
-						<Button size="small" onClick={handleReset} type="reset">
+						<Button size="small" onClick={handleReset}>
 							<IconReloadLined width={20} height={20} color="black" />
 						</Button>
 						{onSubmit && (
-							<Button width={"100%"} type="submit" variation="primary">
+							<Button
+								width={"100%"}
+								className="submit-button"
+								type="submit"
+								variation="primary"
+								isDisabled={submitButtonDisabled}
+							>
 								{submitButtonText}
 							</Button>
 						)}

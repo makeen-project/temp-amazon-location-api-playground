@@ -34,7 +34,9 @@ export interface CustomRequestStore {
 
 export const initialState: IStateProps<CustomRequestStore> = {
 	queryPosition: [],
-	isLoading: false
+	isLoading: false,
+	maxResults: 1,
+	queryRadius: 1
 };
 
 export default createStore<CustomRequestStore>(initialState);

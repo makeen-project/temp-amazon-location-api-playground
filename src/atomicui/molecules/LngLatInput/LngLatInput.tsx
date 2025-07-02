@@ -16,107 +16,59 @@ interface LngLatProps {
 }
 
 export default function LngLat({ onChange, defaultValue, value, isRequired, isDisabled, name }: LngLatProps) {
-	const [lng, setLng] = useState<string>(value?.[0]?.toString() || defaultValue?.[0]?.toString() || "");
-	const [lat, setLat] = useState<string>(value?.[1]?.toString() || defaultValue?.[1]?.toString() || "");
-	const { clickedPosition } = useMap();
+	const [coordinates, setCoordinates] = useState<[string, string]>([
+		value?.[0]?.toString() || defaultValue?.[0]?.toString() || "",
+		value?.[1]?.toString() || defaultValue?.[1]?.toString() || ""
+	]);
 
-	useEffect(() => {
-		if (defaultValue) {
-			setLng(defaultValue[0]?.toString() || "");
-			setLat(defaultValue[1]?.toString() || "");
-		}
-	}, [defaultValue]);
-
+	// Update internal state when value prop changes
 	useEffect(() => {
 		if (value) {
-			setLng(value[0]?.toString() || "");
-			setLat(value[1]?.toString() || "");
+			setCoordinates([value[0]?.toString() || "", value[1]?.toString() || ""]);
 		}
 	}, [value]);
 
-	// Use clickedPosition from map store when both inputs are empty
+	// Update internal state when defaultValue changes
 	useEffect(() => {
-		const isLngEmpty = !lng || lng === "0" || lng === "0.0" || parseFloat(lng) === 0;
-		const isLatEmpty = !lat || lat === "0" || lat === "0.0" || parseFloat(lat) === 0;
-
-		if (clickedPosition && clickedPosition.length === 2 && isLngEmpty && isLatEmpty && onChange) {
-			const [clickedLng, clickedLat] = clickedPosition;
-			setLng(clickedLng.toString());
-			setLat(clickedLat.toString());
-			onChange([clickedLng, clickedLat]);
+		if (defaultValue && !value) {
+			setCoordinates([defaultValue[0]?.toString() || "", defaultValue[1]?.toString() || ""]);
 		}
-	}, [clickedPosition, lng, lat, onChange]);
+	}, [defaultValue, value]);
 
-	const handleLngChange = (e: ChangeEvent<HTMLInputElement>) => {
-		const lngValue = e.target.value;
-		setLng(lngValue);
+	const handleCoordinateChange = (index: 0 | 1) => (e: ChangeEvent<HTMLInputElement>) => {
+		const newValue = e.target.value;
+		const newCoordinates: [string, string] = [...coordinates] as [string, string];
+		newCoordinates[index] = newValue;
+		setCoordinates(newCoordinates);
+
 		if (onChange) {
-			const lngNum = parseFloat(lngValue);
-			const latNum = parseFloat(lat);
-			const newPosition = [isNaN(lngNum) ? 0 : lngNum, isNaN(latNum) ? 0 : latNum];
-			onChange(newPosition);
+			// Only convert to numbers if both values are present
+			if (newCoordinates[0] && newCoordinates[1]) {
+				const [lng, lat] = newCoordinates.map(coord => parseFloat(coord));
+				onChange([lng, lat]);
+			}
 		}
 	};
 
-	const handleLatChange = (e: ChangeEvent<HTMLInputElement>) => {
-		const latValue = e.target.value;
-		setLat(latValue);
+	const clearCoordinate = (index: 0 | 1) => () => {
+		const newCoordinates: [string, string] = [...coordinates] as [string, string];
+		newCoordinates[index] = "";
+		setCoordinates(newCoordinates);
+
 		if (onChange) {
-			const lngNum = parseFloat(lng);
-			const latNum = parseFloat(latValue);
-			const newPosition = [isNaN(lngNum) ? 0 : lngNum, isNaN(latNum) ? 0 : latNum];
-			onChange(newPosition);
+			// Only call onChange if both values are present
+			if (newCoordinates[0] && newCoordinates[1]) {
+				const [lng, lat] = newCoordinates.map(coord => parseFloat(coord));
+				onChange([lng, lat]);
+			}
 		}
 	};
 
-	const clearLng = () => {
-		setLng("");
-		if (onChange) {
-			const latNum = parseFloat(lat);
-			const newPosition = [0, isNaN(latNum) ? 0 : latNum];
-			onChange(newPosition);
-		}
-	};
-
-	const clearLat = () => {
-		setLat("");
-		if (onChange) {
-			const lngNum = parseFloat(lng);
-			const newPosition = [isNaN(lngNum) ? 0 : lngNum, 0];
-			onChange(newPosition);
-		}
-	};
+	const [lng, lat] = coordinates;
 
 	return (
 		<Flex direction="column" gap="0.1rem">
 			<div className="lnglat-container">
-				<div className="input-wrapper">
-					<Label htmlFor={`${name}-longitude-input`} className="input-label">
-						Longitude
-					</Label>
-					<div className="input-container">
-						<Input
-							id={`${name}-longitude-input`}
-							name={`${name}-longitude`}
-							type="number"
-							inputMode="decimal"
-							className="input-field"
-							value={lng}
-							onChange={handleLngChange}
-							required={isRequired}
-							disabled={isDisabled}
-							placeholder="e.g., -122.4194"
-							min="-180"
-							max="180"
-							step="any"
-						/>
-						{lng && (
-							<Button className="clear-button" onClick={clearLng} size="small">
-								<IconClose />
-							</Button>
-						)}
-					</div>
-				</div>
 				<div className="input-wrapper">
 					<Label htmlFor={`${name}-latitude-input`} className="input-label">
 						Latitude
@@ -129,16 +81,43 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 							inputMode="decimal"
 							className="input-field"
 							value={lat}
-							onChange={handleLatChange}
+							onChange={handleCoordinateChange(1)}
 							required={isRequired}
 							disabled={isDisabled}
-							placeholder="e.g., 37.7749"
+							placeholder="Enter longitude"
 							min="-90"
 							max="90"
 							step="any"
 						/>
 						{lat && (
-							<Button className="clear-button" onClick={clearLat} size="small">
+							<Button className="clear-button" onClick={clearCoordinate(1)} size="small">
+								<IconClose />
+							</Button>
+						)}
+					</div>
+				</div>
+				<div className="input-wrapper">
+					<Label htmlFor={`${name}-longitude-input`} className="input-label">
+						Longitude
+					</Label>
+					<div className="input-container">
+						<Input
+							id={`${name}-longitude-input`}
+							name={`${name}-longitude`}
+							type="number"
+							inputMode="decimal"
+							className="input-field"
+							value={lng}
+							onChange={handleCoordinateChange(0)}
+							required={isRequired}
+							disabled={isDisabled}
+							placeholder="Enter longitude"
+							min="-180"
+							max="180"
+							step="any"
+						/>
+						{lng && (
+							<Button className="clear-button" onClick={clearCoordinate(0)} size="small">
 								<IconClose />
 							</Button>
 						)}

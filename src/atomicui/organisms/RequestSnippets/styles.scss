@@ -4,6 +4,7 @@
 	right: 2rem;
 	top: 2rem;
 	z-index: 4;
+	max-width: 45vw;
 
 	&__snippet {
 		margin: 0px 10px;
@@ -16,7 +17,9 @@
 
 			& > .amplify-text {
 				color: #232f3e;
-				font-weight: 600;
+				font-weight: 700;
+				font-size: 13px;
+				font-family: "AmazonEmber-Medium";
 			}
 		}
 
@@ -28,6 +31,7 @@
 			.amplify-text {
 				color: #636366;
 				word-break: break-all;
+				font-family: "AmazonEmber-Regular";
 			}
 		}
 	}
