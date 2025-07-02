@@ -48,7 +48,8 @@ export const convertFormFieldConfigToFormField = (
 		case "address":
 			return {
 				...baseField,
-				type: "address" as const
+				type: "address" as const,
+				value: value as string
 			};
 
 		case "latLonInput":

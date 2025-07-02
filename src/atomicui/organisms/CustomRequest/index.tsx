@@ -170,9 +170,10 @@ type StoreType = CustomRequestStore & BaseStateProps;
 
 interface CustomRequestProps {
 	onResponseReceived?: () => void;
+	onReset?: () => void;
 }
 
-export default function CustomRequest({ onResponseReceived }: CustomRequestProps) {
+export default function CustomRequest({ onResponseReceived, onReset }: CustomRequestProps) {
 	useAuthManager();
 
 	const { apiPlaygroundId } = useParams();
@@ -299,6 +300,32 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 		setUrlState(newState);
 	};
 
+	const handleReset = () => {
+		// Create reset state with initial values
+		const resetState = {
+			queryPosition: [],
+			additionalFeatures: undefined,
+			includePlaceTypes: undefined,
+			intendedUse: undefined,
+			apiKey: undefined,
+			language: undefined,
+			maxResults: undefined,
+			politicalView: undefined,
+			queryRadius: undefined,
+			response: undefined,
+			isLoading: false,
+			error: undefined
+		};
+
+		// Reset store to initial state using setState
+		setState(resetState);
+
+		// Completely clear URL state by setting it to null
+		setUrlState(null as any);
+
+		onReset?.();
+	};
+
 	const handleSubmit = async () => {
 		try {
 			// Set loading state
@@ -394,6 +421,7 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 				content={getFormContent()}
 				fields={createFormFields(urlState || {})}
 				onChange={handleChange}
+				onReset={handleReset}
 				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
 				onSubmit={handleSubmit}
 			/>

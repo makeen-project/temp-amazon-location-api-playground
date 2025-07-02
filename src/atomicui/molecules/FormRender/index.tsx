@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
@@ -9,7 +9,7 @@ import { Content } from "../../atoms/Content";
 import { Dropdown, DropdownOption } from "../../atoms/Dropdown/Dropdown";
 import { RadioButtonGroup } from "../../atoms/RadioButton/RadioButton";
 import { Slider } from "../../atoms/Slider/Slider";
-import AddressInput from "../AddressInput";
+import AddressInput, { AddressInputRef } from "../AddressInput";
 import { AutoCompleteLatLonInput } from "../AutoCompleteLatLonInput";
 import CheckboxGroup from "../CheckboxGroup";
 import LngLatInput from "../LngLatInput/LngLatInput";
@@ -102,6 +102,7 @@ interface CheckboxFieldConfig extends BaseField {
 // Address field specific interface
 interface AddressFieldConfig extends BaseField {
 	type: "address";
+	value: string;
 }
 
 // SliderWithInput field specific interface
@@ -161,6 +162,7 @@ interface FormRenderProps {
 	fields: FormField[];
 	onSubmit?: (formData: Record<string, unknown>) => void;
 	onChange?: (props: { name: string; value: unknown }) => void;
+	onReset?: () => void;
 	className?: string;
 	submitButtonText?: string;
 	content?: ContentProps;
@@ -170,10 +172,13 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	fields,
 	onSubmit,
 	onChange,
+	onReset,
 	className = "",
 	submitButtonText = "Submit",
 	content
 }) => {
+	// Create a map to store refs for address input fields
+	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
 	const handleChange = (name: string, value: unknown) => {
 		onChange?.({
 			name,
@@ -331,6 +336,14 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						{...commonProps}
 						placeholder={field.placeholder}
 						onChange={value => handleChange(field.name, value)}
+						value={field.value}
+						ref={ref => {
+							if (ref) {
+								addressRefs.current.set(field.name, ref);
+							} else {
+								addressRefs.current.delete(field.name);
+							}
+						}}
 					/>
 				);
 
@@ -395,7 +408,22 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const handleReset = () => {
 		fields.forEach(field => {
 			switch (field.type) {
+				case "address":
+					// Use the ref to clear the address input
+					const addressRef = addressRefs.current.get(field.name);
+					if (addressRef) {
+						addressRef.clear();
+					} else {
+						// Fallback to handleChange if ref is not available
+						handleChange(field.name, undefined);
+					}
+					break;
 				case "multiSelect":
+					handleChange(field.name, undefined);
+					break;
+				case "text":
+					handleChange(field.name, undefined);
+					break;
 				case "checkbox":
 					handleChange(field.name, []);
 					break;
@@ -412,7 +440,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			}
 		});
 
-		location.search = "";
+		// Call the onReset callback if provided to handle NUQS state reset
+		onReset?.();
 	};
 
 	return (

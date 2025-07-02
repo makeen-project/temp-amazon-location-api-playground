@@ -258,7 +258,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						onMapDragEnd={handleMapDragEnd}
 						onMapLoad={handleMapLoad}
 					>
-						<CustomRequest onResponseReceived={handleCustomResponse} />
+						<CustomRequest onResponseReceived={handleCustomResponse} onReset={handleClose} />
 
 						{showMapMarker && resultItem && (
 							<MapMarker
