@@ -389,13 +389,10 @@
 					"type": "list",
 					"items": [
 						{
-							"text": "Enter an address or place name in the query field"
+							"text": "Enter an address and click 'Geocode"
 						},
 						{
-							"text": "Optionally set bias position and other parameters"
-						},
-						{
-							"text": "Click [[Geocode]] to get coordinates and location details"
+							"text": "Results will be displayed and shown on the map"
 						}
 					]
 				},
