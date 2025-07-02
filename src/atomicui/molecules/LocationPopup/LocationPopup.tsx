@@ -159,18 +159,18 @@ const Popup: FC<PopupProps> = ({
 									<View className="coordinate-value capped-text">{placeId}</View>
 								</View>
 							)}
-							{locationPopupConfig.showLongitude && (
-								<View className="coordinate-row">
-									<IconHashtag />
-									<View className="coordinate-label">Longitude</View>
-									<View className="coordinate-value">{position[0]}</View>
-								</View>
-							)}
 							{locationPopupConfig.showLatitude && (
 								<View className="coordinate-row">
 									<IconHashtag />
 									<View className="coordinate-label">Latitude</View>
 									<View className="coordinate-value">{position[1]}</View>
+								</View>
+							)}
+							{locationPopupConfig.showLongitude && (
+								<View className="coordinate-row">
+									<IconHashtag />
+									<View className="coordinate-label">Longitude</View>
+									<View className="coordinate-value">{position[0]}</View>
 								</View>
 							)}
 						</View>
