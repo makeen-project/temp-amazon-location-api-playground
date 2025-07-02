@@ -303,7 +303,7 @@
 					{
 						"type": "address",
 						"name": "query",
-						"label": "Address Query",
+						"label": "Address",
 						"required": true,
 						"placeholder": "Enter an address or place name"
 					},
