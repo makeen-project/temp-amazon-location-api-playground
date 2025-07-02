@@ -14,6 +14,7 @@ import "./styles.scss";
 
 const SNIPPETS_COLLAPSED_WIDTH = 400;
 const SNIPPETS_EXPANDED_WIDTH = 750;
+const MIN_SECTION_HEIGHT = 120; // Minimum height for expandable sections - matches $min-section-height in SCSS
 
 type TabType = "JavaScript" | "Python" | "Ruby";
 
@@ -26,6 +27,9 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 }) => {
 	const store = useCustomRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
+	const [isUrlExpanded, setIsUrlExpanded] = useState(false);
+	const [isResponseExpanded, setIsResponseExpanded] = useState(false);
+	const [isCodeSnippetsExpanded, setIsCodeSnippetsExpanded] = useState(false);
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 
@@ -237,8 +241,24 @@ puts response`
 								<Text>Copy</Text>
 							</Button>
 						</View>
-						<View className="snippets-container__snippet__content">
+						<View
+							className={`snippets-container__snippet__content expandable ${!isUrlExpanded ? "collapsed" : ""}`}
+							style={{
+								maxHeight: isUrlExpanded ? "none" : `${MIN_SECTION_HEIGHT}px`,
+								overflow: isUrlExpanded ? "visible" : "hidden"
+							}}
+						>
 							<Text>{shareableUrl}</Text>
+							{shareableUrl && shareableUrl.length > 100 && (
+								<Button
+									size="small"
+									variation="link"
+									onClick={() => setIsUrlExpanded(!isUrlExpanded)}
+									className="toggle-button"
+								>
+									{isUrlExpanded ? "Hide" : "Show more"}
+								</Button>
+							)}
 						</View>
 					</View>
 
@@ -252,13 +272,27 @@ puts response`
 								<Text>Copy</Text>
 							</Button>
 						</View>
-						<View className="snippets-container__snippet__content">
+						<View
+							className={`snippets-container__snippet__content expandable ${!isResponseExpanded ? "collapsed" : ""}`}
+							style={{
+								maxHeight: isResponseExpanded ? "none" : `${MIN_SECTION_HEIGHT}px`,
+								overflow: isResponseExpanded ? "visible" : "hidden"
+							}}
+						>
 							{response ? (
-								<pre style={{ margin: 0, fontSize: "0.875rem", whiteSpace: "pre-wrap" }}>
-									{JSON.stringify(response, null, 2)}
-								</pre>
+								<pre className="response-pre">{JSON.stringify(response, null, 2)}</pre>
 							) : (
 								<Text color="var(--tertiary-color)">No response yet. Submit a request to see the response.</Text>
+							)}
+							{response && (
+								<Button
+									size="small"
+									variation="link"
+									onClick={() => setIsResponseExpanded(!isResponseExpanded)}
+									className="toggle-button"
+								>
+									{isResponseExpanded ? "Hide" : "Show more"}
+								</Button>
 							)}
 						</View>
 					</View>
@@ -274,22 +308,38 @@ puts response`
 							</Button>
 						</View>
 
-						<Tabs
-							justifyContent="flex-start"
-							defaultValue="JavaScript"
-							value={selectedTab}
-							onValueChange={handleTabChange}
-							onClick={e => e.preventDefault()}
-							items={[
-								{
-									label: "JavaScript",
-									value: "JavaScript",
-									content: renderCodeBlock(CODE_SNIPPETS.JavaScript, "javascript")
-								},
-								{ label: "Python", value: "Python", content: renderCodeBlock(CODE_SNIPPETS.Python, "python") },
-								{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby, "ruby") }
-							]}
-						/>
+						<View
+							className="expandable-container"
+							style={{
+								maxHeight: isCodeSnippetsExpanded ? "none" : `${MIN_SECTION_HEIGHT}px`,
+								overflow: isCodeSnippetsExpanded ? "visible" : "hidden"
+							}}
+						>
+							<Tabs
+								justifyContent="flex-start"
+								defaultValue="JavaScript"
+								value={selectedTab}
+								onValueChange={handleTabChange}
+								onClick={e => e.preventDefault()}
+								items={[
+									{
+										label: "JavaScript",
+										value: "JavaScript",
+										content: renderCodeBlock(CODE_SNIPPETS.JavaScript, "javascript")
+									},
+									{ label: "Python", value: "Python", content: renderCodeBlock(CODE_SNIPPETS.Python, "python") },
+									{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby, "ruby") }
+								]}
+							/>
+							<Button
+								size="small"
+								variation="link"
+								onClick={() => setIsCodeSnippetsExpanded(!isCodeSnippetsExpanded)}
+								className="toggle-button"
+							>
+								{isCodeSnippetsExpanded ? "Hide" : "Show more"}
+							</Button>
+						</View>
 					</View>
 				</form>
 			</Accordion>

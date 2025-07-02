@@ -1,6 +1,48 @@
+// Variables
+$min-section-height: 120px;
+$border-radius: 8px;
+$content-border-radius: 10px;
+$toggle-button-border-radius: 4px;
+$transition-duration: 0.3s;
+$primary-color: #232f3e;
+$secondary-color: #636366;
+$background-color: #f2f2f7;
+$toggle-button-bg: rgba(255, 255, 255, 0.95);
+$toggle-button-color: #666;
+$toggle-button-border: rgba(0, 0, 0, 0.1);
+$toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+// Mixins
+@mixin expandable-transition {
+	transition: max-height $transition-duration ease-in-out;
+}
+
+@mixin toggle-button-base {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	background: $toggle-button-bg;
+	padding: 4px 8px;
+	border-radius: $toggle-button-border-radius;
+	font-size: 0.75rem;
+	color: $toggle-button-color;
+	border: 1px solid $toggle-button-border;
+	box-shadow: $toggle-button-shadow;
+	z-index: 2;
+}
+
+@mixin gradient-overlay {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	pointer-events: none;
+}
+
 .snippets-container {
 	position: absolute;
-	border-radius: 8px;
+	border-radius: $border-radius;
 	right: 2rem;
 	top: 2rem;
 	z-index: 4;
@@ -15,19 +57,50 @@
 			padding-bottom: 6px;
 
 			& > .amplify-text {
-				color: #232f3e;
+				color: $primary-color;
 				font-weight: 600;
 			}
 		}
 
 		&__content {
-			background-color: #f2f2f7;
+			background-color: $background-color;
 			padding: 10px;
-			border-radius: 10px;
+			border-radius: $content-border-radius;
+			position: relative;
 
 			.amplify-text {
-				color: #636366;
+				color: $secondary-color;
 				word-break: break-all;
+			}
+
+			// Add a subtle gradient overlay when collapsed to indicate more content
+			&::after {
+				@include gradient-overlay;
+				height: 20px;
+				background: linear-gradient(transparent, rgba(242, 242, 247, 0.8));
+				opacity: 0;
+				transition: opacity $transition-duration ease-in-out;
+			}
+
+			&.collapsed::after {
+				opacity: 1;
+			}
+
+			// Improve transitions for expandable content
+			&.collapsed {
+				position: relative;
+				
+				&::before {
+					@include gradient-overlay;
+					height: 30px;
+					background: linear-gradient(transparent, rgba(242, 242, 247, 0.95));
+					z-index: 1;
+				}
+			}
+
+			// Expandable section styles
+			&.expandable {
+				@include expandable-transition;
 			}
 		}
 	}
@@ -87,6 +160,7 @@
 		display: none;
 	}
 }
+
 .snippets-form {
 	width: 100%;
 	display: flex;
@@ -109,4 +183,27 @@
 	&:hover {
 		background-color: #f5f5f5 !important;
 	}
+}
+
+// Toggle button styles
+.toggle-button {
+	@include toggle-button-base;
+
+	&:hover {
+		background: rgba(255, 255, 255, 1);
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+	}
+}
+
+// Expandable container styles
+.expandable-container {
+	position: relative;
+	@include expandable-transition;
+}
+
+// Response pre styles
+.response-pre {
+	margin: 0;
+	font-size: 0.875rem;
+	white-space: pre-wrap;
 }

@@ -437,7 +437,12 @@ export const FormRender: React.FC<FormRenderProps> = ({
 				{optionalFields.length > 0 && (
 					<Flex direction={"column"} flex={1} gap={0}>
 						<Divider />
-						<Accordion shadowEnabled={false} title="Optional Parameters" contentClassName="optional-items">
+						<Accordion
+							shadowEnabled={false}
+							defaultOpen={true}
+							title="Optional Parameters"
+							contentClassName="optional-items"
+						>
 							<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem">
 								{optionalFields.map(renderField)}
 							</Flex>
