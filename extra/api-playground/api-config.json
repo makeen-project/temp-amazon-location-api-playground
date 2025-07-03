@@ -299,16 +299,9 @@
 					{
 						"type": "address",
 						"name": "query",
-						"label": "Address Query",
+						"label": "Address",
 						"required": true,
 						"placeholder": "Enter an address or place name"
-					},
-					{
-						"type": "lngLatInput",
-						"name": "biasPosition",
-						"label": "Bias Position",
-						"required": false,
-						"placeholder": "Optional bias coordinates"
 					},
 					{
 						"type": "multiSelect",
@@ -385,13 +378,10 @@
 					"type": "list",
 					"items": [
 						{
-							"text": "Enter an address or place name in the query field"
+							"text": "Enter an address and click 'Geocode"
 						},
 						{
-							"text": "Optionally set bias position and other parameters"
-						},
-						{
-							"text": "Click [[Geocode]] to get coordinates and location details"
+							"text": "Results will be displayed and shown on the map"
 						}
 					]
 				},

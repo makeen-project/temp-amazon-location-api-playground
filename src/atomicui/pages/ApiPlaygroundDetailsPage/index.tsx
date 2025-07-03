@@ -57,29 +57,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const label = resultItem?.Address?.Label || "Unknown location";
 	const address = { Label: label };
 
-	// Calculate missing required fields and message when customRequestStore or apiPlaygroundItem changes
-	useEffect(() => {
-		if (!apiPlaygroundItem) return;
-
-		const requiredFields = (apiPlaygroundItem.formFields || []).filter((f: any) => f.required);
-		const hasMissingRequired = requiredFields.some((f: any) => {
-			const key = f.name as keyof CustomRequestStore;
-			const val = customRequestStore[key];
-
-			if (Array.isArray(val))
-				return (
-					val.length === 0 ||
-					val.every(v => (typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false))
-				);
-			if (typeof val === "string") return val === "" || val === "0";
-			if (typeof val === "number") return val === 0;
-
-			return val === undefined || val === null;
-		});
-
-		setMessage(hasMissingRequired ? apiPlaygroundItem.missingFieldsMessage : undefined);
-	}, [customRequestStore, apiPlaygroundItem, clickedPosition]);
-
 	const navigate = useNavigate();
 
 	const toggleFullScreen = useCallback(() => {
@@ -92,6 +69,11 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			// Update the clickedPosition in the map store
 			setClickedPosition([lng, lat]);
 
+			// Close active marker when map is clicked
+			if (activeMarker) {
+				setActiveMarker(false);
+			}
+
 			// Clear any existing timeout
 			if (resetTimeoutRef.current) {
 				clearTimeout(resetTimeoutRef.current);
@@ -102,22 +84,30 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				setClickedPosition([]);
 			}, 1500);
 		},
-		[setClickedPosition]
+		[setClickedPosition, activeMarker]
 	);
-
-	// Cleanup timeout on unmount
-	useEffect(() => {
-		return () => {
-			if (resetTimeoutRef.current) {
-				clearTimeout(resetTimeoutRef.current);
-			}
-		};
-	}, []);
 
 	const handleMapZoom = useCallback((e: any) => {}, [apiPlaygroundId]);
 	const handleMapDragEnd = useCallback((e: any) => {}, [apiPlaygroundId]);
 
-	const handleCustomResponse = useCallback(() => {
+	const handleMarkerActivate = useCallback(() => {
+		setActiveMarker(true);
+	}, []);
+
+	const handleMarkerClose = useCallback(() => {
+		setActiveMarker(false);
+	}, []);
+
+	const handleMarkerToggle = useCallback((isActive: boolean) => {
+		setActiveMarker(isActive);
+	}, []);
+
+	const handleClose = useCallback(() => {
+		handleMarkerClose();
+		handleMarkerToggle?.(false);
+	}, [handleMarkerClose, handleMarkerToggle]);
+
+	const handleCustomResponse = () => {
 		// Get the latest position data from the store
 		const resultItem = customRequestStore.response?.ResultItems?.[0];
 		const currentPosition = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
@@ -135,13 +125,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 		// Handle zoom behavior based on query radius
 		try {
-			console.log({
-				queryRadius,
-				lng,
-				lat,
-				activeMarker,
-				showMapMarker
-			});
 			if (queryRadius && queryRadius > 0) {
 				// Create circle to get its bounding box
 				const radiusInKm = queryRadius / 1000;
@@ -168,7 +151,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			} else {
 				// Fallback to center on position with default zoom
 				mapRef.current?.flyTo({
-					center: [lng, lat],
+					center: [lng + 0.0076, lat - 0.003],
 					zoom: 15,
 					duration: 2000
 				});
@@ -176,7 +159,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		} catch (error) {
 			console.error("Error updating map view:", error);
 		}
-	}, [customRequestStore]);
+	};
 
 	const handleMapLoad = useCallback(() => {
 		if (customRequestStore.response) {
@@ -186,22 +169,43 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		}
 	}, [customRequestStore.response, handleCustomResponse]);
 
-	const handleMarkerClose = useCallback(() => {
-		setActiveMarker(false);
-	}, []);
+	// Calculate missing required fields and message when customRequestStore or apiPlaygroundItem changes
+	useEffect(() => {
+		if (!apiPlaygroundItem) return;
 
-	const handleMarkerToggle = useCallback((isActive: boolean) => {
-		setActiveMarker(isActive);
-	}, []);
+		const requiredFields = (apiPlaygroundItem.formFields || []).filter((f: any) => f.required);
+		const hasMissingRequired = requiredFields.some((f: any) => {
+			const key = f.name as keyof CustomRequestStore;
+			const val = customRequestStore[key];
 
-	const handleMarkerClick = useCallback(() => {
-		setActiveMarker(true);
-	}, []);
+			if (Array.isArray(val))
+				return (
+					val.length === 0 ||
+					val.every(v => (typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false))
+				);
+			if (typeof val === "string") return val === "" || val === "0";
+			if (typeof val === "number") return val === 0;
 
-	const handleClose = useCallback(() => {
-		handleMarkerClose();
-		handleMarkerToggle?.(false);
-	}, [handleMarkerClose, handleMarkerToggle]);
+			return val === undefined || val === null;
+		});
+
+		setMessage(hasMissingRequired ? apiPlaygroundItem.missingFieldsMessage : undefined);
+	}, [customRequestStore, apiPlaygroundItem, clickedPosition]);
+
+	useEffect(() => {
+		if (customRequestStore.response) {
+			handleCustomResponse();
+		}
+	}, [customRequestStore.response]);
+
+	// Cleanup timeout on unmount
+	useEffect(() => {
+		return () => {
+			if (resetTimeoutRef.current) {
+				clearTimeout(resetTimeoutRef.current);
+			}
+		};
+	}, []);
 
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
@@ -282,12 +286,13 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						onMapDragEnd={handleMapDragEnd}
 						onMapLoad={handleMapLoad}
 					>
-						<CustomRequest onResponseReceived={handleCustomResponse} />
+						<CustomRequest onResponseReceived={handleCustomResponse} onReset={handleClose} />
 
 						{showMapMarker && resultItem && (
 							<MapMarker
 								active={activeMarker}
-								onClosePopUp={handleClose}
+								onClosePopUp={handleMarkerClose}
+								onActivate={handleMarkerActivate}
 								searchValue={searchValue}
 								setSearchValue={setSearchValue}
 								placeId={placeId}
@@ -296,7 +301,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								id={placeId}
 								label={label}
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
-								onMarkerClick={handleMarkerClick}
 							/>
 						)}
 

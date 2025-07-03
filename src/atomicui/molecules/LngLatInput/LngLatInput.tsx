@@ -16,10 +16,32 @@ interface LngLatProps {
 }
 
 export default function LngLat({ onChange, defaultValue, value, isRequired, isDisabled, name }: LngLatProps) {
+	const { clickedPosition } = useMap();
+
 	const [coordinates, setCoordinates] = useState<[string, string]>([
 		value?.[0]?.toString() || defaultValue?.[0]?.toString() || "",
 		value?.[1]?.toString() || defaultValue?.[1]?.toString() || ""
 	]);
+
+	// Helper function to check if a coordinate value is empty
+	const isCoordinateEmpty = (coord: string | undefined): boolean => {
+		return !coord || coord === "" || coord === "0" || coord === "0.0" || parseFloat(coord) === 0;
+	};
+
+	// Use clickedPosition from map store when both inputs are empty
+	useEffect(() => {
+		const [currentLng, currentLat] = coordinates;
+		const isLngEmpty = isCoordinateEmpty(currentLng);
+		const isLatEmpty = isCoordinateEmpty(currentLat);
+
+		if (clickedPosition && clickedPosition.length === 2 && isLngEmpty && isLatEmpty && onChange) {
+			const [clickedLng, clickedLat] = clickedPosition;
+			setTimeout(() => {
+				setCoordinates([clickedLng.toString(), clickedLat.toString()]);
+				onChange([parseFloat(clickedLng.toString()), parseFloat(clickedLat.toString())]);
+			}, 100);
+		}
+	}, [clickedPosition, onChange]);
 
 	// Update internal state when value prop changes
 	useEffect(() => {

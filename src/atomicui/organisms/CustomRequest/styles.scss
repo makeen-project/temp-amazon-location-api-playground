@@ -4,4 +4,9 @@
     top: 2rem;
     z-index: 4;
     max-width: 45vw;
+
+    .amplify-accordion {
+        z-index: 4;
+        position: relative;    
+    }
 }

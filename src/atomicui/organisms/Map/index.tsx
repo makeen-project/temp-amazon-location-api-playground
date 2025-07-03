@@ -158,7 +158,7 @@ const Map = forwardRef<MapRef, MapProps>(
 						position="bottom-right"
 						positionOptions={{ enableHighAccuracy: true }}
 						showUserLocation
-						showAccuracyCircle={true}
+						showAccuracyCircle={false}
 						onGeolocate={onGeoLocate}
 						onError={handleGeoLocateError}
 					/>

@@ -22,9 +22,10 @@ import "./styles.scss";
 
 interface CustomRequestProps {
 	onResponseReceived?: (response: ReverseGeocodeCommandOutput | GeocodeCommandOutput) => void;
+	onReset?: () => void;
 }
 
-export default function CustomRequest({ onResponseReceived }: CustomRequestProps) {
+export default function CustomRequest({ onResponseReceived, onReset }: CustomRequestProps) {
 	useAuthManager();
 	const isFirstLoad = useRef(true);
 
@@ -96,30 +97,34 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 		});
 	};
 
-	const router = useNavigate();
-
 	const handleReset = () => {
-		setUrlState({
-			...initialState,
-			response: ""
-		});
+		// Create reset state with initial values
+		const resetState = {
+			queryPosition: [],
+			additionalFeatures: undefined,
+			includePlaceTypes: undefined,
+			intendedUse: undefined,
+			apiKey: undefined,
+			language: undefined,
+			maxResults: undefined,
+			politicalView: undefined,
+			queryRadius: undefined,
+			response: undefined,
+			isLoading: false,
+			error: undefined
+		};
 
-		searchParams.delete("response");
+		// Reset store to initial state using setState
+		setState(resetState);
 
-		// Then reset store state to initial values
-		setState({
-			...initialState,
-			...initialUrlState
-		});
+		// Completely clear URL state by setting it to null
+		setUrlState(null as any);
+
+		onReset?.();
 	};
 
 	const handleSubmit = async () => {
 		try {
-			if (!store.queryPosition || store.queryPosition.length !== 2) {
-				setState({ ...store, error: "Query Position is required and must contain longitude and latitude" });
-				return;
-			}
-
 			const params = mapFormDataToApiParams(store, apiPlaygroundItem?.apiHandler?.paramMapping || {});
 			const apiMethod = apiPlaygroundItem?.apiHandler?.apiMethod as keyof typeof placeService;
 
@@ -165,9 +170,9 @@ export default function CustomRequest({ onResponseReceived }: CustomRequestProps
 				fields={formFields}
 				content={convertFormContentConfigToContentProps(apiPlaygroundItem?.formContent || { type: "list", items: [] })}
 				onChange={handleChange}
-				onSubmit={handleSubmit}
 				onReset={handleReset}
-				submitButtonText={t("ReverseGeocode")}
+				onSubmit={handleSubmit}
+				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
 			/>
 		</div>
 	);
