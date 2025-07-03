@@ -5,7 +5,7 @@
 
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 
-import { IconBackArrow } from "@api-playground/assets/svgs";
+import { IconBackArrow, IconShare } from "@api-playground/assets/svgs";
 import { Content } from "@api-playground/atomicui/atoms/Content";
 import { HintMessage } from "@api-playground/atomicui/atoms/HintMessage";
 import { MapMarker } from "@api-playground/atomicui/molecules";
@@ -41,6 +41,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [activeMarker, setActiveMarker] = useState(false);
+	const [mapLoaded, setMapLoaded] = useState(false);
 
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
@@ -48,35 +49,13 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
 	const position = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
 
-	// Show marker when there's a response
-	const showMapMarker = customRequestStore?.response && (position?.length === 2 || position?.length === 2);
+	// Show marker when there's a response and valid position
+	const showMapMarker =
+		customRequestStore?.response && position?.length === 2 && position.every(coord => !isNaN(coord));
 
 	const placeId = resultItem?.PlaceId || uuid.randomUUID();
 	const label = resultItem?.Address?.Label || "Unknown location";
 	const address = { Label: label };
-
-	// Calculate missing required fields and message when customRequestStore or apiPlaygroundItem changes
-	useEffect(() => {
-		if (!apiPlaygroundItem) return;
-
-		const requiredFields = (apiPlaygroundItem.formFields || []).filter((f: any) => f.required);
-		const hasMissingRequired = requiredFields.some((f: any) => {
-			const key = f.name as keyof CustomRequestStore;
-			const val = customRequestStore[key];
-
-			if (Array.isArray(val))
-				return (
-					val.length === 0 ||
-					val.every(v => (typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false))
-				);
-			if (typeof val === "string") return val === "" || val === "0";
-			if (typeof val === "number") return val === 0;
-
-			return val === undefined || val === null;
-		});
-
-		setMessage(hasMissingRequired ? apiPlaygroundItem.missingFieldsMessage : undefined);
-	}, [customRequestStore, apiPlaygroundItem, clickedPosition]);
 
 	const navigate = useNavigate();
 
@@ -108,18 +87,12 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		[setClickedPosition, activeMarker]
 	);
 
-	// Cleanup timeout on unmount
-	useEffect(() => {
-		return () => {
-			if (resetTimeoutRef.current) {
-				clearTimeout(resetTimeoutRef.current);
-			}
-		};
-	}, []);
-
 	const handleMapZoom = useCallback((e: any) => {}, [apiPlaygroundId]);
 	const handleMapDragEnd = useCallback((e: any) => {}, [apiPlaygroundId]);
-	const handleMapLoad = useCallback(() => {}, [apiPlaygroundId]);
+
+	const handleMarkerActivate = useCallback(() => {
+		setActiveMarker(true);
+	}, []);
 
 	const handleMarkerClose = useCallback(() => {
 		setActiveMarker(false);
@@ -129,18 +102,38 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		setActiveMarker(isActive);
 	}, []);
 
-	const handleMarkerActivate = useCallback(() => {
+	const handleClose = useCallback(() => {
+		handleMarkerClose();
+		handleMarkerToggle?.(false);
+	}, [handleMarkerClose, handleMarkerToggle]);
+
+	const handleCustomResponse = () => {
+		// Get the latest position data from the store
+		const resultItem = customRequestStore.response?.ResultItems?.[0];
+		const currentPosition = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
+
+		console.log(
+			"customRequestStore",
+			customRequestStore,
+			resultItem?.Position,
+			customRequestStore?.queryPosition?.map(Number),
+			position
+		);
+		console.log("currentPosition", currentPosition);
+
+		// Ensure position is valid before proceeding
+		if (!currentPosition || currentPosition.length !== 2 || currentPosition.some(isNaN)) {
+			console.warn("Invalid position data received");
+			return;
+		}
+
 		setActiveMarker(true);
-	}, []);
 
-	const handleCustomResponse = useCallback(() => {
-		setActiveMarker(true);
+		const [lng, lat] = currentPosition;
+		const queryRadius = customRequestStore.queryRadius;
 
-		// Fly to the marker with zoom that accommodates the circle
-		if (position?.length === 2) {
-			const [lng, lat] = position;
-			const queryRadius = customRequestStore.queryRadius;
-
+		// Handle zoom behavior based on query radius
+		try {
 			if (queryRadius && queryRadius > 0) {
 				// Create circle to get its bounding box
 				const radiusInKm = queryRadius / 1000;
@@ -172,13 +165,56 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					duration: 2000
 				});
 			}
+		} catch (error) {
+			console.error("Error updating map view:", error);
 		}
-	}, [position, customRequestStore.queryRadius]);
+	};
 
-	const handleClose = useCallback(() => {
-		handleMarkerClose();
-		handleMarkerToggle?.(false);
-	}, [handleMarkerClose, handleMarkerToggle]);
+	const handleMapLoad = useCallback(() => {
+		if (customRequestStore.response) {
+			setTimeout(() => {
+				handleCustomResponse();
+			}, 500);
+		}
+	}, [customRequestStore.response, handleCustomResponse]);
+
+	// Calculate missing required fields and message when customRequestStore or apiPlaygroundItem changes
+	useEffect(() => {
+		if (!apiPlaygroundItem) return;
+
+		const requiredFields = (apiPlaygroundItem.formFields || []).filter((f: any) => f.required);
+		const hasMissingRequired = requiredFields.some((f: any) => {
+			const key = f.name as keyof CustomRequestStore;
+			const val = customRequestStore[key];
+
+			if (Array.isArray(val))
+				return (
+					val.length === 0 ||
+					val.every(v => (typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false))
+				);
+			if (typeof val === "string") return val === "" || val === "0";
+			if (typeof val === "number") return val === 0;
+
+			return val === undefined || val === null;
+		});
+
+		setMessage(hasMissingRequired ? apiPlaygroundItem.missingFieldsMessage : undefined);
+	}, [customRequestStore, apiPlaygroundItem, clickedPosition]);
+
+	useEffect(() => {
+		if (customRequestStore.response) {
+			handleCustomResponse();
+		}
+	}, [customRequestStore.response]);
+
+	// Cleanup timeout on unmount
+	useEffect(() => {
+		return () => {
+			if (resetTimeoutRef.current) {
+				clearTimeout(resetTimeoutRef.current);
+			}
+		};
+	}, []);
 
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
@@ -230,7 +266,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 									: navigator.clipboard.writeText(window.location.href)
 							}
 						>
-							<span className="share-icon">🔗</span>Share
+							<IconShare width={14} height={14} className="share-icon" />
+							Share
 						</Button>
 						<View className="related-resources">
 							<Text fontWeight={600} fontSize="1rem" marginBottom={"0.5rem"} className="related-title">

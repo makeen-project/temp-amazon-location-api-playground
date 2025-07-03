@@ -1,303 +1,100 @@
-import { useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useCallback, useEffect, useRef } from "react";
 
-import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
-import { FormField, FormRender } from "@api-playground/atomicui/molecules/FormRender";
-import { appConfig } from "@api-playground/core/constants";
+import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
 import usePlaceService from "@api-playground/services/usePlaceService";
 import { useCustomRequestStore } from "@api-playground/stores";
-import { CustomRequestStore } from "@api-playground/stores/useCustomRequestStore";
-import { BaseStateProps } from "@api-playground/types/BaseStateProps";
-import { AdditionalFeatures, IntendedUse } from "@api-playground/types/CustomRequestForm";
+import { CustomRequestStore, initialState } from "@api-playground/stores/useCustomRequestStore";
 import { errorHandler } from "@api-playground/utils/errorHandler";
 import {
 	convertFormContentConfigToContentProps,
 	createFormFieldsFromConfig,
-	mapFormDataToApiParams,
-	validateFormData
+	mapFormDataToApiParams
 } from "@api-playground/utils/formConfigUtils";
-import { ReverseGeocodeFilterPlaceType } from "@aws-sdk/client-geo-places";
+import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
+import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useNavigation, useParams } from "react-router-dom";
 import "./styles.scss";
-import { useParams } from "react-router-dom";
-
-const {
-	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
-} = appConfig;
-
-// Fallback form fields for backward compatibility
-const createFallbackFormFields = (urlState: CustomRequestStore): FormField[] => [
-	{
-		type: "lngLatInput",
-		name: "queryPosition",
-		label: "Query Position",
-		required: true,
-		value: urlState?.queryPosition?.map(Number) as number[],
-		disabled: (urlState?.response?.ResultItems?.length ?? 0) > 0
-	},
-	{
-		type: "multiSelect",
-		name: "additionalFeatures",
-		label: "Additional Features",
-		options: [
-			{
-				value: AdditionalFeatures.Access,
-				label: "Access"
-			},
-			{
-				value: AdditionalFeatures.TimeZone,
-				label: "TimeZone"
-			}
-		],
-		required: false,
-		value: urlState?.additionalFeatures
-	},
-	{
-		type: "multiSelect",
-		name: "includePlaceTypes",
-		label: "Include Place Types ",
-		options: [
-			{
-				value: ReverseGeocodeFilterPlaceType.INTERPOLATED_ADDRESS,
-				label: "InterpolatedAddress"
-			},
-			{
-				value: ReverseGeocodeFilterPlaceType.INTERSECTION,
-				label: "Intersection"
-			},
-			{
-				value: ReverseGeocodeFilterPlaceType.LOCALITY,
-				label: "Locality"
-			},
-			{
-				value: ReverseGeocodeFilterPlaceType.POINT_ADDRESS,
-				label: "PointAddress"
-			},
-			{
-				value: ReverseGeocodeFilterPlaceType.STREET,
-				label: "Street"
-			}
-		],
-		required: false,
-		value: urlState?.includePlaceTypes
-	},
-	{
-		type: "radio",
-		name: "intendedUse",
-		label: "Intended use",
-		defaultValue: IntendedUse.SingleUse,
-		options: [
-			{
-				label: "Single use",
-				value: IntendedUse.SingleUse
-			},
-			{
-				label: "Storage",
-				value: IntendedUse.Storage
-			}
-		],
-		required: false,
-		value: urlState?.intendedUse
-	},
-	{
-		type: "text",
-		inputType: "password",
-		name: "apiKey",
-		label: "API Key",
-		required: false,
-		value: urlState?.apiKey
-	},
-	{
-		type: "dropdown",
-		name: "language",
-		label: "Language",
-		options: MAP_LANGUAGES.map(lang => ({
-			label: lang.label,
-			value: lang.value
-		})),
-		required: false,
-		value: urlState?.language
-	},
-	{
-		type: "sliderWithInput",
-		name: "maxResults",
-		label: "Max Results",
-		min: 1,
-		max: 100,
-		step: 1,
-		required: false,
-		value: urlState?.maxResults
-	},
-	{
-		type: "dropdown",
-		name: "politicalView",
-		label: "Political View",
-		options: MAP_POLITICAL_VIEWS.map(i => ({
-			label: i.alpha2,
-			value: i.alpha2
-		})),
-		required: false,
-		value: urlState?.politicalView
-	},
-	{
-		type: "slider",
-		name: "queryRadius",
-		label: "Query Radius",
-		min: 1,
-		max: 21000000,
-		step: 1,
-		required: false,
-		value: urlState.queryRadius
-	}
-];
-
-// Fallback form content for backward compatibility
-const fallbackFormContent: ContentProps = {
-	type: "list",
-	items: [
-		{
-			text: "Click on point on the map or enter coordinates then select [[Reverse Geocode]]"
-		},
-		{
-			text: "Results will be displayed and shown on the map"
-		}
-	]
-};
-
-type StoreType = CustomRequestStore & BaseStateProps;
 
 interface CustomRequestProps {
-	onResponseReceived?: () => void;
+	onResponseReceived?: (response: ReverseGeocodeCommandOutput | GeocodeCommandOutput) => void;
 	onReset?: () => void;
 }
 
 export default function CustomRequest({ onResponseReceived, onReset }: CustomRequestProps) {
 	useAuthManager();
+	const isFirstLoad = useRef(true);
 
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 
 	const store = useCustomRequestStore();
 	const { setState } = useCustomRequestStore;
-	const { urlState, setUrlState } = useUrlState({
-		defaultValue: store,
-		paramName: apiPlaygroundItem?.id
+
+	// Get initial values directly from API config
+	const initialUrlState = (apiPlaygroundItem?.formFields || []).reduce((acc, field) => {
+		const fieldName = field.name as keyof CustomRequestStore;
+		if (field.defaultValue !== undefined) {
+			acc[fieldName] = field.defaultValue;
+		} else if (field.type === "sliderWithInput") {
+			// For slider inputs, always start with 1 as the default value
+			acc[fieldName] = 1;
+		} else {
+			acc[fieldName] = initialState[fieldName];
+		}
+		return acc;
+	}, {} as Record<string, any>);
+
+	const { urlState, setUrlState, resetUrlState } = useUrlState({
+		...initialUrlState,
+		response: undefined
 	});
+	const searchParams = useOptimisticSearchParams();
 	const placeService = usePlaceService();
 	const { t } = useTranslation();
 
-	// Sync URL state with store state
+	const syncUrlState = useCallback(() => {
+		const allSearchParams = Object.fromEntries(searchParams.entries());
+		const parsedSearchParams = Object.fromEntries(
+			Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
+		);
+
+		const response = parsedSearchParams.response ? JSON.parse(parsedSearchParams.response as string) : undefined;
+
+		setState({
+			...initialState, // Start with initial state as base
+			...parsedSearchParams,
+			response
+		});
+	}, []);
+
+	// Update store from URL state only on first load
 	useEffect(() => {
-		// Only update if urlState exists and is different from current store
-		if (urlState && typeof urlState === "object") {
-			// Check if any values actually changed to prevent infinite loops
-			let hasChanges = false;
-			const updatedStore = { ...store };
-
-			Object.keys(urlState).forEach(key => {
-				const urlValue = (urlState as any)[key];
-				const currentValue = (store as any)[key];
-
-				// Deep comparison for arrays
-				if (Array.isArray(urlValue)) {
-					const isDifferent =
-						!Array.isArray(currentValue) ||
-						urlValue.length !== currentValue.length ||
-						urlValue.some((val: any, index: number) => val !== currentValue[index]);
-
-					if (isDifferent) {
-						(updatedStore as any)[key] = [...urlValue];
-						hasChanges = true;
-					}
-				}
-				// Deep comparison for objects
-				else if (urlValue && typeof urlValue === "object") {
-					const isDifferent = JSON.stringify(urlValue) !== JSON.stringify(currentValue);
-					if (isDifferent) {
-						(updatedStore as any)[key] = { ...urlValue };
-						hasChanges = true;
-					}
-				}
-				// Simple comparison for primitives
-				else if (urlValue !== currentValue) {
-					(updatedStore as any)[key] = urlValue;
-					hasChanges = true;
-				}
-			});
-
-			// Only update store if there are actual changes
-			if (hasChanges) {
-				setState(updatedStore);
-			}
+		if (isFirstLoad.current) {
+			syncUrlState();
+			isFirstLoad.current = false;
 		}
-	}, [urlState, store]); // Removed setState from dependencies to prevent infinite loop
-
-	// Notify parent when response is received
-	useEffect(() => {
-		if (store.response && onResponseReceived) {
-			onResponseReceived();
-		}
-	}, [store.response, onResponseReceived]);
-
-	// Create form fields from configuration or fallback
-	const createFormFields = (urlState: CustomRequestStore): FormField[] => {
-		if (apiPlaygroundItem?.formFields) {
-			return createFormFieldsFromConfig(apiPlaygroundItem.formFields, urlState);
-		}
-		return createFallbackFormFields(urlState);
-	};
-
-	// Create form content from configuration or fallback
-	const getFormContent = (): ContentProps => {
-		if (apiPlaygroundItem?.formContent) {
-			return convertFormContentConfigToContentProps(apiPlaygroundItem.formContent);
-		}
-		return fallbackFormContent;
-	};
+	}, [urlState]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
-		const newState = { ...store } as StoreType;
+		// Update store state
+		const newState = {
+			...store,
+			[name]: value,
+			response: undefined,
+			error: undefined
+		};
+		setState(newState);
 
-		// Handle nested fields (e.g., filter.includePlaceTypes)
-		const key = name as keyof CustomRequestStore;
-		switch (key) {
-			case "queryPosition":
-				newState.queryPosition = (value as number[]).map(String);
-				break;
-			case "additionalFeatures":
-				newState.additionalFeatures = value as AdditionalFeatures[];
-				break;
-			case "includePlaceTypes":
-				newState.includePlaceTypes = value as ReverseGeocodeFilterPlaceType[];
-				break;
-			case "intendedUse":
-				newState.intendedUse = value as IntendedUse;
-				break;
-			case "apiKey":
-				newState.apiKey = value as string;
-				break;
-			case "language":
-				newState.language = value as string;
-				break;
-			case "maxResults":
-				newState.maxResults = value as number;
-				break;
-			case "politicalView":
-				newState.politicalView = value as string;
-				break;
-			case "queryRadius":
-				newState.queryRadius = value as number;
-				break;
-			default:
-				// Handle dynamic fields from configuration
-				// eslint-disable-next-line @typescript-eslint/no-explicit-any
-				(newState as any)[key] = value;
-		}
-
-		// Only update URL state, let the useEffect handle store updates
-		setUrlState(newState);
+		// Always update URL state for all form fields
+		setUrlState({
+			...urlState,
+			[name]: value
+		});
 	};
 
 	const handleReset = () => {
@@ -328,102 +125,54 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 
 	const handleSubmit = async () => {
 		try {
-			// Set loading state
-			setState({ isLoading: true, error: undefined });
+			const params = mapFormDataToApiParams(store, apiPlaygroundItem?.apiHandler?.paramMapping || {});
+			const apiMethod = apiPlaygroundItem?.apiHandler?.apiMethod as keyof typeof placeService;
 
-			// Use dynamic validation if available
-			if (apiPlaygroundItem?.apiHandler?.validationRules) {
-				const validation = validateFormData(urlState, apiPlaygroundItem.apiHandler.validationRules);
-				if (!validation.isValid) {
-					const firstError = Object.values(validation.errors)[0];
-					throw new Error(firstError);
-				}
+			if (typeof placeService[apiMethod] === "function") {
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				const response = await (placeService[apiMethod] as any)(params);
+				setState({ ...store, response, error: undefined });
+				setUrlState({ ...urlState, response: JSON.stringify(response) });
+				onResponseReceived?.(response);
 			} else {
-				// Fallback validation for backward compatibility
-				if (!urlState?.queryPosition || urlState?.queryPosition.length !== 2) {
-					throw new Error("Query Position is required and must contain longitude and latitude");
-				}
-			}
-
-			// Use dynamic API call if available
-			if (apiPlaygroundItem?.apiHandler) {
-				const apiParams = mapFormDataToApiParams(urlState, apiPlaygroundItem.apiHandler.paramMapping);
-
-				// Call the appropriate API method
-				const apiMethod = apiPlaygroundItem.apiHandler.apiMethod as keyof typeof placeService;
-				if (typeof placeService[apiMethod] === "function") {
-					// eslint-disable-next-line @typescript-eslint/no-explicit-any
-					const response = await (placeService[apiMethod] as any)(apiParams);
-
-					// Transform response if needed
-					const finalResponse = apiPlaygroundItem.apiHandler.transformResponse
-						? apiPlaygroundItem.apiHandler.transformResponse(response)
-						: response;
-
-					setState({
-						response: finalResponse,
-						isLoading: false,
-						error: undefined
-					});
-
-					const newState = { ...store } as StoreType;
-					setUrlState({
-						...newState,
-						response: finalResponse,
-						isLoading: false,
-						error: undefined
-					});
-				} else {
-					throw new Error(`API method ${apiMethod} not found`);
-				}
-			} else {
-				// Fallback API call for backward compatibility
-				const queryPosition = urlState?.queryPosition.map(Number);
-				const params = {
-					QueryPosition: queryPosition,
-					AdditionalFeatures: urlState?.additionalFeatures,
-					Language: urlState?.language,
-					MaxResults: urlState?.maxResults,
-					PoliticalView: urlState?.politicalView,
-					Filter: {
-						IncludePlaceTypes: urlState?.includePlaceTypes || []
-					}
-				};
-
-				const response = await placeService.getPlaceByCoordinates(params);
-
-				setState({
-					response,
-					isLoading: false,
-					error: undefined
-				});
-
-				const newState = { ...store } as StoreType;
-				setUrlState({
-					...newState,
-					response,
-					isLoading: false,
-					error: undefined
-				});
+				throw new Error(`API method ${apiMethod} not found`);
 			}
 		} catch (error) {
-			setState({
-				isLoading: false,
-				error: error instanceof Error ? error.message : "An error occurred during API call"
-			});
-			errorHandler(error, (t("error_handler__failed_reverse_geocode.text") as string) || "Failed to perform API call");
+			errorHandler(error);
+			setState({ ...store, error: error instanceof Error ? error.message : "An error occurred", response: undefined });
 		}
 	};
+
+	// Create form fields with current store values
+	const formFields = createFormFieldsFromConfig(apiPlaygroundItem?.formFields || [], store);
+
+	// Update form field values from store
+	formFields.forEach(field => {
+		const storeValue = store[field.name as keyof CustomRequestStore];
+		if (storeValue !== undefined) {
+			switch (field.type) {
+				case "checkbox":
+					(field as any).values = Array.isArray(storeValue) ? storeValue : [];
+					break;
+				case "multiSelect":
+				case "lngLatInput":
+					(field as any).value = Array.isArray(storeValue) ? storeValue : [];
+					break;
+				default:
+					(field as any).value = storeValue;
+			}
+		}
+	});
 
 	return (
 		<div className="container">
 			<FormRender
-				content={getFormContent()}
-				fields={createFormFields(urlState || {})}
+				fields={formFields}
+				content={convertFormContentConfigToContentProps(apiPlaygroundItem?.formContent || { type: "list", items: [] })}
 				onChange={handleChange}
 				onReset={handleReset}
-				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
 				onSubmit={handleSubmit}
+				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
 			/>
 		</div>
 	);

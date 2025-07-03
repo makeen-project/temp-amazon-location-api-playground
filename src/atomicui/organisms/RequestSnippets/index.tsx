@@ -226,7 +226,15 @@ puts response`
 							<IconExpand onClick={handleWidthToggle} style={{ cursor: "pointer" }} />
 						)}
 						Request Snippets
-						<Button className="fullscreen-button" style={{ marginLeft: "auto" }} onClick={onFullScreenToggle}>
+						<Button
+							className="fullscreen-button"
+							style={{ marginLeft: "auto" }}
+							onClick={e => {
+								e.stopPropagation();
+								e.preventDefault();
+								onFullScreenToggle();
+							}}
+						>
 							<img src={isFullScreen ? FullScreenOff : FullScreenOn} style={{ width: 15, height: 15 }} />
 						</Button>
 					</View>

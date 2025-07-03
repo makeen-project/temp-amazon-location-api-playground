@@ -46,6 +46,7 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	right: 2rem;
 	top: 2rem;
 	z-index: 4;
+	max-width: 45vw;
 
 	&__snippet {
 		margin: 0px 10px;
@@ -58,7 +59,9 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
 			& > .amplify-text {
 				color: $primary-color;
-				font-weight: 600;
+				font-weight: 700;
+				font-size: 13px;
+				font-family: "AmazonEmber-Medium";
 			}
 		}
 
@@ -71,36 +74,7 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 			.amplify-text {
 				color: $secondary-color;
 				word-break: break-all;
-			}
-
-			// Add a subtle gradient overlay when collapsed to indicate more content
-			&::after {
-				@include gradient-overlay;
-				height: 20px;
-				background: linear-gradient(transparent, rgba(242, 242, 247, 0.8));
-				opacity: 0;
-				transition: opacity $transition-duration ease-in-out;
-			}
-
-			&.collapsed::after {
-				opacity: 1;
-			}
-
-			// Improve transitions for expandable content
-			&.collapsed {
-				position: relative;
-				
-				&::before {
-					@include gradient-overlay;
-					height: 30px;
-					background: linear-gradient(transparent, rgba(242, 242, 247, 0.95));
-					z-index: 1;
-				}
-			}
-
-			// Expandable section styles
-			&.expandable {
-				@include expandable-transition;
+				font-family: "AmazonEmber-Regular";
 			}
 		}
 	}

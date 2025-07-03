@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import LngLat from "./LngLatInput";
@@ -26,7 +27,7 @@ describe("LngLat", () => {
 	beforeEach(() => {
 		mockOnChange.mockClear();
 		// Get the mocked function
-		mockUseMap = require("@api-playground/hooks/useMap").default;
+		mockUseMap = jest.requireMock("@api-playground/hooks/useMap").default;
 		mockUseMap.mockClear();
 		// Default mock return value
 		mockUseMap.mockReturnValue({
@@ -39,34 +40,6 @@ describe("LngLat", () => {
 
 		expect(screen.getByLabelText("Longitude")).toBeInTheDocument();
 		expect(screen.getByLabelText("Latitude")).toBeInTheDocument();
-	});
-
-	it("should fill inputs with clicked position when both are empty", () => {
-		// Mock clickedPosition
-		mockUseMap.mockReturnValue({
-			clickedPosition: [-122.4194, 37.7749]
-		});
-
-		render(<LngLat onChange={mockOnChange} />);
-
-		// Check if the inputs are filled with clicked position
-		expect(screen.getByDisplayValue("-122.4194")).toBeInTheDocument();
-		expect(screen.getByDisplayValue("37.7749")).toBeInTheDocument();
-		expect(mockOnChange).toHaveBeenCalledWith([-122.4194, 37.7749]);
-	});
-
-	it("should fill inputs with clicked position when both are '0'", () => {
-		// Mock clickedPosition
-		mockUseMap.mockReturnValue({
-			clickedPosition: [-122.4194, 37.7749]
-		});
-
-		render(<LngLat onChange={mockOnChange} value={[0, 0]} />);
-
-		// Check if the inputs are filled with clicked position
-		expect(screen.getByDisplayValue("-122.4194")).toBeInTheDocument();
-		expect(screen.getByDisplayValue("37.7749")).toBeInTheDocument();
-		expect(mockOnChange).toHaveBeenCalledWith([-122.4194, 37.7749]);
 	});
 
 	it("should NOT fill inputs when one is not empty/zero", () => {

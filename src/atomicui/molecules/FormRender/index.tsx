@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 import { IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
-import { Button, Divider, Flex, TextAreaField, TextField } from "@aws-amplify/ui-react";
+import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
 
 import { Accordion } from "../../atoms/Accordion";
 import { Content } from "../../atoms/Content";
@@ -162,20 +162,22 @@ interface FormRenderProps {
 	fields: FormField[];
 	onSubmit?: (formData: Record<string, unknown>) => void;
 	onChange?: (props: { name: string; value: unknown }) => void;
-	onReset?: () => void;
 	className?: string;
 	submitButtonText?: string;
 	content?: ContentProps;
+	submitButtonDisabled?: boolean;
+	onReset?: () => void;
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
 	fields,
 	onSubmit,
 	onChange,
-	onReset,
 	className = "",
 	submitButtonText = "Submit",
-	content
+	content,
+	submitButtonDisabled = false,
+	onReset
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
@@ -187,6 +189,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	};
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+		console.log("handleSubmit triggered");
 		event.preventDefault();
 		const formData = new FormData(event.currentTarget);
 		const data: Record<string, unknown> = {};
@@ -404,8 +407,14 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const requiredFields = fields.filter(field => field.required);
 	const optionalFields = fields.filter(field => !field.required);
 
-	const handleReset = () => {
+	const handleReset = (event?: React.MouseEvent) => {
+		if (event) {
+			event.preventDefault();
+		}
+
 		fields.forEach(field => {
+			if (field.disabled) return;
+
 			switch (field.type) {
 				case "address":
 					// Use the ref to clear the address input
@@ -421,7 +430,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 					handleChange(field.name, undefined);
 					break;
 				case "text":
-					handleChange(field.name, undefined);
+					handleChange(field.name, field.defaultValue);
 					break;
 				case "checkbox":
 					handleChange(field.name, []);
@@ -434,8 +443,16 @@ export const FormRender: React.FC<FormRenderProps> = ({
 				case "lngLatInput":
 					handleChange(field.name, []);
 					break;
-				default:
+				case "radio":
+				case "dropdown":
 					handleChange(field.name, "");
+					break;
+				case "text":
+				case "textarea":
+				case "address":
+				case "latLonInput":
+					handleChange(field.name, "");
+					break;
 			}
 		});
 
@@ -444,18 +461,28 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	};
 
 	return (
-		<Accordion title="Customize Request" defaultOpen={true} contentClassName="form-render-accordion">
+		<Accordion
+			title={<View className="accordion-title">Customize Request</View>}
+			defaultOpen={true}
+			contentClassName="form-render-accordion"
+		>
 			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
 				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem">
 					{content && <Content {...content} />}
 					{requiredFields.map(renderField)}
 
 					<Flex gap="1rem">
-						<Button size="small" onClick={handleReset} type="reset">
+						<Button size="small" onClick={handleReset}>
 							<IconReloadLined width={20} height={20} color="black" />
 						</Button>
 						{onSubmit && (
-							<Button width={"100%"} type="submit" variation="primary">
+							<Button
+								width={"100%"}
+								className="submit-button"
+								type="submit"
+								variation="primary"
+								isDisabled={submitButtonDisabled}
+							>
 								{submitButtonText}
 							</Button>
 						)}

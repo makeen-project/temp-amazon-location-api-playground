@@ -92,17 +92,26 @@ const usePlaceService = () => {
 			getPlaceByCoordinates: async (params: ReverseGeocodeParams) => {
 				const input: ReverseGeocodeCommandInput = {
 					QueryPosition: params.QueryPosition,
-					Language: params.Language || Language,
-					PoliticalView: params.PoliticalView || (isSupportedByPlaces ? alpha3 : undefined),
-					MaxResults: params.MaxResults,
-					IntendedUse: params.IntendedUse
+					Language: params.Language || Language
 				};
+
+				if (params.PoliticalView) {
+					input.PoliticalView = params.PoliticalView;
+				}
+
+				if (params.MaxResults && params.MaxResults > 1) {
+					input.MaxResults = params.MaxResults;
+				}
 
 				if (params.AdditionalFeatures && params.AdditionalFeatures.length > 0) {
 					input.AdditionalFeatures = params.AdditionalFeatures;
 				}
 
-				if (params.QueryRadius) {
+				if (params.IntendedUse && params.IntendedUse.length > 0) {
+					input.IntendedUse = params.IntendedUse;
+				}
+
+				if (params.QueryRadius && params.QueryRadius > 1) {
 					input.QueryRadius = params.QueryRadius;
 				}
 

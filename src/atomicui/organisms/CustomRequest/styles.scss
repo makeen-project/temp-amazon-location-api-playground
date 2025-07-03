@@ -1,9 +1,9 @@
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    gap: 40px;
-    padding: 30px;
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    z-index: 4;
+    max-width: 45vw;
 
     .amplify-accordion {
         z-index: 4;

@@ -127,6 +127,7 @@ const Map = forwardRef<MapRef, MapProps>(
 		);
 
 		const handleMapClick = useCallback(
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			(e: any) => {
 				onMapClick?.(e);
 			},
