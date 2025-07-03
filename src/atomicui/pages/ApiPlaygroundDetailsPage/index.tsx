@@ -112,15 +112,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		const resultItem = customRequestStore.response?.ResultItems?.[0];
 		const currentPosition = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
 
-		console.log(
-			"customRequestStore",
-			customRequestStore,
-			resultItem?.Position,
-			customRequestStore?.queryPosition?.map(Number),
-			position
-		);
-		console.log("currentPosition", currentPosition);
-
 		// Ensure position is valid before proceeding
 		if (!currentPosition || currentPosition.length !== 2 || currentPosition.some(isNaN)) {
 			console.warn("Invalid position data received");
