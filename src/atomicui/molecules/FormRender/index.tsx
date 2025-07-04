@@ -27,6 +27,7 @@ interface BaseField {
 	error?: string;
 	placeholder?: string;
 	className?: string;
+	onToggle?: (enabled: boolean) => void;
 }
 
 // Text field specific interface
@@ -167,6 +168,7 @@ interface FormRenderProps {
 	content?: ContentProps;
 	submitButtonDisabled?: boolean;
 	onReset?: () => void;
+	onToggle?: (fieldName: string, enabled: boolean) => void;
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
@@ -177,10 +179,12 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	submitButtonText = "Submit",
 	content,
 	submitButtonDisabled = false,
-	onReset
+	onReset,
+	onToggle
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
+
 	const handleChange = (name: string, value: unknown) => {
 		onChange?.({
 			name,
@@ -188,8 +192,11 @@ export const FormRender: React.FC<FormRenderProps> = ({
 		});
 	};
 
+	const handleToggle = (fieldName: string, enabled: boolean) => {
+		onToggle?.(fieldName, enabled);
+	};
+
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		console.log("handleSubmit triggered");
 		event.preventDefault();
 		const formData = new FormData(event.currentTarget);
 		const data: Record<string, unknown> = {};
@@ -254,7 +261,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						value={field.value}
 						onChange={e => handleChange(field.name, e.target.value)}
 						type={field.inputType || "text"}
-						autoComplete="new-password"
+						autoComplete={field.inputType === "password" ? "new-password" : "off"}
 						autoCorrect="off"
 						autoCapitalize="off"
 						spellCheck="false"
@@ -359,7 +366,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						defaultValue={field.defaultValue}
 						value={field.value}
 						onChange={value => handleChange(field.name, value)}
-						onToggle={field.onToggle}
+						onToggle={enabled => handleToggle(field.name, enabled)}
 					/>
 				);
 

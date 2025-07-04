@@ -8,7 +8,7 @@
 }
 
 .form-render-accordion {
-  max-height: 80vh !important;
+  max-height: 70vh !important;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
@@ -30,16 +30,6 @@
   &:focus {
     background-color: white;
     box-shadow: 0px 0px 0px 2px #008296;
-  }
-}
-
-.optional-items {
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
   }
 }
 
