@@ -53,7 +53,8 @@ export const convertFormFieldConfigToFormField = (
 			return {
 				...baseField,
 				type: "text" as const,
-				value: parseValue(rawValue, "string", "")
+				value: parseValue(rawValue, "string", ""),
+				inputType: fieldConfig.inputType
 			};
 
 		case "number":

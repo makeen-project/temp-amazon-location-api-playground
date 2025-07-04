@@ -7,7 +7,7 @@
 				"id": "reverse-geocode",
 				"imageSource": "images/Map1.png",
 				"title": "ReverseGeocode API Playground",
-				"description": "The Reverse Geocode API converts latitude/Longitude into human-readable addresses.Use [[QueryPosition]] with latitude/longitude. Optional parameters include [[BiasPosition]], [[Filter]], and [[MaxResults]].The response contains [[ResultItems]] with [[Address]], [[Position]], and Optional [[TimeZone]] data. Use [[AdditionalFeatures]] to request extra information like time zones.",
+				"description": "The Reverse Geocode API converts latitude/Longitude into human-readable addresses. Use [[QueryPosition]] with latitude/longitude. Optional parameters include [[BiasPosition]], [[Filter]], and [[MaxResults]].The response contains [[ResultItems]] with [[Address]], [[Position]], and Optional [[TimeZone]] data. Use [[AdditionalFeatures]] to request extra information like time zones.",
 				"shouldRenderMap": true,
 				"missingFieldsMessage": "Click the map to reverse geocode",
 				"requestParams": [],
@@ -91,6 +91,7 @@
 						"name": "intendedUse",
 						"label": "Intended use",
 						"required": false,
+						"defaultValue": "SingleUse",
 						"options": [
 							{
 								"label": "Single use",
@@ -107,7 +108,8 @@
 						"name": "apiKey",
 						"label": "API Key",
 						"required": false,
-						"placeholder": "Enter your API key"
+						"placeholder": "Enter your API key",
+						"inputType": "password"
 					},
 					{
 						"type": "dropdown",

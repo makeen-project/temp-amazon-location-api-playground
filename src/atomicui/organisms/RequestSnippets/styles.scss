@@ -1,4 +1,4 @@
-// Variables
+/* Variables */
 $min-section-height: 120px;
 $border-radius: 8px;
 $content-border-radius: 10px;
@@ -32,7 +32,7 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 @mixin gradient-overlay {
-	content: '';
+	content: "";
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -43,10 +43,9 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 .snippets-container {
 	position: absolute;
 	border-radius: $border-radius;
-	right: 2rem;
-	top: 2rem;
+	right: 1rem;
+	top: 1rem;
 	z-index: 4;
-	max-width: 45vw;
 
 	&__snippet {
 		margin: 0px 10px;
@@ -70,6 +69,17 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 			padding: 10px;
 			border-radius: $content-border-radius;
 			position: relative;
+			max-height: 150px;
+			overflow-y: auto;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			@media screen and (max-height: 768px) {
+				max-height: 60px;
+			}
 
 			.amplify-text {
 				color: $secondary-color;
@@ -121,17 +131,6 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
 	&:hover {
 		background-color: #f5f5f5 !important;
-	}
-}
-
-.scrollable-content {
-	max-height: 80vh !important;
-	overflow-y: auto;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
-
-	&::-webkit-scrollbar {
-		display: none;
 	}
 }
 

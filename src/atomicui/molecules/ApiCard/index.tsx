@@ -1,5 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react";
 
+import { Content } from "@api-playground/atomicui/atoms/Content";
 import appConfig from "@api-playground/core/constants/appConfig";
 import { Badge, Card, Flex, Image, Text, View, useTheme } from "@aws-amplify/ui-react";
 import { useTranslation } from "react-i18next";
@@ -62,7 +63,7 @@ const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, description, catego
 							}
 							ref={textRef}
 						>
-							{description}
+							<Content items={[{ text: description }]} />
 						</div>
 						{isCollapsible && (
 							<button

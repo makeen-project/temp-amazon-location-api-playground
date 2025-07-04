@@ -30,7 +30,6 @@ const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
 			// Safely check if map exists and has the required methods
 			if (typeof currentMap.getLayer === "function" && currentMap.getLayer(layerId)) {
 				currentMap.removeLayer(layerId);
-				console.log("removed layer", layerId);
 			}
 			if (typeof currentMap.getSource === "function" && currentMap.getSource(sourceId)) {
 				currentMap.removeSource(sourceId);
@@ -43,16 +42,7 @@ const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
 	// Zoom to fit the circle when position or radius changes, but only if there's no response yet
 	useEffect(() => {
 		const map = mapRef?.current?.getMap();
-		if (!map || !queryPosition || queryPosition.length !== 2 || !queryRadius || queryRadius <= 0) {
-			return;
-		}
-
-		if (!response) {
-			return;
-		}
-
-		// Don't zoom if there's already a response (let the marker zoom handle it)
-		if (response) {
+		if (!map || !queryPosition || queryPosition.length !== 2 || !queryRadius || queryRadius <= 0 || !response) {
 			return;
 		}
 
@@ -82,8 +72,8 @@ const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
 		);
 	}, [mapRef, queryPosition, queryRadius, response]);
 
-	// Don't render if we don't have position or radius
-	if (!queryPosition || queryPosition.length !== 2 || !queryRadius || queryRadius <= 0) {
+	// Don't render if we don't have position or radius or if there's no response
+	if (!queryPosition || queryPosition.length !== 2 || !queryRadius || queryRadius <= 0 || !response) {
 		return null;
 	}
 

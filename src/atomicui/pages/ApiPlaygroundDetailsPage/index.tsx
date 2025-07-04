@@ -25,7 +25,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
 
 const SNIPPETS_COLLAPSED_WIDTH = 400;
-const SNIPPETS_EXPANDED_WIDTH = 750;
+const SNIPPETS_EXPANDED_WIDTH = 850;
 
 const ApiPlaygroundDetailsPage: FC = () => {
 	useAuthManager();
@@ -216,7 +216,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			<View className="api-playground-details-page no-side-gaps">
 				<Flex
 					className="api-playground-header"
-					direction="row"
+					direction="column"
 					alignItems="flex-start"
 					justifyContent="space-between"
 					gap={"2rem"}
@@ -232,46 +232,53 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						<Text as="h2" className="api-playground-title" fontWeight={700} fontSize="2rem">
 							{apiPlaygroundItem.title}
 						</Text>
-						<Content
-							items={[{ text: apiPlaygroundItem.description }]}
-							className={`api-playground-description${descExpanded ? " expanded" : ""}`}
-						/>
-						<Button className="show-more-btn" variation="link" onClick={() => setDescExpanded(e => !e)}>
-							{descExpanded ? "Show less" : "Show more"}
-						</Button>
 					</Flex>
-					<Flex direction="column" alignItems="flex-start" className="api-playground-right-col">
-						<Button
-							className="build-sample-btn"
-							variation="primary"
-							onClick={() => window.open(apiPlaygroundItem.buildSampleButton?.link, "_blank")}
-						>
-							{apiPlaygroundItem.buildSampleButton?.text}
-						</Button>
-						<Button
-							className="share-btn"
-							variation="link"
-							onClick={() =>
-								navigator.share
-									? navigator.share({ title: apiPlaygroundItem.title, url: window.location.href })
-									: navigator.clipboard.writeText(window.location.href)
-							}
-						>
-							<IconShare width={14} height={14} className="share-icon" />
-							Share
-						</Button>
-						<View className="related-resources">
-							<Text fontWeight={600} fontSize="1rem" marginBottom={"0.5rem"} className="related-title">
-								Related resources
-							</Text>
-							<View className="related-links">
-								{apiPlaygroundItem.relatedResources?.map((res: any, idx: number) => (
-									<a key={idx} href={res.link} target="_blank" rel="noopener noreferrer">
-										{res.text}
-									</a>
-								))}
-							</View>
+					<Flex direction="row" gap={"2rem"} justifyContent="space-between" alignItems="flex-start">
+						<View>
+							<Content
+								items={[{ text: apiPlaygroundItem.description }]}
+								className={`api-playground-description${descExpanded ? " expanded" : ""}`}
+							/>
+							<Button className="show-more-btn" variation="link" onClick={() => setDescExpanded(e => !e)}>
+								{descExpanded ? "Show less" : "Show more"}
+							</Button>
 						</View>
+						<Flex>
+							{/* Right column */}
+							<Flex direction="column" alignItems="flex-start" className="api-playground-right-col">
+								<Button
+									className="build-sample-btn"
+									variation="primary"
+									onClick={() => window.open(apiPlaygroundItem.buildSampleButton?.link, "_blank")}
+								>
+									{apiPlaygroundItem.buildSampleButton?.text}
+								</Button>
+								<Button
+									className="share-btn"
+									variation="link"
+									onClick={() =>
+										navigator.share
+											? navigator.share({ title: apiPlaygroundItem.title, url: window.location.href })
+											: navigator.clipboard.writeText(window.location.href)
+									}
+								>
+									<IconShare width={14} height={14} className="share-icon" />
+									Share
+								</Button>
+								<View className="related-resources">
+									<Text fontWeight={600} fontSize="1rem" marginBottom={"0.5rem"} className="related-title">
+										Related resources
+									</Text>
+									<View className="related-links">
+										{apiPlaygroundItem.relatedResources?.map((res: any, idx: number) => (
+											<a key={idx} href={res.link} target="_blank" rel="noopener noreferrer">
+												{res.text}
+											</a>
+										))}
+									</View>
+								</View>
+							</Flex>
+						</Flex>
 					</Flex>
 				</Flex>
 				<View

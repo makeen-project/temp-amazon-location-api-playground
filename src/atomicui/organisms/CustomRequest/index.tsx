@@ -16,8 +16,7 @@ import {
 } from "@api-playground/utils/formConfigUtils";
 import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
-import { useTranslation } from "react-i18next";
-import { useNavigate, useNavigation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./styles.scss";
 
 interface CustomRequestProps {
@@ -38,7 +37,12 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 	// Get initial values directly from API config
 	const initialUrlState = (apiPlaygroundItem?.formFields || []).reduce((acc, field) => {
 		const fieldName = field.name as keyof CustomRequestStore;
-		if (field.defaultValue !== undefined) {
+		if (field.type === "text" && field.inputType === "password") {
+			// Skip password fields - don't include them in URL state
+			return acc;
+		}
+
+		if (field.defaultValue) {
 			acc[fieldName] = field.defaultValue;
 		} else if (field.type === "sliderWithInput") {
 			// For slider inputs, always start with 1 as the default value
@@ -49,13 +53,12 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 		return acc;
 	}, {} as Record<string, any>);
 
-	const { urlState, setUrlState, resetUrlState } = useUrlState({
+	const { urlState, setUrlState } = useUrlState({
 		...initialUrlState,
 		response: undefined
 	});
 	const searchParams = useOptimisticSearchParams();
 	const placeService = usePlaceService();
-	const { t } = useTranslation();
 
 	const syncUrlState = useCallback(() => {
 		const allSearchParams = Object.fromEntries(searchParams.entries());
@@ -143,6 +146,23 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 		}
 	};
 
+	const handleToggle = (fieldName: string, enabled: boolean) => {
+		// Update store state
+		const newState = {
+			...store,
+			[fieldName]: enabled ? 1 : undefined, // Set to 1 when enabled, undefined when disabled
+			response: undefined,
+			error: undefined
+		};
+		setState(newState);
+
+		// Update URL state
+		setUrlState({
+			...urlState,
+			[fieldName]: enabled ? 1 : undefined
+		});
+	};
+
 	// Create form fields with current store values
 	const formFields = createFormFieldsFromConfig(apiPlaygroundItem?.formFields || [], store);
 
@@ -173,6 +193,7 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 				onReset={handleReset}
 				onSubmit={handleSubmit}
 				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
+				onToggle={handleToggle}
 			/>
 		</div>
 	);
