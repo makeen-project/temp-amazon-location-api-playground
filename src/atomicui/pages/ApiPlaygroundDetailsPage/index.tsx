@@ -82,7 +82,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			// Set a new timeout to reset clickedPosition after 1.5 seconds
 			resetTimeoutRef.current = setTimeout(() => {
 				setClickedPosition([]);
-			}, 1500);
+			}, 100);
 		},
 		[setClickedPosition, activeMarker]
 	);
