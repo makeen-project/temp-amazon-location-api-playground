@@ -14,6 +14,8 @@ export interface RequestSnippetsProps {
 	isFullScreen: boolean;
 	onFullScreenToggle: () => void;
 	response?: ReverseGeocodeCommandOutput | GeocodeCommandOutput;
+	isOpen?: boolean;
+	onToggle?: () => void;
 }
 
 export interface CustomRequestStore {
