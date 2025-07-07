@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 import "./styles.scss";
 
 const SNIPPETS_COLLAPSED_WIDTH = 400;
-const SNIPPETS_EXPANDED_WIDTH = 750;
+const SNIPPETS_EXPANDED_WIDTH = 850;
 const MIN_SECTION_HEIGHT = 120; // Minimum height for expandable sections - matches $min-section-height in SCSS
 
 type TabType = "JavaScript" | "Python" | "Ruby";
@@ -249,24 +249,8 @@ puts response`
 								<Text>Copy</Text>
 							</Button>
 						</View>
-						<View
-							className={`snippets-container__snippet__content expandable ${!isUrlExpanded ? "collapsed" : ""}`}
-							style={{
-								maxHeight: isUrlExpanded ? "none" : `${MIN_SECTION_HEIGHT}px`,
-								overflow: isUrlExpanded ? "visible" : "hidden"
-							}}
-						>
+						<View className={`snippets-container__snippet__content expandable ${!isUrlExpanded ? "collapsed" : ""}`}>
 							<Text>{shareableUrl}</Text>
-							{shareableUrl && shareableUrl.length > 100 && (
-								<Button
-									size="small"
-									variation="link"
-									onClick={() => setIsUrlExpanded(!isUrlExpanded)}
-									className="toggle-button"
-								>
-									{isUrlExpanded ? "Hide" : "Show more"}
-								</Button>
-							)}
 						</View>
 					</View>
 
@@ -282,17 +266,17 @@ puts response`
 						</View>
 						<View
 							className={`snippets-container__snippet__content expandable ${!isResponseExpanded ? "collapsed" : ""}`}
-							style={{
-								maxHeight: isResponseExpanded ? "none" : `${MIN_SECTION_HEIGHT}px`,
-								overflow: isResponseExpanded ? "visible" : "hidden"
-							}}
+							// style={{
+							// 	maxHeight: isResponseExpanded ? "none" : `${MIN_SECTION_HEIGHT}px`,
+							// 	overflow: isResponseExpanded ? "visible" : "hidden"
+							// }}
 						>
 							{response ? (
 								<pre className="response-pre">{JSON.stringify(response, null, 2)}</pre>
 							) : (
 								<Text color="var(--tertiary-color)">No response yet. Submit a request to see the response.</Text>
 							)}
-							{response && (
+							{/* {response && (
 								<Button
 									size="small"
 									variation="link"
@@ -301,7 +285,7 @@ puts response`
 								>
 									{isResponseExpanded ? "Hide" : "Show more"}
 								</Button>
-							)}
+							)} */}
 						</View>
 					</View>
 
@@ -316,13 +300,7 @@ puts response`
 							</Button>
 						</View>
 
-						<View
-							className="expandable-container"
-							style={{
-								maxHeight: isCodeSnippetsExpanded ? "none" : `${MIN_SECTION_HEIGHT}px`,
-								overflow: isCodeSnippetsExpanded ? "visible" : "hidden"
-							}}
-						>
+						<View className="expandable-container">
 							<Tabs
 								justifyContent="flex-start"
 								defaultValue="JavaScript"
@@ -339,14 +317,6 @@ puts response`
 									{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby, "ruby") }
 								]}
 							/>
-							<Button
-								size="small"
-								variation="link"
-								onClick={() => setIsCodeSnippetsExpanded(!isCodeSnippetsExpanded)}
-								className="toggle-button"
-							>
-								{isCodeSnippetsExpanded ? "Hide" : "Show more"}
-							</Button>
 						</View>
 					</View>
 				</form>

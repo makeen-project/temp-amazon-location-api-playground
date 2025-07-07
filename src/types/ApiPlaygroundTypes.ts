@@ -58,6 +58,7 @@ export interface FormFieldConfig {
 		| "multiSelect"
 		| "latLonInput"
 		| "lngLatInput";
+	inputType?: "text" | "password";
 	name: string;
 	label: string;
 	required?: boolean;
