@@ -42,6 +42,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [activeMarker, setActiveMarker] = useState(false);
 	const [mapLoaded, setMapLoaded] = useState(false);
+	const [isSnippetsOpen, setIsSnippetsOpen] = useState(true);
 
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
@@ -62,6 +63,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const toggleFullScreen = useCallback(() => {
 		setIsFullScreen(prev => !prev);
 	}, [apiPlaygroundId, isFullScreen]);
+
+	const toggleSnippets = useCallback(() => {
+		setIsSnippetsOpen(prev => !prev);
+	}, []);
 
 	const handleMapClick = useCallback(
 		(e: { lngLat: { lng: number; lat: number } }) => {
@@ -207,6 +212,44 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		};
 	}, []);
 
+	// Adjust map attribution margin when snippets accordion opens/closes
+	useEffect(() => {
+		const applyStyles = () => {
+			const attributionElement = document.querySelector(".maplibregl-ctrl-bottom-right") as HTMLElement;
+			const mapStylesButton = document.querySelector(".map-styles-button") as HTMLElement;
+
+			if (attributionElement && mapStylesButton) {
+				const SNIPPETS_OPEN_ATTRIBUTION_RIGHT = 400;
+				const DIFFERENCE = 26;
+
+				const attributionRight = isSnippetsOpen ? SNIPPETS_OPEN_ATTRIBUTION_RIGHT : 0;
+				const stylesRight = isSnippetsOpen ? SNIPPETS_OPEN_ATTRIBUTION_RIGHT + DIFFERENCE : DIFFERENCE;
+
+				attributionElement.style.right = `${attributionRight}px`;
+				mapStylesButton.style.right = `${stylesRight}px`;
+				return true; // Success
+			}
+			return false; // Elements not found
+		};
+
+		// Try immediately
+		if (!applyStyles()) {
+			// If elements aren't ready, retry with increasing delays
+			const retryWithDelay = (attempt = 1) => {
+				const delay = Math.min(100 * attempt, 1000); // Max 1 second delay
+
+				setTimeout(() => {
+					if (!applyStyles() && attempt < 10) {
+						// Max 10 attempts
+						retryWithDelay(attempt + 1);
+					}
+				}, delay);
+			};
+
+			retryWithDelay();
+		}
+	}, [isSnippetsOpen]);
+
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
 	}
@@ -321,6 +364,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 							onWidthChange={width => setIsExpanded(width === SNIPPETS_EXPANDED_WIDTH)}
 							isFullScreen={isFullScreen}
 							onFullScreenToggle={toggleFullScreen}
+							isOpen={isSnippetsOpen}
+							onToggle={toggleSnippets}
 						/>
 					</Map>
 				</View>

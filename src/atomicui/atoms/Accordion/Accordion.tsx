@@ -9,6 +9,8 @@ interface AccordionProps {
 	children: ReactNode;
 	title: string | ReactNode;
 	defaultOpen?: boolean;
+	open?: boolean;
+	onToggle?: () => void;
 	openIcon?: ReactNode;
 	closeIcon?: ReactNode;
 	shadowEnabled?: boolean;
@@ -20,20 +22,34 @@ export const Accordion = ({
 	children,
 	title,
 	defaultOpen = false,
+	open,
+	onToggle,
 	shadowEnabled = true,
 	openIcon = <IconAccordionOpen />,
 	closeIcon = <IconAccordionClose />,
 	style,
 	contentClassName
 }: AccordionProps) => {
-	const [isExpanded, setIsExpanded] = useState(defaultOpen);
+	// Use controlled state if open and onToggle are provided, otherwise use internal state
+	const isControlled = open !== undefined && onToggle !== undefined;
+	const [internalExpanded, setInternalExpanded] = useState(defaultOpen);
+
+	const isExpanded = isControlled ? open : internalExpanded;
+
 	const value = isExpanded ? ["item"] : [];
 
 	return (
 		<AmplifyAccordion.Container
 			className={`accordion ${shadowEnabled ? "accordion-shadow" : ""}`}
 			value={value}
-			onValueChange={items => setIsExpanded(items?.includes("item") ?? false)}
+			onValueChange={items => {
+				const newExpanded = items?.includes("item") ?? false;
+				if (isControlled) {
+					onToggle();
+				} else {
+					setInternalExpanded(newExpanded);
+				}
+			}}
 			style={style}
 		>
 			<AmplifyAccordion.Item className="accordion__item" value="item">

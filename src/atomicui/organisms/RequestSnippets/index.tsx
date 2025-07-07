@@ -23,7 +23,9 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	onWidthChange,
 	isFullScreen,
 	onFullScreenToggle,
-	response
+	response,
+	isOpen = true,
+	onToggle
 }) => {
 	const store = useCustomRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
@@ -213,7 +215,8 @@ puts response`
 	return (
 		<View className="snippets-container">
 			<Accordion
-				defaultOpen={true}
+				open={isOpen}
+				onToggle={onToggle}
 				style={{
 					width: `${width}px`
 				}}
