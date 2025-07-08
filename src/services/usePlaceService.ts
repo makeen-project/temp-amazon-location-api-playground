@@ -7,6 +7,8 @@ import { appConfig } from "@api-playground/core/constants";
 import { useClient, useMap } from "@api-playground/hooks";
 import { AdditionalFeatures } from "@api-playground/types/CustomRequestForm";
 import {
+	GeocodeCommand,
+	GeocodeCommandInput,
 	GetPlaceCommand,
 	GetPlaceCommandInput,
 	ReverseGeocodeCommand,
@@ -44,6 +46,22 @@ interface GeocodeParams {
 	Language?: string;
 	MaxResults?: number;
 	PoliticalView?: string;
+	IntendedUse?: IntendedUse;
+	Key?: string;
+	Filter?: {
+		IncludeCountries?: string[];
+		IncludePlaceTypes?: ReverseGeocodeFilterPlaceType[];
+	};
+	QueryComponents?: {
+		AddressNumber?: string;
+		Country?: string;
+		District?: string;
+		Locality?: string;
+		PostalCode?: string;
+		Region?: string;
+		Street?: string;
+		SubRegion?: string;
+	};
 }
 
 const usePlaceService = () => {
@@ -125,15 +143,82 @@ const usePlaceService = () => {
 				return await placesClient?.send(command);
 			},
 			getPlaceByAddress: async (params: GeocodeParams) => {
-				const input: SearchTextCommandInput = {
+				const input: GeocodeCommandInput = {
 					QueryText: params.Query,
 					BiasPosition: params.BiasPosition || BiasPosition,
 					Language: params.Language || Language,
-					PoliticalView: params.PoliticalView || (isSupportedByPlaces ? alpha3 : undefined),
-					AdditionalFeatures: params.AdditionalFeatures,
 					MaxResults: params.MaxResults
 				};
-				const command = new SearchTextCommand(input);
+
+				// Handle AdditionalFeatures
+				if (params.AdditionalFeatures) {
+					input.AdditionalFeatures = params.AdditionalFeatures;
+				}
+
+				// Handle PoliticalView
+				if (params.PoliticalView) {
+					input.PoliticalView = params.PoliticalView;
+				}
+
+				// Handle IntendedUse
+				if (params.IntendedUse) {
+					input.IntendedUse = params.IntendedUse;
+				}
+
+				// Handle Key
+				if (params.Key) {
+					input.Key = params.Key;
+				}
+
+				// Handle Filter - only include supported properties
+				if (params.Filter) {
+					const filterObj: any = {};
+
+					if (params.Filter.IncludeCountries && params.Filter.IncludeCountries.length > 0) {
+						filterObj.IncludeCountries = params.Filter.IncludeCountries;
+					}
+
+					if (params.Filter.IncludePlaceTypes && params.Filter.IncludePlaceTypes.length > 0) {
+						filterObj.IncludePlaceTypes = params.Filter.IncludePlaceTypes;
+					}
+
+					// Only set Filter if it has properties
+					if (Object.keys(filterObj).length > 0) {
+						input.Filter = filterObj;
+					}
+				}
+
+				// Handle QueryComponents - only include supported properties
+				if (params.QueryComponents) {
+					(input as any).QueryComponents = {};
+
+					if (params.QueryComponents.AddressNumber) {
+						(input as any).QueryComponents.AddressNumber = params.QueryComponents.AddressNumber;
+					}
+					if (params.QueryComponents.Country) {
+						(input as any).QueryComponents.Country = params.QueryComponents.Country;
+					}
+					if (params.QueryComponents.District) {
+						(input as any).QueryComponents.District = params.QueryComponents.District;
+					}
+					if (params.QueryComponents.Locality) {
+						(input as any).QueryComponents.Locality = params.QueryComponents.Locality;
+					}
+					if (params.QueryComponents.PostalCode) {
+						(input as any).QueryComponents.PostalCode = params.QueryComponents.PostalCode;
+					}
+					if (params.QueryComponents.Region) {
+						(input as any).QueryComponents.Region = params.QueryComponents.Region;
+					}
+					if (params.QueryComponents.Street) {
+						(input as any).QueryComponents.Street = params.QueryComponents.Street;
+					}
+					if (params.QueryComponents.SubRegion) {
+						(input as any).QueryComponents.SubRegion = params.QueryComponents.SubRegion;
+					}
+				}
+
+				const command = new GeocodeCommand(input);
 				return await placesClient?.send(command);
 			},
 			getNLPlacesByText: async (Text: string) => {

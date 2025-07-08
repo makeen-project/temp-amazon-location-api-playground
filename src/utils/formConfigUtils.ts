@@ -258,7 +258,7 @@ export const mapFormDataToApiParams = (
 		let value = formData[formField];
 
 		// Skip empty values but allow 0
-		if (value === undefined || value === null || value === "") {
+		if (value === undefined || value === null || value === "" || (Array.isArray(value) && value.length === 0)) {
 			return;
 		}
 
@@ -335,6 +335,13 @@ const formatValueForSnippet = (value: any, placeholder: string): string => {
 		case "politicalView":
 		case "query":
 			return String(value);
+		case "includeCountries":
+		case "includePlaceTypes":
+		case "additionalFeatures":
+			if (Array.isArray(value)) {
+				return value.map(v => `"${v}"`).join(", ");
+			}
+			return String(value);
 
 		default:
 			return String(value);
@@ -342,5 +349,5 @@ const formatValueForSnippet = (value: any, placeholder: string): string => {
 };
 
 const isArrayField = (placeholder: string): boolean => {
-	return ["additionalFeatures", "includePlaceTypes", "intendedUse", "queryRadius"].includes(placeholder);
+	return ["additionalFeatures", "includeCountries", "includePlaceTypes"].includes(placeholder);
 };

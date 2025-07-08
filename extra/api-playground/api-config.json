@@ -306,20 +306,136 @@
 						"placeholder": "Enter an address or place name"
 					},
 					{
+						"type": "lngLatInput",
+						"name": "biasPosition",
+						"label": "Bias Position",
+						"required": false,
+						"placeholder": "Enter longitude and latitude coordinates"
+					},
+					{
 						"type": "multiSelect",
 						"name": "additionalFeatures",
 						"label": "Additional Features",
 						"required": false,
 						"options": [
 							{
+								"label": "TimeZone",
+								"value": "TimeZone"
+							},
+							{
 								"label": "Access",
 								"value": "Access"
 							},
 							{
-								"label": "TimeZone",
-								"value": "TimeZone"
+								"label": "SecondaryAddresses",
+								"value": "SecondaryAddresses"
+							},
+							{
+								"label": "Intersections",
+								"value": "Intersections"
 							}
 						]
+					},
+					{
+						"type": "multiSelect",
+						"name": "includeCountries",
+						"label": "Include Countries",
+						"required": false,
+						"options": [
+							{
+								"label": "US",
+								"value": "US"
+							},
+							{
+								"label": "CA",
+								"value": "CA"
+							},
+							{
+								"label": "GB",
+								"value": "GB"
+							},
+							{
+								"label": "DE",
+								"value": "DE"
+							},
+							{
+								"label": "FR",
+								"value": "FR"
+							},
+							{
+								"label": "ES",
+								"value": "ES"
+							},
+							{
+								"label": "IT",
+								"value": "IT"
+							},
+							{
+								"label": "JP",
+								"value": "JP"
+							},
+							{
+								"label": "AU",
+								"value": "AU"
+							},
+							{
+								"label": "IN",
+								"value": "IN"
+							}
+						]
+					},
+					{
+						"type": "multiSelect",
+						"name": "includePlaceTypes",
+						"label": "Include Place Types",
+						"required": false,
+						"options": [
+							{
+								"label": "InterpolatedAddress",
+								"value": "InterpolatedAddress"
+							},
+							{
+								"label": "Intersection",
+								"value": "Intersection"
+							},
+							{
+								"label": "Locality",
+								"value": "Locality"
+							},
+							{
+								"label": "PointAddress",
+								"value": "PointAddress"
+							},
+							{
+								"label": "Street",
+								"value": "Street"
+							}
+						]
+					},
+					{
+						"type": "radio",
+						"name": "intendedUse",
+						"label": "Intended use",
+						"required": false,
+						"defaultValue": "SingleUse",
+						"options": [
+							{
+								"label": "Single use",
+								"value": "SingleUse"
+							},
+							{
+								"label": "Storage",
+								"value": "Storage"
+							}
+						]
+					},
+					{
+						"type": "text",
+						"name": "key",
+						"label": "Key",
+						"required": false,
+						"placeholder": "Enter your API key",
+						"inputType": "password"
 					},
 					{
 						"type": "dropdown",
@@ -353,27 +469,63 @@
 						"min": 1,
 						"max": 100,
 						"step": 1,
-						"defaultValue": 10
+						"defaultValue": 1
 					},
 					{
-						"type": "dropdown",
-						"name": "politicalView",
-						"label": "Political View",
+						"type": "text",
+						"name": "addressNumber",
+						"label": "Address Number",
 						"required": false,
-						"options": [
-							{
-								"label": "US",
-								"value": "US"
-							},
-							{
-								"label": "CN",
-								"value": "CN"
-							},
-							{
-								"label": "IN",
-								"value": "IN"
-							}
-						]
+						"placeholder": "Enter address number"
+					},
+					{
+						"type": "text",
+						"name": "country",
+						"label": "Country",
+						"required": false,
+						"placeholder": "Enter country"
+					},
+					{
+						"type": "text",
+						"name": "district",
+						"label": "District",
+						"required": false,
+						"placeholder": "Enter district"
+					},
+					{
+						"type": "text",
+						"name": "locality",
+						"label": "Locality",
+						"required": false,
+						"placeholder": "Enter locality"
+					},
+					{
+						"type": "text",
+						"name": "postalCode",
+						"label": "Postal Code",
+						"required": false,
+						"placeholder": "Enter postal code"
+					},
+					{
+						"type": "text",
+						"name": "region",
+						"label": "Region",
+						"required": false,
+						"placeholder": "Enter region"
+					},
+					{
+						"type": "text",
+						"name": "street",
+						"label": "Street",
+						"required": false,
+						"placeholder": "Enter street"
+					},
+					{
+						"type": "text",
+						"name": "subRegion",
+						"label": "Sub Region",
+						"required": false,
+						"placeholder": "Enter sub region"
 					}
 				],
 				"formContent": {
@@ -393,9 +545,21 @@
 						"query": "Query",
 						"biasPosition": "BiasPosition",
 						"additionalFeatures": "AdditionalFeatures",
+						"includeCountries": "Filter.IncludeCountries",
+						"includePlaceTypes": "Filter.IncludePlaceTypes",
+						"intendedUse": "IntendedUse",
+						"key": "Key",
 						"language": "Language",
 						"maxResults": "MaxResults",
-						"politicalView": "PoliticalView"
+						"politicalView": "PoliticalView",
+						"addressNumber": "QueryComponents.AddressNumber",
+						"country": "QueryComponents.Country",
+						"district": "QueryComponents.District",
+						"locality": "QueryComponents.Locality",
+						"postalCode": "QueryComponents.PostalCode",
+						"region": "QueryComponents.Region",
+						"street": "QueryComponents.Street",
+						"subRegion": "QueryComponents.SubRegion"
 					},
 					"validationRules": [
 						{
@@ -406,15 +570,27 @@
 					]
 				},
 				"codeSnippets": {
-					"JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"{{query}}\",\n  BiasPosition: [{{biasPosition}}],\n  MaxResults: {{maxResults}},\n  Language: \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\"\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
-					"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '{{query}}',\n    'BiasPosition': [{{biasPosition}}],\n    'MaxResults': {{maxResults}},\n    'Language': '{{language}}',\n    'PoliticalView': '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
-					"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  query_text: '{{query}}',\n  bias_position: [{{biasPosition}}],\n  max_results: {{maxResults}},\n  language: '{{language}}',\n  political_view: '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
+					"JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"{{query}}\",\n  BiasPosition: [{{biasPosition}}],\n  MaxResults: {{maxResults}},\n  Language: \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\",\n  Filter: {\n    IncludeCountries: [{{includeCountries}}],\n    IncludePlaceTypes: [{{includePlaceTypes}}]\n  },\n  IntendedUse: \"{{intendedUse}}\",\n  Key: \"{{key}}\",\n  QueryComponents: {\n    AddressNumber: \"{{addressNumber}}\",\n    Country: \"{{country}}\",\n    District: \"{{district}}\",\n    Locality: \"{{locality}}\",\n    PostalCode: \"{{postalCode}}\",\n    Region: \"{{region}}\",\n    Street: \"{{street}}\",\n    SubRegion: \"{{subRegion}}\"\n  }\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
+					"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '{{query}}',\n    'BiasPosition': [{{biasPosition}}],\n    'MaxResults': {{maxResults}},\n    'Language': '{{language}}',\n    'PoliticalView': '{{politicalView}}',\n    'Filter': {\n        'IncludeCountries': [{{includeCountries}}],\n        'IncludePlaceTypes': [{{includePlaceTypes}}]\n    },\n    'IntendedUse': '{{intendedUse}}',\n    'Key': '{{key}}',\n    'QueryComponents': {\n        'AddressNumber': '{{addressNumber}}',\n        'Country': '{{country}}',\n        'District': '{{district}}',\n        'Locality': '{{locality}}',\n        'PostalCode': '{{postalCode}}',\n        'Region': '{{region}}',\n        'Street': '{{street}}',\n        'SubRegion': '{{subRegion}}'\n    }\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
+					"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  query_text: '{{query}}',\n  bias_position: [{{biasPosition}}],\n  max_results: {{maxResults}},\n  language: '{{language}}',\n  political_view: '{{politicalView}}',\n  filter: {\n    include_countries: [{{includeCountries}}],\n    include_place_types: [{{includePlaceTypes}}]\n  },\n  intended_use: '{{intendedUse}}',\n  key: '{{key}}',\n  query_components: {\n    address_number: '{{addressNumber}}',\n    country: '{{country}}',\n    district: '{{district}}',\n    locality: '{{locality}}',\n    postal_code: '{{postalCode}}',\n    region: '{{region}}',\n    street: '{{street}}',\n    sub_region: '{{subRegion}}'\n  }\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
 					"paramPlaceholders": {
 						"query": "123 Main St, New York, NY",
 						"biasPosition": "0, 0",
 						"maxResults": "1",
 						"language": "en",
-						"politicalView": "US"
+						"politicalView": "US",
+						"includeCountries": "US",
+						"includePlaceTypes": "PointAddress",
+						"intendedUse": "SingleUse",
+						"key": "your-api-key",
+						"addressNumber": "123",
+						"country": "US",
+						"district": "Manhattan",
+						"locality": "New York",
+						"postalCode": "10001",
+						"region": "NY",
+						"street": "Main St",
+						"subRegion": "New York County"
 					}
 				}
 			}

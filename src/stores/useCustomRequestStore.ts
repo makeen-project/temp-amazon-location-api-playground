@@ -20,14 +20,25 @@ export interface RequestSnippetsProps {
 
 export interface CustomRequestStore {
 	queryPosition: string[];
+	biasPosition?: string[];
 	additionalFeatures?: AdditionalFeatures[];
+	includeCountries?: string[];
 	includePlaceTypes?: ReverseGeocodeFilterPlaceType[];
 	intendedUse?: IntendedUse;
+	key?: string;
 	apiKey?: string;
 	language?: string;
 	maxResults?: number;
 	politicalView?: string;
 	queryRadius?: number;
+	addressNumber?: string;
+	country?: string;
+	district?: string;
+	locality?: string;
+	postalCode?: string;
+	region?: string;
+	street?: string;
+	subRegion?: string;
 	// Response data
 	response?: ReverseGeocodeCommandOutput | GeocodeCommandOutput;
 	isLoading: boolean;
@@ -36,9 +47,26 @@ export interface CustomRequestStore {
 
 export const initialState: IStateProps<CustomRequestStore> = {
 	queryPosition: [],
-	isLoading: false,
+	biasPosition: [],
+	additionalFeatures: [],
+	includeCountries: [],
+	includePlaceTypes: [],
+	intendedUse: IntendedUse.SingleUse,
+	key: "",
+	apiKey: "",
+	language: "en",
 	maxResults: 1,
-	queryRadius: 1
+	politicalView: "US",
+	queryRadius: 1,
+	addressNumber: "",
+	country: "",
+	district: "",
+	locality: "",
+	postalCode: "",
+	region: "",
+	street: "",
+	subRegion: "",
+	isLoading: false
 };
 
 export default createStore<CustomRequestStore>(initialState);
