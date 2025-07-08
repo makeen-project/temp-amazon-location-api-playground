@@ -53,7 +53,7 @@ const useAuth = () => {
 			fetchLocationClientConfigWithApiKey: async (apiKey: string, region: string) => {
 				try {
 					const authHelper = await authService.withAPIKey(apiKey);
-					const locationClientConfig = authHelper.getLocationClientConfig();
+					const locationClientConfig = authHelper.getClientConfig();
 					return { ...locationClientConfig, region };
 				} catch (error) {
 					errorHandler(error);

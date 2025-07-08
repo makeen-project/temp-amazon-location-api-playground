@@ -161,7 +161,7 @@ export type FormField =
 
 interface FormRenderProps {
 	fields: FormField[];
-	onSubmit?: (formData: Record<string, unknown>) => void;
+	onSubmit?: () => void;
 	onChange?: (props: { name: string; value: unknown }) => void;
 	className?: string;
 	submitButtonText?: string;
@@ -198,45 +198,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const formData = new FormData(event.currentTarget);
-		const data: Record<string, unknown> = {};
-
-		fields.forEach(field => {
-			if (field.disabled) {
-				return;
-			}
-
-			switch (field.type) {
-				case "lngLatInput":
-					const lng = formData.get(`${field.name}-longitude`);
-					const lat = formData.get(`${field.name}-latitude`);
-					if (lng !== null && lat !== null) {
-						data[field.name] = [parseFloat(lng as string), parseFloat(lat as string)];
-					}
-					break;
-				case "checkbox":
-					const checkboxValues = formData.getAll(field.name);
-					data[field.name] = checkboxValues;
-					break;
-				case "multiSelect":
-					const multiSelectValue = formData.get(field.name);
-					if (multiSelectValue !== null) {
-						try {
-							data[field.name] = JSON.parse(multiSelectValue as string);
-						} catch {
-							data[field.name] = multiSelectValue;
-						}
-					}
-					break;
-				default:
-					const value = formData.get(field.name);
-					if (value !== null) {
-						data[field.name] = value;
-					}
-			}
-		});
-
-		onSubmit?.(data);
+		onSubmit?.();
 	};
 
 	const renderField = (field: FormField) => {
