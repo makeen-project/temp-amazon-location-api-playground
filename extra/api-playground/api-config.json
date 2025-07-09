@@ -152,6 +152,10 @@
 						"required": false,
 						"options": [
 							{
+								"label": "No political value",
+								"value": ""
+							},
+							{
 								"label": "AR",
 								"value": "AR"
 							},
@@ -458,6 +462,74 @@
 							{
 								"label": "German",
 								"value": "de"
+							}
+						]
+					},
+					{
+						"type": "dropdown",
+						"name": "politicalView",
+						"label": "Political View",
+						"required": false,
+						"options": [
+							{
+								"label": "No political value",
+								"value": ""
+							},
+							{
+								"label": "AR",
+								"value": "AR"
+							},
+							{
+								"label": "EG",
+								"value": "EG"
+							},
+							{
+								"label": "IN",
+								"value": "IN"
+							},
+							{
+								"label": "KE",
+								"value": "KE"
+							},
+							{
+								"label": "MA",
+								"value": "MA"
+							},
+							{
+								"label": "RU",
+								"value": "RU"
+							},
+							{
+								"label": "SD",
+								"value": "SD"
+							},
+							{
+								"label": "RS",
+								"value": "RS"
+							},
+							{
+								"label": "SR",
+								"value": "SR"
+							},
+							{
+								"label": "SY",
+								"value": "SY"
+							},
+							{
+								"label": "TR",
+								"value": "TR"
+							},
+							{
+								"label": "TZ",
+								"value": "TZ"
+							},
+							{
+								"label": "UY",
+								"value": "UY"
+							},
+							{
+								"label": "VN",
+								"value": "VN"
 							}
 						]
 					},

@@ -113,7 +113,7 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 			apiKey: "",
 			language: "en",
 			maxResults: 1,
-			politicalView: "US",
+			politicalView: "",
 			queryRadius: 1,
 			addressNumber: "",
 			country: "",

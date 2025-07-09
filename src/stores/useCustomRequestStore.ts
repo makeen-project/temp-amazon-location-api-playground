@@ -56,7 +56,7 @@ export const initialState: IStateProps<CustomRequestStore> = {
 	apiKey: "",
 	language: "en",
 	maxResults: 1,
-	politicalView: "US",
+	politicalView: "",
 	queryRadius: 1,
 	addressNumber: "",
 	country: "",
