@@ -43,7 +43,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	// Generate dynamic code snippets from configuration
 	const CODE_SNIPPETS = useMemo(() => {
 		if (apiPlaygroundItem?.codeSnippets) {
-			return generateCodeSnippets(apiPlaygroundItem.codeSnippets, store);
+			return generateCodeSnippets(apiPlaygroundItem.codeSnippets, {});
 		}
 
 		// Helper function to build filter object
@@ -215,8 +215,7 @@ puts response`
 	return (
 		<View className="snippets-container">
 			<Accordion
-				open={isOpen}
-				onToggle={onToggle}
+				defaultOpen={isOpen}
 				style={{
 					width: `${width}px`
 				}}

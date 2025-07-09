@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
@@ -27,6 +27,7 @@ interface CustomRequestProps {
 export default function CustomRequest({ onResponseReceived, onReset }: CustomRequestProps) {
 	useAuthManager();
 	const isFirstLoad = useRef(true);
+	const [containerRef, setContainerRef] = useState<HTMLDivElement>();
 
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
@@ -196,7 +197,7 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 	});
 
 	return (
-		<div className="container">
+		<div className="container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
 			<FormRender
 				fields={formFields}
 				content={convertFormContentConfigToContentProps(apiPlaygroundItem?.formContent || { type: "list", items: [] })}
@@ -205,6 +206,7 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 				onSubmit={handleSubmit}
 				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
 				onToggle={handleToggle}
+				containerHeight={containerRef?.clientHeight}
 			/>
 		</div>
 	);

@@ -169,6 +169,7 @@ interface FormRenderProps {
 	submitButtonDisabled?: boolean;
 	onReset?: () => void;
 	onToggle?: (fieldName: string, enabled: boolean) => void;
+	containerHeight?: number;
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
@@ -180,7 +181,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	content,
 	submitButtonDisabled = false,
 	onReset,
-	onToggle
+	onToggle,
+	containerHeight
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());

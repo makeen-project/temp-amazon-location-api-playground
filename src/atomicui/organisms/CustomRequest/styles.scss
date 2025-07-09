@@ -2,8 +2,12 @@
     position: absolute;
     left: 1rem;
     top: 1rem;
+    bottom: 1rem;
     z-index: 4;
     max-width: 45vw;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 
     .amplify-accordion {
         z-index: 4;
