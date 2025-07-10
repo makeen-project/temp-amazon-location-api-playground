@@ -215,7 +215,8 @@ puts response`
 	return (
 		<View className="snippets-container">
 			<Accordion
-				defaultOpen={isOpen}
+				open={isOpen}
+				onToggle={onToggle}
 				style={{
 					width: `${width}px`
 				}}
