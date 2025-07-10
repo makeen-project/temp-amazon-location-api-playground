@@ -16,7 +16,7 @@ import { useMap } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useCustomRequestStore } from "@api-playground/stores";
-import { CustomRequestStore } from "@api-playground/stores/useCustomRequestStore";
+import { CustomRequestStore, initialState } from "@api-playground/stores/useCustomRequestStore";
 import { uuid } from "@api-playground/utils";
 import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { bbox, circle } from "@turf/turf";
@@ -33,6 +33,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 	const customRequestStore = useCustomRequestStore() as CustomRequestStore;
+	const { setState } = useCustomRequestStore;
+
 	const { setClickedPosition, clickedPosition } = useMap();
 
 	const mapRef = useRef<MapRef | null>(null);
@@ -110,6 +112,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const handleClose = useCallback(() => {
 		handleMarkerClose();
 		handleMarkerToggle?.(false);
+		setState({ ...initialState, query: "", response: undefined });
 	}, [handleMarkerClose, handleMarkerToggle]);
 
 	const handleCustomResponse = () => {
