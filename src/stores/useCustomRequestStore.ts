@@ -43,6 +43,7 @@ export interface CustomRequestStore {
 	response?: ReverseGeocodeCommandOutput | GeocodeCommandOutput;
 	isLoading: boolean;
 	error?: string;
+	query?: string;
 }
 
 export const initialState: IStateProps<CustomRequestStore> = {
@@ -66,7 +67,8 @@ export const initialState: IStateProps<CustomRequestStore> = {
 	region: "",
 	street: "",
 	subRegion: "",
-	isLoading: false
+	isLoading: false,
+	query: ""
 };
 
 export default createStore<CustomRequestStore>(initialState);
