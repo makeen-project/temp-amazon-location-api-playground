@@ -5,18 +5,11 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: 100%;
 }
 
-.form-render-accordion {
-  max-height: 70vh !important;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+.accordion-title {
+  position: sticky;
 }
 
 .amplify-input {

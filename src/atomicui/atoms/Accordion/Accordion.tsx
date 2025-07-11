@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 
 import { IconAccordionClose, IconAccordionOpen } from "@api-playground/assets/svgs";
 import { Accordion as AmplifyAccordion } from "@aws-amplify/ui-react";
@@ -16,19 +16,20 @@ interface AccordionProps {
 	shadowEnabled?: boolean;
 	style?: React.CSSProperties;
 	contentClassName?: string;
+	containerHeight?: number;
 }
 
 export const Accordion = ({
 	children,
 	title,
 	defaultOpen = false,
-	open,
-	onToggle,
 	shadowEnabled = true,
 	openIcon = <IconAccordionOpen />,
 	closeIcon = <IconAccordionClose />,
 	style,
-	contentClassName
+	contentClassName,
+	open,
+	onToggle
 }: AccordionProps) => {
 	// Use controlled state if open and onToggle are provided, otherwise use internal state
 	const isControlled = open !== undefined && onToggle !== undefined;

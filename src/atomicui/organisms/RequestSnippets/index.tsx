@@ -43,7 +43,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	// Generate dynamic code snippets from configuration
 	const CODE_SNIPPETS = useMemo(() => {
 		if (apiPlaygroundItem?.codeSnippets) {
-			return generateCodeSnippets(apiPlaygroundItem.codeSnippets, store);
+			return generateCodeSnippets(apiPlaygroundItem.codeSnippets, {});
 		}
 
 		// Helper function to build filter object
