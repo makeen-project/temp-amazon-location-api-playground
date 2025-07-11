@@ -144,7 +144,7 @@ const Popup: FC<PopupProps> = ({
 							</View>
 							{isDesktop && (
 								<IconCopyPages
-									data-testid="copy-icon"
+									data-testid="placeid-copy-icon"
 									className="copy-icon"
 									onClick={() => navigator.clipboard.writeText(`${label?.split(",")[0]}` + ", " + address)}
 								/>
@@ -157,6 +157,13 @@ const Popup: FC<PopupProps> = ({
 									<IconHashtag />
 									<View className="coordinate-label">Place ID</View>
 									<View className="coordinate-value capped-text">{placeId}</View>
+									{isDesktop && (
+										<IconCopyPages
+											data-testid="copy-icon"
+											className="copy-place-id-icon"
+											onClick={() => navigator.clipboard.writeText(`${placeId}`)}
+										/>
+									)}
 								</View>
 							)}
 							{locationPopupConfig.showLatitude && (

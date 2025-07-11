@@ -263,3 +263,14 @@
 		padding: 0;
 	}
 }
+
+.copy-place-id-icon {
+	width: 16px;
+	height: 16px;
+	fill: var(--grey-color-1);
+	cursor: pointer;
+
+	&:hover {
+		fill: var(--primary-color);
+	}
+}
