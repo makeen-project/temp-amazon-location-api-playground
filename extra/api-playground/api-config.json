@@ -17,12 +17,12 @@
 				},
 				"relatedResources": [
 					{
-						"text": "Reverse Geocode API documentation",
-						"link": "https://docs.aws.amazon.com/location/latest/developerguide/what-is.html"
+						"text": "ReverseGeocode API documentation",
+						"link": "https://docs.aws.amazon.com/location/latest/developerguide/reverse-geocode.html"
 					},
 					{
-						"text": "Geocode Developer Guide",
-						"link": "https://docs.aws.amazon.com/location/latest/developerguide/geocoding.html"
+						"text": "ReverseGeocode Developer Guide",
+						"link": "https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_ReverseGeocode.html"
 					},
 					{
 						"text": "Demo Application",
@@ -285,11 +285,11 @@
 				"relatedResources": [
 					{
 						"text": "Geocode API documentation",
-						"link": "https://docs.aws.amazon.com/location/latest/developerguide/what-is-amazon-location.html"
+						"link": "https://docs.aws.amazon.com/location/latest/developerguide/geocode.html"
 					},
 					{
 						"text": "Geocode Developer Guide",
-						"link": "https://docs.aws.amazon.com/location/latest/developerguide/geocoding.html"
+						"link": "https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Geocode.html"
 					},
 					{
 						"text": "Demo Application",

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
+import useMap from "@api-playground/hooks/useMap";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
 import usePlaceService from "@api-playground/services/usePlaceService";
 import { useCustomRequestStore } from "@api-playground/stores";
@@ -14,6 +15,7 @@ import {
 	createFormFieldsFromConfig,
 	mapFormDataToApiParams
 } from "@api-playground/utils/formConfigUtils";
+
 import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
 import { useParams } from "react-router-dom";
@@ -22,9 +24,17 @@ import "./styles.scss";
 interface CustomRequestProps {
 	onResponseReceived?: (response: ReverseGeocodeCommandOutput | GeocodeCommandOutput) => void;
 	onReset?: () => void;
+	mapRef?: React.RefObject<{
+		flyTo: (options: { center: [number, number]; zoom: number; duration?: number }) => void;
+		zoomTo: (number: number) => void;
+		fitBounds: (
+			bounds: [[number, number], [number, number]],
+			options?: { padding?: number; duration?: number; essential?: boolean }
+		) => void;
+	}>;
 }
 
-export default function CustomRequest({ onResponseReceived, onReset }: CustomRequestProps) {
+export default function CustomRequest({ onResponseReceived, onReset, mapRef }: CustomRequestProps) {
 	useAuthManager();
 	const isFirstLoad = useRef(true);
 	const [containerRef, setContainerRef] = useState<HTMLDivElement>();
@@ -34,6 +44,7 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 
 	const store = useCustomRequestStore();
 	const { setState } = useCustomRequestStore;
+	const { setClickedPosition, setBiasPosition, setViewpoint, setCurrentLocation } = useMap();
 
 	// Get initial values directly from API config
 	const initialUrlState = (apiPlaygroundItem?.formFields || []).reduce((acc, field) => {
@@ -131,6 +142,40 @@ export default function CustomRequest({ onResponseReceived, onReset }: CustomReq
 
 		// Reset store to initial state using setState
 		setState(resetState);
+
+		// Reset map state
+		setClickedPosition([]);
+		setBiasPosition([]);
+
+		// Set map to current location without reloading
+		if ("geolocation" in navigator) {
+			navigator.geolocation.getCurrentPosition(
+				currentLocation => {
+					const {
+						coords: { latitude, longitude }
+					} = currentLocation;
+
+					setCurrentLocation({ currentLocation: { latitude, longitude }, error: undefined });
+					setViewpoint({ latitude, longitude });
+
+					// Actually move the map to the current location
+					mapRef?.current?.flyTo({
+						center: [longitude, latitude],
+						zoom: 15,
+						duration: 2000
+					});
+				},
+				error => {
+					console.warn("Failed to get current location:", error);
+					// Fallback to default location if geolocation fails
+					setCurrentLocation({ currentLocation: undefined, error });
+				},
+				{
+					maximumAge: 0,
+					enableHighAccuracy: true
+				}
+			);
+		}
 
 		// Completely clear URL state by setting it to null
 		setUrlState(null as any);

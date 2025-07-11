@@ -275,7 +275,15 @@ puts response`
 							// }}
 						>
 							{response ? (
-								<pre className="response-pre">{JSON.stringify(response, null, 2)}</pre>
+								<pre className="response-pre">
+									{JSON.stringify(
+										{
+											ResultItems: response.ResultItems
+										},
+										null,
+										2
+									)}
+								</pre>
 							) : (
 								<Text color="var(--tertiary-color)">No response yet. Submit a request to see the response.</Text>
 							)}

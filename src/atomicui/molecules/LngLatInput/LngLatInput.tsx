@@ -102,7 +102,7 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 							onChange={handleCoordinateChange(1)}
 							required={isRequired}
 							disabled={isDisabled}
-							placeholder="Enter longitude"
+							placeholder="Enter latitude"
 							min="-90"
 							max="90"
 							step="any"
