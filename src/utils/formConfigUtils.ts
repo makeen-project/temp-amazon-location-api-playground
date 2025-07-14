@@ -39,7 +39,8 @@ export const convertFormFieldConfigToFormField = (
 		required: fieldConfig.required,
 		disabled: fieldConfig.disabled,
 		placeholder: fieldConfig.placeholder,
-		className: fieldConfig.className
+		className: fieldConfig.className,
+		hiddenFromUI: fieldConfig.hiddenFromUI
 	};
 
 	// Get value from URL state or fallback to config

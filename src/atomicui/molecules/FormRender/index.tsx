@@ -28,6 +28,7 @@ interface BaseField {
 	placeholder?: string;
 	className?: string;
 	onToggle?: (enabled: boolean) => void;
+	hiddenFromUI?: boolean;
 }
 
 // Text field specific interface
@@ -278,6 +279,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						options={field.options}
 						defaultValue={field.defaultValue}
 						value={field.value}
+						disabled={field.disabled}
 						onChange={value => handleChange(field.name, value)}
 					/>
 				);
@@ -375,8 +377,10 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	};
 
 	// Split fields into required and optional
-	const requiredFields = fields.filter(field => field.required);
-	const optionalFields = fields.filter(field => !field.required);
+	const requiredFields = fields.filter(field => field.required && !field.hiddenFromUI);
+	const optionalFields = fields.filter(field => !field.required && !field.hiddenFromUI);
+
+	console.log(optionalFields);
 
 	const handleReset = (event?: React.MouseEvent) => {
 		if (event) {
