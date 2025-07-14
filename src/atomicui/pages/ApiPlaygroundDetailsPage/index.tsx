@@ -269,7 +269,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					style={{ padding: 32 }}
 				>
 					<Flex direction="column" flex={1} alignItems="flex-start" gap={"0.5rem"}>
-						<Button className="back-button-link" variation="link" onClick={() => navigate(-1)}>
+						<Button className="back-button-link" variation="link" onClick={() => navigate("/api-playground")}>
 							<span className="back-button-content">
 								<IconBackArrow className="back-arrow-icon" />
 								Back
