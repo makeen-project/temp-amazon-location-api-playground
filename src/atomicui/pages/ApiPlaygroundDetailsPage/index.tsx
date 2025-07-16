@@ -260,14 +260,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	return (
 		<NuqsAdapter>
 			<View className="api-playground-details-page no-side-gaps">
-				<Flex
-					className="api-playground-header"
-					direction="column"
-					alignItems="flex-start"
-					justifyContent="space-between"
-					gap={"2rem"}
-					style={{ padding: 32 }}
-				>
+				<Flex className="api-playground-header">
 					<Flex direction="column" flex={1} alignItems="flex-start" gap={"0.5rem"}>
 						<Button className="back-button-link" variation="link" onClick={() => navigate("/api-playground")}>
 							<span className="back-button-content">
