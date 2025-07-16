@@ -198,7 +198,8 @@
 						"min": 1,
 						"max": 100,
 						"step": 1,
-						"defaultValue": 10
+						"defaultValue": 1,
+						"disabled": true
 					},
 					{
 						"type": "dropdown",
@@ -746,7 +747,8 @@
 						"min": 1,
 						"max": 100,
 						"step": 1,
-						"defaultValue": 1
+						"defaultValue": 1,
+						"disabled": true
 					},
 					{
 						"type": "text",

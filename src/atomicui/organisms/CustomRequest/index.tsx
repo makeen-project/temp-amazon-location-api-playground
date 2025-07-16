@@ -207,7 +207,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		// Update store state
 		const newState = {
 			...store,
-			[fieldName]: enabled ? 1 : undefined, // Set to 1 when enabled, undefined when disabled
+			[fieldName]: enabled ? 1 : null, // Set to 1 when enabled, undefined when disabled
 			response: undefined,
 			error: undefined
 		};
@@ -216,7 +216,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		// Update URL state
 		setUrlState({
 			...urlState,
-			[fieldName]: enabled ? 1 : undefined
+			[fieldName]: enabled ? 1 : null
 		});
 	};
 
