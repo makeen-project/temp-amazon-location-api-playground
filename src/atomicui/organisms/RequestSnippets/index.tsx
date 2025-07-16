@@ -218,7 +218,7 @@ puts response`
 				open={isOpen}
 				onToggle={onToggle}
 				style={{
-					width: `${width}px`
+					maxWidth: `${width}px`
 				}}
 				contentClassName="scrollable-content"
 				title={

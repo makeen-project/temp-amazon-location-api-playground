@@ -4,13 +4,13 @@
     top: 1rem;
     bottom: 1rem;
     z-index: 4;
-    max-width: 45vw;
+    max-width: calc(50% - 34px);
     display: flex;
     flex-direction: column;
     overflow: auto;
 
     .amplify-accordion {
         z-index: 4;
-        position: relative;
+        flex: 1;
     }
 }
