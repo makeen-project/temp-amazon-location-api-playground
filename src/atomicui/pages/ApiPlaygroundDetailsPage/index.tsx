@@ -173,6 +173,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	};
 
 	const handleMapLoad = useCallback(() => {
+		setMapLoaded(true);
 		if (customRequestStore.response) {
 			setTimeout(() => {
 				handleCustomResponse();
@@ -218,13 +219,13 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		};
 	}, []);
 
-	const applyStyles = () => {
+	const applyStyles = useCallback(() => {
 		const attributionElement = document.querySelector(".maplibregl-ctrl-bottom-right") as HTMLElement;
 		const mapStylesButton = document.querySelector(".map-styles-button") as HTMLElement;
 		const snippetsContainer = document.querySelector(".snippets-container") as HTMLElement;
 
 		if (attributionElement) {
-			const attributionRight = isSnippetsOpenRef.current ? snippetsContainer?.offsetWidth : 0;
+			const attributionRight = isSnippetsOpenRef.current ? snippetsContainer?.offsetWidth ?? 400 : 0;
 			attributionElement.style.right = `${attributionRight}px`;
 		}
 
@@ -233,13 +234,13 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			const stylesRight = isSnippetsOpenRef.current ? snippetsContainer?.offsetWidth + DIFFERENCE : DIFFERENCE;
 			mapStylesButton.style.right = `${stylesRight}px`;
 		}
-	};
+	}, []);
 
-	const applyStylesDebounced = useMemo(() => debounce(applyStyles, 20), [applyStyles, isSnippetsOpen]);
+	const applyStylesDebounced = useMemo(() => debounce(applyStyles, 20), []);
 
 	useEffect(() => {
 		applyStylesDebounced();
-	}, [isSnippetsOpen, isExpanded, applyStyles]);
+	}, [isSnippetsOpen, isExpanded, mapLoaded]);
 
 	useEffect(() => {
 		window.addEventListener("resize", applyStylesDebounced);
