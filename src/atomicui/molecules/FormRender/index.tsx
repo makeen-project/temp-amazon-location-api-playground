@@ -380,8 +380,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const requiredFields = fields.filter(field => field.required && !field.hiddenFromUI);
 	const optionalFields = fields.filter(field => !field.required && !field.hiddenFromUI);
 
-	console.log(optionalFields);
-
 	const handleReset = (event?: React.MouseEvent) => {
 		if (event) {
 			event.preventDefault();
