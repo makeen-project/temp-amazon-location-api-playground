@@ -14,8 +14,16 @@
 		height: 90vh;
 		transition: all 0.3s ease;
 
+		.snippets-content-container {
+			height: calc(90vh - 1rem - 120px);
+		}
+
 		&.fullscreen {
 			height: 100vh;
+
+			.snippets-content-container {
+				height: calc(100vh - 1rem - 60px);
+			}
 
 			position: fixed;
 			top: 0;

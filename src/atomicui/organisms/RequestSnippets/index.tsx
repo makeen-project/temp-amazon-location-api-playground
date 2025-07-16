@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useMemo, useState } from "react";
 
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
@@ -220,7 +220,7 @@ puts response`
 				style={{
 					maxWidth: `${width}px`
 				}}
-				contentClassName="scrollable-content"
+				contentClassName="snippets-content-container"
 				title={
 					<View className="accordion-title">
 						{width === SNIPPETS_EXPANDED_WIDTH ? (
