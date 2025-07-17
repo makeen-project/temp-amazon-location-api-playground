@@ -1,10 +1,11 @@
 {
 	"Places": [
 		{
-			"type": "reverseGeocode",
-			"submitButtonText": "ReverseGeocode",
 			"id": "reverse-geocode",
-			"imageSource": "images/Map1.png",
+			"type": "reverseGeocode",
+			"tags": ["Places", "ReverseGeocode"],
+			"submitButtonText": "ReverseGeocode",
+			"imageSource": "images/ReverseGeocode.png",
 			"title": "ReverseGeocode API Playground",
 			"description": "The Reverse Geocode API converts latitude/Longitude into human-readable addresses. Use [[QueryPosition]] with latitude/longitude. Optional parameters include [[BiasPosition]], [[Filter]], and [[MaxResults]].The response contains [[ResultItems]] with [[Address]], [[Position]], and Optional [[TimeZone]] data. Use [[AdditionalFeatures]] to request extra information like time zones.",
 			"shouldRenderMap": true,
@@ -370,10 +371,11 @@
 			}
 		},
 		{
-			"type": "geocode",
 			"id": "geocode",
+			"type": "geocode",
+			"tags": ["Places", "Geocode"],
 			"submitButtonText": "Geocode",
-			"imageSource": "images/Map2.png",
+			"imageSource": "images/Geocode.png",
 			"title": "Geocode API Playground",
 			"missingFieldsMessage": "Enter an address to geocode",
 			"description": "The Geocode API transforms addresses or place names into geographic coordinates with detailed location information. Use the Query parameter for free-form text input or QueryComponents for structured queries. Optional parameters include BiasPosition, Filter, Language, and AdditionalFeatures. The API returns coordinates, formatted address components, and any additional requested information.",

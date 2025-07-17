@@ -26,6 +26,7 @@ interface ApiConfigItem {
 	description: string;
 	shouldRenderMap: boolean;
 	type: string;
+	tags: string[];
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	requestParams: any[];
 	buildSampleButton?: {
@@ -117,7 +118,8 @@ function useApiPlaygroundFilters() {
 					title: apiPlayground.title.toLowerCase(),
 					category: apiPlayground.category.toLowerCase(),
 					type: apiPlayground.type.toLowerCase(),
-					description: apiPlayground.description.toLowerCase()
+					description: apiPlayground.description.toLowerCase(),
+					tags: apiPlayground.tags.map(tag => tag.toLowerCase()).join(" ")
 				};
 
 				// Helper function to split text into searchable words

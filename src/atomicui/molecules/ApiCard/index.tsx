@@ -15,11 +15,11 @@ export interface ApiCardProps {
 	title: string;
 	imageSource?: string;
 	description: string;
-	category?: string;
+	tags?: string[];
 	onCardClick: (apiId: string, apiTitle: string) => () => void;
 }
 
-const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, description, category, onCardClick }) => {
+const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, description, tags, onCardClick }) => {
 	const { tokens } = useTheme();
 	const { i18n } = useTranslation();
 	const langDir = i18n.dir();
@@ -78,11 +78,13 @@ const ApiCard: FC<ApiCardProps> = ({ id, title, imageSource, description, catego
 							</button>
 						)}
 
-						{!!category && (
+						{!!tags && (
 							<Flex className="card-category">
-								<Badge size={"large"} className="small-text">
-									{category}
-								</Badge>
+								{tags.map(tag => (
+									<Badge size={"large"} className="small-text">
+										{tag}
+									</Badge>
+								))}
 							</Flex>
 						)}
 					</Flex>
