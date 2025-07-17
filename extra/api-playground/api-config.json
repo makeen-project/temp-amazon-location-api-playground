@@ -89,7 +89,7 @@
 					{
 						"type": "radio",
 						"name": "intendedUse",
-						"label": "Intended use",
+						"label": "Intended Use",
 						"required": false,
 						"disabled": true,
 						"defaultValue": "SingleUse",
@@ -523,7 +523,7 @@
 					{
 						"type": "radio",
 						"name": "intendedUse",
-						"label": "Intended use",
+						"label": "Intended Use",
 						"required": false,
 						"defaultValue": "SingleUse",
 						"disabled": true,
