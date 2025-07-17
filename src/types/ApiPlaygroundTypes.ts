@@ -110,6 +110,7 @@ export interface ApiPlaygroundItem {
 	imageSource: string;
 	description: string;
 	submitButtonText?: string;
+	tags: string[];
 	category: string;
 	type: string;
 	shouldRenderMap?: boolean;
