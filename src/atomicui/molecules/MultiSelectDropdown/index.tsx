@@ -83,9 +83,6 @@ export default function MultiSelectDropdown<T extends string>({
 				icon={<IconChevronDown />}
 				onFocus={() => setIsOpen(true)}
 			>
-				<option value="" disabled>
-					{placeholder || "Select..."}
-				</option>
 				{options
 					.filter(option => !selected.includes(option.value))
 					.map(option => (

@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
+import { appConfig } from "@api-playground/core/constants";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import useMap from "@api-playground/hooks/useMap";
@@ -21,6 +22,10 @@ import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
 import { useParams } from "react-router-dom";
 import "./styles.scss";
 
+const {
+	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
+} = appConfig;
+
 interface CustomRequestProps {
 	onResponseReceived?: (response: ReverseGeocodeCommandOutput | GeocodeCommandOutput) => void;
 	onReset?: () => void;
@@ -37,6 +42,7 @@ interface CustomRequestProps {
 export default function CustomRequest({ onResponseReceived, onReset, mapRef }: CustomRequestProps) {
 	useAuthManager();
 	const isFirstLoad = useRef(true);
+	const isSyncing = useRef(false);
 	const [containerRef, setContainerRef] = useState<HTMLDivElement>();
 
 	const { apiPlaygroundId } = useParams();
@@ -44,7 +50,16 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 
 	const store = useCustomRequestStore();
 	const { setState } = useCustomRequestStore;
-	const { setClickedPosition, setBiasPosition, setViewpoint, setCurrentLocation } = useMap();
+	const {
+		setClickedPosition,
+		setBiasPosition,
+		setViewpoint,
+		setCurrentLocation,
+		setMapPoliticalView,
+		setMapLanguage,
+		mapPoliticalView,
+		mapLanguage
+	} = useMap();
 
 	// Get initial values directly from API config
 	const initialUrlState = (apiPlaygroundItem?.formFields || []).reduce((acc, field) => {
@@ -94,6 +109,62 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 			isFirstLoad.current = false;
 		}
 	}, [urlState]);
+
+	// Sync custom request store changes back to map store
+	useEffect(() => {
+		if (isSyncing.current) return;
+
+		isSyncing.current = true;
+
+		// Sync political view - map from alpha2 (API config) to alpha3 (map store)
+		if (store.politicalView !== undefined && store.politicalView !== mapPoliticalView.alpha2) {
+			const politicalViewOption =
+				MAP_POLITICAL_VIEWS.find(option => option.alpha2 === store.politicalView) || MAP_POLITICAL_VIEWS[0]; // Default to first option (no political view)
+
+			setMapPoliticalView(politicalViewOption);
+		}
+
+		// Sync language
+		if (store.language !== undefined && store.language !== mapLanguage.value) {
+			const languageOption = MAP_LANGUAGES.find(option => option.value === store.language) || MAP_LANGUAGES[0]; // Default to first option (English)
+
+			setMapLanguage(languageOption);
+		}
+
+		isSyncing.current = false;
+	}, [
+		store.politicalView,
+		store.language,
+		mapPoliticalView.alpha2,
+		mapLanguage.value,
+		setMapPoliticalView,
+		setMapLanguage
+	]);
+
+	// Initial sync from map store to custom request store
+	useEffect(() => {
+		if (isFirstLoad.current && !isSyncing.current) {
+			isSyncing.current = true;
+
+			// Sync map political view to custom request store - map from alpha3 to alpha2
+			if (mapPoliticalView.alpha2 !== store.politicalView) {
+				setState(prevState => ({
+					...prevState,
+					politicalView: mapPoliticalView.alpha2 || ""
+				}));
+			}
+
+			// Sync map language to custom request store
+			if (mapLanguage.value !== store.language) {
+				setState(prevState => ({
+					...prevState,
+					language: mapLanguage.value
+				}));
+			}
+
+			isSyncing.current = false;
+		}
+	}, [mapPoliticalView.alpha2, mapLanguage.value, store.politicalView, store.language, setState]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
 		// Update store state
@@ -146,6 +217,10 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		// Reset map state
 		setClickedPosition([]);
 		setBiasPosition([]);
+
+		// Reset map political view and language to defaults
+		setMapPoliticalView(MAP_POLITICAL_VIEWS[0]); // No political view
+		setMapLanguage(MAP_LANGUAGES[0]); // English
 
 		// Set map to current location without reloading
 		if ("geolocation" in navigator) {

@@ -3,6 +3,7 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { IconArrow } from "@api-playground/assets/svgs";
 import { appConfig } from "@api-playground/core/constants";
 import { useMap } from "@api-playground/hooks";
+import { useCustomRequestStore } from "@api-playground/stores";
 import { Flex, Text } from "@aws-amplify/ui-react";
 import { useTranslation } from "react-i18next";
 import "./styles.scss";
@@ -28,6 +29,7 @@ const MapLanguageDropdown: FC<MapLanguageDropdownProps> = ({
 	const dropdownRef = useRef<HTMLDivElement>(null);
 	const { i18n, t } = useTranslation();
 	const { mapLanguage, setMapLanguage } = useMap();
+	const { setState: setCustomRequestState } = useCustomRequestStore;
 	const mapLanguageDir = i18n.dir(mapLanguage.value);
 
 	const handleClickOutside = (event: MouseEvent) => {
@@ -46,10 +48,24 @@ const MapLanguageDropdown: FC<MapLanguageDropdownProps> = ({
 
 	const handleClick = useCallback(
 		(option: { value: string; label: string }) => {
+			// Update map store
 			setMapLanguage(option);
+
+			// Also update custom request store to keep them in sync
+			// Only update if the value is actually different to prevent loops
+			setCustomRequestState(prevState => {
+				if (prevState.language !== option.value) {
+					return {
+						...prevState,
+						language: option.value
+					};
+				}
+				return prevState;
+			});
+
 			setOpen(false);
 		},
-		[setMapLanguage]
+		[setMapLanguage, setCustomRequestState]
 	);
 
 	return (
