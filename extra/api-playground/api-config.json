@@ -811,7 +811,7 @@
 					"type": "list",
 					"items": [
 						{
-							"text": "Enter an address and click 'Geocode"
+							"text": "Enter an address and click [[Geocode]]"
 						},
 						{
 							"text": "Results will be displayed and shown on the map"
