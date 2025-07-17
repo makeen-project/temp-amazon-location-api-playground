@@ -135,6 +135,7 @@ export { ReactComponent as IconFaqsPrimary } from "./icon-faqs-primary.svg";
 export { ReactComponent as IconAccordionClose } from "./icon-accordion-close.svg";
 export { ReactComponent as IconAccordionOpen } from "./icon-accordion-open.svg";
 export { ReactComponent as IconChevronDown } from "./icon-chevron-down.svg";
+export { ReactComponent as IconChevronUp } from "./icon-chevron-up.svg";
 export { ReactComponent as IconLocationPin } from "./icon-location-pin.svg";
 export { ReactComponent as IconHashtag } from "./icon-hashtag.svg";
 export { ReactComponent as IconExpand } from "./icon-expand.svg";

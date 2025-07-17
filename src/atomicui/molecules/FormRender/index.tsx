@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-import { IconReloadLined } from "@api-playground/assets/svgs";
+import { IconChevronDown, IconChevronUp, IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
 
@@ -475,6 +475,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 							defaultOpen={true}
 							title="Optional Parameters"
 							contentClassName="optional-items"
+							openIcon={<IconChevronUp className="chevron-up-icon" />}
+							closeIcon={<IconChevronDown className="chevron-down-icon" />}
 						>
 							<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem">
 								{optionalFields.map(renderField)}
