@@ -445,8 +445,13 @@ export const FormRender: React.FC<FormRenderProps> = ({
 					{requiredFields.map(renderField)}
 
 					<Flex gap="1rem">
-						<Button size="small" onClick={handleReset}>
-							<IconReloadLined width={20} height={20} color="black" />
+						<Button borderColor="rgba(0, 130, 150, 1)" borderWidth={1} size="small" onClick={handleReset}>
+							<IconReloadLined
+								width={20}
+								height={20}
+								style={{ stroke: "rgba(0, 130, 150, 1)", strokeWidth: 1 }}
+								color="rgba(0, 130, 150, 1)"
+							/>
 						</Button>
 						{onSubmit && (
 							<Button
