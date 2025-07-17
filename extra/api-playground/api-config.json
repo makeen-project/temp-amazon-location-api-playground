@@ -374,7 +374,7 @@
 			"id": "geocode",
 			"submitButtonText": "Geocode",
 			"imageSource": "images/Map2.png",
-			"title": "Geocode Playground",
+			"title": "Geocode API Playground",
 			"missingFieldsMessage": "Enter an address to geocode",
 			"description": "The Geocode API transforms addresses or place names into geographic coordinates with detailed location information. Use the Query parameter for free-form text input or QueryComponents for structured queries. Optional parameters include BiasPosition, Filter, Language, and AdditionalFeatures. The API returns coordinates, formatted address components, and any additional requested information.",
 			"shouldRenderMap": false,

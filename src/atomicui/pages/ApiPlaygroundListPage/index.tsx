@@ -150,6 +150,7 @@ const ApiPlaygroundListPage: FC = () => {
 								hasSearchButton={false}
 								onChange={e => handleSearchChange(e.target.value)}
 								value={filters?.searchText || ""}
+								onClear={() => handleSearchChange("")}
 							/>
 							<IconFilter
 								data-testid="apiPlaygrounds-filter-icon"
