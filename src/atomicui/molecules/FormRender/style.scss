@@ -45,3 +45,19 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+.chevron-up-icon {
+  stroke: #c8c8ce;
+  top: 2px;
+  left: -2px;
+  position: relative;
+  stroke-width: 1;
+  width: 20px;
+  height: 20px;
+}
+
+.chevron-down-icon {
+  left: -4px;
+  top: 2px;
+  position: relative;
+}
