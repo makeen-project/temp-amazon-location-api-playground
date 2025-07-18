@@ -36,12 +36,13 @@
 	}
 
 	.api-playground-header {
-		padding: 32px;
+		padding: 0px 32px;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: space-between;
 		gap: 2rem;
+		margin-top: 50px;
 	}
 
 	.back-button-link {
@@ -146,9 +147,7 @@
 		align-items: center;
 		justify-content: center;
 		background-color: #e5e5ea;
-		transition:
-			background 0.2s,
-			border 0.2s;
+		transition: background 0.2s, border 0.2s;
 	}
 	.share-btn:hover {
 		background: #e5e7eb;
@@ -177,9 +176,7 @@
 		color: #00819d;
 		font-weight: 600;
 		text-decoration: none;
-		transition:
-			text-decoration 0.2s,
-			color 0.2s;
+		transition: text-decoration 0.2s, color 0.2s;
 	}
 	.related-links a:hover {
 		text-decoration: underline;

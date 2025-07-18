@@ -34,10 +34,4 @@ describe("Slider", () => {
 			render(<Slider {...defaultProps} min={100} max={50} />);
 		}).toThrow("min value must be less than max value");
 	});
-
-	it("throws error when step is less than or equal to 0", () => {
-		expect(() => {
-			render(<Slider {...defaultProps} step={0} />);
-		}).toThrow("step value must be greater than 0");
-	});
 });

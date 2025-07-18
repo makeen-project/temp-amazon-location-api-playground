@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-import { IconReloadLined } from "@api-playground/assets/svgs";
+import { IconChevronDown, IconChevronUp, IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
 
@@ -380,8 +380,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const requiredFields = fields.filter(field => field.required && !field.hiddenFromUI);
 	const optionalFields = fields.filter(field => !field.required && !field.hiddenFromUI);
 
-	console.log(optionalFields);
-
 	const handleReset = (event?: React.MouseEvent) => {
 		if (event) {
 			event.preventDefault();
@@ -447,8 +445,13 @@ export const FormRender: React.FC<FormRenderProps> = ({
 					{requiredFields.map(renderField)}
 
 					<Flex gap="1rem">
-						<Button size="small" onClick={handleReset}>
-							<IconReloadLined width={20} height={20} color="black" />
+						<Button borderColor="rgba(0, 130, 150, 1)" borderWidth={1} size="small" onClick={handleReset}>
+							<IconReloadLined
+								width={20}
+								height={20}
+								style={{ stroke: "rgba(0, 130, 150, 1)", strokeWidth: 1 }}
+								color="rgba(0, 130, 150, 1)"
+							/>
 						</Button>
 						{onSubmit && (
 							<Button
@@ -472,6 +475,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 							defaultOpen={true}
 							title="Optional Parameters"
 							contentClassName="optional-items"
+							openIcon={<IconChevronUp className="chevron-up-icon" />}
+							closeIcon={<IconChevronDown className="chevron-down-icon" />}
 						>
 							<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem">
 								{optionalFields.map(renderField)}

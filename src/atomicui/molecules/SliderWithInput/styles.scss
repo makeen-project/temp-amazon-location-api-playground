@@ -1,6 +1,8 @@
 .slider-with-input {
     width: 100%;
     gap: 0;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
 
     &__header {
         justify-content: space-between;
@@ -16,6 +18,7 @@
     &__controls {
         gap: 1rem;
         align-items: center;
+        margin-top: 0.4rem;
     }
 
     &__slider {
@@ -40,6 +43,5 @@
 
     &__toggle {
         margin: 0;
-        margin-bottom: 0.4rem;
     }
 }
