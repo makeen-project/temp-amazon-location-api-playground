@@ -150,6 +150,7 @@ const ApiPlaygroundListPage: FC = () => {
 								hasSearchButton={false}
 								onChange={e => handleSearchChange(e.target.value)}
 								value={filters?.searchText || ""}
+								onClear={() => handleSearchChange("")}
 							/>
 							<IconFilter
 								data-testid="apiPlaygrounds-filter-icon"
@@ -169,7 +170,7 @@ const ApiPlaygroundListPage: FC = () => {
 												title={apiPlayground.title}
 												imageSource={apiPlayground.imageSource}
 												description={apiPlayground.description}
-												category={apiPlayground.category}
+												tags={apiPlayground.tags}
 												onCardClick={handleCardClick}
 											/>
 									  ))}
@@ -185,7 +186,7 @@ const ApiPlaygroundListPage: FC = () => {
 												title={apiPlayground.title}
 												imageSource={apiPlayground.imageSource}
 												description={apiPlayground.description}
-												category={apiPlayground.category}
+												tags={apiPlayground.tags}
 												onCardClick={handleCardClick}
 											/>
 									  ))}

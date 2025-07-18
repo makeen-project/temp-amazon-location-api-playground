@@ -26,6 +26,7 @@ interface ApiConfigItem {
 	description: string;
 	shouldRenderMap: boolean;
 	type: string;
+	tags: string[];
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	requestParams: any[];
 	buildSampleButton?: {
@@ -37,9 +38,7 @@ interface ApiConfigItem {
 }
 
 interface ApiConfig {
-	apis: {
-		[key: string]: ApiConfigItem[];
-	};
+	[key: string]: ApiConfigItem[];
 }
 
 function useApiPlaygroundList() {
@@ -52,20 +51,11 @@ function useApiPlaygroundList() {
 			setLoading(true);
 			const apiConfig = await downloadJson({ path: API_PLAYGROUND_LIST_FILENAME });
 
-			// Flatten the apis object into a single array
-			const flattenedList = Object.entries((apiConfig as ApiConfig).apis).reduce<ApiPlaygroundList>(
+			const flattenedList = Object.entries(apiConfig as ApiConfig).reduce<ApiPlaygroundList>(
 				(acc, [category, items]) => {
 					const itemsWithCategory = items.map(item => ({
 						category,
 						...item
-						// id: item.id,
-						// type: item.type,
-						// title: item.title,
-						// description: item.description,
-						// imageSource: item.imageSource,
-						// relatedResources: item.relatedResources,
-						// buildSampleButton: item.buildSampleButton,
-						// locationPopupConfig: item.locationPopupConfig
 					}));
 					return [...acc, ...itemsWithCategory];
 				},
@@ -128,7 +118,8 @@ function useApiPlaygroundFilters() {
 					title: apiPlayground.title.toLowerCase(),
 					category: apiPlayground.category.toLowerCase(),
 					type: apiPlayground.type.toLowerCase(),
-					description: apiPlayground.description.toLowerCase()
+					description: apiPlayground.description.toLowerCase(),
+					tags: apiPlayground.tags.map(tag => tag.toLowerCase()).join(" ")
 				};
 
 				// Helper function to split text into searchable words
