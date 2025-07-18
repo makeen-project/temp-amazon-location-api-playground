@@ -49,16 +49,6 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	max-width: calc(50% - 40px - 2px);
 	z-index: 4;
 
-	.amplify-tabs {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.amplify-tabs__panel {
-		flex: 1;
-	}
-
 	&__snippet {
 		margin: 0 10px;
 		flex: 1;
@@ -95,6 +85,14 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 			}
 		}
 	}
+
+	&__snippet.code {
+		flex: 1.5;
+	}
+}
+
+.snippets-container.expanded {
+	max-width: calc(70% - 40px - 2px);
 }
 
 .snippets-content-container {

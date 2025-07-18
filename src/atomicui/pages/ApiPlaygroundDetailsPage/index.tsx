@@ -41,7 +41,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const mapRef = useRef<MapRef | null>(null);
 	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const [isFullScreen, setIsFullScreen] = useState(false);
-	const [isExpanded, setIsExpanded] = useState(false);
+	const [isSnippetsExpanded, setIsSnippetsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [activeMarker, setActiveMarker] = useState(false);
 	const [mapLoaded, setMapLoaded] = useState(false);
@@ -240,7 +240,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	useEffect(() => {
 		applyStylesDebounced();
-	}, [isSnippetsOpen, isExpanded, mapLoaded]);
+	}, [isSnippetsOpen, isSnippetsExpanded, mapLoaded]);
 
 	useEffect(() => {
 		window.addEventListener("resize", applyStylesDebounced);
@@ -336,7 +336,12 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						onMapDragEnd={handleMapDragEnd}
 						onMapLoad={handleMapLoad}
 					>
-						<CustomRequest onResponseReceived={handleCustomResponse} onReset={handleClose} mapRef={mapRef} />
+						<CustomRequest
+							onResponseReceived={handleCustomResponse}
+							onReset={handleClose}
+							mapRef={mapRef}
+							isExpanded={!isSnippetsExpanded}
+						/>
 
 						{showMapMarker && resultItem && (
 							<MapMarker
@@ -359,9 +364,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 						<RequestSnippets
 							key={`snippets-${customRequestStore.response ? "with-response" : "no-response"}`}
+							isExpanded={isSnippetsExpanded}
 							response={customRequestStore.response}
-							width={isExpanded ? SNIPPETS_EXPANDED_WIDTH : SNIPPETS_COLLAPSED_WIDTH}
-							onWidthChange={width => setIsExpanded(width === SNIPPETS_EXPANDED_WIDTH)}
+							width={isSnippetsExpanded ? SNIPPETS_EXPANDED_WIDTH : SNIPPETS_COLLAPSED_WIDTH}
+							onWidthChange={width => setIsSnippetsExpanded(width === SNIPPETS_EXPANDED_WIDTH)}
 							isFullScreen={isFullScreen}
 							onFullScreenToggle={toggleFullScreen}
 							isOpen={isSnippetsOpen}

@@ -32,9 +32,10 @@ interface CustomRequestProps {
 			options?: { padding?: number; duration?: number; essential?: boolean }
 		) => void;
 	}>;
+	isExpanded?: boolean;
 }
 
-export default function CustomRequest({ onResponseReceived, onReset, mapRef }: CustomRequestProps) {
+export default function CustomRequest({ onResponseReceived, onReset, mapRef, isExpanded }: CustomRequestProps) {
 	useAuthManager();
 	const isFirstLoad = useRef(true);
 	const [containerRef, setContainerRef] = useState<HTMLDivElement>();
@@ -242,7 +243,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 	});
 
 	return (
-		<div className="container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
+		<div className={`container ${isExpanded ? "expanded" : ""}`} ref={ref => setContainerRef(ref as HTMLDivElement)}>
 			<FormRender
 				fields={formFields}
 				content={convertFormContentConfigToContentProps(apiPlaygroundItem?.formContent || { type: "list", items: [] })}

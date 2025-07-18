@@ -4,7 +4,7 @@
     top: 1rem;
     bottom: 1rem;
     z-index: 4;
-    max-width: calc(50% - 40px - 2px);
+    max-width: calc(30% - 40px - 2px);
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -13,4 +13,8 @@
         z-index: 4;
         position: relative;
     }
+}
+
+.container.expanded {
+    max-width: calc(50% - 40px - 2px);
 }
