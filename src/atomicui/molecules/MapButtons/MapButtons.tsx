@@ -243,7 +243,7 @@ const MapButtons: FC<MapButtonsProps> = ({
 	);
 
 	if (onlyMapStyles) return renderMapStyles;
-	else if (!isDesktop) return null;
+
 	return (
 		<>
 			<>

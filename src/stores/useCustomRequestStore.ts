@@ -16,6 +16,7 @@ export interface RequestSnippetsProps {
 	response?: ReverseGeocodeCommandOutput | GeocodeCommandOutput;
 	isOpen?: boolean;
 	onToggle?: () => void;
+	isExpanded?: boolean;
 }
 
 export interface CustomRequestStore {
