@@ -30,9 +30,7 @@ interface ApiConfigItem {
 }
 
 interface ApiConfig {
-	apis: {
-		[key: string]: ApiConfigItem[];
-	};
+	[key: string]: ApiConfigItem[];
 }
 
 export type FilterData = {
@@ -51,7 +49,7 @@ export const generateApiPlaygroundFiltersData = async (): Promise<FilterData> =>
 		const config = apiConfig as ApiConfig;
 
 		// Extract unique API types/categories from the config
-		const apiTypes = Object.keys(config.apis);
+		const apiTypes = Object.keys(config);
 
 		// Create filter options based on API types
 		const filterOptions = apiTypes.map(apiType => ({
