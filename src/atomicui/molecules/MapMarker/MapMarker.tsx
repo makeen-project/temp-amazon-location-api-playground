@@ -1,7 +1,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, memo, useCallback, useEffect, useMemo, useState } from "react";
+import { FC, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { IconSelected, IconSuggestion } from "@api-playground/assets/svgs";
 import { LocationPopup } from "@api-playground/atomicui/molecules";
@@ -41,7 +41,6 @@ const MapMarker: FC<Props> = ({
 	locationPopupConfig
 }) => {
 	const { setSelectedMarker, suggestions, hoveredMarker, setHoveredMarker, clearPoiList } = usePlace();
-
 	const [info, setInfo] = useState<SuggestionType>({ placeId, address, position, id, label });
 
 	// Update info when props change

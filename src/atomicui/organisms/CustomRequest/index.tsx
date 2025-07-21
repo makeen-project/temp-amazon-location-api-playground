@@ -180,6 +180,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		// Completely clear URL state by setting it to null
 		setUrlState(null as any);
 
+		// Call onReset callback to handle additional reset logic in parent component
 		onReset?.();
 	};
 

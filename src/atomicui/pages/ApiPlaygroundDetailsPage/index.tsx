@@ -12,7 +12,7 @@ import { MapMarker } from "@api-playground/atomicui/molecules";
 import CustomRequest from "@api-playground/atomicui/organisms/CustomRequest";
 import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
 import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
-import { useMap } from "@api-playground/hooks";
+import { useMap, usePlace } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useCustomRequestStore } from "@api-playground/stores";
@@ -36,6 +36,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const { setState } = useCustomRequestStore;
 
 	const { setClickedPosition, clickedPosition } = useMap();
+	const { clearPoiList, setSelectedMarker } = usePlace();
 
 	const mapRef = useRef<MapRef | null>(null);
 	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -48,6 +49,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
+	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
 
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
 	const position = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
@@ -72,26 +74,30 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const handleMapClick = useCallback(
 		(e: { lngLat: { lng: number; lat: number } }) => {
+			if (activeMarker) {
+				setActiveMarker(false);
+				clearPoiList();
+				setSelectedMarker(undefined);
+				setSearchValue("");
+			}
+
+			// If coordinate picking is disabled (after submit with response), don't allow new coordinates
+			if (isCoordinatePickingDisabled) {
+				return;
+			}
+
 			const { lng, lat } = e.lngLat;
 			// Update the clickedPosition in the map store
 			setClickedPosition([lng, lat]);
 
 			// Close active marker when map is clicked
-			if (activeMarker) {
-				setActiveMarker(false);
-			}
 
 			// Clear any existing timeout
 			if (resetTimeoutRef.current) {
 				clearTimeout(resetTimeoutRef.current);
 			}
-
-			// Set a new timeout to reset clickedPosition after 1.5 seconds
-			resetTimeoutRef.current = setTimeout(() => {
-				setClickedPosition([]);
-			}, 100);
 		},
-		[setClickedPosition, activeMarker]
+		[setClickedPosition, activeMarker, isCoordinatePickingDisabled]
 	);
 
 	const handleMapZoom = useCallback((e: any) => {}, [apiPlaygroundId]);
@@ -113,6 +119,12 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		handleMarkerClose();
 		handleMarkerToggle?.(false);
 		setState({ ...initialState, query: "", response: undefined });
+		// Re-enable coordinate picking when resetting
+		setIsCoordinatePickingDisabled(false);
+		// Clear any existing timeout to ensure clean state
+		if (resetTimeoutRef.current) {
+			clearTimeout(resetTimeoutRef.current);
+		}
 	}, [handleMarkerClose, handleMarkerToggle]);
 
 	const handleCustomResponse = () => {
@@ -127,6 +139,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		}
 
 		setActiveMarker(true);
+		// Disable coordinate picking after response is received
+		setIsCoordinatePickingDisabled(true);
 
 		const [lng, lat] = currentPosition;
 		const queryRadius = customRequestStore.queryRadius;
@@ -203,6 +217,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	useEffect(() => {
 		if (customRequestStore.response) {
 			handleCustomResponse();
+		} else {
+			// Re-enable coordinate picking when response is cleared
+			setIsCoordinatePickingDisabled(false);
 		}
 	}, [customRequestStore.response]);
 
