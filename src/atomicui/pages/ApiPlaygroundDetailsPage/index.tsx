@@ -51,12 +51,24 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
 
+	// Add local state for temporary markers
+	const [localMarkers, setLocalMarkers] = useState<
+		Array<{
+			position: [number, number];
+			id: string;
+			label: string;
+		}>
+	>([]);
+
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
 	const position = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
 
 	// Show marker when there's a response and valid position
 	const showMapMarker =
 		customRequestStore?.response && position?.length === 2 && position.every(coord => !isNaN(coord));
+
+	// Show local markers based on configuration
+	const showLocalMarkers = localMarkers.length > 0 && !showMapMarker && apiPlaygroundItem?.showLocalMarkerOnMapClick;
 
 	const placeId = resultItem?.PlaceId || uuid.randomUUID();
 	const label = resultItem?.Address?.Label || "Unknown location";
@@ -90,14 +102,31 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			// Update the clickedPosition in the map store
 			setClickedPosition([lng, lat]);
 
-			// Close active marker when map is clicked
+			// Create local marker when map is clicked based on configuration
+			if (apiPlaygroundItem?.showLocalMarkerOnMapClick) {
+				const markerId = uuid.randomUUID();
+				const markerLabel = `Selected Location (${lng.toFixed(6)}, ${lat.toFixed(6)})`;
+				const newMarker = {
+					position: [lng, lat] as [number, number],
+					id: markerId,
+					label: markerLabel
+				};
+
+				if (apiPlaygroundItem.showLocalMarkerOnMapClick === "single") {
+					// Replace existing markers with new one
+					setLocalMarkers([newMarker]);
+				} else if (apiPlaygroundItem.showLocalMarkerOnMapClick === "multiple") {
+					// Add to existing markers
+					setLocalMarkers(prev => [...prev, newMarker]);
+				}
+			}
 
 			// Clear any existing timeout
 			if (resetTimeoutRef.current) {
 				clearTimeout(resetTimeoutRef.current);
 			}
 		},
-		[setClickedPosition, activeMarker, isCoordinatePickingDisabled]
+		[setClickedPosition, activeMarker, isCoordinatePickingDisabled, apiPlaygroundItem]
 	);
 
 	const handleMapZoom = useCallback((e: any) => {}, [apiPlaygroundId]);
@@ -119,6 +148,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		handleMarkerClose();
 		handleMarkerToggle?.(false);
 		setState({ ...initialState, query: "", response: undefined });
+		// Clear local markers when resetting
+		setLocalMarkers([]);
 		// Re-enable coordinate picking when resetting
 		setIsCoordinatePickingDisabled(false);
 		// Clear any existing timeout to ensure clean state
@@ -138,6 +169,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			return;
 		}
 
+		// Clear local markers when response is received
+		setLocalMarkers([]);
 		setActiveMarker(true);
 		// Disable coordinate picking after response is received
 		setIsCoordinatePickingDisabled(true);
@@ -366,6 +399,25 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
 							/>
 						)}
+
+						{/* Local markers for clicked coordinates */}
+						{showLocalMarkers &&
+							localMarkers.map(marker => (
+								<MapMarker
+									key={marker.id}
+									active={false}
+									onClosePopUp={() => setLocalMarkers(prev => prev.filter(m => m.id !== marker.id))}
+									onActivate={() => {}}
+									searchValue={searchValue}
+									setSearchValue={setSearchValue}
+									placeId={marker.id}
+									address={{ Label: marker.label }}
+									position={marker.position}
+									id={marker.id}
+									label={marker.label}
+									locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
+								/>
+							))}
 
 						{/* Centralized message above the map */}
 						{message && <HintMessage message={message} />}
