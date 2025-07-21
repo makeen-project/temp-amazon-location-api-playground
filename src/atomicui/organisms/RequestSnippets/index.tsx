@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useMemo, useState } from "react";
 
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
@@ -25,7 +25,8 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	onFullScreenToggle,
 	response,
 	isOpen = true,
-	onToggle
+	onToggle,
+	isExpanded
 }) => {
 	const store = useCustomRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
@@ -213,14 +214,14 @@ puts response`
 	};
 
 	return (
-		<View className="snippets-container">
+		<View className={`snippets-container ${isExpanded ? "expanded" : ""}`}>
 			<Accordion
 				open={isOpen}
 				onToggle={onToggle}
 				style={{
-					width: `${width}px`
+					maxWidth: `${width}px`
 				}}
-				contentClassName="scrollable-content"
+				contentClassName="snippets-content-container"
 				title={
 					<View className="accordion-title">
 						{width === SNIPPETS_EXPANDED_WIDTH ? (
@@ -302,7 +303,7 @@ puts response`
 
 					<Divider />
 
-					<View className="snippets-container__snippet">
+					<View className="snippets-container__snippet code">
 						<View className="snippets-container__snippet__heading">
 							<Text>Code snippets</Text>
 							<Button gap={"5px"} onClick={handleCopyCode} size="small" variation="link">

@@ -45,10 +45,17 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	border-radius: $border-radius;
 	right: 1rem;
 	top: 1rem;
+	bottom: 1rem;
+	max-width: calc(50% - 40px - 2px);
 	z-index: 4;
 
 	&__snippet {
-		margin: 0px 10px;
+		margin: 0 10px;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		min-height: $min-section-height;
+		overflow: auto;
 
 		&__heading {
 			display: flex;
@@ -66,21 +73,10 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
 		&__content {
 			background-color: $background-color;
+			flex: 1;
 			padding: 10px;
 			border-radius: $content-border-radius;
 			position: relative;
-			max-height: 165px;
-			min-height: 165px;
-			overflow-y: auto;
-			scrollbar-width: none;
-			-ms-overflow-style: none;
-			&::-webkit-scrollbar {
-				display: none;
-			}
-
-			@media screen and (max-height: 768px) {
-				max-height: 60px;
-			}
 
 			.amplify-text {
 				color: $secondary-color;
@@ -89,6 +85,19 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 			}
 		}
 	}
+
+	&__snippet.code {
+		flex: 1.5;
+	}
+}
+
+.snippets-container.expanded {
+	max-width: calc(70% - 40px - 2px);
+}
+
+.snippets-content-container {
+	overflow: auto;
+	display: flex;
 }
 
 .snippets-container__snippet__content pre {
@@ -116,6 +125,7 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+	flex: 1;
 }
 
 .fullscreen-button {
@@ -144,8 +154,8 @@ $toggle-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
 .fullscreen-button {
 	position: absolute;
-	top: -1rem;
-	left: -4rem;
+	top: -17px;
+	left: -58px;
 	z-index: 1001;
 	background-color: white;
 	border-radius: 6px;
