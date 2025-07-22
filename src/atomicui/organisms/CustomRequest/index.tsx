@@ -240,6 +240,33 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		}
 	});
 
+	// Check if submit button should be disabled
+	const isSubmitDisabled = (() => {
+		// Disable if there's already a response
+		if (store.response) {
+			return true;
+		}
+
+		// Check if required fields are empty
+		const requiredFields = (apiPlaygroundItem?.formFields || []).filter((f: any) => f.required);
+		const hasMissingRequired = requiredFields.some((f: any) => {
+			const key = f.name as keyof CustomRequestStore;
+			const val = store[key];
+
+			if (Array.isArray(val))
+				return (
+					val.length === 0 ||
+					val.every(v => (typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false))
+				);
+			if (typeof val === "string") return val === "" || val === "0";
+			if (typeof val === "number") return val === 0;
+
+			return val === undefined || val === null;
+		});
+
+		return hasMissingRequired;
+	})();
+
 	return (
 		<div className="container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
 			<FormRender
@@ -251,6 +278,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
 				onToggle={handleToggle}
 				containerHeight={containerRef?.clientHeight}
+				submitButtonDisabled={isSubmitDisabled}
 			/>
 		</div>
 	);
