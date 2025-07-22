@@ -100,7 +100,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		const newState = {
 			...store,
 			[name]: value,
-			response: undefined,
 			error: undefined
 		};
 		setState(newState);
@@ -209,7 +208,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		const newState = {
 			...store,
 			[fieldName]: enabled ? 1 : null, // Set to 1 when enabled, undefined when disabled
-			response: undefined,
 			error: undefined
 		};
 		setState(newState);
