@@ -68,14 +68,8 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 
 				timeoutIdRef.current = setTimeout(async () => {
 					try {
-						console.log("AddressInput handleSearch called with:", searchValue);
 						if (searchValue && searchValue.trim().length > 0) {
-							console.log("AddressInput triggering search for:", searchValue);
 							await search(searchValue, { longitude: 0, latitude: 0 }, undefined);
-						} else {
-							console.log("AddressInput search value empty, not triggering search");
-							// Clear suggestions when search value is empty
-							// This ensures the dropdown doesn't show stale results
 						}
 					} catch (error) {
 						console.error("Search failed:", error);
@@ -87,7 +81,6 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 
 		const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
 			const newValue = target.value;
-			console.log("AddressInput handleChange:", { newValue, currentLocalValue: localValue });
 			setLocalValue(newValue);
 			handleSearch(newValue);
 		};
