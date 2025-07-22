@@ -9,6 +9,7 @@
 			"title": "ReverseGeocode API Playground",
 			"description": "The Reverse Geocode API converts latitude/Longitude into human-readable addresses. Use [[QueryPosition]] with latitude/longitude. Optional parameters include [[BiasPosition]], [[Filter]], and [[MaxResults]].The response contains [[ResultItems]] with [[Address]], [[Position]], and Optional [[TimeZone]] data. Use [[AdditionalFeatures]] to request extra information like time zones.",
 			"shouldRenderMap": true,
+			"showLocalMarkerOnMapClick": "single",
 			"missingFieldsMessage": "Click the map to reverse geocode",
 			"requestParams": [],
 			"buildSampleButton": {
