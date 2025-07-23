@@ -182,8 +182,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	content,
 	submitButtonDisabled = false,
 	onReset,
-	onToggle,
-	containerHeight
+	onToggle
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
