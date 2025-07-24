@@ -421,9 +421,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 				case "dropdown":
 					handleChange(field.name, "");
 					break;
-				case "text":
 				case "textarea":
-				case "address":
 				case "latLonInput":
 					handleChange(field.name, "");
 					break;
