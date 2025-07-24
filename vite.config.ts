@@ -13,7 +13,7 @@ export default defineConfig(() => {
 			react(),
 			svgr(),
 			eslint({
-				fix: true,
+				fix: false,
 				failOnError: false
 			}),
 			dts({ insertTypesEntry: true }),
