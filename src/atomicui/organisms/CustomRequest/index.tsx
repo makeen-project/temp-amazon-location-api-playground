@@ -288,10 +288,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 	});
 
 	const isSubmitDisabled = (() => {
-		if (store.response) {
-			return true;
-		}
-
+		// Check if required fields are empty
 		const requiredFields = (apiPlaygroundItem?.formFields || []).filter((f: any) => f.required);
 
 		return requiredFields.some((f: any) => {
