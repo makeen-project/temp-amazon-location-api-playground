@@ -242,11 +242,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 
 	// Check if submit button should be disabled
 	const isSubmitDisabled = (() => {
-		// Disable if there's already a response
-		if (store.response) {
-			return true;
-		}
-
 		// Check if required fields are empty
 		const requiredFields = (apiPlaygroundItem?.formFields || []).filter((f: any) => f.required);
 		const hasMissingRequired = requiredFields.some((f: any) => {
