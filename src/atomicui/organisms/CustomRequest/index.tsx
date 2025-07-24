@@ -292,24 +292,33 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 			return true;
 		}
 
-		// Check if required fields are empty
 		const requiredFields = (apiPlaygroundItem?.formFields || []).filter((f: any) => f.required);
-		const hasMissingRequired = requiredFields.some((f: any) => {
+
+		return requiredFields.some((f: any) => {
 			const key = f.name as keyof CustomRequestStore;
 			const val = store[key];
+			const isCoordinateField = f.name === "queryPosition" || f.name === "biasPosition";
 
-			if (Array.isArray(val))
-				return (
-					val.length === 0 ||
-					val.every(v => (typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false))
-				);
-			if (typeof val === "string") return val === "" || val === "0";
-			if (typeof val === "number") return val === 0;
+			if (Array.isArray(val)) {
+				if (val.length === 0) return true;
+
+				if (isCoordinateField) {
+					return val.some(v => v === undefined || v === null || v === "");
+				}
+
+				return val.every(v => v === "" || v === "0" || !v);
+			}
+
+			if (typeof val === "string") {
+				return isCoordinateField ? val === "" : val === "" || val === "0";
+			}
+
+			if (typeof val === "number") {
+				return isCoordinateField ? false : val === 0;
+			}
 
 			return val === undefined || val === null;
 		});
-
-		return hasMissingRequired;
 	})();
 
 	return (
