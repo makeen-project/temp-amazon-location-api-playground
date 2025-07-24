@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { appConfig } from "@api-playground/core/constants";
@@ -62,18 +62,15 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 		mapLanguage
 	} = useMap();
 
-	// Get initial values directly from API config
 	const initialUrlState = (apiPlaygroundItem?.formFields || []).reduce((acc, field) => {
 		const fieldName = field.name as keyof CustomRequestStore;
 		if (field.type === "text" && field.inputType === "password") {
-			// Skip password fields - don't include them in URL state
 			return acc;
 		}
 
 		if (field.defaultValue) {
 			acc[fieldName] = field.defaultValue;
 		} else if (field.type === "sliderWithInput") {
-			// For slider inputs, always start with 1 as the default value
 			acc[fieldName] = 1;
 		} else {
 			acc[fieldName] = initialState[fieldName];
@@ -97,13 +94,12 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 		const response = parsedSearchParams.response ? JSON.parse(parsedSearchParams.response as string) : undefined;
 
 		setState({
-			...initialState, // Start with initial state as base
+			...initialState,
 			...parsedSearchParams,
 			response
 		});
 	}, []);
 
-	// Update store from URL state only on first load
 	useEffect(() => {
 		if (isFirstLoad.current) {
 			syncUrlState();
@@ -111,23 +107,20 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 		}
 	}, [urlState]);
 
-	// Sync custom request store changes back to map store
 	useEffect(() => {
 		if (isSyncing.current) return;
 
 		isSyncing.current = true;
 
-		// Sync political view - map from alpha2 (API config) to alpha3 (map store)
 		if (store.politicalView !== undefined && store.politicalView !== mapPoliticalView.alpha2) {
 			const politicalViewOption =
-				MAP_POLITICAL_VIEWS.find(option => option.alpha2 === store.politicalView) || MAP_POLITICAL_VIEWS[0]; // Default to first option (no political view)
+				MAP_POLITICAL_VIEWS.find(option => option.alpha2 === store.politicalView) || MAP_POLITICAL_VIEWS[0];
 
 			setMapPoliticalView(politicalViewOption);
 		}
 
-		// Sync language
 		if (store.language !== undefined && store.language !== mapLanguage.value) {
-			const languageOption = MAP_LANGUAGES.find(option => option.value === store.language) || MAP_LANGUAGES[0]; // Default to first option (English)
+			const languageOption = MAP_LANGUAGES.find(option => option.value === store.language) || MAP_LANGUAGES[0];
 
 			setMapLanguage(languageOption);
 		}
@@ -142,12 +135,10 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 		setMapLanguage
 	]);
 
-	// Initial sync from map store to custom request store
 	useEffect(() => {
 		if (isFirstLoad.current && !isSyncing.current) {
 			isSyncing.current = true;
 
-			// Sync map political view to custom request store - map from alpha3 to alpha2
 			if (mapPoliticalView.alpha2 !== store.politicalView) {
 				setState(prevState => ({
 					...prevState,
@@ -155,7 +146,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 				}));
 			}
 
-			// Sync map language to custom request store
 			if (mapLanguage.value !== store.language) {
 				setState(prevState => ({
 					...prevState,
@@ -168,7 +158,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 	}, [mapPoliticalView.alpha2, mapLanguage.value, store.politicalView, store.language, setState]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
-		// Update store state
 		const newState = {
 			...store,
 			[name]: value,
@@ -176,7 +165,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 		};
 		setState(newState);
 
-		// Always update URL state for all form fields
 		setUrlState({
 			...urlState,
 			[name]: value
@@ -184,7 +172,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 	};
 
 	const handleReset = () => {
-		// Create reset state with initial values
 		const resetState = {
 			queryPosition: [],
 			biasPosition: [],
@@ -211,18 +198,12 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 			error: undefined
 		};
 
-		// Reset store to initial state using setState
 		setState(resetState);
-
-		// Reset map state
 		setClickedPosition([]);
 		setBiasPosition([]);
+		setMapPoliticalView(MAP_POLITICAL_VIEWS[0]);
+		setMapLanguage(MAP_LANGUAGES[0]);
 
-		// Reset map political view and language to defaults
-		setMapPoliticalView(MAP_POLITICAL_VIEWS[0]); // No political view
-		setMapLanguage(MAP_LANGUAGES[0]); // English
-
-		// Set map to current location without reloading
 		if ("geolocation" in navigator) {
 			navigator.geolocation.getCurrentPosition(
 				currentLocation => {
@@ -233,7 +214,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 					setCurrentLocation({ currentLocation: { latitude, longitude }, error: undefined });
 					setViewpoint({ latitude, longitude });
 
-					// Actually move the map to the current location
 					mapRef?.current?.flyTo({
 						center: [longitude, latitude],
 						zoom: 15,
@@ -242,7 +222,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 				},
 				error => {
 					console.warn("Failed to get current location:", error);
-					// Fallback to default location if geolocation fails
 					setCurrentLocation({ currentLocation: undefined, error });
 				},
 				{
@@ -252,10 +231,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 			);
 		}
 
-		// Completely clear URL state by setting it to null
 		setUrlState(null as any);
-
-		// Call onReset callback to handle additional reset logic in parent component
 		onReset?.();
 	};
 
@@ -265,7 +241,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 			const apiMethod = apiPlaygroundItem?.apiHandler?.apiMethod as keyof typeof placeService;
 
 			if (typeof placeService[apiMethod] === "function") {
-				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				const response = await (placeService[apiMethod] as any)(params);
 				setState({ ...store, response, error: undefined });
 				setUrlState({ ...urlState, response: JSON.stringify(response) });
@@ -280,25 +255,21 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 	};
 
 	const handleToggle = (fieldName: string, enabled: boolean) => {
-		// Update store state
 		const newState = {
 			...store,
-			[fieldName]: enabled ? 1 : null, // Set to 1 when enabled, undefined when disabled
+			[fieldName]: enabled ? 1 : null,
 			error: undefined
 		};
 		setState(newState);
 
-		// Update URL state
 		setUrlState({
 			...urlState,
 			[fieldName]: enabled ? 1 : null
 		});
 	};
 
-	// Create form fields with current store values
 	const formFields = createFormFieldsFromConfig(apiPlaygroundItem?.formFields || [], store);
 
-	// Update form field values from store
 	formFields.forEach(field => {
 		const storeValue = store[field.name as keyof CustomRequestStore];
 		if (storeValue !== undefined) {
@@ -316,26 +287,35 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 		}
 	});
 
-	// Check if submit button should be disabled
 	const isSubmitDisabled = (() => {
 		// Check if required fields are empty
 		const requiredFields = (apiPlaygroundItem?.formFields || []).filter((f: any) => f.required);
-		const hasMissingRequired = requiredFields.some((f: any) => {
+
+		return requiredFields.some((f: any) => {
 			const key = f.name as keyof CustomRequestStore;
 			const val = store[key];
+			const isCoordinateField = f.name === "queryPosition" || f.name === "biasPosition";
 
-			if (Array.isArray(val))
-				return (
-					val.length === 0 ||
-					val.every(v => (typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false))
-				);
-			if (typeof val === "string") return val === "" || val === "0";
-			if (typeof val === "number") return val === 0;
+			if (Array.isArray(val)) {
+				if (val.length === 0) return true;
+
+				if (isCoordinateField) {
+					return val.some(v => v === undefined || v === null || v === "");
+				}
+
+				return val.every(v => v === "" || v === "0" || !v);
+			}
+
+			if (typeof val === "string") {
+				return isCoordinateField ? val === "" : val === "" || val === "0";
+			}
+
+			if (typeof val === "number") {
+				return isCoordinateField ? false : val === 0;
+			}
 
 			return val === undefined || val === null;
 		});
-
-		return hasMissingRequired;
 	})();
 
 	return (

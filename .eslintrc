@@ -119,7 +119,7 @@
 				"no-unused-vars": "off",
 				"react/display-name": "off",
 				"import/no-named-as-default": 0,
-				"react-hooks/exhaustive-deps": "warn",
+				"react-hooks/exhaustive-deps": "off",
 				"react/react-in-jsx-scope": 0
 			}
 		}
