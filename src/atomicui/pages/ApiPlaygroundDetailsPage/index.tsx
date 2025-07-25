@@ -179,13 +179,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		setIsCoordinatePickingDisabled(true);
 
 		const [lng, lat] = currentPosition;
+		const submittedQueryRadius = customRequestStore.submittedQueryRadius;
 		const queryRadius = customRequestStore.queryRadius;
 
 		// Handle zoom behavior based on query radius
 		try {
-			if (queryRadius && queryRadius > 0) {
+			if (submittedQueryRadius && submittedQueryRadius > 0 && queryRadius !== null) {
 				// Create circle to get its bounding box
-				const radiusInKm = queryRadius / 1000;
+				const radiusInKm = submittedQueryRadius / 1000;
 				const circleFeature = circle([lng, lat], radiusInKm, {
 					units: "kilometers",
 					steps: 64

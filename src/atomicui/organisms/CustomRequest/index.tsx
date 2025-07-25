@@ -185,6 +185,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 			maxResults: 1,
 			politicalView: "",
 			queryRadius: 1,
+			submittedQueryRadius: undefined,
 			addressNumber: "",
 			country: "",
 			district: "",
@@ -242,7 +243,12 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 
 			if (typeof placeService[apiMethod] === "function") {
 				const response = await (placeService[apiMethod] as any)(params);
-				setState({ ...store, response, error: undefined });
+				setState({
+					...store,
+					response,
+					submittedQueryRadius: store.queryRadius,
+					error: undefined
+				});
 				setUrlState({ ...urlState, response: JSON.stringify(response) });
 				onResponseReceived?.(response);
 			} else {
@@ -258,6 +264,8 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 		const newState = {
 			...store,
 			[fieldName]: enabled ? 1 : null,
+			// Clear submittedQueryRadius when queryRadius is disabled
+			...(fieldName === "queryRadius" && !enabled ? { submittedQueryRadius: undefined } : {}),
 			error: undefined
 		};
 		setState(newState);

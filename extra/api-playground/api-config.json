@@ -19,11 +19,11 @@
 			"relatedResources": [
 				{
 					"text": "ReverseGeocode API documentation",
-					"link": "https://docs.aws.amazon.com/location/latest/developerguide/reverse-geocode.html"
+					"link": "https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_ReverseGeocode.html"
 				},
 				{
 					"text": "ReverseGeocode Developer Guide",
-					"link": "https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_ReverseGeocode.html"
+					"link": "https://docs.aws.amazon.com/location/latest/developerguide/reverse-geocode.html"
 				},
 				{
 					"text": "Demo Application",
@@ -227,105 +227,87 @@
 
 						{
 							"value": "AR",
-							"label": "ARG",
+							"label": "Argentina",
 							"desc": "argentina_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "EG",
-							"label": "EGY",
+							"label": "Egypt",
 							"desc": "egypt_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "IN",
-							"label": "IND",
+							"label": "India",
 							"desc": "india_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "KE",
-							"label": "KEN",
+							"label": "Kenya",
 							"desc": "kenya_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "MA",
-							"label": "MAR",
+							"label": "Morocco",
 							"desc": "morocco_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "RU",
-							"label": "RUS",
+							"label": "Russia",
 							"desc": "russia_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "SD",
-							"label": "SDN",
+							"label": "Sudan",
 							"desc": "sudan_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "RS",
-							"label": "SRB",
+							"label": "Serbia",
 							"desc": "serbia_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "SR",
-							"label": "SUR",
+							"label": "Suriname",
 							"desc": "suriname_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "SY",
-							"label": "SYR",
+							"label": "Syria",
 							"desc": "syria_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "TR",
-							"label": "TUR",
+							"label": "Turkey",
 							"desc": "turkey_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "TZ",
-							"label": "TZA",
+							"label": "Tanzania",
 							"desc": "tanzania_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "UY",
-							"label": "URY",
+							"label": "Uruguay",
 							"desc": "uruguay_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
-							"value": "GE",
-							"label": "GEO",
-							"desc": "georgia_political_view_desc.text",
-							"isSupportedByPlaces": false
-						},
-						{
-							"value": "CY",
-							"label": "CYP",
-							"desc": "cyprus_political_view_desc.text",
-							"isSupportedByPlaces": false
-						},
-						{
-							"value": "PS",
-							"label": "PSE",
-							"desc": "palestine_political_view_desc.text",
-							"isSupportedByPlaces": false
-						},
-						{
-							"value": "GR",
-							"label": "GRC",
-							"desc": "greece_political_view_desc.text",
-							"isSupportedByPlaces": false
+							"value": "VN",
+							"label": "Vietnam",
+							"desc": "vietnam_political_view_desc.text",
+							"isSupportedByPlaces": true
 						}
 					]
 				},
@@ -334,7 +316,8 @@
 					"name": "queryRadius",
 					"label": "Query Radius",
 					"min": 1,
-					"max": 21000000,
+					"disabled": true,
+					"max": 100000,
 					"step": 1,
 					"required": false
 				}
@@ -400,11 +383,11 @@
 			"relatedResources": [
 				{
 					"text": "Geocode API documentation",
-					"link": "https://docs.aws.amazon.com/location/latest/developerguide/geocode.html"
+					"link": "https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Geocode.html"
 				},
 				{
 					"text": "Geocode Developer Guide",
-					"link": "https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Geocode.html"
+					"link": "https://docs.aws.amazon.com/location/latest/developerguide/geocode.html"
 				},
 				{
 					"text": "Demo Application",
@@ -860,105 +843,87 @@
 
 						{
 							"value": "AR",
-							"label": "ARG",
+							"label": "Argentina",
 							"desc": "argentina_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "EG",
-							"label": "EGY",
+							"label": "Egypt",
 							"desc": "egypt_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "IN",
-							"label": "IND",
+							"label": "India",
 							"desc": "india_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "KE",
-							"label": "KEN",
+							"label": "Kenya",
 							"desc": "kenya_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "MA",
-							"label": "MAR",
+							"label": "Morocco",
 							"desc": "morocco_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "RU",
-							"label": "RUS",
+							"label": "Russia",
 							"desc": "russia_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "SD",
-							"label": "SDN",
+							"label": "Sudan",
 							"desc": "sudan_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "RS",
-							"label": "SRB",
+							"label": "Serbia",
 							"desc": "serbia_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "SR",
-							"label": "SUR",
+							"label": "Suriname",
 							"desc": "suriname_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "SY",
-							"label": "SYR",
+							"label": "Syria",
 							"desc": "syria_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "TR",
-							"label": "TUR",
+							"label": "Turkey",
 							"desc": "turkey_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "TZ",
-							"label": "TZA",
+							"label": "Tanzania",
 							"desc": "tanzania_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
 							"value": "UY",
-							"label": "URY",
+							"label": "Uruguay",
 							"desc": "uruguay_political_view_desc.text",
 							"isSupportedByPlaces": true
 						},
 						{
-							"value": "GE",
-							"label": "GEO",
-							"desc": "georgia_political_view_desc.text",
-							"isSupportedByPlaces": false
-						},
-						{
-							"value": "CY",
-							"label": "CYP",
-							"desc": "cyprus_political_view_desc.text",
-							"isSupportedByPlaces": false
-						},
-						{
-							"value": "PS",
-							"label": "PSE",
-							"desc": "palestine_political_view_desc.text",
-							"isSupportedByPlaces": false
-						},
-						{
-							"value": "GR",
-							"label": "GRC",
-							"desc": "greece_political_view_desc.text",
-							"isSupportedByPlaces": false
+							"value": "VN",
+							"label": "Vietnam",
+							"desc": "vietnam_political_view_desc.text",
+							"isSupportedByPlaces": true
 						}
 					]
 				},
