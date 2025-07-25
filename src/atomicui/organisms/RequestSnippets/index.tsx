@@ -167,7 +167,15 @@ puts response`
 	const handleCopyResponse = async () => {
 		try {
 			if (response) {
-				await navigator.clipboard.writeText(JSON.stringify(response, null, 2));
+				await navigator.clipboard.writeText(
+					JSON.stringify(
+						{
+							ResultItems: response.ResultItems
+						},
+						null,
+						2
+					)
+				);
 			}
 		} catch (err) {
 			console.error("Failed to copy response:", err);

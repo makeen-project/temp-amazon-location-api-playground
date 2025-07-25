@@ -12,7 +12,7 @@ interface QueryRadiusCircleProps {
 }
 
 const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
-	const { queryPosition, queryRadius, response } = useCustomRequestStore();
+	const { queryPosition, queryRadius, submittedQueryRadius, response } = useCustomRequestStore();
 
 	const sourceId = "query-radius-circle-source";
 	const layerId = "query-radius-circle-layer";
@@ -42,12 +42,19 @@ const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
 	// Zoom to fit the circle when position or radius changes, but only if there's no response yet
 	useEffect(() => {
 		const map = mapRef?.current?.getMap();
-		if (!map || !queryPosition || queryPosition.length !== 2 || !queryRadius || queryRadius <= 0 || !response) {
+		if (
+			!map ||
+			!queryPosition ||
+			queryPosition.length !== 2 ||
+			!submittedQueryRadius ||
+			submittedQueryRadius <= 0 ||
+			!response
+		) {
 			return;
 		}
 
 		const [lng, lat] = queryPosition.map(Number);
-		const radiusInKm = queryRadius / 1000;
+		const radiusInKm = submittedQueryRadius / 1000;
 
 		// Create circle to get its bounding box
 		const circleFeature = circle([lng, lat], radiusInKm, {
@@ -70,17 +77,25 @@ const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
 				essential: true
 			}
 		);
-	}, [mapRef, queryPosition, queryRadius, response]);
+	}, [mapRef, queryPosition, submittedQueryRadius, response, queryRadius]);
 
 	// Don't render if we don't have position or radius or if there's no response
-	if (!queryPosition || queryPosition.length !== 2 || !queryRadius || queryRadius <= 0 || !response) {
+	// Also don't render if queryRadius is null (disabled) or if there's no response
+	if (
+		!queryPosition ||
+		queryPosition.length !== 2 ||
+		!submittedQueryRadius ||
+		submittedQueryRadius <= 0 ||
+		!response ||
+		queryRadius === null
+	) {
 		return null;
 	}
 
 	const [lng, lat] = queryPosition.map(Number);
 
 	// Convert radius from meters to kilometers for turf.circle
-	const radiusInKm = queryRadius / 1000;
+	const radiusInKm = submittedQueryRadius / 1000;
 
 	// Create circle using turf.js
 	const circleFeature = circle([lng, lat], radiusInKm, {

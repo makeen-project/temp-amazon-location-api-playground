@@ -32,6 +32,7 @@ export interface CustomRequestStore {
 	maxResults?: number;
 	politicalView?: string;
 	queryRadius?: number;
+	submittedQueryRadius?: number;
 	addressNumber?: string;
 	country?: string;
 	district?: string;
