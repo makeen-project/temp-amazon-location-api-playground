@@ -16,6 +16,7 @@ export interface RequestSnippetsProps {
 	response?: ReverseGeocodeCommandOutput | GeocodeCommandOutput;
 	isOpen?: boolean;
 	onToggle?: () => void;
+	isExpanded?: boolean;
 }
 
 export interface CustomRequestStore {
@@ -31,6 +32,7 @@ export interface CustomRequestStore {
 	maxResults?: number;
 	politicalView?: string;
 	queryRadius?: number;
+	submittedQueryRadius?: number;
 	addressNumber?: string;
 	country?: string;
 	district?: string;
@@ -55,7 +57,7 @@ export const initialState: IStateProps<CustomRequestStore> = {
 	intendedUse: IntendedUse.SingleUse,
 	key: "",
 	apiKey: "",
-	language: "en",
+	language: "",
 	maxResults: 1,
 	politicalView: "",
 	queryRadius: 1,

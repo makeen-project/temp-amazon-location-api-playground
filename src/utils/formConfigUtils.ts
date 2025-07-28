@@ -105,7 +105,8 @@ export const convertFormFieldConfigToFormField = (
 				value: parseValue(rawValue, "number", fieldConfig.min || 0),
 				min: fieldConfig.min!,
 				max: fieldConfig.max!,
-				step: fieldConfig.step
+				step: fieldConfig.step,
+				disabled: fieldConfig.disabled
 			};
 
 		case "radio":

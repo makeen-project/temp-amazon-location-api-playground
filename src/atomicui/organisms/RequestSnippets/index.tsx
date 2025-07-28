@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import React, { FC, useMemo, useState } from "react";
 
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
@@ -14,7 +14,6 @@ import "./styles.scss";
 
 const SNIPPETS_COLLAPSED_WIDTH = 400;
 const SNIPPETS_EXPANDED_WIDTH = 850;
-const MIN_SECTION_HEIGHT = 120; // Minimum height for expandable sections - matches $min-section-height in SCSS
 
 type TabType = "JavaScript" | "Python" | "Ruby";
 
@@ -25,13 +24,11 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	onFullScreenToggle,
 	response,
 	isOpen = true,
-	onToggle
+	onToggle,
+	isExpanded
 }) => {
 	const store = useCustomRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
-	const [isUrlExpanded, setIsUrlExpanded] = useState(false);
-	const [isResponseExpanded, setIsResponseExpanded] = useState(false);
-	const [isCodeSnippetsExpanded, setIsCodeSnippetsExpanded] = useState(false);
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 
@@ -40,13 +37,11 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 		paramName: apiPlaygroundItem?.id || "reverseGeocode"
 	});
 
-	// Generate dynamic code snippets from configuration
 	const CODE_SNIPPETS = useMemo(() => {
 		if (apiPlaygroundItem?.codeSnippets) {
 			return generateCodeSnippets(apiPlaygroundItem.codeSnippets, {});
 		}
 
-		// Helper function to build filter object
 		const buildFilterObject = () => {
 			if (store?.includePlaceTypes && store.includePlaceTypes.length > 0) {
 				return `  Filter: {
@@ -56,7 +51,6 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 			return "";
 		};
 
-		// Helper function to build additional features
 		const buildAdditionalFeatures = () => {
 			if (store?.additionalFeatures && store.additionalFeatures.length > 0) {
 				return `  AdditionalFeatures: [${store.additionalFeatures.map(feature => `"${feature}"`).join(", ")}]`;
@@ -64,16 +58,13 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 			return "";
 		};
 
-		// Helper function to build params object
 		const buildParamsObject = () => {
 			const params = [];
 
-			// Required parameters
 			params.push(
 				`  Position: [${store?.queryPosition?.[0] || 0}, ${store?.queryPosition?.[1] || 0}] // [longitude, latitude]`
 			);
 
-			// Optional parameters
 			if (store?.maxResults) {
 				params.push(`  MaxResults: ${store.maxResults}`);
 			}
@@ -90,13 +81,11 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 				params.push(`  QueryRadius: ${store.queryRadius}`);
 			}
 
-			// Additional features
 			const additionalFeatures = buildAdditionalFeatures();
 			if (additionalFeatures) {
 				params.push(additionalFeatures);
 			}
 
-			// Filter
 			const filter = buildFilterObject();
 			if (filter) {
 				params.push(filter);
@@ -105,7 +94,6 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 			return params.join(",\n");
 		};
 
-		// Fallback snippets for backward compatibility
 		return {
 			JavaScript: `import { GeoPlacesClient, ReverseGeocodeCommand } from "@aws-sdk/client-geo-places";
 
@@ -179,7 +167,15 @@ puts response`
 	const handleCopyResponse = async () => {
 		try {
 			if (response) {
-				await navigator.clipboard.writeText(JSON.stringify(response, null, 2));
+				await navigator.clipboard.writeText(
+					JSON.stringify(
+						{
+							ResultItems: response.ResultItems
+						},
+						null,
+						2
+					)
+				);
 			}
 		} catch (err) {
 			console.error("Failed to copy response:", err);
@@ -198,7 +194,7 @@ puts response`
 		setSelectedTab(value as TabType);
 	};
 
-	const renderCodeBlock = (code: string, lang: string) => (
+	const renderCodeBlock = (code: string) => (
 		<View className="snippets-container__snippet__content">
 			<pre style={{ margin: 0 }}>
 				<code>{code.replace(/\\n/g, "\n")}</code>
@@ -213,14 +209,14 @@ puts response`
 	};
 
 	return (
-		<View className="snippets-container">
+		<View className={`snippets-container ${isExpanded ? "expanded" : ""}`}>
 			<Accordion
 				open={isOpen}
 				onToggle={onToggle}
 				style={{
-					width: `${width}px`
+					maxWidth: `${width}px`
 				}}
-				contentClassName="scrollable-content"
+				contentClassName="snippets-content-container"
 				title={
 					<View className="accordion-title">
 						{width === SNIPPETS_EXPANDED_WIDTH ? (
@@ -238,7 +234,11 @@ puts response`
 								onFullScreenToggle();
 							}}
 						>
-							<img src={isFullScreen ? FullScreenOff : FullScreenOn} style={{ width: 15, height: 15 }} />
+							<img
+								src={isFullScreen ? FullScreenOff : FullScreenOn}
+								style={{ width: 15, height: 15 }}
+								alt="Toggle Fullscreen"
+							/>
 						</Button>
 					</View>
 				}
@@ -252,7 +252,7 @@ puts response`
 								<Text>Copy</Text>
 							</Button>
 						</View>
-						<View className={`snippets-container__snippet__content expandable ${!isUrlExpanded ? "collapsed" : ""}`}>
+						<View className={"snippets-container__snippet__content expandable"}>
 							<Text>{shareableUrl}</Text>
 						</View>
 					</View>
@@ -267,13 +267,7 @@ puts response`
 								<Text>Copy</Text>
 							</Button>
 						</View>
-						<View
-							className={`snippets-container__snippet__content expandable ${!isResponseExpanded ? "collapsed" : ""}`}
-							// style={{
-							// 	maxHeight: isResponseExpanded ? "none" : `${MIN_SECTION_HEIGHT}px`,
-							// 	overflow: isResponseExpanded ? "visible" : "hidden"
-							// }}
-						>
+						<View className={"snippets-container__snippet__content expandable"}>
 							{response ? (
 								<pre className="response-pre">
 									{JSON.stringify(
@@ -287,22 +281,12 @@ puts response`
 							) : (
 								<Text color="var(--tertiary-color)">No response yet. Submit a request to see the response.</Text>
 							)}
-							{/* {response && (
-								<Button
-									size="small"
-									variation="link"
-									onClick={() => setIsResponseExpanded(!isResponseExpanded)}
-									className="toggle-button"
-								>
-									{isResponseExpanded ? "Hide" : "Show more"}
-								</Button>
-							)} */}
 						</View>
 					</View>
 
 					<Divider />
 
-					<View className="snippets-container__snippet">
+					<View className="snippets-container__snippet code">
 						<View className="snippets-container__snippet__heading">
 							<Text>Code snippets</Text>
 							<Button gap={"5px"} onClick={handleCopyCode} size="small" variation="link">
@@ -322,10 +306,10 @@ puts response`
 									{
 										label: "JavaScript",
 										value: "JavaScript",
-										content: renderCodeBlock(CODE_SNIPPETS.JavaScript, "javascript")
+										content: renderCodeBlock(CODE_SNIPPETS.JavaScript)
 									},
-									{ label: "Python", value: "Python", content: renderCodeBlock(CODE_SNIPPETS.Python, "python") },
-									{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby, "ruby") }
+									{ label: "Python", value: "Python", content: renderCodeBlock(CODE_SNIPPETS.Python) },
+									{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby) }
 								]}
 							/>
 						</View>

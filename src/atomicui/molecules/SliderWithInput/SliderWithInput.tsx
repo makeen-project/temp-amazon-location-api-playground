@@ -36,14 +36,22 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 	error,
 	className = ""
 }) => {
-	const [value, setValue] = useState<number>(propValue ?? defaultValue ?? min);
-	const [isEnabled, setIsEnabled] = useState<boolean>(!propDisabled || value > 0);
+	const [value, setValue] = useState<number>(propValue && propValue !== null ? propValue : defaultValue ?? min);
+	const [isEnabled, setIsEnabled] = useState<boolean>(!propDisabled);
 
 	useEffect(() => {
-		if (propValue !== undefined && propValue !== value) {
+		if (propValue !== undefined && propValue !== null && propValue !== value) {
 			setValue(propValue);
 		}
 	}, [propValue]);
+
+	useEffect(() => {
+		setIsEnabled(!propDisabled);
+		// Reset value to default when disabled
+		if (propDisabled) {
+			setValue(defaultValue ?? min);
+		}
+	}, [propDisabled, defaultValue, min]);
 
 	const handleSliderChange = (newValue: number) => {
 		setValue(newValue);
@@ -77,7 +85,7 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 				/>
 			</Flex>
 			<Flex className="slider-with-input__controls">
-				{(isEnabled || value >= 0) && value && (
+				{isEnabled && value !== null && value !== undefined && (
 					<>
 						<Slider
 							name={name}

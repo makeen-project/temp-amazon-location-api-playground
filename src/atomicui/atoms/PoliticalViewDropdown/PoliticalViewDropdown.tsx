@@ -3,6 +3,7 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { IconArrow } from "@api-playground/assets/svgs";
 import { appConfig } from "@api-playground/core/constants";
 import { useMap } from "@api-playground/hooks";
+import { useCustomRequestStore } from "@api-playground/stores";
 import { getFlagEmoji, isUserDeviceIsWin } from "@api-playground/utils";
 import { Flex, Text } from "@aws-amplify/ui-react";
 import { useTranslation } from "react-i18next";
@@ -32,6 +33,7 @@ const PoliticalViewDropdown: FC<PoliticalViewDropdownProps> = ({
 	const langDir = i18n.dir();
 	const isLtr = langDir === "ltr";
 	const { mapPoliticalView, setMapPoliticalView } = useMap();
+	const { setState: setCustomRequestState } = useCustomRequestStore;
 
 	const handleClickOutside = (event: MouseEvent) => {
 		if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -49,10 +51,24 @@ const PoliticalViewDropdown: FC<PoliticalViewDropdownProps> = ({
 
 	const handleClick = useCallback(
 		(option: { alpha2: string; alpha3: string; desc: string; isSupportedByPlaces: boolean }) => {
+			// Update map store
 			setMapPoliticalView(option);
+
+			// Also update custom request store to keep them in sync
+			// Use alpha2 code to match the API config format
+			setCustomRequestState(prevState => {
+				if (prevState.politicalView !== option.alpha2) {
+					return {
+						...prevState,
+						politicalView: option.alpha2 || ""
+					};
+				}
+				return prevState;
+			});
+
 			setOpen(false);
 		},
-		[setMapPoliticalView]
+		[setMapPoliticalView, setCustomRequestState]
 	);
 
 	return (

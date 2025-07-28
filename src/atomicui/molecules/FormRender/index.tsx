@@ -191,8 +191,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	content,
 	submitButtonDisabled = false,
 	onReset,
-	onToggle,
-	containerHeight
+	onToggle
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
@@ -321,6 +320,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						{...commonProps}
 						placeholder={field.placeholder}
 						onChange={value => handleChange(field.name, value)}
+						initialValue={field.value}
 						ref={ref => {
 							if (ref) {
 								addressRefs.current.set(field.name, ref);
@@ -342,6 +342,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						value={field.value}
 						onChange={value => handleChange(field.name, value)}
 						onToggle={enabled => handleToggle(field.name, enabled)}
+						isDisabled={field.disabled}
 					/>
 				);
 
@@ -443,9 +444,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 				case "dropdown":
 					handleChange(field.name, "");
 					break;
-				case "text":
 				case "textarea":
-				case "address":
 				case "latLonInput":
 					handleChange(field.name, "");
 					break;

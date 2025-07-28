@@ -3,7 +3,7 @@
 /* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
 /* SPDX-License-Identifier: MIT-0 */
 
-import { FC, useCallback, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { IconBackArrow, IconShare } from "@api-playground/assets/svgs";
 import { Content } from "@api-playground/atomicui/atoms/Content";
@@ -18,6 +18,7 @@ import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useCustomRequestStore } from "@api-playground/stores";
 import { CustomRequestStore, initialState } from "@api-playground/stores/useCustomRequestStore";
 import { uuid } from "@api-playground/utils";
+import { debounce } from "@api-playground/utils/debounce";
 import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { bbox, circle } from "@turf/turf";
 import { NuqsAdapter } from "nuqs/adapters/react";
@@ -41,11 +42,12 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const mapRef = useRef<MapRef | null>(null);
 	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const [isFullScreen, setIsFullScreen] = useState(false);
-	const [isExpanded, setIsExpanded] = useState(false);
+	const [isSnippetsExpanded, setIsSnippetsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [activeMarker, setActiveMarker] = useState(false);
 	const [mapLoaded, setMapLoaded] = useState(false);
 	const [isSnippetsOpen, setIsSnippetsOpen] = useState(true);
+	const isSnippetsOpenRef = useRef(isSnippetsOpen);
 
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
@@ -80,9 +82,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		setIsFullScreen(prev => !prev);
 	}, [apiPlaygroundId, isFullScreen]);
 
-	const toggleSnippets = useCallback(() => {
-		setIsSnippetsOpen(prev => !prev);
-	}, []);
+	const toggleSnippets = () => {
+		setIsSnippetsOpen(!isSnippetsOpen);
+		isSnippetsOpenRef.current = !isSnippetsOpen;
+	};
 
 	const handleMapClick = useCallback(
 		(e: { lngLat: { lng: number; lat: number } }) => {
@@ -176,13 +179,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		setIsCoordinatePickingDisabled(true);
 
 		const [lng, lat] = currentPosition;
+		const submittedQueryRadius = customRequestStore.submittedQueryRadius;
 		const queryRadius = customRequestStore.queryRadius;
 
 		// Handle zoom behavior based on query radius
 		try {
-			if (queryRadius && queryRadius > 0) {
+			if (submittedQueryRadius && submittedQueryRadius > 0 && queryRadius !== null) {
 				// Create circle to get its bounding box
-				const radiusInKm = queryRadius / 1000;
+				const radiusInKm = submittedQueryRadius / 1000;
 				const circleFeature = circle([lng, lat], radiusInKm, {
 					units: "kilometers",
 					steps: 64
@@ -217,6 +221,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	};
 
 	const handleMapLoad = useCallback(() => {
+		setMapLoaded(true);
 		if (customRequestStore.response) {
 			setTimeout(() => {
 				handleCustomResponse();
@@ -267,43 +272,36 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		};
 	}, []);
 
-	// Adjust map attribution margin when snippets accordion opens/closes
-	useEffect(() => {
-		const applyStyles = () => {
-			const attributionElement = document.querySelector(".maplibregl-ctrl-bottom-right") as HTMLElement;
-			const mapStylesButton = document.querySelector(".map-styles-button") as HTMLElement;
+	const applyStyles = useCallback(() => {
+		const attributionElement = document.querySelector(".maplibregl-ctrl-bottom-right") as HTMLElement;
+		const mapStylesButton = document.querySelector(".map-styles-button") as HTMLElement;
+		const snippetsContainer = document.querySelector(".snippets-container") as HTMLElement;
 
-			if (attributionElement && mapStylesButton) {
-				const SNIPPETS_OPEN_ATTRIBUTION_RIGHT = 400;
-				const DIFFERENCE = 26;
-
-				const attributionRight = isSnippetsOpen ? SNIPPETS_OPEN_ATTRIBUTION_RIGHT : 0;
-				const stylesRight = isSnippetsOpen ? SNIPPETS_OPEN_ATTRIBUTION_RIGHT + DIFFERENCE : DIFFERENCE;
-
-				attributionElement.style.right = `${attributionRight}px`;
-				mapStylesButton.style.right = `${stylesRight}px`;
-				return true; // Success
-			}
-			return false; // Elements not found
-		};
-
-		// Try immediately
-		if (!applyStyles()) {
-			// If elements aren't ready, retry with increasing delays
-			const retryWithDelay = (attempt = 1) => {
-				const delay = Math.min(100 * attempt, 1000); // Max 1 second delay
-
-				setTimeout(() => {
-					if (!applyStyles() && attempt < 10) {
-						// Max 10 attempts
-						retryWithDelay(attempt + 1);
-					}
-				}, delay);
-			};
-
-			retryWithDelay();
+		if (attributionElement) {
+			const attributionRight = isSnippetsOpenRef.current ? snippetsContainer?.offsetWidth ?? 400 : 0;
+			attributionElement.style.right = `${attributionRight}px`;
 		}
-	}, [isSnippetsOpen]);
+
+		if (mapStylesButton) {
+			const DIFFERENCE = 26;
+			const stylesRight = isSnippetsOpenRef.current ? snippetsContainer?.offsetWidth + DIFFERENCE : DIFFERENCE;
+			mapStylesButton.style.right = `${stylesRight}px`;
+		}
+	}, []);
+
+	const applyStylesDebounced = useMemo(() => debounce(applyStyles, 20), []);
+
+	useEffect(() => {
+		applyStylesDebounced();
+	}, [isSnippetsOpen, isSnippetsExpanded, mapLoaded]);
+
+	useEffect(() => {
+		window.addEventListener("resize", applyStylesDebounced);
+
+		return () => {
+			window.removeEventListener("resize", applyStylesDebounced);
+		};
+	}, []);
 
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
@@ -384,7 +382,12 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						onMapDragEnd={handleMapDragEnd}
 						onMapLoad={handleMapLoad}
 					>
-						<CustomRequest onResponseReceived={handleCustomResponse} onReset={handleClose} mapRef={mapRef} />
+						<CustomRequest
+							onResponseReceived={handleCustomResponse}
+							onReset={handleClose}
+							mapRef={mapRef}
+							isExpanded={!isSnippetsExpanded}
+						/>
 
 						{showMapMarker && resultItem && (
 							<MapMarker
@@ -426,9 +429,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 						<RequestSnippets
 							key={`snippets-${customRequestStore.response ? "with-response" : "no-response"}`}
+							isExpanded={isSnippetsExpanded}
 							response={customRequestStore.response}
-							width={isExpanded ? SNIPPETS_EXPANDED_WIDTH : SNIPPETS_COLLAPSED_WIDTH}
-							onWidthChange={width => setIsExpanded(width === SNIPPETS_EXPANDED_WIDTH)}
+							width={isSnippetsExpanded ? SNIPPETS_EXPANDED_WIDTH : SNIPPETS_COLLAPSED_WIDTH}
+							onWidthChange={width => setIsSnippetsExpanded(width === SNIPPETS_EXPANDED_WIDTH)}
 							isFullScreen={isFullScreen}
 							onFullScreenToggle={toggleFullScreen}
 							isOpen={isSnippetsOpen}
