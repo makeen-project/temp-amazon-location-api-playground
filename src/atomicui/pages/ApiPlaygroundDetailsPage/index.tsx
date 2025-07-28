@@ -236,7 +236,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			if (Array.isArray(val))
 				return (
 					val.length === 0 ||
-					val.every(v => (typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false))
+					(val as unknown[]).every((v: unknown) =>
+						typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false
+					)
 				);
 			if (typeof val === "string") return val === "" || val === "0";
 			if (typeof val === "number") return val === 0;

@@ -8,3 +8,4 @@ export * from "./MapButtons";
 export * from "./MapMarker";
 export { default as QueryRadiusCircle } from "./QueryRadiusCircle";
 export * from "./SliderWithInput";
+export * from "./CoordinateInput";

@@ -57,7 +57,8 @@ export interface FormFieldConfig {
 		| "sliderWithInput"
 		| "multiSelect"
 		| "latLonInput"
-		| "lngLatInput";
+		| "lngLatInput"
+		| "coordinateInput";
 	inputType?: "text" | "password";
 	name: string;
 	label: string;
