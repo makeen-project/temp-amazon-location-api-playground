@@ -145,7 +145,7 @@ const usePlaceService = () => {
 			getPlaceByAddress: async (params: GeocodeParams) => {
 				const input: GeocodeCommandInput = {
 					QueryText: params.Query,
-					BiasPosition: params.BiasPosition || BiasPosition,
+					BiasPosition: params.BiasPosition && params.BiasPosition.length > 0 ? params.BiasPosition : undefined,
 					Language: params.Language || Language,
 					MaxResults: params.MaxResults
 				};

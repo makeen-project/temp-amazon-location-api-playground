@@ -287,6 +287,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 					break;
 				case "multiSelect":
 				case "lngLatInput":
+				case "coordinateInput":
 					(field as any).value = Array.isArray(storeValue) ? storeValue : [];
 					break;
 				default:
@@ -311,7 +312,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef, isE
 					return val.some(v => v === undefined || v === null || v === "");
 				}
 
-				return val.every(v => v === "" || v === "0" || !v);
+				return (val as unknown[]).every((v: unknown) => v === "" || v === "0" || !v);
 			}
 
 			if (typeof val === "string") {

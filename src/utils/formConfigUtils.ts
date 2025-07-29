@@ -167,6 +167,13 @@ export const convertFormFieldConfigToFormField = (
 				value: parseValue(rawValue, "array", [])
 			};
 
+		case "coordinateInput":
+			return {
+				...baseField,
+				type: "coordinateInput" as const,
+				value: parseValue(rawValue, "array", [])
+			};
+
 		default:
 			return {
 				...baseField,

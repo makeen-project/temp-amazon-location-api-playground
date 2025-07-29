@@ -12,6 +12,7 @@ import { Slider } from "../../atoms/Slider/Slider";
 import AddressInput, { AddressInputRef } from "../AddressInput";
 import { AutoCompleteLatLonInput } from "../AutoCompleteLatLonInput";
 import CheckboxGroup from "../CheckboxGroup";
+import { CoordinateInput } from "../CoordinateInput";
 import LngLatInput from "../LngLatInput/LngLatInput";
 import MultiSelectDropdown from "../MultiSelectDropdown";
 import { SliderWithInput } from "../SliderWithInput/SliderWithInput";
@@ -145,6 +146,13 @@ interface LngLatInputFieldConfig extends BaseField {
 	value?: number[];
 }
 
+// CoordinateInput field specific interface
+interface CoordinateInputFieldConfig extends BaseField {
+	type: "coordinateInput";
+	defaultValue?: number[];
+	value?: number[];
+}
+
 // Union type for all field configurations
 export type FormField =
 	| TextFieldConfig
@@ -158,7 +166,8 @@ export type FormField =
 	| SliderWithInputFieldConfig
 	| MultiSelectFieldConfig
 	| LatLonInputFieldConfig
-	| LngLatInputFieldConfig;
+	| LngLatInputFieldConfig
+	| CoordinateInputFieldConfig;
 
 interface FormRenderProps {
 	fields: FormField[];
@@ -372,6 +381,19 @@ export const FormRender: React.FC<FormRenderProps> = ({
 					/>
 				);
 
+			case "coordinateInput":
+				return (
+					<CoordinateInput
+						{...commonProps}
+						defaultValue={field.value}
+						onChange={value => handleChange(field.name, value)}
+						value={field.value}
+						name={field.name}
+						isDisabled={field.disabled}
+						placeholder={field.placeholder}
+					/>
+				);
+
 			default:
 				return null;
 		}
@@ -415,6 +437,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 					handleChange(field.name, field.min || 0);
 					break;
 				case "lngLatInput":
+				case "coordinateInput":
 					handleChange(field.name, []);
 					break;
 				case "radio":

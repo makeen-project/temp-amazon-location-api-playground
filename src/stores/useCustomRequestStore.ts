@@ -21,7 +21,7 @@ export interface RequestSnippetsProps {
 
 export interface CustomRequestStore {
 	queryPosition: string[];
-	biasPosition?: string[];
+	biasPosition?: number[];
 	additionalFeatures?: AdditionalFeatures[];
 	includeCountries?: string[];
 	includePlaceTypes?: ReverseGeocodeFilterPlaceType[];

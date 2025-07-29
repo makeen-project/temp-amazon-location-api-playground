@@ -408,11 +408,11 @@
 					"placeholder": "Enter an address or place name"
 				},
 				{
-					"type": "lngLatInput",
+					"type": "coordinateInput",
 					"name": "biasPosition",
-					"label": "Bias Position",
+					"label": "BiasPosition",
 					"required": false,
-					"placeholder": "Enter longitude and latitude coordinates"
+					"placeholder": "Enter latitude, longitude (e.g., 40.7128, -74.0060)"
 				},
 				{
 					"type": "multiSelect",
