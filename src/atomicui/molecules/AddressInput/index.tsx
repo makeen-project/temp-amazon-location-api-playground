@@ -39,6 +39,8 @@ export interface AddressInputRef {
 	clear: () => void;
 }
 
+const MAX_CHARACTERS = 200;
+
 const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 	({ onChange, label, placeholder = "Enter an address...", isRequired, initialValue }, ref) => {
 		const autocompleteRef = useRef<HTMLInputElement>(null);
@@ -81,14 +83,27 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 
 		const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
 			const newValue = target.value;
+
+			// Validate character limit - silently prevent input if exceeded
+			if (newValue.length > MAX_CHARACTERS) {
+				return; // Don't update the value if it exceeds the limit
+			}
+
 			setLocalValue(newValue);
 			handleSearch(newValue);
 		};
 
 		const onSelectSuggestion = useCallback(
 			(option: ComboBoxOption) => {
-				setLocalValue(option.label);
-				onChange?.(option.label);
+				const selectedValue = option.label;
+
+				// Validate character limit for selected suggestion - silently prevent if exceeded
+				if (selectedValue.length > MAX_CHARACTERS) {
+					return;
+				}
+
+				setLocalValue(selectedValue);
+				onChange?.(selectedValue);
 			},
 			[onChange]
 		);

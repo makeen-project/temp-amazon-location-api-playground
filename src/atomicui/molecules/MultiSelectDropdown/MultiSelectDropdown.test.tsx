@@ -75,13 +75,6 @@ describe("MultiSelectDropdown", () => {
 		expect(screen.getByText("Select at least 2")).toBeInTheDocument();
 	});
 
-	it("respects maxSelected validation", () => {
-		render(<MultiSelectDropdown {...defaultProps} maxSelected={1} defaultValue={["es", "en"]} />);
-
-		// Should show error message
-		expect(screen.getByText("Select at most 1")).toBeInTheDocument();
-	});
-
 	it("can be disabled", () => {
 		render(<MultiSelectDropdown {...defaultProps} disabled defaultValue={["es"]} />);
 

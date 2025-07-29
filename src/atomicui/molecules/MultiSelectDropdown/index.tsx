@@ -53,6 +53,9 @@ export default function MultiSelectDropdown<T extends string>({
 		return options.find(opt => opt.value === value)?.label || value;
 	};
 
+	// Check if maxSelected is reached
+	const isMaxReached = maxSelected ? selected.length >= maxSelected : false;
+
 	useEffect(() => {
 		if (required && selected.length === 0) setError("This field is required");
 		else if (minSelected && selected.length < minSelected) setError(`Select at least ${minSelected}`);
@@ -76,10 +79,10 @@ export default function MultiSelectDropdown<T extends string>({
 					}
 					setIsOpen(false);
 				}}
-				isDisabled={disabled}
+				isDisabled={disabled || isMaxReached}
 				required={required}
-				hasError={!!error}
-				errorMessage={error}
+				hasError={!!error && !isMaxReached}
+				errorMessage={isMaxReached ? undefined : error}
 				icon={<IconChevronDown />}
 				onFocus={() => setIsOpen(true)}
 			>

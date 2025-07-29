@@ -7,7 +7,7 @@
 			"submitButtonText": "ReverseGeocode",
 			"imageSource": "images/ReverseGeocode.png",
 			"title": "ReverseGeocode API Playground",
-			"description": "The Reverse Geocode API converts latitude/Longitude into human-readable addresses. Use [[QueryPosition]] with latitude/longitude. Optional parameters include [[BiasPosition]], [[Filter]], and [[MaxResults]].The response contains [[ResultItems]] with [[Address]], [[Position]], and Optional [[TimeZone]] data. Use [[AdditionalFeatures]] to request extra information like time zones.",
+			"description": "The Reverse Geocode API converts latitude/Longitude into human-readable addresses. Use [[QueryPosition]] with latitude/longitude. Optional parameters include [[BiasPosition]], [[Filter]], and [[MaxResults]]. The response contains [[ResultItems]] with [[Address]], [[Position]], and Optional [[TimeZone]] data. Use [[AdditionalFeatures]] to request extra information like time zones.",
 			"shouldRenderMap": true,
 			"showLocalMarkerOnMapClick": "single",
 			"missingFieldsMessage": "Click the map to reverse geocode",
@@ -373,7 +373,7 @@
 			"imageSource": "images/Geocode.png",
 			"title": "Geocode API Playground",
 			"missingFieldsMessage": "Enter an address to geocode",
-			"description": "The Geocode API transforms addresses or place names into geographic coordinates with detailed location information. Use the Query parameter for free-form text input or QueryComponents for structured queries. Optional parameters include BiasPosition, Filter, Language, and AdditionalFeatures. The API returns coordinates, formatted address components, and any additional requested information.",
+			"description": "The Geocoding API transforms addresses or place names into geographic coordinates with detailed location information. When building a query, you have two main approaches: use the [[Query]] parameter for simple free-form text input like \"123 Main St, Boston, MA\", or use [[QueryComponents]] for precise structured queries where address elements (street, city, country) are specified separately. The API accepts several optional parameters to refine results: [[BiasPosition]] lets you provide coordinates to prioritize results near a specific location, [[Filter]] allows you to restrict results to certain countries or place types, [[Language]] determines the response language, and [[AdditionalFeatures]] allows you to restrict results to certain countries or place types, can request extra data such as time zones. The API returns a JSON response containing coordinates, formatted address components, and any additional requested information. Query customization helps ensure accurate results — for example, combining [[BiasPosition]] with [[Filter]] can help find the correct \"Main Street\" in a specific city rather than returning matches from around the world.",
 			"shouldRenderMap": false,
 			"requestParams": [],
 			"buildSampleButton": {
