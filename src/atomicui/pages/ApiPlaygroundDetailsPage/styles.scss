@@ -90,7 +90,7 @@
 		transition: -webkit-line-clamp 0.2s;
 	}
 	.api-playground-description.expanded {
-		-webkit-line-clamp: 6;
+		-webkit-line-clamp: unset;
 	}
 
 	.show-more-btn {
@@ -147,7 +147,9 @@
 		align-items: center;
 		justify-content: center;
 		background-color: #e5e5ea;
-		transition: background 0.2s, border 0.2s;
+		transition:
+			background 0.2s,
+			border 0.2s;
 	}
 	.share-btn:hover {
 		background: #e5e7eb;
@@ -176,7 +178,9 @@
 		color: #00819d;
 		font-weight: 600;
 		text-decoration: none;
-		transition: text-decoration 0.2s, color 0.2s;
+		transition:
+			text-decoration 0.2s,
+			color 0.2s;
 	}
 	.related-links a:hover {
 		text-decoration: underline;

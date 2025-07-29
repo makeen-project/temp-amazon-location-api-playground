@@ -68,7 +68,7 @@ const MapMarker: FC<Props> = ({
 
 	const markerDescription = useMemo(() => {
 		const string = info?.address?.Label || info.label || "";
-		return string?.split(",")[0];
+		return string;
 	}, [info?.address?.Label, info.label]);
 
 	const isHovered = useMemo(
