@@ -256,9 +256,7 @@ const MapButtons: FC<MapButtonsProps> = ({
 							: "map-styles-button-container map-styles-button"
 					}
 					data-testid="map-styles-button"
-					data-tooltip-id="map-styles-button"
-					data-tooltip-place="left"
-					data-tooltip-content="tooltip__mps.text"
+					title={t("tooltip__mps.text")}
 					style={{
 						display: "flex",
 						bottom: "9.3rem",
