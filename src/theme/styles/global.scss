@@ -1,5 +1,7 @@
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
+/*!
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
 
 .verticle-list {
 	font-size: var(--primary-text-size);
@@ -84,22 +86,23 @@
 .action-gradient-button {
 	background-image: linear-gradient(to right top, #005276, #007a9e, #00a3ad, #00cba1, #38ef7d);
 }
+
 /* https://mycolor.space/gradient3?ori=to+right+top&hex=%23005276&hex2=%23007A9E&hex3=%2338EF7D&submit=submit */
 .action-gradient-button:hover {
 	background-image: linear-gradient(
-		to right top,
-		#005276,
-		#00597e,
-		#006185,
-		#00688d,
-		#007094,
-		#007da0,
-		#008bab,
-		#0099b5,
-		#00b1bf,
-		#00c8b9,
-		#00dda2,
-		#38ef7d
+					to right top,
+					#005276,
+					#00597e,
+					#006185,
+					#00688d,
+					#007094,
+					#007da0,
+					#008bab,
+					#0099b5,
+					#00b1bf,
+					#00c8b9,
+					#00dda2,
+					#38ef7d
 	);
 }
 
@@ -130,15 +133,18 @@ body:has(.disable-body-scroll) {
 		color: var(--tertiary-color);
 		margin-left: 0.4rem;
 	}
+
 	.amplify-flex.amplify-checkbox__button {
 		&:before {
 			background: var(--light-color-2);
 			border: 1px solid var(--grey-color-2);
 		}
+
 		span {
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
 			svg {
 				stroke-width: 4px;
 				stroke-linejoin: bevel;
@@ -165,6 +171,7 @@ body:has(.disable-body-scroll) {
 	border-bottom-width: 1px;
 	border-color: var(--light-color-2);
 }
+
 .ltr {
 	direction: ltr;
 	text-align: start;

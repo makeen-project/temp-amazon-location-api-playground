@@ -1,9 +1,11 @@
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
 
-import { FC, forwardRef, lazy, useCallback, useImperativeHandle, useMemo, useRef, useState } from "react";
+import { forwardRef, lazy, useCallback, useImperativeHandle, useMemo, useRef, useState } from "react";
 
-import { IconLocateMe, IconMapSolid } from "@api-playground/assets/svgs";
+import { IconLocateMe } from "@api-playground/assets/svgs";
 import { QueryRadiusCircle } from "@api-playground/atomicui/molecules";
 import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
 import useMap from "@api-playground/hooks/useMap";
@@ -13,13 +15,6 @@ import { MapColorSchemeEnum, TriggeredByEnum } from "@api-playground/types/Enums
 import { errorHandler } from "@api-playground/utils/errorHandler";
 import { Flex, View } from "@aws-amplify/ui-react";
 import type { GeolocateControl as GeolocateControlRef, LngLatBoundsLike } from "maplibre-gl";
-
-const MapButtons = lazy(() =>
-	import("@api-playground/atomicui/molecules/MapButtons").then(module => ({
-		default: module.MapButtons
-	}))
-);
-
 import {
 	AttributionControl,
 	GeolocateControl,
@@ -32,6 +27,12 @@ import {
 import appConfig from "../../../core/constants/appConfig";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "./styles.scss";
+
+const MapButtons = lazy(() =>
+	import("@api-playground/atomicui/molecules/MapButtons").then(module => ({
+		default: module.MapButtons
+	}))
+);
 
 const {
 	MAP_RESOURCES: { MAX_BOUNDS },

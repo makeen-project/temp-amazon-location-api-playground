@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import { MutableRefObject, useCallback, useEffect, useMemo, useState } from "react";
 
 import { showToast } from "@api-playground/core/Toast";
@@ -11,6 +16,7 @@ import { useTranslation } from "react-i18next";
 import { GeolocateErrorEvent, GeolocateResultEvent, MapLayerMouseEvent, MapRef, MapStyle } from "react-map-gl/maplibre";
 
 import useAuth from "./useAuth";
+
 import useMap from "./useMap";
 
 import appConfig from "../core/constants/appConfig";

@@ -1,8 +1,9 @@
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
 
 import { showToast } from "@api-playground/core/Toast";
-
 import { appConfig } from "@api-playground/core/constants";
 import i18n from "@api-playground/locales/i18n";
 import { CurrentLocationDataType, ToastType, ViewPointType } from "@api-playground/types";

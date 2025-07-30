@@ -1,80 +1,86 @@
+/*!
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 .amplify-autocomplete {
-  width: 100%;
-  max-width: 100%;
+	width: 100%;
+	max-width: 100%;
 
-  background-color: white;
+	background-color: white;
 
-  input {
-    border-radius: 8px;
-    outline: none;
-    border: none;
+	input {
+		border-radius: 8px;
+		outline: none;
+		border: none;
 
-    &:focus {
-      background-color: white;
-      box-shadow: 0px 0px 0px 2px #008296;
-    }
-  }
+		&:focus {
+			background-color: white;
+			box-shadow: 0px 0px 0px 2px #008296;
+		}
+	}
 
-  &__menu {
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
+	&__menu {
+		border: 1px solid #e0e0e0;
+		border-radius: 10px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
 }
 
 .amplify-field-group__inner-end {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  & > button {
-    width: 12px !important;
-    height: 12px !important;
-  }
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+
+	& > button {
+		width: 12px !important;
+		height: 12px !important;
+	}
 }
 
 .geocode-label {
-  font-size: 14px;
-  color: #333;
+	font-size: 14px;
+	color: #333;
 
-  font-family: "AmazonEmber-Medium";
+	font-family: "AmazonEmber-Medium";
 }
 
 .option-details {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 12px;
 
-  &:hover {
-    background-color: #f5f5f5;
-  }
+	&:hover {
+		background-color: #f5f5f5;
+	}
 
-  svg {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    color: #666;
-  }
+	svg {
+		flex-shrink: 0;
+		width: 20px;
+		height: 20px;
+		color: #666;
+	}
 
-  .content-wrapper {
-    display: flex;
-    flex-direction: column;
+	.content-wrapper {
+		display: flex;
+		flex-direction: column;
 
-    .amplify-text {
-      &:first-child {
-        font-weight: 500;
-        margin-bottom: 2px;
-      }
+		.amplify-text {
+			&:first-child {
+				font-weight: 500;
+				margin-bottom: 2px;
+			}
 
-      &[data-variation="tertiary"] {
-        font-size: 12px;
-        color: #666;
-      }
-    }
-  }
+			&[data-variation="tertiary"] {
+				font-size: 12px;
+				color: #666;
+			}
+		}
+	}
 }
 
 .amplify-autocomplete__menu {
-  width: 100%;
+	width: 100%;
 }

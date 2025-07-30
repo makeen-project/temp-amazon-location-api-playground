@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import { createParser, useQueryStates } from "nuqs";
 
 export function useUrlState<T extends object>(defaultValue: T) {
