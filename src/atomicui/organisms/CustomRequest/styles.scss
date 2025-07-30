@@ -1,20 +1,12 @@
 .container {
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    bottom: 1rem;
-    z-index: 4;
-    max-width: calc(30% - 40px - 2px);
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-
-    .amplify-accordion {
-        z-index: 4;
-        position: relative;
-    }
+	margin: 1rem calc(32px) 1rem 1rem;
+	z-index: 4;
+	width: 400px;
+	max-width: 400px;
+	min-width: 300px;
 }
 
-.container.expanded {
-    max-width: calc(50% - 40px - 2px);
+.optional-items {
+	overflow: auto;
+	max-height: 60vh;
 }

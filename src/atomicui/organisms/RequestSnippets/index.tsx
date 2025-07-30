@@ -12,25 +12,21 @@ import { Button, Divider, Tabs, Text, View } from "@aws-amplify/ui-react";
 import { useParams } from "react-router-dom";
 import "./styles.scss";
 
-const SNIPPETS_COLLAPSED_WIDTH = 400;
-const SNIPPETS_EXPANDED_WIDTH = 850;
-
 type TabType = "JavaScript" | "Python" | "Ruby";
 
 const RequestSnippets: FC<RequestSnippetsProps> = ({
-	width,
-	onWidthChange,
 	isFullScreen,
 	onFullScreenToggle,
 	response,
 	isOpen = true,
 	onToggle,
-	isExpanded
+	onWidthChange
 }) => {
 	const store = useCustomRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
+	const [isExpanded, setIsExpanded] = useState(false);
 
 	const { shareableUrl } = useUrlState({
 		defaultValue: store,
@@ -205,7 +201,8 @@ puts response`
 	const handleWidthToggle = (e: React.MouseEvent<SVGSVGElement>) => {
 		e.stopPropagation();
 		e.preventDefault();
-		onWidthChange(width === SNIPPETS_EXPANDED_WIDTH ? SNIPPETS_COLLAPSED_WIDTH : SNIPPETS_EXPANDED_WIDTH);
+		setIsExpanded(!isExpanded);
+		onWidthChange?.();
 	};
 
 	return (
@@ -213,13 +210,10 @@ puts response`
 			<Accordion
 				open={isOpen}
 				onToggle={onToggle}
-				style={{
-					maxWidth: `${width}px`
-				}}
 				contentClassName="snippets-content-container"
 				title={
 					<View className="accordion-title">
-						{width === SNIPPETS_EXPANDED_WIDTH ? (
+						{isExpanded ? (
 							<IconCollapse onClick={handleWidthToggle} style={{ cursor: "pointer" }} />
 						) : (
 							<IconExpand onClick={handleWidthToggle} style={{ cursor: "pointer" }} />
@@ -283,9 +277,7 @@ puts response`
 							)}
 						</View>
 					</View>
-
 					<Divider />
-
 					<View className="snippets-container__snippet code">
 						<View className="snippets-container__snippet__heading">
 							<Text>Code snippets</Text>
@@ -294,7 +286,6 @@ puts response`
 								<Text>Copy</Text>
 							</Button>
 						</View>
-
 						<View className="expandable-container">
 							<Tabs
 								justifyContent="flex-start"

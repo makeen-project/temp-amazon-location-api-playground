@@ -1,8 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/jsx-no-comment-textnodes */
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
-
 import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { IconBackArrow, IconShare } from "@api-playground/assets/svgs";
@@ -25,9 +20,6 @@ import { NuqsAdapter } from "nuqs/adapters/react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
 
-const SNIPPETS_COLLAPSED_WIDTH = 400;
-const SNIPPETS_EXPANDED_WIDTH = 850;
-
 const ApiPlaygroundDetailsPage: FC = () => {
 	useAuthManager();
 
@@ -42,7 +34,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const mapRef = useRef<MapRef | null>(null);
 	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const [isFullScreen, setIsFullScreen] = useState(false);
-	const [isSnippetsExpanded, setIsSnippetsExpanded] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [activeMarker, setActiveMarker] = useState(false);
 	const [mapLoaded, setMapLoaded] = useState(false);
@@ -53,7 +44,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
 
-	// Add local state for temporary markers
 	const [localMarkers, setLocalMarkers] = useState<
 		Array<{
 			position: [number, number];
@@ -65,11 +55,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
 	const position = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
 
-	// Show marker when there's a response and valid position
 	const showMapMarker =
 		customRequestStore?.response && position?.length === 2 && position.every(coord => !isNaN(coord));
 
-	// Show local markers based on configuration
 	const showLocalMarkers = localMarkers.length > 0 && !showMapMarker && apiPlaygroundItem?.showLocalMarkerOnMapClick;
 
 	const placeId = resultItem?.PlaceId || uuid.randomUUID();
@@ -80,6 +68,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const toggleFullScreen = useCallback(() => {
 		setIsFullScreen(prev => !prev);
+		setTimeout(() => {
+			applyStylesDebounced();
+		}, 250);
 	}, [apiPlaygroundId, isFullScreen]);
 
 	const toggleSnippets = () => {
@@ -92,20 +83,17 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			if (activeMarker) {
 				setActiveMarker(false);
 				clearPoiList();
-				setSelectedMarker(undefined);
+				setSelectedMarker();
 				setSearchValue("");
 			}
 
-			// If coordinate picking is disabled (after submit with response), don't allow new coordinates
 			if (isCoordinatePickingDisabled) {
 				return;
 			}
 
 			const { lng, lat } = e.lngLat;
-			// Update the clickedPosition in the map store
 			setClickedPosition([lng, lat]);
 
-			// Create local marker when map is clicked based on configuration
 			if (apiPlaygroundItem?.showLocalMarkerOnMapClick) {
 				const markerId = uuid.randomUUID();
 				const markerLabel = `Selected Location (${lng.toFixed(6)}, ${lat.toFixed(6)})`;
@@ -116,15 +104,12 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				};
 
 				if (apiPlaygroundItem.showLocalMarkerOnMapClick === "single") {
-					// Replace existing markers with new one
 					setLocalMarkers([newMarker]);
 				} else if (apiPlaygroundItem.showLocalMarkerOnMapClick === "multiple") {
-					// Add to existing markers
 					setLocalMarkers(prev => [...prev, newMarker]);
 				}
 			}
 
-			// Clear any existing timeout
 			if (resetTimeoutRef.current) {
 				clearTimeout(resetTimeoutRef.current);
 			}
@@ -132,8 +117,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		[setClickedPosition, activeMarker, isCoordinatePickingDisabled, apiPlaygroundItem]
 	);
 
-	const handleMapZoom = useCallback((e: any) => {}, [apiPlaygroundId]);
-	const handleMapDragEnd = useCallback((e: any) => {}, [apiPlaygroundId]);
+	const handleMapZoom = useCallback(() => {}, [apiPlaygroundId]);
+	const handleMapDragEnd = useCallback(() => {}, [apiPlaygroundId]);
 
 	const handleMarkerActivate = useCallback(() => {
 		setActiveMarker(true);
@@ -151,64 +136,52 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		handleMarkerClose();
 		handleMarkerToggle?.(false);
 		setState({ ...initialState, query: "", response: undefined });
-		// Clear local markers when resetting
 		setLocalMarkers([]);
-		// Re-enable coordinate picking when resetting
 		setIsCoordinatePickingDisabled(false);
-		// Clear any existing timeout to ensure clean state
 		if (resetTimeoutRef.current) {
 			clearTimeout(resetTimeoutRef.current);
 		}
 	}, [handleMarkerClose, handleMarkerToggle]);
 
 	const handleCustomResponse = () => {
-		// Get the latest position data from the store
 		const resultItem = customRequestStore.response?.ResultItems?.[0];
 		const currentPosition = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
 
-		// Ensure position is valid before proceeding
 		if (!currentPosition || currentPosition.length !== 2 || currentPosition.some(isNaN)) {
 			console.warn("Invalid position data received");
 			return;
 		}
 
-		// Clear local markers when response is received
 		setLocalMarkers([]);
 		setActiveMarker(true);
-		// Disable coordinate picking after response is received
 		setIsCoordinatePickingDisabled(true);
 
 		const [lng, lat] = currentPosition;
 		const submittedQueryRadius = customRequestStore.submittedQueryRadius;
 		const queryRadius = customRequestStore.queryRadius;
 
-		// Handle zoom behavior based on query radius
 		try {
 			if (submittedQueryRadius && submittedQueryRadius > 0 && queryRadius !== null) {
-				// Create circle to get its bounding box
 				const radiusInKm = submittedQueryRadius / 1000;
 				const circleFeature = circle([lng, lat], radiusInKm, {
 					units: "kilometers",
 					steps: 64
 				});
 
-				// Get the bounding box of the circle
 				const boundingBox = bbox(circleFeature);
 
-				// Fit the map to the bounding box with some padding
 				mapRef.current?.fitBounds(
 					[
-						[boundingBox[0], boundingBox[1]], // southwest
-						[boundingBox[2], boundingBox[3]] // northeast
+						[boundingBox[0], boundingBox[1]],
+						[boundingBox[2], boundingBox[3]]
 					],
 					{
-						padding: 50, // Add some padding around the circle
-						duration: 2000, // Smooth animation
+						padding: 50,
+						duration: 2000,
 						essential: true
 					}
 				);
 			} else {
-				// Fallback to center on position with default zoom
 				mapRef.current?.flyTo({
 					center: [lng + 0.0076, lat - 0.003],
 					zoom: 15,
@@ -229,12 +202,11 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		}
 	}, [customRequestStore.response, handleCustomResponse]);
 
-	// Calculate missing required fields and message when customRequestStore or apiPlaygroundItem changes
 	useEffect(() => {
 		if (!apiPlaygroundItem) return;
 
-		const requiredFields = (apiPlaygroundItem.formFields || []).filter((f: any) => f.required);
-		const hasMissingRequired = requiredFields.some((f: any) => {
+		const requiredFields = (apiPlaygroundItem.formFields || []).filter(f => f.required);
+		const hasMissingRequired = requiredFields.some(f => {
 			const key = f.name as keyof CustomRequestStore;
 			const val = customRequestStore[key];
 
@@ -258,12 +230,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		if (customRequestStore.response) {
 			handleCustomResponse();
 		} else {
-			// Re-enable coordinate picking when response is cleared
 			setIsCoordinatePickingDisabled(false);
 		}
 	}, [customRequestStore.response]);
 
-	// Cleanup timeout on unmount
 	useEffect(() => {
 		return () => {
 			if (resetTimeoutRef.current) {
@@ -293,7 +263,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	useEffect(() => {
 		applyStylesDebounced();
-	}, [isSnippetsOpen, isSnippetsExpanded, mapLoaded]);
+	}, [isSnippetsOpen, mapLoaded]);
 
 	useEffect(() => {
 		window.addEventListener("resize", applyStylesDebounced);
@@ -359,7 +329,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 										Related resources
 									</Text>
 									<View className="related-links">
-										{apiPlaygroundItem.relatedResources?.map((res: any, idx: number) => (
+										{apiPlaygroundItem.relatedResources?.map((res, idx) => (
 											<a key={idx} href={res.link} target="_blank" rel="noopener noreferrer">
 												{res.text}
 											</a>
@@ -382,13 +352,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						onMapDragEnd={handleMapDragEnd}
 						onMapLoad={handleMapLoad}
 					>
-						<CustomRequest
-							onResponseReceived={handleCustomResponse}
-							onReset={handleClose}
-							mapRef={mapRef}
-							isExpanded={!isSnippetsExpanded}
-						/>
-
 						{showMapMarker && resultItem && (
 							<MapMarker
 								active={activeMarker}
@@ -404,8 +367,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
 							/>
 						)}
-
-						{/* Local markers for clicked coordinates */}
 						{showLocalMarkers &&
 							localMarkers.map(marker => (
 								<MapMarker
@@ -423,21 +384,20 @@ const ApiPlaygroundDetailsPage: FC = () => {
 									locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
 								/>
 							))}
-
-						{/* Centralized message above the map */}
 						{message && <HintMessage message={message} />}
-
-						<RequestSnippets
-							key={`snippets-${customRequestStore.response ? "with-response" : "no-response"}`}
-							isExpanded={isSnippetsExpanded}
-							response={customRequestStore.response}
-							width={isSnippetsExpanded ? SNIPPETS_EXPANDED_WIDTH : SNIPPETS_COLLAPSED_WIDTH}
-							onWidthChange={width => setIsSnippetsExpanded(width === SNIPPETS_EXPANDED_WIDTH)}
-							isFullScreen={isFullScreen}
-							onFullScreenToggle={toggleFullScreen}
-							isOpen={isSnippetsOpen}
-							onToggle={toggleSnippets}
-						/>
+						<Flex className="panels-container">
+							<CustomRequest onResponseReceived={handleCustomResponse} onReset={handleClose} mapRef={mapRef} />
+							<RequestSnippets
+								response={customRequestStore.response}
+								isFullScreen={isFullScreen}
+								onFullScreenToggle={toggleFullScreen}
+								isOpen={isSnippetsOpen}
+								onToggle={toggleSnippets}
+								onWidthChange={() => {
+									applyStylesDebounced();
+								}}
+							/>
+						</Flex>
 					</Map>
 				</View>
 			</View>
