@@ -209,33 +209,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		setMapPoliticalView(MAP_POLITICAL_VIEWS[0]);
 		setMapLanguage(MAP_LANGUAGES[0]);
 
-		if ("geolocation" in navigator) {
-			navigator.geolocation.getCurrentPosition(
-				currentLocation => {
-					const {
-						coords: { latitude, longitude }
-					} = currentLocation;
-
-					setCurrentLocation({ currentLocation: { latitude, longitude }, error: undefined });
-					setViewpoint({ latitude, longitude });
-
-					mapRef?.current?.flyTo({
-						center: [longitude, latitude],
-						zoom: 15,
-						duration: 2000
-					});
-				},
-				error => {
-					console.warn("Failed to get current location:", error);
-					setCurrentLocation({ currentLocation: undefined, error });
-				},
-				{
-					maximumAge: 0,
-					enableHighAccuracy: true
-				}
-			);
-		}
-
 		setUrlState(null as any);
 		onReset?.();
 	};
