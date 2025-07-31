@@ -1,4 +1,9 @@
-import { ReactNode, useRef, useState } from "react";
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
+import { ReactNode, useState } from "react";
 
 import { IconAccordionClose, IconAccordionOpen } from "@api-playground/assets/svgs";
 import { Accordion as AmplifyAccordion } from "@aws-amplify/ui-react";

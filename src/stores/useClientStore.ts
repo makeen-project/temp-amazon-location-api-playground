@@ -1,5 +1,7 @@
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
 
 import { IStateProps } from "@api-playground/types";
 import { GeoPlacesClient } from "@aws-sdk/client-geo-places";

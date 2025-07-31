@@ -1,5 +1,7 @@
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
 
 import { formatDuration, intervalToDuration } from "date-fns";
 import { ar, de, enUS, es, fr, he, hi, it, ja, ko, pt, zhCN, zhTW } from "date-fns/locale";

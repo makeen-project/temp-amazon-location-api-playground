@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import { render, screen } from "@testing-library/react";
 
 import { Slider } from "./Slider";
@@ -5,7 +10,9 @@ import { Slider } from "./Slider";
 // Mock ResizeObserver
 global.ResizeObserver = class ResizeObserver {
 	observe() {}
+
 	unobserve() {}
+
 	disconnect() {}
 };
 

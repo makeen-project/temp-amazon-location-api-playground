@@ -1,5 +1,7 @@
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
 
 import { Hybrid, Monochrome, Satellite, Standard } from "@api-playground/assets/pngs";
 import { MapColorSchemeEnum, MapStyleEnum } from "@api-playground/types/Enums";

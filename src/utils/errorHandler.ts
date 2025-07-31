@@ -1,5 +1,7 @@
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
 
 import { showToast } from "@api-playground/core/Toast";
 import appConfig from "@api-playground/core/constants/appConfig";

@@ -1,56 +1,61 @@
-.hintModal {
-    position: fixed;
-    background-color: white;
-    padding: 12px;
-    border: 1px solid var(--transparent-grey-grey-8, #8e8e9314);
-    box-shadow: 0px 0px 10px 0px #00000033;
-    border-radius: 8px;
-    z-index: 1000;
-    white-space: nowrap;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/*!
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
 
-    p {
-        font-weight: 500;
-    }
+.hintModal {
+	position: fixed;
+	background-color: white;
+	padding: 12px;
+	border: 1px solid var(--transparent-grey-grey-8, #8e8e9314);
+	box-shadow: 0px 0px 10px 0px #00000033;
+	border-radius: 8px;
+	z-index: 1000;
+	white-space: nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	p {
+		font-weight: 500;
+	}
 }
 
 
 .top-left {
-    top: 20px;
-    left: 20px;
+	top: 20px;
+	left: 20px;
 }
 
 .top-center {
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .top-right {
-    top: 20px;
-    right: 20px;
+	top: 20px;
+	right: 20px;
 }
 
 .bottom-left {
-    bottom: 20px;
-    left: 20px;
+	bottom: 20px;
+	left: 20px;
 }
 
 .bottom-center {
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .bottom-right {
-    bottom: 20px;
-    right: 20px;
+	bottom: 20px;
+	right: 20px;
 }
 
 .center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }

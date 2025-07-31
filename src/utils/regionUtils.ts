@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import { appConfig } from "@api-playground/core/constants";
 
 const { API_KEYS, PERSIST_STORAGE_KEYS } = appConfig;

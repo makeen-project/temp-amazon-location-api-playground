@@ -1,5 +1,7 @@
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
+/*!
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
 
 .filter-modal-container {
 	display: flex;
@@ -35,6 +37,7 @@
 				.clear-button {
 					background-color: var(--grey-color-3);
 					font-weight: 100;
+
 					&:hover {
 						color: black;
 					}

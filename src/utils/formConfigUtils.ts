@@ -1,6 +1,9 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
-/* SPDX-License-Identifier: MIT-0 */
 
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { FormField } from "@api-playground/atomicui/molecules/FormRender";

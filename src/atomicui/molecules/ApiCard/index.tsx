@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import { FC, useEffect, useRef, useState } from "react";
 
 import { Content } from "@api-playground/atomicui/atoms/Content";

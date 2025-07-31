@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import React, { FC, useMemo, useState } from "react";
 
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";

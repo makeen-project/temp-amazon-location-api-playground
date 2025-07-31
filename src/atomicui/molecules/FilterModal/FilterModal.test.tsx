@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import { faker } from "@faker-js/faker";
 import { fireEvent, render } from "@testing-library/react";
 import i18n from "locales/i18n";
