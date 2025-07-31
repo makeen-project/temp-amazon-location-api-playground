@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 export { default as Loading } from "./Loading.png";
 export { default as Standard } from "./Standard.png";
 export { default as Monochrome } from "./Monochrome.png";

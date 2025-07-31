@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import { ApiRequestObj, ApiRequestObjValues, RequestParam } from "@api-playground/types/ApiPlaygroundModel";
 import { FieldTypeEnum } from "@api-playground/types/Enums";
 

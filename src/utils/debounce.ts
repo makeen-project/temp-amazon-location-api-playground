@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const debounce = (func: any, timeout: number) => {
 	let timer: NodeJS.Timeout;

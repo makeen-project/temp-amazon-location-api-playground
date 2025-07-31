@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { IconBackArrow, IconShare } from "@api-playground/assets/svgs";

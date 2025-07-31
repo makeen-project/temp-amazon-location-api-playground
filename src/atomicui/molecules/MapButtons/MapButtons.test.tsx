@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import i18n from "@api-playground/locales/i18n";
 import { MapStyleEnum } from "@api-playground/types";
 import { faker } from "@faker-js/faker";

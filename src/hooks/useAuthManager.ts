@@ -1,3 +1,8 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 import { useCallback, useEffect } from "react";
 
 import { appConfig } from "@api-playground/core/constants";

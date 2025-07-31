@@ -1,3 +1,8 @@
+/*!
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
 
 .panels-container {
 	display: flex;
@@ -94,6 +99,7 @@
 		margin-top: 4px;
 		transition: -webkit-line-clamp 0.2s;
 	}
+
 	.api-playground-description.expanded {
 		-webkit-line-clamp: unset;
 	}
@@ -126,8 +132,8 @@
 		font-size: 1rem;
 		color: #fff;
 		background: linear-gradient(45deg, #005276 0%, #007faa 49.65%, #007faa 100%),
-			linear-gradient(225deg, rgba(124, 232, 244, 0.367106) 0%, rgba(124, 232, 244, 0.0001) 100%),
-			linear-gradient(225deg, rgba(56, 239, 125, 0.549525) 0%, rgba(56, 239, 125, 0.0001) 100%);
+		linear-gradient(225deg, rgba(124, 232, 244, 0.367106) 0%, rgba(124, 232, 244, 0.0001) 100%),
+		linear-gradient(225deg, rgba(56, 239, 125, 0.549525) 0%, rgba(56, 239, 125, 0.0001) 100%);
 		border-radius: 8px;
 		margin-bottom: 8px;
 		padding: 8px;
@@ -135,6 +141,7 @@
 		border: none;
 		transition: background 0.2s;
 	}
+
 	.build-sample-btn:hover {
 		filter: brightness(1.05);
 	}
@@ -152,10 +159,10 @@
 		align-items: center;
 		justify-content: center;
 		background-color: #e5e5ea;
-		transition:
-			background 0.2s,
-			border 0.2s;
+		transition: background 0.2s,
+		border 0.2s;
 	}
+
 	.share-btn:hover {
 		background: #e5e7eb;
 		border-color: #bfc5cc;
@@ -169,24 +176,27 @@
 	.related-resources {
 		margin-top: 8px;
 	}
+
 	.related-title {
 		font-weight: 600;
 		color: #222;
 		margin-bottom: 0.5rem;
 	}
+
 	.related-links {
 		display: flex;
 		flex-direction: column;
 		gap: 4px;
 	}
+
 	.related-links a {
 		color: #00819d;
 		font-weight: 600;
 		text-decoration: none;
-		transition:
-			text-decoration 0.2s,
-			color 0.2s;
+		transition: text-decoration 0.2s,
+		color 0.2s;
 	}
+
 	.related-links a:hover {
 		text-decoration: underline;
 		color: #005276;
