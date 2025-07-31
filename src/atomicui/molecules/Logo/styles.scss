@@ -1,0 +1,12 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+.map-logo {
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+	z-index: 3;
+	pointer-events: none;
+	transform: scale(0.8);
+	transform-origin: bottom left;
+}

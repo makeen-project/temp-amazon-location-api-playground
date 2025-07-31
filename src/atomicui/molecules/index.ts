@@ -4,6 +4,7 @@
 export * from "./ApiCard";
 export * from "./AutoCompleteLatLonInput";
 export * from "./LocationPopup";
+export * from "./Logo";
 export * from "./MapButtons";
 export * from "./MapMarker";
 export { default as QueryRadiusCircle } from "./QueryRadiusCircle";
