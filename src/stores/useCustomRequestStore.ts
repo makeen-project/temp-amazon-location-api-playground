@@ -9,14 +9,13 @@ import {
 import createStore from "./createStore";
 
 export interface RequestSnippetsProps {
-	width: number;
-	onWidthChange: (width: number) => void;
 	isFullScreen: boolean;
 	onFullScreenToggle: () => void;
 	response?: ReverseGeocodeCommandOutput | GeocodeCommandOutput;
 	isOpen?: boolean;
 	onToggle?: () => void;
 	isExpanded?: boolean;
+	onWidthChange?: () => void;
 }
 
 export interface CustomRequestStore {

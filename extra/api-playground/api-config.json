@@ -395,7 +395,7 @@
 				}
 			],
 			"locationPopupConfig": {
-				"showPlaceId": false,
+				"showPlaceId": true,
 				"showLatitude": true,
 				"showLongitude": true
 			},
