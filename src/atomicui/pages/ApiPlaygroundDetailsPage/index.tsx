@@ -199,7 +199,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	};
 
 	const handleMapLoad = useCallback(() => {
-		setMapLoaded(true);
+		setTimeout(() => {
+			setMapLoaded(true);
+		}, 300);
 		if (customRequestStore.response) {
 			setTimeout(() => {
 				handleCustomResponse();
@@ -390,19 +392,21 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								/>
 							))}
 						{message && <HintMessage message={message} />}
-						<Flex className="panels-container">
-							<CustomRequest onResponseReceived={handleCustomResponse} onReset={handleClose} mapRef={mapRef} />
-							<RequestSnippets
-								response={customRequestStore.response}
-								isFullScreen={isFullScreen}
-								onFullScreenToggle={toggleFullScreen}
-								isOpen={isSnippetsOpen}
-								onToggle={toggleSnippets}
-								onWidthChange={() => {
-									applyStylesDebounced();
-								}}
-							/>
-						</Flex>
+						{mapLoaded && (
+							<Flex className="panels-container">
+								<CustomRequest onResponseReceived={handleCustomResponse} onReset={handleClose} mapRef={mapRef} />
+								<RequestSnippets
+									response={customRequestStore.response}
+									isFullScreen={isFullScreen}
+									onFullScreenToggle={toggleFullScreen}
+									isOpen={isSnippetsOpen}
+									onToggle={toggleSnippets}
+									onWidthChange={() => {
+										applyStylesDebounced();
+									}}
+								/>
+							</Flex>
+						)}
 					</Map>
 				</View>
 			</View>
