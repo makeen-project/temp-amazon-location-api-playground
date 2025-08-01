@@ -6,7 +6,7 @@
 import { forwardRef, lazy, useCallback, useImperativeHandle, useMemo, useRef, useState } from "react";
 
 import { IconLocateMe } from "@api-playground/assets/svgs";
-import { QueryRadiusCircle } from "@api-playground/atomicui/molecules";
+import { Logo, QueryRadiusCircle } from "@api-playground/atomicui/molecules";
 import useDeviceMediaQuery from "@api-playground/hooks/useDeviceMediaQuery";
 import useMap from "@api-playground/hooks/useMap";
 import useMapManager from "@api-playground/hooks/useMapManager";
@@ -228,6 +228,7 @@ const Map = forwardRef<MapRef, MapProps>(
 						<QueryRadiusCircle mapRef={mapRef} />
 						<NavigationControl position="bottom-right" showZoom showCompass={false} />
 						{_GeolocateControl}
+						<Logo />
 					</View>
 					<AttributionControl
 						style={{
