@@ -27,7 +27,7 @@
 				},
 				{
 					"text": "Demo Application",
-					"link": "https://demos.location.aws.dev/"
+					"link": "/demo"
 				}
 			],
 			"locationPopupConfig": {
@@ -391,7 +391,7 @@
 				},
 				{
 					"text": "Demo Application",
-					"link": "https://demos.location.aws.dev/"
+					"link": "/demo"
 				}
 			],
 			"locationPopupConfig": {
