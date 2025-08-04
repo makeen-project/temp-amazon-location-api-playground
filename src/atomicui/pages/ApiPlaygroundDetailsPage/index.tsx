@@ -58,7 +58,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	>([]);
 
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
-	const position = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
+	const position = resultItem?.Position;
 
 	const showMapMarker =
 		customRequestStore?.response && position?.length === 2 && position.every(coord => !isNaN(coord));
@@ -150,7 +150,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const handleCustomResponse = () => {
 		const resultItem = customRequestStore.response?.ResultItems?.[0];
-		const currentPosition = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
+		const currentPosition = resultItem?.Position;
 
 		if (!currentPosition || currentPosition.length !== 2 || currentPosition.some(isNaN)) {
 			console.warn("Invalid position data received");
@@ -217,13 +217,17 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			const key = f.name as keyof CustomRequestStore;
 			const val = customRequestStore[key];
 
-			if (Array.isArray(val))
+			if (Array.isArray(val)) {
+				if (f.name === "queryPosition" && val.length === 2 && val[0] === 0 && val[1] === 0) {
+					return false;
+				}
 				return (
 					val.length === 0 ||
 					(val as unknown[]).every((v: unknown) =>
 						typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false
 					)
 				);
+			}
 			if (typeof val === "string") return val === "" || val === "0";
 			if (typeof val === "number") return val === 0;
 
