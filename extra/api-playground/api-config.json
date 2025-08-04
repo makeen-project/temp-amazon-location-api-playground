@@ -1037,27 +1037,12 @@
 				]
 			},
 			"codeSnippets": {
-				"JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"{{query}}\",\n  BiasPosition: [{{biasPosition}}],\n  MaxResults: {{maxResults}},\n  Language: \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\",\n  Filter: {\n    IncludeCountries: [{{includeCountries}}],\n    IncludePlaceTypes: [{{includePlaceTypes}}]\n  },\n  IntendedUse: \"{{intendedUse}}\",\n  Key: \"{{key}}\",\n  QueryComponents: {\n    AddressNumber: \"{{addressNumber}}\",\n    Country: \"{{country}}\",\n    District: \"{{district}}\",\n    Locality: \"{{locality}}\",\n    PostalCode: \"{{postalCode}}\",\n    Region: \"{{region}}\",\n    Street: \"{{street}}\",\n    SubRegion: \"{{subRegion}}\"\n  }\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
-				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '{{query}}',\n    'BiasPosition': [{{biasPosition}}],\n    'MaxResults': {{maxResults}},\n    'Language': '{{language}}',\n    'PoliticalView': '{{politicalView}}',\n    'Filter': {\n        'IncludeCountries': [{{includeCountries}}],\n        'IncludePlaceTypes': [{{includePlaceTypes}}]\n    },\n    'IntendedUse': '{{intendedUse}}',\n    'Key': '{{key}}',\n    'QueryComponents': {\n        'AddressNumber': '{{addressNumber}}',\n        'Country': '{{country}}',\n        'District': '{{district}}',\n        'Locality': '{{locality}}',\n        'PostalCode': '{{postalCode}}',\n        'Region': '{{region}}',\n        'Street': '{{street}}',\n        'SubRegion': '{{subRegion}}'\n    }\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
-				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  query_text: '{{query}}',\n  bias_position: [{{biasPosition}}],\n  max_results: {{maxResults}},\n  language: '{{language}}',\n  political_view: '{{politicalView}}',\n  filter: {\n    include_countries: [{{includeCountries}}],\n    include_place_types: [{{includePlaceTypes}}]\n  },\n  intended_use: '{{intendedUse}}',\n  key: '{{key}}',\n  query_components: {\n    address_number: '{{addressNumber}}',\n    country: '{{country}}',\n    district: '{{district}}',\n    locality: '{{locality}}',\n    postal_code: '{{postalCode}}',\n    region: '{{region}}',\n    street: '{{street}}',\n    sub_region: '{{subRegion}}'\n  }\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
+				"JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"123 Main St, New York, NY\",\n  Key: 'your-api-key'\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
+				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '123 Main St, New York, NY',\n    'Key': 'your-api-key'\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
+				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  query_text: '123 Main St, New York, NY',\n  key: 'your-api-key'\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
 				"paramPlaceholders": {
 					"query": "123 Main St, New York, NY",
-					"biasPosition": "0, 0",
-					"maxResults": "1",
-					"language": "en",
-					"politicalView": "US",
-					"includeCountries": "US",
-					"includePlaceTypes": "PointAddress",
-					"intendedUse": "SingleUse",
-					"key": "your-api-key",
-					"addressNumber": "123",
-					"country": "US",
-					"district": "Manhattan",
-					"locality": "New York",
-					"postalCode": "10001",
-					"region": "NY",
-					"street": "Main St",
-					"subRegion": "New York County"
+					"key": "your-api-key"
 				}
 			}
 		}
