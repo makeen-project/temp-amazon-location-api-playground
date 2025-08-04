@@ -217,13 +217,17 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			const key = f.name as keyof CustomRequestStore;
 			const val = customRequestStore[key];
 
-			if (Array.isArray(val))
+			if (Array.isArray(val)) {
+				if (f.name === "queryPosition" && val.length === 2 && val[0] === 0 && val[1] === 0) {
+					return false;
+				}
 				return (
 					val.length === 0 ||
 					(val as unknown[]).every((v: unknown) =>
 						typeof v === "string" ? v === "" || v === "0" : typeof v === "number" ? v === 0 : false
 					)
 				);
+			}
 			if (typeof val === "string") return val === "" || val === "0";
 			if (typeof val === "number") return val === 0;
 
