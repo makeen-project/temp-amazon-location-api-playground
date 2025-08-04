@@ -9,7 +9,7 @@
 	background-color: var(--card-backgound-color);
 	z-index: 2;
 	border-radius: 0.62rem;
-	margin-left: 6px;
+	margin-bottom: 6px;
 
 	.maplibregl-popup-tip {
 		display: none;
@@ -39,10 +39,11 @@
 
 		.triangle-container {
 			display: flex;
-			align-items: center;
+			justify-content: center;
 			position: absolute;
-			top: 46%;
-			left: -0.58rem;
+			bottom: -0.58rem;
+			left: 50%;
+			transform: translateX(-50%);
 
 			div {
 				width: 1.15rem;
