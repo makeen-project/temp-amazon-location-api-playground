@@ -58,7 +58,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	>([]);
 
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
-	const position = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
+	const position = resultItem?.Position;
 
 	const showMapMarker =
 		customRequestStore?.response && position?.length === 2 && position.every(coord => !isNaN(coord));
@@ -150,7 +150,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const handleCustomResponse = () => {
 		const resultItem = customRequestStore.response?.ResultItems?.[0];
-		const currentPosition = resultItem?.Position || customRequestStore?.queryPosition?.map(Number);
+		const currentPosition = resultItem?.Position;
 
 		if (!currentPosition || currentPosition.length !== 2 || currentPosition.some(isNaN)) {
 			console.warn("Invalid position data received");
