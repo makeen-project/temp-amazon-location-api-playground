@@ -101,11 +101,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 			if (apiPlaygroundItem?.showLocalMarkerOnMapClick) {
 				const markerId = uuid.randomUUID();
-				const markerLabel = `Selected Location (${lng.toFixed(6)}, ${lat.toFixed(6)})`;
 				const newMarker = {
 					position: [lng, lat] as [number, number],
 					id: markerId,
-					label: markerLabel
+					label: ""
 				};
 
 				if (apiPlaygroundItem.showLocalMarkerOnMapClick === "single") {

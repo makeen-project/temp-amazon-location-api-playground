@@ -138,9 +138,7 @@ const MapMarker: FC<Props> = ({
 							top: "12px",
 							left: "50px"
 						}}
-					>
-						{markerDescription}
-					</View>
+					/>
 				)}
 			</Marker>
 		);
