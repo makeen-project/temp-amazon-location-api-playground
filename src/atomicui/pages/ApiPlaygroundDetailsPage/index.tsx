@@ -12,6 +12,7 @@ import { MapMarker } from "@api-playground/atomicui/molecules";
 import CustomRequest from "@api-playground/atomicui/organisms/CustomRequest";
 import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
 import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
+import { appConfig } from "@api-playground/core/constants";
 import { useMap, usePlace } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
@@ -24,6 +25,8 @@ import { bbox, circle } from "@turf/turf";
 import { NuqsAdapter } from "nuqs/adapters/react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
+
+const { ROUTES } = appConfig;
 
 const ApiPlaygroundDetailsPage: FC = () => {
 	useAuthManager();
@@ -339,11 +342,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 										Related resources
 									</Text>
 									<View className="related-links">
-										{apiPlaygroundItem.relatedResources?.map((res, idx) => (
-											<a key={idx} href={res.link} target="_blank" rel="noopener noreferrer">
-												{res.text}
-											</a>
-										))}
+										{apiPlaygroundItem.relatedResources?.map((res: any, idx: number) => {
+											const link = res.text.toLowerCase().startsWith("demo") ? ROUTES.DEMO : res.link;
+											return (
+												<a key={idx} href={link} target="_blank" rel="noopener noreferrer">
+													{res.text}
+												</a>
+											);
+										})}
 									</View>
 								</View>
 							</Flex>
