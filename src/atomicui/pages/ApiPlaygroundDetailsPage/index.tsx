@@ -347,7 +347,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				</Flex>
 				<View
 					className={`map-container ${isFullScreen ? "fullscreen" : ""}`}
-					style={isFullScreen ? {} : { padding: 32 }}
+					style={isFullScreen ? {} : { padding: 32, minWidth: "100vw" }}
 				>
 					<Map
 						ref={mapRef}
