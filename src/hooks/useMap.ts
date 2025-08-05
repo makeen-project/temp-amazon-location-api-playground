@@ -68,6 +68,9 @@ const useMap = () => {
 			setBiasPosition: (biasPosition: number[]) => {
 				setState({ biasPosition });
 			},
+			setSearchBiasPosition: (searchBiasPosition: number[]) => {
+				setState({ searchBiasPosition });
+			},
 			setClickedPosition: (clickedPosition: number[]) => {
 				setState({ clickedPosition });
 			},

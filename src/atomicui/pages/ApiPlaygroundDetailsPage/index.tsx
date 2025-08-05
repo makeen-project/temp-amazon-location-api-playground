@@ -36,7 +36,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const { setClickedPosition, clickedPosition } = useMap();
 
 	const mapRef = useRef<MapRef | null>(null);
-	const { clearPoiList, setSelectedMarker } = usePlace(mapRef);
+	const { clearPoiList, setSelectedMarker } = usePlace();
 	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);

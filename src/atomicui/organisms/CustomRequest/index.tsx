@@ -41,7 +41,6 @@ interface CustomRequestProps {
 			bounds: [[number, number], [number, number]],
 			options?: { padding?: number; duration?: number; essential?: boolean }
 		) => void;
-		getCenter: () => { lng: number; lat: number };
 	}>;
 }
 
@@ -316,7 +315,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 				onToggle={handleToggle}
 				containerHeight={containerRef?.clientHeight}
 				submitButtonDisabled={isSubmitDisabled}
-				mapRef={mapRef}
 			/>
 		</div>
 	);

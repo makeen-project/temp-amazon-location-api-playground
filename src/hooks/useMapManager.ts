@@ -51,6 +51,7 @@ const useMapManager = ({
 		currentLocationData,
 		setCurrentLocation,
 		setViewpoint,
+		setSearchBiasPosition,
 		mapStyle,
 		mapColorScheme,
 		mapPoliticalView,
@@ -168,6 +169,15 @@ const useMapManager = ({
 		resetAppStateCb();
 	}, [resetAppStateCb]);
 
+	const handleMapMove = useCallback((longitude?: number, latitude?: number) => {
+		if (longitude !== undefined && latitude !== undefined) {
+			setSearchBiasPosition([longitude, latitude]);
+		} else if (mapRef.current) {
+			const center = mapRef.current.getCenter();
+			setSearchBiasPosition([center.lng, center.lat]);
+		}
+	}, [setSearchBiasPosition]);
+
 	return {
 		mapStyleWithLanguageUrl,
 		gridLoader,
@@ -177,6 +187,7 @@ const useMapManager = ({
 		onGeoLocate,
 		onGeoLocateError,
 		handleMapClick,
+		handleMapMove,
 		handleCurrentLocationAndViewpoint,
 		resetAppState
 	};

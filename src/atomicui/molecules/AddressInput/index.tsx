@@ -38,15 +38,6 @@ interface AddressInputProps {
 	label: string;
 	isRequired?: boolean;
 	initialValue?: string;
-	mapRef?: React.RefObject<{
-		flyTo: (options: { center: [number, number]; zoom: number; duration?: number }) => void;
-		zoomTo: (number: number) => void;
-		fitBounds: (
-			bounds: [[number, number], [number, number]],
-			options?: { padding?: number; duration?: number; essential?: boolean }
-		) => void;
-		getCenter: () => { lng: number; lat: number };
-	}>;
 }
 
 export interface AddressInputRef {
@@ -56,9 +47,9 @@ export interface AddressInputRef {
 const MAX_CHARACTERS = 200;
 
 const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
-	({ onChange, label, placeholder = "Enter an address...", isRequired, initialValue, mapRef }, ref) => {
+	({ onChange, label, placeholder = "Enter an address...", isRequired, initialValue }, ref) => {
 		const autocompleteRef = useRef<HTMLInputElement>(null);
-		const { suggestions, search, isSearching } = usePlace(mapRef);
+		const { suggestions, search, isSearching } = usePlace();
 		const [localValue, setLocalValue] = useState(initialValue || "");
 		const timeoutIdRef = useRef<ReturnType<typeof setTimeout>>();
 		const optionDataMap = useRef<Map<string, OptionData>>(new Map());
