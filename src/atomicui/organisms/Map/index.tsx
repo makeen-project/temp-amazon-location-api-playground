@@ -70,6 +70,7 @@ export interface MapRef {
 		bounds: [[number, number], [number, number]],
 		options?: { padding?: number; duration?: number; essential?: boolean }
 	) => void;
+	getCenter: () => { lng: number; lat: number };
 }
 
 const Map = forwardRef<MapRef, MapProps>(
@@ -94,6 +95,10 @@ const Map = forwardRef<MapRef, MapProps>(
 				options?: { padding?: number; duration?: number; essential?: boolean }
 			) => {
 				mapRef.current?.fitBounds(bounds, options);
+			},
+			getCenter: () => {
+				const center = mapRef.current?.getCenter();
+				return center ? { lng: center.lng, lat: center.lat } : { lng: 0, lat: 0 };
 			}
 		}));
 

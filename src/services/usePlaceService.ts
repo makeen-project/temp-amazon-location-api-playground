@@ -66,7 +66,15 @@ interface GeocodeParams {
 	};
 }
 
-const usePlaceService = () => {
+const usePlaceService = (mapRef?: React.RefObject<{
+	flyTo: (options: { center: [number, number]; zoom: number; duration?: number }) => void;
+	zoomTo: (number: number) => void;
+	fitBounds: (
+		bounds: [[number, number], [number, number]],
+		options?: { padding?: number; duration?: number; essential?: boolean }
+	) => void;
+	getCenter: () => { lng: number; lat: number };
+}>) => {
 	const { placesClient } = useClient();
 	const {
 		mapPoliticalView: { alpha3, isSupportedByPlaces },
@@ -78,9 +86,13 @@ const usePlaceService = () => {
 	return useMemo(
 		() => ({
 			getPlaceSuggestions: async (QueryText: string) => {
+				// Use map center for location search, not the global biasPosition
+				const mapCenter = mapRef?.current?.getCenter();
+				const searchBiasPosition = mapCenter ? [mapCenter.lng, mapCenter.lat] : BiasPosition;
+				
 				const input: SuggestCommandInput = {
 					QueryText,
-					BiasPosition,
+					BiasPosition: searchBiasPosition,
 					Language,
 					AdditionalFeatures: ["Core"],
 					PoliticalView: isSupportedByPlaces ? alpha3 : undefined
@@ -99,10 +111,14 @@ const usePlaceService = () => {
 				return await placesClient?.send(command);
 			},
 			getPlacesByText: async (QueryTextOrId: string, isQueryId = false) => {
+				// Use map center for location search, not the global biasPosition
+				const mapCenter = mapRef?.current?.getCenter();
+				const searchBiasPosition = mapCenter ? [mapCenter.lng, mapCenter.lat] : BiasPosition;
+				
 				const input: SearchTextCommandInput = {
 					QueryText: isQueryId ? undefined : QueryTextOrId,
 					QueryId: isQueryId ? QueryTextOrId : undefined,
-					BiasPosition: isQueryId ? undefined : BiasPosition,
+					BiasPosition: isQueryId ? undefined : searchBiasPosition,
 					Language: isQueryId ? undefined : Language,
 					PoliticalView: isSupportedByPlaces ? alpha3 : undefined
 				};
@@ -250,7 +266,7 @@ const usePlaceService = () => {
 				return responseBody;
 			}
 		}),
-		[BiasPosition, Language, alpha3, isSupportedByPlaces, placesClient]
+		[BiasPosition, Language, alpha3, isSupportedByPlaces, placesClient, mapRef]
 	);
 };
 

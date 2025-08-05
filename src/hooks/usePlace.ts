@@ -17,12 +17,20 @@ import { useTranslation } from "react-i18next";
 
 import useMap from "./useMap";
 
-const usePlace = () => {
+const usePlace = (mapRef?: React.RefObject<{
+	flyTo: (options: { center: [number, number]; zoom: number; duration?: number }) => void;
+	zoomTo: (number: number) => void;
+	fitBounds: (
+		bounds: [[number, number], [number, number]],
+		options?: { padding?: number; duration?: number; essential?: boolean }
+	) => void;
+	getCenter: () => { lng: number; lat: number };
+}>) => {
 	const store = usePlaceStore();
 	const { setInitial } = store;
 	const { setState } = usePlaceStore;
 	const { setViewpoint } = useMap();
-	const placeService = usePlaceService();
+	const placeService = usePlaceService(mapRef);
 	const { t } = useTranslation();
 
 	const methods = useMemo(

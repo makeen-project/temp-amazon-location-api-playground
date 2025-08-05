@@ -37,16 +37,26 @@ interface AutoCompleteLatLonProps {
 	placeholder?: string;
 	label: string;
 	defaultValue?: string;
+	mapRef?: React.RefObject<{
+		flyTo: (options: { center: [number, number]; zoom: number; duration?: number }) => void;
+		zoomTo: (number: number) => void;
+		fitBounds: (
+			bounds: [[number, number], [number, number]],
+			options?: { padding?: number; duration?: number; essential?: boolean }
+		) => void;
+		getCenter: () => { lng: number; lat: number };
+	}>;
 }
 
 export default function AutoCompleteLatLonInput({
 	onChange,
 	label,
 	defaultValue,
-	placeholder = "Search for a location..."
+	placeholder = "Search for a location...",
+	mapRef
 }: AutoCompleteLatLonProps) {
 	const autocompleteRef = useRef<HTMLInputElement>(null);
-	const { suggestions, search, isSearching } = usePlace();
+	const { suggestions, search, isSearching } = usePlace(mapRef);
 	const [value, setValue] = useState(defaultValue);
 	const timeoutIdRef = useRef<ReturnType<typeof setTimeout>>();
 	const optionDataMap = useRef<Map<string, OptionData>>(new Map());

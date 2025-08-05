@@ -185,6 +185,15 @@ interface FormRenderProps {
 	onReset?: () => void;
 	onToggle?: (fieldName: string, enabled: boolean) => void;
 	containerHeight?: number;
+	mapRef?: React.RefObject<{
+		flyTo: (options: { center: [number, number]; zoom: number; duration?: number }) => void;
+		zoomTo: (number: number) => void;
+		fitBounds: (
+			bounds: [[number, number], [number, number]],
+			options?: { padding?: number; duration?: number; essential?: boolean }
+		) => void;
+		getCenter: () => { lng: number; lat: number };
+	}>;
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
@@ -196,7 +205,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	content,
 	submitButtonDisabled = false,
 	onReset,
-	onToggle
+	onToggle,
+	mapRef
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
@@ -326,6 +336,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						placeholder={field.placeholder}
 						onChange={value => handleChange(field.name, value)}
 						initialValue={field.value}
+						mapRef={mapRef}
 						ref={ref => {
 							if (ref) {
 								addressRefs.current.set(field.name, ref);
@@ -371,6 +382,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						placeholder={field.placeholder}
 						onChange={value => handleChange(field.name, value)}
 						defaultValue={field.defaultValue}
+						mapRef={mapRef}
 					/>
 				);
 
