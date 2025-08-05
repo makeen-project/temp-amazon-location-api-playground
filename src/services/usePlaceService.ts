@@ -119,7 +119,7 @@ const usePlaceService = () => {
 					input.PoliticalView = params.PoliticalView;
 				}
 
-				if (params.MaxResults && params.MaxResults > 1) {
+				if (params.MaxResults !== undefined && params.MaxResults !== null) {
 					input.MaxResults = params.MaxResults;
 				}
 
@@ -148,9 +148,13 @@ const usePlaceService = () => {
 				const input: GeocodeCommandInput = {
 					QueryText: params.Query,
 					BiasPosition: params.BiasPosition && params.BiasPosition.length > 0 ? params.BiasPosition : undefined,
-					Language: params.Language || Language,
-					MaxResults: params.MaxResults
+					Language: params.Language || Language
 				};
+
+				// Handle MaxResults - only include if it has a valid value
+				if (params.MaxResults !== undefined && params.MaxResults !== null) {
+					input.MaxResults = params.MaxResults;
+				}
 
 				// Handle AdditionalFeatures
 				if (params.AdditionalFeatures) {
