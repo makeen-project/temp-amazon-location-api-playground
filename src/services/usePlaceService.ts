@@ -131,7 +131,7 @@ const usePlaceService = () => {
 					input.IntendedUse = params.IntendedUse;
 				}
 
-				if (params.QueryRadius && params.QueryRadius > 1) {
+				if (params.QueryRadius && params.QueryRadius >= 1) {
 					input.QueryRadius = params.QueryRadius;
 				}
 

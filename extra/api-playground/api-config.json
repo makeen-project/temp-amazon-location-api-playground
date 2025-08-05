@@ -27,7 +27,7 @@
 				},
 				{
 					"text": "Demo Application",
-					"link": "https://demos.location.aws.dev/"
+					"link": "/demo"
 				}
 			],
 			"locationPopupConfig": {
@@ -74,10 +74,7 @@
 							"label": "Locality",
 							"value": "Locality"
 						},
-						{
-							"label": "PostalCode",
-							"value": "PostalCode"
-						},
+
 						{
 							"label": "Intersection",
 							"value": "Intersection"
@@ -354,9 +351,9 @@
 				]
 			},
 			"codeSnippets": {
-				"JavaScript": "import { GeoPlacesClient, ReverseGeocodeCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the reverse geocode request\nconst params = {\n  QueryPosition: [{{queryPosition}}],MaxResults: {{maxResults}},\n  Key: 'your-api-key', \n  Language: \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\"\n};\n\n// Make the request\nconst command = new ReverseGeocodeCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
+				"JavaScript": "import { GeoPlacesClient, ReverseGeocodeCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the reverse geocode request\nconst params = {\n  QueryPosition: [{{queryPosition}}],\n  MaxResults: {{maxResults}},\n  Key: 'your-api-key', \n  Language: \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\"\n};\n\n// Make the request\nconst command = new ReverseGeocodeCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
 				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the reverse geocode request\nparams = {\n    'QueryPosition': [{{queryPosition}}],  # [longitude, latitude]\n    'Key': 'your-api-key',\n    'MaxResults': {{maxResults}},\n    'Language': '{{language}}',\n    'PoliticalView': '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.reverse_geocode(**params)\nprint(response)",
-				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the reverse geocode request\nparams = {\n  query_position: [{{queryPosition}}],  # [longitude, latitude]\n  max_results: {{maxResults}},\n  key: 'your-api-key',\n  language: '{{language}}',\n  political_view: '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.reverse_geocode(params)\nputs response",
+				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the reverse geocode request\nparams = {\n  QueryPosition: [{{queryPosition}}],  # [longitude, latitude]\n  MaxResults: {{maxResults}},\n  Key: 'your-api-key',\n  Language: '{{language}}',\n  PoliticalView: '{{politicalView}}'\n}\n\n# Make the request\nresponse = client.reverse_geocode(params)\nputs response",
 				"paramPlaceholders": {
 					"queryPosition": "0, 0",
 					"maxResults": "1",
@@ -391,7 +388,7 @@
 				},
 				{
 					"text": "Demo Application",
-					"link": "https://demos.location.aws.dev/"
+					"link": "/demo"
 				}
 			],
 			"locationPopupConfig": {
@@ -711,7 +708,10 @@
 							"label": "Intersection",
 							"value": "Intersection"
 						},
-
+						{
+							"label": "PostalCode",
+							"value": "PostalCode"
+						},
 						{
 							"label": "Street",
 							"value": "Street"
@@ -1037,9 +1037,9 @@
 				]
 			},
 			"codeSnippets": {
-				"JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"123 Main St, New York, NY\",\n  Key: 'your-api-key'\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
-				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '123 Main St, New York, NY',\n    'Key': 'your-api-key'\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
-				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  query_text: '123 Main St, New York, NY',\n  key: 'your-api-key'\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
+				"JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"{{query}}\",\n  BiasPosition: [{{biasPosition}}],\n  MaxResults: {{maxResults}},\n  Language: \"{{language}}\",\n  PoliticalView: \"{{politicalView}}\",\n  Filter: {\n    IncludeCountries: [{{includeCountries}}],\n    IncludePlaceTypes: [{{includePlaceTypes}}]\n  },\n  IntendedUse: \"{{intendedUse}}\",\n  Key: \"{{key}}\",\n  QueryComponents: {\n    AddressNumber: \"{{addressNumber}}\",\n    Country: \"{{country}}\",\n    District: \"{{district}}\",\n    Locality: \"{{locality}}\",\n    PostalCode: \"{{postalCode}}\",\n    Region: \"{{region}}\",\n    Street: \"{{street}}\",\n    SubRegion: \"{{subRegion}}\"\n  }\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
+				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '{{query}}',\n    'BiasPosition': [{{biasPosition}}],\n    'MaxResults': {{maxResults}},\n    'Language': '{{language}}',\n    'PoliticalView': '{{politicalView}}',\n    'Filter': {\n        'IncludeCountries': [{{includeCountries}}],\n        'IncludePlaceTypes': [{{includePlaceTypes}}]\n    },\n    'IntendedUse': '{{intendedUse}}',\n    'Key': '{{key}}',\n    'QueryComponents': {\n        'AddressNumber': '{{addressNumber}}',\n        'Country': '{{country}}',\n        'District': '{{district}}',\n        'Locality': '{{locality}}',\n        'PostalCode': '{{postalCode}}',\n        'Region': '{{region}}',\n        'Street': '{{street}}',\n        'SubRegion': '{{subRegion}}'\n    }\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
+				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  QueryText: '{{query}}',\n  BiasPosition: [{{biasPosition}}],\n  MaxResults: {{maxResults}},\n  Language: '{{language}}',\n  PoliticalView: '{{politicalView}}',\n  Filter: {\n    IncludeCountries: [{{includeCountries}}],\n    IncludePlaceTypes: [{{includePlaceTypes}}]\n  },\n  IntendedUse: '{{intendedUse}}',\n  Key: '{{key}}',\n  QueryComponents: {\n    AddressNumber: '{{addressNumber}}',\n    Country: '{{country}}',\n    District: '{{district}}',\n    Locality: '{{locality}}',\n    PostalCode: '{{postalCode}}',\n    Region: '{{region}}',\n    Street: '{{street}}',\n    SubRegion: '{{subRegion}}'\n  }\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
 				"paramPlaceholders": {
 					"query": "123 Main St, New York, NY",
 					"key": "your-api-key"
