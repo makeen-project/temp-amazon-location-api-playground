@@ -10,6 +10,7 @@ import { appConfig } from "@api-playground/core/constants";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import useMap from "@api-playground/hooks/useMap";
+import usePlace from "@api-playground/hooks/usePlace";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
 import usePlaceService from "@api-playground/services/usePlaceService";
 import { useCustomRequestStore } from "@api-playground/stores";
@@ -56,7 +57,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 	const store = useCustomRequestStore();
 	const { setState } = useCustomRequestStore;
 	const {
-		setClickedPosition,
 		setBiasPosition,
 		setViewpoint,
 		setCurrentLocation,
@@ -65,6 +65,8 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		mapPoliticalView,
 		mapLanguage
 	} = useMap();
+
+	const { setClickedPosition } = usePlace();
 
 	const initialUrlState = (apiPlaygroundItem?.formFields || []).reduce((acc, field) => {
 		const fieldName = field.name as keyof CustomRequestStore;

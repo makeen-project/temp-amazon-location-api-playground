@@ -6,7 +6,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
 import { IconClose } from "@api-playground/assets/svgs";
-import { useMap } from "@api-playground/hooks";
+import usePlace from "@api-playground/hooks/usePlace";
 
 import { Button, Flex, Input, Label } from "@aws-amplify/ui-react";
 import "./styles.scss";
@@ -21,7 +21,7 @@ interface LngLatProps {
 }
 
 export default function LngLat({ onChange, defaultValue, value, isRequired, isDisabled, name }: LngLatProps) {
-	const { clickedPosition } = useMap();
+	const { clickedPosition } = usePlace();
 
 	const [coordinates, setCoordinates] = useState<[string, string]>([
 		value?.[0]?.toString() || defaultValue?.[0]?.toString() || "",
@@ -33,7 +33,7 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 		return !coord || coord === "" || coord === "0" || coord === "0.0" || parseFloat(coord) === 0;
 	};
 
-	// Use clickedPosition from map store when both inputs are empty and field is required
+	// Use clickedPosition from place store when both inputs are empty and field is required
 	useEffect(() => {
 		if (clickedPosition && clickedPosition.length === 2 && isRequired) {
 			const [clickedLng, clickedLat] = clickedPosition;

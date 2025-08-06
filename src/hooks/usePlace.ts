@@ -30,6 +30,9 @@ const usePlace = () => {
 			setSearchingState: (isSearching: boolean) => {
 				setState({ isSearching });
 			},
+			setClickedPosition: (clickedPosition: number[]) => {
+				setState({ clickedPosition });
+			},
 			searchPlaceSuggestions: async (value: string, viewpoint: ViewPointType, cb?: (sg: SuggestionType[]) => void) => {
 				try {
 					setState({ isSearching: true });
@@ -236,7 +239,8 @@ const usePlace = () => {
 					suggestions: undefined,
 					selectedMarker: undefined,
 					hoveredMarker: undefined,
-					marker: undefined
+					marker: undefined,
+					clickedPosition: []
 				});
 				setInitial();
 			}

@@ -17,6 +17,7 @@ interface PlaceStoreProps {
 	hoveredMarker?: SuggestionType;
 	marker?: ViewPointType;
 	zoom: number;
+	clickedPosition: number[];
 }
 
 const initialState: IStateProps<PlaceStoreProps> = {
@@ -24,7 +25,8 @@ const initialState: IStateProps<PlaceStoreProps> = {
 	isFetchingPlaceData: false,
 	zoom: 5,
 	clusterZoom: 18,
-	precision: 10
+	precision: 10,
+	clickedPosition: []
 };
 
 export default createStore<PlaceStoreProps>(initialState);
