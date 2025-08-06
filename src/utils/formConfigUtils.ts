@@ -46,11 +46,7 @@ export const convertFormFieldConfigToFormField = (
 		hiddenFromUI: fieldConfig.hiddenFromUI
 	};
 
-	// Get value from URL state or fallback to config
-	const rawValue =
-		urlState?.[fieldConfig.name] !== undefined
-			? urlState[fieldConfig.name]
-			: fieldConfig.value ?? fieldConfig.defaultValue;
+	const rawValue = urlState?.[fieldConfig.name] !== undefined ? urlState[fieldConfig.name] : fieldConfig.value;
 
 	switch (fieldConfig.type) {
 		case "text":
@@ -130,6 +126,7 @@ export const convertFormFieldConfigToFormField = (
 				...baseField,
 				type: "dropdown" as const,
 				value: parseValue(rawValue, "string", fieldConfig.defaultValue || ""),
+				defaultValue: String(fieldConfig.defaultValue || ""),
 				options: (fieldConfig.options || []).map(opt => ({
 					label: opt.label,
 					value: String(opt.value),
