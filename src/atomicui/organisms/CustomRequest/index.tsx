@@ -10,6 +10,7 @@ import { appConfig } from "@api-playground/core/constants";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import useMap from "@api-playground/hooks/useMap";
+import usePlace from "@api-playground/hooks/usePlace";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
 import usePlaceService from "@api-playground/services/usePlaceService";
 import { useCustomRequestStore } from "@api-playground/stores";
@@ -56,7 +57,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 	const store = useCustomRequestStore();
 	const { setState } = useCustomRequestStore;
 	const {
-		setClickedPosition,
 		setBiasPosition,
 		setViewpoint,
 		setCurrentLocation,
@@ -65,6 +65,8 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		mapPoliticalView,
 		mapLanguage
 	} = useMap();
+
+	const { setClickedPosition } = usePlace();
 
 	const initialUrlState = (apiPlaygroundItem?.formFields || []).reduce((acc, field) => {
 		const fieldName = field.name as keyof CustomRequestStore;
@@ -169,10 +171,12 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		};
 		setState(newState);
 
-		setUrlState({
-			...urlState,
-			[name]: value
-		});
+		// Remove empty arrays from URL using immutable logic
+		if (Array.isArray(value) && value.length === 0) {
+			setUrlState({ ...urlState, [name]: null });
+		} else {
+			setUrlState({ ...urlState, [name]: value });
+		}
 	};
 
 	const handleReset = () => {
@@ -247,10 +251,12 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		};
 		setState(newState);
 
-		setUrlState({
-			...urlState,
-			[fieldName]: enabled ? 1 : null
-		});
+		const value = enabled ? 1 : null;
+		if (Array.isArray(value) && value.length === 0) {
+			setUrlState({ ...urlState, [fieldName]: null });
+		} else {
+			setUrlState({ ...urlState, [fieldName]: value });
+		}
 	};
 
 	const formFields = createFormFieldsFromConfig(apiPlaygroundItem?.formFields || [], store);

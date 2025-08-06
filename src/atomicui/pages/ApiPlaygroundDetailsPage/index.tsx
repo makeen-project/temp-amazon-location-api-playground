@@ -33,7 +33,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const customRequestStore = useCustomRequestStore() as CustomRequestStore;
 	const { setState } = useCustomRequestStore;
 
-	const { setClickedPosition, clickedPosition } = useMap();
+	const { setClickedPosition, clickedPosition } = usePlace();
 
 	const mapRef = useRef<MapRef | null>(null);
 	const { clearPoiList, setSelectedMarker } = usePlace();

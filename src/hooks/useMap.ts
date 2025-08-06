@@ -71,9 +71,6 @@ const useMap = () => {
 			setSearchBiasPosition: (searchBiasPosition: number[]) => {
 				setState({ searchBiasPosition });
 			},
-			setClickedPosition: (clickedPosition: number[]) => {
-				setState({ clickedPosition });
-			},
 			setMapLanguage: (mapLanguage: { value: string; label: string }) => {
 				setState({ mapLanguage });
 			},

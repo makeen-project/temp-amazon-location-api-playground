@@ -4,11 +4,8 @@
  */
 
 import { ChangeEvent, useEffect, useState } from "react";
-
 import { IconClose } from "@api-playground/assets/svgs";
-
-import { Button, Flex, Input, Label } from "@aws-amplify/ui-react";
-import "./styles.scss";
+import { Button, Flex, Input, Label, Text } from "@aws-amplify/ui-react";
 
 interface CoordinateInputProps {
 	onChange?: (position: number[]) => void;
@@ -18,6 +15,11 @@ interface CoordinateInputProps {
 	isDisabled?: boolean;
 	name?: string;
 	placeholder?: string;
+}
+
+interface ValidationResult {
+	isValid: boolean;
+	errorMessage?: string;
 }
 
 export default function CoordinateInput({
@@ -30,6 +32,7 @@ export default function CoordinateInput({
 	placeholder = "Enter latitude, longitude (e.g., 40.7128, -74.0060)"
 }: CoordinateInputProps) {
 	const [coordinateString, setCoordinateString] = useState<string>("");
+	const [errorMessage, setErrorMessage] = useState<string>("");
 
 	// Parse coordinates from array to string format
 	// Input: [longitude, latitude] (AWS format)
@@ -37,6 +40,61 @@ export default function CoordinateInput({
 	const coordinatesToString = (coords: number[] | undefined): string => {
 		if (!coords || coords.length !== 2) return "";
 		return `${coords[1]}, ${coords[0]}`; // lat, lng
+	};
+
+	// Validate coordinate string and return error message if invalid
+	const validateCoordinateString = (input: string): ValidationResult => {
+		if (!input.trim()) return { isValid: true };
+
+		const parts = input.split(",").map(part => part.trim());
+		
+		// Allow partial input like "30," or "30, " or ", 40"
+		if (parts.length === 0 || parts.length > 2) {
+			return { isValid: false, errorMessage: "Please enter coordinates in format: latitude, longitude" };
+		}
+		
+		// Handle case where user just typed comma
+		if (parts.length === 1 && input.endsWith(",")) {
+			return { isValid: true }; // Allow this case, don't show error
+		}
+		
+		// Handle case where user typed comma at the beginning
+		if (parts.length === 1 && input.startsWith(",")) {
+			return { isValid: true }; // Allow this case, don't show error
+		}
+
+		// Check if the parts are valid number strings (including incomplete decimals)
+		const latStr = parts[0] || "";
+		const lngStr = parts[1] || "";
+		
+		// Allow incomplete decimal numbers (e.g., "40.", "40.7", "-74.")
+		const isValidNumber = (str: string): boolean => {
+			return str === "" || /^[-+]?(\d*\.?\d*)$/.test(str);
+		};
+
+		if (!isValidNumber(latStr) || !isValidNumber(lngStr)) {
+			return { isValid: false, errorMessage: "Please enter valid numbers for coordinates" };
+		}
+
+		const lat = parseFloat(latStr);
+		const lng = parseFloat(lngStr);
+
+		// Only validate ranges if we have complete numbers (not ending with decimal point)
+		if (!isNaN(lat) && !isNaN(lng)) {
+			// Check if the original strings end with a decimal point (incomplete numbers)
+			const isLatIncomplete = latStr.endsWith(".");
+			const isLngIncomplete = lngStr.endsWith(".");
+			
+			// Only validate ranges for complete numbers
+			if (!isLatIncomplete && latStr !== "" && (lat < -90 || lat > 90)) {
+				return { isValid: false, errorMessage: "Latitude must be between -90 and 90 degrees" };
+			}
+			if (!isLngIncomplete && lngStr !== "" && (lng < -180 || lng > 180)) {
+				return { isValid: false, errorMessage: "Longitude must be between -180 and 180 degrees" };
+			}
+		}
+
+		return { isValid: true };
 	};
 
 	// Parse string to coordinates array
@@ -98,11 +156,17 @@ export default function CoordinateInput({
 		} else {
 			setCoordinateString("");
 		}
+		// Clear error when value is set externally
+		setErrorMessage("");
 	}, [value, defaultValue]);
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const newValue = e.target.value;
 		setCoordinateString(newValue);
+
+		// Validate and set error message
+		const validation = validateCoordinateString(newValue);
+		setErrorMessage(validation.errorMessage || "");
 
 		if (onChange) {
 			const parsedCoords = parseCoordinateString(newValue);
@@ -139,6 +203,7 @@ export default function CoordinateInput({
 
 	const clearInput = () => {
 		setCoordinateString("");
+		setErrorMessage("");
 		if (onChange) {
 			onChange([]);
 		}
@@ -146,7 +211,7 @@ export default function CoordinateInput({
 
 	return (
 		<Flex direction="column" gap="0.1rem">
-			<div className="coordinate-input-container">
+			<div className="input-wrapper">
 				<Label htmlFor={`${name}-coordinate-input`} className="input-label">
 					{name === "biasPosition" ? "BiasPosition" : "Coordinates"}
 				</Label>
@@ -165,6 +230,7 @@ export default function CoordinateInput({
 						autoCorrect="off"
 						autoCapitalize="off"
 						spellCheck="false"
+						hasError={!!errorMessage}
 					/>
 					{coordinateString && (
 						<Button className="clear-button" onClick={clearInput} size="small">
@@ -172,6 +238,11 @@ export default function CoordinateInput({
 						</Button>
 					)}
 				</div>
+				{errorMessage && (
+					<Text color="red.60" fontSize="0.75rem" marginTop="0.25rem">
+						{errorMessage}
+					</Text>
+				)}
 			</div>
 		</Flex>
 	);
