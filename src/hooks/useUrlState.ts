@@ -23,7 +23,7 @@ export function useUrlState<T extends object>(defaultValue: T) {
 						return JSON.stringify(value);
 					}
 				}
-			}).withDefault(value);
+			});
 			return acc;
 		}, {} as Record<string, ReturnType<typeof createParser>>),
 		{

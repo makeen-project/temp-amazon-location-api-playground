@@ -267,6 +267,9 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 				case "coordinateInput":
 					(field as any).value = Array.isArray(storeValue) ? storeValue : [];
 					break;
+				case "dropdown":
+					(field as any).value = storeValue || field.defaultValue;
+					break;
 				default:
 					(field as any).value = storeValue;
 			}

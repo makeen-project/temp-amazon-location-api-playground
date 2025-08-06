@@ -129,7 +129,7 @@ export const convertFormFieldConfigToFormField = (
 			return {
 				...baseField,
 				type: "dropdown" as const,
-				value: parseValue(rawValue, "string", ""),
+				value: parseValue(rawValue, "string", fieldConfig.defaultValue || ""),
 				options: (fieldConfig.options || []).map(opt => ({
 					label: opt.label,
 					value: String(opt.value),
