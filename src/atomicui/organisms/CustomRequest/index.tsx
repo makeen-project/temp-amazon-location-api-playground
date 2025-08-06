@@ -169,10 +169,12 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		};
 		setState(newState);
 
-		setUrlState({
-			...urlState,
-			[name]: value
-		});
+		// Remove empty arrays from URL using immutable logic
+		if (Array.isArray(value) && value.length === 0) {
+			setUrlState({ ...urlState, [name]: null });
+		} else {
+			setUrlState({ ...urlState, [name]: value });
+		}
 	};
 
 	const handleReset = () => {
@@ -247,10 +249,12 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 		};
 		setState(newState);
 
-		setUrlState({
-			...urlState,
-			[fieldName]: enabled ? 1 : null
-		});
+		const value = enabled ? 1 : null;
+		if (Array.isArray(value) && value.length === 0) {
+			setUrlState({ ...urlState, [fieldName]: null });
+		} else {
+			setUrlState({ ...urlState, [fieldName]: value });
+		}
 	};
 
 	const formFields = createFormFieldsFromConfig(apiPlaygroundItem?.formFields || [], store);
