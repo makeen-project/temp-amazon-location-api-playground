@@ -215,7 +215,7 @@ export default function CoordinateInput({
 				<Label htmlFor={`${name}-coordinate-input`} className="input-label">
 					{name === "biasPosition" ? "BiasPosition" : "Coordinates"}
 				</Label>
-				<div className="input-container">
+				<div className="coord-input-container">
 					<Input
 						id={`${name}-coordinate-input`}
 						name={name}
