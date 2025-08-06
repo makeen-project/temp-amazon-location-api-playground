@@ -709,10 +709,6 @@
 							"value": "Intersection"
 						},
 						{
-							"label": "PostalCode",
-							"value": "PostalCode"
-						},
-						{
 							"label": "Street",
 							"value": "Street"
 						},
