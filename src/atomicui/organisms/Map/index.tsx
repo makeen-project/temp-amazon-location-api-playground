@@ -104,7 +104,8 @@ const Map = forwardRef<MapRef, MapProps>(
 			onLoad,
 			getCurrentGeoLocation,
 			onGeoLocate,
-			onGeoLocateError
+			onGeoLocateError,
+			handleMapMove
 		} = useMapManager({
 			mapRef,
 			geolocateControlRef,
@@ -213,9 +214,11 @@ const Map = forwardRef<MapRef, MapProps>(
 					onZoom={({ viewState }) => setZoom(viewState.zoom)}
 					onZoomEnd={({ viewState }) => {
 						setBiasPosition([viewState.longitude, viewState.latitude]);
+						handleMapMove(viewState.longitude, viewState.latitude);
 					}}
 					onDragEnd={({ viewState }) => {
 						setBiasPosition([viewState.longitude, viewState.latitude]);
+						handleMapMove(viewState.longitude, viewState.latitude);
 					}}
 					onClick={handleMapClick}
 					onLoad={handleMapLoad}

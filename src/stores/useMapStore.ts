@@ -35,6 +35,7 @@ interface MapStoreProps {
 	mapColorScheme: MapColorSchemeEnum;
 	mapPoliticalView: { alpha2: string; alpha3: string; desc: string; isSupportedByPlaces: boolean };
 	biasPosition: number[];
+	searchBiasPosition: number[];
 	clickedPosition: number[];
 	mapLanguage: { value: string; label: string };
 	isSearching: boolean;
@@ -60,6 +61,7 @@ const initialState: IStateProps<MapStoreProps> = {
 		isSupportedByPlaces: false
 	},
 	biasPosition: [US.longitude, US.latitude],
+	searchBiasPosition: [US.longitude, US.latitude],
 	clickedPosition: [],
 	mapLanguage: { value: "en", label: "English" },
 	isSearching: false,

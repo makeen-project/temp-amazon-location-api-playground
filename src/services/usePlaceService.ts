@@ -70,7 +70,8 @@ const usePlaceService = () => {
 	const { placesClient } = useClient();
 	const {
 		mapPoliticalView: { alpha3, isSupportedByPlaces },
-		biasPosition: BiasPosition
+		biasPosition: BiasPosition,
+		searchBiasPosition: SearchBiasPosition
 	} = useMap();
 	const { i18n } = useTranslation();
 	const Language = i18n.language;
@@ -80,7 +81,7 @@ const usePlaceService = () => {
 			getPlaceSuggestions: async (QueryText: string) => {
 				const input: SuggestCommandInput = {
 					QueryText,
-					BiasPosition,
+					BiasPosition: SearchBiasPosition,
 					Language,
 					AdditionalFeatures: ["Core"],
 					PoliticalView: isSupportedByPlaces ? alpha3 : undefined
@@ -102,7 +103,7 @@ const usePlaceService = () => {
 				const input: SearchTextCommandInput = {
 					QueryText: isQueryId ? undefined : QueryTextOrId,
 					QueryId: isQueryId ? QueryTextOrId : undefined,
-					BiasPosition: isQueryId ? undefined : BiasPosition,
+					BiasPosition: isQueryId ? undefined : SearchBiasPosition,
 					Language: isQueryId ? undefined : Language,
 					PoliticalView: isSupportedByPlaces ? alpha3 : undefined
 				};
@@ -119,7 +120,7 @@ const usePlaceService = () => {
 					input.PoliticalView = params.PoliticalView;
 				}
 
-				if (params.MaxResults && params.MaxResults > 1) {
+				if (params.MaxResults !== undefined && params.MaxResults !== null) {
 					input.MaxResults = params.MaxResults;
 				}
 
@@ -148,9 +149,13 @@ const usePlaceService = () => {
 				const input: GeocodeCommandInput = {
 					QueryText: params.Query,
 					BiasPosition: params.BiasPosition && params.BiasPosition.length > 0 ? params.BiasPosition : undefined,
-					Language: params.Language || Language,
-					MaxResults: params.MaxResults
+					Language: params.Language || Language
 				};
+
+				// Handle MaxResults - only include if it has a valid value
+				if (params.MaxResults !== undefined && params.MaxResults !== null) {
+					input.MaxResults = params.MaxResults;
+				}
 
 				// Handle AdditionalFeatures
 				if (params.AdditionalFeatures) {
@@ -246,7 +251,7 @@ const usePlaceService = () => {
 				return responseBody;
 			}
 		}),
-		[BiasPosition, Language, alpha3, isSupportedByPlaces, placesClient]
+		[BiasPosition, SearchBiasPosition, Language, alpha3, isSupportedByPlaces, placesClient]
 	);
 };
 
