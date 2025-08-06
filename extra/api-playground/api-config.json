@@ -215,7 +215,6 @@
 					"name": "politicalView",
 					"label": "Political View",
 					"required": false,
-					"defaultValue": "",
 					"options": [
 						{
 							"label": "No political value",

@@ -38,7 +38,6 @@ const PoliticalViewDropdown: FC<PoliticalViewDropdownProps> = ({
 	const langDir = i18n.dir();
 	const isLtr = langDir === "ltr";
 	const { mapPoliticalView, setMapPoliticalView } = useMap();
-	const { setState: setCustomRequestState } = useCustomRequestStore;
 
 	const handleClickOutside = (event: MouseEvent) => {
 		if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -61,19 +60,10 @@ const PoliticalViewDropdown: FC<PoliticalViewDropdownProps> = ({
 
 			// Also update custom request store to keep them in sync
 			// Use alpha2 code to match the API config format
-			setCustomRequestState(prevState => {
-				if (prevState.politicalView !== option.alpha2) {
-					return {
-						...prevState,
-						politicalView: option.alpha2 || ""
-					};
-				}
-				return prevState;
-			});
 
 			setOpen(false);
 		},
-		[setMapPoliticalView, setCustomRequestState]
+		[setMapPoliticalView]
 	);
 
 	return (
