@@ -12,6 +12,6 @@
 }
 
 .optional-items {
-	overflow: auto;
-	max-height: 60vh;
+	overflow: scroll;
+	scrollbar-width: none !important;
 }

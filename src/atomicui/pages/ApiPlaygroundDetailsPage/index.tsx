@@ -36,6 +36,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const { setClickedPosition, clickedPosition } = usePlace();
 
 	const mapRef = useRef<MapRef | null>(null);
+	const mapContainerRef = useRef<HTMLDivElement>(null);
+
 	const { clearPoiList, setSelectedMarker } = usePlace();
 	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const [isFullScreen, setIsFullScreen] = useState(false);
@@ -48,6 +50,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
+	const [mapContainerHeight, setMapContainerHeight] = useState<number>(800); // Default fallback height
 
 	const [localMarkers, setLocalMarkers] = useState<
 		Array<{
@@ -121,8 +124,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		[setClickedPosition, activeMarker, isCoordinatePickingDisabled, apiPlaygroundItem]
 	);
 
-	const handleMapZoom = useCallback(() => {}, [apiPlaygroundId]);
-	const handleMapDragEnd = useCallback(() => {}, [apiPlaygroundId]);
+	const handleMapZoom = useCallback(() => { }, [apiPlaygroundId]);
+	const handleMapDragEnd = useCallback(() => { }, [apiPlaygroundId]);
 
 	const handleMarkerActivate = useCallback(() => {
 		setActiveMarker(true);
@@ -283,6 +286,50 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		};
 	}, []);
 
+	// ResizeObserver to track map container height changes
+	useEffect(() => {
+		let resizeObserver: ResizeObserver | null = null;
+
+		const setupResizeObserver = () => {
+			if (!mapContainerRef.current) return;
+
+			// Set initial height
+			setMapContainerHeight(mapContainerRef.current.clientHeight);
+
+			// Create and setup ResizeObserver
+			resizeObserver = new ResizeObserver(entries => {
+				for (const entry of entries) {
+					setMapContainerHeight(entry.contentRect.height);
+				}
+			});
+
+			resizeObserver.observe(mapContainerRef.current);
+		};
+
+		// Try to setup immediately
+		setupResizeObserver();
+
+		// If ref is not available, wait a bit and try again
+		if (!mapContainerRef.current) {
+			const timer = setTimeout(() => {
+				setupResizeObserver();
+			}, 100);
+
+			return () => {
+				clearTimeout(timer);
+				if (resizeObserver) {
+					resizeObserver.disconnect();
+				}
+			};
+		}
+
+		return () => {
+			if (resizeObserver) {
+				resizeObserver.disconnect();
+			}
+		};
+	}, []); // Remove dependency to avoid infinite re-renders
+
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
 	}
@@ -356,6 +403,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				>
 					<Map
 						ref={mapRef}
+						mapContainerRef={mapContainerRef}
 						showMap={true}
 						onMapClick={handleMapClick}
 						onMapZoom={handleMapZoom}
@@ -383,7 +431,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 									key={marker.id}
 									active={false}
 									onClosePopUp={() => setLocalMarkers(prev => prev.filter(m => m.id !== marker.id))}
-									onActivate={() => {}}
+									onActivate={() => { }}
 									searchValue={searchValue}
 									setSearchValue={setSearchValue}
 									placeId={marker.id}
@@ -397,7 +445,11 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						{message && <HintMessage message={message} />}
 						{mapLoaded && (
 							<Flex className="panels-container">
-								<CustomRequest onResponseReceived={handleCustomResponse} onReset={handleClose} mapRef={mapRef} />
+								<CustomRequest
+									onResponseReceived={handleCustomResponse}
+									onReset={handleClose}
+									mapContainerHeight={mapContainerHeight}
+								/>
 								<RequestSnippets
 									response={customRequestStore.response}
 									isFullScreen={isFullScreen}
