@@ -27,7 +27,7 @@ import { useParams } from "react-router-dom";
 import "./styles.scss";
 
 const {
-	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
+	MAP_RESOURCES: { MAP_LANGUAGES }
 } = appConfig;
 
 interface CustomRequestProps {
@@ -82,13 +82,6 @@ export default function CustomRequest({ onResponseReceived, urlState, setUrlStat
 
 		isSyncing.current = true;
 
-		if (store.politicalView !== undefined && store.politicalView !== mapPoliticalView.alpha2) {
-			const politicalViewOption =
-				MAP_POLITICAL_VIEWS.find(option => option.alpha2 === store.politicalView) || MAP_POLITICAL_VIEWS[0];
-
-			setMapPoliticalView(politicalViewOption);
-		}
-
 		if (store.language !== undefined && store.language !== mapLanguage.value) {
 			const languageOption = MAP_LANGUAGES.find(option => option.value === store.language) || MAP_LANGUAGES[0];
 
@@ -96,25 +89,11 @@ export default function CustomRequest({ onResponseReceived, urlState, setUrlStat
 		}
 
 		isSyncing.current = false;
-	}, [
-		store.politicalView,
-		store.language,
-		mapPoliticalView.alpha2,
-		mapLanguage.value,
-		setMapPoliticalView,
-		setMapLanguage
-	]);
+	}, [store.politicalView, store.language, mapLanguage.value, setMapLanguage]);
 
 	useEffect(() => {
 		if (isFirstLoad.current && !isSyncing.current) {
 			isSyncing.current = true;
-
-			if (mapPoliticalView.alpha2 !== store.politicalView) {
-				setState(prevState => ({
-					...prevState,
-					politicalView: mapPoliticalView.alpha2 || ""
-				}));
-			}
 
 			if (mapLanguage.value !== store.language) {
 				setState(prevState => ({
@@ -125,7 +104,7 @@ export default function CustomRequest({ onResponseReceived, urlState, setUrlStat
 
 			isSyncing.current = false;
 		}
-	}, [mapPoliticalView.alpha2, mapLanguage.value, store.politicalView, store.language, setState]);
+	}, [mapLanguage.value, store.language, setState]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
 		const newState = {
