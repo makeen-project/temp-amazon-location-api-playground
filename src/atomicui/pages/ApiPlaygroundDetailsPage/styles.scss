@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: MIT-0
  */
 
+.maplibregl-map {
+	font: unset !important;
+}
 
 .panels-container {
 	display: flex;
