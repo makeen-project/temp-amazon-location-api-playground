@@ -192,7 +192,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 			language: "en",
 			maxResults: 1,
 			politicalView: "",
-			queryRadius: 1,
+			queryRadius: 0,
 			submittedQueryRadius: undefined,
 			addressNumber: "",
 			country: "",
