@@ -586,6 +586,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 								}}
 							>
 								{optionalFields.map(renderField)}
+								<Divider style={{ visibility: "hidden" }} />
 							</Flex>
 						</Accordion>
 					</Flex>

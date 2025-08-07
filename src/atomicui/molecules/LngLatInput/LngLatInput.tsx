@@ -96,13 +96,13 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 					<Label htmlFor={`${name}-latitude-input`} className="input-label">
 						Latitude
 					</Label>
-					<div className="coord-input-container">
+					<div className="playground-input-container">
 						<Input
 							id={`${name}-latitude-input`}
 							name={`${name}-latitude`}
 							type="number"
 							inputMode="decimal"
-							className="input-field"
+							className="playground-input-field"
 							value={lat}
 							onChange={handleCoordinateChange(1)}
 							required={isRequired}
@@ -123,13 +123,13 @@ export default function LngLat({ onChange, defaultValue, value, isRequired, isDi
 					<Label htmlFor={`${name}-longitude-input`} className="input-label">
 						Longitude
 					</Label>
-					<div className="coord-input-container">
+					<div className="playground-input-container">
 						<Input
 							id={`${name}-longitude-input`}
 							name={`${name}-longitude`}
 							type="number"
 							inputMode="decimal"
-							className="input-field"
+							className="playground-input-field"
 							value={lng}
 							onChange={handleCoordinateChange(0)}
 							required={isRequired}
