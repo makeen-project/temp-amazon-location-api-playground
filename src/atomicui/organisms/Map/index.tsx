@@ -156,7 +156,9 @@ const Map = forwardRef<MapRef, MapProps>(
 						style={{
 							bottom: "11.1rem",
 							right: "1.2rem",
-							display: locationError ? "none" : "flex"
+							display: locationError ? "none" : "flex",
+							borderBottomLeftRadius: 0,
+							borderBottomRightRadius: 0
 						}}
 						position="bottom-right"
 						positionOptions={{ enableHighAccuracy: true }}
