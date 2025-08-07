@@ -3,15 +3,13 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { appConfig } from "@api-playground/core/constants";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import useMap from "@api-playground/hooks/useMap";
-import usePlace from "@api-playground/hooks/usePlace";
-import { useUrlState } from "@api-playground/hooks/useUrlState";
 import usePlaceService from "@api-playground/services/usePlaceService";
 import { useCustomRequestStore } from "@api-playground/stores";
 import { CustomRequestStore, initialState } from "@api-playground/stores/useCustomRequestStore";
@@ -36,9 +34,12 @@ interface CustomRequestProps {
 	onResponseReceived?: (response: ReverseGeocodeCommandOutput | GeocodeCommandOutput) => void;
 	onReset?: () => void;
 	mapContainerHeight?: number;
+	urlState: Record<string, any>;
+	setUrlState: (state: Record<string, any>) => void;
+	handleReset: () => void;
 }
 
-export default function CustomRequest({ onResponseReceived, onReset, mapContainerHeight }: CustomRequestProps) {
+export default function CustomRequest({ onResponseReceived, urlState, setUrlState, mapContainerHeight, handleReset }: CustomRequestProps) {
 	useAuthManager();
 	const isFirstLoad = useRef(true);
 	const isSyncing = useRef(false);
@@ -46,34 +47,11 @@ export default function CustomRequest({ onResponseReceived, onReset, mapContaine
 
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
+	const { setMapPoliticalView, setMapLanguage, mapPoliticalView, mapLanguage } = useMap();
 
 	const store = useCustomRequestStore();
 	const { setState } = useCustomRequestStore;
 
-	const { setBiasPosition, setMapLanguage, mapLanguage } = useMap();
-
-	const { setClickedPosition } = usePlace();
-
-	const initialUrlState = (apiPlaygroundItem?.formFields || []).reduce((acc, field) => {
-		const fieldName = field.name as keyof CustomRequestStore;
-		if (field.type === "text" && field.inputType === "password") {
-			return acc;
-		}
-
-		if (field.defaultValue) {
-			acc[fieldName] = field.defaultValue;
-		} else if (field.type === "sliderWithInput") {
-			acc[fieldName] = 1;
-		} else {
-			acc[fieldName] = initialState[fieldName];
-		}
-		return acc;
-	}, {} as Record<string, any>);
-
-	const { urlState, setUrlState } = useUrlState({
-		...initialUrlState,
-		response: undefined
-	});
 	const searchParams = useOptimisticSearchParams();
 	const placeService = usePlaceService();
 
@@ -142,43 +120,6 @@ export default function CustomRequest({ onResponseReceived, onReset, mapContaine
 		} else {
 			setUrlState({ ...urlState, [name]: value });
 		}
-	};
-
-	const handleReset = () => {
-		const resetState = {
-			queryPosition: [],
-			biasPosition: [],
-			additionalFeatures: [],
-			includeCountries: [],
-			includePlaceTypes: [],
-			intendedUse: undefined,
-			key: "",
-			apiKey: "",
-			language: "en",
-			maxResults: 1,
-			politicalView: "",
-			queryRadius: 0,
-			submittedQueryRadius: undefined,
-			addressNumber: "",
-			country: "",
-			district: "",
-			locality: "",
-			postalCode: "",
-			region: "",
-			street: "",
-			subRegion: "",
-			response: undefined,
-			isLoading: false,
-			error: undefined
-		};
-
-		setState(resetState);
-		setClickedPosition([]);
-		setBiasPosition([]);
-		setMapLanguage(MAP_LANGUAGES[0]);
-
-		setUrlState(null as any);
-		onReset?.();
 	};
 
 	const handleSubmit = async () => {

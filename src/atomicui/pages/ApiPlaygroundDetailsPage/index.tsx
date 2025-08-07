@@ -13,6 +13,7 @@ import CustomRequest from "@api-playground/atomicui/organisms/CustomRequest";
 import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
 import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
 import { useMap, usePlace } from "@api-playground/hooks";
+import { appConfig } from "@api-playground/core/constants";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useCustomRequestStore } from "@api-playground/stores";
@@ -23,6 +24,8 @@ import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { bbox, circle } from "@turf/turf";
 import { NuqsAdapter } from "nuqs/adapters/react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useUrlState } from "@api-playground/hooks/useUrlState";
+const { MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES } } = appConfig;
 import "./styles.scss";
 
 const ApiPlaygroundDetailsPage: FC = () => {
@@ -33,32 +36,42 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const customRequestStore = useCustomRequestStore() as CustomRequestStore;
 	const { setState } = useCustomRequestStore;
 
-	const { setClickedPosition, clickedPosition } = usePlace();
+	const initialUrlState = (apiPlaygroundItem?.formFields || []).reduce((acc, field) => {
+		const fieldName = field.name as keyof CustomRequestStore;
+		if (field.type === "text" && field.inputType === "password") {
+			return acc;
+		}
 
-	const mapRef = useRef<MapRef | null>(null);
-	const mapContainerRef = useRef<HTMLDivElement>(null);
+		if (field.defaultValue) {
+			acc[fieldName] = field.defaultValue;
+		} else if (field.type === "sliderWithInput") {
+			acc[fieldName] = 1;
+		} else {
+			acc[fieldName] = initialState[fieldName];
+		}
+		return acc;
+	}, {} as Record<string, any>);
 
-	const { clearPoiList, setSelectedMarker } = usePlace();
-	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+	const navigate = useNavigate();
+	const { urlState, setUrlState } = useUrlState({ ...initialUrlState, response: undefined });
+	const { setBiasPosition, setMapPoliticalView, setMapLanguage, } = useMap();
+	const { setClickedPosition, clickedPosition, clearPoiList, setSelectedMarker } = usePlace();
+
+	const [isSnippetsOpen, setIsSnippetsOpen] = useState(true);
+	const [mapLoaded, setMapLoaded] = useState(false);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [activeMarker, setActiveMarker] = useState(false);
-	const [mapLoaded, setMapLoaded] = useState(false);
-	const [isSnippetsOpen, setIsSnippetsOpen] = useState(true);
-	const isSnippetsOpenRef = useRef(isSnippetsOpen);
-
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
 	const [mapContainerHeight, setMapContainerHeight] = useState<number>(800); // Default fallback height
+	const [localMarkers, setLocalMarkers] = useState<Array<{ position: [number, number]; id: string; label: string; }>>([]);
 
-	const [localMarkers, setLocalMarkers] = useState<
-		Array<{
-			position: [number, number];
-			id: string;
-			label: string;
-		}>
-	>([]);
+	const mapRef = useRef<MapRef | null>(null);
+	const mapContainerRef = useRef<HTMLDivElement>(null);
+	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+	const isSnippetsOpenRef = useRef(isSnippetsOpen);
 
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
 	const position = resultItem?.Position;
@@ -72,7 +85,61 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const label = resultItem?.Address?.Label || "Unknown location";
 	const address = { Label: label };
 
-	const navigate = useNavigate();
+	const handleMarkerClose = useCallback(() => { setActiveMarker(false); }, []);
+	const handleMarkerToggle = useCallback((isActive: boolean) => { setActiveMarker(isActive); }, []);
+
+	const handleMapZoom = useCallback(() => { }, [apiPlaygroundId]);
+	const handleMapDragEnd = useCallback(() => { }, [apiPlaygroundId]);
+	const handleMarkerActivate = useCallback(() => { setActiveMarker(true); }, []);
+
+	const handleClose = useCallback(() => {
+		handleMarkerClose();
+		handleMarkerToggle?.(false);
+		setState({ ...initialState, query: "", response: undefined });
+		setLocalMarkers([]);
+		setIsCoordinatePickingDisabled(false);
+		if (resetTimeoutRef.current) {
+			clearTimeout(resetTimeoutRef.current);
+		}
+	}, [handleMarkerClose, handleMarkerToggle]);
+
+	const handleReset = () => {
+		const resetState = {
+			queryPosition: [],
+			biasPosition: [],
+			additionalFeatures: [],
+			includeCountries: [],
+			includePlaceTypes: [],
+			intendedUse: undefined,
+			key: "",
+			apiKey: "",
+			language: "en",
+			maxResults: 1,
+			politicalView: "",
+			queryRadius: 0,
+			submittedQueryRadius: undefined,
+			addressNumber: "",
+			country: "",
+			district: "",
+			locality: "",
+			postalCode: "",
+			region: "",
+			street: "",
+			subRegion: "",
+			response: undefined,
+			isLoading: false,
+			error: undefined
+		};
+
+		setState(resetState);
+		setClickedPosition([]);
+		setBiasPosition([]);
+		setMapPoliticalView(MAP_POLITICAL_VIEWS[0]);
+		setMapLanguage(MAP_LANGUAGES[0]);
+
+		setUrlState(null as any);
+		handleClose?.();
+	};
 
 	const toggleFullScreen = useCallback(() => {
 		setIsFullScreen(prev => !prev);
@@ -123,32 +190,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		},
 		[setClickedPosition, activeMarker, isCoordinatePickingDisabled, apiPlaygroundItem]
 	);
-
-	const handleMapZoom = useCallback(() => { }, [apiPlaygroundId]);
-	const handleMapDragEnd = useCallback(() => { }, [apiPlaygroundId]);
-
-	const handleMarkerActivate = useCallback(() => {
-		setActiveMarker(true);
-	}, []);
-
-	const handleMarkerClose = useCallback(() => {
-		setActiveMarker(false);
-	}, []);
-
-	const handleMarkerToggle = useCallback((isActive: boolean) => {
-		setActiveMarker(isActive);
-	}, []);
-
-	const handleClose = useCallback(() => {
-		handleMarkerClose();
-		handleMarkerToggle?.(false);
-		setState({ ...initialState, query: "", response: undefined });
-		setLocalMarkers([]);
-		setIsCoordinatePickingDisabled(false);
-		if (resetTimeoutRef.current) {
-			clearTimeout(resetTimeoutRef.current);
-		}
-	}, [handleMarkerClose, handleMarkerToggle]);
 
 	const handleCustomResponse = () => {
 		const resultItem = customRequestStore.response?.ResultItems?.[0];
@@ -335,138 +376,139 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	}
 
 	return (
-		<NuqsAdapter>
-			<View className="api-playground-details-page no-side-gaps">
-				<Flex className="api-playground-header">
-					<Flex direction="column" flex={1} alignItems="flex-start" gap={"0.5rem"}>
-						<Button className="back-button-link" variation="link" onClick={() => navigate("/api-playground")}>
-							<span className="back-button-content">
-								<IconBackArrow className="back-arrow-icon" />
-								Back
-							</span>
+		<View className="api-playground-details-page no-side-gaps">
+			<Flex className="api-playground-header">
+				<Flex direction="column" flex={1} alignItems="flex-start" gap={"0.5rem"}>
+					<Button className="back-button-link" variation="link" onClick={() => { handleReset(); navigate("/api-playground"); }}>
+						<span className="back-button-content">
+							<IconBackArrow className="back-arrow-icon" />
+							Back
+						</span>
+					</Button>
+					<Text as="h2" className="api-playground-title" fontWeight={700} fontSize="2rem">
+						{apiPlaygroundItem.title}
+					</Text>
+				</Flex>
+				<Flex direction="row" gap={"2rem"} justifyContent="space-between" alignItems="flex-start">
+					<View>
+						<Content
+							items={[{ text: apiPlaygroundItem.description }]}
+							className={`api-playground-description${descExpanded ? " expanded" : ""}`}
+						/>
+						<Button className="show-more-btn" variation="link" onClick={() => setDescExpanded(e => !e)}>
+							{descExpanded ? "Show less" : "Show more"}
 						</Button>
-						<Text as="h2" className="api-playground-title" fontWeight={700} fontSize="2rem">
-							{apiPlaygroundItem.title}
-						</Text>
-					</Flex>
-					<Flex direction="row" gap={"2rem"} justifyContent="space-between" alignItems="flex-start">
-						<View>
-							<Content
-								items={[{ text: apiPlaygroundItem.description }]}
-								className={`api-playground-description${descExpanded ? " expanded" : ""}`}
-							/>
-							<Button className="show-more-btn" variation="link" onClick={() => setDescExpanded(e => !e)}>
-								{descExpanded ? "Show less" : "Show more"}
+					</View>
+					<Flex>
+						{/* Right column */}
+						<Flex direction="column" alignItems="flex-start" className="api-playground-right-col">
+							<Button
+								className="build-sample-btn"
+								variation="primary"
+								onClick={() => window.open(apiPlaygroundItem.buildSampleButton?.link, "_blank")}
+							>
+								{apiPlaygroundItem.buildSampleButton?.text}
 							</Button>
-						</View>
-						<Flex>
-							{/* Right column */}
-							<Flex direction="column" alignItems="flex-start" className="api-playground-right-col">
-								<Button
-									className="build-sample-btn"
-									variation="primary"
-									onClick={() => window.open(apiPlaygroundItem.buildSampleButton?.link, "_blank")}
-								>
-									{apiPlaygroundItem.buildSampleButton?.text}
-								</Button>
-								<Button
-									className="share-btn"
-									variation="link"
-									onClick={() =>
-										navigator.share
-											? navigator.share({ title: apiPlaygroundItem.title, url: window.location.href })
-											: navigator.clipboard.writeText(window.location.href)
-									}
-								>
-									<IconShare width={14} height={14} className="share-icon" />
-									Share
-								</Button>
-								<View className="related-resources">
-									<Text fontWeight={600} fontSize="1rem" marginBottom={"0.5rem"} className="related-title">
-										Related resources
-									</Text>
-									<View className="related-links">
-										{apiPlaygroundItem.relatedResources?.map((res, idx) => (
-											<a key={idx} href={res.link} target="_blank" rel="noopener noreferrer">
-												{res.text}
-											</a>
-										))}
-									</View>
+							<Button
+								className="share-btn"
+								variation="link"
+								onClick={() =>
+									navigator.share
+										? navigator.share({ title: apiPlaygroundItem.title, url: window.location.href })
+										: navigator.clipboard.writeText(window.location.href)
+								}
+							>
+								<IconShare width={14} height={14} className="share-icon" />
+								Share
+							</Button>
+							<View className="related-resources">
+								<Text fontWeight={600} fontSize="1rem" marginBottom={"0.5rem"} className="related-title">
+									Related resources
+								</Text>
+								<View className="related-links">
+									{apiPlaygroundItem.relatedResources?.map((res, idx) => (
+										<a key={idx} href={res.link} target="_blank" rel="noopener noreferrer">
+											{res.text}
+										</a>
+									))}
 								</View>
-							</Flex>
+							</View>
 						</Flex>
 					</Flex>
 				</Flex>
-				<View
-					className={`map-container ${isFullScreen ? "fullscreen" : ""}`}
-					style={isFullScreen ? {} : { padding: 32 }}
+			</Flex>
+			<View
+				className={`map-container ${isFullScreen ? "fullscreen" : ""}`}
+				style={isFullScreen ? {} : { padding: 32 }}
+			>
+				<Map
+					ref={mapRef}
+					mapContainerRef={mapContainerRef}
+					showMap={true}
+					onMapClick={handleMapClick}
+					onMapZoom={handleMapZoom}
+					onMapDragEnd={handleMapDragEnd}
+					onMapLoad={handleMapLoad}
 				>
-					<Map
-						ref={mapRef}
-						mapContainerRef={mapContainerRef}
-						showMap={true}
-						onMapClick={handleMapClick}
-						onMapZoom={handleMapZoom}
-						onMapDragEnd={handleMapDragEnd}
-						onMapLoad={handleMapLoad}
-					>
-						{showMapMarker && resultItem && (
+					{showMapMarker && resultItem && (
+						<MapMarker
+							active={activeMarker}
+							onClosePopUp={handleMarkerClose}
+							onActivate={handleMarkerActivate}
+							searchValue={searchValue}
+							setSearchValue={setSearchValue}
+							placeId={placeId}
+							address={address}
+							position={position}
+							id={placeId}
+							label={label}
+							locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
+						/>
+					)}
+					{showLocalMarkers &&
+						localMarkers.map(marker => (
 							<MapMarker
-								active={activeMarker}
-								onClosePopUp={handleMarkerClose}
-								onActivate={handleMarkerActivate}
+								key={marker.id}
+								active={false}
+								onClosePopUp={() => setLocalMarkers(prev => prev.filter(m => m.id !== marker.id))}
+								onActivate={() => { }}
 								searchValue={searchValue}
 								setSearchValue={setSearchValue}
-								placeId={placeId}
-								address={address}
-								position={position}
-								id={placeId}
-								label={label}
+								placeId={marker.id}
+								address={{ Label: marker.label }}
+								position={marker.position}
+								id={marker.id}
+								label={marker.label}
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
 							/>
-						)}
-						{showLocalMarkers &&
-							localMarkers.map(marker => (
-								<MapMarker
-									key={marker.id}
-									active={false}
-									onClosePopUp={() => setLocalMarkers(prev => prev.filter(m => m.id !== marker.id))}
-									onActivate={() => { }}
-									searchValue={searchValue}
-									setSearchValue={setSearchValue}
-									placeId={marker.id}
-									address={{ Label: marker.label }}
-									position={marker.position}
-									id={marker.id}
-									label={marker.label}
-									locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
-								/>
-							))}
-						{message && <HintMessage message={message} />}
-						{mapLoaded && (
-							<Flex className="panels-container">
-								<CustomRequest
-									onResponseReceived={handleCustomResponse}
-									onReset={handleClose}
-									mapContainerHeight={mapContainerHeight}
-								/>
-								<RequestSnippets
-									response={customRequestStore.response}
-									isFullScreen={isFullScreen}
-									onFullScreenToggle={toggleFullScreen}
-									isOpen={isSnippetsOpen}
-									onToggle={toggleSnippets}
-									onWidthChange={() => {
-										applyStylesDebounced();
-									}}
-								/>
-							</Flex>
-						)}
-					</Map>
-				</View>
+						))}
+					{message && <HintMessage message={message} />}
+					{mapLoaded && (
+						<Flex className="panels-container">
+							<CustomRequest
+								onResponseReceived={handleCustomResponse}
+								onReset={handleClose}
+								mapContainerHeight={mapContainerHeight}
+								urlState={urlState}
+								setUrlState={setUrlState}
+								handleReset={handleReset}
+							/>
+							<RequestSnippets
+								response={customRequestStore.response}
+								isFullScreen={isFullScreen}
+								onFullScreenToggle={toggleFullScreen}
+								isOpen={isSnippetsOpen}
+								onToggle={toggleSnippets}
+								onWidthChange={() => {
+									applyStylesDebounced();
+								}}
+							/>
+						</Flex>
+					)}
+				</Map>
 			</View>
-		</NuqsAdapter>
+		</View>
 	);
 };
 
-export default ApiPlaygroundDetailsPage;
+export default () => <NuqsAdapter><ApiPlaygroundDetailsPage /></NuqsAdapter>;
