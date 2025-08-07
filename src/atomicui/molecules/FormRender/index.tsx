@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import { IconChevronDown, IconChevronUp, IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
@@ -202,6 +202,10 @@ export const FormRender: React.FC<FormRenderProps> = ({
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
+	const requiredFeildsContainerRef = useRef<HTMLDivElement>(null);
+	const optionalFieldsContainerRef = useRef<HTMLDivElement>(null);
+	const [isOverflowing, setIsOverflowing] = useState<boolean>(false);
+	const [requiredFieldsHeight, setRequiredFieldsHeight] = useState<number>(370); // Default fallback height
 
 	const handleChange = (name: string, value: unknown) => {
 		onChange?.({
@@ -213,6 +217,63 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const handleToggle = (fieldName: string, enabled: boolean) => {
 		onToggle?.(fieldName, enabled);
 	};
+
+	// Function to check if optional fields container is scrollable
+	const checkIfOverflowing = () => {
+		if (optionalFieldsContainerRef.current) {
+			const element = optionalFieldsContainerRef.current;
+			const isScrollable = element.scrollHeight > element.clientHeight;
+			setIsOverflowing(isScrollable);
+		}
+	};
+
+	// ResizeObserver to track required fields container height changes
+	React.useEffect(() => {
+		let resizeObserver: ResizeObserver | null = null;
+
+		const setupResizeObserver = () => {
+			if (!requiredFeildsContainerRef.current) return;
+
+			// Set initial height
+			setRequiredFieldsHeight(requiredFeildsContainerRef.current.clientHeight);
+
+			// Create and setup ResizeObserver
+			resizeObserver = new ResizeObserver(entries => {
+				for (const entry of entries) {
+					setRequiredFieldsHeight(entry.contentRect.height);
+					// Check overflow after height changes
+					setTimeout(checkIfOverflowing, 0);
+				}
+			});
+
+			resizeObserver.observe(requiredFeildsContainerRef.current);
+		};
+
+		// Try to setup immediately
+		setupResizeObserver();
+
+		// If ref is not available, wait a bit and try again
+		if (!requiredFeildsContainerRef.current) {
+			const timer = setTimeout(() => {
+				setupResizeObserver();
+			}, 100);
+
+			return () => {
+				clearTimeout(timer);
+				if (resizeObserver) {
+					resizeObserver.disconnect();
+				}
+			};
+		}
+
+		return () => {
+			if (resizeObserver) {
+				resizeObserver.disconnect();
+			}
+		};
+	}, []);
+
+
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -410,6 +471,13 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const requiredFields = fields.filter(field => field.required && !field.hiddenFromUI);
 	const optionalFields = fields.filter(field => !field.required && !field.hiddenFromUI);
 
+	// Effect to check overflow when optional fields change or map container height changes
+	React.useEffect(() => {
+		// Use a small delay to ensure DOM is updated
+		const timer = setTimeout(checkIfOverflowing, 100);
+		return () => clearTimeout(timer);
+	}, [optionalFields.length, mapContainerHeight, requiredFieldsHeight]);
+
 	const handleReset = (event?: React.MouseEvent) => {
 		if (event) {
 			event.preventDefault();
@@ -468,8 +536,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			defaultOpen={true}
 			contentClassName="form-render-accordion"
 		>
-			<form onSubmit={handleSubmit} className={`form-render ${className}`} style={{ maxHeight: (mapContainerHeight || 0) - 120 }}>
-				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem">
+			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
+				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" ref={requiredFeildsContainerRef}>
 					{content && <Content {...content} />}
 					{requiredFields.map(renderField)}
 
@@ -503,11 +571,20 @@ export const FormRender: React.FC<FormRenderProps> = ({
 							shadowEnabled={false}
 							defaultOpen={true}
 							title="Optional Parameters"
-							contentClassName="optional-items"
+							contentClassName={`optional-items ${ isOverflowing ? "" : "no-scroll-bar"}`}
 							openIcon={<IconChevronUp className="chevron-up-icon" />}
 							closeIcon={<IconChevronDown className="chevron-down-icon" />}
 						>
-							<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem">
+							<Flex
+								ref={optionalFieldsContainerRef}
+								direction="column"
+								padding="1rem"
+								paddingTop={0}
+								gap="1rem"
+								style={{
+									maxHeight: (mapContainerHeight || 0) - requiredFieldsHeight - 220,
+								}}
+							>
 								{optionalFields.map(renderField)}
 							</Flex>
 						</Accordion>
