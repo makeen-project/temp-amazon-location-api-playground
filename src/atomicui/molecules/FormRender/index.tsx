@@ -185,6 +185,7 @@ interface FormRenderProps {
 	onReset?: () => void;
 	onToggle?: (fieldName: string, enabled: boolean) => void;
 	containerHeight?: number;
+	mapContainerHeight?: number;
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
@@ -196,7 +197,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	content,
 	submitButtonDisabled = false,
 	onReset,
-	onToggle
+	onToggle,
+	mapContainerHeight
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
@@ -466,7 +468,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			defaultOpen={true}
 			contentClassName="form-render-accordion"
 		>
-			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
+			<form onSubmit={handleSubmit} className={`form-render ${className}`} style={{ maxHeight: (mapContainerHeight || 0) - 120 }}>
 				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem">
 					{content && <Content {...content} />}
 					{requiredFields.map(renderField)}

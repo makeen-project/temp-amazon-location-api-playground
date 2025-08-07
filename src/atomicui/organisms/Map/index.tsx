@@ -61,6 +61,7 @@ interface MapProps {
 	onMapDragEnd?: (e: { viewState: { longitude: number; latitude: number } }) => void;
 	className?: string;
 	apiId?: string;
+	mapContainerRef?: React.RefObject<HTMLDivElement>;
 }
 
 export interface MapRef {
@@ -73,7 +74,7 @@ export interface MapRef {
 }
 
 const Map = forwardRef<MapRef, MapProps>(
-	({ children, showMap = true, onMapLoad, onMapClick, onMapZoom, onMapDragEnd, className = "", apiId }, ref) => {
+	({ children, showMap = true, onMapLoad, onMapClick, className = "", mapContainerRef }, ref) => {
 		const [show, setShow] = useState<ShowStateType>(initShow);
 		const mapRef = useRef<MapLibreMapRef | null>(null);
 		const geolocateControlRef = useRef<GeolocateControlRef | null>(null);
@@ -188,6 +189,7 @@ const Map = forwardRef<MapRef, MapProps>(
 				className={`map-container ${
 					mapColorScheme === MapColorSchemeEnum.DARK ? "dark-mode" : "light-mode"
 				} ${className}`}
+				ref={mapContainerRef}
 			>
 				<MapLibreMap
 					ref={mapRef}

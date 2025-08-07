@@ -35,17 +35,10 @@ const {
 interface CustomRequestProps {
 	onResponseReceived?: (response: ReverseGeocodeCommandOutput | GeocodeCommandOutput) => void;
 	onReset?: () => void;
-	mapRef?: React.RefObject<{
-		flyTo: (options: { center: [number, number]; zoom: number; duration?: number }) => void;
-		zoomTo: (number: number) => void;
-		fitBounds: (
-			bounds: [[number, number], [number, number]],
-			options?: { padding?: number; duration?: number; essential?: boolean }
-		) => void;
-	}>;
+	mapContainerHeight?: number;
 }
 
-export default function CustomRequest({ onResponseReceived, onReset, mapRef }: CustomRequestProps) {
+export default function CustomRequest({ onResponseReceived, onReset, mapContainerHeight }: CustomRequestProps) {
 	useAuthManager();
 	const isFirstLoad = useRef(true);
 	const isSyncing = useRef(false);
@@ -324,6 +317,7 @@ export default function CustomRequest({ onResponseReceived, onReset, mapRef }: C
 				onToggle={handleToggle}
 				containerHeight={containerRef?.clientHeight}
 				submitButtonDisabled={isSubmitDisabled}
+				mapContainerHeight={mapContainerHeight}
 			/>
 		</div>
 	);
