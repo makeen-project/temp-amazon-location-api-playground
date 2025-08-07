@@ -126,7 +126,6 @@
 					"name": "language",
 					"label": "Language",
 					"required": false,
-					"defaultValue": "en",
 					"options": [
 						{ "value": "en", "label": "English" },
 						{ "value": "ar", "label": "العربية" },
@@ -215,7 +214,6 @@
 					"name": "politicalView",
 					"label": "Political View",
 					"required": false,
-					"defaultValue": "",
 					"options": [
 						{
 							"label": "No political value",
