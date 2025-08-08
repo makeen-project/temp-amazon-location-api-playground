@@ -21,16 +21,6 @@
 		--map-border: var(--amplify-colors-border-primary);
 	}
 
-	.loader-container {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 1;
-		pointer-events: none;
-	}
-	
 	// Tile grid overlay - shows on top of loaded tiles
 	.tile-grid-overlay {
 		position: absolute;
@@ -270,10 +260,4 @@
 			display: none;
 		}
 	}
-}
-
-.loader-container {
-	width: 100%;
-	height: 100%;
-	background-image: url("@api-playground/assets/pngs/Loading.png");
 }
