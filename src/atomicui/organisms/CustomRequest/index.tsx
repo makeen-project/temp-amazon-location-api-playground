@@ -218,7 +218,7 @@ export default function CustomRequest({ onResponseReceived, urlState, setUrlStat
 	})();
 
 	return (
-		<div className="container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
+		<div className="custom-request-container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
 			<FormRender
 				fields={formFields}
 				content={convertFormContentConfigToContentProps(apiPlaygroundItem?.formContent || { type: "list", items: [] })}

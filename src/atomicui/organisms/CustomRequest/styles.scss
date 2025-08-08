@@ -3,9 +3,10 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-.container {
+.custom-request-container {
 	margin: 1rem calc(32px) 1rem 1rem;
 	z-index: 4;
+	height: 48px;
 	width: 400px;
 	max-width: 400px;
 	min-width: 300px;

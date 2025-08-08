@@ -106,7 +106,9 @@ const Map = forwardRef<MapRef, MapProps>(
 			getCurrentGeoLocation,
 			onGeoLocate,
 			onGeoLocateError,
-			handleMapMove
+			handleMapMove,
+			handleTileLoadingStart,
+			handleMapIdle
 		} = useMapManager({
 			mapRef,
 			geolocateControlRef,
@@ -181,8 +183,23 @@ const Map = forwardRef<MapRef, MapProps>(
 			[locationError, onGeoLocate, handleGeoLocateError, getCurrentGeoLocation, show.stylesCard]
 		);
 
-		if (!showMap || !mapStyleWithLanguageUrl) {
+		if (!showMap) {
 			return null;
+		}
+
+		// Show loading state while map style is loading
+		if (!mapStyleWithLanguageUrl) {
+			return (
+				<View
+					style={{ height: "100%" }}
+					className={`map-container ${
+						mapColorScheme === MapColorSchemeEnum.DARK ? "dark-mode" : "light-mode"
+					} ${className}`}
+					ref={mapContainerRef}
+				>
+					<View className="tile-grid-overlay" />
+				</View>
+			);
 		}
 
 		return (
@@ -227,10 +244,12 @@ const Map = forwardRef<MapRef, MapProps>(
 					onClick={handleMapClick}
 					onLoad={handleMapLoad}
 					onError={error => errorHandler(error.error)}
-					onIdle={() => gridLoader && setGridLoader(false)}
+					onIdle={handleMapIdle}
+					onData={handleTileLoadingStart}
 					attributionControl={false}
 				>
-					<View className={gridLoader ? "loader-container" : ""}>
+					{gridLoader && <View className="tile-grid-overlay" />}
+					<View>
 						{children}
 						<QueryRadiusCircle mapRef={mapRef} />
 						<NavigationControl position="bottom-right" showZoom showCompass={false} />

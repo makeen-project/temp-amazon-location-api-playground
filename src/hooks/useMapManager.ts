@@ -79,6 +79,7 @@ const useMapManager = ({
 
 	useEffect(() => {
 		(async () => {
+			setGridLoader(true);
 			const styleWithLanguage = await getStyleWithPreferredLanguage(mapStyleUrl, mapLanguage.value);
 			setMapStyleWithLanguageUrl(styleWithLanguage);
 		})();
@@ -91,6 +92,18 @@ const useMapManager = ({
 	const getCurrentGeoLocation = useCallback(() => {
 		getCurrentLocation(setCurrentLocation, setViewpoint);
 	}, [setCurrentLocation, setViewpoint]);
+
+	// Enhanced tile loading handlers
+	const handleTileLoadingStart = useCallback(() => {
+		setGridLoader(true);
+	}, []);
+
+	const handleMapIdle = useCallback(() => {
+		// Keep grid loader visible for a short time to prevent flickering
+		setTimeout(() => {
+			setGridLoader(false);
+		}, 500);
+	}, []);
 
 	useEffect(() => {
 		if ("permissions" in navigator) {
@@ -189,6 +202,8 @@ const useMapManager = ({
 		handleMapClick,
 		handleMapMove,
 		handleCurrentLocationAndViewpoint,
+		handleTileLoadingStart,
+		handleMapIdle,
 		resetAppState
 	};
 };
