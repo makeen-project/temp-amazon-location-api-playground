@@ -46,6 +46,7 @@ const useMapManager = ({
 }: UseMapManagerProps) => {
 	const [mapStyleWithLanguageUrl, setMapStyleWithLanguageUrl] = useState<MapStyle>();
 	const [gridLoader, setGridLoader] = useState(true);
+	const [isLoadingTiles, setIsLoadingTiles] = useState(false);
 	const { baseValues, apiKey } = useAuth();
 	const {
 		currentLocationData,
@@ -79,10 +80,13 @@ const useMapManager = ({
 
 	useEffect(() => {
 		(async () => {
+			setGridLoader(true);
 			const styleWithLanguage = await getStyleWithPreferredLanguage(mapStyleUrl, mapLanguage.value);
 			setMapStyleWithLanguageUrl(styleWithLanguage);
 		})();
 	}, [mapStyleUrl, mapLanguage]);
+
+
 
 	const onLoad = useCallback(() => {
 		geolocateControlRef.current?.trigger();
@@ -91,6 +95,20 @@ const useMapManager = ({
 	const getCurrentGeoLocation = useCallback(() => {
 		getCurrentLocation(setCurrentLocation, setViewpoint);
 	}, [setCurrentLocation, setViewpoint]);
+
+	// Enhanced tile loading handlers
+	const handleTileLoadingStart = useCallback(() => {
+		setIsLoadingTiles(true);
+		setGridLoader(true);
+	}, []);
+
+	const handleMapIdle = useCallback(() => {
+		setIsLoadingTiles(false);
+		// Keep grid loader visible for a short time to prevent flickering
+		setTimeout(() => {
+			setGridLoader(false);
+		}, 500);
+	}, []);
 
 	useEffect(() => {
 		if ("permissions" in navigator) {
@@ -189,6 +207,8 @@ const useMapManager = ({
 		handleMapClick,
 		handleMapMove,
 		handleCurrentLocationAndViewpoint,
+		handleTileLoadingStart,
+		handleMapIdle,
 		resetAppState
 	};
 };
