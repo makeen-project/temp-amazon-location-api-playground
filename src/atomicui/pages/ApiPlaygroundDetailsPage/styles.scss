@@ -24,11 +24,11 @@
 
 	.map-container {
 		position: relative;
-		height: 90vh;
+		height: calc(100vh - 334px);
 		transition: all 0.3s ease;
 
 		.snippets-content-container {
-			height: calc(90vh - 1rem - 120px);
+			height: calc(100vh - 334px - 1rem - 120px);
 		}
 
 		&.fullscreen {
@@ -203,17 +203,5 @@
 	.related-links a:hover {
 		text-decoration: underline;
 		color: #005276;
-	}
-}
-
-@media (max-width: 900px) {
-	.api-playground-details-page .api-playground-header {
-		flex-direction: column;
-		gap: 2rem;
-	}
-	.api-playground-details-page .api-playground-right-col {
-		max-width: 100%;
-		min-width: 0;
-		width: 100%;
 	}
 }

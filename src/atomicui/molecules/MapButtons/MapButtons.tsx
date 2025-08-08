@@ -270,7 +270,7 @@ const MapButtons: FC<MapButtonsProps> = ({
 				</Flex>
 			</>
 			{openStylesCard && (
-				<Card data-testid="map-styles-card" ref={stylesCardRef} className="map-styles-card">
+				<Card data-testid="map-styles-card" ref={stylesCardRef} className="map-styles-card-playground">
 					<Flex className="map-styles-header">
 						<Text margin="1.23rem 0rem" fontFamily="AmazonEmber-Bold" fontSize="1.23rem">
 							{t("map_style.text")}

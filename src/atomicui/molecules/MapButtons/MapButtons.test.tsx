@@ -97,7 +97,7 @@ describe("<MapButtons/>", () => {
 		mockProps.openStylesCard = true;
 		const { getByTestId } = renderComponent();
 		waitFor(() => {
-			expect(getByTestId("map-styles-card")).toBeInTheDocument();
+			expect(getByTestId("map-styles-card-playground")).toBeInTheDocument();
 			expect(getByTestId("map-styles-wrapper")).toBeInTheDocument();
 		});
 	});

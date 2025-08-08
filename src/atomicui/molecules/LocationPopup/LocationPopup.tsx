@@ -132,7 +132,7 @@ const Popup: FC<PopupProps> = ({
 						<IconClose onClick={() => onClose(ResponsiveUIEnum.search)} />
 					</View>
 					{isDesktop && (
-						<View className="triangle-container">
+						<View className="bottom-triangle-container">
 							<View />
 						</View>
 					)}

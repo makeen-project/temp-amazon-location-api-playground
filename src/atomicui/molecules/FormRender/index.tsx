@@ -3,11 +3,10 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import React, { useRef, useState } from "react";
-
 import { IconChevronDown, IconChevronUp, IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
+import React, { useRef, useState } from "react";
 
 import { Accordion } from "../../atoms/Accordion";
 import { Content } from "../../atoms/Content";
@@ -272,8 +271,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			}
 		};
 	}, []);
-
-
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -571,7 +568,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 							shadowEnabled={false}
 							defaultOpen={true}
 							title="Optional Parameters"
-							contentClassName={`optional-items ${ isOverflowing ? "" : "no-scroll-bar"}`}
+							contentClassName={`optional-items ${isOverflowing ? "" : "no-scroll-bar"}`}
 							openIcon={<IconChevronUp className="chevron-up-icon" />}
 							closeIcon={<IconChevronDown className="chevron-down-icon" />}
 						>
@@ -582,7 +579,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 								paddingTop={0}
 								gap="1rem"
 								style={{
-									maxHeight: (mapContainerHeight || 0) - requiredFieldsHeight - 220,
+									maxHeight: (mapContainerHeight || 0) - requiredFieldsHeight - 220
 								}}
 							>
 								{optionalFields.map(renderField)}
