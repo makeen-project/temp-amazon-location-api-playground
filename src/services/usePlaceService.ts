@@ -120,10 +120,6 @@ const usePlaceService = () => {
 					input.PoliticalView = params.PoliticalView;
 				}
 
-				if (params.MaxResults !== undefined && params.MaxResults !== null) {
-					input.MaxResults = params.MaxResults;
-				}
-
 				if (params.AdditionalFeatures && params.AdditionalFeatures.length > 0) {
 					input.AdditionalFeatures = params.AdditionalFeatures;
 				}
@@ -134,6 +130,10 @@ const usePlaceService = () => {
 
 				if (params.QueryRadius && params.QueryRadius >= 1) {
 					input.QueryRadius = params.QueryRadius;
+				}
+
+				if (params.MaxResults && params.MaxResults >= 1) {
+					input.MaxResults = params.MaxResults;
 				}
 
 				if (params.Filter?.IncludePlaceTypes && params.Filter.IncludePlaceTypes.length > 0) {
