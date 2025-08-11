@@ -7,6 +7,8 @@ import React, { useEffect, useState } from "react";
 
 import { Flex, Input, SwitchField } from "@aws-amplify/ui-react";
 
+import { useQueryState } from "nuqs";
+
 import { Slider } from "../../atoms/Slider/Slider";
 import "./styles.scss";
 
@@ -41,17 +43,27 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 	error,
 	className = ""
 }) => {
-	const [value, setValue] = useState<number>(propValue && propValue !== null ? propValue : defaultValue ?? min);
+	const [value, setValue] = useState<number>(
+		propValue && propValue !== null ? (propValue < min ? min : propValue) : defaultValue ?? min
+	);
 	const [isEnabled, setIsEnabled] = useState<boolean>(!propDisabled);
+	const [queryRadius] = useQueryState(name);
+
+	useEffect(() => {
+		if (queryRadius) {
+			setIsEnabled(true);
+		} else {
+			setIsEnabled(false);
+		}
+	}, [queryRadius]);
 
 	useEffect(() => {
 		if (propValue !== undefined && propValue !== null && propValue !== value) {
-			setValue(propValue);
+			setValue(propValue < min ? min : propValue);
 		}
-	}, [propValue]);
+	}, [propValue, value]);
 
 	useEffect(() => {
-		setIsEnabled(!propDisabled);
 		// Reset value to default when disabled
 		if (propDisabled) {
 			setValue(defaultValue ?? min);

@@ -132,7 +132,7 @@ export default function CustomRequest({ onResponseReceived, urlState, setUrlStat
 				setState({
 					...store,
 					response,
-					submittedQueryRadius: store.queryRadius,
+					submittedQueryRadius: store.queryRadius || undefined,
 					error: undefined
 				});
 				setUrlState({ ...urlState, response: JSON.stringify(response) });

@@ -35,7 +35,7 @@ export interface CustomRequestStore {
 	language?: string;
 	maxResults?: number;
 	politicalView?: string;
-	queryRadius?: number;
+	queryRadius?: number | null;
 	submittedQueryRadius?: number;
 	addressNumber?: string;
 	country?: string;
@@ -62,7 +62,7 @@ export const initialState: IStateProps<CustomRequestStore> = {
 	key: "",
 	apiKey: "",
 	language: "",
-	maxResults: 1,
+	maxResults: 0,
 	politicalView: "",
 	queryRadius: 0,
 	addressNumber: "",

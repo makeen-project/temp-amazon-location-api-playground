@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /*
  * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * SPDX-License-Identifier: MIT-0
@@ -16,6 +17,7 @@ import { useMap, usePlace } from "@api-playground/hooks";
 import { appConfig } from "@api-playground/core/constants";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
+import { useUrlState } from "@api-playground/hooks/useUrlState";
 import { useCustomRequestStore } from "@api-playground/stores";
 import { CustomRequestStore, initialState } from "@api-playground/stores/useCustomRequestStore";
 import { uuid } from "@api-playground/utils";
@@ -24,8 +26,9 @@ import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { bbox, circle } from "@turf/turf";
 import { NuqsAdapter } from "nuqs/adapters/react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useUrlState } from "@api-playground/hooks/useUrlState";
-const { MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES } } = appConfig;
+const {
+	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
+} = appConfig;
 import "./styles.scss";
 
 const ApiPlaygroundDetailsPage: FC = () => {
@@ -54,7 +57,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const navigate = useNavigate();
 	const { urlState, setUrlState } = useUrlState({ ...initialUrlState, response: undefined });
-	const { setBiasPosition, setMapPoliticalView, setMapLanguage, } = useMap();
+	const { setBiasPosition, setMapPoliticalView, setMapLanguage } = useMap();
 	const { setClickedPosition, clickedPosition, clearPoiList, setSelectedMarker } = usePlace();
 
 	const [isSnippetsOpen, setIsSnippetsOpen] = useState(true);
@@ -66,7 +69,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
 	const [mapContainerHeight, setMapContainerHeight] = useState<number>(800); // Default fallback height
-	const [localMarkers, setLocalMarkers] = useState<Array<{ position: [number, number]; id: string; label: string; }>>([]);
+	const [localMarkers, setLocalMarkers] = useState<Array<{ position: [number, number]; id: string; label: string }>>(
+		[]
+	);
 
 	const mapRef = useRef<MapRef | null>(null);
 	const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -85,12 +90,18 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const label = resultItem?.Address?.Label || "Unknown location";
 	const address = { Label: label };
 
-	const handleMarkerClose = useCallback(() => { setActiveMarker(false); }, []);
-	const handleMarkerToggle = useCallback((isActive: boolean) => { setActiveMarker(isActive); }, []);
+	const handleMarkerClose = useCallback(() => {
+		setActiveMarker(false);
+	}, []);
+	const handleMarkerToggle = useCallback((isActive: boolean) => {
+		setActiveMarker(isActive);
+	}, []);
 
-	const handleMapZoom = useCallback(() => { }, [apiPlaygroundId]);
-	const handleMapDragEnd = useCallback(() => { }, [apiPlaygroundId]);
-	const handleMarkerActivate = useCallback(() => { setActiveMarker(true); }, []);
+	const handleMapZoom = useCallback(() => {}, [apiPlaygroundId]);
+	const handleMapDragEnd = useCallback(() => {}, [apiPlaygroundId]);
+	const handleMarkerActivate = useCallback(() => {
+		setActiveMarker(true);
+	}, []);
 
 	const handleClose = useCallback(() => {
 		handleMarkerClose();
@@ -116,7 +127,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			language: "en",
 			maxResults: 1,
 			politicalView: "",
-			queryRadius: 0,
+			queryRadius: null,
 			submittedQueryRadius: undefined,
 			addressNumber: "",
 			country: "",
@@ -379,7 +390,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		<View className="api-playground-details-page no-side-gaps">
 			<Flex className="api-playground-header">
 				<Flex direction="column" flex={1} alignItems="flex-start" gap={"0.5rem"}>
-					<Button className="back-button-link" variation="link" onClick={() => { handleReset(); navigate("/api-playground"); }}>
+					<Button
+						className="back-button-link"
+						variation="link"
+						onClick={() => {
+							handleReset();
+							navigate("/api-playground");
+						}}
+					>
 						<span className="back-button-content">
 							<IconBackArrow className="back-arrow-icon" />
 							Back
@@ -437,10 +455,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					</Flex>
 				</Flex>
 			</Flex>
-			<View
-				className={`map-container ${isFullScreen ? "fullscreen" : ""}`}
-				style={isFullScreen ? {} : { padding: 32 }}
-			>
+			<View className={`map-container ${isFullScreen ? "fullscreen" : ""}`} style={isFullScreen ? {} : { padding: 32 }}>
 				<Map
 					ref={mapRef}
 					mapContainerRef={mapContainerRef}
@@ -471,7 +486,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								key={marker.id}
 								active={false}
 								onClosePopUp={() => setLocalMarkers(prev => prev.filter(m => m.id !== marker.id))}
-								onActivate={() => { }}
+								onActivate={() => {}}
 								searchValue={searchValue}
 								setSearchValue={setSearchValue}
 								placeId={marker.id}
@@ -511,4 +526,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	);
 };
 
-export default () => <NuqsAdapter><ApiPlaygroundDetailsPage /></NuqsAdapter>;
+export default () => (
+	<NuqsAdapter>
+		<ApiPlaygroundDetailsPage />
+	</NuqsAdapter>
+);
