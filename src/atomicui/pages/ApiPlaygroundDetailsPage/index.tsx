@@ -231,7 +231,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				);
 			} else {
 				mapRef.current?.flyTo({
-					center: [lng + 0.0076, lat - 0.003],
+					center: [lng, lat],
 					zoom: 15,
 					duration: 2000
 				});
