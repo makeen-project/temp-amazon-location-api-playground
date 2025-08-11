@@ -73,6 +73,7 @@
 .snippets-content-container {
 	overflow: auto;
 	display: flex;
+	min-height: 480px;
 }
 
 .snippets-container__snippet__content pre {
