@@ -153,7 +153,7 @@ const usePlaceService = () => {
 				};
 
 				// Handle MaxResults - only include if it has a valid value
-				if (params.MaxResults !== undefined && params.MaxResults !== null) {
+				if (params.MaxResults !== undefined && params.MaxResults !== null && params.MaxResults >= 1) {
 					input.MaxResults = params.MaxResults;
 				}
 
