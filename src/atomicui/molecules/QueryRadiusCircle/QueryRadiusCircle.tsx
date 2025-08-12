@@ -47,7 +47,7 @@ const QueryRadiusCircle: React.FC<QueryRadiusCircleProps> = ({ mapRef }) => {
 		return null;
 	}
 
-	const [lng, lat] = queryPosition.map(Number);
+	const [lng, lat] = response.ResultItems?.at(0)?.Position?.map(Number) || queryPosition.map(Number);
 
 	const radiusInKm = submittedQueryRadius / 1000;
 

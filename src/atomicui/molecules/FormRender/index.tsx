@@ -3,10 +3,11 @@
  * SPDX-License-Identifier: MIT-0
  */
 
+import React, { useRef, useState } from "react";
+
 import { IconChevronDown, IconChevronUp, IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
-import React, { useRef, useState } from "react";
 
 import { Accordion } from "../../atoms/Accordion";
 import { Content } from "../../atoms/Content";
