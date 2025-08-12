@@ -42,6 +42,7 @@ interface MapStoreProps {
 	zoom: number;
 	precision: number;
 	clusterZoom: number;
+	gridLoader: boolean;
 }
 
 const initialState: IStateProps<MapStoreProps> = {
@@ -66,7 +67,8 @@ const initialState: IStateProps<MapStoreProps> = {
 	isFetchingPlaceData: false,
 	zoom: 5,
 	clusterZoom: 18,
-	precision: 10
+	precision: 10,
+	gridLoader: true,
 };
 
 export default createStore<MapStoreProps>(initialState, true, localStorageKey);

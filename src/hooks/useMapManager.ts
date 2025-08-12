@@ -45,7 +45,6 @@ const useMapManager = ({
 	resetAppStateCb
 }: UseMapManagerProps) => {
 	const [mapStyleWithLanguageUrl, setMapStyleWithLanguageUrl] = useState<MapStyle>();
-	const [gridLoader, setGridLoader] = useState(true);
 	const { baseValues, apiKey } = useAuth();
 	const {
 		currentLocationData,
@@ -56,7 +55,8 @@ const useMapManager = ({
 		mapColorScheme,
 		mapPoliticalView,
 		mapLanguage,
-		setZoom
+		gridLoader, 
+		setGridLoader
 	} = useMap();
 	const { t } = useTranslation();
 	const apiKeyRegion = useMemo(
@@ -102,7 +102,7 @@ const useMapManager = ({
 		// Keep grid loader visible for a short time to prevent flickering
 		setTimeout(() => {
 			setGridLoader(false);
-		}, 500);
+		}, 300);
 	}, []);
 
 	useEffect(() => {
@@ -122,6 +122,7 @@ const useMapManager = ({
 		({ coords: { latitude, longitude } }: GeolocateResultEvent) => {
 			setViewpoint({ latitude, longitude });
 			setCurrentLocation({ currentLocation: { latitude, longitude }, error: undefined });
+			setGridLoader(true);
 		},
 		[setCurrentLocation, setViewpoint]
 	);

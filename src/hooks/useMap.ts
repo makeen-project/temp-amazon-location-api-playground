@@ -84,6 +84,9 @@ const useMap = () => {
 				setState(() => {
 					return { zoom };
 				});
+			},
+			setGridLoader: (gridLoader: boolean) => {
+				setState({ gridLoader });
 			}
 		}),
 		[setState, setInitial]

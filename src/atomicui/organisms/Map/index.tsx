@@ -174,7 +174,7 @@ const Map = forwardRef<MapRef, MapProps>(
 						openStylesCard={show.stylesCard}
 						setOpenStylesCard={b => setShow(s => ({ ...s, stylesCard: b }))}
 						onCloseSidebar={() => setShow(s => ({ ...s, sidebar: false }))}
-						onShowGridLoader={() => setShow(s => ({ ...s, gridLoader: true }))}
+						onShowGridLoader={() => setGridLoader(true)}
 						isUnauthSimulationOpen={show.unauthSimulation}
 						onSetShowUnauthSimulation={(b: boolean) => setShow(s => ({ ...s, unauthSimulation: b }))}
 					/>
