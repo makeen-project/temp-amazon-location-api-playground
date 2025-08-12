@@ -54,7 +54,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const navigate = useNavigate();
 	const { urlState, setUrlState } = useUrlState({ ...initialUrlState, response: undefined });
-	const { setBiasPosition, setMapPoliticalView, setMapLanguage, } = useMap();
+	const { setBiasPosition, setMapPoliticalView, setMapLanguage, setGridLoader } = useMap();
 	const { setClickedPosition, clickedPosition, clearPoiList, setSelectedMarker } = usePlace();
 
 	const [isSnippetsOpen, setIsSnippetsOpen] = useState(true);
@@ -203,6 +203,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		setLocalMarkers([]);
 		setActiveMarker(true);
 		setIsCoordinatePickingDisabled(true);
+		setGridLoader(true);
 
 		const [lng, lat] = currentPosition;
 		const submittedQueryRadius = customRequestStore.submittedQueryRadius;

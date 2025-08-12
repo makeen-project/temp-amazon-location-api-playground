@@ -11,7 +11,7 @@ import "./styles.scss";
 const Logo: FC = () => {
 	const { mapColorScheme } = useMap();
 
-	return <div className="map-logo">{mapColorScheme === MapColorSchemeEnum.DARK ? <LogoLight /> : <LogoDark />}</div>;
+	return <div className="map-logo">{mapColorScheme === MapColorSchemeEnum.DARK ? <LogoDark /> : <LogoLight />}</div>;
 };
 
 export default Logo;
