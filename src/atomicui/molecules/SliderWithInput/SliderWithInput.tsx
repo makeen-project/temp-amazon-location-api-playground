@@ -5,9 +5,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import { Flex, Input, SwitchField } from "@aws-amplify/ui-react";
-
-import { useQueryState } from "nuqs";
+import { Flex, Input } from "@aws-amplify/ui-react";
 
 import { Slider } from "../../atoms/Slider/Slider";
 import "./styles.scss";
@@ -21,7 +19,6 @@ export interface SliderWithInputProps {
 	defaultValue?: number;
 	value?: number;
 	onChange?: (value: number) => void;
-	onToggle?: (enabled: boolean) => void;
 	isDisabled?: boolean;
 	required?: boolean;
 	error?: string;
@@ -37,8 +34,7 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 	defaultValue,
 	value: propValue,
 	onChange,
-	onToggle,
-	isDisabled: propDisabled = false,
+	isDisabled = false,
 	required = false,
 	error,
 	className = ""
@@ -46,16 +42,6 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 	const [value, setValue] = useState<number>(
 		propValue && propValue !== null ? (propValue < min ? min : propValue) : defaultValue ?? min
 	);
-	const [isEnabled, setIsEnabled] = useState<boolean>(!propDisabled);
-	const [queryRadius] = useQueryState(name);
-
-	useEffect(() => {
-		if (queryRadius) {
-			setIsEnabled(true);
-		} else {
-			setIsEnabled(false);
-		}
-	}, [queryRadius]);
 
 	useEffect(() => {
 		if (propValue !== undefined && propValue !== null && propValue !== value) {
@@ -65,10 +51,10 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 
 	useEffect(() => {
 		// Reset value to default when disabled
-		if (propDisabled) {
+		if (isDisabled) {
 			setValue(defaultValue ?? min);
 		}
-	}, [propDisabled, defaultValue, min]);
+	}, [isDisabled, defaultValue, min]);
 
 	const handleSliderChange = (newValue: number) => {
 		setValue(newValue);
@@ -83,51 +69,34 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 		}
 	};
 
-	const handleToggle = (checked: boolean) => {
-		setIsEnabled(checked);
-		onToggle?.(checked);
-	};
-
 	return (
 		<Flex direction="column" className={`slider-with-input ${className}`}>
 			<Flex className="slider-with-input__header">
 				{label && <span className="slider-with-input__label">{label}</span>}
-				<SwitchField
-					label=""
-					size="large"
-					labelPosition="start"
-					isChecked={isEnabled}
-					onChange={e => handleToggle(e.target.checked)}
-					className="slider-with-input__toggle"
-				/>
 			</Flex>
 			<Flex className="slider-with-input__controls">
-				{isEnabled && value !== null && value !== undefined && (
-					<>
-						<Slider
-							name={name}
-							min={min}
-							max={max}
-							step={step}
-							value={value}
-							onChange={handleSliderChange}
-							disabled={!isEnabled}
-							required={required}
-							error={error}
-							className="slider-with-input__slider"
-						/>
-						<Input
-							type="number"
-							value={value}
-							onChange={handleInputChange}
-							min={min}
-							max={max}
-							step={step}
-							isDisabled={!isEnabled}
-							className="slider-with-input__input"
-						/>
-					</>
-				)}
+				<Slider
+					name={name}
+					min={min}
+					max={max}
+					step={step}
+					value={value}
+					onChange={handleSliderChange}
+					disabled={isDisabled}
+					required={required}
+					error={error}
+					className="slider-with-input__slider"
+				/>
+				<Input
+					type="number"
+					value={value}
+					onChange={handleInputChange}
+					min={min}
+					max={max}
+					step={step}
+					isDisabled={isDisabled}
+					className="slider-with-input__input"
+				/>
 			</Flex>
 		</Flex>
 	);

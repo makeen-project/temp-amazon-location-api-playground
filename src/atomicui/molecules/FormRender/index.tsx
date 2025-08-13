@@ -407,7 +407,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						defaultValue={field.defaultValue}
 						value={field.value}
 						onChange={value => handleChange(field.name, value)}
-						onToggle={enabled => handleToggle(field.name, enabled)}
 						isDisabled={field.disabled}
 					/>
 				);
