@@ -39,7 +39,13 @@ interface CustomRequestProps {
 	handleReset: () => void;
 }
 
-export default function CustomRequest({ onResponseReceived, urlState, setUrlState, mapContainerHeight, handleReset }: CustomRequestProps) {
+export default function CustomRequest({
+	onResponseReceived,
+	urlState,
+	setUrlState,
+	mapContainerHeight,
+	handleReset
+}: CustomRequestProps) {
 	useAuthManager();
 	const isFirstLoad = useRef(true);
 	const isSyncing = useRef(false);
@@ -124,7 +130,7 @@ export default function CustomRequest({ onResponseReceived, urlState, setUrlStat
 
 	const handleSubmit = async () => {
 		try {
-			const params = mapFormDataToApiParams(store, apiPlaygroundItem?.apiHandler?.paramMapping || {});
+			const params = mapFormDataToApiParams(urlState, apiPlaygroundItem?.apiHandler?.paramMapping || {});
 			const apiMethod = apiPlaygroundItem?.apiHandler?.apiMethod as keyof typeof placeService;
 
 			if (typeof placeService[apiMethod] === "function") {

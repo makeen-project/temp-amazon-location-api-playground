@@ -42,7 +42,6 @@ export const Slider = ({
 	error,
 	className = ""
 }: SliderProps): React.ReactElement => {
-	// Validate min/max/step values
 	if (min >= max) {
 		throw new Error("min value must be less than max value");
 	}
@@ -51,9 +50,6 @@ export const Slider = ({
 	}
 	if (defaultValue !== undefined && (defaultValue < min || defaultValue > max)) {
 		throw new Error(`defaultValue must be between ${min} and ${max}`);
-	}
-	if (value !== undefined && (value < min || value > max)) {
-		throw new Error(`value must be between ${min} and ${max}`);
 	}
 
 	const handleChange = (value: number) => {
