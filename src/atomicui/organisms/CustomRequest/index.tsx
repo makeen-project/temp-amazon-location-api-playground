@@ -120,6 +120,8 @@ export default function CustomRequest({
 		};
 		setState(newState);
 
+		setUrlState({ ...urlState, [name]: value });
+
 		// Remove empty arrays from URL using immutable logic
 		if (Array.isArray(value) && value.length === 0) {
 			setUrlState({ ...urlState, [name]: null });

@@ -7,6 +7,7 @@ import { ChangeEvent, forwardRef, useCallback, useEffect, useImperativeHandle, u
 
 import { IconLocationPin } from "@api-playground/assets/svgs";
 import usePlace from "@api-playground/hooks/usePlace";
+import { useCustomRequestStore } from "@api-playground/stores";
 
 import { Autocomplete, Label, Text, View } from "@aws-amplify/ui-react";
 import type { ComboBoxOption } from "@aws-amplify/ui-react/dist/types/primitives/types/autocomplete";
@@ -48,6 +49,7 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 	({ onChange, label, placeholder = "Enter an address...", isRequired, initialValue }, ref) => {
 		const autocompleteRef = useRef<HTMLInputElement>(null);
 		const { suggestions, search, isSearching, setSuggestions, setHoveredMarker } = usePlace();
+		const { setState } = useCustomRequestStore;
 		const [localValue, setLocalValue] = useState(initialValue || "");
 		const [localIsSearching, setLocalIsSearching] = useState(false);
 		const timeoutIdRef = useRef<ReturnType<typeof setTimeout>>();
@@ -58,6 +60,7 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 			onChange?.("");
 			setSuggestions();
 			setLocalIsSearching(false);
+			setState({ response: undefined });
 		}, [onChange, setSuggestions]);
 
 		useImperativeHandle(
@@ -70,6 +73,7 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 
 		const handleSearch = useCallback(
 			async (searchValue: string) => {
+				setState({ response: undefined });
 				if (timeoutIdRef.current) {
 					clearTimeout(timeoutIdRef.current);
 				}
@@ -106,7 +110,7 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 				setLocalIsSearching(false);
 				return;
 			}
-			handleSearch(newValue);
+			void handleSearch(newValue);
 		};
 
 		const onSelectSuggestion = useCallback(
@@ -144,9 +148,9 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 			const suggestionItem = suggestions?.list?.find(s => s.id === option.value);
 
 			return (
-				<View 
-					key={option.value} 
-					data-testid={`suggestion-${option.value}`} 
+				<View
+					key={option.value}
+					data-testid={`suggestion-${option.value}`}
 					className="option-details"
 					onMouseEnter={() => {
 						if (suggestionItem) {
@@ -202,12 +206,12 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 			id: `fallback-${localValue}`
 		};
 
-		const options: ComboBoxOption[] =
-			!isCurrentlySearching && hasUserInput
-				? filteredSuggestionOptions.length > 0
-					? filteredSuggestionOptions
-					: [fallbackOption]
-				: [];
+		const options: ComboBoxOption[] = (() => {
+			if (!isCurrentlySearching && hasUserInput) {
+				return filteredSuggestionOptions.length > 0 ? filteredSuggestionOptions : [fallbackOption];
+			}
+			return [];
+		})();
 
 		return (
 			<View>
