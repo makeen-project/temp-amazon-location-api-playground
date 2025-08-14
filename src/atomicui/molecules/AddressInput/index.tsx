@@ -47,7 +47,7 @@ const MAX_CHARACTERS = 200;
 const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 	({ onChange, label, placeholder = "Enter an address...", isRequired, initialValue }, ref) => {
 		const autocompleteRef = useRef<HTMLInputElement>(null);
-		const { suggestions, search, isSearching, setSuggestions } = usePlace();
+		const { suggestions, search, isSearching, setSuggestions, setHoveredMarker } = usePlace();
 		const [localValue, setLocalValue] = useState(initialValue || "");
 		const [localIsSearching, setLocalIsSearching] = useState(false);
 		const timeoutIdRef = useRef<ReturnType<typeof setTimeout>>();
@@ -141,9 +141,20 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 			const optionData = optionDataMap.current.get(option.value);
 			const separateIndex = option.label.indexOf(",");
 			const title = separateIndex > -1 ? option.label.substring(0, separateIndex) : option.label;
+			const suggestionItem = suggestions?.list?.find(s => s.id === option.value);
 
 			return (
-				<View key={option.value} data-testid={`suggestion-${option.value}`} className="option-details">
+				<View 
+					key={option.value} 
+					data-testid={`suggestion-${option.value}`} 
+					className="option-details"
+					onMouseEnter={() => {
+						if (suggestionItem) {
+							setHoveredMarker(suggestionItem);
+						}
+					}}
+					onMouseLeave={() => setHoveredMarker()}
+				>
 					<IconLocationPin />
 					<View className="content-wrapper">
 						<Text>{title}</Text>
