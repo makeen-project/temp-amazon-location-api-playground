@@ -58,6 +58,8 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	};
 
 	const requestObject = useMemo(() => {
+		if (!response) return null;
+
 		const defaultParams = getDefaultParams();
 		const placeholderParams: Record<string, unknown> = {};
 
@@ -123,7 +125,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 		});
 
 		return { ...defaultParams, ...placeholderParams, ...urlParams };
-	}, [shareableUrl, apiPlaygroundItem?.apiHandler?.paramMapping, apiPlaygroundItem?.formFields]);
+	}, [response]);
 
 	const CODE_SNIPPETS = useMemo(() => {
 		if (!apiPlaygroundItem?.codeSnippets) {
@@ -135,6 +137,50 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 		}
 
 		const snippets = { ...apiPlaygroundItem.codeSnippets } as unknown as Record<string, string>;
+
+		// Replace placeholder values with default values
+		(["JavaScript", "Python", "Ruby"] as const).forEach(language => {
+			let code = snippets[language];
+			const defaultParams = getDefaultParams();
+
+			// Find all placeholders in the format [{{key}}]
+			const placeholderRegex = /\[{{(\w+)}}\]/g;
+			let match;
+			while ((match = placeholderRegex.exec(code)) !== null) {
+				const placeholder = match[0];
+				const key = match[1];
+
+				// First try to get value from paramPlaceholders
+				const placeholderValue = apiPlaygroundItem?.codeSnippets?.paramPlaceholders?.[key];
+				if (placeholderValue !== undefined) {
+					code = code.replace(placeholder, placeholderValue);
+					continue;
+				}
+
+				// If no placeholder value, try to get from paramMapping
+				const matchingParam = Object.entries(apiPlaygroundItem?.apiHandler?.paramMapping || {}).find(
+					([paramKey]) => paramKey.toLowerCase() === key.toLowerCase()
+				);
+
+				if (matchingParam) {
+					const [, paramName] = matchingParam;
+					const defaultValue = defaultParams[paramName];
+					if (defaultValue !== undefined) {
+						// Replace the placeholder with the default value
+						code = code.replace(
+							placeholder,
+							Array.isArray(defaultValue) ? `[${defaultValue.join(", ")}]` : String(defaultValue ?? "")
+						);
+					}
+				}
+			}
+			snippets[language] = code;
+		});
+
+		// If no response yet, return the snippets with default values
+		if (!response || !requestObject) {
+			return snippets;
+		}
 
 		(["JavaScript", "Python", "Ruby"] as const).forEach(language => {
 			let code = snippets[language];
@@ -251,7 +297,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 		});
 
 		return snippets;
-	}, [apiPlaygroundItem?.codeSnippets, requestObject]);
+	}, [apiPlaygroundItem?.codeSnippets, requestObject, response]);
 
 	const handleCopyRequestObject = async () => {
 		try {
@@ -348,11 +394,9 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 							</Button>
 						</View>
 						<View className={"snippets-container__snippet__content expandable"}>
-							{requestObject ? (
-								<pre style={{ margin: 0 }}>
-									<code>{JSON.stringify(requestObject, null, 2)}</code>
-								</pre>
-							) : null}
+							<pre style={{ margin: 0 }}>
+								<code>{JSON.stringify(requestObject || {}, null, 2)}</code>
+							</pre>
 						</View>
 					</View>
 

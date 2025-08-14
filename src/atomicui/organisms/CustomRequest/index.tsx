@@ -12,7 +12,7 @@ import useAuthManager from "@api-playground/hooks/useAuthManager";
 import useMap from "@api-playground/hooks/useMap";
 import usePlaceService from "@api-playground/services/usePlaceService";
 import { useCustomRequestStore } from "@api-playground/stores";
-import { CustomRequestStore, initialState } from "@api-playground/stores/useCustomRequestStore";
+import { CustomRequestStore } from "@api-playground/stores/useCustomRequestStore";
 import { errorHandler } from "@api-playground/utils/errorHandler";
 import {
 	convertFormContentConfigToContentProps,
@@ -70,7 +70,7 @@ export default function CustomRequest({
 		const response = parsedSearchParams.response ? JSON.parse(parsedSearchParams.response as string) : undefined;
 
 		setState({
-			...initialState,
+			// ...initialState,
 			...parsedSearchParams,
 			response
 		});
@@ -130,7 +130,12 @@ export default function CustomRequest({
 
 	const handleSubmit = async () => {
 		try {
-			const params = mapFormDataToApiParams(urlState, apiPlaygroundItem?.apiHandler?.paramMapping || {});
+			const allSearchParams = Object.fromEntries(searchParams.entries());
+			const parsedSearchParams = Object.fromEntries(
+				Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
+			);
+
+			const params = mapFormDataToApiParams(parsedSearchParams, apiPlaygroundItem?.apiHandler?.paramMapping || {});
 			const apiMethod = apiPlaygroundItem?.apiHandler?.apiMethod as keyof typeof placeService;
 
 			if (typeof placeService[apiMethod] === "function") {

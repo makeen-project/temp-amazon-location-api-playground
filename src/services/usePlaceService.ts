@@ -42,7 +42,7 @@ interface ReverseGeocodeParams {
 }
 
 interface GeocodeParams {
-	Query: string;
+	QueryText: string;
 	BiasPosition?: number[];
 	AdditionalFeatures?: AdditionalFeatures[];
 	Language?: string;
@@ -147,7 +147,7 @@ const usePlaceService = () => {
 			},
 			getPlaceByAddress: async (params: GeocodeParams) => {
 				const input: GeocodeCommandInput = {
-					QueryText: params.Query,
+					QueryText: params.QueryText,
 					BiasPosition: params.BiasPosition && params.BiasPosition.length > 0 ? params.BiasPosition : undefined,
 					Language: params.Language || Language
 				};
