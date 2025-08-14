@@ -13,8 +13,8 @@ import { MapMarker } from "@api-playground/atomicui/molecules";
 import CustomRequest from "@api-playground/atomicui/organisms/CustomRequest";
 import Map, { MapRef } from "@api-playground/atomicui/organisms/Map";
 import RequestSnippets from "@api-playground/atomicui/organisms/RequestSnippets";
-import { useMap, usePlace } from "@api-playground/hooks";
 import { appConfig } from "@api-playground/core/constants";
+import { useMap, usePlace } from "@api-playground/hooks";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import { useUrlState } from "@api-playground/hooks/useUrlState";
@@ -26,10 +26,11 @@ import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { bbox, circle } from "@turf/turf";
 import { NuqsAdapter } from "nuqs/adapters/react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./styles.scss";
+
 const {
 	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
 } = appConfig;
-import "./styles.scss";
 
 const ApiPlaygroundDetailsPage: FC = () => {
 	useAuthManager();
@@ -330,7 +331,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					[minLng, minLat],
 					[maxLng, maxLat]
 				],
-				{ padding: 50, duration: 800, essential: true }
+				{ padding: { top: 50, bottom: 50, left: 450, right: 450 }, duration: 800, essential: true }
 			);
 		} catch {}
 	}, [suggestions, mapLoaded, showMapMarker, apiPlaygroundItem]);
@@ -533,7 +534,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
 							/>
 						))}
-					{!showMapMarker && apiPlaygroundItem?.type === "geocode" && suggestions?.list?.length > 0 &&
+					{!showMapMarker &&
+						apiPlaygroundItem?.type === "geocode" &&
+						suggestions?.list?.length > 0 &&
 						suggestions.list
 							.filter(s => Array.isArray(s.position) && s.position.length === 2)
 							.map(s => (
