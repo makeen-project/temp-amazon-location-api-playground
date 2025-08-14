@@ -13,7 +13,6 @@ import type { ComboBoxOption } from "@aws-amplify/ui-react/dist/types/primitives
 
 import "./styles.scss";
 
-// Basic suggestion type matching the API response
 interface BaseSuggestion {
 	id: string;
 	queryId?: string;
@@ -25,7 +24,6 @@ interface BaseSuggestion {
 	hash?: string;
 }
 
-// Additional data we want to store for each option
 interface OptionData {
 	position?: number[];
 	country?: string;
@@ -49,15 +47,18 @@ const MAX_CHARACTERS = 200;
 const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 	({ onChange, label, placeholder = "Enter an address...", isRequired, initialValue }, ref) => {
 		const autocompleteRef = useRef<HTMLInputElement>(null);
-		const { suggestions, search, isSearching } = usePlace();
+		const { suggestions, search, isSearching, setSuggestions } = usePlace();
 		const [localValue, setLocalValue] = useState(initialValue || "");
+		const [localIsSearching, setLocalIsSearching] = useState(false);
 		const timeoutIdRef = useRef<ReturnType<typeof setTimeout>>();
 		const optionDataMap = useRef<Map<string, OptionData>>(new Map());
 
 		const clearInput = useCallback(() => {
 			setLocalValue("");
 			onChange?.("");
-		}, [onChange]);
+			setSuggestions();
+			setLocalIsSearching(false);
+		}, [onChange, setSuggestions]);
 
 		useImperativeHandle(
 			ref,
@@ -73,6 +74,8 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 					clearTimeout(timeoutIdRef.current);
 				}
 
+				setLocalIsSearching(true);
+
 				timeoutIdRef.current = setTimeout(async () => {
 					try {
 						if (searchValue && searchValue.trim().length > 0) {
@@ -80,21 +83,29 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 						}
 					} catch (error) {
 						console.error("Search failed:", error);
+					} finally {
+						setLocalIsSearching(false);
 					}
-				}, 200);
+				}, 500);
 			},
 			[search]
 		);
 
 		const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
 			const newValue = target.value;
+			if (newValue.length > MAX_CHARACTERS) return;
 
-			// Validate character limit - silently prevent input if exceeded
-			if (newValue.length > MAX_CHARACTERS) {
-				return; // Don't update the value if it exceeds the limit
+			if (suggestions?.list?.length) {
+				setSuggestions();
 			}
 
 			setLocalValue(newValue);
+			onChange?.(newValue);
+			if (newValue.trim().length === 0) {
+				setSuggestions();
+				setLocalIsSearching(false);
+				return;
+			}
 			handleSearch(newValue);
 		};
 
@@ -102,7 +113,6 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 			(option: ComboBoxOption) => {
 				const selectedValue = option.label;
 
-				// Validate character limit for selected suggestion - silently prevent if exceeded
 				if (selectedValue.length > MAX_CHARACTERS) {
 					return;
 				}
@@ -114,7 +124,6 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 		);
 
 		const renderOption = (option: ComboBoxOption) => {
-			// Check if this is a fallback option (user's input)
 			const isFallbackOption = option.value.startsWith("fallback-");
 
 			if (isFallbackOption) {
@@ -129,7 +138,6 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 				);
 			}
 
-			// Regular suggestion option
 			const optionData = optionDataMap.current.get(option.value);
 			const separateIndex = option.label.indexOf(",");
 			const title = separateIndex > -1 ? option.label.substring(0, separateIndex) : option.label;
@@ -155,7 +163,6 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 			};
 		}, []);
 
-		// Create options from suggestions
 		const suggestionOptions = (suggestions?.list || []).map((suggestion: BaseSuggestion) => {
 			const option: ComboBoxOption = {
 				label: suggestion.label || "",
@@ -163,7 +170,6 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 				id: suggestion.id
 			};
 
-			// Store additional data in the Map
 			optionDataMap.current.set(suggestion.id, {
 				position: suggestion.position,
 				country: suggestion.country,
@@ -173,33 +179,24 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 			return option;
 		});
 
-		const hasSearchResults = suggestionOptions.length > 0;
 		const hasUserInput = localValue.trim().length > 0;
 		const filteredSuggestionOptions = hasUserInput
 			? suggestionOptions.filter(option => option.label.toLowerCase().includes(localValue.toLowerCase()))
 			: suggestionOptions;
 
-		// Show fallback option only when no search results exist
-		const shouldShowFallback = !isSearching && hasUserInput && !hasSearchResults;
-
+		const isCurrentlySearching = isSearching || localIsSearching;
 		const fallbackOption: ComboBoxOption = {
 			label: localValue,
 			value: `fallback-${localValue}`,
 			id: `fallback-${localValue}`
 		};
 
-		// Use filtered search results if available, otherwise show fallback
-		let options = filteredSuggestionOptions;
-
-		// Show fallback when no search results exist and user has typed something
-		if (shouldShowFallback) {
-			options = [fallbackOption];
-		}
-
-		// Ensure we always have options when user has typed something
-		if (hasUserInput && options.length === 0) {
-			options = [fallbackOption];
-		}
+		const options: ComboBoxOption[] =
+			!isCurrentlySearching && hasUserInput
+				? filteredSuggestionOptions.length > 0
+					? filteredSuggestionOptions
+					: [fallbackOption]
+				: [];
 
 		return (
 			<View>
@@ -217,7 +214,7 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 					onChange={handleChange}
 					onSelect={onSelectSuggestion}
 					renderOption={renderOption}
-					isLoading={isSearching}
+					isLoading={isCurrentlySearching}
 					className="address-autocomplete"
 					borderRadius={"20px"}
 					required={isRequired}

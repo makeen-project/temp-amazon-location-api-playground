@@ -58,13 +58,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const navigate = useNavigate();
 	const { urlState, setUrlState } = useUrlState({ ...initialUrlState, response: undefined });
 	const { setBiasPosition, setMapPoliticalView, setMapLanguage, setGridLoader } = useMap();
-	const { setClickedPosition, clickedPosition, clearPoiList, setSelectedMarker } = usePlace();
+	const { setClickedPosition, clickedPosition, clearPoiList, setSelectedMarker, suggestions } = usePlace();
 
 	const [isSnippetsOpen, setIsSnippetsOpen] = useState(true);
 	const [mapLoaded, setMapLoaded] = useState(false);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
 	const [activeMarker, setActiveMarker] = useState(false);
+	const [activeSuggestionId, setActiveSuggestionId] = useState<string>();
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
@@ -301,6 +302,40 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	}, [customRequestStore.response]);
 
 	useEffect(() => {
+		if (!mapLoaded) return;
+		if (!apiPlaygroundItem || apiPlaygroundItem.type !== "geocode") return;
+		const list = suggestions?.list || [];
+		const pts = list.map(s => s.position).filter(p => Array.isArray(p) && p.length === 2) as number[][];
+		if (pts.length === 0) return;
+		if (pts.length === 1) {
+			const [lng, lat] = pts[0] as [number, number];
+			try {
+				mapRef.current?.flyTo({ center: [lng, lat], zoom: 12, duration: 800 });
+			} catch {}
+			return;
+		}
+		let minLng = Infinity,
+			minLat = Infinity,
+			maxLng = -Infinity,
+			maxLat = -Infinity;
+		for (const [lng, lat] of pts as [number, number][]) {
+			if (lng < minLng) minLng = lng;
+			if (lat < minLat) minLat = lat;
+			if (lng > maxLng) maxLng = lng;
+			if (lat > maxLat) maxLat = lat;
+		}
+		try {
+			mapRef.current?.fitBounds(
+				[
+					[minLng, minLat],
+					[maxLng, maxLat]
+				],
+				{ padding: 50, duration: 800, essential: true }
+			);
+		} catch {}
+	}, [suggestions, mapLoaded, showMapMarker, apiPlaygroundItem]);
+
+	useEffect(() => {
 		return () => {
 			if (resetTimeoutRef.current) {
 				clearTimeout(resetTimeoutRef.current);
@@ -498,6 +533,28 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
 							/>
 						))}
+					{!showMapMarker && apiPlaygroundItem?.type === "geocode" && suggestions?.list?.length > 0 &&
+						suggestions.list
+							.filter(s => Array.isArray(s.position) && s.position.length === 2)
+							.map(s => (
+								<MapMarker
+									key={s.id}
+									active={activeSuggestionId === s.id}
+									onClosePopUp={() => setActiveSuggestionId(undefined)}
+									onActivate={() => {
+										setActiveSuggestionId(s.id);
+										setSearchValue(s.label || "");
+									}}
+									searchValue={searchValue}
+									setSearchValue={setSearchValue}
+									placeId={s.placeId || s.id}
+									address={{ Label: s.label || "" }}
+									position={s.position as number[]}
+									id={s.id}
+									label={s.label || ""}
+									locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
+								/>
+							))}
 					{message && <HintMessage message={message} />}
 					{mapLoaded && (
 						<Flex className="panels-container">
