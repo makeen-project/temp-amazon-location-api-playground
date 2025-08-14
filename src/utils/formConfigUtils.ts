@@ -105,7 +105,8 @@ export const convertFormFieldConfigToFormField = (
 				min: fieldConfig.min!,
 				max: fieldConfig.max!,
 				step: fieldConfig.step,
-				disabled: fieldConfig.disabled
+				disabled: fieldConfig.disabled,
+				defaultValue: fieldConfig.defaultValue as any
 			};
 
 		case "radio":
