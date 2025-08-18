@@ -49,7 +49,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		if (field.defaultValue) {
 			acc[fieldName] = field.defaultValue;
 		} else if (field.type === "sliderWithInput") {
-			acc[fieldName] = 1;
+			acc[fieldName] = field.defaultValue ?? 1;
 		} else {
 			acc[fieldName] = initialState[fieldName];
 		}
@@ -301,6 +301,13 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			setIsCoordinatePickingDisabled(false);
 		}
 	}, [customRequestStore.response]);
+
+	useEffect(() => {
+		setState(prev => ({
+			...prev,
+			...initialUrlState
+		}));
+	}, [apiPlaygroundItem]);
 
 	useEffect(() => {
 		if (!mapLoaded) return;
