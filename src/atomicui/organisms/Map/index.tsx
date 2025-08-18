@@ -70,7 +70,7 @@ export interface MapRef {
 	zoomTo: (number: number) => void;
 	fitBounds: (
 		bounds: [[number, number], [number, number]],
-		options?: { padding?: number; duration?: number; essential?: boolean }
+		options?: { padding?: any; duration?: number; essential?: boolean }
 	) => void;
 }
 
