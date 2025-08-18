@@ -348,8 +348,13 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	const handleWidthToggle = (e: React.MouseEvent<SVGSVGElement>) => {
 		e.stopPropagation();
 		e.preventDefault();
-		setIsExpanded(!isExpanded);
+		const willExpand = !isExpanded;
+		setIsExpanded(willExpand);
 		onWidthChange?.();
+
+		if (willExpand && !isOpen) {
+			onToggle?.();
+		}
 	};
 
 	return (
