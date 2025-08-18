@@ -1029,7 +1029,7 @@
 				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '[{{queryText}}]'\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
 				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  QueryText: '[{{queryText}}]'\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
 				"paramPlaceholders": {
-					"queryText": ""
+					"query": "123 Main St, New York, NY"
 				}
 			}
 		}

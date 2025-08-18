@@ -70,7 +70,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
-	const [mapContainerHeight, setMapContainerHeight] = useState<number>(800); // Default fallback height
+	const [mapContainerHeight, setMapContainerHeight] = useState<number>(500); // Default fallback height
 	const [localMarkers, setLocalMarkers] = useState<Array<{ position: [number, number]; id: string; label: string }>>(
 		[]
 	);
@@ -312,7 +312,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	useEffect(() => {
 		if (!mapLoaded) return;
 		if (!apiPlaygroundItem || apiPlaygroundItem.type !== "geocode") return;
-		const list = suggestions?.list || [];
+		const list = suggestions?.list;
+		if (!list || list.length === 0) return;
 		const pts = list.map(s => s.position).filter(p => Array.isArray(p) && p.length === 2) as number[][];
 		if (pts.length === 0) return;
 		if (pts.length === 1) {
@@ -338,7 +339,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					[minLng, minLat],
 					[maxLng, maxLat]
 				],
-				{ padding: { top: 50, bottom: 50, left: 450, right: 450 }, duration: 800, essential: true }
+				{ padding: 50, duration: 800, essential: true }
 			);
 		} catch {}
 	}, [suggestions, mapLoaded, showMapMarker, apiPlaygroundItem]);
@@ -543,7 +544,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 						))}
 					{!showMapMarker &&
 						apiPlaygroundItem?.type === "geocode" &&
-						suggestions?.list?.length > 0 &&
+						suggestions?.list &&
+						suggestions.list.length > 0 &&
 						suggestions.list
 							.filter(s => Array.isArray(s.position) && s.position.length === 2)
 							.map(s => (
