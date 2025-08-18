@@ -99,7 +99,7 @@ export const RadioButtonGroup = <T extends string>({
 					<Content type="text" items={[{ text: label }]} />
 				</Flex>
 			)}
-			<RadioGroupField name={name} defaultValue={defaultValue} value={value} onChange={handleChange} legend="">
+			<RadioGroupField direction="row" name={name} defaultValue={defaultValue} value={value} onChange={handleChange} legend="">
 				{options.map(option => (
 					<Flex alignItems="center" key={option.value} className="radio-option">
 						<Radio className="custom-radio" value={option.value} isDisabled={disabled || option.disabled}>
