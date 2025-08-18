@@ -76,6 +76,7 @@ export { ReactComponent as IconSelected } from "./icon-selected-marker.svg";
 export { ReactComponent as IconShuffle } from "./icon-shuffle.svg";
 export { ReactComponent as IconStartingPoint } from "./icon-starting-point.svg";
 export { ReactComponent as IconSuggestion } from "./icon-suggestion-marker.svg";
+export { ReactComponent as IconRedMarker } from "./icon-red-marker.svg";
 export { ReactComponent as IconTrackerIntersect } from "./icon-tracker-intersect.svg";
 export { ReactComponent as IconTrackers } from "./icon-trackers.svg";
 export { ReactComponent as IconTrash } from "./icon-trash.svg";

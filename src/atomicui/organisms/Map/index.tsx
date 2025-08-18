@@ -62,6 +62,7 @@ interface MapProps {
 	className?: string;
 	apiId?: string;
 	mapContainerRef?: React.RefObject<HTMLDivElement>;
+	maxZoom?: number;
 }
 
 export interface MapRef {
@@ -74,7 +75,7 @@ export interface MapRef {
 }
 
 const Map = forwardRef<MapRef, MapProps>(
-	({ children, showMap = true, onMapLoad, onMapClick, className = "", mapContainerRef }, ref) => {
+	({ children, showMap = true, onMapLoad, onMapClick, className = "", mapContainerRef, maxZoom }, ref) => {
 		const [show, setShow] = useState<ShowStateType>(initShow);
 		const mapRef = useRef<MapLibreMapRef | null>(null);
 		const geolocateControlRef = useRef<GeolocateControlRef | null>(null);
@@ -222,7 +223,7 @@ const Map = forwardRef<MapRef, MapProps>(
 					}
 					mapStyle={mapStyleWithLanguageUrl}
 					minZoom={2}
-					maxZoom={14.3}
+					maxZoom={maxZoom ? maxZoom : 14.3}
 					maxBounds={
 						show.unauthSimulation && show.unauthSimulationBounds
 							? isDesktop
