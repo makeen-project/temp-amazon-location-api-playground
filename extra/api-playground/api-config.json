@@ -37,7 +37,7 @@
 			},
 			"formFields": [
 				{
-					"type": "lngLatInput",
+					"type": "coordinateInput",
 					"name": "queryPosition",
 					"label": "Query Position",
 					"required": true,
