@@ -9,6 +9,7 @@ export * from "./LocationPopup";
 export * from "./Logo";
 export * from "./MapButtons";
 export * from "./MapMarker";
+export * from "./RedMarker";
 export { default as QueryRadiusCircle } from "./QueryRadiusCircle";
 export * from "./SliderWithInput";
 export * from "./CoordinateInput";

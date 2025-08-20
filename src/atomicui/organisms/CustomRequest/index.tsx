@@ -3,16 +3,15 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import { useCallback, useEffect, useRef, useState } from "react";
-
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { appConfig } from "@api-playground/core/constants";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
 import useAuthManager from "@api-playground/hooks/useAuthManager";
 import useMap from "@api-playground/hooks/useMap";
+import usePlace from "@api-playground/hooks/usePlace";
 import usePlaceService from "@api-playground/services/usePlaceService";
 import { useCustomRequestStore } from "@api-playground/stores";
-import { CustomRequestStore, initialState } from "@api-playground/stores/useCustomRequestStore";
+import { CustomRequestStore } from "@api-playground/stores/useCustomRequestStore";
 import { errorHandler } from "@api-playground/utils/errorHandler";
 import {
 	convertFormContentConfigToContentProps,
@@ -22,6 +21,7 @@ import {
 
 import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
+import { useCallback, useEffect, useRef, useState } from "react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import "./styles.scss";
@@ -54,6 +54,7 @@ export default function CustomRequest({
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
 	const { setMapPoliticalView, setMapLanguage, mapPoliticalView, mapLanguage } = useMap();
+	const { setSuggestions } = usePlace();
 
 	const store = useCustomRequestStore();
 	const { setState } = useCustomRequestStore;
@@ -70,7 +71,7 @@ export default function CustomRequest({
 		const response = parsedSearchParams.response ? JSON.parse(parsedSearchParams.response as string) : undefined;
 
 		setState({
-			...initialState,
+			// ...initialState,
 			...parsedSearchParams,
 			response
 		});
@@ -120,6 +121,8 @@ export default function CustomRequest({
 		};
 		setState(newState);
 
+		setUrlState({ ...urlState, [name]: value });
+
 		// Remove empty arrays from URL using immutable logic
 		if (Array.isArray(value) && value.length === 0) {
 			setUrlState({ ...urlState, [name]: null });
@@ -129,8 +132,14 @@ export default function CustomRequest({
 	};
 
 	const handleSubmit = async () => {
+		setSuggestions();
 		try {
-			const params = mapFormDataToApiParams(urlState, apiPlaygroundItem?.apiHandler?.paramMapping || {});
+			const allSearchParams = Object.fromEntries(searchParams.entries());
+			const parsedSearchParams = Object.fromEntries(
+				Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
+			);
+
+			const params = mapFormDataToApiParams(parsedSearchParams, apiPlaygroundItem?.apiHandler?.paramMapping || {});
 			const apiMethod = apiPlaygroundItem?.apiHandler?.apiMethod as keyof typeof placeService;
 
 			if (typeof placeService[apiMethod] === "function") {

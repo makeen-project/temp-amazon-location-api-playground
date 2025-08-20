@@ -29,7 +29,7 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		overflow: auto;
+		min-height: 0;
 
 		&__heading {
 			display: flex;
@@ -45,12 +45,14 @@
 			}
 		}
 
-		&__content {
+ 	&__content {
 			background-color: #f2f2f7;
 			flex: 1;
 			padding: 10px;
 			border-radius: 10px;
 			position: relative;
+			overflow: auto;
+			min-height: 0;
 
 			.amplify-text {
 				color: #636366;
@@ -125,4 +127,29 @@
 	margin: 0;
 	font-size: 0.875rem;
 	white-space: pre-wrap;
+}
+
+.expandable-container {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	min-height: 0;
+
+	.amplify-tabs {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+
+		.amplify-tabs__content {
+			flex: 1;
+			overflow: auto;
+			min-height: 0;
+		}
+
+		.amplify-tabs__panel--active {
+			overflow: auto;
+		}
+	}
 }

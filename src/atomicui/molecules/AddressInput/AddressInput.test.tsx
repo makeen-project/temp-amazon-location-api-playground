@@ -28,7 +28,9 @@ jest.mock("@api-playground/hooks/usePlace", () => ({
 			]
 		},
 		search: jest.fn(),
-		isSearching: false
+		isSearching: false,
+		setSuggestions: jest.fn(),
+		setHoveredMarker: jest.fn()
 	})
 }));
 

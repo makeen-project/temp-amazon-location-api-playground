@@ -40,17 +40,33 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 
 	const getDefaultParams = () => {
 		const defaultParams: Record<string, unknown> = {};
-		const requiredFields = apiPlaygroundItem?.formFields?.filter(field => field.required) || [];
 		const paramMapping = apiPlaygroundItem?.apiHandler?.paramMapping || {};
+		const placeholders = apiPlaygroundItem?.codeSnippets?.paramPlaceholders || {};
 
-		requiredFields.forEach(field => {
-			const apiParam = paramMapping[field.name];
-			if (apiParam) {
-				if (field.defaultValue !== undefined) {
-					defaultParams[apiParam] = field.defaultValue;
-				} else if (field.type === "lngLatInput") {
-					defaultParams[apiParam] = [0, 0];
+		Object.entries(placeholders).forEach(([key, value]) => {
+			const matchingParam = Object.entries(paramMapping).find(
+				([paramKey]) => paramKey.toLowerCase() === key.toLowerCase()
+			);
+
+			if (matchingParam) {
+				const [, paramName] = matchingParam;
+				let parsedValue: unknown;
+				try {
+					parsedValue = JSON.parse(value);
+				} catch {
+					parsedValue = value;
 				}
+
+				const parts = paramName.split(".");
+				let current = defaultParams;
+				parts.forEach((part, index) => {
+					if (index === parts.length - 1) {
+						current[part] = parsedValue;
+					} else {
+						current[part] = current[part] || {};
+						current = current[part] as Record<string, unknown>;
+					}
+				});
 			}
 		});
 
@@ -58,44 +74,16 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	};
 
 	const requestObject = useMemo(() => {
-		const defaultParams = getDefaultParams();
-		const placeholderParams: Record<string, unknown> = {};
-
-		// Convert placeholder params to API param names
-		if (apiPlaygroundItem?.codeSnippets?.paramPlaceholders) {
-			Object.entries(apiPlaygroundItem.codeSnippets.paramPlaceholders).forEach(([key, value]) => {
-				const matchingParam = Object.entries(apiPlaygroundItem.apiHandler?.paramMapping || {}).find(
-					([paramKey]) => paramKey.toLowerCase() === key.toLowerCase()
-				);
-
-				if (matchingParam) {
-					const [, paramName] = matchingParam;
-					let parsedValue: unknown;
-					try {
-						parsedValue = JSON.parse(value);
-					} catch {
-						parsedValue = value;
-					}
-
-					// Build the nested object structure based on the parameter name
-					const parts = paramName.split(".");
-					let current = placeholderParams;
-					parts.forEach((part, index) => {
-						if (index === parts.length - 1) {
-							current[part] = parsedValue;
-						} else {
-							current[part] = current[part] || {};
-							current = current[part] as Record<string, unknown>;
-						}
-					});
-				}
-			});
+		if (!response) {
+			return getDefaultParams();
 		}
+
+		const defaultParams = getDefaultParams();
+		const placeholderParams = getDefaultParams();
 
 		const urlParams: Record<string, unknown> = {};
 		const searchParams = Array.from(new URL(shareableUrl).searchParams.entries()).filter(([key]) => key !== "response");
 
-		// Parse URL params
 		searchParams.forEach(([key, value]) => {
 			const matchingParam = Object.entries(apiPlaygroundItem?.apiHandler?.paramMapping || {}).find(
 				([paramKey]) => paramKey.toLowerCase() === key.toLowerCase()
@@ -109,7 +97,6 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 				parsedValue = value;
 			}
 
-			// Build the nested object structure based on the parameter name
 			const parts = paramName.split(".");
 			let current = urlParams;
 			parts.forEach((part, index) => {
@@ -123,7 +110,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 		});
 
 		return { ...defaultParams, ...placeholderParams, ...urlParams };
-	}, [shareableUrl, apiPlaygroundItem?.apiHandler?.paramMapping, apiPlaygroundItem?.formFields]);
+	}, [response, apiPlaygroundItem?.apiHandler?.paramMapping, apiPlaygroundItem?.formFields]);
 
 	const CODE_SNIPPETS = useMemo(() => {
 		if (!apiPlaygroundItem?.codeSnippets) {
@@ -135,6 +122,50 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 		}
 
 		const snippets = { ...apiPlaygroundItem.codeSnippets } as unknown as Record<string, string>;
+
+		// Replace placeholder values with default values
+		(["JavaScript", "Python", "Ruby"] as const).forEach(language => {
+			let code = snippets[language];
+			const defaultParams = getDefaultParams();
+
+			// Find all placeholders in the format [{{key}}]
+			const placeholderRegex = /\[{{(\w+)}}\]/g;
+			let match;
+			while ((match = placeholderRegex.exec(code)) !== null) {
+				const placeholder = match[0];
+				const key = match[1];
+
+				// First try to get value from paramPlaceholders
+				const placeholderValue = apiPlaygroundItem?.codeSnippets?.paramPlaceholders?.[key];
+				if (placeholderValue !== undefined) {
+					code = code.replace(placeholder, placeholderValue);
+					continue;
+				}
+
+				// If no placeholder value, try to get from paramMapping
+				const matchingParam = Object.entries(apiPlaygroundItem?.apiHandler?.paramMapping || {}).find(
+					([paramKey]) => paramKey.toLowerCase() === key.toLowerCase()
+				);
+
+				if (matchingParam) {
+					const [, paramName] = matchingParam;
+					const defaultValue = defaultParams[paramName];
+					if (defaultValue !== undefined) {
+						// Replace the placeholder with the default value
+						code = code.replace(
+							placeholder,
+							Array.isArray(defaultValue) ? `[${defaultValue.join(", ")}]` : String(defaultValue ?? "")
+						);
+					}
+				}
+			}
+			snippets[language] = code;
+		});
+
+		// If no response yet, return the snippets with default values
+		if (!response || !requestObject) {
+			return snippets;
+		}
 
 		(["JavaScript", "Python", "Ruby"] as const).forEach(language => {
 			let code = snippets[language];
@@ -232,7 +263,6 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 				return line;
 			});
 
-			// Replace the params section
 			let newParamsSection = "{\n" + paramsLines.join(",\n") + "\n";
 			if (language === "Python") {
 				newParamsSection = "{\n" + paramsLines.join(",\n") + "\n";
@@ -251,7 +281,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 		});
 
 		return snippets;
-	}, [apiPlaygroundItem?.codeSnippets, requestObject]);
+	}, [apiPlaygroundItem?.codeSnippets, requestObject, response]);
 
 	const handleCopyRequestObject = async () => {
 		try {
@@ -302,8 +332,13 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	const handleWidthToggle = (e: React.MouseEvent<SVGSVGElement>) => {
 		e.stopPropagation();
 		e.preventDefault();
-		setIsExpanded(!isExpanded);
+		const willExpand = !isExpanded;
+		setIsExpanded(willExpand);
 		onWidthChange?.();
+
+		if (willExpand && !isOpen) {
+			onToggle?.();
+		}
 	};
 
 	return (
@@ -348,11 +383,9 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 							</Button>
 						</View>
 						<View className={"snippets-container__snippet__content expandable"}>
-							{requestObject ? (
-								<pre style={{ margin: 0 }}>
-									<code>{JSON.stringify(requestObject, null, 2)}</code>
-								</pre>
-							) : null}
+							<pre style={{ margin: 0 }}>
+								<code>{JSON.stringify(requestObject || {}, null, 2)}</code>
+							</pre>
 						</View>
 					</View>
 
