@@ -108,7 +108,9 @@
 						},
 						{
 							"label": "Storage",
-							"value": "Storage"
+							"value": "Storage",
+							"tooltipText": "Storage is not available in the API playground",
+							"disabled": true
 						}
 					]
 				},
@@ -729,7 +731,9 @@
 						},
 						{
 							"label": "Storage",
-							"value": "Storage"
+							"value": "Storage",
+							"tooltipText": "Storage is not available in the API playground",
+							"disabled": true
 						}
 					]
 				},
