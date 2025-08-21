@@ -99,7 +99,7 @@
 					"name": "intendedUse",
 					"label": "Intended Use",
 					"required": false,
-					"disabled": true,
+					"disabled": false,
 					"defaultValue": "SingleUse",
 					"options": [
 						{
@@ -723,7 +723,7 @@
 					"label": "Intended Use",
 					"required": false,
 					"defaultValue": "SingleUse",
-					"disabled": true,
+					"disabled": false,
 					"options": [
 						{
 							"label": "Single use",
