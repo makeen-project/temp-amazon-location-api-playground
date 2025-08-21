@@ -39,22 +39,18 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 	error,
 	className = ""
 }) => {
-	const [value, setValue] = useState<number>(
-		propValue && propValue !== null ? (propValue < min ? min : propValue) : defaultValue ?? min
-	);
+	const [value, setValue] = useState<number | undefined>(defaultValue ?? propValue);
 
 	useEffect(() => {
-		if (propValue !== undefined && propValue !== null && propValue !== value) {
-			setValue(propValue < min ? min : propValue);
-		}
-	}, [propValue, value]);
+		setValue(defaultValue ?? propValue);
+	}, [propValue, defaultValue]);
 
 	useEffect(() => {
 		// Reset value to default when disabled
 		if (isDisabled) {
-			setValue(defaultValue ?? min);
+			setValue(defaultValue);
 		}
-	}, [isDisabled, defaultValue, min]);
+	}, [isDisabled, defaultValue]);
 
 	const handleSliderChange = (newValue: number) => {
 		setValue(newValue);
@@ -80,7 +76,7 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 					min={min}
 					max={max}
 					step={step}
-					value={value}
+					value={value ?? min}
 					onChange={handleSliderChange}
 					disabled={isDisabled}
 					required={required}
@@ -89,7 +85,7 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 				/>
 				<Input
 					type="number"
-					value={value}
+					value={value === undefined ? "" : value}
 					onChange={handleInputChange}
 					min={min}
 					max={max}

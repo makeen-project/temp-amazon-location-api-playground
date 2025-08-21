@@ -91,7 +91,7 @@ export const convertFormFieldConfigToFormField = (
 			return {
 				...baseField,
 				type: "slider" as const,
-				value: parseValue(rawValue, "number", fieldConfig.min || 0),
+				value: parseValue(rawValue, "number", fieldConfig.defaultValue ?? fieldConfig.min),
 				min: fieldConfig.min!,
 				max: fieldConfig.max!,
 				step: fieldConfig.step
@@ -101,7 +101,7 @@ export const convertFormFieldConfigToFormField = (
 			return {
 				...baseField,
 				type: "sliderWithInput" as const,
-				value: parseValue(rawValue, "number", fieldConfig.min || 0),
+				value: parseValue(rawValue, "number", fieldConfig.defaultValue ?? undefined),
 				min: fieldConfig.min!,
 				max: fieldConfig.max!,
 				step: fieldConfig.step,
