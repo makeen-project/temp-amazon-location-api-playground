@@ -115,10 +115,9 @@ body:has(.disable-body-scroll) {
 	max-width: 300px !important;
 	opacity: 1 !important;
 	font-size: 14px !important;
-
-	@media only screen and (max-width: 980px) {
-		display: none !important;
-	}
+	background-color: var(--white-color) !important;
+	border: 2px solid var(--grey-color-2) !important;
+	color: var(--tertiary-color) !important;
 }
 
 .amplify-flex.amplify-checkbox__button.amplify-checkbox__button--focused {

@@ -5,7 +5,7 @@
 
 import React from "react";
 
-import { IconInfo } from "@api-playground/assets/svgs";
+import { IconClose, IconInfo } from "@api-playground/assets/svgs";
 import { Flex, Radio, RadioGroupField } from "@aws-amplify/ui-react";
 import { Tooltip } from "react-tooltip";
 
@@ -99,7 +99,7 @@ export const RadioButtonGroup = <T extends string>({
 					<Content type="text" items={[{ text: label }]} />
 				</Flex>
 			)}
-			<RadioGroupField name={name} defaultValue={defaultValue} value={value} onChange={handleChange} legend="">
+			<RadioGroupField direction="row" name={name} defaultValue={defaultValue} value={value} onChange={handleChange} legend="">
 				{options.map(option => (
 					<Flex alignItems="center" key={option.value} className="radio-option">
 						<Radio className="custom-radio" value={option.value} isDisabled={disabled || option.disabled}>
@@ -108,8 +108,18 @@ export const RadioButtonGroup = <T extends string>({
 						{option.tooltipText && (
 							<>
 								<IconInfo data-tooltip-id={`radio-option-${name}-${option.value}`} className="radio-group__info-icon" />
-								<Tooltip id={`radio-option-${name}-${option.value}`} className="react-tooltip" place="right">
+								<Tooltip
+									classNameArrow="radio-group__arrow-icon"
+									arrowColor="var(--grey-color-2)"
+									openOnClick
+									id={`radio-option-${name}-${option.value}`}
+									className="react-tooltip"
+									place="top"
+								>
 									{option.tooltipText}
+									<span className="radio-group__close-icon-container">
+										<IconClose className="radio-group__close-icon" />
+									</span>
 								</Tooltip>
 							</>
 						)}

@@ -6,6 +6,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { IconClose } from "@api-playground/assets/svgs";
 import { Button, Flex, Input, Label, Text } from "@aws-amplify/ui-react";
+import usePlace from "@api-playground/hooks/usePlace";
 
 interface CoordinateInputProps {
 	onChange?: (position: number[]) => void;
@@ -31,6 +32,7 @@ export default function CoordinateInput({
 	name,
 	placeholder = "Enter latitude, longitude (e.g., 40.7128, -74.0060)"
 }: CoordinateInputProps) {
+	const { clickedPosition } = usePlace();
 	const [coordinateString, setCoordinateString] = useState<string>("");
 	const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -159,6 +161,16 @@ export default function CoordinateInput({
 		// Clear error when value is set externally
 		setErrorMessage("");
 	}, [value, defaultValue]);
+
+	// Use clickedPosition from place store when input is empty and field is required
+	useEffect(() => {
+		if (clickedPosition && clickedPosition.length === 2 && isRequired) {
+			const [clickedLng, clickedLat] = clickedPosition;
+			setTimeout(() => {
+				onChange?.([parseFloat(clickedLng.toString()), parseFloat(clickedLat.toString())]);
+			}, 1);
+		}
+	}, [clickedPosition, isRequired]);
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const newValue = e.target.value;

@@ -37,7 +37,7 @@
 			},
 			"formFields": [
 				{
-					"type": "lngLatInput",
+					"type": "coordinateInput",
 					"name": "queryPosition",
 					"label": "Query Position",
 					"required": true,
@@ -99,7 +99,7 @@
 					"name": "intendedUse",
 					"label": "Intended Use",
 					"required": false,
-					"disabled": true,
+					"disabled": false,
 					"defaultValue": "SingleUse",
 					"options": [
 						{
@@ -108,7 +108,9 @@
 						},
 						{
 							"label": "Storage",
-							"value": "Storage"
+							"value": "Storage",
+							"tooltipText": "Storage is not available in the API playground",
+							"disabled": true
 						}
 					]
 				},
@@ -722,7 +724,7 @@
 					"label": "Intended Use",
 					"required": false,
 					"defaultValue": "SingleUse",
-					"disabled": true,
+					"disabled": false,
 					"options": [
 						{
 							"label": "Single use",
@@ -730,7 +732,9 @@
 						},
 						{
 							"label": "Storage",
-							"value": "Storage"
+							"value": "Storage",
+							"tooltipText": "Storage is not available in the API playground",
+							"disabled": true
 						}
 					]
 				},
