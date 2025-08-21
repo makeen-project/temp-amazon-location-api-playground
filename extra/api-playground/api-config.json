@@ -126,6 +126,7 @@
 					"name": "language",
 					"label": "Language",
 					"required": false,
+					"defaultValue": "en",
 					"options": [
 						{ "value": "en", "label": "English" },
 						{ "value": "ar", "label": "العربية" },
@@ -924,7 +925,7 @@
 					"min": 1,
 					"max": 100,
 					"step": 1,
-					"defaultValue": 10
+					"defaultValue": 20
 				},
 				{
 					"type": "text",
@@ -1025,11 +1026,11 @@
 				]
 			},
 			"codeSnippets": {
-				"JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"[{{queryText}}]\"\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
-				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '[{{queryText}}]'\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
-				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  QueryText: '[{{queryText}}]'\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
+				"JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"[{{query}}]\"\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
+				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '[{{query}}]'\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
+				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  QueryText: '[{{query}}]'\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
 				"paramPlaceholders": {
-					"queryText": ""
+					"query": "123 Main St, Boston, MA"
 				}
 			}
 		}

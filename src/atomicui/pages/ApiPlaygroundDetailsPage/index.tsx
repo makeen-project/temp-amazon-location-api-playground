@@ -49,12 +49,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		if (field.defaultValue) {
 			acc[fieldName] = field.defaultValue;
 		} else if (field.type === "sliderWithInput") {
-			acc[fieldName] = field.defaultValue ?? 1;
+			acc[fieldName] = field.defaultValue ?? undefined;
 		} else {
 			acc[fieldName] = initialState[fieldName];
 		}
 		return acc;
 	}, {} as Record<string, any>);
+
+	console.log("initialUrlState", initialUrlState);
 
 	const navigate = useNavigate();
 	const { urlState, setUrlState } = useUrlState({ ...initialUrlState, response: undefined });
@@ -70,19 +72,21 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
-	const [mapContainerHeight, setMapContainerHeight] = useState<number>(500); // Default fallback height
+	const [mapContainerHeight, setMapContainerHeight] = useState<number>(650);
 	const [localMarkers, setLocalMarkers] = useState<Array<{ position: [number, number]; id: string; label: string }>>(
 		[]
 	);
-	const [secondaryMarkers, setSecondaryMarkers] = useState<Array<{
-		placeId: string;
-		position: [number, number];
-		id: string;
-		label: string;
-		address: { Label: string };
-		placeType: string;
-		active?: boolean;
-	}>>([]);
+	const [secondaryMarkers, setSecondaryMarkers] = useState<
+		Array<{
+			placeId: string;
+			position: [number, number];
+			id: string;
+			label: string;
+			address: { Label: string };
+			placeType: string;
+			active?: boolean;
+		}>
+	>([]);
 
 	const mapRef = useRef<MapRef | null>(null);
 	const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -137,9 +141,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			key: "",
 			apiKey: "",
 			language: "en",
-			maxResults: 1,
+			maxResults: undefined,
 			politicalView: "",
-			queryRadius: null,
+			queryRadius: undefined,
 			submittedQueryRadius: undefined,
 			addressNumber: "",
 			country: "",
@@ -191,9 +195,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			}
 
 			// Clear secondary markers when clicking on map
-			setSecondaryMarkers(prev => 
-				prev.map(m => ({ ...m, active: false }))
-			);
+			setSecondaryMarkers(prev => prev.map(m => ({ ...m, active: false })));
 
 			if (isCoordinatePickingDisabled) {
 				return;
@@ -239,8 +241,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 		// Helper function to check if position already exists
 		const positionExists = (newPosition: [number, number], existingMarkers: typeof markers) => {
-			return existingMarkers.some(marker => 
-				marker.position[0] === newPosition[0] && marker.position[1] === newPosition[1]
+			return existingMarkers.some(
+				marker => marker.position[0] === newPosition[0] && marker.position[1] === newPosition[1]
 			);
 		};
 

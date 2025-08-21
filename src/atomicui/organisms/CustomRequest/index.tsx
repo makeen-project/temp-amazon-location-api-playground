@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MIT-0
  */
 
+import { useCallback, useEffect, useRef, useState } from "react";
+
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { appConfig } from "@api-playground/core/constants";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
@@ -21,7 +23,6 @@ import {
 
 import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
-import { useCallback, useEffect, useRef, useState } from "react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import "./styles.scss";
@@ -53,7 +54,7 @@ export default function CustomRequest({
 
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
-	const { setMapPoliticalView, setMapLanguage, mapPoliticalView, mapLanguage } = useMap();
+	const { setMapLanguage, mapLanguage } = useMap();
 	const { setSuggestions } = usePlace();
 
 	const store = useCustomRequestStore();
@@ -71,7 +72,6 @@ export default function CustomRequest({
 		const response = parsedSearchParams.response ? JSON.parse(parsedSearchParams.response as string) : undefined;
 
 		setState({
-			// ...initialState,
 			...parsedSearchParams,
 			response
 		});
@@ -114,20 +114,23 @@ export default function CustomRequest({
 	}, [mapLanguage.value, store.language, setState]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
+		const fieldConfig = apiPlaygroundItem?.formFields?.find(field => field.name === name);
+		const defaultValue = fieldConfig?.defaultValue;
+
+		const effectiveValue =
+			(value === undefined || value === null || value === "") && defaultValue !== undefined ? defaultValue : value;
+
 		const newState = {
 			...store,
-			[name]: value,
+			[name]: effectiveValue,
 			error: undefined
 		};
 		setState(newState);
 
-		setUrlState({ ...urlState, [name]: value });
-
-		// Remove empty arrays from URL using immutable logic
-		if (Array.isArray(value) && value.length === 0) {
+		if (Array.isArray(effectiveValue) && effectiveValue.length === 0) {
 			setUrlState({ ...urlState, [name]: null });
 		} else {
-			setUrlState({ ...urlState, [name]: value });
+			setUrlState({ ...urlState, [name]: effectiveValue });
 		}
 	};
 
@@ -139,18 +142,33 @@ export default function CustomRequest({
 				Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
 			);
 
-			const params = mapFormDataToApiParams(parsedSearchParams, apiPlaygroundItem?.apiHandler?.paramMapping || {});
+			const formFields = apiPlaygroundItem?.formFields || [];
+			const defaultValues = formFields.reduce((acc, field) => {
+				if (field.defaultValue !== undefined && parsedSearchParams[field.name] === undefined) {
+					acc[field.name] = field.defaultValue;
+				}
+				return acc;
+			}, {} as Record<string, any>);
+
+			const paramsWithDefaults = { ...defaultValues, ...parsedSearchParams };
+
+			Object.entries(defaultValues).forEach(([key, value]) => {
+				setUrlState((prev: Record<string, any>) => ({ ...prev, [key]: value }));
+			});
+
+			const params = mapFormDataToApiParams(paramsWithDefaults, apiPlaygroundItem?.apiHandler?.paramMapping || {});
 			const apiMethod = apiPlaygroundItem?.apiHandler?.apiMethod as keyof typeof placeService;
 
 			if (typeof placeService[apiMethod] === "function") {
 				const response = await (placeService[apiMethod] as any)(params);
 				setState({
 					...store,
+					...defaultValues,
 					response,
 					submittedQueryRadius: store.queryRadius || undefined,
 					error: undefined
 				});
-				setUrlState({ ...urlState, response: JSON.stringify(response) });
+				setUrlState((prev: Record<string, any>) => ({ ...prev, response: JSON.stringify(response) }));
 				onResponseReceived?.(response);
 			} else {
 				throw new Error(`API method ${apiMethod} not found`);
@@ -165,7 +183,6 @@ export default function CustomRequest({
 		const newState = {
 			...store,
 			[fieldName]: enabled ? 1 : null,
-			// Clear submittedQueryRadius when queryRadius is disabled
 			...(fieldName === "queryRadius" && !enabled ? { submittedQueryRadius: undefined } : {}),
 			error: undefined
 		};

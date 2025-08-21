@@ -73,6 +73,43 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 		return defaultParams;
 	};
 
+	const isRequestObjectDefault = (requestObj: Record<string, unknown>): boolean => {
+		const defaultParams = getDefaultParams();
+
+		if (Object.keys(requestObj).length === 0) {
+			return false;
+		}
+
+		const requestKeys = Object.keys(requestObj);
+		const defaultKeys = Object.keys(defaultParams);
+
+		if (requestKeys.length !== defaultKeys.length) {
+			return false;
+		}
+
+		return requestKeys.every(key => {
+			const requestValue = requestObj[key];
+			const defaultValue = defaultParams[key];
+
+			if (
+				requestValue &&
+				typeof requestValue === "object" &&
+				!Array.isArray(requestValue) &&
+				defaultValue &&
+				typeof defaultValue === "object" &&
+				!Array.isArray(defaultValue)
+			) {
+				return isRequestObjectDefault(requestValue as Record<string, unknown>);
+			}
+
+			if (Array.isArray(requestValue) && Array.isArray(defaultValue)) {
+				return JSON.stringify(requestValue) === JSON.stringify(defaultValue);
+			}
+
+			return requestValue === defaultValue;
+		});
+	};
+
 	const requestObject = useMemo(() => {
 		if (!response) {
 			return getDefaultParams();
@@ -383,9 +420,11 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 							</Button>
 						</View>
 						<View className={"snippets-container__snippet__content expandable"}>
-							<pre style={{ margin: 0 }}>
-								<code>{JSON.stringify(requestObject || {}, null, 2)}</code>
-							</pre>
+							{!isRequestObjectDefault(requestObject) || Object.keys(requestObject).length < 1 ? (
+								<pre className="response-pre">{JSON.stringify(requestObject, null, 2)}</pre>
+							) : (
+								<Text color="var(--tertiary-color)">No request yet. Submit a request to see the request.</Text>
+							)}
 						</View>
 					</View>
 
