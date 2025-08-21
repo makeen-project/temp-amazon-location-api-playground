@@ -42,8 +42,6 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 	const [value, setValue] = useState<number | undefined>(defaultValue ?? propValue);
 
 	useEffect(() => {
-		console.log("Name", name, "defaultValue", defaultValue);
-		console.log("Name", name, "propValue", propValue);
 		setValue(defaultValue ?? propValue);
 	}, [propValue, defaultValue]);
 
