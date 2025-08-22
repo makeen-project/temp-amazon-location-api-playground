@@ -72,7 +72,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
-	const [mapContainerHeight, setMapContainerHeight] = useState<number>(650);
+	const [mapContainerHeight, setMapContainerHeight] = useState<number>(614);
 	const [localMarkers, setLocalMarkers] = useState<Array<{ position: [number, number]; id: string; label: string }>>(
 		[]
 	);
@@ -339,17 +339,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		}
 	};
 
-	const handleMapLoad = useCallback(() => {
-		setTimeout(() => {
-			setMapLoaded(true);
-		}, 300);
-		if (customRequestStore.response) {
-			setTimeout(() => {
-				handleCustomResponse();
-			}, 500);
-		}
-	}, [customRequestStore.response, handleCustomResponse]);
-
 	useEffect(() => {
 		if (!apiPlaygroundItem) return;
 
@@ -443,23 +432,103 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		const mapStylesButton = document.querySelector(".map-styles-button") as HTMLElement;
 		const snippetsContainer = document.querySelector(".snippets-container") as HTMLElement;
 
+		// Get snippets container width, with fallback
+		const snippetsWidth = snippetsContainer?.offsetWidth ?? 0;
+		const isOpen = isSnippetsOpenRef.current;
+
 		if (attributionElement) {
-			const attributionRight = isSnippetsOpenRef.current ? snippetsContainer?.offsetWidth ?? 400 : 0;
+			const attributionRight = isOpen ? snippetsWidth : 0;
 			attributionElement.style.right = `${attributionRight}px`;
 		}
 
 		if (mapStylesButton) {
 			const DIFFERENCE = 26;
-			const stylesRight = isSnippetsOpenRef.current ? snippetsContainer?.offsetWidth + DIFFERENCE : DIFFERENCE;
+			const stylesRight = isOpen ? snippetsWidth + DIFFERENCE : DIFFERENCE;
 			mapStylesButton.style.right = `${stylesRight}px`;
 		}
 	}, []);
+
+	const handleMapLoad = useCallback(() => {
+		setTimeout(() => {
+			setMapLoaded(true);
+			// Apply styles after map is loaded to ensure proper positioning
+			applyStyles();
+		}, 300);
+		if (customRequestStore.response) {
+			setTimeout(() => {
+				handleCustomResponse();
+			}, 500);
+		}
+	}, [customRequestStore.response, handleCustomResponse, applyStyles]);
 
 	const applyStylesDebounced = useMemo(() => debounce(applyStyles, 20), []);
 
 	useEffect(() => {
 		applyStylesDebounced();
 	}, [isSnippetsOpen, mapLoaded]);
+
+	// ResizeObserver for snippets container to ensure proper positioning
+	useEffect(() => {
+		let snippetsResizeObserver: ResizeObserver | null = null;
+
+		const setupSnippetsResizeObserver = () => {
+			const snippetsContainer = document.querySelector(".snippets-container") as HTMLElement;
+
+			if (snippetsContainer) {
+				// Apply styles immediately when snippets container is found
+				applyStyles();
+
+				// Setup ResizeObserver for snippets container
+				snippetsResizeObserver = new ResizeObserver(() => {
+					applyStyles();
+				});
+
+				snippetsResizeObserver.observe(snippetsContainer);
+			}
+		};
+
+		// Try to setup immediately
+		setupSnippetsResizeObserver();
+
+		// If snippets container is not available, retry after a delay
+		if (!document.querySelector(".snippets-container")) {
+			const timer = setTimeout(setupSnippetsResizeObserver, 100);
+			return () => {
+				clearTimeout(timer);
+				if (snippetsResizeObserver) {
+					snippetsResizeObserver.disconnect();
+				}
+			};
+		}
+
+		return () => {
+			if (snippetsResizeObserver) {
+				snippetsResizeObserver.disconnect();
+			}
+		};
+	}, [applyStyles]);
+
+	// MutationObserver to watch for attribution and map styles button elements
+	useEffect(() => {
+		const mutationObserver = new MutationObserver(() => {
+			const attributionElement = document.querySelector(".maplibregl-ctrl-bottom-right") as HTMLElement;
+			const mapStylesButton = document.querySelector(".map-styles-button") as HTMLElement;
+
+			// If both elements are found, apply styles
+			if (attributionElement && mapStylesButton) {
+				applyStyles();
+			}
+		});
+
+		mutationObserver.observe(document.body, {
+			childList: true,
+			subtree: true
+		});
+
+		return () => {
+			mutationObserver.disconnect();
+		};
+	}, [applyStyles]);
 
 	useEffect(() => {
 		window.addEventListener("resize", applyStylesDebounced);
@@ -472,46 +541,77 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	// ResizeObserver to track map container height changes
 	useEffect(() => {
 		let resizeObserver: ResizeObserver | null = null;
+		let retryTimer: NodeJS.Timeout | null = null;
 
 		const setupResizeObserver = () => {
 			if (!mapContainerRef.current) return;
 
-			// Set initial height
-			setMapContainerHeight(mapContainerRef.current.clientHeight);
+			const initialHeight = mapContainerRef.current.clientHeight;
+			if (initialHeight > 0) {
+				setMapContainerHeight(initialHeight);
+			}
 
-			// Create and setup ResizeObserver
 			resizeObserver = new ResizeObserver(entries => {
 				for (const entry of entries) {
-					setMapContainerHeight(entry.contentRect.height);
+					const height = entry.contentRect.height;
+					if (height > 0) {
+						setMapContainerHeight(height);
+					}
 				}
 			});
 
 			resizeObserver.observe(mapContainerRef.current);
 		};
 
-		// Try to setup immediately
-		setupResizeObserver();
-
-		// If ref is not available, wait a bit and try again
-		if (!mapContainerRef.current) {
-			const timer = setTimeout(() => {
+		const retrySetup = () => {
+			if (mapContainerRef.current) {
 				setupResizeObserver();
-			}, 100);
+			} else {
+				retryTimer = setTimeout(retrySetup, 50);
+			}
+		};
 
-			return () => {
-				clearTimeout(timer);
-				if (resizeObserver) {
-					resizeObserver.disconnect();
-				}
-			};
-		}
+		retrySetup();
 
 		return () => {
+			if (retryTimer) {
+				clearTimeout(retryTimer);
+			}
 			if (resizeObserver) {
 				resizeObserver.disconnect();
 			}
 		};
-	}, []); // Remove dependency to avoid infinite re-renders
+	}, [mapLoaded]);
+
+	useEffect(() => {
+		const checkInitialHeight = () => {
+			if (mapContainerRef.current && mapContainerRef.current.clientHeight > 0) {
+				setMapContainerHeight(mapContainerRef.current.clientHeight);
+			}
+		};
+
+		checkInitialHeight();
+
+		requestAnimationFrame(checkInitialHeight);
+
+		const timer = setTimeout(checkInitialHeight, 100);
+
+		const mutationObserver = new MutationObserver(() => {
+			if (mapContainerRef.current) {
+				checkInitialHeight();
+			}
+		});
+
+		mutationObserver.observe(document.body, {
+			childList: true,
+			subtree: true
+		});
+
+		return () => {
+			clearTimeout(timer);
+			mutationObserver.disconnect();
+		};
+	}, []);
 
 	if (!apiPlaygroundItem) {
 		return <div className="api-playground-details-loading">Loading...</div>;
