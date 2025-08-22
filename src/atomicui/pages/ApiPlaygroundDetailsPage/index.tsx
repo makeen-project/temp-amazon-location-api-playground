@@ -518,69 +518,66 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	return (
 		<View className="api-playground-details-page no-side-gaps">
 			<Flex className="api-playground-header">
-				<Flex direction="column" flex={1} alignItems="flex-start" gap={"0.5rem"}>
-					<Button
-						className="back-button-link"
-						variation="link"
-						onClick={() => {
-							handleReset();
-							navigate("/api-playground");
-						}}
-					>
-						<span className="back-button-content">
-							<IconBackArrow className="back-arrow-icon" />
-							Back
-						</span>
-					</Button>
-					<Text as="h2" className="api-playground-title" fontWeight={700} fontSize="2rem">
-						{apiPlaygroundItem.title}
-					</Text>
-				</Flex>
+				<Button
+					className="back-button-link"
+					variation="link"
+					onClick={() => {
+						handleReset();
+						navigate("/api-playground");
+					}}
+				>
+					<span className="back-button-content">
+						<IconBackArrow className="back-arrow-icon" />
+						Back
+					</span>
+				</Button>
 				<Flex direction="row" gap={"2rem"} justifyContent="space-between" alignItems="flex-start">
-					<View>
-						<Content
-							items={[{ text: apiPlaygroundItem.description }]}
-							className={`api-playground-description${descExpanded ? " expanded" : ""}`}
-						/>
-						<Button className="show-more-btn" variation="link" onClick={() => setDescExpanded(e => !e)}>
-							{descExpanded ? "Show less" : "Show more"}
+					<Flex direction="column" flex={1} alignItems="flex-start" gap={"0.5rem"}>
+						<Text as="h2" className="api-playground-title" fontWeight={700} fontSize="2rem">
+							{apiPlaygroundItem.title}
+						</Text>
+						<View>
+							<Content
+								items={[{ text: apiPlaygroundItem.description }]}
+								className={`api-playground-description${descExpanded ? " expanded" : ""}`}
+							/>
+							<Button className="show-more-btn" variation="link" onClick={() => setDescExpanded(e => !e)}>
+								{descExpanded ? "Show less" : "Show more"}
+							</Button>
+						</View>
+					</Flex>
+					<Flex direction="column" alignItems="flex-start" className="api-playground-right-col">
+						<Button
+							className="build-sample-btn"
+							variation="primary"
+							onClick={() => window.open(apiPlaygroundItem.buildSampleButton?.link, "_blank")}
+						>
+							{apiPlaygroundItem.buildSampleButton?.text}
 						</Button>
-					</View>
-					<Flex>
-						{/* Right column */}
-						<Flex direction="column" alignItems="flex-start" className="api-playground-right-col">
-							<Button
-								className="build-sample-btn"
-								variation="primary"
-								onClick={() => window.open(apiPlaygroundItem.buildSampleButton?.link, "_blank")}
-							>
-								{apiPlaygroundItem.buildSampleButton?.text}
-							</Button>
-							<Button
-								className="share-btn"
-								variation="link"
-								onClick={() =>
-									navigator.share
-										? navigator.share({ title: apiPlaygroundItem.title, url: window.location.href })
-										: navigator.clipboard.writeText(window.location.href)
-								}
-							>
-								<IconShare width={14} height={14} className="share-icon" />
-								Share
-							</Button>
-							<View className="related-resources">
-								<Text fontWeight={600} fontSize="1rem" marginBottom={"0.5rem"} className="related-title">
-									Related resources
-								</Text>
-								<View className="related-links">
-									{apiPlaygroundItem.relatedResources?.map((res, idx) => (
-										<a key={idx} href={res.link} target="_blank" rel="noopener noreferrer">
-											{res.text}
-										</a>
-									))}
-								</View>
+						<Button
+							className="share-btn"
+							variation="link"
+							onClick={() =>
+								navigator.share
+									? navigator.share({ title: apiPlaygroundItem.title, url: window.location.href })
+									: navigator.clipboard.writeText(window.location.href)
+							}
+						>
+							<IconShare width={14} height={14} className="share-icon" />
+							Share
+						</Button>
+						<View className="related-resources">
+							<Text fontWeight={600} fontSize="1rem" marginBottom={"0.5rem"} className="related-title">
+								Related resources
+							</Text>
+							<View className="related-links">
+								{apiPlaygroundItem.relatedResources?.map((res, idx) => (
+									<a key={idx} href={res.link} target="_blank" rel="noopener noreferrer">
+										{res.text}
+									</a>
+								))}
 							</View>
-						</Flex>
+						</View>
 					</Flex>
 				</Flex>
 			</Flex>
