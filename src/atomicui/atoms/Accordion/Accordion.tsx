@@ -44,24 +44,42 @@ export const Accordion = ({
 
 	const value = isExpanded ? ["item"] : [];
 
+	const handleToggle = () => {
+		if (isControlled) {
+			onToggle();
+		} else {
+			setInternalExpanded(!isExpanded);
+		}
+	};
+
+	const handleTriggerClick = (e: React.MouseEvent) => {
+		e.preventDefault();
+		e.stopPropagation();
+	};
+
+	const handleIconClick = (e: React.MouseEvent) => {
+		e.preventDefault();
+		e.stopPropagation();
+		handleToggle();
+	};
+
 	return (
 		<AmplifyAccordion.Container
 			className={`accordion ${shadowEnabled ? "accordion-shadow" : ""}`}
 			value={value}
-			onValueChange={items => {
-				const newExpanded = items?.includes("item") ?? false;
-				if (isControlled) {
-					onToggle();
-				} else {
-					setInternalExpanded(newExpanded);
-				}
-			}}
+			onValueChange={() => {}}
 			style={style}
 		>
 			<AmplifyAccordion.Item className="accordion__item" value="item">
-				<AmplifyAccordion.Trigger className="accordion__trigger">
+				<AmplifyAccordion.Trigger className="accordion__trigger" onClick={handleTriggerClick}>
 					<span className="accordion__title">{title}</span>
-					<span className={"accordion__icon"}>{isExpanded ? openIcon : closeIcon}</span>
+					<span 
+						className="accordion__icon" 
+						onClick={handleIconClick}
+						style={{ cursor: "pointer" }}
+					>
+						{isExpanded ? openIcon : closeIcon}
+					</span>
 				</AmplifyAccordion.Trigger>
 				<AmplifyAccordion.Content className={`accordion__content ${contentClassName}`}>
 					{children}
