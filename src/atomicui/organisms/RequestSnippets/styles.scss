@@ -95,6 +95,12 @@
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
+
+	svg {
+		&:hover {
+			background-color: var(--amplify-colors-background-secondary);
+		}
+	}
 }
 
 .snippets-form {

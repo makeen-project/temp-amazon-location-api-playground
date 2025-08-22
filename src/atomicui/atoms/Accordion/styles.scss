@@ -25,21 +25,16 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		cursor: pointer;
+		cursor: default;
 
 		outline: none;
 		background: none;
 		border: none;
 		text-align: left;
-		transition: background-color var(--accordion-transition-duration) var(--accordion-timing);
 		border-radius: 0.5rem;
 
 		&:focus {
 			box-shadow: none;
-		}
-
-		&:hover {
-			background-color: var(--amplify-colors-background-secondary);
 		}
 	}
 
@@ -52,6 +47,11 @@
 		margin-left: 1rem;
 		transform-origin: center;
 		transition: transform var(--accordion-transition-duration) var(--accordion-timing);
+		border-radius: 0.25rem;
+
+		&:hover {
+			background-color: var(--amplify-colors-background-secondary);
+		}
 
 		&--open {
 			transform: scaleY(-1);
