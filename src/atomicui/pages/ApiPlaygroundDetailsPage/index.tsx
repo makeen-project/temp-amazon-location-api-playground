@@ -56,8 +56,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		return acc;
 	}, {} as Record<string, any>);
 
-	console.log("initialUrlState", initialUrlState);
-
 	const navigate = useNavigate();
 	const { urlState, setUrlState } = useUrlState({ ...initialUrlState, response: undefined });
 	const { setBiasPosition, setMapPoliticalView, setMapLanguage, setGridLoader } = useMap();

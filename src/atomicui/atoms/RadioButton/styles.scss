@@ -15,9 +15,10 @@
 	}
 
 	&__info-icon {
-		width: 1rem;
-		height: 1rem;
-		fill: var(--grey-color-3);
+		width: 1.25rem;
+		height: 1.25rem;
+		fill: var(--grey-color-2);
+		border-radius: 50%;
 		cursor: pointer;
 
 		&:hover {
@@ -54,7 +55,6 @@
 			cursor: not-allowed;
 		}
 	}
-
 
 	// Hide the fieldset legend
 	.amplify-fieldset__legend {
