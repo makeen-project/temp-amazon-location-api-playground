@@ -197,8 +197,38 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			// Clear secondary markers when clicking on map
 			setSecondaryMarkers(prev => prev.map(m => ({ ...m, active: false })));
 
+			// If coordinate picking is disabled (after first API call), allow user to click again
+			// to clear the query position and place popup for new coordinates
 			if (isCoordinatePickingDisabled) {
-				return;
+				// Clear the response and query position to allow new API call
+				setState(prev => ({
+					...prev,
+					response: undefined,
+					queryPosition: []
+				}));
+				
+				// Clear URL state to remove response from URL
+				setUrlState(prev => ({
+					...prev,
+					response: undefined,
+					queryPosition: []
+				}));
+				
+				// Clear local markers and secondary markers
+				setLocalMarkers([]);
+				setSecondaryMarkers([]);
+				
+				// Re-enable coordinate picking
+				setIsCoordinatePickingDisabled(false);
+				
+				// Clear clicked position to reset the state
+				setClickedPosition([]);
+				
+				// Clear any active markers
+				setActiveMarker(false);
+				clearPoiList();
+				setSelectedMarker();
+				setSearchValue("");
 			}
 
 			const { lng, lat } = e.lngLat;
@@ -223,7 +253,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				clearTimeout(resetTimeoutRef.current);
 			}
 		},
-		[setClickedPosition, activeMarker, isCoordinatePickingDisabled, apiPlaygroundItem]
+		[setClickedPosition, activeMarker, isCoordinatePickingDisabled, apiPlaygroundItem, setState, setUrlState, clearPoiList, setSelectedMarker]
 	);
 
 	const extractSecondaryMarkers = useCallback(() => {
