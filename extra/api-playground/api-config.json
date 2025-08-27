@@ -315,7 +315,8 @@
 					"min": 1,
 					"max": 100000,
 					"step": 1,
-					"required": false
+					"required": false,
+					"defaultValue": 1
 				}
 			],
 			"formContent": {
@@ -752,6 +753,7 @@
 					"name": "language",
 					"label": "Language",
 					"required": false,
+					"defaultValue": "en",
 					"options": [
 						{ "value": "en", "label": "English" },
 						{ "value": "ar", "label": "العربية" },

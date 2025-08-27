@@ -423,7 +423,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 							{!isRequestObjectDefault(requestObject) || Object.keys(requestObject).length < 1 ? (
 								<pre className="response-pre">{JSON.stringify(requestObject, null, 2)}</pre>
 							) : (
-								<Text color="var(--tertiary-color)">No request yet. Submit a request to see the request.</Text>
+								<Text color="var(--tertiary-color)">No request yet. Submit a request to see the request object.</Text>
 							)}
 						</View>
 					</View>
@@ -463,24 +463,31 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 								<Text>Copy</Text>
 							</Button>
 						</View>
-						<View className="expandable-container">
-							<Tabs
-								justifyContent="flex-start"
-								defaultValue="JavaScript"
-								value={selectedTab}
-								onValueChange={handleTabChange}
-								onClick={e => e.preventDefault()}
-								items={[
-									{
-										label: "JavaScript",
-										value: "JavaScript",
-										content: renderCodeBlock(CODE_SNIPPETS.JavaScript)
-									},
-									{ label: "Python", value: "Python", content: renderCodeBlock(CODE_SNIPPETS.Python) },
-									{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby) }
-								]}
-							/>
-						</View>
+
+						{response ? (
+							<View className="expandable-container">
+								<Tabs
+									justifyContent="flex-start"
+									defaultValue="JavaScript"
+									value={selectedTab}
+									onValueChange={handleTabChange}
+									onClick={e => e.preventDefault()}
+									items={[
+										{
+											label: "JavaScript",
+											value: "JavaScript",
+											content: renderCodeBlock(CODE_SNIPPETS.JavaScript)
+										},
+										{ label: "Python", value: "Python", content: renderCodeBlock(CODE_SNIPPETS.Python) },
+										{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby) }
+									]}
+								/>
+							</View>
+						) : (
+							<View className={"snippets-container__snippet__content "}>
+								<Text color="var(--tertiary-color)">No response yet. Submit a request to see the code snippets.</Text>
+							</View>
+						)}
 					</View>
 				</form>
 			</Accordion>
