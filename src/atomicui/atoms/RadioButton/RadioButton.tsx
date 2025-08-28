@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { IconClose, IconInfo } from "@api-playground/assets/svgs";
+import { IconClose, IconInfoSolid } from "@api-playground/assets/svgs";
 import { Flex, Radio, RadioGroupField } from "@aws-amplify/ui-react";
 import { Tooltip } from "react-tooltip";
 
@@ -100,31 +100,31 @@ export const RadioButtonGroup = <T extends string>({
 				</Flex>
 			)}
 			<RadioGroupField direction="row" name={name} defaultValue={defaultValue} value={value} onChange={handleChange} legend="">
-				{options.map(option => (
-					<Flex alignItems="center" key={option.value} className="radio-option">
-						<Radio className="custom-radio" value={option.value} isDisabled={disabled || option.disabled}>
-							{option.label}
-						</Radio>
-						{option.tooltipText && (
-							<>
-								<IconInfo data-tooltip-id={`radio-option-${name}-${option.value}`} className="radio-group__info-icon" />
-								<Tooltip
-									classNameArrow="radio-group__arrow-icon"
-									arrowColor="var(--grey-color-2)"
-									openOnClick
-									id={`radio-option-${name}-${option.value}`}
-									className="react-tooltip"
-									place="top"
-								>
-									{option.tooltipText}
-									<span className="radio-group__close-icon-container">
-										<IconClose className="radio-group__close-icon" />
-									</span>
-								</Tooltip>
-							</>
-						)}
-					</Flex>
-				))}
+				{options.map(option => {
+					return (
+						<Flex alignItems="center" key={option.value} className="radio-option">
+							<Radio className="custom-radio" value={option.value} isDisabled={disabled || option.disabled}>
+								{option.label}
+							</Radio>
+							{option.tooltipText && (
+								<>
+									<IconInfoSolid
+										data-tooltip-id={`radio-option-${name}-${option.value}`}
+										className="radio-group__info-icon"
+									/>
+									<Tooltip
+										classNameArrow="radio-group__arrow-icon"
+										arrowColor="var(--grey-color-2)"
+										id={`radio-option-${name}-${option.value}`}
+										place="top"
+									>
+										{option.tooltipText}
+									</Tooltip>
+								</>
+							)}
+						</Flex>
+					);
+				})}
 			</RadioGroupField>
 		</Flex>
 	);
