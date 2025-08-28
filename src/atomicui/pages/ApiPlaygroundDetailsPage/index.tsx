@@ -198,7 +198,26 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			setSecondaryMarkers(prev => prev.map(m => ({ ...m, active: false })));
 
 			if (isCoordinatePickingDisabled) {
-				return;
+				setState(prev => ({
+					...prev,
+					response: undefined,
+					queryPosition: []
+				}));
+				
+				setUrlState(prev => ({
+					...prev,
+					response: undefined,
+					queryPosition: []
+				}));
+				
+				setLocalMarkers([]);
+				setSecondaryMarkers([]);
+				setIsCoordinatePickingDisabled(false);
+				setClickedPosition([]);
+				setActiveMarker(false);
+				clearPoiList();
+				setSelectedMarker();
+				setSearchValue("");
 			}
 
 			const { lng, lat } = e.lngLat;
@@ -223,7 +242,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				clearTimeout(resetTimeoutRef.current);
 			}
 		},
-		[setClickedPosition, activeMarker, isCoordinatePickingDisabled, apiPlaygroundItem]
+		[activeMarker, isCoordinatePickingDisabled, apiPlaygroundItem]
 	);
 
 	const extractSecondaryMarkers = useCallback(() => {
