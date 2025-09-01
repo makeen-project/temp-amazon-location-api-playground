@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import { useCallback, useEffect, useRef, useState } from "react";
-
 import { SegmentedControl } from "@api-playground/atomicui/atoms/SegmentedControl";
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { appConfig } from "@api-playground/core/constants";
@@ -24,6 +22,7 @@ import {
 
 import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
+import { useCallback, useEffect, useRef, useState } from "react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import "./styles.scss";
@@ -340,7 +339,7 @@ export default function CustomRequest({
 				{ label: "Hybrid", value: "Hybrid" }
 			]}
 			value={queryType}
-			onChange={handleQueryTypeChange}
+			onChange={value => handleQueryTypeChange(value as GeocodeQueryType)}
 		/>
 	) : null;
 
