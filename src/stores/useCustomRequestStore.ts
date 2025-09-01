@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MIT-0
  */
 
+import { GeocodeQueryType } from "@api-playground/atomicui/organisms/CustomRequest";
 import { IStateProps } from "@api-playground/types";
 import { AdditionalFeatures, IntendedUse } from "@api-playground/types/CustomRequestForm";
 import {
@@ -45,6 +46,7 @@ export interface CustomRequestStore {
 	region?: string;
 	street?: string;
 	subRegion?: string;
+	queryType?: GeocodeQueryType;
 	// Response data
 	response?: ReverseGeocodeCommandOutput | GeocodeCommandOutput;
 	isLoading: boolean;
@@ -73,6 +75,7 @@ export const initialState: IStateProps<CustomRequestStore> = {
 	region: "",
 	street: "",
 	subRegion: "",
+	queryType: "Text",
 	isLoading: false,
 	query: ""
 };
