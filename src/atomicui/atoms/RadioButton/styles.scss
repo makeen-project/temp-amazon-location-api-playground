@@ -6,6 +6,14 @@
 	width: 100%;
  }
 
+.amplify-radio__input:disabled + .amplify-radio__button {
+	border-color: var(--grey-color-3) !important;
+}
+
+.amplify-radio__input:checked + .amplify-radio__button {
+	border-color: var(--grey-color-0) !important;
+}
+
 .radio-group {
 	gap: 1rem;
 	width: 100%;
