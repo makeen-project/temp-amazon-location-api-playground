@@ -4,8 +4,6 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
-
 import { IconBackArrow, IconShare } from "@api-playground/assets/svgs";
 import { Content } from "@api-playground/atomicui/atoms/Content";
 import { HintMessage } from "@api-playground/atomicui/atoms/HintMessage";
@@ -25,6 +23,7 @@ import { debounce } from "@api-playground/utils/debounce";
 import { Button, Flex, Text, View } from "@aws-amplify/ui-react";
 import { bbox, circle } from "@turf/turf";
 import { NuqsAdapter } from "nuqs/adapters/react";
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.scss";
 
@@ -201,13 +200,13 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					response: undefined,
 					queryPosition: []
 				}));
-				
+
 				setUrlState(prev => ({
 					...prev,
 					response: undefined,
 					queryPosition: []
 				}));
-				
+
 				setLocalMarkers([]);
 				setSecondaryMarkers([]);
 				setIsCoordinatePickingDisabled(false);
@@ -358,6 +357,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	useEffect(() => {
 		if (!apiPlaygroundItem) return;
+
+		if (
+			(apiPlaygroundItem.type === "geocode" || apiPlaygroundItem.id === "geocode") &&
+			customRequestStore.queryType === "Components"
+		) {
+			setMessage(undefined);
+			return;
+		}
 
 		const requiredFields = (apiPlaygroundItem.formFields || []).filter(f => f.required);
 		const hasMissingRequired = requiredFields.some(f => {

@@ -1,0 +1,34 @@
+.segmented-control {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.segmented-control__label {
+	font-size: 13px;
+}
+
+.segmented-control__group {
+	display: inline-flex;
+	background-color: #f2f3f7;
+	border-radius: 16px;
+	padding: 4px;
+	gap: 6px;
+}
+
+.segmented-control__button {
+	border-radius: 16px;
+	background: transparent !important;
+	color: var(--tertiary-color) !important;
+	padding: 8px 14px !important;
+	text-decoration: none !important;
+}
+
+.segmented-control__button.is-active {
+	background: #ffffff !important;
+	color: var(--primary-color) !important;
+	box-shadow: none !important;
+	border-radius: 16px;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
