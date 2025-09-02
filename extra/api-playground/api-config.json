@@ -316,7 +316,8 @@
 					"max": 100000,
 					"step": 1,
 					"required": false,
-					"defaultValue": 1
+					"defaultValue": 1,
+					"allowClear": true
 				}
 			],
 			"formContent": {
