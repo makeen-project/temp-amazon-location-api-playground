@@ -3,11 +3,10 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import React, { useRef, useState } from "react";
-
 import { IconChevronDown, IconChevronUp, IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
+import React, { useRef, useState } from "react";
 
 import { Accordion } from "../../atoms/Accordion";
 import { Content } from "../../atoms/Content";
@@ -121,6 +120,7 @@ interface SliderWithInputFieldConfig extends BaseField {
 	min: number;
 	max: number;
 	step?: number;
+	allowClear?: boolean;
 	onToggle?: (enabled: boolean) => void;
 }
 
@@ -186,6 +186,7 @@ interface FormRenderProps {
 	onToggle?: (fieldName: string, enabled: boolean) => void;
 	containerHeight?: number;
 	mapContainerHeight?: number;
+	headerContent?: React.ReactNode;
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
@@ -198,7 +199,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	submitButtonDisabled = false,
 	onReset,
 	onToggle,
-	mapContainerHeight
+	mapContainerHeight,
+	headerContent
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
@@ -408,6 +410,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						value={field.value}
 						onChange={value => handleChange(field.name, value)}
 						isDisabled={field.disabled}
+						allowClear={field.allowClear}
 					/>
 				);
 
@@ -536,6 +539,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
 				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" ref={requiredFeildsContainerRef}>
 					{content && <Content {...content} />}
+					{headerContent}
 					{requiredFields.map(renderField)}
 
 					<Flex gap="1rem">

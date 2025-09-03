@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import React, { FC, useMemo, useState } from "react";
-
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
 import { Accordion } from "@api-playground/atomicui/atoms/Accordion";
@@ -14,6 +12,7 @@ import { useCustomRequestStore } from "@api-playground/stores";
 import { RequestSnippetsProps } from "@api-playground/stores/useCustomRequestStore";
 
 import { Button, Divider, Tabs, Text, View } from "@aws-amplify/ui-react";
+import React, { FC, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./styles.scss";
 
@@ -69,6 +68,15 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 				});
 			}
 		});
+
+		const isGeocode = apiPlaygroundItem?.id === "geocode" || apiPlaygroundItem?.type === "geocode";
+		if (isGeocode) {
+			if (store.queryType === "Components") {
+				delete (defaultParams as any).QueryText;
+			} else if (store.queryType === "Text") {
+				delete (defaultParams as any).QueryComponents;
+			}
+		}
 
 		return defaultParams;
 	};
@@ -146,7 +154,18 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 			});
 		});
 
-		return { ...defaultParams, ...placeholderParams, ...urlParams };
+		const combined = { ...defaultParams, ...placeholderParams, ...urlParams } as Record<string, unknown>;
+
+		const isGeocode = apiPlaygroundItem?.id === "geocode" || apiPlaygroundItem?.type === "geocode";
+		if (isGeocode) {
+			if (store.queryType === "Components") {
+				delete (combined as any).QueryText;
+			} else if (store.queryType === "Text") {
+				delete (combined as any).QueryComponents;
+			}
+		}
+
+		return combined;
 	}, [response, apiPlaygroundItem?.apiHandler?.paramMapping, apiPlaygroundItem?.formFields]);
 
 	const CODE_SNIPPETS = useMemo(() => {
@@ -423,7 +442,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 							{!isRequestObjectDefault(requestObject) || Object.keys(requestObject).length < 1 ? (
 								<pre className="response-pre">{JSON.stringify(requestObject, null, 2)}</pre>
 							) : (
-								<Text color="var(--tertiary-color)">No request yet. Submit a request to see the request.</Text>
+								<Text color="var(--tertiary-color)">No request yet. Submit a request to see the request object.</Text>
 							)}
 						</View>
 					</View>
@@ -463,24 +482,31 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 								<Text>Copy</Text>
 							</Button>
 						</View>
-						<View className="expandable-container">
-							<Tabs
-								justifyContent="flex-start"
-								defaultValue="JavaScript"
-								value={selectedTab}
-								onValueChange={handleTabChange}
-								onClick={e => e.preventDefault()}
-								items={[
-									{
-										label: "JavaScript",
-										value: "JavaScript",
-										content: renderCodeBlock(CODE_SNIPPETS.JavaScript)
-									},
-									{ label: "Python", value: "Python", content: renderCodeBlock(CODE_SNIPPETS.Python) },
-									{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby) }
-								]}
-							/>
-						</View>
+
+						{response ? (
+							<View className="expandable-container">
+								<Tabs
+									justifyContent="flex-start"
+									defaultValue="JavaScript"
+									value={selectedTab}
+									onValueChange={handleTabChange}
+									onClick={e => e.preventDefault()}
+									items={[
+										{
+											label: "JavaScript",
+											value: "JavaScript",
+											content: renderCodeBlock(CODE_SNIPPETS.JavaScript)
+										},
+										{ label: "Python", value: "Python", content: renderCodeBlock(CODE_SNIPPETS.Python) },
+										{ label: "Ruby", value: "Ruby", content: renderCodeBlock(CODE_SNIPPETS.Ruby) }
+									]}
+								/>
+							</View>
+						) : (
+							<View className={"snippets-container__snippet__content "}>
+								<Text color="var(--tertiary-color)">No response yet. Submit a request to see the code snippets.</Text>
+							</View>
+						)}
 					</View>
 				</form>
 			</Accordion>

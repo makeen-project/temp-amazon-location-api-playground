@@ -23,6 +23,7 @@ export interface SliderWithInputProps {
 	required?: boolean;
 	error?: string;
 	className?: string;
+	allowClear?: boolean;
 }
 
 export const SliderWithInput: React.FC<SliderWithInputProps> = ({
@@ -37,30 +38,63 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 	isDisabled = false,
 	required = false,
 	error,
-	className = ""
+	className = "",
+	allowClear = false
 }) => {
-	const [value, setValue] = useState<number | undefined>(defaultValue ?? propValue);
+	const [internalValue, setInternalValue] = useState<number | undefined>(defaultValue);
+	const [inputValue, setInputValue] = useState<string>(defaultValue?.toString() ?? "");
+	const value = propValue !== undefined ? propValue : internalValue;
 
 	useEffect(() => {
-		setValue(defaultValue ?? propValue);
-	}, [propValue, defaultValue]);
-
-	useEffect(() => {
-		// Reset value to default when disabled
 		if (isDisabled) {
-			setValue(defaultValue);
+			setInternalValue(defaultValue);
+			setInputValue(defaultValue?.toString() ?? "");
 		}
 	}, [isDisabled, defaultValue]);
 
+	useEffect(() => {
+		if (propValue) {
+			setInputValue(propValue.toString());
+		} else if (!allowClear) {
+			setInputValue(min.toString());
+		}
+	}, [propValue, allowClear, min]);
+
 	const handleSliderChange = (newValue: number) => {
-		setValue(newValue);
+		if (propValue === undefined) {
+			setInternalValue(newValue);
+		}
+		setInputValue(newValue.toString());
 		onChange?.(newValue);
 	};
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const newValue = Number(e.target.value);
+		const { value: newInputValue } = e.target;
+		setInputValue(newInputValue);
+
+		if (newInputValue === "") {
+			if (allowClear) {
+				onChange?.(undefined as unknown as number);
+				setInternalValue(undefined);
+				return;
+			} else {
+				const defaultVal = min;
+				setInputValue(defaultVal.toString());
+				onChange?.(defaultVal);
+				setInternalValue(defaultVal);
+				return;
+			}
+		}
+
+		if (Number(newInputValue) < min || Number(newInputValue) > max) {
+			return;
+		}
+
+		const newValue = Number(newInputValue);
 		if (!isNaN(newValue) && newValue >= min && newValue <= max) {
-			setValue(newValue);
+			if (propValue === undefined) {
+				setInternalValue(newValue);
+			}
 			onChange?.(newValue);
 		}
 	};
@@ -85,9 +119,9 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 				/>
 				<Input
 					type="number"
-					value={value === undefined ? "" : value}
-					onChange={handleInputChange}
+					value={inputValue}
 					min={min}
+					onChange={handleInputChange}
 					max={max}
 					step={step}
 					isDisabled={isDisabled}

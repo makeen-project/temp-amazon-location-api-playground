@@ -315,7 +315,9 @@
 					"min": 1,
 					"max": 100000,
 					"step": 1,
-					"required": false
+					"required": false,
+					"defaultValue": 1,
+					"allowClear": true
 				}
 			],
 			"formContent": {
@@ -752,6 +754,7 @@
 					"name": "language",
 					"label": "Language",
 					"required": false,
+					"defaultValue": "en",
 					"options": [
 						{ "value": "en", "label": "English" },
 						{ "value": "ar", "label": "العربية" },
@@ -1034,7 +1037,6 @@
 				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '[{{query}}]'\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
 				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  QueryText: '[{{query}}]'\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
 				"paramPlaceholders": {
-					"query": "123 Main St, Boston, MA"
 				}
 			}
 		},

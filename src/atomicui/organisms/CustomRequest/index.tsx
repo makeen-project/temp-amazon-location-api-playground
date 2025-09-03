@@ -3,8 +3,7 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import { useCallback, useEffect, useRef, useState } from "react";
-
+import { SegmentedControl } from "@api-playground/atomicui/atoms/SegmentedControl";
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { appConfig } from "@api-playground/core/constants";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
@@ -23,6 +22,7 @@ import {
 
 import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
+import { useCallback, useEffect, useRef, useState } from "react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import "./styles.scss";
@@ -39,6 +39,8 @@ interface CustomRequestProps {
 	setUrlState: (state: Record<string, any>) => void;
 	handleReset: () => void;
 }
+
+export type GeocodeQueryType = "Text" | "Components" | "Hybrid";
 
 export default function CustomRequest({
 	onResponseReceived,
@@ -114,11 +116,7 @@ export default function CustomRequest({
 	}, [mapLanguage.value, store.language, setState]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
-		const fieldConfig = apiPlaygroundItem?.formFields?.find(field => field.name === name);
-		const defaultValue = fieldConfig?.defaultValue;
-
-		const effectiveValue =
-			(value === undefined || value === null || value === "") && defaultValue !== undefined ? defaultValue : value;
+		const effectiveValue = value === undefined || value === null || value === "" ? null : value;
 
 		const newState = {
 			...store,
@@ -150,13 +148,44 @@ export default function CustomRequest({
 				return acc;
 			}, {} as Record<string, any>);
 
-			const paramsWithDefaults = { ...defaultValues, ...parsedSearchParams };
+			const storeValues = Object.entries(store).reduce((acc, [key, value]) => {
+				if (value === undefined || value === null || value === "") {
+					return acc;
+				}
+				if (Array.isArray(value) && value.length === 0) {
+					return acc;
+				}
+				if (value && typeof value === "object" && !Array.isArray(value) && Object.keys(value).length === 0) {
+					return acc;
+				}
 
-			Object.entries(defaultValues).forEach(([key, value]) => {
+				acc[key] = value;
+				return acc;
+			}, {} as Record<string, any>);
+
+			const paramsWithDefaults = Object.entries(defaultValues).reduce(
+				(acc, [key, value]) => {
+					if (!(key in store)) {
+						acc[key] = value;
+					}
+					return acc;
+				},
+				{ ...storeValues }
+			);
+
+			Object.entries(paramsWithDefaults).forEach(([key, value]) => {
 				setUrlState((prev: Record<string, any>) => ({ ...prev, [key]: value }));
 			});
 
 			const params = mapFormDataToApiParams(paramsWithDefaults, apiPlaygroundItem?.apiHandler?.paramMapping || {});
+
+			if ((apiPlaygroundItem?.type === "geocode" || apiPlaygroundItem?.id === "geocode") && queryType) {
+				if (queryType === "Text") {
+					delete (params as any).QueryComponents;
+				} else if (queryType === "Components") {
+					delete (params as any).QueryText;
+				}
+			}
 			const apiMethod = apiPlaygroundItem?.apiHandler?.apiMethod as keyof typeof placeService;
 
 			if (typeof placeService[apiMethod] === "function") {
@@ -198,6 +227,31 @@ export default function CustomRequest({
 
 	const formFields = createFormFieldsFromConfig(apiPlaygroundItem?.formFields || [], store);
 
+	const isGeocode = apiPlaygroundItem?.type === "geocode" || apiPlaygroundItem?.id === "geocode";
+	const queryType: GeocodeQueryType = (store.queryType as any) || "Text";
+	const queryComponentsFieldNames = new Set([
+		"addressNumber",
+		"country",
+		"district",
+		"locality",
+		"postalCode",
+		"region",
+		"street",
+		"subRegion"
+	]);
+
+	const filteredFields = isGeocode
+		? formFields.filter(field => {
+				if (field.name === "query") {
+					return queryType !== "Components";
+				}
+				if (queryComponentsFieldNames.has(field.name)) {
+					return queryType !== "Text";
+				}
+				return true;
+		  })
+		: formFields;
+
 	formFields.forEach(field => {
 		const storeValue = store[field.name as keyof CustomRequestStore];
 		if (storeValue !== undefined) {
@@ -220,7 +274,19 @@ export default function CustomRequest({
 	});
 
 	const isSubmitDisabled = (() => {
-		const requiredFields = (apiPlaygroundItem?.formFields || []).filter((f: any) => f.required);
+		const visibleFields = isGeocode ? filteredFields : formFields;
+		const requiredFields = visibleFields.filter((f: any) => f.required);
+
+		const anyQueryComponentsFilled = (() => {
+			const names = Array.from(queryComponentsFieldNames);
+			return names.some(n => {
+				const v = store[n as keyof CustomRequestStore];
+				return typeof v === "string" ? v.trim().length > 0 : false;
+			});
+		})();
+
+		if (isGeocode && queryType === "Components" && !anyQueryComponentsFilled) return true;
+		if (isGeocode && queryType === "Text" && (!store.query || store.query.trim() === "")) return true;
 
 		return requiredFields.some((f: any) => {
 			const key = f.name as keyof CustomRequestStore;
@@ -249,10 +315,57 @@ export default function CustomRequest({
 		});
 	})();
 
+	const handleQueryTypeChange = (queryType: GeocodeQueryType) => {
+		const cleared: Partial<CustomRequestStore> = { queryType: queryType };
+		if (queryType === "Text") {
+			cleared.addressNumber = "";
+			cleared.country = "";
+			cleared.district = "";
+			cleared.locality = "";
+			cleared.postalCode = "";
+			cleared.region = "";
+			cleared.street = "";
+			cleared.subRegion = "";
+		} else if (queryType === "Components") {
+			cleared.query = undefined as any;
+		}
+		setState({ ...store, ...cleared });
+		setUrlState({
+			...urlState,
+			queryType: queryType,
+			...(queryType === "Text"
+				? {
+						addressNumber: null,
+						country: null,
+						district: null,
+						locality: null,
+						postalCode: null,
+						region: null,
+						street: null,
+						subRegion: null
+				  }
+				: queryType === "Components"
+				? { query: null }
+				: {})
+		});
+	};
+	const headerContent = isGeocode ? (
+		<SegmentedControl
+			label="Query Type"
+			options={[
+				{ label: "Text", value: "Text" },
+				{ label: "Components", value: "Components" },
+				{ label: "Hybrid", value: "Hybrid" }
+			]}
+			value={queryType}
+			onChange={value => handleQueryTypeChange(value as GeocodeQueryType)}
+		/>
+	) : null;
+
 	return (
 		<div className="custom-request-container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
 			<FormRender
-				fields={formFields}
+				fields={filteredFields}
 				content={convertFormContentConfigToContentProps(apiPlaygroundItem?.formContent || { type: "list", items: [] })}
 				onChange={handleChange}
 				onReset={handleReset}
@@ -262,6 +375,7 @@ export default function CustomRequest({
 				containerHeight={containerRef?.clientHeight}
 				submitButtonDisabled={isSubmitDisabled}
 				mapContainerHeight={mapContainerHeight}
+				headerContent={headerContent}
 			/>
 		</div>
 	);
