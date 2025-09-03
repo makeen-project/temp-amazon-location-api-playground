@@ -16,6 +16,7 @@ interface CoordinateInputProps {
 	isDisabled?: boolean;
 	name?: string;
 	placeholder?: string;
+	label?: string;
 }
 
 interface ValidationResult {
@@ -30,6 +31,7 @@ export default function CoordinateInput({
 	isRequired,
 	isDisabled,
 	name,
+	label,
 	placeholder = "Enter latitude, longitude (e.g., 40.7128, -74.0060)"
 }: CoordinateInputProps) {
 	const { clickedPosition } = usePlace();
@@ -225,7 +227,7 @@ export default function CoordinateInput({
 		<Flex direction="column" gap="0.1rem">
 			<div className="input-wrapper">
 				<Label htmlFor={`${name}-coordinate-input`} className="input-label">
-					{name === "biasPosition" ? "BiasPosition" : "Coordinates"}
+					{label}
 				</Label>
 				<div className="playground-input-container">
 					<Input
