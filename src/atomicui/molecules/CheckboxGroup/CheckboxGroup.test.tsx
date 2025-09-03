@@ -11,14 +11,14 @@ import { I18nextProvider } from "react-i18next";
 import CheckboxGroup from ".";
 
 describe("<CheckboxGroup/>", () => {
-	let onChange = jest.fn();
+	let onChange = vi.fn();
 	let checkboxGroupContainer: HTMLElement;
 	let checkboxGroupCheckboxField: HTMLElement[];
 	const values = [...Array(3)].map(() => faker.random.word());
 
 	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	const renderComponent = (CheckboxGroupProps?: any): RenderResult => {
-		onChange = jest.fn();
+		onChange = vi.fn();
 		const options = values.map(val => ({ label: val, value: val }));
 		const renderedComponent = render(
 			<I18nextProvider i18n={i18n}>
@@ -72,7 +72,7 @@ describe("<CheckboxGroup/>", () => {
 
 		let selectedValues: string[] = [];
 
-		const onChange = jest.fn((changedValues: string[]) => {
+		const onChange = vi.fn((changedValues: string[]) => {
 			if (selectedValues.includes(values[randomCheckboxIndex])) {
 				expect(changedValues).not.toContain(values[randomCheckboxIndex]);
 			} else {

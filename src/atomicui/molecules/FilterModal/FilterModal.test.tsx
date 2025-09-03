@@ -27,8 +27,8 @@ describe("<FilterModal />", () => {
 			Category1: [],
 			Category2: []
 		},
-		onClose: jest.fn(),
-		onChange: jest.fn()
+		onClose: vi.fn(),
+		onChange: vi.fn()
 	};
 
 	const renderComponent = () => {

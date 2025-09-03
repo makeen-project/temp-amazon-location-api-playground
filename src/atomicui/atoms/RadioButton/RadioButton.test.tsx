@@ -30,7 +30,7 @@ describe("RadioButtonGroup", () => {
 	});
 
 	it("handles option selection", () => {
-		const handleChange = jest.fn();
+		const handleChange = vi.fn();
 		render(<RadioButtonGroup<TestOption> name="test-group" options={mockOptions} onChange={handleChange} />);
 
 		fireEvent.click(screen.getByText("Option 1"));
