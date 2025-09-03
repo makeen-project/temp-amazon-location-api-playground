@@ -116,11 +116,7 @@ export default function CustomRequest({
 	}, [mapLanguage.value, store.language, setState]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
-		const fieldConfig = apiPlaygroundItem?.formFields?.find(field => field.name === name);
-		const defaultValue = fieldConfig?.defaultValue;
-
-		const effectiveValue =
-			(value === undefined || value === null || value === "") && defaultValue !== undefined ? defaultValue : value;
+		const effectiveValue = value === undefined || value === null || value === "" ? null : value;
 
 		const newState = {
 			...store,
@@ -152,9 +148,32 @@ export default function CustomRequest({
 				return acc;
 			}, {} as Record<string, any>);
 
-			const paramsWithDefaults = { ...defaultValues, ...parsedSearchParams };
+			const storeValues = Object.entries(store).reduce((acc, [key, value]) => {
+				if (value === undefined || value === null || value === "") {
+					return acc;
+				}
+				if (Array.isArray(value) && value.length === 0) {
+					return acc;
+				}
+				if (value && typeof value === "object" && !Array.isArray(value) && Object.keys(value).length === 0) {
+					return acc;
+				}
 
-			Object.entries(defaultValues).forEach(([key, value]) => {
+				acc[key] = value;
+				return acc;
+			}, {} as Record<string, any>);
+
+			const paramsWithDefaults = Object.entries(defaultValues).reduce(
+				(acc, [key, value]) => {
+					if (!(key in store)) {
+						acc[key] = value;
+					}
+					return acc;
+				},
+				{ ...storeValues }
+			);
+
+			Object.entries(paramsWithDefaults).forEach(([key, value]) => {
 				setUrlState((prev: Record<string, any>) => ({ ...prev, [key]: value }));
 			});
 
