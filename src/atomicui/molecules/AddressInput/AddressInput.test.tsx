@@ -8,7 +8,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import AddressInput from "./index";
 
 // Mock the usePlace hook
-jest.mock("@api-playground/hooks/usePlace", () => ({
+vi.mock("@api-playground/hooks/usePlace", () => ({
 	__esModule: true,
 	default: () => ({
 		suggestions: {
@@ -27,15 +27,15 @@ jest.mock("@api-playground/hooks/usePlace", () => ({
 				}
 			]
 		},
-		search: jest.fn(),
+		search: vi.fn(),
 		isSearching: false,
-		setSuggestions: jest.fn(),
-		setHoveredMarker: jest.fn()
+		setSuggestions: vi.fn(),
+		setHoveredMarker: vi.fn()
 	})
 }));
 
 describe("AddressInput", () => {
-	const mockOnChange = jest.fn();
+	const mockOnChange = vi.fn();
 
 	beforeEach(() => {
 		mockOnChange.mockClear();

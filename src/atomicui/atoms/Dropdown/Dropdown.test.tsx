@@ -36,7 +36,7 @@ describe("Dropdown", () => {
 	});
 
 	it("handles value changes", () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<Dropdown {...defaultProps} onChange={onChange} />);
 
 		fireEvent.change(screen.getByRole("combobox"), { target: { value: "es" } });
