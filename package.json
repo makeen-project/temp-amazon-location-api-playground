@@ -89,6 +89,7 @@
 		"eslint-plugin-react": "^7.30.1",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"husky": "^8.0.0",
+		"lint-staged": "^16.1.6",
 		"prettier": "^2.7.1",
 		"react-scripts": "^5.0.1",
 		"sass": "^1.57.1",
@@ -107,6 +108,12 @@
 	},
 	"engines": {
 		"node": ">=14.x.x"
+	},
+	"lint-staged": {
+		"*.{ts,tsx}":[
+			"tsc --noEmit",
+			"eslint --fix"
+		]
 	},
 	"overrides": {
 		"ava": "^3.0.0",
