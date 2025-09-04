@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MIT-0
  */
 
+import { useCallback, useEffect, useRef, useState } from "react";
+
 import { SegmentedControl } from "@api-playground/atomicui/atoms/SegmentedControl";
 import { FormRender } from "@api-playground/atomicui/molecules/FormRender";
 import { appConfig } from "@api-playground/core/constants";
@@ -22,7 +24,6 @@ import {
 
 import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
 import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
-import { useCallback, useEffect, useRef, useState } from "react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import "./styles.scss";
@@ -204,9 +205,14 @@ export default function CustomRequest({
 			}
 		} catch (error) {
 			errorHandler(error);
-			setUrlState((prev: Record<string, any>) => ({ ...prev, response: { ResultItems: (error as Error).message }  }));
+			setUrlState((prev: Record<string, any>) => ({ ...prev, response: { ResultItems: (error as Error).message } }));
 			onResponseReceived?.(error as ReverseGeocodeCommandOutput | GeocodeCommandOutput);
-			setState({ ...store, response: { ResultItems: (error as Error).message } as unknown as ReverseGeocodeCommandOutput | GeocodeCommandOutput });
+			setState({
+				...store,
+				response: { ResultItems: (error as Error).message } as unknown as
+					| ReverseGeocodeCommandOutput
+					| GeocodeCommandOutput
+			});
 		}
 	};
 
@@ -364,6 +370,9 @@ export default function CustomRequest({
 		/>
 	) : null;
 
+	const promotedFields =
+		isGeocode && (queryType === "Components" || queryType === "Hybrid") ? Array.from(queryComponentsFieldNames) : [];
+
 	return (
 		<div className="custom-request-container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
 			<FormRender
@@ -378,6 +387,7 @@ export default function CustomRequest({
 				submitButtonDisabled={isSubmitDisabled}
 				mapContainerHeight={mapContainerHeight}
 				headerContent={headerContent}
+				promotedFields={promotedFields}
 			/>
 		</div>
 	);
