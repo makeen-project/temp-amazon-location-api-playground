@@ -370,6 +370,9 @@ export default function CustomRequest({
 		/>
 	) : null;
 
+	const promotedFields =
+		isGeocode && (queryType === "Components" || queryType === "Hybrid") ? Array.from(queryComponentsFieldNames) : [];
+
 	return (
 		<div className="custom-request-container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
 			<FormRender
@@ -384,6 +387,7 @@ export default function CustomRequest({
 				submitButtonDisabled={isSubmitDisabled}
 				mapContainerHeight={mapContainerHeight}
 				headerContent={headerContent}
+				promotedFields={promotedFields}
 			/>
 		</div>
 	);
