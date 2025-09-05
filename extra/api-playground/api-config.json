@@ -317,7 +317,8 @@
 					"step": 1,
 					"required": false,
 					"defaultValue": 1,
-					"allowClear": true
+					"allowClear": false,
+					"showToggle": true
 				}
 			],
 			"formContent": {

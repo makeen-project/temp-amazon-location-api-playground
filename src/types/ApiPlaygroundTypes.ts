@@ -77,9 +77,10 @@ export interface FormFieldConfig {
 	options?: FormFieldOption[];
 	minSelected?: number;
 	maxSelected?: number;
-	onToggle?: boolean;
+	onToggle?: (enabled: boolean) => void;
 	hiddenFromUI?: boolean;
 	allowClear?: boolean;
+	showToggle?: boolean;
 }
 
 export interface FormContentConfig {
