@@ -122,6 +122,7 @@ interface SliderWithInputFieldConfig extends BaseField {
 	max: number;
 	step?: number;
 	allowClear?: boolean;
+	showToggle?: boolean;
 	onToggle?: (enabled: boolean) => void;
 }
 
@@ -414,6 +415,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						onChange={value => handleChange(field.name, value)}
 						isDisabled={field.disabled}
 						allowClear={field.allowClear}
+						showToggle={field.showToggle}
+						onToggle={value => handleToggle(field.name, value)}
 					/>
 				);
 
