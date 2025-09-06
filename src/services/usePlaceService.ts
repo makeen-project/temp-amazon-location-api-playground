@@ -9,6 +9,8 @@ import { appConfig } from "@api-playground/core/constants";
 import { useClient, useMap } from "@api-playground/hooks";
 import { AdditionalFeatures } from "@api-playground/types/CustomRequestForm";
 import {
+	AutocompleteCommand,
+	AutocompleteCommandInput,
 	GeocodeCommand,
 	GeocodeCommandInput,
 	GetPlaceCommand,
@@ -100,6 +102,7 @@ const usePlaceService = () => {
 				return await placesClient?.send(command);
 			},
 			getPlacesByText: async (QueryTextOrId: string, isQueryId = false) => {
+				console.log("QueryTextOrId", QueryTextOrId);
 				const input: SearchTextCommandInput = {
 					QueryText: isQueryId ? undefined : QueryTextOrId,
 					QueryId: isQueryId ? QueryTextOrId : undefined,
@@ -249,6 +252,23 @@ const usePlaceService = () => {
 					throw new Error(responseBody.message);
 				}
 				return responseBody;
+			},
+			autocomplete: async (params: AutocompleteCommandInput) => {
+				const input = {
+					// AutocompleteRequest
+					QueryText: params.QueryText, // required
+					MaxResults: params.MaxResults,
+					BiasPosition: params.BiasPosition, // Position
+					Filter: params.Filter, // AutocompleteFilter
+					PostalCodeMode: params.PostalCodeMode,
+					AdditionalFeatures: params.AdditionalFeatures, // AutocompleteAdditionalFeatureList
+					Language: params.Language || Language,
+					PoliticalView: params.PoliticalView || (isSupportedByPlaces ? alpha3 : undefined),
+					IntendedUse: params.IntendedUse,
+					Key: params.Key
+				};
+				const command = new AutocompleteCommand(input);
+				return await placesClient?.send(command);
 			}
 		}),
 		[BiasPosition, SearchBiasPosition, Language, alpha3, isSupportedByPlaces, placesClient]

@@ -7,6 +7,7 @@ import { GeocodeQueryType } from "@api-playground/atomicui/organisms/CustomReque
 import { IStateProps } from "@api-playground/types";
 import { AdditionalFeatures, IntendedUse } from "@api-playground/types/CustomRequestForm";
 import {
+	AutocompleteCommandOutput,
 	GeocodeCommandOutput,
 	ReverseGeocodeCommandOutput,
 	ReverseGeocodeFilterPlaceType
@@ -36,7 +37,7 @@ export interface CustomRequestStore {
 	language?: string;
 	maxResults?: number;
 	politicalView?: string;
-	queryRadius?: number | null;
+	queryRadius?: number | null | undefined;
 	submittedQueryRadius?: number;
 	addressNumber?: string;
 	country?: string;
@@ -52,6 +53,9 @@ export interface CustomRequestStore {
 	isLoading: boolean;
 	error?: string;
 	query?: string;
+	position?: number[];
+	id?: string;
+	queryText?: string;
 }
 
 export const initialState: IStateProps<CustomRequestStore> = {
@@ -77,7 +81,10 @@ export const initialState: IStateProps<CustomRequestStore> = {
 	subRegion: "",
 	queryType: "Text",
 	isLoading: false,
-	query: ""
+	query: "",
+	position: [],
+	id: "",
+	queryText: ""
 };
 
 export default createStore<CustomRequestStore>(initialState);

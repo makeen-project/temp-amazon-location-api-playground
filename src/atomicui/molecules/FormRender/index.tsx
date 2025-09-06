@@ -7,6 +7,7 @@ import React, { useRef, useState } from "react";
 
 import { IconChevronDown, IconChevronUp, IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
+import { getEffectiveRequiredStatus } from "@api-playground/utils/formConfigUtils";
 import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
 
 import { Accordion } from "../../atoms/Accordion";
@@ -16,6 +17,8 @@ import { RadioButtonGroup } from "../../atoms/RadioButton/RadioButton";
 import { Slider } from "../../atoms/Slider/Slider";
 import AddressInput, { AddressInputRef } from "../AddressInput";
 import { AutoCompleteLatLonInput } from "../AutoCompleteLatLonInput";
+import AutocompleteAddressInput, { AutocompleteAddressInputRef } from "../AutocompleteAddressInput";
+import { BoundingBox } from "../BoundingBox";
 import CheckboxGroup from "../CheckboxGroup";
 import { CoordinateInput } from "../CoordinateInput";
 import LngLatInput from "../LngLatInput/LngLatInput";
@@ -113,6 +116,12 @@ interface AddressFieldConfig extends BaseField {
 	value: string;
 }
 
+// AutocompleteAddress field specific interface
+interface AutocompleteAddressFieldConfig extends BaseField {
+	type: "autocompleteAddress";
+	value: string;
+}
+
 // SliderWithInput field specific interface
 interface SliderWithInputFieldConfig extends BaseField {
 	type: "sliderWithInput";
@@ -160,6 +169,13 @@ interface CoordinateInputFieldConfig extends BaseField {
 	value?: number[];
 }
 
+// BoundingBox field specific interface
+interface BoundingBoxFieldConfig extends BaseField {
+	type: "boundingBox";
+	defaultValue?: number[];
+	value?: number[];
+}
+
 // Union type for all field configurations
 export type FormField =
 	| TextFieldConfig
@@ -170,11 +186,13 @@ export type FormField =
 	| DropdownFieldConfig
 	| CheckboxFieldConfig
 	| AddressFieldConfig
+	| AutocompleteAddressFieldConfig
 	| SliderWithInputFieldConfig
 	| MultiSelectFieldConfig
 	| LatLonInputFieldConfig
 	| LngLatInputFieldConfig
-	| CoordinateInputFieldConfig;
+	| CoordinateInputFieldConfig
+	| BoundingBoxFieldConfig;
 
 interface FormRenderProps {
 	fields: FormField[];
@@ -185,11 +203,13 @@ interface FormRenderProps {
 	content?: ContentProps;
 	submitButtonDisabled?: boolean;
 	onReset?: () => void;
-	onToggle?: (fieldName: string, enabled: boolean) => void;
 	containerHeight?: number;
 	mapContainerHeight?: number;
 	headerContent?: React.ReactNode;
 	promotedFields?: string[];
+	formData?: Record<string, unknown>;
+	formFields?: import("@api-playground/types/ApiPlaygroundTypes").FormFieldConfig[];
+	handleToggle?: (name: string, value: boolean) => void;
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
@@ -201,13 +221,16 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	content,
 	submitButtonDisabled = false,
 	onReset,
-	onToggle,
 	mapContainerHeight,
 	headerContent,
-	promotedFields
+	promotedFields,
+	formData = {},
+	handleToggle,
+	formFields = []
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
+	const autocompleteAddressRefs = useRef<Map<string, AutocompleteAddressInputRef>>(new Map());
 	const requiredFeildsContainerRef = useRef<HTMLDivElement>(null);
 	const optionalFieldsContainerRef = useRef<HTMLDivElement>(null);
 	const [isOverflowing, setIsOverflowing] = useState<boolean>(false);
@@ -218,10 +241,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			name,
 			value
 		});
-	};
-
-	const handleToggle = (fieldName: string, enabled: boolean) => {
-		onToggle?.(fieldName, enabled);
 	};
 
 	// Function to check if optional fields container is scrollable
@@ -285,11 +304,15 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	};
 
 	const renderField = (field: FormField) => {
+		// Find the corresponding FormFieldConfig to check for nested dependencies
+		const fieldConfig = formFields.find(f => f.name === field.name);
+		const effectiveRequired = fieldConfig ? getEffectiveRequiredStatus(fieldConfig, formData) : field.required;
+
 		const commonProps = {
 			key: field.name,
 			name: field.name,
 			label: field.label,
-			isRequired: field.required,
+			isRequired: effectiveRequired,
 			isDisabled: field.disabled,
 			hasError: !!field.error,
 			errorMessage: field.error,
@@ -403,6 +426,23 @@ export const FormRender: React.FC<FormRenderProps> = ({
 					/>
 				);
 
+			case "autocompleteAddress":
+				return (
+					<AutocompleteAddressInput
+						{...commonProps}
+						placeholder={field.placeholder}
+						onChange={value => handleChange(field.name, value)}
+						initialValue={field.value}
+						ref={ref => {
+							if (ref) {
+								autocompleteAddressRefs.current.set(field.name, ref);
+							} else {
+								autocompleteAddressRefs.current.delete(field.name);
+							}
+						}}
+					/>
+				);
+
 			case "sliderWithInput":
 				return (
 					<SliderWithInput
@@ -416,7 +456,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						isDisabled={field.disabled}
 						allowClear={field.allowClear}
 						showToggle={field.showToggle}
-						onToggle={value => handleToggle(field.name, value)}
+						onToggle={value => handleToggle?.(field.name, value)}
 					/>
 				);
 
@@ -463,8 +503,22 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						onChange={value => handleChange(field.name, value)}
 						value={field.value}
 						name={field.name}
+						label={field.label}
 						isDisabled={field.disabled}
 						placeholder={field.placeholder}
+					/>
+				);
+
+			case "boundingBox":
+				return (
+					<BoundingBox
+						{...commonProps}
+						defaultValue={field.value}
+						onChange={value => handleChange(field.name, value)}
+						value={field.value}
+						name={field.name}
+						label={field.label}
+						isDisabled={field.disabled}
 					/>
 				);
 
@@ -473,7 +527,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 		}
 	};
 
-	// Split fields into required and optional
+	// Split fields into required and optional based on original required property only
+	// Effective required fields stay in optional section but show visual indicators
 	const requiredFields = fields.filter(field => field.required && !field.hiddenFromUI);
 	const allOptionalFields = fields.filter(field => !field.required && !field.hiddenFromUI);
 
@@ -507,6 +562,16 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						handleChange(field.name, undefined);
 					}
 					break;
+				case "autocompleteAddress":
+					// Use the ref to clear the autocomplete address input
+					const autocompleteAddressRef = autocompleteAddressRefs.current.get(field.name);
+					if (autocompleteAddressRef) {
+						autocompleteAddressRef.clear();
+					} else {
+						// Fallback to handleChange if ref is not available
+						handleChange(field.name, undefined);
+					}
+					break;
 				case "multiSelect":
 					handleChange(field.name, undefined);
 					break;
@@ -523,6 +588,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 					break;
 				case "lngLatInput":
 				case "coordinateInput":
+				case "boundingBox":
 					handleChange(field.name, []);
 					break;
 				case "radio":

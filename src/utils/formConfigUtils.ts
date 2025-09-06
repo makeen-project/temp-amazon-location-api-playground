@@ -80,6 +80,13 @@ export const convertFormFieldConfigToFormField = (
 				value: parseValue(rawValue, "string", "")
 			};
 
+		case "autocompleteAddress":
+			return {
+				...baseField,
+				type: "autocompleteAddress" as const,
+				value: parseValue(rawValue, "string", "")
+			};
+
 		case "latLonInput":
 			return {
 				...baseField,
@@ -175,6 +182,13 @@ export const convertFormFieldConfigToFormField = (
 			return {
 				...baseField,
 				type: "coordinateInput" as const,
+				value: parseValue(rawValue, "array", [])
+			};
+
+		case "boundingBox":
+			return {
+				...baseField,
+				type: "boundingBox" as const,
 				value: parseValue(rawValue, "array", [])
 			};
 
@@ -363,4 +377,137 @@ const formatValueForSnippet = (value: any, placeholder: string): string => {
 
 const isArrayField = (placeholder: string): boolean => {
 	return ["additionalFeatures", "includeCountries", "includePlaceTypes"].includes(placeholder);
+};
+
+/**
+ * Groups form fields by their nested object prefix
+ */
+export const groupFieldsByNestedObject = (formFields: FormFieldConfig[]): Map<string, FormFieldConfig[]> => {
+	const groups = new Map<string, FormFieldConfig[]>();
+
+	formFields.forEach(field => {
+		if (field.name.includes(".")) {
+			// Extract the nested object prefix (e.g., "filter.circle" from "filter.circle.center")
+			const parts = field.name.split(".");
+			if (parts.length >= 2) {
+				const prefix = parts.slice(0, -1).join(".");
+				if (!groups.has(prefix)) {
+					groups.set(prefix, []);
+				}
+				groups.get(prefix)!.push(field);
+			}
+		}
+	});
+
+	return groups;
+};
+
+/**
+ * Validates nested object dependencies in form data
+ * Only validates fields that have explicit dependsOn or nestedObjectDependency configuration
+ */
+export const validateNestedObjectDependencies = (
+	formData: Record<string, any>,
+	formFields: FormFieldConfig[]
+): { isValid: boolean; errors: Record<string, string> } => {
+	const errors: Record<string, string> = {};
+
+	// Only check fields that have explicit dependency configuration
+	const fieldsWithDependencies = formFields.filter(field => field.dependsOn || field.nestedObjectDependency);
+
+	fieldsWithDependencies.forEach(field => {
+		// Get the dependency field name
+		let dependsOnField: string | undefined;
+
+		if (field.dependsOn) {
+			dependsOnField = field.dependsOn;
+		} else if (field.nestedObjectDependency) {
+			dependsOnField = field.nestedObjectDependency.dependsOn;
+		}
+
+		if (!dependsOnField) return;
+		const dependencyValue = formData[dependsOnField];
+		const currentValue = formData[field.name];
+
+		// If the dependency field has a value, this field becomes required
+		const hasDependencyValue =
+			dependencyValue !== undefined &&
+			dependencyValue !== null &&
+			dependencyValue !== "" &&
+			(!Array.isArray(dependencyValue) || dependencyValue.length > 0);
+
+		const currentIsEmpty =
+			currentValue === undefined ||
+			currentValue === null ||
+			currentValue === "" ||
+			(Array.isArray(currentValue) && currentValue.length === 0);
+
+		if (hasDependencyValue && currentIsEmpty) {
+			errors[field.name] = `${field.label} is required when ${dependsOnField} is specified`;
+		}
+	});
+
+	return {
+		isValid: Object.keys(errors).length === 0,
+		errors
+	};
+};
+
+/**
+ * Checks if a field should be disabled based on nested object dependencies
+ */
+export const shouldFieldBeDisabled = (field: FormFieldConfig, formData: Record<string, any>): boolean => {
+	if (!field.nestedObjectDependency) {
+		return field.disabled || false;
+	}
+
+	const { dependsOn } = field.nestedObjectDependency;
+	const dependencyValue = formData[dependsOn];
+
+	if (
+		dependencyValue === undefined ||
+		dependencyValue === null ||
+		dependencyValue === "" ||
+		(Array.isArray(dependencyValue) && dependencyValue.length === 0)
+	) {
+		return true;
+	}
+
+	return field.disabled || false;
+};
+
+/**
+ * Determines if a field should be marked as required based on nested object dependencies
+ * Only applies when dependsOn or nestedObjectDependency is explicitly configured
+ */
+export const getEffectiveRequiredStatus = (field: FormFieldConfig, formData: Record<string, any>): boolean => {
+	// First check if it's explicitly required
+	if (field.required) {
+		return true;
+	}
+
+	// Check for simple dependsOn configuration
+	let dependsOnField: string | undefined;
+
+	if (field.dependsOn) {
+		dependsOnField = field.dependsOn;
+	} else if (field.nestedObjectDependency) {
+		dependsOnField = field.nestedObjectDependency.dependsOn;
+	}
+
+	// Only apply effective validation if dependency is explicitly configured
+	if (!dependsOnField) {
+		return false;
+	}
+
+	// Check if the dependency field has a value
+	const dependencyValue = formData[dependsOnField];
+	const hasDependencyValue =
+		dependencyValue !== undefined &&
+		dependencyValue !== null &&
+		dependencyValue !== "" &&
+		(!Array.isArray(dependencyValue) || dependencyValue.length > 0);
+
+	// If the dependency field has a value, this field becomes required
+	return hasDependencyValue;
 };

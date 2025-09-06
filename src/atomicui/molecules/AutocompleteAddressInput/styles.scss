@@ -1,0 +1,80 @@
+/*!
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
+.address-input {
+    border-radius: 8px;
+    outline: none;
+
+    background-color: #f2f2f7;
+    border-color: transparent;
+
+    &:focus {
+        background-color: #fff;
+        box-shadow: 0px 0px 0px 2px #008296 !important;
+    }
+}
+
+.geocode-label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    font-family: "AmazonEmber-Medium";
+}
+
+.option-details {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &:hover {
+        background-color: #f5f5f5;
+    }
+
+    svg {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        color: #666;
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .amplify-text {
+            &:first-child {
+                font-weight: 500;
+                margin-bottom: 2px;
+            }
+
+            &[data-variation="tertiary"] {
+                font-size: 12px;
+                color: #666;
+            }
+        }
+    }
+
+    &.fallback-option {
+        opacity: 0.7;
+    }
+}
+
+.amplify-autocomplete__menu {
+    width: auto;
+}
+
+.address-label {
+    font-family: "AmazonEmber-Medium";
+    color: var(--tertiary-color);
+    font-size: 1rem;
+}
+
+.address-autocomplete {
+    .amplify-autocomplete__menu {
+        max-height: 40vh;
+        overflow-y: hidden;
+    }
+}

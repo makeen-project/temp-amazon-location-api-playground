@@ -1,0 +1,49 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
+ */
+
+.bounding-box-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .bounding-box-inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .bounding-box-input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .bounding-box-input-label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--amplify-colors-font-primary);
+    }
+
+    .clear-button {
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        padding: 0.25rem;
+        cursor: pointer;
+        z-index: 1;
+
+        &:hover {
+            background-color: var(--amplify-colors-background-secondary);
+            border-radius: 0.25rem;
+        }
+    }
+
+    .input-wrapper {
+        position: relative;
+    }
+}

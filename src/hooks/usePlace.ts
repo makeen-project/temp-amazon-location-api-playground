@@ -16,6 +16,7 @@ import { SearchForTextResult } from "@aws-sdk/client-location";
 import { useTranslation } from "react-i18next";
 
 import useMap from "./useMap";
+import { AutocompleteCommandInput } from "@aws-sdk/client-geo-places";
 
 const usePlace = () => {
 	const store = usePlaceStore();
@@ -55,6 +56,37 @@ const usePlace = () => {
 					}
 				} catch (error) {
 					errorHandler(error, t("error_handler__failed_search_place_suggestions.text") as string);
+				} finally {
+					setState({ isSearching: false });
+				}
+			},
+			searchPlaceAutocomplete: async (
+				params: AutocompleteCommandInput,
+				viewpoint: ViewPointType,
+				cb?: (sg: SuggestionType[]) => void
+			) => {
+				try {
+					setState({ isSearching: true });
+					const data = await placeService.autocomplete({
+						...params
+					});
+
+					if (data?.ResultItems) {
+						const { ResultItems } = data;
+						const suggestions = ResultItems.map(({ PlaceId, Title, Address }) => ({
+							id: uuid.randomUUID(),
+							placeId: PlaceId,
+							position: undefined, // Autocomplete doesn't return position directly
+							label: Address?.Label || Title || "",
+							address: Address,
+							country: Address?.Country?.Name,
+							region: Address?.Region ? Address?.Region?.Name : Address?.SubRegion?.Name
+						}));
+						cb ? cb(suggestions) : setState({ suggestions: { list: suggestions, renderMarkers: false } });
+						setViewpoint(viewpoint);
+					}
+				} catch (error) {
+					errorHandler(error, t("error_handler__failed_autocomplete_search.text") as string);
 				} finally {
 					setState({ isSearching: false });
 				}

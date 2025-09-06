@@ -16,6 +16,7 @@ interface CoordinateInputProps {
 	isDisabled?: boolean;
 	name?: string;
 	placeholder?: string;
+	label?: string;
 }
 
 interface ValidationResult {
@@ -30,6 +31,7 @@ export default function CoordinateInput({
 	isRequired,
 	isDisabled,
 	name,
+	label,
 	placeholder = "Enter latitude, longitude (e.g., 40.7128, -74.0060)"
 }: CoordinateInputProps) {
 	const { clickedPosition } = usePlace();
@@ -49,17 +51,17 @@ export default function CoordinateInput({
 		if (!input.trim()) return { isValid: true };
 
 		const parts = input.split(",").map(part => part.trim());
-		
+
 		// Allow partial input like "30," or "30, " or ", 40"
 		if (parts.length === 0 || parts.length > 2) {
 			return { isValid: false, errorMessage: "Please enter coordinates in format: latitude, longitude" };
 		}
-		
+
 		// Handle case where user just typed comma
 		if (parts.length === 1 && input.endsWith(",")) {
 			return { isValid: true }; // Allow this case, don't show error
 		}
-		
+
 		// Handle case where user typed comma at the beginning
 		if (parts.length === 1 && input.startsWith(",")) {
 			return { isValid: true }; // Allow this case, don't show error
@@ -68,7 +70,7 @@ export default function CoordinateInput({
 		// Check if the parts are valid number strings (including incomplete decimals)
 		const latStr = parts[0] || "";
 		const lngStr = parts[1] || "";
-		
+
 		// Allow incomplete decimal numbers (e.g., "40.", "40.7", "-74.")
 		const isValidNumber = (str: string): boolean => {
 			return str === "" || /^[-+]?(\d*\.?\d*)$/.test(str);
@@ -86,7 +88,7 @@ export default function CoordinateInput({
 			// Check if the original strings end with a decimal point (incomplete numbers)
 			const isLatIncomplete = latStr.endsWith(".");
 			const isLngIncomplete = lngStr.endsWith(".");
-			
+
 			// Only validate ranges for complete numbers
 			if (!isLatIncomplete && latStr !== "" && (lat < -90 || lat > 90)) {
 				return { isValid: false, errorMessage: "Latitude must be between -90 and 90 degrees" };
@@ -106,15 +108,15 @@ export default function CoordinateInput({
 		if (!input.trim()) return null;
 
 		const parts = input.split(",").map(part => part.trim());
-		
+
 		// Allow partial input like "30," or "30, " or ", 40"
 		if (parts.length === 0 || parts.length > 2) return null;
-		
+
 		// Handle case where user just typed comma
 		if (parts.length === 1 && input.endsWith(",")) {
 			return null; // Allow this case, don't reset
 		}
-		
+
 		// Handle case where user typed comma at the beginning
 		if (parts.length === 1 && input.startsWith(",")) {
 			return null; // Allow this case, don't reset
@@ -123,7 +125,7 @@ export default function CoordinateInput({
 		// Check if the parts are valid number strings (including incomplete decimals)
 		const latStr = parts[0] || "";
 		const lngStr = parts[1] || "";
-		
+
 		// Allow incomplete decimal numbers (e.g., "40.", "40.7", "-74.")
 		const isValidNumber = (str: string): boolean => {
 			return str === "" || /^[-+]?(\d*\.?\d*)$/.test(str);
@@ -139,7 +141,7 @@ export default function CoordinateInput({
 			// Check if the original strings end with a decimal point (incomplete numbers)
 			const isLatIncomplete = latStr.endsWith(".");
 			const isLngIncomplete = lngStr.endsWith(".");
-			
+
 			// Only validate ranges for complete numbers
 			if (!isLatIncomplete && latStr !== "" && (lat < -90 || lat > 90)) return null; // Latitude range
 			if (!isLngIncomplete && lngStr !== "" && (lng < -180 || lng > 180)) return null; // Longitude range
@@ -188,11 +190,11 @@ export default function CoordinateInput({
 				const parts = newValue.split(",").map(part => part.trim());
 				const isLatIncomplete = parts[0]?.endsWith(".");
 				const isLngIncomplete = parts[1]?.endsWith(".");
-				
+
 				// Check if both parts are non-empty and complete
 				const hasLat = parts[0] && parts[0] !== "";
 				const hasLng = parts[1] && parts[1] !== "";
-				
+
 				if (!isNaN(lng) && !isNaN(lat) && !isLatIncomplete && !isLngIncomplete && hasLat && hasLng) {
 					// Only pass complete coordinates
 					onChange(parsedCoords);
@@ -225,7 +227,7 @@ export default function CoordinateInput({
 		<Flex direction="column" gap="0.1rem">
 			<div className="input-wrapper">
 				<Label htmlFor={`${name}-coordinate-input`} className="input-label">
-					{name === "biasPosition" ? "BiasPosition" : "Coordinates"}
+					{label}
 				</Label>
 				<div className="playground-input-container">
 					<Input
