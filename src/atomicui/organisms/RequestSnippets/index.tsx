@@ -3,16 +3,17 @@
  * SPDX-License-Identifier: MIT-0
  */
 
+import React, { FC, useMemo, useState } from "react";
+
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
 import { Accordion } from "@api-playground/atomicui/atoms/Accordion";
 import { useApiPlaygroundItem } from "@api-playground/hooks/useApiPlaygroundList";
-import { useUrlState } from "@api-playground/hooks/useUrlState";
-import { useCustomRequestStore } from "@api-playground/stores";
-import { RequestSnippetsProps } from "@api-playground/stores/useCustomRequestStore";
+import useCustomRequestStore, { RequestSnippetsProps } from "@api-playground/stores/useCustomRequestStore";
 
+import { mapFormDataToApiParams } from "@api-playground/utils/formConfigUtils";
 import { Button, Divider, Tabs, Text, View } from "@aws-amplify/ui-react";
-import React, { FC, useMemo, useState } from "react";
+import { useOptimisticSearchParams } from "nuqs/adapters/react-router";
 import { useParams } from "react-router-dom";
 import "./styles.scss";
 
@@ -26,21 +27,60 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	onToggle,
 	onWidthChange
 }) => {
-	const store = useCustomRequestStore();
 	const [selectedTab, setSelectedTab] = useState<TabType>("JavaScript");
 	const { apiPlaygroundId } = useParams();
 	const apiPlaygroundItem = useApiPlaygroundItem(apiPlaygroundId);
+	const store = useCustomRequestStore();
 	const [isExpanded, setIsExpanded] = useState(false);
 
-	const { shareableUrl } = useUrlState({
-		defaultValue: store,
-		paramName: apiPlaygroundItem?.id || "reverseGeocode"
-	});
+	const searchParams = useOptimisticSearchParams();
 
 	const getDefaultParams = () => {
 		const defaultParams: Record<string, unknown> = {};
 		const paramMapping = apiPlaygroundItem?.apiHandler?.paramMapping || {};
 		const placeholders = apiPlaygroundItem?.codeSnippets?.paramPlaceholders || {};
+
+		const allSearchParams = Object.fromEntries(searchParams.entries());
+		const parsedSearchParams = Object.fromEntries(
+			Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
+		);
+
+		const defaultValues = apiPlaygroundItem?.formFields?.reduce((acc, field) => {
+			if (field.defaultValue !== undefined && parsedSearchParams[field.name] === undefined) {
+				acc[field.name] = field.defaultValue;
+			}
+			return acc;
+		}, {} as Record<string, unknown>);
+
+		const storeValues = Object.entries(store).reduce((acc, [key, value]) => {
+			if (value === undefined || value === null || value === "") {
+				return acc;
+			}
+			if (Array.isArray(value) && value.length === 0) {
+				return acc;
+			}
+			if (value && typeof value === "object" && !Array.isArray(value) && Object.keys(value).length === 0) {
+				return acc;
+			}
+
+			acc[key] = value;
+			return acc;
+		}, {} as Record<string, unknown>);
+
+		const paramsWithDefaults = Object.entries(defaultValues || {}).reduce(
+			(acc, [key, value]) => {
+				if (!(key in store)) {
+					acc[key] = value;
+				}
+				return acc;
+			},
+			{ ...storeValues }
+		);
+
+		console.log("paramsWithDefaults", paramsWithDefaults);
+		console.log("store", store);
+
+		const params = mapFormDataToApiParams(paramsWithDefaults, apiPlaygroundItem?.apiHandler?.paramMapping || {});
 
 		Object.entries(placeholders).forEach(([key, value]) => {
 			const matchingParam = Object.entries(paramMapping).find(
@@ -69,27 +109,28 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 			}
 		});
 
-		const isGeocode = apiPlaygroundItem?.id === "geocode" || apiPlaygroundItem?.type === "geocode";
-		if (isGeocode) {
-			if (store.queryType === "Components") {
-				delete (defaultParams as any).QueryText;
-			} else if (store.queryType === "Text") {
-				delete (defaultParams as any).QueryComponents;
-			}
-		}
-
-		return defaultParams;
+		return params;
 	};
 
 	const isRequestObjectDefault = (requestObj: Record<string, unknown>): boolean => {
-		const defaultParams = getDefaultParams();
+		// Get the default values from form fields
+		const defaultValues =
+			apiPlaygroundItem?.formFields?.reduce((acc, field) => {
+				if (field.defaultValue !== undefined) {
+					acc[field.name] = field.defaultValue;
+				}
+				return acc;
+			}, {} as Record<string, unknown>) || {};
+
+		// Map default values to API parameters
+		const defaultApiParams = mapFormDataToApiParams(defaultValues, apiPlaygroundItem?.apiHandler?.paramMapping || {});
 
 		if (Object.keys(requestObj).length === 0) {
 			return false;
 		}
 
 		const requestKeys = Object.keys(requestObj);
-		const defaultKeys = Object.keys(defaultParams);
+		const defaultKeys = Object.keys(defaultApiParams);
 
 		if (requestKeys.length !== defaultKeys.length) {
 			return false;
@@ -97,7 +138,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 
 		return requestKeys.every(key => {
 			const requestValue = requestObj[key];
-			const defaultValue = defaultParams[key];
+			const defaultValue = defaultApiParams[key];
 
 			if (
 				requestValue &&
@@ -119,54 +160,13 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 	};
 
 	const requestObject = useMemo(() => {
-		if (!response) {
-			return getDefaultParams();
-		}
-
-		const defaultParams = getDefaultParams();
-		const placeholderParams = getDefaultParams();
-
-		const urlParams: Record<string, unknown> = {};
-		const searchParams = Array.from(new URL(shareableUrl).searchParams.entries()).filter(([key]) => key !== "response");
-
-		searchParams.forEach(([key, value]) => {
-			const matchingParam = Object.entries(apiPlaygroundItem?.apiHandler?.paramMapping || {}).find(
-				([paramKey]) => paramKey.toLowerCase() === key.toLowerCase()
-			);
-
-			const paramName = matchingParam?.[1] || key;
-			let parsedValue: unknown;
-			try {
-				parsedValue = JSON.parse(value);
-			} catch {
-				parsedValue = value;
-			}
-
-			const parts = paramName.split(".");
-			let current = urlParams;
-			parts.forEach((part, index) => {
-				if (index === parts.length - 1) {
-					current[part] = parsedValue;
-				} else {
-					current[part] = current[part] || {};
-					current = current[part] as Record<string, unknown>;
-				}
-			});
-		});
-
-		const combined = { ...defaultParams, ...placeholderParams, ...urlParams } as Record<string, unknown>;
-
-		const isGeocode = apiPlaygroundItem?.id === "geocode" || apiPlaygroundItem?.type === "geocode";
-		if (isGeocode) {
-			if (store.queryType === "Components") {
-				delete (combined as any).QueryText;
-			} else if (store.queryType === "Text") {
-				delete (combined as any).QueryComponents;
-			}
-		}
-
-		return combined;
-	}, [response, apiPlaygroundItem?.apiHandler?.paramMapping, apiPlaygroundItem?.formFields]);
+		return getDefaultParams();
+	}, [
+		apiPlaygroundItem?.apiHandler?.paramMapping,
+		apiPlaygroundItem?.formFields,
+		apiPlaygroundItem?.codeSnippets?.paramPlaceholders,
+		response
+	]);
 
 	const CODE_SNIPPETS = useMemo(() => {
 		if (!apiPlaygroundItem?.codeSnippets) {
@@ -337,7 +337,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 		});
 
 		return snippets;
-	}, [apiPlaygroundItem?.codeSnippets, requestObject, response]);
+	}, [apiPlaygroundItem?.codeSnippets, requestObject]);
 
 	const handleCopyRequestObject = async () => {
 		try {
@@ -439,7 +439,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 							</Button>
 						</View>
 						<View className={"snippets-container__snippet__content expandable"}>
-							{!isRequestObjectDefault(requestObject) || Object.keys(requestObject).length < 1 ? (
+							{response ? (
 								<pre className="response-pre">{JSON.stringify(requestObject, null, 2)}</pre>
 							) : (
 								<Text color="var(--tertiary-color)">No request yet. Submit a request to see the request object.</Text>

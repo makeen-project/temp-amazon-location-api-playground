@@ -19,7 +19,9 @@ import { errorHandler } from "@api-playground/utils/errorHandler";
 import {
 	convertFormContentConfigToContentProps,
 	createFormFieldsFromConfig,
-	mapFormDataToApiParams
+	getEffectiveRequiredStatus,
+	mapFormDataToApiParams,
+	validateNestedObjectDependencies
 } from "@api-playground/utils/formConfigUtils";
 
 import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
@@ -66,6 +68,16 @@ export default function CustomRequest({
 	const searchParams = useOptimisticSearchParams();
 	const placeService = usePlaceService();
 
+	const getDefaultValues = () => {
+		const defaultValues = apiPlaygroundItem?.formFields?.reduce((acc, field) => {
+			if (field.defaultValue) {
+				acc[field.name] = field.defaultValue;
+			}
+			return acc;
+		}, {} as Record<string, any>);
+		return defaultValues;
+	};
+
 	const syncUrlState = useCallback(() => {
 		const allSearchParams = Object.fromEntries(searchParams.entries());
 		const parsedSearchParams = Object.fromEntries(
@@ -74,18 +86,28 @@ export default function CustomRequest({
 
 		const response = parsedSearchParams.response ? JSON.parse(parsedSearchParams.response as string) : undefined;
 
-		setState({
+		const defaultValues = getDefaultValues();
+
+		console.log("Inside sync state ", {
+			...defaultValues,
 			...parsedSearchParams,
 			response
 		});
-	}, []);
+
+		setState({
+			...defaultValues,
+			...parsedSearchParams,
+			response
+		});
+	}, [apiPlaygroundItem]);
 
 	useEffect(() => {
-		if (isFirstLoad.current) {
+		if (isFirstLoad.current && apiPlaygroundItem) {
 			syncUrlState();
+
 			isFirstLoad.current = false;
 		}
-	}, [urlState]);
+	}, [urlState, apiPlaygroundItem]);
 
 	useEffect(() => {
 		if (isSyncing.current) return;
@@ -101,20 +123,20 @@ export default function CustomRequest({
 		isSyncing.current = false;
 	}, [store.politicalView, store.language, mapLanguage.value, setMapLanguage]);
 
-	useEffect(() => {
-		if (isFirstLoad.current && !isSyncing.current) {
-			isSyncing.current = true;
+	// useEffect(() => {
+	// 	if (isFirstLoad.current && !isSyncing.current) {
+	// 		isSyncing.current = true;
 
-			if (mapLanguage.value !== store.language) {
-				setState(prevState => ({
-					...prevState,
-					language: mapLanguage.value
-				}));
-			}
+	// 		if (mapLanguage.value !== store.language) {
+	// 			setState(prevState => ({
+	// 				...prevState,
+	// 				language: mapLanguage.value
+	// 			}));
+	// 		}
 
-			isSyncing.current = false;
-		}
-	}, [mapLanguage.value, store.language, setState]);
+	// 		isSyncing.current = false;
+	// 	}
+	// }, [mapLanguage.value, store.language, setState]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
 		const effectiveValue = value === undefined || value === null || value === "" ? null : value;
@@ -174,6 +196,12 @@ export default function CustomRequest({
 				{ ...storeValues }
 			);
 
+			const nestedValidation = validateNestedObjectDependencies(paramsWithDefaults, formFields);
+			if (!nestedValidation.isValid) {
+				const errorMessages = Object.values(nestedValidation.errors);
+				throw new Error(`Validation failed: ${errorMessages.join(", ")}`);
+			}
+
 			Object.entries(paramsWithDefaults).forEach(([key, value]) => {
 				setUrlState((prev: Record<string, any>) => ({ ...prev, [key]: value }));
 			});
@@ -216,23 +244,6 @@ export default function CustomRequest({
 		}
 	};
 
-	const handleToggle = (fieldName: string, enabled: boolean) => {
-		const newState = {
-			...store,
-			[fieldName]: enabled ? 1 : null,
-			...(fieldName === "queryRadius" && !enabled ? { submittedQueryRadius: undefined } : {}),
-			error: undefined
-		};
-		setState(newState);
-
-		const value = enabled ? 1 : null;
-		if (Array.isArray(value) && value.length === 0) {
-			setUrlState({ ...urlState, [fieldName]: null });
-		} else {
-			setUrlState({ ...urlState, [fieldName]: value });
-		}
-	};
-
 	const formFields = createFormFieldsFromConfig(apiPlaygroundItem?.formFields || [], store);
 
 	const isGeocode = apiPlaygroundItem?.type === "geocode" || apiPlaygroundItem?.id === "geocode";
@@ -270,6 +281,7 @@ export default function CustomRequest({
 				case "multiSelect":
 				case "lngLatInput":
 				case "coordinateInput":
+				case "boundingBox":
 					(field as any).value = Array.isArray(storeValue) ? storeValue : [];
 					break;
 				case "dropdown":
@@ -295,8 +307,16 @@ export default function CustomRequest({
 
 		if (isGeocode && queryType === "Components" && !anyQueryComponentsFilled) return true;
 		if (isGeocode && queryType === "Text" && (!store.query || store.query.trim() === "")) return true;
+		const formFieldsConfig = apiPlaygroundItem?.formFields || [];
 
-		return requiredFields.some((f: any) => {
+		// Check both originally required fields and effectively required fields
+		const allRequiredFields = formFieldsConfig.filter((f: any) => {
+			const originallyRequired = f.required;
+			const effectivelyRequired = getEffectiveRequiredStatus(f, store as unknown as Record<string, any>);
+			return originallyRequired || effectivelyRequired;
+		});
+
+		return allRequiredFields.some((f: any) => {
 			const key = f.name as keyof CustomRequestStore;
 			const val = store[key];
 			const isCoordinateField = f.name === "queryPosition" || f.name === "biasPosition";
@@ -372,6 +392,24 @@ export default function CustomRequest({
 
 	const promotedFields =
 		isGeocode && (queryType === "Components" || queryType === "Hybrid") ? Array.from(queryComponentsFieldNames) : [];
+	const handleToggle = (fieldName: string, enabled: boolean) => {
+		const defaultValues = getDefaultValues();
+		const newState = {
+			...store,
+			[fieldName]: enabled ? defaultValues?.[fieldName] : undefined,
+
+			error: undefined
+		};
+		console.log("newState", newState);
+		setState(newState);
+
+		const value = enabled ? defaultValues?.[fieldName] : undefined;
+		if (Array.isArray(value) && value.length === 0) {
+			setUrlState({ ...urlState, [fieldName]: null });
+		} else {
+			setUrlState({ ...urlState, [fieldName]: value });
+		}
+	};
 
 	return (
 		<div className="custom-request-container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
@@ -381,13 +419,15 @@ export default function CustomRequest({
 				onChange={handleChange}
 				onReset={handleReset}
 				onSubmit={handleSubmit}
+				handleToggle={handleToggle}
 				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
-				onToggle={handleToggle}
 				containerHeight={containerRef?.clientHeight}
 				submitButtonDisabled={isSubmitDisabled}
 				mapContainerHeight={mapContainerHeight}
 				headerContent={headerContent}
 				promotedFields={promotedFields}
+				formData={store as unknown as Record<string, unknown>}
+				formFields={apiPlaygroundItem?.formFields || []}
 			/>
 		</div>
 	);

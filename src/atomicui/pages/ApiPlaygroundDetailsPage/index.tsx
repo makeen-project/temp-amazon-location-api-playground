@@ -91,7 +91,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const isSnippetsOpenRef = useRef(isSnippetsOpen);
 
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
-	const position = resultItem?.Position;
+	const position = resultItem?.Position || customRequestStore.position;
 
 	const showMapMarker =
 		customRequestStore?.response && position?.length === 2 && position.every(coord => !isNaN(coord));
@@ -127,6 +127,16 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		}
 	}, [handleMarkerClose, handleMarkerToggle]);
 
+	const getDefaultValues = () => {
+		const defaultValues = apiPlaygroundItem?.formFields?.reduce((acc, field) => {
+			if (field.defaultValue) {
+				acc[field.name] = field.defaultValue;
+			}
+			return acc;
+		}, {} as Record<string, any>);
+		return defaultValues;
+	};
+
 	const handleReset = () => {
 		const resetState = {
 			queryPosition: [],
@@ -152,10 +162,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			subRegion: "",
 			response: undefined,
 			isLoading: false,
-			error: undefined
+			error: undefined,
+			position: [],
+			id: ""
 		};
 
-		setState(resetState);
+		const defaultValues = getDefaultValues();
+
+		setState({ ...resetState, ...defaultValues });
 		setClickedPosition([]);
 		setBiasPosition([]);
 		setMapPoliticalView(MAP_POLITICAL_VIEWS[0]);
@@ -305,7 +319,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const handleCustomResponse = () => {
 		const resultItem = customRequestStore.response?.ResultItems?.[0];
-		const currentPosition = resultItem?.Position;
+		const currentPosition = resultItem?.Position || customRequestStore.position;
+
+		console.log("currentPosition", currentPosition, customRequestStore.position);
 
 		if (!currentPosition || currentPosition.length !== 2 || currentPosition.some(isNaN)) {
 			console.warn("Invalid position data received");

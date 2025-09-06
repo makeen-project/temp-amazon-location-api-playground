@@ -13,3 +13,4 @@ export * from "./RedMarker";
 export { default as QueryRadiusCircle } from "./QueryRadiusCircle";
 export * from "./SliderWithInput";
 export * from "./CoordinateInput";
+export * from "./BoundingBox";

@@ -46,6 +46,15 @@ export interface FormFieldOption {
 	tooltipText?: string;
 }
 
+export interface NestedObjectDependency {
+	/** The field name that this field depends on */
+	dependsOn: string;
+	/** The nested object prefix (e.g., "filter.circle" for filter.circle.center and filter.circle.radius) */
+	nestedObjectPrefix: string;
+	/** Whether this field is required when the dependency is present */
+	requiredWhenDependencyPresent?: boolean;
+}
+
 export interface FormFieldConfig {
 	type:
 		| "text"
@@ -56,11 +65,13 @@ export interface FormFieldConfig {
 		| "dropdown"
 		| "checkbox"
 		| "address"
+		| "autocompleteAddress"
 		| "sliderWithInput"
 		| "multiSelect"
 		| "latLonInput"
 		| "lngLatInput"
-		| "coordinateInput";
+		| "coordinateInput"
+		| "boundingBox";
 	inputType?: "text" | "password";
 	name: string;
 	label: string;
@@ -71,6 +82,7 @@ export interface FormFieldConfig {
 	// Field-specific properties
 	defaultValue?: string | number | boolean | string[] | number[];
 	value?: string | number | boolean | string[] | number[];
+	initialValue?: string | number | boolean | string[] | number[];
 	min?: number;
 	max?: number;
 	step?: number;
@@ -78,9 +90,14 @@ export interface FormFieldConfig {
 	minSelected?: number;
 	maxSelected?: number;
 	onToggle?: (enabled: boolean) => void;
-	hiddenFromUI?: boolean;
 	allowClear?: boolean;
 	showToggle?: boolean;
+	maxResults?: number;
+	hiddenFromUI?: boolean;
+	// Simple dependency configuration (alternative to nestedObjectDependency)
+	dependsOn?: string;
+	// Detailed nested object dependency configuration
+	nestedObjectDependency?: NestedObjectDependency;
 }
 
 export interface FormContentConfig {
@@ -99,7 +116,7 @@ export interface ApiHandlerConfig {
 		rule: string;
 		message: string;
 	}>;
-	transformResponse?: (response: any) => any;
+	transformResponse?: (response: unknown) => unknown;
 }
 
 export interface CodeSnippetConfig {
@@ -119,7 +136,7 @@ export interface ApiPlaygroundItem {
 	category: string;
 	type: string;
 	shouldRenderMap?: boolean;
-	requestParams?: any[];
+	requestParams?: unknown[];
 	locationPopupConfig?: LocationPopupConfig;
 	buildSampleButton?: {
 		text: string;
@@ -133,6 +150,10 @@ export interface ApiPlaygroundItem {
 	codeSnippets?: CodeSnippetConfig;
 	missingFieldsMessage?: string;
 	showLocalMarkerOnMapClick?: "single" | "multiple";
+	formBehavior?: {
+		submitOn?: "change" | "submit";
+		showPopup?: boolean;
+	};
 }
 
 export type ApiPlaygroundList = ApiPlaygroundItem[];
