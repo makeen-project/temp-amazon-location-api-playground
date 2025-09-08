@@ -132,6 +132,7 @@ export interface ApiPlaygroundItem {
 	codeSnippets?: CodeSnippetConfig;
 	missingFieldsMessage?: string;
 	showLocalMarkerOnMapClick?: "single" | "multiple";
+	displayAllResultItems?: boolean;
 }
 
 export type ApiPlaygroundList = ApiPlaygroundItem[];

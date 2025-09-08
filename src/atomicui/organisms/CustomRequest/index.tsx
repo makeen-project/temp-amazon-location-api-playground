@@ -71,7 +71,7 @@ export default function CustomRequest({
 			Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
 		);
 
-		const response = parsedSearchParams.response ? JSON.parse(parsedSearchParams.response as string) : undefined;
+		const response = parsedSearchParams.response && typeof parsedSearchParams.response === "string" ? JSON.parse(parsedSearchParams.response as string) : undefined;
 
 		setState({
 			...parsedSearchParams,
@@ -204,7 +204,9 @@ export default function CustomRequest({
 			}
 		} catch (error) {
 			errorHandler(error);
-			setState({ ...store, error: error instanceof Error ? error.message : "An error occurred", response: undefined });
+			setUrlState((prev: Record<string, any>) => ({ ...prev, response: { ResultItems: (error as Error).message }  }));
+			onResponseReceived?.(error as ReverseGeocodeCommandOutput | GeocodeCommandOutput);
+			setState({ ...store, response: { ResultItems: (error as Error).message } as unknown as ReverseGeocodeCommandOutput | GeocodeCommandOutput });
 		}
 	};
 

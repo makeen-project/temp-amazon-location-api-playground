@@ -16,6 +16,9 @@ import {
 	ReverseGeocodeCommand,
 	ReverseGeocodeCommandInput,
 	ReverseGeocodeFilterPlaceType,
+	SearchNearbyCommand,
+	SearchNearbyCommandInput,
+	SearchNearbyIntendedUse,
 	SearchTextCommand,
 	SearchTextCommandInput,
 	SuggestCommand,
@@ -64,6 +67,25 @@ interface GeocodeParams {
 		Street?: string;
 		SubRegion?: string;
 	};
+}
+
+interface SearchNearbyParams {
+	Origin: number[]; // Maps to QueryPosition in AWS SDK
+	Radius: number;
+	Categories?: string[];
+	BoundingBox?: number[];
+	ExcludeBusinessChains?: string[];
+	ExcludeCategories?: string[];
+	ExcludeFoodTypes?: string[];
+	IncludeBusinessChains?: string[];
+	IncludeCategories?: string[];
+	IncludeFoodTypes?: string[];
+	IncludeCountries?: string[];
+	IntendedUse?: boolean; // Form sends boolean, we map to SearchNearbyIntendedUse enum
+	Language?: string;
+	MaxResults?: number;
+	PoliticalView?: string;
+	QueryRadius?: number;
 }
 
 const usePlaceService = () => {
@@ -249,6 +271,81 @@ const usePlaceService = () => {
 					throw new Error(responseBody.message);
 				}
 				return responseBody;
+			},
+			searchNearby: async (params: SearchNearbyParams) => {
+				const input: any = {
+					QueryPosition: params.Origin,
+					Radius: params.Radius,
+					Language: params.Language || Language
+				};
+
+				// Handle Categories
+				if (params.Categories && params.Categories.length > 0) {
+					input.Categories = params.Categories;
+				}
+
+				// Handle BoundingBox
+				if (params.BoundingBox && params.BoundingBox.length === 4) {
+					input.BoundingBox = params.BoundingBox;
+				}
+
+				// Handle ExcludeBusinessChains
+				if (params.ExcludeBusinessChains && params.ExcludeBusinessChains.length > 0) {
+					input.ExcludeBusinessChains = params.ExcludeBusinessChains;
+				}
+
+				// Handle ExcludeCategories
+				if (params.ExcludeCategories && params.ExcludeCategories.length > 0) {
+					input.ExcludeCategories = params.ExcludeCategories;
+				}
+
+				// Handle ExcludeFoodTypes
+				if (params.ExcludeFoodTypes && params.ExcludeFoodTypes.length > 0) {
+					input.ExcludeFoodTypes = params.ExcludeFoodTypes;
+				}
+
+				// Handle IncludeBusinessChains
+				if (params.IncludeBusinessChains && params.IncludeBusinessChains.length > 0) {
+					input.IncludeBusinessChains = params.IncludeBusinessChains;
+				}
+
+				// Handle IncludeCategories
+				if (params.IncludeCategories && params.IncludeCategories.length > 0) {
+					input.IncludeCategories = params.IncludeCategories;
+				}
+
+				// Handle IncludeFoodTypes
+				if (params.IncludeFoodTypes && params.IncludeFoodTypes.length > 0) {
+					input.IncludeFoodTypes = params.IncludeFoodTypes;
+				}
+
+				// Handle IncludeCountries
+				if (params.IncludeCountries && params.IncludeCountries.length > 0) {
+					input.IncludeCountries = params.IncludeCountries;
+				}
+
+				// Handle IntendedUse
+				if (params.IntendedUse !== undefined) {
+					input.IntendedUse = params.IntendedUse;
+				}
+
+				// Handle MaxResults
+				if (params.MaxResults) {
+					input.MaxResults = params.MaxResults;
+				}
+
+				// Handle PoliticalView
+				if (params.PoliticalView && isSupportedByPlaces) {
+					input.PoliticalView = params.PoliticalView;
+				}
+
+				// Handle QueryRadius
+				if (params.QueryRadius) {
+					input.QueryRadius = params.QueryRadius;
+				}
+
+				const command = new SearchNearbyCommand(input);
+				return await placesClient?.send(command);
 			}
 		}),
 		[BiasPosition, SearchBiasPosition, Language, alpha3, isSupportedByPlaces, placesClient]
