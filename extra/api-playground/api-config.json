@@ -104,7 +104,7 @@
 					"defaultValue": "SingleUse",
 					"options": [
 						{
-							"label": "Single use",
+							"label": "Single Use",
 							"value": "SingleUse"
 						},
 						{
@@ -732,7 +732,7 @@
 					"disabled": false,
 					"options": [
 						{
-							"label": "Single use",
+							"label": "Single Use",
 							"value": "SingleUse"
 						},
 						{
@@ -7569,7 +7569,7 @@
 					"defaultValue": "SingleUse",
 					"options": [
 						{
-							"label": "Single use",
+							"label": "Single Use",
 							"value": "SingleUse"
 						},
 						{
