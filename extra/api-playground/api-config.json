@@ -318,7 +318,8 @@
 					"required": false,
 					"defaultValue": 1,
 					"allowClear": false,
-					"showToggle": true
+					"showToggle": true,
+					"disabled": true
 				}
 			],
 			"formContent": {
