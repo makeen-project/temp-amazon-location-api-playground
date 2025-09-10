@@ -36,7 +36,7 @@ describe("MultiSelectDropdown", () => {
 	});
 
 	it("adds selected item and displays it as a button", () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<MultiSelectDropdown {...defaultProps} onChange={onChange} />);
 
 		// Select an option
@@ -52,7 +52,7 @@ describe("MultiSelectDropdown", () => {
 	});
 
 	it("removes selected item when clicking remove button", () => {
-		const onChange = jest.fn();
+		const onChange = vi.fn();
 		render(<MultiSelectDropdown {...defaultProps} defaultValue={["es"]} onChange={onChange} />);
 
 		// Initial selected button should exist

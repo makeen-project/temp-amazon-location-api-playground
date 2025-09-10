@@ -5,7 +5,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import { Flex, Input } from "@aws-amplify/ui-react";
+import { Flex, Input, SwitchField } from "@aws-amplify/ui-react";
 
 import { Slider } from "../../atoms/Slider/Slider";
 import "./styles.scss";
@@ -24,6 +24,8 @@ export interface SliderWithInputProps {
 	error?: string;
 	className?: string;
 	allowClear?: boolean;
+	onToggle?: (enabled: boolean) => void;
+	showToggle?: boolean;
 }
 
 export const SliderWithInput: React.FC<SliderWithInputProps> = ({
@@ -39,11 +41,14 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 	required = false,
 	error,
 	className = "",
-	allowClear = false
+	allowClear = false,
+	showToggle = false,
+	onToggle
 }) => {
 	const [internalValue, setInternalValue] = useState<number | undefined>(defaultValue);
 	const [inputValue, setInputValue] = useState<string>(defaultValue?.toString() ?? "");
 	const value = propValue !== undefined ? propValue : internalValue;
+	const [isToggleEnabled, setIsToggleEnabled] = useState(!isDisabled);
 
 	useEffect(() => {
 		if (isDisabled) {
@@ -99,10 +104,26 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 		}
 	};
 
+	const handleToggle = (checked: boolean) => {
+		setIsToggleEnabled(checked);
+		onToggle?.(checked);
+	};
+
 	return (
 		<Flex direction="column" className={`slider-with-input ${className}`}>
 			<Flex className="slider-with-input__header">
 				{label && <span className="slider-with-input__label">{label}</span>}
+
+				{showToggle && (
+					<SwitchField
+						label=""
+						size="large"
+						labelPosition="start"
+						isChecked={isToggleEnabled}
+						onChange={e => handleToggle(e.target.checked)}
+						className="slider-with-input__toggle"
+					/>
+				)}
 			</Flex>
 			<Flex className="slider-with-input__controls">
 				<Slider
@@ -112,7 +133,7 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 					step={step}
 					value={value ?? min}
 					onChange={handleSliderChange}
-					disabled={isDisabled}
+					disabled={!isToggleEnabled}
 					required={required}
 					error={error}
 					className="slider-with-input__slider"
@@ -124,7 +145,7 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 					onChange={handleInputChange}
 					max={max}
 					step={step}
-					isDisabled={isDisabled}
+					isDisabled={!isToggleEnabled}
 					className="slider-with-input__input"
 				/>
 			</Flex>

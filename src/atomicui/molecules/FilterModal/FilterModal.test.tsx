@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MIT-0
  */
 
+import i18n from "@api-playground/locales/i18n";
 import { faker } from "@faker-js/faker";
 import { fireEvent, render } from "@testing-library/react";
-import i18n from "locales/i18n";
 import { I18nextProvider } from "react-i18next";
 
 import FilterModal from ".";
@@ -27,8 +27,8 @@ describe("<FilterModal />", () => {
 			Category1: [],
 			Category2: []
 		},
-		onClose: jest.fn(),
-		onChange: jest.fn()
+		onClose: vi.fn(),
+		onChange: vi.fn()
 	};
 
 	const renderComponent = () => {

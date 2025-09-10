@@ -3,10 +3,11 @@
  * SPDX-License-Identifier: MIT-0
  */
 
+import React, { useRef, useState } from "react";
+
 import { IconChevronDown, IconChevronUp, IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
-import React, { useRef, useState } from "react";
 
 import { Accordion } from "../../atoms/Accordion";
 import { Content } from "../../atoms/Content";
@@ -121,6 +122,7 @@ interface SliderWithInputFieldConfig extends BaseField {
 	max: number;
 	step?: number;
 	allowClear?: boolean;
+	showToggle?: boolean;
 	onToggle?: (enabled: boolean) => void;
 }
 
@@ -187,6 +189,7 @@ interface FormRenderProps {
 	containerHeight?: number;
 	mapContainerHeight?: number;
 	headerContent?: React.ReactNode;
+	promotedFields?: string[];
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
@@ -200,7 +203,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	onReset,
 	onToggle,
 	mapContainerHeight,
-	headerContent
+	headerContent,
+	promotedFields
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
@@ -411,6 +415,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						onChange={value => handleChange(field.name, value)}
 						isDisabled={field.disabled}
 						allowClear={field.allowClear}
+						showToggle={field.showToggle}
+						onToggle={value => handleToggle(field.name, value)}
 					/>
 				);
 
@@ -469,7 +475,11 @@ export const FormRender: React.FC<FormRenderProps> = ({
 
 	// Split fields into required and optional
 	const requiredFields = fields.filter(field => field.required && !field.hiddenFromUI);
-	const optionalFields = fields.filter(field => !field.required && !field.hiddenFromUI);
+	const allOptionalFields = fields.filter(field => !field.required && !field.hiddenFromUI);
+
+	const promotedNames = new Set(promotedFields || []);
+	const promotedOptionalFields = allOptionalFields.filter(f => promotedNames.has(f.name));
+	const optionalFields = allOptionalFields.filter(f => !promotedNames.has(f.name));
 
 	// Effect to check overflow when optional fields change or map container height changes
 	React.useEffect(() => {
@@ -536,11 +546,19 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			defaultOpen={true}
 			contentClassName="form-render-accordion"
 		>
-			<form onSubmit={handleSubmit} className={`form-render ${className}`}>
+			<form
+				onSubmit={handleSubmit}
+				className={`form-render ${className}`}
+				style={{
+					maxHeight: mapContainerHeight ? mapContainerHeight - 120 : "none",
+					overflow: "auto"
+				}}
+			>
 				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" ref={requiredFeildsContainerRef}>
 					{content && <Content {...content} />}
 					{headerContent}
 					{requiredFields.map(renderField)}
+					{promotedOptionalFields.map(renderField)}
 
 					<Flex gap="1rem">
 						<Button borderColor="rgba(0, 130, 150, 1)" borderWidth={1} size="small" onClick={handleReset}>
@@ -576,16 +594,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 							openIcon={<IconChevronUp className="chevron-up-icon" />}
 							closeIcon={<IconChevronDown className="chevron-down-icon" />}
 						>
-							<Flex
-								ref={optionalFieldsContainerRef}
-								direction="column"
-								padding="1rem"
-								paddingTop={0}
-								gap="1rem"
-								style={{
-									maxHeight: (mapContainerHeight || 0) - requiredFieldsHeight - 220
-								}}
-							>
+							<Flex ref={optionalFieldsContainerRef} direction="column" padding="1rem" paddingTop={0} gap="1rem">
 								{optionalFields.map(renderField)}
 								<Divider style={{ visibility: "hidden" }} />
 							</Flex>

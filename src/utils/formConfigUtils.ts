@@ -107,7 +107,9 @@ export const convertFormFieldConfigToFormField = (
 				step: fieldConfig.step,
 				disabled: fieldConfig.disabled,
 				defaultValue: fieldConfig.defaultValue as any,
-				allowClear: fieldConfig.allowClear
+				allowClear: fieldConfig.allowClear,
+				onToggle: fieldConfig.onToggle,
+				showToggle: fieldConfig.showToggle
 			};
 
 		case "radio":

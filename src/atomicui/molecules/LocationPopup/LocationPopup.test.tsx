@@ -6,17 +6,19 @@
 import i18n from "@api-playground/locales/i18n";
 import { View } from "@aws-amplify/ui-react";
 import { faker } from "@faker-js/faker";
-import { act, fireEvent, render } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
 
 import Popup from "./LocationPopup";
 
-/* @ts-expect-error: error */
+/* @ts-expect-error: props are implicitly any */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const PopupMock = ({ closeButton: _, ...props }) => <View {...props} />;
+function PopupMock({ closeButton: _, ...props }) {
+	return <View {...props} />;
+}
 
-jest.mock("react-map-gl/maplibre", () => ({
-	...jest.requireActual("react-map-gl/maplibre"),
+vi.mock("react-map-gl/maplibre", async importOriginal => ({
+	...(await importOriginal<object>()),
 	Popup: PopupMock
 }));
 
@@ -38,64 +40,67 @@ const useMapReturnValue: {
 	isCurrentLocationDisabled: false
 };
 
-jest.mock("hooks", () => ({
+vi.mock("@api-playground/hooks", () => ({
 	useMap: () => useMapReturnValue,
 	usePlace: () => ({
-		getPlaceData: jest.fn(),
+		getPlaceData: vi.fn(),
 		isFetchingPlaceData: false,
-		clearPoiList: jest.fn()
-	}),
-	useRoute: () => ({
-		getRoute: () => {}
-	}),
-	useMediaQuery: () => true
+		clearPoiList: vi.fn()
+	})
+}));
+
+vi.mock("@api-playground/hooks/useDeviceMediaQuery", () => ({
+	__esModule: true,
+	default: () => ({ isDesktop: true })
 }));
 
 describe("<Popup/>", () => {
-	let popupContainer: HTMLElement;
-	let copyIcon: HTMLElement | null;
+	const writeText = vi.fn();
 
-	const renderComponent = () => {
-		const renderedComponent = render(
+	beforeAll(() => {
+		Object.defineProperty(navigator, "clipboard", {
+			value: {
+				writeText
+			},
+			configurable: true
+		});
+	});
+
+	beforeEach(() => {
+		writeText.mockClear();
+		render(
 			<I18nextProvider i18n={i18n}>
 				<Popup
 					placeId={faker.random.word()}
 					position={[parseFloat(faker.address.longitude()), parseFloat(faker.address.latitude())]}
 					label={`${faker.address.street()}, ${faker.address.city()}, ${faker.address.state()}, ${faker.address.zipCode()}`}
 					active
-					select={jest.fn()}
+					select={vi.fn()}
 					locationPopupConfig={{
 						showPlaceId: true,
 						showLatitude: true,
 						showLongitude: true
 					}}
-					onClosePopUp={jest.fn()}
+					onClosePopUp={vi.fn()}
 				/>
 			</I18nextProvider>
 		);
-		const { queryByTestId } = renderedComponent;
-
-		popupContainer = queryByTestId("popup-container") as HTMLElement;
-		copyIcon = queryByTestId("copy-icon");
-
-		return renderedComponent;
-	};
+	});
 
 	afterAll(() => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 	});
 
 	it("should render successfully (popupContainer and copyIcon)", () => {
-		renderComponent();
-		expect(popupContainer).toBeInTheDocument();
-		expect(copyIcon).toBeInTheDocument();
+		expect(screen.getByTestId("popup-container")).toBeInTheDocument();
+		expect(screen.getByTestId("copy-icon")).toBeInTheDocument();
 	});
 
 	it("should call copy icon onClick function when copy icon is clicked", async () => {
-		renderComponent();
+		const copyIcon = screen.getByTestId("copy-icon");
 		await act(async () => {
-			fireEvent.click(copyIcon!);
+			fireEvent.click(copyIcon);
 		});
-		expect(navigator.clipboard.writeText).toBeCalled();
+		expect(writeText).toBeCalled();
 	});
 });

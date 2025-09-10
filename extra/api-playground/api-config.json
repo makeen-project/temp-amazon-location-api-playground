@@ -7,7 +7,7 @@
 			"submitButtonText": "ReverseGeocode",
 			"imageSource": "images/ReverseGeocode.png",
 			"title": "ReverseGeocode API Playground",
-			"description": "The Reverse Geocode API converts latitude/Longitude into human-readable addresses. Use [[QueryPosition]] with latitude/longitude. Optional parameters include [[BiasPosition]], [[Filter]], and [[MaxResults]]. The response contains [[ResultItems]] with [[Address]], [[Position]], and Optional [[TimeZone]] data. Use [[AdditionalFeatures]] to request extra information like time zones.",
+			"description": "The Reverse Geocoding API transforms geographic coordinates (latitude/longitude) into detailed human-readable addresses and location information. When making a request, you'll use the QueryPosition parameter which requires a latitude/longitude pair like '47.6174, -122.3375'. The API accepts several optional parameters to refine results: BiasPosition lets you prioritize results near specific coordinates, Filter allows you to restrict results to certain countries or boundary areas, and MaxResults controls the number of returned locations (1-100). The API returns a JSON response containing ResultItems, each with detailed address components (street address, city, state, country), the exact position coordinates, and any additional requested data. For enhanced results, you can use AdditionalFeatures to request supplementary information like time zones. Query customization helps ensure relevant results — for example, using Filter with specific countries can help ensure addresses are returned from your desired region rather than similar coordinates worldwide.",
 			"shouldRenderMap": true,
 			"showLocalMarkerOnMapClick": "single",
 			"missingFieldsMessage": "Click the map to reverse geocode",
@@ -318,7 +318,8 @@
 					"step": 1,
 					"required": false,
 					"defaultValue": 1,
-					"allowClear": true
+					"allowClear": false,
+					"showToggle": true
 				}
 			],
 			"formContent": {
@@ -1038,8 +1039,7 @@
 				"JavaScript": "import { GeoPlacesClient, SearchTextCommand } from \"@aws-sdk/client-geo-places\";\n\n// Initialize the client\nconst client = new GeoPlacesClient({\n  region: \"us-east-1\" // Replace with your region\n});\n\n// Create the geocode request\nconst params = {\n  QueryText: \"[{{query}}]\"\n};\n\n// Make the request\nconst command = new SearchTextCommand(params);\nconst response = await client.send(command);\nconsole.log(response);",
 				"Python": "import boto3\n\n# Initialize the client\nclient = boto3.client('geo-places', region_name='us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n    'QueryText': '[{{query}}]'\n}\n\n# Make the request\nresponse = client.search_text(**params)\nprint(response)",
 				"Ruby": "require 'aws-sdk-geoplaces'\n\n# Initialize the client\nclient = Aws::GeoPlaces::Client.new(region: 'us-east-1')  # Replace with your region\n\n# Create the geocode request\nparams = {\n  QueryText: '[{{query}}]'\n}\n\n# Make the request\nresponse = client.search_text(params)\nputs response",
-				"paramPlaceholders": {
-				}
+				"paramPlaceholders": {}
 			}
 		},
 		{

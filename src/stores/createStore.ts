@@ -24,10 +24,9 @@ const createStore = <T>(
 		return init;
 	};
 
-	/* @ts-expect-error: valid params */
 	const createDataStore = persistant ? persist(createState, { name: localStorageKey }) : createState;
-	/* @ts-expect-error: valid params */
-	return create<T & BaseStateProps>(devtools(createDataStore));
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return create<T & BaseStateProps & { set: SetState<T & BaseStateProps> }>(devtools(createDataStore) as any);
 };
 
 export default createStore;
