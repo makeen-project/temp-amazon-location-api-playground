@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MIT-0
  */
 
+import React, { FC, useMemo, useState } from "react";
+
 import { FullScreenOff, FullScreenOn } from "@api-playground/assets/pngs";
 import { IconCollapse, IconCopy, IconExpand } from "@api-playground/assets/svgs";
 import { Accordion } from "@api-playground/atomicui/atoms/Accordion";
@@ -12,7 +14,7 @@ import { useCustomRequestStore } from "@api-playground/stores";
 import { RequestSnippetsProps } from "@api-playground/stores/useCustomRequestStore";
 
 import { Button, Divider, Tabs, Text, View } from "@aws-amplify/ui-react";
-import React, { FC, useMemo, useState } from "react";
+
 import { useParams } from "react-router-dom";
 import "./styles.scss";
 
