@@ -260,6 +260,11 @@ export default function CustomRequest({
 		  })
 		: formFields;
 
+	// In Hybrid mode keep Address visible but not required at the UI level
+	const adjustedFilteredFields = isGeocode && queryType === "Hybrid"
+		? filteredFields.map(f => (f.name === "query" ? { ...f, required: false } : f))
+		: filteredFields;
+
 	formFields.forEach(field => {
 		const storeValue = store[field.name as keyof CustomRequestStore];
 		if (storeValue !== undefined) {
@@ -283,7 +288,10 @@ export default function CustomRequest({
 
 	const isSubmitDisabled = (() => {
 		const visibleFields = isGeocode ? filteredFields : formFields;
-		const requiredFields = visibleFields.filter((f: any) => f.required);
+		const requiredFields = visibleFields.filter((f: any) => {
+			if (isGeocode && queryType === "Hybrid" && f.name === "query") return false;
+			return f.required;
+		});
 
 		const anyQueryComponentsFilled = (() => {
 			const names = Array.from(queryComponentsFieldNames);
@@ -295,6 +303,11 @@ export default function CustomRequest({
 
 		if (isGeocode && queryType === "Components" && !anyQueryComponentsFilled) return true;
 		if (isGeocode && queryType === "Text" && (!store.query || store.query.trim() === "")) return true;
+
+		if (isGeocode && queryType === "Hybrid") {
+			const hasQuery = !!store.query && store.query.trim() !== "";
+			if (!hasQuery && !anyQueryComponentsFilled) return true;
+		}
 
 		return requiredFields.some((f: any) => {
 			const key = f.name as keyof CustomRequestStore;
@@ -326,6 +339,7 @@ export default function CustomRequest({
 	const handleQueryTypeChange = (queryType: GeocodeQueryType) => {
 		const cleared: Partial<CustomRequestStore> = { queryType: queryType };
 		if (queryType === "Text") {
+			cleared.query = undefined as any;
 			cleared.addressNumber = "";
 			cleared.country = "";
 			cleared.district = "";
@@ -336,6 +350,8 @@ export default function CustomRequest({
 			cleared.subRegion = "";
 		} else if (queryType === "Components") {
 			cleared.query = undefined as any;
+		} else if (queryType === "Hybrid") {
+			cleared.query = undefined as any;
 		}
 		setState({ ...store, ...cleared });
 		setUrlState({
@@ -343,6 +359,7 @@ export default function CustomRequest({
 			queryType: queryType,
 			...(queryType === "Text"
 				? {
+						query: null,
 						addressNumber: null,
 						country: null,
 						district: null,
@@ -352,7 +369,7 @@ export default function CustomRequest({
 						street: null,
 						subRegion: null
 				  }
-				: queryType === "Components"
+				: queryType === "Components" || queryType === "Hybrid"
 				? { query: null }
 				: {})
 		});
@@ -370,13 +387,17 @@ export default function CustomRequest({
 		/>
 	) : null;
 
-	const promotedFields =
-		isGeocode && (queryType === "Components" || queryType === "Hybrid") ? Array.from(queryComponentsFieldNames) : [];
+	const promotedFields = (() => {
+		if (!isGeocode) return [] as string[];
+		if (queryType === "Components") return Array.from(queryComponentsFieldNames);
+		if (queryType === "Hybrid") return ["query", ...Array.from(queryComponentsFieldNames)];
+		return [] as string[];
+	})();
 
 	return (
 		<div className="custom-request-container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
 			<FormRender
-				fields={filteredFields}
+				fields={adjustedFilteredFields}
 				content={convertFormContentConfigToContentProps(apiPlaygroundItem?.formContent || { type: "list", items: [] })}
 				onChange={handleChange}
 				onReset={handleReset}
