@@ -147,10 +147,13 @@ const usePlaceService = () => {
 			},
 			getPlaceByAddress: async (params: GeocodeParams) => {
 				const input: GeocodeCommandInput = {
-					QueryText: params.QueryText,
 					BiasPosition: params.BiasPosition && params.BiasPosition.length > 0 ? params.BiasPosition : undefined,
 					Language: params.Language || Language
 				};
+
+				if (params.QueryText) {
+					input.QueryText = params.QueryText;
+				}
 
 				// Handle MaxResults - only include if it has a valid value
 				if (params.MaxResults !== undefined && params.MaxResults !== null && params.MaxResults >= 1) {
