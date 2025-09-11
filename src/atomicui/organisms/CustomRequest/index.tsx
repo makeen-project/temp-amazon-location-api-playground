@@ -146,6 +146,10 @@ export default function CustomRequest({
 				if (field.defaultValue !== undefined && parsedSearchParams[field.name] === undefined) {
 					acc[field.name] = field.defaultValue;
 				}
+
+				if (field.disabled) {
+					acc[field.name] = undefined;
+				}
 				return acc;
 			}, {} as Record<string, any>);
 
@@ -192,6 +196,14 @@ export default function CustomRequest({
 			if (typeof placeService[apiMethod] === "function") {
 				const response = await (placeService[apiMethod] as any)(params);
 				setState({
+					...store,
+					...defaultValues,
+					response,
+					submittedQueryRadius: store.queryRadius || undefined,
+					error: undefined
+				});
+
+				console.log("Under handleSubmit: ", {
 					...store,
 					...defaultValues,
 					response,
