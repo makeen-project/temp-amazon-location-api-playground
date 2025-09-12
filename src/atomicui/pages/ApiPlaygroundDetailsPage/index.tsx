@@ -342,9 +342,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		const queryRadius = customRequestStore.queryRadius;
 
 		try {
-			console.log("Under handleCustomResponse: ", {
-				customRequestStore
-			});
 			if (submittedQueryRadius && submittedQueryRadius > 0 && queryRadius !== null) {
 				const radiusInKm = submittedQueryRadius / 1000;
 				const circleFeature = circle([lng, lat], radiusInKm, {

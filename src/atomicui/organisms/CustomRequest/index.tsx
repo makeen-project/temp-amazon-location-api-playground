@@ -202,14 +202,6 @@ export default function CustomRequest({
 					submittedQueryRadius: store.queryRadius || undefined,
 					error: undefined
 				});
-
-				console.log("Under handleSubmit: ", {
-					...store,
-					...defaultValues,
-					response,
-					submittedQueryRadius: store.queryRadius || undefined,
-					error: undefined
-				});
 				setUrlState((prev: Record<string, any>) => ({ ...prev, response: JSON.stringify(response) }));
 				onResponseReceived?.(response);
 			} else {
