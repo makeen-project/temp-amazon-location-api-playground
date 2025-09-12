@@ -146,6 +146,10 @@ export default function CustomRequest({
 				if (field.defaultValue !== undefined && parsedSearchParams[field.name] === undefined) {
 					acc[field.name] = field.defaultValue;
 				}
+
+				if (field.disabled) {
+					acc[field.name] = undefined;
+				}
 				return acc;
 			}, {} as Record<string, any>);
 

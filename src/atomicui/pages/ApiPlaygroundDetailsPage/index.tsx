@@ -55,7 +55,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		}
 
 		if (field.disabled) {
-			acc[fieldName] = null;
+			acc[fieldName] = undefined;
 		}
 		return acc;
 	}, {} as Record<string, any>);
@@ -133,6 +133,16 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	}, [handleMarkerClose, handleMarkerToggle]);
 
 	const handleReset = () => {
+		const defaultValues = apiPlaygroundItem?.formFields?.reduce((acc, field) => {
+			if (field.defaultValue && !field.disabled) {
+				acc[field.name] = field.defaultValue;
+			}
+			if (field.disabled) {
+				acc[field.name] = undefined;
+			}
+			return acc;
+		}, {} as Record<string, any>);
+
 		const resetState = {
 			queryPosition: [],
 			biasPosition: [],
@@ -160,7 +170,11 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			error: undefined
 		};
 
-		setState(resetState);
+		setState({
+			...resetState,
+			...defaultValues
+		});
+
 		setClickedPosition([]);
 		setBiasPosition([]);
 		setMapPoliticalView(MAP_POLITICAL_VIEWS[0]);
