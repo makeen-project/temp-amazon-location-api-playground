@@ -52,6 +52,9 @@ export interface CustomRequestStore {
 	isLoading: boolean;
 	error?: string;
 	query?: string;
+	position?: number[];
+	id?: string;
+	queryText?: string;
 }
 
 export const initialState: IStateProps<CustomRequestStore> = {
@@ -77,7 +80,10 @@ export const initialState: IStateProps<CustomRequestStore> = {
 	subRegion: "",
 	queryType: "Text",
 	isLoading: false,
-	query: ""
+	query: "",
+	position: [],
+	id: "",
+	queryText: ""
 };
 
 export default createStore<CustomRequestStore>(initialState);

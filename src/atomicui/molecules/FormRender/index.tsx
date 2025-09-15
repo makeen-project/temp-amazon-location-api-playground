@@ -16,6 +16,7 @@ import { RadioButtonGroup } from "../../atoms/RadioButton/RadioButton";
 import { Slider } from "../../atoms/Slider/Slider";
 import AddressInput, { AddressInputRef } from "../AddressInput";
 import { AutoCompleteLatLonInput } from "../AutoCompleteLatLonInput";
+
 import CheckboxGroup from "../CheckboxGroup";
 import { CoordinateInput } from "../CoordinateInput";
 import LngLatInput from "../LngLatInput/LngLatInput";
@@ -160,6 +161,13 @@ interface CoordinateInputFieldConfig extends BaseField {
 	value?: number[];
 }
 
+// BoundingBox field specific interface
+interface BoundingBoxFieldConfig extends BaseField {
+	type: "boundingBox";
+	defaultValue?: number[];
+	value?: number[];
+}
+
 // Union type for all field configurations
 export type FormField =
 	| TextFieldConfig
@@ -174,7 +182,8 @@ export type FormField =
 	| MultiSelectFieldConfig
 	| LatLonInputFieldConfig
 	| LngLatInputFieldConfig
-	| CoordinateInputFieldConfig;
+	| CoordinateInputFieldConfig
+	| BoundingBoxFieldConfig;
 
 interface FormRenderProps {
 	fields: FormField[];
@@ -185,11 +194,14 @@ interface FormRenderProps {
 	content?: ContentProps;
 	submitButtonDisabled?: boolean;
 	onReset?: () => void;
-	onToggle?: (fieldName: string, enabled: boolean) => void;
 	containerHeight?: number;
 	mapContainerHeight?: number;
 	headerContent?: React.ReactNode;
 	promotedFields?: string[];
+	formData?: Record<string, unknown>;
+	formFields?: import("@api-playground/types/ApiPlaygroundTypes").FormFieldConfig[];
+	onToggle?: (name: string, value: boolean) => void;
+	handleToggle?: (name: string, value: boolean) => void;
 }
 
 export const FormRender: React.FC<FormRenderProps> = ({
@@ -202,9 +214,11 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	submitButtonDisabled = false,
 	onReset,
 	onToggle,
-	mapContainerHeight,
 	headerContent,
-	promotedFields
+	promotedFields,
+	formData = {},
+	formFields = [],
+	mapContainerHeight
 }) => {
 	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
@@ -218,10 +232,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			name,
 			value
 		});
-	};
-
-	const handleToggle = (fieldName: string, enabled: boolean) => {
-		onToggle?.(fieldName, enabled);
 	};
 
 	// Function to check if optional fields container is scrollable
@@ -282,6 +292,10 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		onSubmit?.();
+	};
+
+	const handleToggle = (name: string, value: boolean) => {
+		onToggle?.(name, value);
 	};
 
 	const renderField = (field: FormField) => {
@@ -463,6 +477,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						onChange={value => handleChange(field.name, value)}
 						value={field.value}
 						name={field.name}
+						label={field.label}
 						isDisabled={field.disabled}
 						placeholder={field.placeholder}
 					/>
@@ -473,7 +488,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 		}
 	};
 
-	// Split fields into required and optional
+	// Split fields into required and optional based on original required property only
+	// Effective required fields stay in optional section but show visual indicators
 	const requiredFields = fields.filter(field => field.required && !field.hiddenFromUI);
 	const allOptionalFields = fields.filter(field => !field.required && !field.hiddenFromUI);
 
@@ -507,6 +523,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 						handleChange(field.name, undefined);
 					}
 					break;
+
 				case "multiSelect":
 					handleChange(field.name, undefined);
 					break;
@@ -523,6 +540,7 @@ export const FormRender: React.FC<FormRenderProps> = ({
 					break;
 				case "lngLatInput":
 				case "coordinateInput":
+				case "boundingBox":
 					handleChange(field.name, []);
 					break;
 				case "radio":

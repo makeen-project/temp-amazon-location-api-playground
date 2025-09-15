@@ -19,7 +19,9 @@ import { errorHandler } from "@api-playground/utils/errorHandler";
 import {
 	convertFormContentConfigToContentProps,
 	createFormFieldsFromConfig,
-	mapFormDataToApiParams
+	getEffectiveRequiredStatus,
+	mapFormDataToApiParams,
+	validateNestedObjectDependencies
 } from "@api-playground/utils/formConfigUtils";
 
 import { GeocodeCommandOutput, ReverseGeocodeCommandOutput } from "@aws-sdk/client-geo-places";
@@ -66,26 +68,48 @@ export default function CustomRequest({
 	const searchParams = useOptimisticSearchParams();
 	const placeService = usePlaceService();
 
+	const getDefaultValues = () => {
+		const defaultValues = apiPlaygroundItem?.formFields?.reduce((acc, field) => {
+			if (field.defaultValue) {
+				acc[field.name] = field.defaultValue;
+			}
+			if (field.disabled) {
+				acc[field.name] = undefined;
+			}
+			return acc;
+		}, {} as Record<string, any>);
+		return defaultValues;
+	};
+
 	const syncUrlState = useCallback(() => {
 		const allSearchParams = Object.fromEntries(searchParams.entries());
-		const parsedSearchParams = Object.fromEntries(
-			Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
-		);
+		let parsedSearchParams: Record<string, unknown> = {};
+		try {
+			parsedSearchParams = Object.fromEntries(
+				Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
+			);
+		} catch (error) {
+			console.error("Error parsing search params: ", error);
+		}
 
 		const response = parsedSearchParams.response ? JSON.parse(parsedSearchParams.response as string) : undefined;
 
+		const defaultValues = getDefaultValues();
+
 		setState({
+			...defaultValues,
 			...parsedSearchParams,
 			response
 		});
-	}, []);
+	}, [apiPlaygroundItem]);
 
 	useEffect(() => {
-		if (isFirstLoad.current) {
+		if (isFirstLoad.current && apiPlaygroundItem) {
 			syncUrlState();
+
 			isFirstLoad.current = false;
 		}
-	}, [urlState]);
+	}, [urlState, apiPlaygroundItem]);
 
 	useEffect(() => {
 		if (isSyncing.current) return;
@@ -100,21 +124,6 @@ export default function CustomRequest({
 
 		isSyncing.current = false;
 	}, [store.politicalView, store.language, mapLanguage.value, setMapLanguage]);
-
-	useEffect(() => {
-		if (isFirstLoad.current && !isSyncing.current) {
-			isSyncing.current = true;
-
-			if (mapLanguage.value !== store.language) {
-				setState(prevState => ({
-					...prevState,
-					language: mapLanguage.value
-				}));
-			}
-
-			isSyncing.current = false;
-		}
-	}, [mapLanguage.value, store.language, setState]);
 
 	const handleChange = ({ name, value }: { name: string; value: unknown }) => {
 		const effectiveValue = value === undefined || value === null || value === "" ? null : value;
@@ -136,19 +145,16 @@ export default function CustomRequest({
 	const handleSubmit = async () => {
 		setSuggestions();
 		try {
-			const allSearchParams = Object.fromEntries(searchParams.entries());
-			const parsedSearchParams = Object.fromEntries(
-				Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
-			);
-
 			const formFields = apiPlaygroundItem?.formFields || [];
 			const defaultValues = formFields.reduce((acc, field) => {
-				if (field.defaultValue !== undefined && parsedSearchParams[field.name] === undefined) {
+				if (field.defaultValue) {
 					acc[field.name] = field.defaultValue;
 				}
 
 				if (field.disabled) {
-					acc[field.name] = undefined;
+					if (!store[field.name as keyof CustomRequestStore]) {
+						acc[field.name] = undefined;
+					}
 				}
 				return acc;
 			}, {} as Record<string, any>);
@@ -178,6 +184,12 @@ export default function CustomRequest({
 				{ ...storeValues }
 			);
 
+			const nestedValidation = validateNestedObjectDependencies(paramsWithDefaults, formFields);
+			if (!nestedValidation.isValid) {
+				const errorMessages = Object.values(nestedValidation.errors);
+				throw new Error(`Validation failed: ${errorMessages.join(", ")}`);
+			}
+
 			Object.entries(paramsWithDefaults).forEach(([key, value]) => {
 				setUrlState((prev: Record<string, any>) => ({ ...prev, [key]: value }));
 			});
@@ -197,12 +209,16 @@ export default function CustomRequest({
 				const response = await (placeService[apiMethod] as any)(params);
 				setState({
 					...store,
-					...defaultValues,
+					...paramsWithDefaults,
 					response,
 					submittedQueryRadius: store.queryRadius || undefined,
 					error: undefined
 				});
-				setUrlState((prev: Record<string, any>) => ({ ...prev, response: JSON.stringify(response) }));
+
+				setUrlState({
+					...paramsWithDefaults,
+					response: JSON.stringify(response)
+				});
 				onResponseReceived?.(response);
 			} else {
 				throw new Error(`API method ${apiMethod} not found`);
@@ -217,23 +233,6 @@ export default function CustomRequest({
 					| ReverseGeocodeCommandOutput
 					| GeocodeCommandOutput
 			});
-		}
-	};
-
-	const handleToggle = (fieldName: string, enabled: boolean) => {
-		const newState = {
-			...store,
-			[fieldName]: enabled ? 1 : null,
-			...(fieldName === "queryRadius" && !enabled ? { submittedQueryRadius: undefined } : {}),
-			error: undefined
-		};
-		setState(newState);
-
-		const value = enabled ? 1 : null;
-		if (Array.isArray(value) && value.length === 0) {
-			setUrlState({ ...urlState, [fieldName]: null });
-		} else {
-			setUrlState({ ...urlState, [fieldName]: value });
 		}
 	};
 
@@ -280,6 +279,7 @@ export default function CustomRequest({
 				case "multiSelect":
 				case "lngLatInput":
 				case "coordinateInput":
+				case "boundingBox":
 					(field as any).value = Array.isArray(storeValue) ? storeValue : [];
 					break;
 				case "dropdown":
@@ -292,29 +292,15 @@ export default function CustomRequest({
 	});
 
 	const isSubmitDisabled = (() => {
-		const visibleFields = isGeocode ? filteredFields : formFields;
-		const requiredFields = visibleFields.filter((f: any) => {
-			if (isGeocode && queryType === "Hybrid" && f.name === "query") return false;
-			return f.required;
+		const formFieldsConfig = apiPlaygroundItem?.formFields || [];
+
+		const allRequiredFields = formFieldsConfig.filter((f: any) => {
+			const originallyRequired = f.required;
+			const effectivelyRequired = getEffectiveRequiredStatus(f, store as unknown as Record<string, any>);
+			return originallyRequired || effectivelyRequired;
 		});
 
-		const anyQueryComponentsFilled = (() => {
-			const names = Array.from(queryComponentsFieldNames);
-			return names.some(n => {
-				const v = store[n as keyof CustomRequestStore];
-				return typeof v === "string" ? v.trim().length > 0 : false;
-			});
-		})();
-
-		if (isGeocode && queryType === "Components" && !anyQueryComponentsFilled) return true;
-		if (isGeocode && queryType === "Text" && (!store.query || store.query.trim() === "")) return true;
-
-		if (isGeocode && queryType === "Hybrid") {
-			const hasQuery = !!store.query && store.query.trim() !== "";
-			if (!hasQuery && !anyQueryComponentsFilled) return true;
-		}
-
-		return requiredFields.some((f: any) => {
+		return allRequiredFields.some((f: any) => {
 			const key = f.name as keyof CustomRequestStore;
 			const val = store[key];
 			const isCoordinateField = f.name === "queryPosition" || f.name === "biasPosition";
@@ -364,12 +350,25 @@ export default function CustomRequest({
 		/>
 	) : null;
 
-	const promotedFields = (() => {
-		if (!isGeocode) return [] as string[];
-		if (queryType === "Components") return Array.from(queryComponentsFieldNames);
-		if (queryType === "Hybrid") return ["query", ...Array.from(queryComponentsFieldNames)];
-		return [] as string[];
-	})();
+	const promotedFields =
+		isGeocode && (queryType === "Components" || queryType === "Hybrid") ? Array.from(queryComponentsFieldNames) : [];
+
+	const handleToggle = (fieldName: string, enabled: boolean) => {
+		const newState = {
+			...store,
+			[fieldName]: enabled ? 1 : null,
+			...(fieldName === "queryRadius" && !enabled ? { submittedQueryRadius: undefined } : {}),
+			error: undefined
+		};
+		setState(newState);
+
+		const value = enabled ? 1 : null;
+		if (Array.isArray(value) && value.length === 0) {
+			setUrlState({ ...urlState, [fieldName]: null });
+		} else {
+			setUrlState({ ...urlState, [fieldName]: value });
+		}
+	};
 
 	return (
 		<div className="custom-request-container" ref={ref => setContainerRef(ref as HTMLDivElement)}>
@@ -380,12 +379,14 @@ export default function CustomRequest({
 				onReset={handleReset}
 				onSubmit={handleSubmit}
 				submitButtonText={apiPlaygroundItem?.submitButtonText || "Submit"}
-				onToggle={handleToggle}
 				containerHeight={containerRef?.clientHeight}
 				submitButtonDisabled={isSubmitDisabled}
 				mapContainerHeight={mapContainerHeight}
 				headerContent={headerContent}
 				promotedFields={promotedFields}
+				formData={store as unknown as Record<string, unknown>}
+				formFields={apiPlaygroundItem?.formFields || []}
+				onToggle={handleToggle}
 			/>
 		</div>
 	);
