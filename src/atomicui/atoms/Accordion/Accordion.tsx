@@ -73,11 +73,7 @@ export const Accordion = ({
 			<AmplifyAccordion.Item className="accordion__item" value="item">
 				<AmplifyAccordion.Trigger className="accordion__trigger" onClick={handleTriggerClick}>
 					<span className="accordion__title">{title}</span>
-					<span 
-						className="accordion__icon" 
-						onClick={handleIconClick}
-						style={{ cursor: "pointer" }}
-					>
+					<span className="accordion__icon" onClick={handleIconClick} style={{ cursor: "pointer" }}>
 						{isExpanded ? openIcon : closeIcon}
 					</span>
 				</AmplifyAccordion.Trigger>

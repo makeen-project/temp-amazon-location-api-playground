@@ -59,6 +59,7 @@ const usePlace = () => {
 					setState({ isSearching: false });
 				}
 			},
+
 			getPlaceData: async (placeId: string) => {
 				try {
 					setState({ isFetchingPlaceData: true });

@@ -195,7 +195,7 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 			return option;
 		});
 
-		const hasUserInput = localValue.trim().length > 0;
+		const hasUserInput = localValue?.trim().length > 0;
 		const filteredSuggestionOptions = hasUserInput
 			? suggestionOptions.filter(option => option.label.toLowerCase().includes(localValue.toLowerCase()))
 			: suggestionOptions;

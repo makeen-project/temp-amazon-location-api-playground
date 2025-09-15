@@ -48,12 +48,15 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 	const [internalValue, setInternalValue] = useState<number | undefined>(defaultValue);
 	const [inputValue, setInputValue] = useState<string>(defaultValue?.toString() ?? "");
 	const value = propValue !== undefined ? propValue : internalValue;
-	const [isToggleEnabled, setIsToggleEnabled] = useState(!isDisabled);
+	const [isToggleEnabled, setIsToggleEnabled] = useState(!isDisabled || propValue === undefined);
 
 	useEffect(() => {
 		if (isDisabled) {
 			setInternalValue(defaultValue);
 			setInputValue(defaultValue?.toString() ?? "");
+			setIsToggleEnabled(false);
+		} else {
+			setIsToggleEnabled(true);
 		}
 	}, [isDisabled, defaultValue]);
 
@@ -62,8 +65,10 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 			setInputValue(propValue.toString());
 		} else if (!allowClear) {
 			setInputValue(min.toString());
+
+			setIsToggleEnabled(false);
 		}
-	}, [propValue, allowClear, min]);
+	}, [propValue]);
 
 	const handleSliderChange = (newValue: number) => {
 		if (propValue === undefined) {
@@ -145,7 +150,7 @@ export const SliderWithInput: React.FC<SliderWithInputProps> = ({
 					onChange={handleInputChange}
 					max={max}
 					step={step}
-					isDisabled={!isToggleEnabled}
+					isDisabled={showToggle && !isToggleEnabled}
 					className="slider-with-input__input"
 				/>
 			</Flex>

@@ -32,17 +32,6 @@ const {
 	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
 } = appConfig;
 
-const QUERY_COMPONENT_FIELD_NAMES = [
-	"addressNumber",
-	"country",
-	"district",
-	"locality",
-	"postalCode",
-	"region",
-	"street",
-	"subRegion"
-] as const;
-
 const ApiPlaygroundDetailsPage: FC = () => {
 	useAuthManager();
 
@@ -76,6 +65,8 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const { setBiasPosition, setMapPoliticalView, setMapLanguage, setGridLoader } = useMap();
 	const { setClickedPosition, clickedPosition, clearPoiList, setSelectedMarker, suggestions } = usePlace();
 
+	const store = useCustomRequestStore();
+
 	const [isSnippetsOpen, setIsSnippetsOpen] = useState(true);
 	const [mapLoaded, setMapLoaded] = useState(false);
 	const [isFullScreen, setIsFullScreen] = useState(false);
@@ -107,7 +98,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const isSnippetsOpenRef = useRef(isSnippetsOpen);
 
 	const resultItem = customRequestStore.response?.ResultItems?.[0];
-	const position = resultItem?.Position;
+	const position = resultItem?.Position || customRequestStore.position;
 
 	const showMapMarker =
 		customRequestStore?.response && position?.length === 2 && position.every(coord => !isNaN(coord));
@@ -143,9 +134,9 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		}
 	}, [handleMarkerClose, handleMarkerToggle]);
 
-	const handleReset = () => {
+	const getDefaultValues = () => {
 		const defaultValues = apiPlaygroundItem?.formFields?.reduce((acc, field) => {
-			if (field.defaultValue && !field.disabled) {
+			if (field.defaultValue) {
 				acc[field.name] = field.defaultValue;
 			}
 			if (field.disabled) {
@@ -153,7 +144,10 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			}
 			return acc;
 		}, {} as Record<string, any>);
+		return defaultValues;
+	};
 
+	const handleReset = () => {
 		const resetState = {
 			queryPosition: [],
 			biasPosition: [],
@@ -163,8 +157,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			intendedUse: undefined,
 			key: "",
 			apiKey: "",
-			language: "en",
-			maxResults: undefined,
 			politicalView: "",
 			queryRadius: undefined,
 			submittedQueryRadius: undefined,
@@ -178,12 +170,16 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			subRegion: "",
 			response: undefined,
 			isLoading: false,
-			error: undefined
+			error: undefined,
+			position: [],
+			id: ""
 		};
 
+		const defaultValues = getDefaultValues();
+
 		setState({
-			...resetState,
-			...defaultValues
+			...defaultValues,
+			queryPosition: []
 		});
 
 		setClickedPosition([]);
@@ -196,7 +192,11 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			mapRef.current?.zoomTo(15);
 		}
 
-		setUrlState(null as any);
+		setUrlState({ ...defaultValues, queryPosition: [], response: "" });
+
+		const url = new URL(window.location.href);
+		url.search = "";
+		window.history.replaceState({}, document.title, url.toString());
 		handleClose?.();
 	};
 
@@ -335,7 +335,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 
 	const handleCustomResponse = () => {
 		const resultItem = customRequestStore.response?.ResultItems?.[0];
-		const currentPosition = resultItem?.Position;
+		const currentPosition = resultItem?.Position || customRequestStore.position;
 
 		if (!currentPosition || currentPosition.length !== 2 || currentPosition.some(isNaN)) {
 			console.warn("Invalid position data received");
@@ -393,20 +393,6 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			customRequestStore.queryType === "Components"
 		) {
 			setMessage(undefined);
-			return;
-		}
-
-		if (
-			(apiPlaygroundItem.type === "geocode" || apiPlaygroundItem.id === "geocode") &&
-			customRequestStore.queryType === "Hybrid"
-		) {
-			const hasQuery = !!customRequestStore.query && customRequestStore.query.trim() !== "";
-			const anyQueryComponentsFilled = QUERY_COMPONENT_FIELD_NAMES.some(name => {
-				const v = customRequestStore[name];
-				return typeof v === "string" ? v.trim().length > 0 : false;
-			});
-
-			setMessage(!hasQuery && !anyQueryComponentsFilled ? apiPlaygroundItem.missingFieldsMessage : undefined);
 			return;
 		}
 
