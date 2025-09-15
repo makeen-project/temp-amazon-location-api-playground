@@ -108,6 +108,7 @@ const AddressInput = forwardRef<AddressInputRef, AddressInputProps>(
 			if (newValue.trim().length === 0) {
 				setSuggestions();
 				setLocalIsSearching(false);
+				setState({ response: undefined });
 				return;
 			}
 			void handleSearch(newValue);

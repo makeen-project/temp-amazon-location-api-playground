@@ -32,6 +32,17 @@ const {
 	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
 } = appConfig;
 
+const QUERY_COMPONENT_FIELD_NAMES = [
+	"addressNumber",
+	"country",
+	"district",
+	"locality",
+	"postalCode",
+	"region",
+	"street",
+	"subRegion"
+] as const;
+
 const ApiPlaygroundDetailsPage: FC = () => {
 	useAuthManager();
 
@@ -382,6 +393,20 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			customRequestStore.queryType === "Components"
 		) {
 			setMessage(undefined);
+			return;
+		}
+
+		if (
+			(apiPlaygroundItem.type === "geocode" || apiPlaygroundItem.id === "geocode") &&
+			customRequestStore.queryType === "Hybrid"
+		) {
+			const hasQuery = !!customRequestStore.query && customRequestStore.query.trim() !== "";
+			const anyQueryComponentsFilled = QUERY_COMPONENT_FIELD_NAMES.some(name => {
+				const v = customRequestStore[name];
+				return typeof v === "string" ? v.trim().length > 0 : false;
+			});
+
+			setMessage(!hasQuery && !anyQueryComponentsFilled ? apiPlaygroundItem.missingFieldsMessage : undefined);
 			return;
 		}
 

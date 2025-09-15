@@ -265,9 +265,10 @@ export default function CustomRequest({
 		: formFields;
 
 	// In Hybrid mode keep Address visible but not required at the UI level
-	const adjustedFilteredFields = isGeocode && queryType === "Hybrid"
-		? filteredFields.map(f => (f.name === "query" ? { ...f, required: false } : f))
-		: filteredFields;
+	const adjustedFilteredFields =
+		isGeocode && queryType === "Hybrid"
+			? filteredFields.map(f => (f.name === "query" ? { ...f, required: false } : f))
+			: filteredFields;
 
 	formFields.forEach(field => {
 		const storeValue = store[field.name as keyof CustomRequestStore];
@@ -341,41 +342,13 @@ export default function CustomRequest({
 	})();
 
 	const handleQueryTypeChange = (queryType: GeocodeQueryType) => {
-		const cleared: Partial<CustomRequestStore> = { queryType: queryType };
-		if (queryType === "Text") {
-			cleared.query = undefined as any;
-			cleared.addressNumber = "";
-			cleared.country = "";
-			cleared.district = "";
-			cleared.locality = "";
-			cleared.postalCode = "";
-			cleared.region = "";
-			cleared.street = "";
-			cleared.subRegion = "";
-		} else if (queryType === "Components") {
-			cleared.query = undefined as any;
-		} else if (queryType === "Hybrid") {
-			cleared.query = undefined as any;
-		}
+		setSuggestions();
+		const cleared: Partial<CustomRequestStore> = { queryType, response: undefined, error: undefined };
 		setState({ ...store, ...cleared });
 		setUrlState({
 			...urlState,
-			queryType: queryType,
-			...(queryType === "Text"
-				? {
-						query: null,
-						addressNumber: null,
-						country: null,
-						district: null,
-						locality: null,
-						postalCode: null,
-						region: null,
-						street: null,
-						subRegion: null
-				  }
-				: queryType === "Components" || queryType === "Hybrid"
-				? { query: null }
-				: {})
+			queryType,
+			response: null
 		});
 	};
 	const headerContent = isGeocode ? (
