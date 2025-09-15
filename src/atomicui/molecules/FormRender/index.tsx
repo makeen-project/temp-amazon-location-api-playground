@@ -3,11 +3,13 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-import React, { useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 
 import { IconChevronDown, IconChevronUp, IconReloadLined } from "@api-playground/assets/svgs";
 import { ContentProps } from "@api-playground/atomicui/atoms/Content/Content";
 import { Button, Divider, Flex, TextAreaField, TextField, View } from "@aws-amplify/ui-react";
+import { Field, Form } from "react-final-form";
+import type { FieldRenderProps } from "react-final-form";
 
 import { Accordion } from "../../atoms/Accordion";
 import { Content } from "../../atoms/Content";
@@ -24,7 +26,6 @@ import { SliderWithInput } from "../SliderWithInput/SliderWithInput";
 
 import "./style.scss";
 
-// Base field interface
 interface BaseField {
 	name: string;
 	label: string;
@@ -37,7 +38,6 @@ interface BaseField {
 	hiddenFromUI?: boolean;
 }
 
-// Text field specific interface
 interface TextFieldConfig extends BaseField {
 	type: "text";
 	defaultValue?: string;
@@ -45,7 +45,6 @@ interface TextFieldConfig extends BaseField {
 	inputType?: "text" | "password";
 }
 
-// Number field specific interface
 interface NumberFieldConfig extends BaseField {
 	type: "number";
 	defaultValue?: number;
@@ -54,14 +53,12 @@ interface NumberFieldConfig extends BaseField {
 	max?: number;
 }
 
-// Textarea field specific interface
 interface TextareaFieldConfig extends BaseField {
 	type: "textarea";
 	defaultValue?: string;
 	value?: string;
 }
 
-// Slider field specific interface
 interface SliderFieldConfig extends BaseField {
 	type: "slider";
 	defaultValue?: number;
@@ -71,7 +68,6 @@ interface SliderFieldConfig extends BaseField {
 	step?: number;
 }
 
-// Radio field specific interface
 interface RadioFieldConfig extends BaseField {
 	type: "radio";
 	defaultValue?: string;
@@ -84,7 +80,6 @@ interface RadioFieldConfig extends BaseField {
 	}>;
 }
 
-// Dropdown field specific interface
 interface DropdownFieldConfig extends BaseField {
 	type: "dropdown";
 	defaultValue?: string;
@@ -96,7 +91,6 @@ interface DropdownFieldConfig extends BaseField {
 	}>;
 }
 
-// Checkbox field specific interface
 interface CheckboxFieldConfig extends BaseField {
 	type: "checkbox";
 	options: Array<{
@@ -107,13 +101,11 @@ interface CheckboxFieldConfig extends BaseField {
 	values: string[];
 }
 
-// Address field specific interface
 interface AddressFieldConfig extends BaseField {
 	type: "address";
 	value: string;
 }
 
-// SliderWithInput field specific interface
 interface SliderWithInputFieldConfig extends BaseField {
 	type: "sliderWithInput";
 	defaultValue?: number;
@@ -126,7 +118,6 @@ interface SliderWithInputFieldConfig extends BaseField {
 	onToggle?: (enabled: boolean) => void;
 }
 
-// MultiSelect field specific interface
 interface MultiSelectFieldConfig extends BaseField {
 	type: "multiSelect";
 	defaultValue?: string[];
@@ -140,27 +131,23 @@ interface MultiSelectFieldConfig extends BaseField {
 	maxSelected?: number;
 }
 
-// LatLonInput field specific interface
 interface LatLonInputFieldConfig extends BaseField {
 	type: "latLonInput";
 	defaultValue?: string;
 }
 
-// LngLatInput field specific interface
 interface LngLatInputFieldConfig extends BaseField {
 	type: "lngLatInput";
 	defaultValue?: number[];
 	value?: number[];
 }
 
-// CoordinateInput field specific interface
 interface CoordinateInputFieldConfig extends BaseField {
 	type: "coordinateInput";
 	defaultValue?: number[];
 	value?: number[];
 }
 
-// Union type for all field configurations
 export type FormField =
 	| TextFieldConfig
 	| NumberFieldConfig
@@ -206,12 +193,11 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	headerContent,
 	promotedFields
 }) => {
-	// Create a map to store refs for address input fields
 	const addressRefs = useRef<Map<string, AddressInputRef>>(new Map());
 	const requiredFeildsContainerRef = useRef<HTMLDivElement>(null);
 	const optionalFieldsContainerRef = useRef<HTMLDivElement>(null);
 	const [isOverflowing, setIsOverflowing] = useState<boolean>(false);
-	const [requiredFieldsHeight, setRequiredFieldsHeight] = useState<number>(370); // Default fallback height
+	const [requiredFieldsHeight, setRequiredFieldsHeight] = useState<number>(370);
 
 	const handleChange = (name: string, value: unknown) => {
 		onChange?.({
@@ -224,7 +210,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 		onToggle?.(fieldName, enabled);
 	};
 
-	// Function to check if optional fields container is scrollable
 	const checkIfOverflowing = () => {
 		if (optionalFieldsContainerRef.current) {
 			const element = optionalFieldsContainerRef.current;
@@ -233,21 +218,17 @@ export const FormRender: React.FC<FormRenderProps> = ({
 		}
 	};
 
-	// ResizeObserver to track required fields container height changes
 	React.useEffect(() => {
 		let resizeObserver: ResizeObserver | null = null;
 
 		const setupResizeObserver = () => {
 			if (!requiredFeildsContainerRef.current) return;
 
-			// Set initial height
 			setRequiredFieldsHeight(requiredFeildsContainerRef.current.clientHeight);
 
-			// Create and setup ResizeObserver
 			resizeObserver = new ResizeObserver(entries => {
 				for (const entry of entries) {
 					setRequiredFieldsHeight(entry.contentRect.height);
-					// Check overflow after height changes
 					setTimeout(checkIfOverflowing, 0);
 				}
 			});
@@ -255,10 +236,8 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			resizeObserver.observe(requiredFeildsContainerRef.current);
 		};
 
-		// Try to setup immediately
 		setupResizeObserver();
 
-		// If ref is not available, wait a bit and try again
 		if (!requiredFeildsContainerRef.current) {
 			const timer = setTimeout(() => {
 				setupResizeObserver();
@@ -279,10 +258,90 @@ export const FormRender: React.FC<FormRenderProps> = ({
 		};
 	}, []);
 
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault();
-		onSubmit?.();
-	};
+	const initialValues = useMemo(() => {
+		const acc: Record<string, unknown> = {};
+		fields.forEach(field => {
+			switch (field.type) {
+				case "checkbox":
+					acc[field.name] = field.values ?? [];
+					break;
+				case "multiSelect":
+					acc[field.name] = field.value ?? field.defaultValue ?? [];
+					break;
+				case "lngLatInput":
+				case "coordinateInput":
+					acc[field.name] = field.value ?? [];
+					break;
+				case "latLonInput":
+					acc[field.name] = field.defaultValue ?? "";
+					break;
+				case "number":
+					acc[field.name] = field.value ?? field.defaultValue ?? field.min ?? 0;
+					break;
+				case "slider":
+					acc[field.name] = field.value ?? field.defaultValue ?? field.min;
+					break;
+				case "sliderWithInput":
+					acc[field.name] = field.value ?? field.defaultValue ?? field.min;
+					break;
+				case "radio":
+				case "dropdown":
+				case "textarea":
+				case "text":
+					acc[field.name] = field.value ?? field.defaultValue ?? "";
+					break;
+				case "address":
+					acc[field.name] = field.value ?? "";
+					break;
+			}
+		});
+		return acc;
+	}, [fields]);
+
+	const validate = useCallback(
+		(values: Record<string, unknown>) => {
+			const errors: Record<string, string> = {};
+			fields.forEach(field => {
+				const value = values[field.name];
+				if (field.required) {
+					if (value === undefined || value === null || value === "" || (Array.isArray(value) && value.length === 0)) {
+						errors[field.name] = `${field.label} is required`;
+					}
+				}
+
+				if (
+					(field.type === "number" || field.type === "slider" || field.type === "sliderWithInput") &&
+					typeof value === "number"
+				) {
+					if (field.min !== undefined && value < field.min) {
+						errors[field.name] = `${field.label} must be ≥ ${field.min}`;
+					}
+					if (field.max !== undefined && value > field.max) {
+						errors[field.name] = `${field.label} must be ≤ ${field.max}`;
+					}
+				}
+
+				if (field.type === "multiSelect") {
+					const arr = (value as unknown[]) || [];
+					if (field.minSelected !== undefined && arr.length < field.minSelected) {
+						errors[field.name] = `Select at least ${field.minSelected}`;
+					}
+					if (field.maxSelected !== undefined && arr.length > field.maxSelected) {
+						errors[field.name] = `Select at most ${field.maxSelected}`;
+					}
+				}
+
+				if ((field.type === "lngLatInput" || field.type === "coordinateInput") && field.required) {
+					const arr = (value as number[]) || [];
+					if (arr.length !== 2 || arr.some(v => v === undefined || v === null || Number.isNaN(v))) {
+						errors[field.name] = `${field.label} must have latitude and longitude`;
+					}
+				}
+			});
+			return errors;
+		},
+		[fields]
+	);
 
 	const renderField = (field: FormField) => {
 		const commonProps = {
@@ -299,173 +358,261 @@ export const FormRender: React.FC<FormRenderProps> = ({
 		switch (field.type) {
 			case "text":
 				return (
-					<TextField
-						{...commonProps}
-						placeholder={field.placeholder}
-						defaultValue={field.defaultValue}
-						value={field.value}
-						onChange={e => handleChange(field.name, e.target.value)}
-						type={field.inputType || "text"}
-						autoComplete={field.inputType === "password" ? "new-password" : "off"}
-						autoCorrect="off"
-						autoCapitalize="off"
-						spellCheck="false"
-					/>
+					<Field<string> name={field.name} subscription={{ value: true }}>
+						{({ input, meta }: FieldRenderProps<string, HTMLInputElement>) => (
+							<TextField
+								{...commonProps}
+								placeholder={field.placeholder}
+								value={(input.value as string) ?? ""}
+								onChange={e => {
+									const v = (e.target as HTMLInputElement).value;
+									input.onChange(v);
+									handleChange(field.name, v);
+								}}
+								type={field.inputType || "text"}
+								autoComplete={field.inputType === "password" ? "new-password" : "off"}
+								autoCorrect="off"
+								autoCapitalize="off"
+								spellCheck="false"
+								hasError={!!(meta.touched && meta.error) || commonProps.hasError}
+								errorMessage={(meta.touched && meta.error) || commonProps.errorMessage}
+							/>
+						)}
+					</Field>
 				);
 
 			case "number":
 				return (
-					<TextField
-						{...commonProps}
-						type="number"
-						placeholder={field.placeholder}
-						defaultValue={field.defaultValue}
-						value={field.value}
-						min={field.min}
-						max={field.max}
-						className="text-input"
-						onChange={e => handleChange(field.name, Number(e.target.value))}
-					/>
+					<Field<number> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<number, HTMLInputElement>) => (
+							<TextField
+								{...commonProps}
+								type="number"
+								placeholder={field.placeholder}
+								value={(input.value as number | string | undefined) ?? ""}
+								min={field.min}
+								max={field.max}
+								className="text-input"
+								onChange={e => {
+									const num = Number((e.target as HTMLInputElement).value);
+									input.onChange(num);
+									handleChange(field.name, num);
+								}}
+							/>
+						)}
+					</Field>
 				);
 
 			case "textarea":
 				return (
-					<TextAreaField
-						{...commonProps}
-						placeholder={field.placeholder}
-						defaultValue={field.defaultValue}
-						value={field.value}
-						onChange={e => handleChange(field.name, e.target.value)}
-					/>
+					<Field<string> name={field.name} subscription={{ value: true }}>
+						{({ input, meta }: FieldRenderProps<string, HTMLTextAreaElement>) => (
+							<TextAreaField
+								{...commonProps}
+								placeholder={field.placeholder}
+								value={(input.value as string) ?? ""}
+								onChange={e => {
+									const v = (e.target as HTMLTextAreaElement).value;
+									input.onChange(v);
+									handleChange(field.name, v);
+								}}
+								hasError={!!(meta.touched && meta.error) || commonProps.hasError}
+								errorMessage={(meta.touched && meta.error) || commonProps.errorMessage}
+							/>
+						)}
+					</Field>
 				);
 
 			case "slider":
 				return (
-					<Slider
-						{...commonProps}
-						min={field.min}
-						max={field.max}
-						step={field.step}
-						defaultValue={field.defaultValue}
-						value={field.value}
-						onChange={value => handleChange(field.name, value)}
-					/>
+					<Field<number> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<number>) => (
+							<Slider
+								{...commonProps}
+								min={field.min}
+								max={field.max}
+								step={field.step}
+								value={input.value as number | undefined}
+								onChange={value => {
+									input.onChange(value);
+									handleChange(field.name, value);
+								}}
+							/>
+						)}
+					</Field>
 				);
 
 			case "radio":
 				return (
-					<RadioButtonGroup
-						{...commonProps}
-						options={field.options}
-						defaultValue={field.defaultValue}
-						value={field.value}
-						disabled={field.disabled}
-						onChange={value => handleChange(field.name, value)}
-					/>
+					<Field<string> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<string>) => (
+							<RadioButtonGroup
+								{...commonProps}
+								options={field.options}
+								value={(input.value as string) ?? ""}
+								disabled={field.disabled}
+								onChange={value => {
+									input.onChange(value);
+									handleChange(field.name, value);
+								}}
+							/>
+						)}
+					</Field>
 				);
 
 			case "dropdown":
 				return (
-					<Dropdown
-						{...commonProps}
-						options={field.options as DropdownOption<string>[]}
-						defaultValue={field.defaultValue}
-						value={field.value}
-						onChange={value => handleChange(field.name, value)}
-					/>
+					<Field<string> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<string>) => (
+							<Dropdown
+								{...commonProps}
+								options={field.options as DropdownOption<string>[]}
+								value={(input.value as string) ?? ""}
+								onChange={value => {
+									input.onChange(value);
+									handleChange(field.name, value);
+								}}
+							/>
+						)}
+					</Field>
 				);
 
 			case "checkbox":
 				return (
-					<CheckboxGroup
-						{...commonProps}
-						title={field.label}
-						options={field.options}
-						values={field.values}
-						onChange={(values: string[]) => handleChange(field.name, values)}
-					/>
+					<Field<string[]> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<string[]>) => (
+							<CheckboxGroup
+								{...commonProps}
+								title={field.label}
+								options={field.options}
+								values={(input.value as string[]) ?? []}
+								onChange={(values: string[]) => {
+									input.onChange(values);
+									handleChange(field.name, values);
+								}}
+							/>
+						)}
+					</Field>
 				);
 
 			case "address":
 				return (
-					<AddressInput
-						{...commonProps}
-						placeholder={field.placeholder}
-						onChange={value => handleChange(field.name, value)}
-						initialValue={field.value}
-						ref={ref => {
-							if (ref) {
-								addressRefs.current.set(field.name, ref);
-							} else {
-								addressRefs.current.delete(field.name);
-							}
-						}}
-					/>
+					<Field<string> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<string>) => (
+							<AddressInput
+								{...commonProps}
+								placeholder={field.placeholder}
+								onChange={value => {
+									input.onChange(value);
+									handleChange(field.name, value);
+								}}
+								initialValue={(input.value as string) ?? ""}
+								ref={ref => {
+									if (ref) {
+										addressRefs.current.set(field.name, ref);
+									} else {
+										addressRefs.current.delete(field.name);
+									}
+								}}
+							/>
+						)}
+					</Field>
 				);
 
 			case "sliderWithInput":
 				return (
-					<SliderWithInput
-						{...commonProps}
-						min={field.min}
-						max={field.max}
-						step={field.step}
-						defaultValue={field.defaultValue}
-						value={field.value}
-						onChange={value => handleChange(field.name, value)}
-						isDisabled={field.disabled}
-						allowClear={field.allowClear}
-						showToggle={field.showToggle}
-						onToggle={value => handleToggle(field.name, value)}
-					/>
+					<Field<number> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<number>) => (
+							<SliderWithInput
+								{...commonProps}
+								min={field.min}
+								max={field.max}
+								step={field.step}
+								value={input.value as number | undefined}
+								onChange={value => {
+									input.onChange(value);
+									handleChange(field.name, value);
+								}}
+								isDisabled={field.disabled}
+								allowClear={field.allowClear}
+								showToggle={field.showToggle}
+								onToggle={value => handleToggle(field.name, value)}
+							/>
+						)}
+					</Field>
 				);
 
 			case "multiSelect":
 				return (
-					<MultiSelectDropdown
-						{...commonProps}
-						options={field.options as DropdownOption<string>[]}
-						defaultValue={field.defaultValue}
-						value={field.value}
-						minSelected={field.minSelected}
-						maxSelected={field.maxSelected}
-						onChange={(values: string[]) => handleChange(field.name, values)}
-					/>
+					<Field<string[]> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<string[]>) => (
+							<MultiSelectDropdown
+								{...commonProps}
+								options={field.options as DropdownOption<string>[]}
+								value={(input.value as string[] | undefined) ?? []}
+								minSelected={field.minSelected}
+								maxSelected={field.maxSelected}
+								onChange={(values: string[]) => {
+									input.onChange(values);
+									handleChange(field.name, values);
+								}}
+							/>
+						)}
+					</Field>
 				);
 
 			case "latLonInput":
 				return (
-					<AutoCompleteLatLonInput
-						{...commonProps}
-						placeholder={field.placeholder}
-						onChange={value => handleChange(field.name, value)}
-						defaultValue={field.defaultValue}
-					/>
+					<Field<number[]> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<number[]>) => (
+							<AutoCompleteLatLonInput
+								{...commonProps}
+								placeholder={field.placeholder}
+								onChange={value => {
+									input.onChange(value);
+									handleChange(field.name, value);
+								}}
+									defaultValue={typeof field.defaultValue === "string" ? field.defaultValue : ""}
+							/>
+						)}
+					</Field>
 				);
 
 			case "lngLatInput":
 				return (
-					<LngLatInput
-						{...commonProps}
-						defaultValue={field.value}
-						onChange={value => handleChange(field.name, value)}
-						value={field.value}
-						name={field.name}
-						isDisabled={field.disabled}
-					/>
+					<Field<number[]> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<number[]>) => (
+							<LngLatInput
+								{...commonProps}
+								onChange={value => {
+									input.onChange(value);
+									handleChange(field.name, value);
+								}}
+								value={(input.value as number[] | undefined) ?? []}
+								name={field.name}
+								isDisabled={field.disabled}
+							/>
+						)}
+					</Field>
 				);
 
 			case "coordinateInput":
 				return (
-					<CoordinateInput
-						{...commonProps}
-						defaultValue={field.value}
-						onChange={value => handleChange(field.name, value)}
-						value={field.value}
-						name={field.name}
-						isDisabled={field.disabled}
-						placeholder={field.placeholder}
-					/>
+					<Field<number[]> name={field.name} subscription={{ value: true }}>
+						{({ input }: FieldRenderProps<number[]>) => (
+							<CoordinateInput
+								{...commonProps}
+								onChange={value => {
+									input.onChange(value);
+									handleChange(field.name, value);
+								}}
+								value={(input.value as number[] | undefined) ?? []}
+								name={field.name}
+								isDisabled={field.disabled}
+								placeholder={field.placeholder}
+							/>
+						)}
+					</Field>
 				);
 
 			default:
@@ -473,7 +620,6 @@ export const FormRender: React.FC<FormRenderProps> = ({
 		}
 	};
 
-	// Split fields into required and optional
 	const requiredFields = fields.filter(field => field.required && !field.hiddenFromUI);
 	const allOptionalFields = fields.filter(field => !field.required && !field.hiddenFromUI);
 
@@ -481,63 +627,48 @@ export const FormRender: React.FC<FormRenderProps> = ({
 	const promotedOptionalFields = allOptionalFields.filter(f => promotedNames.has(f.name));
 	const optionalFields = allOptionalFields.filter(f => !promotedNames.has(f.name));
 
-	// Effect to check overflow when optional fields change or map container height changes
 	React.useEffect(() => {
-		// Use a small delay to ensure DOM is updated
 		const timer = setTimeout(checkIfOverflowing, 100);
 		return () => clearTimeout(timer);
 	}, [optionalFields.length, mapContainerHeight, requiredFieldsHeight]);
 
-	const handleReset = (event?: React.MouseEvent) => {
-		if (event) {
-			event.preventDefault();
-		}
-
+	const computeResetValues = (): Record<string, unknown> => {
+		const resetValues: Record<string, unknown> = {};
 		fields.forEach(field => {
 			if (field.disabled) return;
-
 			switch (field.type) {
 				case "address":
-					// Use the ref to clear the address input
-					const addressRef = addressRefs.current.get(field.name);
-					if (addressRef) {
-						addressRef.clear();
-					} else {
-						// Fallback to handleChange if ref is not available
-						handleChange(field.name, undefined);
-					}
+					resetValues[field.name] = "";
 					break;
 				case "multiSelect":
-					handleChange(field.name, undefined);
+					resetValues[field.name] = [];
 					break;
 				case "text":
-					handleChange(field.name, field.defaultValue);
+					resetValues[field.name] = field.defaultValue ?? "";
 					break;
 				case "checkbox":
-					handleChange(field.name, []);
+					resetValues[field.name] = [];
 					break;
 				case "number":
 				case "slider":
 				case "sliderWithInput":
-					handleChange(field.name, field.min || 0);
+					resetValues[field.name] = field.min ?? 0;
 					break;
 				case "lngLatInput":
 				case "coordinateInput":
-					handleChange(field.name, []);
+					resetValues[field.name] = [];
 					break;
 				case "radio":
 				case "dropdown":
-					handleChange(field.name, "");
+					resetValues[field.name] = "";
 					break;
 				case "textarea":
 				case "latLonInput":
-					handleChange(field.name, "");
+					resetValues[field.name] = "";
 					break;
 			}
 		});
-
-		// Call the onReset callback if provided to handle NUQS state reset
-		onReset?.();
+		return resetValues;
 	};
 
 	return (
@@ -546,62 +677,85 @@ export const FormRender: React.FC<FormRenderProps> = ({
 			defaultOpen={true}
 			contentClassName="form-render-accordion"
 		>
-			<form
-				onSubmit={handleSubmit}
-				className={`form-render ${className}`}
-				style={{
-					maxHeight: mapContainerHeight ? mapContainerHeight - 120 : "none",
-					overflow: "auto"
-				}}
-			>
-				<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" ref={requiredFeildsContainerRef}>
-					{content && <Content {...content} />}
-					{headerContent}
-					{requiredFields.map(renderField)}
-					{promotedOptionalFields.map(renderField)}
+			<Form onSubmit={() => onSubmit?.()} initialValues={initialValues} keepDirtyOnReinitialize validate={validate}>
+				{({ handleSubmit, form }) => (
+					<form
+						onSubmit={handleSubmit}
+						className={`form-render ${className}`}
+						style={{
+							maxHeight: mapContainerHeight ? mapContainerHeight - 120 : "none",
+							overflow: "auto"
+						}}
+					>
+						<Flex direction="column" padding="1rem" paddingTop={0} gap="1rem" ref={requiredFeildsContainerRef}>
+							{content && <Content {...content} />}
+							{headerContent}
+							{requiredFields.map(renderField)}
+							{promotedOptionalFields.map(renderField)}
 
-					<Flex gap="1rem">
-						<Button borderColor="rgba(0, 130, 150, 1)" borderWidth={1} size="small" onClick={handleReset}>
-							<IconReloadLined
-								width={20}
-								height={20}
-								style={{ stroke: "rgba(0, 130, 150, 1)", strokeWidth: 1 }}
-								color="rgba(0, 130, 150, 1)"
-							/>
-						</Button>
-						{onSubmit && (
-							<Button
-								width={"100%"}
-								className="submit-button"
-								type="submit"
-								variation="primary"
-								isDisabled={submitButtonDisabled}
-							>
-								{submitButtonText}
-							</Button>
-						)}
-					</Flex>
-				</Flex>
-
-				{optionalFields.length > 0 && (
-					<Flex direction={"column"} flex={1} gap={0}>
-						<Divider />
-						<Accordion
-							shadowEnabled={false}
-							defaultOpen={true}
-							title="Optional Parameters"
-							contentClassName={`optional-items ${isOverflowing ? "" : "no-scroll-bar"}`}
-							openIcon={<IconChevronUp className="chevron-up-icon" />}
-							closeIcon={<IconChevronDown className="chevron-down-icon" />}
-						>
-							<Flex ref={optionalFieldsContainerRef} direction="column" padding="1rem" paddingTop={0} gap="1rem">
-								{optionalFields.map(renderField)}
-								<Divider style={{ visibility: "hidden" }} />
+							<Flex gap="1rem">
+								<Button
+									borderColor="rgba(0, 130, 150, 1)"
+									borderWidth={1}
+									size="small"
+									onClick={e => {
+										e.preventDefault();
+										const resetValues = computeResetValues();
+										fields.forEach(field => {
+											if (field.disabled) return;
+											const v = resetValues[field.name];
+											if (field.type === "address") {
+												const addressRef = addressRefs.current.get(field.name);
+												if (addressRef) addressRef.clear();
+											}
+											handleChange(field.name, v);
+										});
+										form.reset(resetValues);
+										onReset?.();
+									}}
+								>
+									<IconReloadLined
+										width={20}
+										height={20}
+										style={{ stroke: "rgba(0, 130, 150, 1)", strokeWidth: 1 }}
+										color="rgba(0, 130, 150, 1)"
+									/>
+								</Button>
+								{onSubmit && (
+									<Button
+										width={"100%"}
+										className="submit-button"
+										type="submit"
+										variation="primary"
+										isDisabled={submitButtonDisabled}
+									>
+										{submitButtonText}
+									</Button>
+								)}
 							</Flex>
-						</Accordion>
-					</Flex>
+						</Flex>
+
+						{optionalFields.length > 0 && (
+							<Flex direction={"column"} flex={1} gap={0}>
+								<Divider />
+								<Accordion
+									shadowEnabled={false}
+									defaultOpen={true}
+									title="Optional Parameters"
+									contentClassName={`optional-items ${isOverflowing ? "" : "no-scroll-bar"}`}
+									openIcon={<IconChevronUp className="chevron-up-icon" />}
+									closeIcon={<IconChevronDown className="chevron-down-icon" />}
+								>
+									<Flex ref={optionalFieldsContainerRef} direction="column" padding="1rem" paddingTop={0} gap="1rem">
+										{optionalFields.map(renderField)}
+										<Divider style={{ visibility: "hidden" }} />
+									</Flex>
+								</Accordion>
+							</Flex>
+						)}
+					</form>
 				)}
-			</form>
+			</Form>
 		</Accordion>
 	);
 };

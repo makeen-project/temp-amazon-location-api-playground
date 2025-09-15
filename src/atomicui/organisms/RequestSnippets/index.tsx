@@ -431,7 +431,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 					</View>
 				}
 			>
-				<form onSubmit={() => {}} className="snippets-form">
+				<div className="snippets-form">
 					<View className="snippets-container__snippet">
 						<View className="snippets-container__snippet__heading">
 							<Text>Request</Text>
@@ -510,7 +510,7 @@ const RequestSnippets: FC<RequestSnippetsProps> = ({
 							</View>
 						)}
 					</View>
-				</form>
+				</div>
 			</Accordion>
 		</View>
 	);

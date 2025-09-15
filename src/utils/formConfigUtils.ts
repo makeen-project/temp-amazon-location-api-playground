@@ -201,66 +201,6 @@ export const createFormFieldsFromConfig = (
 	return formFields.map(fieldConfig => convertFormFieldConfigToFormField(fieldConfig, urlState));
 };
 
-export const validateFormData = (
-	formData: Record<string, any>,
-	validationRules: Array<{ field: string; rule: string; message: string }>
-): { isValid: boolean; errors: Record<string, string> } => {
-	const errors: Record<string, string> = {};
-
-	validationRules.forEach(rule => {
-		const value = formData[rule.field];
-
-		switch (rule.rule) {
-			case "required":
-				if (value === undefined || value === null || value === "" || (Array.isArray(value) && value.length === 0)) {
-					errors[rule.field] = rule.message;
-				}
-				break;
-			case "minLength":
-				const minLength = parseInt(rule.message);
-				if (value !== undefined && value !== null) {
-					if (Array.isArray(value)) {
-						if (value.length < minLength) {
-							errors[rule.field] = `Minimum ${minLength} items required`;
-						}
-					} else if (String(value).length < minLength) {
-						errors[rule.field] = `Minimum length of ${minLength} required`;
-					}
-				}
-				break;
-			case "maxLength":
-				const maxLength = parseInt(rule.message);
-				if (value !== undefined && value !== null) {
-					if (Array.isArray(value)) {
-						if (value.length > maxLength) {
-							errors[rule.field] = `Maximum ${maxLength} items allowed`;
-						}
-					} else if (String(value).length > maxLength) {
-						errors[rule.field] = `Maximum length of ${maxLength} allowed`;
-					}
-				}
-				break;
-			case "pattern":
-				if (value !== undefined && value !== null && value !== "") {
-					try {
-						const regex = new RegExp(rule.message);
-						if (!regex.test(String(value))) {
-							errors[rule.field] = "Invalid format";
-						}
-					} catch {
-						errors[rule.field] = "Invalid pattern";
-					}
-				}
-				break;
-		}
-	});
-
-	return {
-		isValid: Object.keys(errors).length === 0,
-		errors
-	};
-};
-
 export const mapFormDataToApiParams = (
 	formData: Record<string, any>,
 	paramMapping: Record<string, string>
