@@ -72,7 +72,10 @@ export default function CustomRequest({
 			Object.entries(allSearchParams).map(([key, value]) => [key, value ? JSON.parse(value) : value])
 		);
 
-		const response = parsedSearchParams.response ? JSON.parse(parsedSearchParams.response as string) : undefined;
+		const response =
+			parsedSearchParams.response && typeof parsedSearchParams.response === "string"
+				? JSON.parse(parsedSearchParams.response as string)
+				: undefined;
 
 		setState({
 			...parsedSearchParams,

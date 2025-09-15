@@ -69,19 +69,19 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const [mapLoaded, setMapLoaded] = useState(false);
 	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [descExpanded, setDescExpanded] = useState(false);
-	const [activeMarker, setActiveMarker] = useState(false);
+	const [activeMarker, setActiveMarker] = useState<string | null>(null);
 	const [activeSuggestionId, setActiveSuggestionId] = useState<string>();
 	const [searchValue, setSearchValue] = useState("");
 	const [message, setMessage] = useState<string | undefined>(undefined);
 	const [isCoordinatePickingDisabled, setIsCoordinatePickingDisabled] = useState(false);
 	const [mapContainerHeight, setMapContainerHeight] = useState<number>(614);
-	const [localMarkers, setLocalMarkers] = useState<Array<{ position: [number, number]; id: string; label: string }>>(
+	const [localMarkers, setLocalMarkers] = useState<Array<{ Position: [number, number]; id: string; label: string }>>(
 		[]
 	);
 	const [secondaryMarkers, setSecondaryMarkers] = useState<
 		Array<{
 			placeId: string;
-			position: [number, number];
+			Position: [number, number];
 			id: string;
 			label: string;
 			address: { Label: string };
@@ -95,34 +95,35 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const resetTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 	const isSnippetsOpenRef = useRef(isSnippetsOpen);
 
-	const resultItem = customRequestStore.response?.ResultItems?.[0];
+	// Determine which result items to display based on configuration
+	const displayAllItems = apiPlaygroundItem?.displayAllResultItems === true;
+	const allResultItems = customRequestStore.response?.ResultItems || [];
+	const itemsToDisplay = displayAllItems ? allResultItems : allResultItems.slice(0, 1);
+
+	const resultItem = itemsToDisplay[0];
 	const position = resultItem?.Position;
 
 	const showMapMarker =
 		customRequestStore?.response && position?.length === 2 && position.every(coord => !isNaN(coord));
 
-	const showLocalMarkers = localMarkers.length > 0 && !showMapMarker && apiPlaygroundItem?.showLocalMarkerOnMapClick;
-
-	const placeId = resultItem?.PlaceId || uuid.randomUUID();
-	const label = resultItem?.Address?.Label || "Unknown location";
-	const address = { Label: label };
+	const showLocalMarkers = localMarkers.length > 0 && apiPlaygroundItem?.showLocalMarkerOnMapClick;
 
 	const handleMarkerClose = useCallback(() => {
-		setActiveMarker(false);
+		setActiveMarker(null);
 	}, []);
-	const handleMarkerToggle = useCallback((isActive: boolean) => {
-		setActiveMarker(isActive);
+	const handleMarkerToggle = useCallback((placeId: string | null) => {
+		setActiveMarker(placeId);
 	}, []);
 
-	const handleMapZoom = useCallback(() => {}, [apiPlaygroundId]);
-	const handleMapDragEnd = useCallback(() => {}, [apiPlaygroundId]);
-	const handleMarkerActivate = useCallback(() => {
-		setActiveMarker(true);
+	const handleMapZoom = useCallback(() => { }, [apiPlaygroundId]);
+	const handleMapDragEnd = useCallback(() => { }, [apiPlaygroundId]);
+	const handleMarkerActivate = useCallback((placeId: string) => {
+		setActiveMarker(placeId);
 	}, []);
 
 	const handleClose = useCallback(() => {
 		handleMarkerClose();
-		handleMarkerToggle?.(false);
+		handleMarkerToggle?.(null);
 		setState({ ...initialState, query: "", response: undefined });
 		setLocalMarkers([]);
 		setSecondaryMarkers([]);
@@ -204,7 +205,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	const handleMapClick = useCallback(
 		(e: { lngLat: { lng: number; lat: number } }) => {
 			if (activeMarker) {
-				setActiveMarker(false);
+				setActiveMarker(null);
 				clearPoiList();
 				setSelectedMarker();
 				setSearchValue("");
@@ -230,7 +231,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				setSecondaryMarkers([]);
 				setIsCoordinatePickingDisabled(false);
 				setClickedPosition([]);
-				setActiveMarker(false);
+				setActiveMarker(null);
 				clearPoiList();
 				setSelectedMarker();
 				setSearchValue("");
@@ -242,7 +243,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			if (apiPlaygroundItem?.showLocalMarkerOnMapClick) {
 				const markerId = uuid.randomUUID();
 				const newMarker = {
-					position: [lng, lat] as [number, number],
+					Position: [lng, lat] as [number, number],
 					id: markerId,
 					label: ""
 				};
@@ -262,12 +263,12 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	);
 
 	const extractSecondaryMarkers = useCallback(() => {
-		const resultItem = customRequestStore.response?.ResultItems?.[0];
-		if (!resultItem) return;
+		const allResultItems = customRequestStore.response?.ResultItems || [];
+		if (allResultItems.length === 0 || !Array.isArray(allResultItems)) return;
 
 		const markers: Array<{
 			placeId: string;
-			position: [number, number];
+			Position: [number, number];
 			id: string;
 			label: string;
 			address: { Label: string };
@@ -277,72 +278,102 @@ const ApiPlaygroundDetailsPage: FC = () => {
 		// Helper function to check if position already exists
 		const positionExists = (newPosition: [number, number], existingMarkers: typeof markers) => {
 			return existingMarkers.some(
-				marker => marker.position[0] === newPosition[0] && marker.position[1] === newPosition[1]
+				marker => marker.Position[0] === newPosition[0] && marker.Position[1] === newPosition[1]
 			);
 		};
 
-		// Extract SecondaryAddresses
-		if ((resultItem as any).SecondaryAddresses && Array.isArray((resultItem as any).SecondaryAddresses)) {
-			(resultItem as any).SecondaryAddresses.forEach((secondaryAddress: any) => {
-				if (secondaryAddress.Position && secondaryAddress.Position.length === 2) {
-					const newPosition = secondaryAddress.Position as [number, number];
-					if (!positionExists(newPosition, markers)) {
-						markers.push({
-							placeId: secondaryAddress.PlaceId || uuid.randomUUID(),
-							position: newPosition,
-							id: secondaryAddress.PlaceId || uuid.randomUUID(),
-							label: secondaryAddress.Title || secondaryAddress.Address?.Label || "Secondary Address",
-							address: { Label: secondaryAddress.Address?.Label || secondaryAddress.Title || "Secondary Address" },
-							placeType: "SecondaryAddress"
-						});
+		// Process all result items
+		allResultItems.forEach((resultItem: any) => {
+			// Extract SecondaryAddresses
+			if (resultItem.SecondaryAddresses && Array.isArray(resultItem.SecondaryAddresses)) {
+				resultItem.SecondaryAddresses.forEach((secondaryAddress: any) => {
+					if (secondaryAddress.Position && secondaryAddress.Position.length === 2) {
+						const newPosition = secondaryAddress.Position as [number, number];
+						if (!positionExists(newPosition, markers)) {
+							markers.push({
+								placeId: secondaryAddress.PlaceId || uuid.randomUUID(),
+								Position: newPosition,
+								id: secondaryAddress.PlaceId || uuid.randomUUID(),
+								label: secondaryAddress.Title || secondaryAddress.Address?.Label || "Secondary Address",
+								address: { Label: secondaryAddress.Address?.Label || secondaryAddress.Title || "Secondary Address" },
+								placeType: "SecondaryAddress"
+							});
+						}
 					}
-				}
-			});
-		}
+				});
+			}
 
-		// Extract Intersections
-		if ((resultItem as any).Intersections && Array.isArray((resultItem as any).Intersections)) {
-			(resultItem as any).Intersections.forEach((intersection: any) => {
-				if (intersection.Position && intersection.Position.length === 2) {
-					const newPosition = intersection.Position as [number, number];
-					if (!positionExists(newPosition, markers)) {
-						markers.push({
-							placeId: intersection.PlaceId || uuid.randomUUID(),
-							position: newPosition,
-							id: intersection.PlaceId || uuid.randomUUID(),
-							label: intersection.Title || intersection.Address?.Label || "Intersection",
-							address: { Label: intersection.Address?.Label || intersection.Title || "Intersection" },
-							placeType: "Intersection"
-						});
+			// Extract Intersections
+			if (resultItem.Intersections && Array.isArray(resultItem.Intersections)) {
+				resultItem.Intersections.forEach((intersection: any) => {
+					if (intersection.Position && intersection.Position.length === 2) {
+						const newPosition = intersection.Position as [number, number];
+						if (!positionExists(newPosition, markers)) {
+							markers.push({
+								placeId: intersection.PlaceId || uuid.randomUUID(),
+								Position: newPosition,
+								id: intersection.PlaceId || uuid.randomUUID(),
+								label: intersection.Title || intersection.Address?.Label || "Intersection",
+								address: { Label: intersection.Address?.Label || intersection.Title || "Intersection" },
+								placeType: "Intersection"
+							});
+						}
 					}
-				}
-			});
-		}
+				});
+			}
+		});
 
 		setSecondaryMarkers(markers);
 	}, [customRequestStore.response]);
 
 	const handleCustomResponse = () => {
-		const resultItem = customRequestStore.response?.ResultItems?.[0];
-		const currentPosition = resultItem?.Position;
+		const allResultItems = customRequestStore.response?.ResultItems || [];
+		const resultItem = allResultItems[0];
+		const firstResultPosition = resultItem?.Position;
+		const firstItemPlaceId = resultItem?.PlaceId || null;
 
-		if (!currentPosition || currentPosition.length !== 2 || currentPosition.some(isNaN)) {
+		if (!firstResultPosition || firstResultPosition.length !== 2 || firstResultPosition.some(isNaN)) {
 			console.warn("Invalid position data received");
 			return;
 		}
 
-		setLocalMarkers([]);
+		if (apiPlaygroundItem?.displayAllResultItems === false) {
+			setLocalMarkers([]);
+		}
+		
 		setSecondaryMarkers([]);
-		setActiveMarker(true);
+		// Set the first result item as active by default
+		setActiveMarker(firstItemPlaceId);
 		setIsCoordinatePickingDisabled(true);
 		setGridLoader(true);
 
-		const [lng, lat] = currentPosition;
+		const [lng, lat] = firstResultPosition;
 		const submittedQueryRadius = customRequestStore.submittedQueryRadius;
 		const queryRadius = customRequestStore.queryRadius;
 
 		try {
-			if (submittedQueryRadius && submittedQueryRadius > 0 && queryRadius !== null) {
+			// If displaying multiple items, fit bounds to show all of them
+			if (displayAllItems && itemsToDisplay.length > 1) {
+				const validPositions = [...itemsToDisplay, ...localMarkers, ...secondaryMarkers]
+					.map(item => item?.Position)
+					.filter(pos => pos && pos.length === 2 && !pos.some(isNaN)) as [number, number][];
+
+				if (validPositions.length > 0) {
+					let minLng = Infinity, minLat = Infinity, maxLng = -Infinity, maxLat = -Infinity;
+
+					validPositions.forEach(([lng, lat]) => {
+						if (lng < minLng) minLng = lng;
+						if (lat < minLat) minLat = lat;
+						if (lng > maxLng) maxLng = lng;
+						if (lat > maxLat) maxLat = lat;
+					});
+
+					mapRef.current?.fitBounds(
+						[[minLng, minLat], [maxLng, maxLat]],
+						{ padding: 50, duration: 2000, essential: true }
+					);
+				}
+			} else if (submittedQueryRadius && submittedQueryRadius > 0 && queryRadius !== null) {
 				const radiusInKm = submittedQueryRadius / 1000;
 				const circleFeature = circle([lng, lat], radiusInKm, {
 					units: "kilometers",
@@ -438,7 +469,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			const [lng, lat] = pts[0] as [number, number];
 			try {
 				mapRef.current?.flyTo({ center: [lng, lat], zoom: 12, duration: 800 });
-			} catch {}
+			} catch { }
 			return;
 		}
 		let minLng = Infinity,
@@ -459,7 +490,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 				],
 				{ padding: 50, duration: 800, essential: true }
 			);
-		} catch {}
+		} catch { }
 	}, [suggestions, mapLoaded, showMapMarker, apiPlaygroundItem]);
 
 	useEffect(() => {
@@ -735,35 +766,51 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					onMapZoom={handleMapZoom}
 					onMapDragEnd={handleMapDragEnd}
 					onMapLoad={handleMapLoad}
-					maxZoom={secondaryMarkers.length > 0 ? 20 : undefined}
+					maxZoom={secondaryMarkers.length > 0 || itemsToDisplay.length > 0 ? 20 : undefined}
 				>
-					{showMapMarker && resultItem && (
-						<MapMarker
-							active={activeMarker}
-							onClosePopUp={handleMarkerClose}
-							onActivate={handleMarkerActivate}
-							searchValue={searchValue}
-							setSearchValue={setSearchValue}
-							placeId={placeId}
-							address={address}
-							position={position}
-							id={placeId}
-							label={label}
-							locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
-						/>
-					)}
+					{showMapMarker && itemsToDisplay.map((item, index) => {
+						const itemPosition = item?.Position;
+						const itemPlaceId = item?.PlaceId || uuid.randomUUID();
+						const itemLabel = item?.Address?.Label || `Result ${index + 1}`;
+						const itemAddress = { Label: itemLabel };
+
+						// Check if this marker is the active one
+						const isActive = activeMarker === itemPlaceId;
+
+						// Skip items without valid positions
+						if (!itemPosition || itemPosition.length !== 2 || itemPosition.some(isNaN)) {
+							return null;
+						}
+
+						return (
+							<MapMarker
+								key={itemPlaceId}
+								active={isActive}
+								onClosePopUp={handleMarkerClose}
+								onActivate={() => handleMarkerActivate(itemPlaceId)}
+								searchValue={searchValue}
+								setSearchValue={setSearchValue}
+								placeId={itemPlaceId}
+								address={itemAddress}
+								position={itemPosition}
+								id={itemPlaceId}
+								label={itemLabel}
+								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
+							/>
+						);
+					})}
 					{showLocalMarkers &&
 						localMarkers.map(marker => (
 							<MapMarker
 								key={marker.id}
 								active={false}
 								onClosePopUp={() => setLocalMarkers(prev => prev.filter(m => m.id !== marker.id))}
-								onActivate={() => {}}
+								onActivate={() => { }}
 								searchValue={searchValue}
 								setSearchValue={setSearchValue}
 								placeId={marker.id}
 								address={{ Label: marker.label }}
-								position={marker.position}
+								position={marker.Position}
 								id={marker.id}
 								label={marker.label}
 								locationPopupConfig={apiPlaygroundItem.locationPopupConfig}
@@ -777,14 +824,14 @@ const ApiPlaygroundDetailsPage: FC = () => {
 								setSecondaryMarkers(prev => prev.map(m => ({ ...m, active: false })));
 							}}
 							onActivate={() => {
-								setActiveMarker(false);
+								setActiveMarker(null);
 								setSecondaryMarkers(prev => prev.map(m => ({ ...m, active: m.id === marker.id })));
 							}}
 							searchValue={searchValue}
 							setSearchValue={setSearchValue}
 							placeId={marker.placeId}
 							address={marker.address}
-							position={marker.position}
+							position={marker.Position}
 							id={marker.id}
 							label={marker.label}
 							locationPopupConfig={apiPlaygroundItem.locationPopupConfig}

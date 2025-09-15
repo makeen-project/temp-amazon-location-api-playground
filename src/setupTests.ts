@@ -262,7 +262,8 @@ vi.mock("@api-playground/core/constants/appConfig", () => ({
 			AWS_GETTING_STARTED_URL:
 				"https://aws.amazon.com/location/getting-started/?trk=62cbda11-92dc-4aee-9a53-23befa82aaf3&sc_channel=el",
 			AWS_FAQ_URL: "https://aws.amazon.com/location/faqs/?trk=facff0d6-d5ee-4a47-be74-006c8c1bedfc&sc_channel=el",
-			AWS_PRICING_URL: "https://aws.amazon.com/location/pricing/?trk=ca946f21-94e1-400e-820e-c59227469836&sc_channel=el",
+			AWS_PRICING_URL:
+				"https://aws.amazon.com/location/pricing/?trk=ca946f21-94e1-400e-820e-c59227469836&sc_channel=el",
 			AWS_WORKSHOP_URL:
 				"https://catalog.workshops.aws/amazon-location-101/en-US?trk=15f09edb-8ab2-4645-9f9c-30f9e53afc8f&sc_channel=el",
 			AWS_MAPS_API_URL:
@@ -317,7 +318,8 @@ vi.mock("@api-playground/core/constants/appConfig", () => ({
 			GET_GEOFENCE_URL: "https://docs.aws.amazon.com/location/latest/APIReference/API_GetGeofence.html",
 			LIST_GEOFENCES_URL: "https://docs.aws.amazon.com/location/latest/APIReference/API_ListGeofences.html",
 			BATCH_PUT_GEOFENCE_URL: "https://docs.aws.amazon.com/location/latest/APIReference/API_BatchPutGeofence.html",
-			BATCH_DELETE_GEOFENCE_URL: "https://docs.aws.amazon.com/location/latest/APIReference/API_BatchDeleteGeofence.html",
+			BATCH_DELETE_GEOFENCE_URL:
+				"https://docs.aws.amazon.com/location/latest/APIReference/API_BatchDeleteGeofence.html",
 			BATCH_EVALUATE_GEOFENCES_URL:
 				"https://docs.aws.amazon.com/location/latest/APIReference/API_BatchEvaluateGeofences.html",
 			CREATE_TRACKER_URL: "https://docs.aws.amazon.com/location/latest/APIReference/API_CreateTracker.html",
@@ -336,7 +338,8 @@ vi.mock("@api-playground/core/constants/appConfig", () => ({
 				"https://docs.aws.amazon.com/location/latest/APIReference/API_BatchGetDevicePosition.html",
 			BATCH_UPDATE_DEVICE_POSITION_URL:
 				"https://docs.aws.amazon.com/location/latest/APIReference/API_BatchUpdateDevicePosition.html",
-			LIST_DEVICE_POSITIONS_URL: "https://docs.aws.amazon.com/location/latest/APIReference/API_ListDevicePositions.html",
+			LIST_DEVICE_POSITIONS_URL:
+				"https://docs.aws.amazon.com/location/latest/APIReference/API_ListDevicePositions.html",
 			GET_DEVICE_POSITION_HISTORY_URL:
 				"https://docs.aws.amazon.com/location/latest/APIReference/API_GetDevicePositionHistory.html",
 			BATCH_DELETE_DEVICE_POSITION_HISTORY_URL:

@@ -60,7 +60,7 @@ export const initialState: IStateProps<CustomRequestStore> = {
 	additionalFeatures: [],
 	includeCountries: [],
 	includePlaceTypes: [],
-	intendedUse: IntendedUse.SingleUse,
+	intendedUse: undefined,
 	key: "",
 	apiKey: "",
 	language: "",

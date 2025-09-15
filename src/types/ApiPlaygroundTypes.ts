@@ -99,7 +99,7 @@ export interface ApiHandlerConfig {
 		rule: string;
 		message: string;
 	}>;
-	transformResponse?: (response: any) => any;
+	transformResponse?: (response: unknown) => unknown;
 }
 
 export interface CodeSnippetConfig {
@@ -119,7 +119,7 @@ export interface ApiPlaygroundItem {
 	category: string;
 	type: string;
 	shouldRenderMap?: boolean;
-	requestParams?: any[];
+	requestParams?: unknown[];
 	locationPopupConfig?: LocationPopupConfig;
 	buildSampleButton?: {
 		text: string;
@@ -133,6 +133,7 @@ export interface ApiPlaygroundItem {
 	codeSnippets?: CodeSnippetConfig;
 	missingFieldsMessage?: string;
 	showLocalMarkerOnMapClick?: "single" | "multiple";
+	displayAllResultItems?: boolean;
 }
 
 export type ApiPlaygroundList = ApiPlaygroundItem[];

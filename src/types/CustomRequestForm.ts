@@ -18,5 +18,6 @@ export enum IncludePlaceTypes {
 
 export enum IntendedUse {
 	SingleUse = "SingleUse",
-	Storage = "Storage"
+	Storage = "Storage",
+	SingleUseAndStorage = "SingleUseAndStorage"
 }
