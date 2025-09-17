@@ -241,6 +241,7 @@ export default function CustomRequest({
 	const isGeocode = apiPlaygroundItem?.type === "geocode" || apiPlaygroundItem?.id === "geocode";
 	const queryType: GeocodeQueryType = (store.queryType as any) || "Text";
 	const queryComponentsFieldNames = new Set([
+		"query",
 		"addressNumber",
 		"country",
 		"district",
@@ -292,15 +293,29 @@ export default function CustomRequest({
 	});
 
 	const isSubmitDisabled = (() => {
-		const formFieldsConfig = apiPlaygroundItem?.formFields || [];
-
-		const allRequiredFields = formFieldsConfig.filter((f: any) => {
-			const originallyRequired = f.required;
-			const effectivelyRequired = getEffectiveRequiredStatus(f, store as unknown as Record<string, any>);
-			return originallyRequired || effectivelyRequired;
+		const visibleFields = isGeocode ? filteredFields : formFields;
+		const requiredFields = visibleFields.filter((f: any) => {
+			if (isGeocode && queryType === "Hybrid" && f.name === "query") return false;
+			return f.required;
 		});
 
-		return allRequiredFields.some((f: any) => {
+		const anyQueryComponentsFilled = (() => {
+			const names = Array.from(queryComponentsFieldNames);
+			return names.some(n => {
+				const v = store[n as keyof CustomRequestStore];
+				return typeof v === "string" ? v.trim().length > 0 : false;
+			});
+		})();
+
+		if (isGeocode && queryType === "Components" && !anyQueryComponentsFilled) return true;
+		if (isGeocode && queryType === "Text" && (!store.query || store.query.trim() === "")) return true;
+
+		if (isGeocode && queryType === "Hybrid") {
+			const hasQuery = !!store.query && store.query.trim() !== "";
+			if (!hasQuery && !anyQueryComponentsFilled) return true;
+		}
+
+		return requiredFields.some((f: any) => {
 			const key = f.name as keyof CustomRequestStore;
 			const val = store[key];
 			const isCoordinateField = f.name === "queryPosition" || f.name === "biasPosition";
