@@ -32,6 +32,20 @@ const {
 	MAP_RESOURCES: { MAP_POLITICAL_VIEWS, MAP_LANGUAGES }
 } = appConfig;
 
+const QUERY_COMPONENT_FIELD_NAMES = [
+	"query",
+	"addressNumber",
+	"country",
+	"district",
+	"locality",
+	"postalCode",
+	"region",
+	"street",
+	"subRegion"
+] as const;
+
+const QUERY_HYBRID_FIELD_NAMES = [...QUERY_COMPONENT_FIELD_NAMES, "query"];
+
 const ApiPlaygroundDetailsPage: FC = () => {
 	useAuthManager();
 
@@ -61,7 +75,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	}, {} as Record<string, any>);
 
 	const navigate = useNavigate();
-	const { urlState, setUrlState } = useUrlState({ ...initialUrlState, response: undefined });
+	const { urlState, setUrlState, resetUrlState } = useUrlState({ ...initialUrlState, response: undefined });
 	const { setBiasPosition, setMapPoliticalView, setMapLanguage, setGridLoader } = useMap();
 	const { setClickedPosition, clickedPosition, clearPoiList, setSelectedMarker, suggestions } = usePlace();
 
@@ -192,7 +206,12 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			mapRef.current?.zoomTo(15);
 		}
 
-		setUrlState({ ...defaultValues, queryPosition: [], response: "" });
+		resetUrlState();
+		setUrlState({
+			...defaultValues,
+			queryPosition: [],
+			response: ""
+		});
 
 		const url = new URL(window.location.href);
 		url.search = "";
@@ -388,11 +407,40 @@ const ApiPlaygroundDetailsPage: FC = () => {
 	useEffect(() => {
 		if (!apiPlaygroundItem) return;
 
+		// This was causing
+		// if (
+		// 	(apiPlaygroundItem.type === "geocode" || apiPlaygroundItem.id === "geocode") &&
+		// 	customRequestStore.queryType === "Components"
+		// ) {
+		// 	setMessage(undefined);
+		// 	return;
+		// }
+
 		if (
 			(apiPlaygroundItem.type === "geocode" || apiPlaygroundItem.id === "geocode") &&
 			customRequestStore.queryType === "Components"
 		) {
-			setMessage(undefined);
+			const hasQuery = !!customRequestStore.query && customRequestStore.query.trim() !== "";
+			const anyQueryComponentsFilled = QUERY_HYBRID_FIELD_NAMES.some(name => {
+				const v = customRequestStore[name as keyof CustomRequestStore];
+				return typeof v === "string" ? v.trim().length > 0 : false;
+			});
+
+			setMessage(!hasQuery && !anyQueryComponentsFilled ? apiPlaygroundItem.missingFieldsMessage : undefined);
+			return;
+		}
+
+		if (
+			(apiPlaygroundItem.type === "geocode" || apiPlaygroundItem.id === "geocode") &&
+			customRequestStore.queryType === "Hybrid"
+		) {
+			const hasQuery = !!customRequestStore.query && customRequestStore.query.trim() !== "";
+			const anyQueryComponentsFilled = QUERY_COMPONENT_FIELD_NAMES.some(name => {
+				const v = customRequestStore[name];
+				return typeof v === "string" ? v.trim().length > 0 : false;
+			});
+
+			setMessage(!hasQuery && !anyQueryComponentsFilled ? apiPlaygroundItem.missingFieldsMessage : undefined);
 			return;
 		}
 
