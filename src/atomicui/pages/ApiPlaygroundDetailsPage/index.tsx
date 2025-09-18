@@ -244,6 +244,11 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			setSecondaryMarkers(prev => prev.map(m => ({ ...m, active: false })));
 
 			if (isCoordinatePickingDisabled) {
+				const isGeocode = apiPlaygroundItem?.type === "geocode" || apiPlaygroundItem?.id === "geocode";
+				if (isGeocode) {
+					return;
+				}
+
 				setState(prev => ({
 					...prev,
 					response: undefined,
