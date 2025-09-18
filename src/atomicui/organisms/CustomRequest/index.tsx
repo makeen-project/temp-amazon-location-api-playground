@@ -344,13 +344,18 @@ export default function CustomRequest({
 
 	const handleQueryTypeChange = (queryType: GeocodeQueryType) => {
 		setSuggestions();
-		const cleared: Partial<CustomRequestStore> = { queryType, response: undefined, error: undefined };
-		setState({ ...store, ...cleared });
-		setUrlState({
-			...urlState,
-			queryType,
-			response: null
+		const fieldsToClear = Array.from(queryComponentsFieldNames);
+		const nextState: Partial<CustomRequestStore> = { queryType, response: undefined, error: undefined };
+		fieldsToClear.forEach(name => {
+			(nextState as any)[name] = "";
 		});
+		setState({ ...store, ...nextState });
+
+		const nextUrlState: Record<string, any> = { ...urlState, queryType, response: null };
+		fieldsToClear.forEach(name => {
+			nextUrlState[name] = null;
+		});
+		setUrlState(nextUrlState);
 	};
 	const headerContent = isGeocode ? (
 		<SegmentedControl
