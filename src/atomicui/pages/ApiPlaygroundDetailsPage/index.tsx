@@ -244,6 +244,11 @@ const ApiPlaygroundDetailsPage: FC = () => {
 			setSecondaryMarkers(prev => prev.map(m => ({ ...m, active: false })));
 
 			if (isCoordinatePickingDisabled) {
+				const isGeocode = apiPlaygroundItem?.type === "geocode" || apiPlaygroundItem?.id === "geocode";
+				if (isGeocode) {
+					return;
+				}
+
 				setState(prev => ({
 					...prev,
 					response: undefined,
@@ -516,7 +521,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					[minLng, minLat],
 					[maxLng, maxLat]
 				],
-				{ padding: 50, duration: 800, essential: true }
+				{ padding: { left: 480, right: 480 }, duration: 800, essential: true }
 			);
 		} catch {}
 	}, [suggestions, mapLoaded, showMapMarker, apiPlaygroundItem]);
