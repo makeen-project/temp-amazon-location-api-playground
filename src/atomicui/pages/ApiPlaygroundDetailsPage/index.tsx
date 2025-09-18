@@ -521,7 +521,7 @@ const ApiPlaygroundDetailsPage: FC = () => {
 					[minLng, minLat],
 					[maxLng, maxLat]
 				],
-				{ padding: 50, duration: 800, essential: true }
+				{ padding: { left: 480, right: 480 }, duration: 800, essential: true }
 			);
 		} catch {}
 	}, [suggestions, mapLoaded, showMapMarker, apiPlaygroundItem]);

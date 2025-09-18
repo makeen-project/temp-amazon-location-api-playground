@@ -85,7 +85,8 @@ const usePlaceService = () => {
 					BiasPosition: SearchBiasPosition,
 					Language,
 					AdditionalFeatures: ["Core"],
-					PoliticalView: isSupportedByPlaces ? alpha3 : undefined
+					PoliticalView: isSupportedByPlaces ? alpha3 : undefined,
+					MaxResults: 10
 				};
 				const command = new SuggestCommand(input);
 				return await placesClient?.send(command);
